@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Claude Enterprise Readiness Assessment — Fynaptix</title>
+<meta name="description" content="Discover your organisation's Claude AI readiness across 5 dimensions. Get a personalised roadmap in under 5 minutes."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ── Brand variables (exact match to fynaptix main site) ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#6b7a99;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --border-active:rgba(192,37,232,0.5);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#10b981;
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Background glow (matches main site hero glow) ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%,rgba(192,37,232,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%);
+}
+
+/* ── Layout ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+.a-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  position:sticky;top:0;z-index:100;
+}
+.a-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.a-nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,0.5))}
+/* Badge styled like the hero eyebrow */
+.a-nav-badge{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);
+  border-radius:24px;padding:7px 16px;background:rgba(46,208,245,0.07);
+  backdrop-filter:blur(6px);
+}
+.a-nav-back{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,0.75);
+  text-decoration:none;transition:color .2s;
+}
+.a-nav-back:hover{color:#fff}
+.a-nav-back svg{width:14px;height:14px}
+
+/* ── Progress bar ── */
+.progress-wrap{background:rgba(255,255,255,0.05);height:3px;width:100%}
+.progress-bar{height:3px;background:var(--grad-full);background-size:200% 100%;
+  transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+
+/* ── Screens ── */
+.screen{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px 60px}
+.screen.active{display:flex}
+.screen.fade-in{animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Card container ── */
+.card-wrap{width:100%;max-width:680px}
+
+/* ── Step label (matches .se on main site) ── */
+.step-label{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;
+  color:var(--gm);text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.step-dot{width:6px;height:6px;border-radius:50%;background:var(--gm);display:inline-block}
+
+/* ── Headings (matches main site .sh2/.hero-h1) ── */
+.s-h1{font-family:var(--fd);font-size:clamp(28px,5vw,46px);font-weight:800;
+  line-height:1.05;letter-spacing:-.02em;margin-bottom:22px}
+.s-h1 .gt{background:var(--grad-full);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.s-h2{font-family:var(--fd);font-size:clamp(20px,3.5vw,28px);font-weight:700;
+  line-height:1.2;letter-spacing:-.01em;margin-bottom:10px}
+.s-lead{font-size:16px;color:rgba(232,237,248,0.65);line-height:1.75;
+  margin-bottom:32px;font-family:var(--fb)}
+
+/* ── Welcome screen ── */
+.welcome-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:32px 0}
+.wg-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:20px;display:flex;flex-direction:column;gap:8px;
+  transition:border-color .3s;
+}
+.wg-card:hover{border-color:rgba(192,37,232,0.25)}
+.wg-icon{font-size:22px}
+.wg-label{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text)}
+.wg-sub{font-size:12px;color:var(--muted);line-height:1.6}
+
+.dim-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.dim-pill{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 14px;border-radius:20px;
+  border:1px solid var(--border);background:var(--bg2);color:var(--muted);
+}
+.dim-pill .pill-dot{width:7px;height:7px;border-radius:50%}
+
+/* ── Form inputs ── */
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-label{font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text)}
+.form-input,.form-select{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--fb);
+  outline:none;transition:border-color .2s,background .2s;width:100%;
+}
+.form-input:focus,.form-select:focus{
+  border-color:var(--border-active);background:rgba(192,37,232,0.04)}
+.form-input::placeholder{color:var(--muted)}
+.form-select{cursor:pointer}
+.form-select option{background:#0d1526;color:var(--text)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ── Question screen ── */
+.q-header{
+  display:flex;align-items:center;gap:14px;margin-bottom:28px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:18px 22px;
+}
+.q-dim-icon{font-size:24px}
+.q-dim-name{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gm)}
+.q-dim-desc{font-size:13px;color:var(--muted);margin-top:3px;font-family:var(--fb)}
+
+.q-counter{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.q-text{font-family:var(--fd);font-size:18px;font-weight:700;line-height:1.4;
+  margin-bottom:24px;color:var(--text)}
+
+.options-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.option-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px 20px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:flex-start;gap:14px;user-select:none;
+}
+.option-card:hover{background:var(--bg3);border-color:var(--border2)}
+.option-card.selected{
+  background:rgba(192,37,232,0.08);border-color:var(--border-active);
+}
+.option-radio{
+  width:20px;height:20px;border-radius:50%;border:2px solid var(--border2);
+  flex-shrink:0;margin-top:2px;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.option-card.selected .option-radio{border-color:var(--gm);background:var(--gm)}
+.option-card.selected .option-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.option-label{font-family:var(--fd);font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+.option-desc{font-size:13px;color:var(--muted);line-height:1.6;font-family:var(--fb)}
+.option-card.selected .option-label{color:var(--gm)}
+
+/* ── Step dots ── */
+.step-dots{display:flex;gap:8px;align-items:center;justify-content:center;margin-bottom:28px}
+.sdot{width:8px;height:8px;border-radius:50%;background:var(--border2);transition:all .3s}
+.sdot.done{background:var(--gm)}
+.sdot.active{width:24px;border-radius:4px;background:var(--grad)}
+
+/* ── Buttons (exact match to main site) ── */
+.btn-row{display:flex;gap:12px;align-items:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border-radius:7px;
+  background:var(--grad);color:#fff;border:none;
+  font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;text-decoration:none;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,0.4)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:7px;
+  background:transparent;color:var(--text);border:1px solid var(--border2);
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04)}
+.btn-icon{width:16px;height:16px}
+
+/* ── Processing screen ── */
+.processing-wrap{text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.proc-ring{
+  width:80px;height:80px;border-radius:50%;
+  border:3px solid var(--border);border-top-color:var(--gm);
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-items{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.proc-item{
+  display:flex;align-items:center;gap:10px;font-family:var(--fb);font-size:14px;
+  color:var(--muted);opacity:0;transform:translateX(-8px);transition:all .4s;
+}
+.proc-item.show{opacity:1;transform:none;color:var(--text)}
+.proc-item .pi-tick{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(46,208,245,0.1);border:1px solid rgba(46,208,245,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--ge);flex-shrink:0;
+}
+
+/* ── Results screen ── */
+.results-wrap{width:100%;max-width:800px}
+
+.overall-hero{
+  text-align:center;padding:40px 32px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+  margin-bottom:24px;position:relative;overflow:hidden;
+}
+.overall-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(192,37,232,0.1),transparent);
+  pointer-events:none;
+}
+.overall-score-ring{
+  width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;
+}
+.overall-score-ring canvas{position:absolute;inset:0}
+.overall-score-num{font-family:var(--fd);font-size:36px;font-weight:800;position:relative;z-index:1}
+.overall-score-label{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;
+  color:var(--muted);position:relative;z-index:1}
+.overall-tier{
+  display:inline-block;padding:6px 20px;border-radius:20px;
+  font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.tier-early{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25)}
+.tier-building{background:rgba(245,158,11,0.12);color:#fbbf24;border:1px solid rgba(245,158,11,0.25)}
+.tier-ready{background:rgba(46,208,245,0.1);color:var(--ge);border:1px solid rgba(46,208,245,0.25)}
+.overall-desc{font-size:15px;color:rgba(232,237,248,0.65);max-width:500px;
+  margin:0 auto;font-family:var(--fb);line-height:1.75}
+
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.dim-result-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;
+  transition:border-color .3s;
+}
+.dim-result-card:hover{border-color:rgba(192,37,232,0.2)}
+.drc-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.drc-icon{font-size:20px}
+.drc-name{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.04em}
+.drc-score-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.drc-score-num{font-family:var(--fd);font-size:24px;font-weight:800}
+.drc-tier-badge{font-family:var(--fd);font-size:10px;font-weight:700;padding:3px 10px;
+  border-radius:12px;letter-spacing:.06em;text-transform:uppercase}
+.drc-bar-bg{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;
+  overflow:hidden;margin-bottom:12px}
+.drc-bar-fill{height:100%;border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.drc-insight{font-size:12px;color:var(--muted);line-height:1.65;font-family:var(--fb)}
+
+.chart-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:28px;margin-bottom:24px;
+}
+.chart-title{font-family:var(--fd);font-size:16px;font-weight:700;margin-bottom:20px}
+.chart-wrap{max-width:380px;margin:0 auto}
+
+.recs-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:28px;margin-bottom:24px;
+}
+.recs-title{font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:6px}
+.recs-sub{font-size:14px;color:var(--muted);margin-bottom:24px;font-family:var(--fb)}
+.rec-item{
+  display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);
+}
+.rec-item:last-child{border-bottom:none;padding-bottom:0}
+.rec-priority{
+  width:28px;height:28px;border-radius:7px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:11px;font-weight:800;margin-top:1px;
+}
+.pri-high{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.25)}
+.pri-med{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.25)}
+.pri-low{background:rgba(46,208,245,0.1);color:var(--ge);border:1px solid rgba(46,208,245,0.2)}
+.rec-service{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--gm);margin-bottom:4px}
+.rec-text{font-size:13px;color:var(--muted);line-height:1.65;font-family:var(--fb)}
+
+/* CTA card — matches main site .cts aesthetic */
+.cta-card{
+  background:var(--bg3);
+  border:1px solid rgba(192,37,232,0.2);
+  border-radius:14px;padding:40px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,95,31,0.06) 0%,rgba(192,37,232,0.08) 50%,rgba(46,208,245,0.06) 100%);
+  pointer-events:none;
+}
+.cta-card h3{font-family:var(--fd);font-size:26px;font-weight:800;
+  letter-spacing:-.01em;margin-bottom:10px;position:relative}
+.cta-card p{font-size:15px;color:rgba(232,237,248,0.65);margin-bottom:28px;
+  font-family:var(--fb);line-height:1.75;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* ── Responsive ── */
+@media(max-width:960px){
+  .a-nav{padding:0 20px}
+  .a-nav-badge{display:none}
+}
+@media(max-width:640px){
+  .screen{padding:24px 16px 48px}
+  .form-row{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr}
+  .welcome-grid{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column}
+}
+@media print{
+  body::before,#app>.a-nav,.progress-wrap,.btn-row,.cta-card{display:none!important}
+  .screen{display:block!important}
+  .screen:not(#screen-results){display:none!important}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- Nav -->
+  <nav class="a-nav">
+    <a class="a-nav-logo" href="/">
+      <img src="assets/images/embedded-image-1.png" alt="Fynaptix"/>
+    </a>
+    <span class="a-nav-badge">Enterprise Readiness Assessment</span>
+    <a class="a-nav-back" href="/">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      Back to Fynaptix
+    </a>
+  </nav>
+  <div class="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+
+  <!-- ── SCREEN 0: Welcome ── -->
+  <div class="screen active fade-in" id="screen-welcome">
+    <div class="card-wrap">
+      <div class="step-label"><span class="step-dot"></span>Free Assessment</div>
+      <h1 class="s-h1">How ready is your organisation<br/>for <span class="gt">enterprise Claude AI?</span></h1>
+      <p class="s-lead">20 questions. 5 minutes. A personalised readiness score and roadmap across the five dimensions that determine whether your AI deployment succeeds or stalls.</p>
+
+      <div class="dim-pills">
+        <div class="dim-pill"><span class="pill-dot" style="background:#a855f7"></span>Strategy</div>
+        <div class="dim-pill"><span class="pill-dot" style="background:#3b82f6"></span>Data</div>
+        <div class="dim-pill"><span class="pill-dot" style="background:#10b981"></span>Governance</div>
+        <div class="dim-pill"><span class="pill-dot" style="background:#f59e0b"></span>People</div>
+        <div class="dim-pill"><span class="pill-dot" style="background:#ec4899"></span>Technology</div>
+      </div>
+
+      <div class="welcome-grid">
+        <div class="wg-card">
+          <div class="wg-icon">📊</div>
+          <div class="wg-label">Dimension scores</div>
+          <div class="wg-sub">See exactly where you're strong and where you have gaps</div>
+        </div>
+        <div class="wg-card">
+          <div class="wg-icon">🗺️</div>
+          <div class="wg-label">Personalised roadmap</div>
+          <div class="wg-sub">Prioritised recommendations based on your specific results</div>
+        </div>
+        <div class="wg-card">
+          <div class="wg-icon">📄</div>
+          <div class="wg-label">Downloadable report</div>
+          <div class="wg-sub">Export your results as a PDF to share with leadership</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="goTo('contact')">
+          Start the Assessment
+          <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCREEN 1: Contact ── -->
+  <div class="screen" id="screen-contact">
+    <div class="card-wrap">
+      <div class="step-label"><span class="step-dot"></span>About You</div>
+      <h2 class="s-h2">Before we begin, tell us a little about your organisation</h2>
+      <p class="s-lead">Your results will be personalised to your industry and role. We don't spam — ever.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First name</label>
+          <input class="form-input" type="text" id="f-name" placeholder="Alex" autocomplete="given-name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name</label>
+          <input class="form-input" type="text" id="f-lname" placeholder="Morgan" autocomplete="family-name"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Work email</label>
+        <input class="form-input" type="email" id="f-email" placeholder="alex@company.com" autocomplete="email"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Organisation</label>
+          <input class="form-input" type="text" id="f-org" placeholder="Acme Corp" autocomplete="organization"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organisation size</label>
+          <select class="form-select" id="f-size">
+            <option value="" disabled selected>Select size</option>
+            <option value="1-50">1–50 employees</option>
+            <option value="51-250">51–250 employees</option>
+            <option value="251-1000">251–1,000 employees</option>
+            <option value="1001-5000">1,001–5,000 employees</option>
+            <option value="5000+">5,000+ employees</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Industry</label>
+          <select class="form-select" id="f-industry">
+            <option value="" disabled selected>Select industry</option>
+            <option value="Financial Services">Financial Services</option>
+            <option value="Legal">Legal &amp; Professional Services</option>
+            <option value="Healthcare">Healthcare &amp; Life Sciences</option>
+            <option value="Technology">Technology &amp; SaaS</option>
+            <option value="Government">Government &amp; Public Sector</option>
+            <option value="Retail">Retail &amp; E-commerce</option>
+            <option value="Manufacturing">Manufacturing &amp; Logistics</option>
+            <option value="Energy">Energy &amp; Resources</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your role</label>
+          <select class="form-select" id="f-role">
+            <option value="" disabled selected>Select role</option>
+            <option value="C-Suite">C-Suite / Executive</option>
+            <option value="IT Leadership">IT / Technology Leadership</option>
+            <option value="AI/Data Leadership">AI / Data Leadership</option>
+            <option value="Product">Product Management</option>
+            <option value="Engineering">Engineering / Development</option>
+            <option value="Operations">Operations</option>
+            <option value="Strategy">Strategy / Consulting</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-ghost" onclick="goTo('welcome')">Back</button>
+        <button class="btn-primary" onclick="startAssessment()" id="btn-start-assessment">
+          Begin Assessment
+          <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCREENS 2–6: Dimensions (generated by JS) ── -->
+  <div class="screen" id="screen-dim"></div>
+
+  <!-- ── SCREEN 7: Processing ── -->
+  <div class="screen" id="screen-processing">
+    <div class="processing-wrap">
+      <div class="proc-ring"></div>
+      <h2 class="s-h2" style="text-align:center">Analysing your responses…</h2>
+      <div class="proc-items" id="proc-items">
+        <div class="proc-item" id="pi-0"><div class="pi-tick">✓</div>Scoring across 5 dimensions</div>
+        <div class="proc-item" id="pi-1"><div class="pi-tick">✓</div>Identifying your readiness tier</div>
+        <div class="proc-item" id="pi-2"><div class="pi-tick">✓</div>Mapping priority recommendations</div>
+        <div class="proc-item" id="pi-3"><div class="pi-tick">✓</div>Building your personalised roadmap</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCREEN 8: Results ── -->
+  <div class="screen" id="screen-results">
+    <div class="results-wrap" id="results-content">
+      <!-- populated by JS -->
+    </div>
+  </div>
+
+</div><!-- #app -->
+
+<script>
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const DIMENSIONS = [
+  {id:'strategy', label:'Strategy',       icon:'🎯', color:'#a855f7', desc:'Vision, sponsorship & investment'},
+  {id:'data',     label:'Data',           icon:'🗄️', color:'#3b82f6', desc:'Accessibility, quality & classification'},
+  {id:'gov',      label:'Governance',     icon:'🛡️', color:'#10b981', desc:'Policy, compliance & oversight'},
+  {id:'people',   label:'People',         icon:'👥', color:'#f59e0b', desc:'Skills, capability & change readiness'},
+  {id:'tech',     label:'Technology',     icon:'⚡', color:'#ec4899', desc:'Infrastructure, tools & integration'},
+];
+
+const QUESTIONS = {
+  strategy:[
+    {
+      text:'Does your organisation have an executive-approved AI strategy with defined objectives?',
+      options:[
+        {label:'Not started',   desc:'We have no AI strategy in place',                                          score:0},
+        {label:'Exploring',     desc:"AI has been discussed but there's no formal strategy",                     score:1},
+        {label:'In progress',   desc:'A draft strategy exists but is not yet approved or resourced',             score:2},
+        {label:'Established',   desc:'An approved, resourced AI strategy with defined KPIs is in place',        score:3},
+      ]
+    },
+    {
+      text:'Have you identified specific Claude / AI use cases with clear business value and ROI?',
+      options:[
+        {label:'Not started',   desc:'We have no concrete use cases identified',                                 score:0},
+        {label:'Exploring',     desc:"We have ideas but they aren't prioritised or scoped",                      score:1},
+        {label:'In progress',   desc:"1–3 use cases are prioritised but haven't been formally scoped",          score:2},
+        {label:'Established',   desc:'We have scoped, prioritised use cases with ROI estimates',                score:3},
+      ]
+    },
+    {
+      text:'Is executive leadership actively sponsoring and championing AI initiatives?',
+      options:[
+        {label:'No sponsorship',   desc:'There is no executive awareness or involvement in AI',                  score:0},
+        {label:'Interested',       desc:'Executives are interested but not actively sponsoring',                 score:1},
+        {label:'One sponsor',      desc:'One executive sponsors AI but it lacks broad leadership support',       score:2},
+        {label:'Active support',   desc:'AI has active C-suite or board-level sponsorship',                     score:3},
+      ]
+    },
+    {
+      text:'Have you allocated dedicated budget for AI infrastructure, tooling, and expertise?',
+      options:[
+        {label:'No budget',        desc:'No budget has been allocated for AI',                                   score:0},
+        {label:'Under discussion', desc:'Budget conversations are underway but nothing is confirmed',            score:1},
+        {label:'Partial',          desc:'Some budget exists but is insufficient for meaningful deployment',     score:2},
+        {label:'Fully funded',     desc:'Adequate budget is approved for infrastructure, tooling, and skills', score:3},
+      ]
+    },
+  ],
+  data:[
+    {
+      text:'How well-structured and accessible is your internal knowledge and documentation?',
+      options:[
+        {label:'Siloed',           desc:'Knowledge is scattered, undocumented, or lives in people\'s heads',     score:0},
+        {label:'Partial',          desc:'Key documents exist but are spread across disconnected systems',        score:1},
+        {label:'Centralised',      desc:'Core docs are centralised but inconsistently maintained',               score:2},
+        {label:'Well-structured',  desc:'Knowledge is well-structured, centralised, and regularly maintained',  score:3},
+      ]
+    },
+    {
+      text:'Are your internal systems and APIs documented and ready for AI integration?',
+      options:[
+        {label:'Not ready',        desc:'Systems are largely undocumented and not integration-ready',            score:0},
+        {label:'Basic',            desc:'Some systems have documentation but APIs are incomplete or inconsistent',score:1},
+        {label:'Mostly ready',     desc:'Key systems have APIs but documentation has gaps',                      score:2},
+        {label:'Fully ready',      desc:'Systems are well-documented with clean APIs ready for AI integration', score:3},
+      ]
+    },
+    {
+      text:'Do you have data classification policies covering what can be sent to AI systems?',
+      options:[
+        {label:'None',             desc:'No data classification policy exists',                                   score:0},
+        {label:'General only',     desc:'We have general data classification but nothing AI-specific',           score:1},
+        {label:'In development',   desc:'AI-specific policies are being developed but not yet finalised',        score:2},
+        {label:'Enforced',         desc:'Clear, enforced data classification policies for AI are in place',     score:3},
+      ]
+    },
+    {
+      text:'How clean and reliable is the data needed for your priority AI use cases?',
+      options:[
+        {label:'Poor quality',     desc:'Data is inconsistent, incomplete, or largely inaccessible',             score:0},
+        {label:'Needs work',       desc:'Data exists but requires significant cleaning and preparation',         score:1},
+        {label:'Mostly clean',     desc:'Data is mostly clean but has known gaps or quality issues',             score:2},
+        {label:'Production-ready', desc:'Data is clean, well-labelled, and ready for AI consumption',           score:3},
+      ]
+    },
+  ],
+  gov:[
+    {
+      text:'Do you have an AI acceptable use policy approved and communicated to staff?',
+      options:[
+        {label:'None',             desc:'No acceptable use policy exists',                                        score:0},
+        {label:'Acknowledged',     desc:"We know we need one but it hasn't been written",                        score:1},
+        {label:'Draft exists',     desc:'A draft policy exists but is not approved or communicated',             score:2},
+        {label:'Active policy',    desc:'An approved AUP is in place and staff have been briefed',              score:3},
+      ]
+    },
+    {
+      text:'Have you mapped and addressed AI-specific compliance obligations for your industry?',
+      options:[
+        {label:'Not assessed',     desc:"We haven't assessed our AI compliance obligations",                     score:0},
+        {label:'Aware',            desc:"We know requirements exist but haven't mapped our gaps",                score:1},
+        {label:'Mapped',           desc:"Requirements are mapped but remediation is incomplete",                 score:2},
+        {label:'Compliant',        desc:"We've fully assessed and addressed our AI compliance obligations",      score:3},
+      ]
+    },
+    {
+      text:'Is there a defined human review process for consequential AI-generated outputs?',
+      options:[
+        {label:'No process',       desc:'AI outputs are used directly with no review step',                      score:0},
+        {label:'Informal',         desc:'Review happens informally depending on the individual',                 score:1},
+        {label:'Defined',          desc:'A review process exists but is not consistently applied',               score:2},
+        {label:'Systematic',       desc:'A structured, documented review process is consistently followed',     score:3},
+      ]
+    },
+    {
+      text:'Is there board or committee-level oversight of AI risk in your organisation?',
+      options:[
+        {label:'None',             desc:"AI risk isn't on the board's radar",                                    score:0},
+        {label:'Ad hoc',           desc:'AI risk is discussed occasionally but without formal oversight',       score:1},
+        {label:'On risk register', desc:'AI risk is formally logged but oversight is informal',                  score:2},
+        {label:'Formal oversight', desc:'There is formal board or committee-level AI risk oversight',           score:3},
+      ]
+    },
+  ],
+  people:[
+    {
+      text:'How effectively are your knowledge workers using Claude or AI tools today?',
+      options:[
+        {label:'Not using AI',     desc:'Most staff have no experience with Claude or AI tools',                 score:0},
+        {label:'Individual use',   desc:'A few staff use Claude individually without organisational guidance',  score:1},
+        {label:'Broad adoption',   desc:'Many staff use Claude but without structured best practices',           score:2},
+        {label:'Structured',       desc:'Staff are trained, productive, and following established AI patterns', score:3},
+      ]
+    },
+    {
+      text:'Do you have the technical talent to build and integrate AI into your systems?',
+      options:[
+        {label:'No capability',    desc:'We have no internal AI or Claude technical capability',                 score:0},
+        {label:'Interested',       desc:'Developers are curious but have no AI-specific experience',             score:1},
+        {label:'Exploring',        desc:"We have developers who've experimented but not built production AI",   score:2},
+        {label:'Experienced',      desc:'Engineers with production Claude API and MCP experience are in place', score:3},
+      ]
+    },
+    {
+      text:'Is there a designated AI lead, champion, or team with clear mandate and resources?',
+      options:[
+        {label:'No owner',         desc:'There is no AI owner or champion',                                       score:0},
+        {label:'Informal',         desc:'Someone informally owns AI but it is not their primary role',           score:1},
+        {label:'Named but limited','desc':'An AI champion is named but lacks authority, time, or budget',       score:2},
+        {label:'Dedicated team',   desc:'A dedicated AI lead or team exists with clear mandate and resources',  score:3},
+      ]
+    },
+    {
+      text:'Are your change management processes mature enough to support AI adoption at scale?',
+      options:[
+        {label:'No plan',          desc:'We have no change management plan for AI',                              score:0},
+        {label:'Aware',            desc:"We know change management is needed but haven't planned it",           score:1},
+        {label:'Plan exists',      desc:'A plan exists but is not resourced or tested',                          score:2},
+        {label:'Proven approach',  desc:'We have a mature, proven change management approach',                  score:3},
+      ]
+    },
+  ],
+  tech:[
+    {
+      text:'Have you evaluated or deployed Claude CoWork or the Claude API in a production context?',
+      options:[
+        {label:'Not started',      desc:"We haven't evaluated Claude for enterprise use",                       score:0},
+        {label:'Informal testing', desc:"We've done demos or informal testing but nothing structured",          score:1},
+        {label:'Pilot underway',   desc:'A structured evaluation or non-production pilot is in progress',       score:2},
+        {label:'In production',    desc:'Claude is deployed in production — CoWork and/or via the API',        score:3},
+      ]
+    },
+    {
+      text:'Do you have established infrastructure and deployment patterns for AI applications?',
+      options:[
+        {label:'None',             desc:'No AI-specific infrastructure or deployment patterns exist',            score:0},
+        {label:'Ad hoc',           desc:'Ad-hoc approaches are used with no standard patterns',                  score:1},
+        {label:'Partial',          desc:'Some patterns exist but are not fully productionised',                  score:2},
+        {label:'Established',      desc:'Infrastructure, CI/CD, and deployment patterns for AI are established',score:3},
+      ]
+    },
+    {
+      text:'Is monitoring and observability in place for your AI systems?',
+      options:[
+        {label:'No monitoring',    desc:'No monitoring exists for AI usage or outputs',                          score:0},
+        {label:'Cost only',        desc:'Basic cost monitoring is in place but no quality or reliability layer', score:1},
+        {label:'Partial',          desc:'Some observability exists but coverage is incomplete',                  score:2},
+        {label:'Full coverage',    desc:'Cost, quality, reliability, and anomaly detection are all monitored',  score:3},
+      ]
+    },
+    {
+      text:'Are your security controls and access management ready for enterprise AI deployment?',
+      options:[
+        {label:'Not assessed',     desc:"We haven't assessed our security posture for AI deployment",            score:0},
+        {label:'Informal',         desc:'Security is managed informally with no AI-specific controls',           score:1},
+        {label:'In progress',      desc:'Requirements are identified but controls are incomplete',               score:2},
+        {label:'Comprehensive',    desc:'SSO, RBAC, and comprehensive security controls are in place for AI',  score:3},
+      ]
+    },
+  ],
+};
+
+const RECOMMENDATIONS = {
+  strategy:{
+    low:{service:'AI Strategy & Readiness Assessment', text:"Your strategic foundation needs work before deployment. A structured Discovery Engagement will audit your AI maturity, identify high-value use cases, and produce a prioritised roadmap with a build-vs-buy matrix."},
+    mid:{service:'Agentic Workflow Design & Implementation', text:"You have direction — now build. A production-grade agentic system around your top 1–2 use cases will prove value quickly and create internal momentum for broader adoption."},
+    high:{service:'Multi-Agent Orchestration Architecture', text:"You're strategically mature. The next step is scaling — architect multi-agent systems that tackle complex, multi-step workflows no single model can handle alone."},
+  },
+  data:{
+    low:{service:'RAG Architecture & Enterprise Knowledge Systems', text:"Data readiness is your critical constraint. Before any deployment, structure your knowledge assets into a retrieval layer Claude can actually use — vector databases, chunking strategy, and embedding pipelines."},
+    mid:{service:'RAG Architecture & Enterprise Knowledge Systems', text:"Your data foundation is developing. Implement a production RAG system that grounds Claude in your internal knowledge — the gap between what Claude knows and what your organisation knows is where value is lost."},
+    high:{service:'Claude API Integration & Production Deployment', text:"Your data is production-ready. Move fast on API integration — you have the foundation to build reliable, grounded Claude systems that won't hallucinate on enterprise-critical tasks."},
+  },
+  gov:{
+    low:{service:'AI Safety & Responsible Deployment', text:"Governance is your highest-risk gap. Before any meaningful deployment, establish your acceptable use policy, data classification rules, and human review processes. A governance failure at scale is far harder to recover from than a delayed launch."},
+    mid:{service:'CoWork Enterprise Rollout & Governance Setup', text:"Your governance foundation is developing. Formalise your policies and configure CoWork's role-based access, spend limits, and connector controls — these are the controls your CIO and legal team will require."},
+    high:{service:'AI Operations (AIOps) & Monitoring Frameworks', text:"Strong governance foundation. Extend it into operations — build the observability layer that gives you ongoing confidence in output quality, cost control, and anomaly detection across production systems."},
+  },
+  people:{
+    low:{service:'Internal AI Enablement & Training', text:"People readiness is a significant gap. Structured training — from non-technical staff getting productive with Claude, to developers learning API patterns — needs to happen before or alongside any technical deployment."},
+    mid:{service:'CoWork Adoption & Change Management', text:"Adoption is your next frontier. The technical capability exists — what's needed is the onboarding experience, prompt libraries, and 90-day adoption programme that turns CoWork from a tool people signed up for into one they can't work without."},
+    high:{service:'Private Plugin Marketplace Development', text:"Your people are ready to go further. Build a private CoWork plugin marketplace that gives each business unit — finance, legal, HR, operations — a Claude pre-configured with their tools, knowledge, and workflows."},
+  },
+  tech:{
+    low:{service:'Proof-of-Concept & Pilot Programme', text:"Start with a contained, time-boxed pilot. A 4–8 week engagement on a single high-value use case will produce working infrastructure, architecture decisions, cost projections, and the internal evidence you need to secure broader investment."},
+    mid:{service:'Claude API Integration & Production Deployment', text:"You're ready to move from pilot to production. Full-stack Claude API integration — model selection, streaming, prompt versioning, cost controls, and cloud deployment — is the next concrete step."},
+    high:{service:'MCP Server Development & Integration', text:"Your technical foundation is solid. MCP servers are the next layer — connect Claude directly to your CRMs, ERPs, ITSM platforms, and databases so teams can query and act on enterprise systems through natural language."},
+  },
+};
+
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let currentScreen = 'welcome';
+let currentDimIdx = 0;   // 0–4
+let currentQIdx   = 0;   // 0–3 within a dimension
+let answers = {};        // {strategy_0: 2, strategy_1: 1, ...}
+let contact = {};
+
+const SCREEN_ORDER = ['welcome','contact','dim','processing','results'];
+const TOTAL_STEPS  = 2 + (DIMENSIONS.length * 4); // contact + 20 questions
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+function goTo(screen){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active','fade-in'));
+  const el = document.getElementById('screen-'+screen);
+  el.classList.add('active');
+  setTimeout(()=>el.classList.add('fade-in'),10);
+  currentScreen = screen;
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(){
+  let pct = 0;
+  if(currentScreen==='welcome')     pct=0;
+  else if(currentScreen==='contact')pct=5;
+  else if(currentScreen==='dim')    pct=10 + ((currentDimIdx*4 + currentQIdx) / 20)*80;
+  else if(currentScreen==='processing') pct=95;
+  else if(currentScreen==='results') pct=100;
+  document.getElementById('progress-bar').style.width = pct+'%';
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT VALIDATION + START
+═══════════════════════════════════════════ */
+function startAssessment(){
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const org   = document.getElementById('f-org').value.trim();
+  if(!name||!email||!org){
+    alert('Please enter your name, email, and organisation to continue.');
+    return;
+  }
+  contact = {
+    name:     name + ' ' + (document.getElementById('f-lname').value.trim()),
+    email:    email,
+    org:      org,
+    size:     document.getElementById('f-size').value,
+    industry: document.getElementById('f-industry').value || 'Not specified',
+    role:     document.getElementById('f-role').value || 'Not specified',
+  };
+  currentDimIdx = 0;
+  currentQIdx   = 0;
+  renderQuestion();
+  goTo('dim');
+}
+
+/* ═══════════════════════════════════════════
+   QUESTION RENDERING
+═══════════════════════════════════════════ */
+function renderQuestion(){
+  const dim = DIMENSIONS[currentDimIdx];
+  const qs  = QUESTIONS[dim.id];
+  const q   = qs[currentQIdx];
+  const key = dim.id+'_'+currentQIdx;
+  const selected = answers[key] !== undefined ? answers[key] : -1;
+
+  // Step dots
+  let dotsHtml = DIMENSIONS.map((d,i)=>`<div class="sdot ${i<currentDimIdx?'done':''} ${i===currentDimIdx?'active':''}"></div>`).join('');
+
+  // Options
+  let optsHtml = q.options.map((o,i)=>`
+    <div class="option-card ${selected===i?'selected':''}" onclick="selectOption(${i})" data-idx="${i}">
+      <div class="option-radio"></div>
+      <div class="option-content">
+        <div class="option-label">${o.label}</div>
+        <div class="option-desc">${o.desc}</div>
+      </div>
+    </div>
+  `).join('');
+
+  // Back button logic
+  const isFirst = currentDimIdx===0 && currentQIdx===0;
+  const backTarget = isFirst ? 'contact' : null;
+
+  const el = document.getElementById('screen-dim');
+  el.innerHTML = `
+    <div class="card-wrap">
+      <div class="step-dots">${dotsHtml}</div>
+      <div class="q-header">
+        <div class="q-dim-icon">${dim.icon}</div>
+        <div class="q-dim-info">
+          <div class="q-dim-name">${dim.label}</div>
+          <div class="q-dim-desc">${dim.desc}</div>
+        </div>
+      </div>
+      <div class="q-counter">Question ${currentQIdx+1} of ${qs.length}</div>
+      <div class="q-text">${q.text}</div>
+      <div class="options-list">${optsHtml}</div>
+      <div class="btn-row">
+        <button class="btn-ghost" onclick="${backTarget?`goTo('${backTarget}')`:'prevQuestion()'}">&larr; Back</button>
+        <button class="btn-primary" id="btn-next" onclick="nextQuestion()" ${selected===-1?'disabled':''}>
+          ${isLastQuestion()?'See My Results':'Next Question'}
+          <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function isLastQuestion(){
+  return currentDimIdx === DIMENSIONS.length-1 && currentQIdx === QUESTIONS[DIMENSIONS[currentDimIdx].id].length-1;
+}
+
+function selectOption(idx){
+  const key = DIMENSIONS[currentDimIdx].id+'_'+currentQIdx;
+  answers[key] = idx;
+  // Update UI
+  document.querySelectorAll('.option-card').forEach((c,i)=>{
+    c.classList.toggle('selected', i===idx);
+  });
+  document.getElementById('btn-next').disabled = false;
+}
+
+function nextQuestion(){
+  const dim = DIMENSIONS[currentDimIdx];
+  const qs  = QUESTIONS[dim.id];
+  if(currentQIdx < qs.length-1){
+    currentQIdx++;
+    renderQuestion();
+    updateProgress();
+  } else if(currentDimIdx < DIMENSIONS.length-1){
+    currentDimIdx++;
+    currentQIdx=0;
+    renderQuestion();
+    updateProgress();
+  } else {
+    // All done
+    goTo('processing');
+    runProcessing();
+  }
+}
+
+function prevQuestion(){
+  if(currentQIdx>0){
+    currentQIdx--;
+  } else if(currentDimIdx>0){
+    currentDimIdx--;
+    currentQIdx = QUESTIONS[DIMENSIONS[currentDimIdx].id].length-1;
+  }
+  renderQuestion();
+  updateProgress();
+}
+
+/* ═══════════════════════════════════════════
+   SCORING
+═══════════════════════════════════════════ */
+function getDimScore(dimId){
+  const qs = QUESTIONS[dimId];
+  let total=0;
+  qs.forEach((_,i)=>{
+    const key = dimId+'_'+i;
+    const sel = answers[key];
+    if(sel!==undefined) total += QUESTIONS[dimId][i].options[sel].score;
+  });
+  return Math.round((total / (qs.length*3))*100);
+}
+
+function getOverallScore(){
+  return Math.round(DIMENSIONS.reduce((s,d)=>s+getDimScore(d.id),0)/DIMENSIONS.length);
+}
+
+function getTier(score){
+  if(score<40) return {label:'Early Stage',     cls:'tier-early',    desc:"Your organisation is in the early stages of AI readiness. There's significant groundwork to lay — but the opportunity is substantial, and a structured approach will get you there faster than you think."};
+  if(score<70) return {label:'Building Momentum',cls:'tier-building', desc:"You have meaningful AI foundations in place across several dimensions. The focus now is closing specific gaps that are holding back production deployment."};
+  return            {label:'Enterprise Ready',  cls:'tier-ready',    desc:"Your organisation has strong AI readiness foundations. You're positioned to deploy production-grade Claude systems and scale across the enterprise."};
+}
+
+function getDimTier(score){
+  if(score<40) return {label:'Foundational',cls:'tier-early'};
+  if(score<70) return {label:'Developing',  cls:'tier-building'};
+  return              {label:'Advanced',    cls:'tier-ready'};
+}
+
+function getDimInsight(dimId, score){
+  const insights = {
+    strategy:{
+      low:"Executive sponsorship and a formal AI strategy should be your first priority — without them, even the best technical work stalls.",
+      mid:"Direction is clear; the next step is converting strategy into a concrete, funded implementation plan.",
+      high:"Strong strategic foundations. Ensure your roadmap keeps pace with Claude's rapidly evolving capabilities.",
+    },
+    data:{
+      low:"Data accessibility is the most common blocker to successful RAG and agentic deployments. Address this before building.",
+      mid:"Your data is heading in the right direction — focus on classification policies and closing the quality gaps in your priority datasets.",
+      high:"Clean, structured, well-governed data gives you a significant competitive advantage in AI deployment quality.",
+    },
+    gov:{
+      low:"Governance gaps are the primary source of enterprise AI failures. Establish your policy framework before scaling.",
+      mid:"Your governance foundation is forming — prioritise formalising the pieces that aren't yet approved or consistently applied.",
+      high:"Strong governance is your competitive moat — extend it into operational monitoring as you scale.",
+    },
+    people:{
+      low:"People readiness determines adoption. Technical deployment without workforce enablement produces expensive shelfware.",
+      mid:"Capability is growing — structured onboarding and change management will convert existing interest into consistent daily use.",
+      high:"Your people are a genuine AI asset. Specialised tooling and advanced use cases will unlock further productivity gains.",
+    },
+    tech:{
+      low:"Start small and structured — a time-boxed pilot delivers working infrastructure plus the internal proof needed to secure broader investment.",
+      mid:"Production-grade deployment patterns, observability, and security controls are the next step to move from pilot to scale.",
+      high:"Solid technical foundations. MCP integration and multi-agent orchestration are the natural next layer to build.",
+    },
+  };
+  const tier = score<40?'low':score<70?'mid':'high';
+  return insights[dimId][tier];
+}
+
+function getRec(dimId, score){
+  const tier = score<40?'low':score<70?'mid':'high';
+  return RECOMMENDATIONS[dimId][tier];
+}
+
+/* ═══════════════════════════════════════════
+   PROCESSING ANIMATION
+═══════════════════════════════════════════ */
+function runProcessing(){
+  const items = document.querySelectorAll('.proc-item');
+  items.forEach(el=>el.classList.remove('show'));
+  [300,900,1500,2100].forEach((t,i)=>setTimeout(()=>items[i]&&items[i].classList.add('show'),t));
+  setTimeout(()=>{
+    buildResults();
+    goTo('results');
+  }, 3000);
+}
+
+/* ═══════════════════════════════════════════
+   RESULTS BUILDER
+═══════════════════════════════════════════ */
+function buildResults(){
+  const overall = getOverallScore();
+  const tier    = getTier(overall);
+  const scores  = DIMENSIONS.map(d=>({...d, score:getDimScore(d.id)}));
+
+  // Sort dims by score ascending for recs (worst first = highest priority)
+  const sortedForRecs = [...scores].sort((a,b)=>a.score-b.score);
+
+  // Dimension cards
+  const dimCards = scores.map(d=>{
+    const dt = getDimTier(d.score);
+    const ins= getDimInsight(d.id, d.score);
+    const barColor = d.score<40?'var(--red)':d.score<70?'var(--amber)':'var(--green)';
+    return `
+      <div class="dim-result-card">
+        <div class="drc-header">
+          <div class="drc-icon">${d.icon}</div>
+          <div class="drc-name">${d.label}</div>
+        </div>
+        <div class="drc-score-row">
+          <div class="drc-score-num" style="color:${barColor}">${d.score}%</div>
+          <div class="drc-tier-badge ${dt.cls}">${dt.label}</div>
+        </div>
+        <div class="drc-bar-bg"><div class="drc-bar-fill" style="width:0%;background:${barColor}" data-target="${d.score}"></div></div>
+        <div class="drc-insight">${ins}</div>
+      </div>
+    `;
+  }).join('');
+
+  // Recommendations (top 4 by lowest score)
+  const recItems = sortedForRecs.slice(0,4).map((d,i)=>{
+    const rec = getRec(d.id, d.score);
+    const priClass = i===0?'pri-high':i===1?'pri-med':'pri-low';
+    const priLabel = i===0?'P1':i===1?'P2':'P3';
+    return `
+      <div class="rec-item">
+        <div class="rec-priority ${priClass}">${priLabel}</div>
+        <div class="rec-content">
+          <div class="rec-service">${rec.service}</div>
+          <div class="rec-text">${rec.text}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const el = document.getElementById('results-content');
+  el.innerHTML = `
+    <div style="margin-bottom:12px">
+      <div class="step-label"><span class="step-dot"></span>Your Results — ${contact.org||'Your Organisation'}</div>
+    </div>
+
+    <!-- Overall score -->
+    <div class="overall-hero">
+      <div class="overall-score-ring" id="overall-ring-wrap">
+        <canvas id="overall-ring" width="120" height="120"></canvas>
+        <div class="overall-score-num" id="overall-num">0%</div>
+        <div class="overall-score-label">OVERALL</div>
+      </div>
+      <div class="overall-tier ${tier.cls}">${tier.label}</div>
+      <p class="overall-desc">${tier.desc}</p>
+    </div>
+
+    <!-- Dimension cards grid -->
+    <div class="results-grid">${dimCards}</div>
+
+    <!-- Radar chart -->
+    <div class="chart-card">
+      <div class="chart-title">Readiness Profile</div>
+      <div class="chart-wrap"><canvas id="radar-chart"></canvas></div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="recs-card">
+      <div class="recs-title">Your Priority Recommendations</div>
+      <div class="recs-sub">Ranked by the dimensions with the greatest gap — address these first for maximum impact.</div>
+      ${recItems}
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3>Ready to close the gaps?</h3>
+      <p>Our practitioners have helped enterprises across every industry move from assessment to production Claude deployment. Let's build a plan specific to <strong>${contact.org||'your organisation'}</strong>.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="mailto:hello@fynaptix.com?subject=Discovery%20Engagement%20Request%20—%20${encodeURIComponent(contact.org||'')}&body=Hi%20Fynaptix%2C%0A%0AI%20just%20completed%20the%20Enterprise%20Readiness%20Assessment%20and%20scored%20${overall}%25%20overall.%0A%0AI%27d%20like%20to%20discuss%20a%20Discovery%20Engagement.%0A%0A${encodeURIComponent(contact.name||'')}%0A${encodeURIComponent(contact.org||'')}">
+          Book a Discovery Engagement
+          <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </a>
+        <button class="btn-ghost" onclick="downloadReport()">
+          <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download Report
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Animate bars
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.drc-bar-fill').forEach(bar=>{
+      setTimeout(()=>{ bar.style.width = bar.dataset.target+'%'; },200);
+    });
+  });
+
+  // Animate overall score count-up
+  animateCount('overall-num', overall, '%', 1200);
+
+  // Overall ring chart
+  setTimeout(()=>drawRing('overall-ring', overall), 100);
+
+  // Radar chart
+  setTimeout(()=>drawRadar('radar-chart', scores), 300);
+}
+
+/* ═══════════════════════════════════════════
+   CHARTS
+═══════════════════════════════════════════ */
+function drawRing(canvasId, pct){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const cx=60, cy=60, r=48, lw=8;
+  ctx.clearRect(0,0,120,120);
+  // Background ring
+  ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.strokeStyle='rgba(255,255,255,0.08)'; ctx.lineWidth=lw; ctx.stroke();
+  // Filled arc
+  const color = pct<40?'#ef4444':pct<70?'#f59e0b':'#10b981';
+  const grad = ctx.createLinearGradient(0,0,120,120);
+  grad.addColorStop(0,'#ff5f1f'); grad.addColorStop(0.5,'#c025e8'); grad.addColorStop(1,'#2ed0f5');
+  const end = -Math.PI/2 + (Math.PI*2)*(pct/100);
+  ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,end);
+  ctx.strokeStyle=grad; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+}
+
+function drawRadar(canvasId, scores){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas||!window.Chart) return;
+  new Chart(canvas, {
+    type:'radar',
+    data:{
+      labels: scores.map(d=>d.label),
+      datasets:[{
+        data: scores.map(d=>d.score),
+        backgroundColor:'rgba(192,37,232,0.12)',
+        borderColor:'rgba(192,37,232,0.85)',
+        pointBackgroundColor:'rgba(192,37,232,1)',
+        pointBorderColor:'#fff',
+        pointHoverBackgroundColor:'#fff',
+        pointHoverBorderColor:'rgba(192,37,232,1)',
+        borderWidth:2,
+        pointRadius:5,
+      }]
+    },
+    options:{
+      responsive:true,
+      scales:{r:{
+        min:0, max:100,
+        ticks:{display:false},
+        grid:{color:'rgba(255,255,255,0.08)'},
+        angleLines:{color:'rgba(255,255,255,0.08)'},
+        pointLabels:{color:'rgba(241,245,249,0.9)', font:{family:'Outfit', size:13, weight:'600'}},
+      }},
+      plugins:{legend:{display:false}},
+    }
+  });
+}
+
+function animateCount(elId, target, suffix, duration){
+  const el = document.getElementById(elId);
+  if(!el) return;
+  let start=null;
+  const step = ts => {
+    if(!start) start=ts;
+    const pct = Math.min((ts-start)/duration,1);
+    el.textContent = Math.round(pct*target)+suffix;
+    if(pct<1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+/* ═══════════════════════════════════════════
+   REPORT DOWNLOAD
+═══════════════════════════════════════════ */
+function downloadReport(){
+  const overall = getOverallScore();
+  const tier    = getTier(overall);
+  const scores  = DIMENSIONS.map(d=>({...d, score:getDimScore(d.id)}));
+  const sortedForRecs = [...scores].sort((a,b)=>a.score-b.score);
+  const today = new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'});
+
+  const dimRows = scores.map(d=>{
+    const dt = getDimTier(d.score);
+    const barColor = d.score<40?'#ef4444':d.score<70?'#f59e0b':'#10b981';
+    return `
+      <tr>
+        <td style="padding:12px 16px;font-weight:600">${d.icon} ${d.label}</td>
+        <td style="padding:12px 16px;font-weight:800;color:${barColor}">${d.score}%</td>
+        <td style="padding:12px 16px">
+          <div style="background:#e5e7eb;border-radius:4px;height:8px;width:100%;overflow:hidden">
+            <div style="background:${barColor};width:${d.score}%;height:100%;border-radius:4px"></div>
+          </div>
+        </td>
+        <td style="padding:12px 16px;font-size:12px;color:#6b7280">${getDimInsight(d.id, d.score)}</td>
+      </tr>
+    `;
+  }).join('');
+
+  const recItems = sortedForRecs.slice(0,4).map((d,i)=>{
+    const rec = getRec(d.id, d.score);
+    const priColor = i===0?'#ef4444':i===1?'#f59e0b':'#10b981';
+    return `
+      <div style="border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start">
+        <div style="background:${priColor}20;color:${priColor};border:1px solid ${priColor}40;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800;flex-shrink:0">P${i+1}</div>
+        <div>
+          <div style="font-weight:700;color:#7c3aed;margin-bottom:4px;font-size:13px">${rec.service}</div>
+          <div style="font-size:13px;color:#4b5563;line-height:1.6">${rec.text}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Claude Enterprise Readiness Report — ${contact.org||'Your Organisation'}</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Outfit',sans-serif;color:#111827;background:#fff;padding:40px}
+  @media print{body{padding:24px} .no-print{display:none}}
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:24px;border-bottom:2px solid #111827">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:#7c3aed;text-transform:uppercase;margin-bottom:6px">Fynaptix · Enterprise AI Assessment</div>
+      <h1 style="font-size:28px;font-weight:800;line-height:1.1;margin-bottom:8px">Claude Enterprise Readiness Report</h1>
+      <div style="font-size:14px;color:#6b7280">${contact.name||''} · ${contact.org||''} · ${contact.industry||''} · ${today}</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:48px;font-weight:800;color:${overall<40?'#ef4444':overall<70?'#f59e0b':'#10b981'};line-height:1">${overall}%</div>
+      <div style="font-size:12px;font-weight:700;color:#6b7280;margin-top:4px">OVERALL SCORE</div>
+      <div style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-top:6px;background:${overall<40?'#fef2f2':overall<70?'#fffbeb':'#ecfdf5'};color:${overall<40?'#ef4444':overall<70?'#f59e0b':'#10b981'};border:1px solid ${overall<40?'#fca5a5':overall<70?'#fcd34d':'#6ee7b7'}">${tier.label}</div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div style="background:#f9fafb;border-radius:10px;padding:20px;margin-bottom:28px">
+    <h2 style="font-size:16px;font-weight:700;margin-bottom:8px">Executive Summary</h2>
+    <p style="font-size:14px;color:#374151;line-height:1.7">${tier.desc}</p>
+  </div>
+
+  <!-- Dimension scores table -->
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px">Dimension Scores</h2>
+  <table style="width:100%;border-collapse:collapse;margin-bottom:32px;table-layout:fixed">
+    <colgroup><col style="width:16%"><col style="width:8%"><col style="width:26%"><col style="width:50%"></colgroup>
+    <thead>
+      <tr style="background:#111827;color:#fff">
+        <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em">DIMENSION</th>
+        <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em">SCORE</th>
+        <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em">PROGRESS</th>
+        <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em">KEY INSIGHT</th>
+      </tr>
+    </thead>
+    <tbody style="font-size:13px">
+      ${dimRows}
+    </tbody>
+  </table>
+
+  <!-- Recommendations -->
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:6px">Priority Recommendations</h2>
+  <p style="font-size:13px;color:#6b7280;margin-bottom:16px">Ranked by readiness gap — address these first for maximum impact.</p>
+  ${recItems}
+
+  <!-- Footer CTA -->
+  <div style="margin-top:36px;padding:24px;background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;text-align:center">
+    <h3 style="font-size:18px;font-weight:800;margin-bottom:8px">Ready to close the gaps?</h3>
+    <p style="font-size:14px;color:#4b5563;margin-bottom:16px">Fynaptix delivers production-grade Claude systems for enterprises — from agentic workflows and MCP integration to CoWork deployment and AI governance.</p>
+    <div style="font-weight:700;color:#7c3aed;font-size:15px">hello@fynaptix.com · fynaptix.com</div>
+  </div>
+
+  <div class="no-print" style="margin-top:24px;text-align:center">
+    <button onclick="window.print()" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif">
+      Print / Save as PDF
+    </button>
+  </div>
+</body>
+</html>`;
+
+  const win = window.open('','_blank');
+  win.document.write(html);
+  win.document.close();
+}
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+updateProgress();
+</script>
+</body>
+</html>
