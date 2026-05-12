@@ -21,6 +21,15 @@ function toggleMobileTools() {
   arrow.style.transform = open ? 'rotate(180deg)' : ''
 }
 
+// ── Mobile M365 Tenant Tools submenu ──
+function toggleMobileM365() {
+  const sub = document.getElementById('mob-m365-sub')
+  const arrow = document.getElementById('mob-m365-arrow')
+  if (!sub) return
+  const open = sub.classList.toggle('open')
+  arrow.style.transform = open ? 'rotate(180deg)' : ''
+}
+
 // ── Hamburger menu ──
 const burger = document.getElementById('nav-burger');
 const mobileMenu = document.getElementById('nav-mobile');

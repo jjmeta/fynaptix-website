@@ -55,6 +55,15 @@
   </a>
 </div>
 </li>
+<li class="nav-dropdown" id="nd-m365">
+<button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+<div class="nav-dropdown-menu">
+  <a href="m365-audit.html" class="nav-dropdown-item">
+    <span class="ndi-icon">🔍</span>
+    <span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span>
+  </a>
+</div>
+</li>
 <li><a class="nav-cta" href="#contact">Get Started</a></li>
 </ul>
 <button class="nav-burger" id="nav-burger" aria-label="Menu">
@@ -78,6 +87,12 @@
     <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
     <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
     <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+  </ul>
+</li>
+<li class="mob-tools-parent">
+  <button class="mob-tools-btn" onclick="toggleMobileM365()">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+  <ul class="mob-tools-sub" id="mob-m365-sub">
+    <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
   </ul>
 </li>
 <li><a href="#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>

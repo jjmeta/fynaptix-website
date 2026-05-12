@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M365 AI Readiness Audit — Fynaptix</title>
+<meta name="description" content="Assess your Microsoft 365 tenant and find out exactly what needs to happen before you deploy AI. Free audit covering Identity, Data Governance, and AI Readiness."/>
+<meta property="og:title" content="M365 AI Readiness Audit — Fynaptix"/>
+<meta property="og:description" content="Walk through a structured assessment of your M365 tenant to determine how ready you are to deploy AI. Get a prioritised action plan instantly."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+/* ── Page-specific brand vars ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#8892a4;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.08);
+  --border-active:rgba(192,37,232,0.5);
+  --card:rgba(255,255,255,0.04);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#22c55e;
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --m365:#0078d4;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
+
+/* ── Background glow ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 5%,rgba(192,37,232,0.09) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 85%,rgba(46,208,245,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);
+}
+
+/* ── App wrapper ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ════════════════════════════════════════
+   NAV — matches main site
+════════════════════════════════════════ */
+nav#main-nav{
+  position:sticky;top:0;left:0;right:0;z-index:500;
+  padding:0 48px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,.5))}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:9px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important;letter-spacing:.06em}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+
+/* Dropdown */
+.nav-dropdown{position:relative}
+.nav-dropdown-btn{background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-dropdown-btn:hover{color:#fff}
+.nav-dropdown-arrow{font-size:10px;transition:transform .2s}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);width:300px;background:rgba(8,13,26,.97);backdrop-filter:blur(24px);border:1px solid var(--border2);border-radius:14px;padding:8px;z-index:600;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:rgba(8,13,26,.97);border-left:1px solid var(--border2);border-top:1px solid var(--border2);rotate:45deg}
+.nav-dropdown.open .nav-dropdown-menu{display:block;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--text);transition:background .15s}
+.nav-dropdown-item:hover{background:rgba(255,255,255,.06)}
+.ndi-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center}
+.ndi-text{display:flex;flex-direction:column;gap:2px}
+.ndi-text strong{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
+.ndi-text span{font-size:11px;color:var(--muted)}
+
+/* Burger */
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:600}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile nav */
+.nav-mobile{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(5,7,15,.97);backdrop-filter:blur(24px);z-index:499;overflow-y:auto;padding:16px 0 40px}
+.nav-mobile.open{display:block}
+.nav-mobile ul{list-style:none;padding:0}
+.nav-mobile ul li a{display:block;padding:12px 24px;font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:all .15s}
+.nav-mobile ul li a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.nav-mobile .nav-cta{margin:12px 24px 0;display:block;text-align:center;padding:12px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important}
+.mob-tools-parent{list-style:none}
+.mob-tools-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:none;border:none;color:rgba(232,237,248,.75);font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.mob-tools-btn:hover{background:rgba(255,255,255,.05);color:#fff}
+.mob-tools-arrow{font-size:10px;transition:transform .2s}
+.mob-tools-sub{display:none;list-style:none;padding:0 0 4px 12px}
+.mob-tools-sub.open{display:block}
+.mob-tools-sub li a{display:block;padding:10px 24px;font-family:var(--fd);font-size:13px;color:rgba(232,237,248,.65);text-decoration:none;border-radius:8px;letter-spacing:.03em;transition:all .15s}
+.mob-tools-sub li a:hover{background:rgba(255,255,255,.05);color:#fff}
+
+/* ════════════════════════════════════════
+   AUDIT TOOL LAYOUT
+════════════════════════════════════════ */
+.audit-main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:48px 24px 80px;
+}
+
+/* ── Progress steps ── */
+.audit-progress{
+  width:100%;
+  max-width:680px;
+  margin-bottom:48px;
+}
+.progress-steps{
+  display:flex;
+  align-items:center;
+  gap:0;
+}
+.ps-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  flex:1;
+  position:relative;
+}
+.ps-item::after{
+  content:'';
+  position:absolute;
+  top:16px;
+  left:calc(50% + 16px);
+  right:calc(-50% + 16px);
+  height:2px;
+  background:var(--border2);
+  transition:background .4s;
+}
+.ps-item:last-child::after{display:none}
+.ps-item.completed::after{background:var(--grad-full)}
+.ps-dot{
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid var(--border2);
+  background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:12px;font-weight:700;
+  color:var(--muted);
+  transition:all .3s;
+  position:relative;z-index:1;
+}
+.ps-item.active .ps-dot{
+  border-color:var(--gm);
+  background:rgba(192,37,232,0.15);
+  color:#fff;
+  box-shadow:0 0 16px rgba(192,37,232,0.4);
+}
+.ps-item.completed .ps-dot{
+  border-color:var(--ge);
+  background:rgba(46,208,245,0.15);
+  color:var(--ge);
+}
+.ps-label{
+  font-family:var(--fd);font-size:10px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);
+  text-align:center;
+  white-space:nowrap;
+  transition:color .3s;
+}
+.ps-item.active .ps-label{color:var(--text)}
+.ps-item.completed .ps-label{color:var(--ge)}
+
+/* ── Screens ── */
+.audit-screen{
+  display:none;
+  width:100%;
+  max-width:740px;
+  animation:screenIn .35s ease;
+}
+.audit-screen.active{display:block}
+@keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Screen headers ── */
+.screen-header{margin-bottom:36px}
+.screen-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:24px;
+  border:1px solid rgba(0,120,212,0.3);
+  background:rgba(0,120,212,0.08);
+  font-family:var(--fd);font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--m365);margin-bottom:20px;
+}
+.screen-title{
+  font-family:var(--fd);font-size:clamp(26px,3.5vw,38px);
+  font-weight:800;line-height:1.1;letter-spacing:-.02em;
+  margin-bottom:12px;
+}
+.screen-title .gt{
+  background:var(--grad-full);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.screen-subtitle{font-size:15px;color:var(--muted);line-height:1.65;max-width:560px}
+
+/* ── Welcome screen ── */
+.welcome-what{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+  margin:32px 0 40px;
+}
+.ww-card{
+  background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:24px 20px;display:flex;align-items:flex-start;gap:14px;
+  transition:border-color .2s;
+}
+.ww-card:hover{border-color:rgba(192,37,232,0.3)}
+.ww-icon{font-size:1.6rem;flex-shrink:0}
+.ww-content{}
+.ww-title{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.ww-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.welcome-meta{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:12px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:28px;
+}
+.welcome-meta span{color:var(--ge)}
+
+/* ── CTA buttons ── */
+.btn-audit{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border-radius:8px;
+  background:var(--grad-full);
+  color:#fff;font-family:var(--fd);font-size:14px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  border:none;cursor:pointer;text-decoration:none;
+  transition:all .25s;
+}
+.btn-audit:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,.4);opacity:.95}
+.btn-audit:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost-audit{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:8px;
+  border:1px solid var(--border2);
+  background:transparent;color:var(--text);
+  font-family:var(--fd);font-size:14px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.btn-ghost-audit:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.screen-nav{display:flex;align-items:center;gap:12px;margin-top:36px}
+
+/* ── Question card ── */
+.q-section{margin-bottom:12px}
+.q-section-label{
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;
+  padding-bottom:8px;border-bottom:1px solid var(--border2);
+}
+.q-card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:12px;padding:20px 20px 16px;
+  margin-bottom:12px;transition:border-color .2s;
+}
+.q-card:hover{border-color:rgba(255,255,255,0.12)}
+.q-text{
+  font-size:14px;line-height:1.55;color:var(--text);margin-bottom:14px;
+}
+.q-num{
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  color:var(--muted);margin-right:8px;
+}
+
+/* ── Radio options ── */
+.radio-group{display:flex;flex-wrap:wrap;gap:8px}
+.radio-opt{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:8px;
+  border:1px solid var(--border2);
+  background:transparent;
+  cursor:pointer;transition:all .18s;
+  font-family:var(--fd);font-size:12px;font-weight:600;
+  letter-spacing:.04em;color:var(--muted);
+  white-space:nowrap;
+}
+.radio-opt:hover{border-color:rgba(255,255,255,.2);color:var(--text);background:rgba(255,255,255,.03)}
+.radio-opt.selected{
+  border-color:var(--gm);
+  background:rgba(192,37,232,.12);
+  color:#fff;
+}
+.radio-opt input[type=radio]{display:none}
+.radio-opt .ro-check{
+  width:14px;height:14px;border-radius:50%;
+  border:2px solid currentColor;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.radio-opt.selected .ro-check{background:var(--gm);border-color:var(--gm)}
+.radio-opt.selected .ro-check::after{content:'';width:5px;height:5px;border-radius:50%;background:#fff}
+
+/* Radio cards for profile screen */
+.radio-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.radio-card{
+  padding:16px 14px;border-radius:10px;
+  border:1px solid var(--border2);
+  background:var(--card);
+  cursor:pointer;transition:all .18s;
+  font-family:var(--fd);
+}
+.radio-card:hover{border-color:rgba(255,255,255,.2)}
+.radio-card.selected{
+  border-color:var(--gm);
+  background:rgba(192,37,232,.12);
+}
+.radio-card input{display:none}
+.rc-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.rc-desc{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* YNP (yes/no/partial) options — wider */
+.ynp-group{display:flex;gap:8px}
+.ynp-opt{
+  flex:1;padding:9px 10px;border-radius:8px;
+  border:1px solid var(--border2);
+  background:transparent;cursor:pointer;
+  transition:all .18s;
+  font-family:var(--fd);font-size:12px;font-weight:600;
+  color:var(--muted);text-align:center;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.ynp-opt:hover{border-color:rgba(255,255,255,.2);color:var(--text)}
+.ynp-opt.selected-yes{border-color:#22c55e;background:rgba(34,197,94,.12);color:#22c55e}
+.ynp-opt.selected-partial{border-color:#f59e0b;background:rgba(245,158,11,.12);color:#f59e0b}
+.ynp-opt.selected-no{border-color:#ef4444;background:rgba(239,68,68,.12);color:#ef4444}
+
+/* Select dropdown */
+.audit-select{
+  width:100%;padding:11px 14px;border-radius:8px;
+  border:1px solid var(--border2);
+  background:rgba(255,255,255,0.03);
+  color:var(--text);font-family:var(--fd);font-size:13px;font-weight:500;
+  outline:none;cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238892a4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:36px;
+  transition:border-color .2s;
+}
+.audit-select:focus{border-color:rgba(192,37,232,.5)}
+.audit-select option{background:#0d1526;color:var(--text)}
+.select-wrap{position:relative;margin-top:8px}
+
+/* ════════════════════════════════════════
+   PROCESSING SCREEN
+════════════════════════════════════════ */
+.processing-screen{
+  display:none;
+  flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 24px;text-align:center;
+  min-height:60vh;
+}
+.processing-screen.active{display:flex}
+.proc-spinner{
+  width:64px;height:64px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.08);
+  border-top-color:var(--gm);
+  animation:spin 0.9s linear infinite;
+  margin-bottom:36px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-title{
+  font-family:var(--fd);font-size:22px;font-weight:700;
+  margin-bottom:32px;
+}
+.proc-steps{list-style:none;text-align:left;display:inline-flex;flex-direction:column;gap:12px}
+.proc-step{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--fd);font-size:13px;font-weight:500;
+  color:var(--muted);opacity:0;transform:translateY(8px);
+  transition:all .35s;
+}
+.proc-step.visible{opacity:1;transform:translateY(0);color:var(--text)}
+.proc-step.done{color:var(--ge)}
+.step-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--muted);flex-shrink:0;
+  transition:background .3s;
+}
+.proc-step.done .step-dot{background:var(--ge);box-shadow:0 0 8px var(--ge)}
+.proc-step.visible:not(.done) .step-dot{background:var(--gm);animation:pulseDot 1s infinite}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ════════════════════════════════════════
+   RESULTS SCREEN
+════════════════════════════════════════ */
+.results-screen{width:100%;max-width:860px}
+
+/* Overall score banner */
+.score-banner{
+  border-radius:var(--radius);
+  border:1px solid var(--border2);
+  background:var(--card);
+  padding:40px 36px;
+  text-align:center;
+  margin-bottom:28px;
+  position:relative;overflow:hidden;
+}
+.score-banner::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(192,37,232,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.score-label{
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.score-number{
+  font-family:var(--fd);font-size:clamp(64px,10vw,96px);
+  font-weight:900;line-height:1;letter-spacing:-.04em;
+  margin-bottom:8px;
+  background:var(--grad-full);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.score-status{
+  font-family:var(--fd);font-size:20px;font-weight:700;margin-bottom:8px;
+}
+.score-desc{font-size:14px;color:var(--muted);max-width:480px;margin:0 auto}
+.score-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 20px;border-radius:24px;
+  font-family:var(--fd);font-size:12px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.badge-red{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.badge-amber{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
+.badge-green{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.badge-blue{background:rgba(46,208,245,.15);color:#2ed0f5;border:1px solid rgba(46,208,245,.3)}
+
+/* Category cards grid */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:16px;margin-bottom:28px;
+}
+.cat-card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:var(--radius);padding:24px 20px;
+}
+.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cat-title{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:14px;font-weight:700;
+}
+.cat-icon{font-size:1.2rem}
+.cat-score-text{
+  font-family:var(--fd);font-size:14px;font-weight:700;color:var(--muted)
+}
+.cat-bar-track{
+  height:8px;background:rgba(255,255,255,.06);
+  border-radius:4px;overflow:hidden;margin-bottom:12px;
+}
+.cat-bar-fill{
+  height:100%;border-radius:4px;
+  background:var(--grad-full);
+  width:0%;transition:width 1s cubic-bezier(.4,0,.2,1) .3s;
+}
+.tl-badge{
+  display:inline-flex;align-items:center;
+  padding:4px 10px;border-radius:12px;
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.tl-red{background:rgba(239,68,68,.15);color:#ef4444}
+.tl-amber{background:rgba(245,158,11,.15);color:#f59e0b}
+.tl-green{background:rgba(34,197,94,.15);color:#22c55e}
+
+/* Gap table */
+.results-section{margin-bottom:28px}
+.results-section-title{
+  font-family:var(--fd);font-size:16px;font-weight:700;
+  margin-bottom:16px;padding-bottom:12px;
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;gap:10px;
+}
+.gap-table{width:100%;border-collapse:collapse}
+.gap-table th{
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);padding:10px 14px;
+  text-align:left;border-bottom:1px solid var(--border2);
+}
+.gap-table td{
+  padding:12px 14px;font-size:13px;color:var(--text);
+  border-bottom:1px solid rgba(255,255,255,.04);
+  line-height:1.4;vertical-align:top;
+}
+.gap-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.gap-table tr:last-child td{border-bottom:none}
+.gap-area{
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--m365);white-space:nowrap;
+}
+.gap-priority-high{
+  display:inline-flex;align-items:center;
+  padding:3px 10px;border-radius:12px;
+  background:rgba(239,68,68,.15);color:#ef4444;
+  font-family:var(--fd);font-size:10px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+}
+.gap-priority-med{
+  display:inline-flex;align-items:center;
+  padding:3px 10px;border-radius:12px;
+  background:rgba(245,158,11,.15);color:#f59e0b;
+  font-family:var(--fd);font-size:10px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+}
+
+/* Action plan */
+.action-section{margin-bottom:20px}
+.action-section-header{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--fd);font-size:14px;font-weight:700;
+  margin-bottom:12px;
+}
+.action-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.action-item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:10px;padding:12px 14px;
+  font-size:13px;color:var(--text);line-height:1.5;
+}
+.action-num{
+  font-family:var(--fd);font-size:11px;font-weight:800;
+  color:var(--muted);flex-shrink:0;min-width:20px;
+  padding-top:1px;
+}
+.action-section.first .action-item{border-color:rgba(239,68,68,.2)}
+.action-section.quick .action-item{border-color:rgba(245,158,11,.2)}
+
+/* Recommendation box */
+.reco-box{
+  border-radius:var(--radius);
+  padding:2px;
+  background:var(--grad-full);
+  margin-bottom:28px;
+}
+.reco-inner{
+  background:#0a1020;border-radius:calc(var(--radius) - 2px);
+  padding:28px 28px;
+}
+.reco-label{
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gm);margin-bottom:10px;
+}
+.reco-title{font-family:var(--fd);font-size:17px;font-weight:700;margin-bottom:8px}
+.reco-text{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.reco-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:8px;
+  background:var(--grad-full);
+  color:#fff;font-family:var(--fd);font-size:13px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:all .2s;border:none;cursor:pointer;
+}
+.reco-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(192,37,232,.4)}
+
+/* Download btn */
+.download-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:8px;
+  border:1px solid rgba(46,208,245,.3);
+  background:rgba(46,208,245,.07);
+  color:var(--ge);font-family:var(--fd);font-size:13px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.download-btn:hover{background:rgba(46,208,245,.14);border-color:rgba(46,208,245,.5);transform:translateY(-1px)}
+.results-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+
+/* Empty state */
+.no-gaps{
+  font-size:14px;color:var(--muted);
+  font-style:italic;padding:16px 0;
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+.audit-footer{
+  text-align:center;padding:28px 24px;
+  border-top:1px solid var(--border);
+  font-family:var(--fd);font-size:11px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);
+}
+.audit-footer a{color:var(--muted);text-decoration:none;transition:color .2s}
+.audit-footer a:hover{color:var(--text)}
+
+/* ════════════════════════════════════════
+   PRINT STYLES
+════════════════════════════════════════ */
+@media print{
+  body{background:#fff;color:#000}
+  body::before{display:none}
+  nav,#main-nav,.audit-progress,.screen-nav,.results-actions,.reco-cta,
+  .download-btn,.nav-mobile,.audit-footer{display:none!important}
+  .audit-main{padding:0}
+  .results-screen{max-width:100%}
+  .cat-bar-fill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .score-banner,.cat-card,.action-item,.reco-inner{border:1px solid #ddd!important;background:#f9f9f9!important}
+  .score-number{-webkit-text-fill-color:#c025e8!important;color:#c025e8}
+  .gap-table th,.gap-table td{color:#333}
+  .gap-table tr:nth-child(even) td{background:#f5f5f5!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .tl-red,.tl-amber,.tl-green{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .gap-priority-high,.gap-priority-med{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-header{display:block!important}
+  @page{margin:20mm}
+}
+.print-header{
+  display:none;
+  font-family:var(--fd);border-bottom:2px solid #ddd;
+  padding-bottom:16px;margin-bottom:24px;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:768px){
+  nav#main-nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .cat-grid{grid-template-columns:1fr}
+  .welcome-what{grid-template-columns:1fr}
+  .audit-main{padding:32px 16px 60px}
+  .audit-progress{margin-bottom:32px}
+  .ps-label{display:none}
+  .ynp-group{flex-direction:column}
+  .ynp-opt{flex:none}
+  .radio-cards{grid-template-columns:1fr 1fr}
+  .screen-nav{flex-direction:column;align-items:stretch}
+  .btn-audit,.btn-ghost-audit{justify-content:center}
+  .score-banner{padding:28px 20px}
+  .reco-inner{padding:20px}
+}
+@media(max-width:480px){
+  .radio-cards{grid-template-columns:1fr}
+  .gap-table{font-size:12px}
+  .gap-table th,.gap-table td{padding:8px 10px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ════════════════════════════════════════
+     NAV
+════════════════════════════════════════ -->
+<nav id="main-nav">
+  <a class="nav-logo" href="/">
+    <img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#usecases">Use Cases</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li class="nav-dropdown" id="nd-free">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event,'nd-free')">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+      </div>
+    </li>
+    <li class="nav-dropdown" id="nd-m365">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event,'nd-m365')">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+      </div>
+    </li>
+    <li><a class="nav-cta" href="/#contact">Get Started</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="/#how" onclick="closeMobile()">How It Works</a></li>
+    <li><a href="/#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
+    <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSection('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-free-sub">
+        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+      </ul>
+    </li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSection('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-m365-sub">
+        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
+      </ul>
+    </li>
+    <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
+  </ul>
+</div>
+
+<!-- ════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════ -->
+<main class="audit-main">
+
+  <!-- PROGRESS STEPS -->
+  <div class="audit-progress" id="audit-progress">
+    <div class="progress-steps">
+      <div class="ps-item active" id="ps-1">
+        <div class="ps-dot">1</div>
+        <div class="ps-label">Profile</div>
+      </div>
+      <div class="ps-item" id="ps-2">
+        <div class="ps-dot">2</div>
+        <div class="ps-label">Identity</div>
+      </div>
+      <div class="ps-item" id="ps-3">
+        <div class="ps-dot">3</div>
+        <div class="ps-label">Data</div>
+      </div>
+      <div class="ps-item" id="ps-4">
+        <div class="ps-dot">4</div>
+        <div class="ps-label">AI Readiness</div>
+      </div>
+      <div class="ps-item" id="ps-5">
+        <div class="ps-dot">5</div>
+        <div class="ps-label">Results</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCREEN 0: WELCOME ── -->
+  <div class="audit-screen active" id="screen-welcome">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Microsoft 365 — AI Readiness Audit</div>
+      <h1 class="screen-title"><span class="gt">M365 AI Readiness Audit</span></h1>
+      <p class="screen-subtitle">Assess your Microsoft 365 tenant and find out exactly what needs to happen before you deploy AI.</p>
+    </div>
+
+    <div class="welcome-what">
+      <div class="ww-card">
+        <span class="ww-icon">🔐</span>
+        <div class="ww-content">
+          <div class="ww-title">Identity &amp; Security</div>
+          <div class="ww-desc">MFA, Conditional Access, PIM, Defender, and access governance</div>
+        </div>
+      </div>
+      <div class="ww-card">
+        <span class="ww-icon">🗂️</span>
+        <div class="ww-content">
+          <div class="ww-title">Data Governance</div>
+          <div class="ww-desc">Sensitivity labels, DLP, retention, audit logging, and compliance posture</div>
+        </div>
+      </div>
+      <div class="ww-card">
+        <span class="ww-icon">🤝</span>
+        <div class="ww-content">
+          <div class="ww-title">Collaboration &amp; Apps</div>
+          <div class="ww-desc">SharePoint, Teams, OneDrive sharing controls and app governance</div>
+        </div>
+      </div>
+      <div class="ww-card">
+        <span class="ww-icon">🤖</span>
+        <div class="ww-content">
+          <div class="ww-title">AI Readiness</div>
+          <div class="ww-desc">Governance, ownership, training, and executive alignment for AI deployment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="welcome-meta">
+      <span>Estimated time:</span>
+      <span>~8 minutes</span>
+      <span style="color:var(--border2)">|</span>
+      <span>No sign-up required</span>
+    </div>
+
+    <button class="btn-audit" onclick="goToScreen('profile')">Start the Audit &rarr;</button>
+  </div>
+
+  <!-- ── SCREEN 1: TENANT PROFILE ── -->
+  <div class="audit-screen" id="screen-profile">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 1 of 4 — Tenant Profile</div>
+      <h2 class="screen-title">Tell us about your tenant</h2>
+      <p class="screen-subtitle">This helps us contextualise your scores and tailor the recommendations to your organisation.</p>
+    </div>
+
+    <!-- Q1: Org size -->
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">Q1</span>What is your organisation size?</div>
+      <div class="radio-cards" id="q-size">
+        <label class="radio-card" data-group="size" data-val="1-50">
+          <input type="radio" name="size" value="1-50"/>
+          <div class="rc-label">1 – 50</div>
+          <div class="rc-desc">Small business</div>
+        </label>
+        <label class="radio-card" data-group="size" data-val="51-250">
+          <input type="radio" name="size" value="51-250"/>
+          <div class="rc-label">51 – 250</div>
+          <div class="rc-desc">Mid-market</div>
+        </label>
+        <label class="radio-card" data-group="size" data-val="251-1000">
+          <input type="radio" name="size" value="251-1000"/>
+          <div class="rc-label">251 – 1,000</div>
+          <div class="rc-desc">Growing enterprise</div>
+        </label>
+        <label class="radio-card" data-group="size" data-val="1001-5000">
+          <input type="radio" name="size" value="1001-5000"/>
+          <div class="rc-label">1,001 – 5,000</div>
+          <div class="rc-desc">Large enterprise</div>
+        </label>
+        <label class="radio-card" data-group="size" data-val="5000+">
+          <input type="radio" name="size" value="5000+"/>
+          <div class="rc-label">5,000+</div>
+          <div class="rc-desc">Enterprise</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q2: License tier -->
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">Q2</span>What is your primary Microsoft 365 license tier?</div>
+      <div class="radio-cards" id="q-license" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+        <label class="radio-card" data-group="license" data-val="basic">
+          <input type="radio" name="license" value="basic"/>
+          <div class="rc-label">Business Basic</div>
+          <div class="rc-desc">Core apps, cloud-only</div>
+        </label>
+        <label class="radio-card" data-group="license" data-val="standard">
+          <input type="radio" name="license" value="standard"/>
+          <div class="rc-label">Business Standard</div>
+          <div class="rc-desc">Desktop apps + Teams</div>
+        </label>
+        <label class="radio-card" data-group="license" data-val="premium">
+          <input type="radio" name="license" value="premium"/>
+          <div class="rc-label">Business Premium</div>
+          <div class="rc-desc">Includes Intune &amp; Defender</div>
+        </label>
+        <label class="radio-card" data-group="license" data-val="e3">
+          <input type="radio" name="license" value="e3"/>
+          <div class="rc-label">Microsoft 365 E3</div>
+          <div class="rc-desc">Enterprise compliance suite</div>
+        </label>
+        <label class="radio-card" data-group="license" data-val="e5">
+          <input type="radio" name="license" value="e5"/>
+          <div class="rc-label">Microsoft 365 E5</div>
+          <div class="rc-desc">Full security &amp; analytics</div>
+        </label>
+        <label class="radio-card" data-group="license" data-val="other">
+          <input type="radio" name="license" value="other"/>
+          <div class="rc-label">Other / Mixed</div>
+          <div class="rc-desc">Mixed or legacy licensing</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Q3: Industry -->
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">Q3</span>What industry is your organisation in?</div>
+      <div class="select-wrap">
+        <select class="audit-select" id="q-industry" onchange="updateState('industry', this.value); validateScreen('profile')">
+          <option value="">Select your industry…</option>
+          <option value="financial">Financial Services</option>
+          <option value="legal">Legal</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="professional">Professional Services</option>
+          <option value="manufacturing">Manufacturing</option>
+          <option value="retail">Retail</option>
+          <option value="education">Education</option>
+          <option value="government">Government</option>
+          <option value="technology">Technology</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Q4: Region -->
+    <div class="q-card">
+      <div class="q-text"><span class="q-num">Q4</span>What is your primary operating region?</div>
+      <div class="select-wrap">
+        <select class="audit-select" id="q-region" onchange="updateState('region', this.value); validateScreen('profile')">
+          <option value="">Select your region…</option>
+          <option value="anz">Australia &amp; NZ</option>
+          <option value="uk">UK &amp; Ireland</option>
+          <option value="europe">Europe</option>
+          <option value="northam">North America</option>
+          <option value="apac">Asia Pacific</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost-audit" onclick="goToScreen('welcome')">&larr; Back</button>
+      <button class="btn-audit" id="btn-profile-next" onclick="goToScreen('identity')" disabled>Next: Identity &amp; Security &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ── SCREEN 2: IDENTITY & SECURITY ── -->
+  <div class="audit-screen" id="screen-identity">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 2 of 4 — Identity &amp; Security</div>
+      <h2 class="screen-title">🔐 Identity &amp; Security</h2>
+      <p class="screen-subtitle">The foundation for safe AI deployment. These controls determine whether AI can be accessed and governed safely.</p>
+    </div>
+
+    <div id="identity-questions"></div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost-audit" onclick="goToScreen('profile')">&larr; Back</button>
+      <button class="btn-audit" id="btn-identity-next" onclick="goToScreen('data')" disabled>Next: Data &amp; Compliance &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ── SCREEN 3: DATA & COMPLIANCE ── -->
+  <div class="audit-screen" id="screen-data">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 3 of 4 — Data &amp; Compliance</div>
+      <h2 class="screen-title">🗂️ Data &amp; Compliance</h2>
+      <p class="screen-subtitle">AI needs clean, classified, governed data. These controls determine whether your data is safe for AI to access and process.</p>
+    </div>
+
+    <div id="data-questions"></div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost-audit" onclick="goToScreen('identity')">&larr; Back</button>
+      <button class="btn-audit" id="btn-data-next" onclick="goToScreen('aireadiness')" disabled>Next: AI Readiness &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ── SCREEN 4: AI READINESS ── -->
+  <div class="audit-screen" id="screen-aireadiness">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 4 of 4 — AI Readiness</div>
+      <h2 class="screen-title">🤖 AI Readiness</h2>
+      <p class="screen-subtitle">Where you stand for deploying Claude or Copilot. Governance, ownership, and organisational alignment.</p>
+    </div>
+
+    <div id="aireadiness-questions"></div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost-audit" onclick="goToScreen('data')">&larr; Back</button>
+      <button class="btn-audit" id="btn-ai-next" onclick="runProcessing()" disabled>Generate My Audit Report &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ── PROCESSING SCREEN ── -->
+  <div class="processing-screen audit-screen" id="screen-processing">
+    <div class="proc-spinner"></div>
+    <div class="proc-title">Analysing your <span class="gt">M365 tenant…</span></div>
+    <ul class="proc-steps" id="proc-steps">
+      <li class="proc-step" data-step="0"><span class="step-dot"></span>Analysing tenant profile…</li>
+      <li class="proc-step" data-step="1"><span class="step-dot"></span>Scoring identity posture…</li>
+      <li class="proc-step" data-step="2"><span class="step-dot"></span>Evaluating data governance…</li>
+      <li class="proc-step" data-step="3"><span class="step-dot"></span>Assessing AI readiness…</li>
+      <li class="proc-step" data-step="4"><span class="step-dot"></span>Generating action plan…</li>
+      <li class="proc-step" data-step="5"><span class="step-dot"></span>Building your report…</li>
+    </ul>
+  </div>
+
+  <!-- ── SCREEN 5: RESULTS ── -->
+  <div class="audit-screen results-screen" id="screen-results">
+
+    <!-- Print header (hidden on screen, shown on print) -->
+    <div class="print-header">
+      <strong style="font-family:var(--fd);font-size:20px">Fynaptix — M365 AI Readiness Audit Report</strong><br/>
+      <span style="font-size:12px;color:#666">Generated: <span id="print-date"></span> — fynaptix.com/m365-audit.html</span>
+    </div>
+
+    <!-- Overall score -->
+    <div class="score-banner" id="score-banner">
+      <div class="score-label">Overall AI Readiness Score</div>
+      <div class="score-number" id="score-number">0%</div>
+      <div id="score-status-badge"></div>
+      <div class="score-status" id="score-status-text"></div>
+      <div class="score-desc" id="score-status-desc"></div>
+    </div>
+
+    <!-- Category cards -->
+    <div class="cat-grid" id="cat-grid"></div>
+
+    <!-- Gap analysis -->
+    <div class="results-section" id="gap-section">
+      <div class="results-section-title">📋 Gap Analysis</div>
+      <div id="gap-table-wrap"></div>
+    </div>
+
+    <!-- Action plan -->
+    <div class="results-section" id="action-section">
+      <div class="results-section-title">🗺️ Prioritised Action Plan</div>
+      <div id="action-plan-wrap"></div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="reco-box" id="reco-box">
+      <div class="reco-inner">
+        <div class="reco-label">Fynaptix Recommendation</div>
+        <div class="reco-title" id="reco-title"></div>
+        <div class="reco-text" id="reco-text"></div>
+        <a href="/#contact" class="reco-cta">Talk to an Expert &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Actions row -->
+    <div class="results-actions">
+      <button class="download-btn" onclick="downloadReport()">&#8595; Download Audit Report</button>
+      <button class="btn-ghost-audit" onclick="restartAudit()">Start Over</button>
+    </div>
+
+  </div><!-- /results -->
+
+</main>
+
+<footer class="audit-footer">
+  <a href="/">fynaptix.com</a> &nbsp;&mdash;&nbsp; M365 AI Readiness Audit &nbsp;&mdash;&nbsp; Free tool, no data stored
+</footer>
+
+</div><!-- /#app -->
+
+<script src="assets/js/main.js"></script>
+<script>
+/* ══════════════════════════════════════════════════════════════
+   PAGE-SPECIFIC JS — M365 AI Readiness Audit
+   Overrides nav functions with multi-dropdown signatures.
+══════════════════════════════════════════════════════════════ */
+
+/* ── Nav overrides ── */
+function toggleDropdown(e, id) {
+  e.stopPropagation();
+  const el = document.getElementById(id);
+  if (!el) return;
+  const wasOpen = el.classList.contains('open');
+  // close all
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+});
+
+function closeMobile() {
+  const burger = document.getElementById('nav-burger');
+  const mob = document.getElementById('nav-mobile');
+  if (burger) burger.classList.remove('open');
+  if (mob) mob.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleMobileSection(subId, arrowId) {
+  const sub = document.getElementById(subId);
+  const arrow = document.getElementById(arrowId);
+  if (!sub) return;
+  const open = sub.classList.toggle('open');
+  if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+}
+// Hamburger
+(function(){
+  const burger = document.getElementById('nav-burger');
+  const mob = document.getElementById('nav-mobile');
+  if (burger && mob) {
+    burger.addEventListener('click', () => {
+      const o = burger.classList.toggle('open');
+      mob.classList.toggle('open', o);
+      document.body.style.overflow = o ? 'hidden' : '';
+    });
+  }
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   QUESTION DEFINITIONS
+══════════════════════════════════════════════════════════════ */
+const IDENTITY_QUESTIONS = [
+  'MFA is enforced for all users (not just admins)',
+  'Conditional Access policies are in place (e.g. block legacy auth, require compliant devices)',
+  'Privileged Identity Management (PIM) is configured for admin roles',
+  'Entra ID P2 (or equivalent) is licensed and active',
+  'Self-Service Password Reset (SSPR) is enabled',
+  'Sign-in risk and user risk policies are configured',
+  'Microsoft Defender for Identity (or Defender for Office 365) is active',
+  'Regular access reviews are conducted for admin and privileged accounts'
+];
+
+const DATA_QUESTIONS = [
+  'Microsoft Purview (or Azure Information Protection) sensitivity labels are deployed',
+  'DLP policies are active across Exchange, SharePoint, and Teams',
+  'Retention policies have been configured for key data types',
+  'Audit logging is enabled and logs are retained for 90 days or more',
+  'A data classification framework exists and has been communicated to users',
+  'External sharing in SharePoint/OneDrive is restricted by policy',
+  'Microsoft Purview Compliance Manager is being used to track regulatory obligations',
+  'eDiscovery has been configured and tested'
+];
+
+const AI_QUESTIONS = [
+  'A named AI/technology owner is responsible for AI governance in the organisation',
+  'An Acceptable Use Policy for AI tools exists (or is in draft)',
+  'You have run a Microsoft 365 Copilot pilot or proof-of-concept',
+  'Staff have received training or guidance on using AI tools responsibly',
+  'Sensitive data has been reviewed to ensure AI cannot access it inappropriately',
+  'AI usage is (or will be) monitored and auditable',
+  'A change management plan exists for AI tool rollout',
+  'The Board or Executive team have approved an AI strategy or investment'
+];
+
+/* ══════════════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════════════ */
+const state = {
+  orgSize: null,
+  licenseType: null,
+  industry: null,
+  region: null,
+  identity: new Array(8).fill(null),
+  data: new Array(8).fill(null),
+  aiReadiness: new Array(8).fill(null)
+};
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN MANAGEMENT
+══════════════════════════════════════════════════════════════ */
+const SCREEN_ORDER = ['welcome', 'profile', 'identity', 'data', 'aireadiness', 'processing', 'results'];
+const STEP_MAP = { profile: 1, identity: 2, data: 3, aireadiness: 4, results: 5 };
+const PROGRESS_SCREENS = ['profile', 'identity', 'data', 'aireadiness', 'results'];
+
+function goToScreen(name) {
+  // Hide all screens
+  document.querySelectorAll('.audit-screen').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById('screen-' + name);
+  if (target) target.classList.add('active');
+
+  // Update progress indicator
+  updateProgress(name);
+
+  // Scroll to top smoothly
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(screenName) {
+  const prog = document.getElementById('audit-progress');
+  if (!prog) return;
+
+  // Hide progress on welcome/processing
+  if (screenName === 'welcome' || screenName === 'processing') {
+    prog.style.visibility = 'hidden';
+    return;
+  }
+  prog.style.visibility = 'visible';
+
+  const current = STEP_MAP[screenName] || 0;
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('ps-' + i);
+    if (!el) continue;
+    el.classList.remove('active', 'completed');
+    if (i < current) el.classList.add('completed');
+    else if (i === current) el.classList.add('active');
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   QUESTION RENDERING
+══════════════════════════════════════════════════════════════ */
+function renderYNP(containerId, questions, stateKey, btnId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.innerHTML = `
+      <div class="q-text"><span class="q-num">Q${i + 1}</span>${q}</div>
+      <div class="ynp-group" data-q="${i}" data-key="${stateKey}">
+        <button class="ynp-opt" data-val="yes" onclick="selectYNP(this,'${stateKey}',${i},'yes','${btnId}')">
+          <span>✅</span> Yes, fully
+        </button>
+        <button class="ynp-opt" data-val="partial" onclick="selectYNP(this,'${stateKey}',${i},'partial','${btnId}')">
+          <span>⚠️</span> Partially
+        </button>
+        <button class="ynp-opt" data-val="no" onclick="selectYNP(this,'${stateKey}',${i},'no','${btnId}')">
+          <span>❌</span> Not yet
+        </button>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function selectYNP(btn, stateKey, idx, val, btnId) {
+  const group = btn.closest('.ynp-group');
+  group.querySelectorAll('.ynp-opt').forEach(b => {
+    b.classList.remove('selected-yes','selected-partial','selected-no');
+  });
+  const cls = val === 'yes' ? 'selected-yes' : val === 'partial' ? 'selected-partial' : 'selected-no';
+  btn.classList.add(cls);
+  state[stateKey][idx] = val;
+  validateScreen(stateKey, btnId);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RADIO CARD HANDLING (Profile screen)
+══════════════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Init question sections
+  renderYNP('identity-questions', IDENTITY_QUESTIONS, 'identity', 'btn-identity-next');
+  renderYNP('data-questions', DATA_QUESTIONS, 'data', 'btn-data-next');
+  renderYNP('aireadiness-questions', AI_QUESTIONS, 'aiReadiness', 'btn-ai-next');
+
+  // Attach radio card listeners
+  document.querySelectorAll('.radio-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const group = this.dataset.group;
+      const val = this.dataset.val;
+      // Deselect all in group
+      document.querySelectorAll(`.radio-card[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      // Update state
+      if (group === 'size') state.orgSize = val;
+      if (group === 'license') state.licenseType = val;
+      validateScreen('profile');
+    });
+  });
+
+  // Set print date
+  const pd = document.getElementById('print-date');
+  if (pd) pd.textContent = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+});
+
+/* ══════════════════════════════════════════════════════════════
+   STATE HELPERS
+══════════════════════════════════════════════════════════════ */
+function updateState(key, val) {
+  state[key] = val;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   VALIDATION
+══════════════════════════════════════════════════════════════ */
+function validateScreen(screen, btnId) {
+  let valid = false;
+  if (screen === 'profile') {
+    valid = !!(state.orgSize && state.licenseType && state.industry && state.region);
+    const btn = document.getElementById('btn-profile-next');
+    if (btn) btn.disabled = !valid;
+  } else if (screen === 'identity') {
+    valid = state.identity.every(v => v !== null);
+    const btn = document.getElementById(btnId || 'btn-identity-next');
+    if (btn) btn.disabled = !valid;
+  } else if (screen === 'data') {
+    valid = state.data.every(v => v !== null);
+    const btn = document.getElementById(btnId || 'btn-data-next');
+    if (btn) btn.disabled = !valid;
+  } else if (screen === 'aiReadiness') {
+    valid = state.aiReadiness.every(v => v !== null);
+    const btn = document.getElementById(btnId || 'btn-ai-next');
+    if (btn) btn.disabled = !valid;
+  }
+  return valid;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PROCESSING ANIMATION
+══════════════════════════════════════════════════════════════ */
+function runProcessing() {
+  goToScreen('processing');
+  const steps = document.querySelectorAll('.proc-step');
+  let i = 0;
+  function showStep() {
+    if (i >= steps.length) {
+      setTimeout(() => {
+        buildResults();
+        goToScreen('results');
+        animateScoreCount();
+        animateBars();
+      }, 400);
+      return;
+    }
+    steps[i].classList.add('visible');
+    if (i > 0) steps[i - 1].classList.add('done');
+    i++;
+    setTimeout(showStep, 400);
+  }
+  setTimeout(showStep, 300);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCORING
+══════════════════════════════════════════════════════════════ */
+function scoreArray(arr) {
+  return arr.reduce((sum, v) => sum + (v === 'yes' ? 3 : v === 'partial' ? 1 : 0), 0);
+}
+
+function licenseBonus() {
+  const lt = state.licenseType;
+  if (lt === 'e3' || lt === 'e5') return 5;
+  if (lt === 'premium') return 3;
+  return 0;
+}
+
+function computeScores() {
+  const identityRaw = scoreArray(state.identity);   // max 24
+  const dataRaw = scoreArray(state.data);            // max 24
+  const aiRaw = scoreArray(state.aiReadiness);       // max 24
+  const bonus = licenseBonus();                      // max 5
+
+  const total = identityRaw + dataRaw + aiRaw + bonus;
+  const maxTotal = 24 + 24 + 24 + 5;
+  const pct = Math.round((total / maxTotal) * 100);
+
+  return {
+    identity: identityRaw,
+    data: dataRaw,
+    ai: aiRaw,
+    bonus: bonus,
+    total: total,
+    maxTotal: maxTotal,
+    pct: pct,
+    identityPct: Math.round((identityRaw / 24) * 100),
+    dataPct: Math.round((dataRaw / 24) * 100),
+    aiPct: Math.round((aiRaw / 24) * 100),
+    bonusPct: Math.round((bonus / 5) * 100)
+  };
+}
+
+function tlBadge(pct) {
+  if (pct >= 75) return { cls: 'tl-green', label: 'Green — Strong' };
+  if (pct >= 50) return { cls: 'tl-amber', label: 'Amber — Partial' };
+  return { cls: 'tl-red', label: 'Red — Gap' };
+}
+
+function overallBadge(pct) {
+  if (pct >= 85) return { emoji: '✅', label: 'AI Ready', cls: 'badge-blue', desc: 'Your tenant is well-positioned for AI deployment.' };
+  if (pct >= 65) return { emoji: '🟢', label: 'Nearly Ready', cls: 'badge-green', desc: 'Strong foundations — focus on the remaining gaps.' };
+  if (pct >= 40) return { emoji: '🟡', label: 'Foundations in Progress', cls: 'badge-amber', desc: 'Good progress, but key gaps must be addressed.' };
+  return { emoji: '🔴', label: 'Not Ready', cls: 'badge-red', desc: 'Significant foundational work required before AI deployment.' };
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESULTS BUILDING
+══════════════════════════════════════════════════════════════ */
+function buildResults() {
+  const scores = computeScores();
+  window._auditScores = scores; // store for animation
+
+  // Overall badge
+  const badge = overallBadge(scores.pct);
+  const statusBadgeEl = document.getElementById('score-status-badge');
+  statusBadgeEl.innerHTML = `<div class="score-badge ${badge.cls}">${badge.emoji} ${badge.label}</div>`;
+  document.getElementById('score-status-text').textContent = badge.label;
+  document.getElementById('score-status-desc').textContent = badge.desc;
+
+  // Category cards
+  const catGrid = document.getElementById('cat-grid');
+  const cats = [
+    { icon: '🔐', label: 'Identity & Security', score: scores.identity, max: 24, pct: scores.identityPct },
+    { icon: '🗂️', label: 'Data & Compliance',   score: scores.data,     max: 24, pct: scores.dataPct },
+    { icon: '🤖', label: 'AI Readiness',         score: scores.ai,       max: 24, pct: scores.aiPct },
+    { icon: '📋', label: 'License Tier Bonus',   score: scores.bonus,    max: 5,  pct: scores.bonusPct }
+  ];
+
+  catGrid.innerHTML = cats.map((c, idx) => {
+    const tl = tlBadge(c.pct);
+    return `
+      <div class="cat-card">
+        <div class="cat-header">
+          <div class="cat-title"><span class="cat-icon">${c.icon}</span>${c.label}</div>
+          <div class="cat-score-text">${c.score}/${c.max}</div>
+        </div>
+        <div class="cat-bar-track">
+          <div class="cat-bar-fill" data-pct="${c.pct}" style="width:0%" id="bar-${idx}"></div>
+        </div>
+        <span class="tl-badge ${tl.cls}">${tl.label}</span>
+      </div>
+    `;
+  }).join('');
+
+  // Gap table
+  buildGapTable(scores);
+
+  // Action plan
+  buildActionPlan();
+
+  // Recommendation
+  buildRecommendation(scores.pct);
+}
+
+function buildGapTable(scores) {
+  const gaps = collectGaps();
+  const wrap = document.getElementById('gap-table-wrap');
+
+  if (gaps.length === 0) {
+    wrap.innerHTML = '<div class="no-gaps">No significant gaps identified — your tenant shows strong readiness across all areas.</div>';
+    return;
+  }
+
+  const rows = gaps.map(g => `
+    <tr>
+      <td><span class="gap-area">${g.area}</span></td>
+      <td>${g.question}</td>
+      <td>${g.response === 'partial' ? '⚠️ Partial' : '❌ Not yet'}</td>
+      <td>${g.priority === 'High' ? '<span class="gap-priority-high">High</span>' : '<span class="gap-priority-med">Medium</span>'}</td>
+    </tr>
+  `).join('');
+
+  wrap.innerHTML = `
+    <table class="gap-table">
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Gap</th>
+          <th>Status</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function buildActionPlan() {
+  const gaps = collectGaps();
+  const wrap = document.getElementById('action-plan-wrap');
+
+  const high = gaps.filter(g => g.priority === 'High');
+  const quick = gaps.filter(g => g.response === 'partial');
+  const later = gaps.filter(g => g.priority === 'Medium' && g.response === 'no');
+
+  let html = '';
+
+  // Address First
+  html += `<div class="action-section first">
+    <div class="action-section-header">🚨 Address First <span style="color:var(--muted);font-size:12px;font-weight:400">(${high.length} item${high.length !== 1 ? 's' : ''})</span></div>`;
+  if (high.length === 0) {
+    html += '<div class="no-gaps">No critical gaps — excellent foundation.</div>';
+  } else {
+    html += '<ul class="action-list">';
+    high.forEach((g, i) => {
+      html += `<li class="action-item"><span class="action-num">${i + 1}</span><span><strong>[${g.area}]</strong> ${g.question}</span></li>`;
+    });
+    html += '</ul>';
+  }
+  html += '</div>';
+
+  // Quick Wins
+  html += `<div class="action-section quick">
+    <div class="action-section-header">⚡ Quick Wins <span style="color:var(--muted);font-size:12px;font-weight:400">(Already started — complete these)</span></div>`;
+  if (quick.length === 0) {
+    html += '<div class="no-gaps">No partial items — you either have these covered or have not yet started them.</div>';
+  } else {
+    html += '<ul class="action-list">';
+    quick.forEach((g, i) => {
+      html += `<li class="action-item"><span class="action-num">${i + 1}</span><span><strong>[${g.area}]</strong> ${g.question}</span></li>`;
+    });
+    html += '</ul>';
+  }
+  html += '</div>';
+
+  // Plan For Later
+  html += `<div class="action-section">
+    <div class="action-section-header">📅 Plan For Later <span style="color:var(--muted);font-size:12px;font-weight:400">(Lower priority)</span></div>`;
+  if (later.length === 0) {
+    html += '<div class="no-gaps">No low-priority gaps remaining.</div>';
+  } else {
+    html += '<ul class="action-list">';
+    later.forEach((g, i) => {
+      html += `<li class="action-item"><span class="action-num">${i + 1}</span><span><strong>[${g.area}]</strong> ${g.question}</span></li>`;
+    });
+    html += '</ul>';
+  }
+  html += '</div>';
+
+  wrap.innerHTML = html;
+}
+
+function collectGaps() {
+  const gaps = [];
+  const push = (area, questions, answers, areaKey) => {
+    questions.forEach((q, i) => {
+      const ans = answers[i];
+      if (ans === 'partial' || ans === 'no') {
+        // Priority: High if ans === 'no' for core categories
+        const priority = (ans === 'no') ? 'High' : 'Medium';
+        gaps.push({ area, question: q, response: ans, priority });
+      }
+    });
+  };
+  push('Identity & Security', IDENTITY_QUESTIONS, state.identity);
+  push('Data & Compliance', DATA_QUESTIONS, state.data);
+  push('AI Readiness', AI_QUESTIONS, state.aiReadiness);
+  return gaps;
+}
+
+function buildRecommendation(pct) {
+  const title = document.getElementById('reco-title');
+  const text = document.getElementById('reco-text');
+  if (pct < 40) {
+    title.textContent = 'Your tenant needs foundational work before AI deployment.';
+    text.textContent = 'Before deploying AI, your tenant needs foundational security and governance work. Our M365 Tenant Readiness Programme builds these foundations in 8–12 weeks, giving you a hardened, governed environment that\'s ready for AI deployment.';
+  } else if (pct < 65) {
+    title.textContent = 'You\'re closer than you think.';
+    text.textContent = 'Our targeted M365 AI Readiness Sprint closes your remaining gaps in 4–6 weeks, then moves straight into Claude deployment. We\'ll tackle the gaps identified above with a structured, prioritised delivery approach.';
+  } else {
+    title.textContent = 'Your tenant is nearly AI-ready.';
+    text.textContent = 'Our Claude Enterprise Deployment engagement gets you from this audit to a production AI deployment in 6–8 weeks. We\'ll address the remaining gaps in parallel with standing up your first Claude workflows.';
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════════════════════ */
+function animateScoreCount() {
+  const el = document.getElementById('score-number');
+  const target = window._auditScores ? window._auditScores.pct : 0;
+  const duration = 1200;
+  const start = performance.now();
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    el.textContent = Math.round(eased * target) + '%';
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function animateBars() {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.cat-bar-fill').forEach(bar => {
+      const pct = bar.dataset.pct;
+      bar.style.width = pct + '%';
+    });
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DOWNLOAD / PRINT
+══════════════════════════════════════════════════════════════ */
+function downloadReport() {
+  // Make bars fully rendered before print
+  document.querySelectorAll('.cat-bar-fill').forEach(bar => {
+    bar.style.transition = 'none';
+    bar.style.width = bar.dataset.pct + '%';
+  });
+  window.print();
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESTART
+══════════════════════════════════════════════════════════════ */
+function restartAudit() {
+  // Reset state
+  state.orgSize = null;
+  state.licenseType = null;
+  state.industry = null;
+  state.region = null;
+  state.identity = new Array(8).fill(null);
+  state.data = new Array(8).fill(null);
+  state.aiReadiness = new Array(8).fill(null);
+
+  // Reset UI
+  document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('q-industry').value = '';
+  document.getElementById('q-region').value = '';
+
+  // Re-render question screens
+  renderYNP('identity-questions', IDENTITY_QUESTIONS, 'identity', 'btn-identity-next');
+  renderYNP('data-questions', DATA_QUESTIONS, 'data', 'btn-data-next');
+  renderYNP('aireadiness-questions', AI_QUESTIONS, 'aiReadiness', 'btn-ai-next');
+
+  // Reset next buttons
+  ['btn-profile-next','btn-identity-next','btn-data-next','btn-ai-next'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.disabled = true;
+  });
+
+  // Reset processing steps
+  document.querySelectorAll('.proc-step').forEach(s => s.classList.remove('visible','done'));
+
+  goToScreen('welcome');
+  updateProgress('welcome');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   INITIALISE
+══════════════════════════════════════════════════════════════ */
+(function init() {
+  updateProgress('welcome');
+})();
+</script>
+</body>
+</html>
