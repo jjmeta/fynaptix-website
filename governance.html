@@ -357,14 +357,10 @@ body::before{
 .doc-table tr:last-child td{border-bottom:none}
 .doc-table td:first-child{font-weight:600;color:var(--text);font-family:var(--fd)}
 
-/* ── Blur overlay ── */
-.doc-blur-wrap{position:relative;overflow:hidden;border-radius:0 0 16px 16px}
-.doc-blur-content{filter:blur(4px);padding:28px;pointer-events:none;user-select:none}
-.doc-blur-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(8,13,26,0) 0%,rgba(8,13,26,0.7) 30%,rgba(8,13,26,0.97) 100%);
-  display:flex;align-items:center;justify-content:center;
-}
+/* ── Blur overlay (disabled — full content free) ── */
+.doc-blur-wrap{position:relative;overflow:visible;border-radius:0 0 16px 16px}
+.doc-blur-content{filter:none;padding:28px;pointer-events:auto;user-select:auto}
+.doc-blur-overlay{display:none}
 .doc-lock-badge{
   background:rgba(8,13,26,0.9);border:1px solid var(--border2);border-radius:12px;
   padding:20px 28px;text-align:center;backdrop-filter:blur(12px);
@@ -876,19 +872,19 @@ body::before{
 
     <div class="results-cta-section" id="results-cta">
       <div class="results-cta-inner">
-        <h2 class="cta-h2">Get the Complete Editable Pack</h2>
-        <p class="cta-sub">Your preview contains the first two sections of each document. The full pack includes everything your team needs to implement AI governance from day one.</p>
+        <h2 class="cta-h2">Download Your Full Governance Pack</h2>
+        <p class="cta-sub">Your complete tailored governance framework is ready. Download it as a PDF or reach out to Fynaptix to get fully editable Word versions with implementation support.</p>
         <div class="cta-features">
-          <div class="cta-feature">All 5 policy documents in editable Word format</div>
-          <div class="cta-feature">Version-controlled templates with change history</div>
-          <div class="cta-feature">Implementation guide &amp; rollout checklist</div>
+          <div class="cta-feature">All 5 policy documents — fully generated above</div>
+          <div class="cta-feature">Tailored to your industry, size &amp; risk profile</div>
+          <div class="cta-feature">Editable Word format + implementation guide available</div>
           <div class="cta-feature">30-minute onboarding call with Fynaptix</div>
           <div class="cta-feature">Staff training slide deck included</div>
           <div class="cta-feature">6 months of policy update notifications</div>
         </div>
         <div class="cta-btns">
-          <a class="btn-primary" id="mailto-btn" href="#">Request Full Pack →</a>
-          <button class="btn-secondary" onclick="downloadPreview()">Download Preview PDF</button>
+          <button class="btn-primary" onclick="downloadPreview()">Download Full Pack PDF ↓</button>
+          <a class="btn-secondary" id="mailto-btn" href="#">Get Editable Word Version →</a>
         </div>
       </div>
     </div>
