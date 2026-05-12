@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Blog · Fynaptix</title>
+<meta name="description" content="Enterprise AI insights, Claude deployment guides, and practical frameworks from Fynaptix."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#05070f;--bg2:#080d1a;--bg3:#0d1526;
+    --gs:#ff5f1f;--gm:#c025e8;--ge:#2ed0f5;
+    --text:#e8edf8;--muted:#6b7a99;
+    --border:rgba(255,255,255,0.07);
+    --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;
+  }
+  html,body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(5,7,15,0.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.9rem 2rem;
+  }
+  .nav-logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-weight:700;font-size:1rem}
+  .logo-mark{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));display:flex;align-items:center;justify-content:center;font-size:.7rem}
+  .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+  .nav-links a{color:var(--muted);font-size:.875rem;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;padding:.4rem 1rem;border-radius:8px;font-weight:600}
+  footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.8rem;margin-top:4rem}
+
+.hero{
+  padding:5rem 2rem 3rem;text-align:center;
+  background:radial-gradient(ellipse at 50% 0%,rgba(192,37,232,0.1) 0%,transparent 60%);
+}
+.eyebrow{display:inline-flex;align-items:center;gap:.4rem;background:rgba(192,37,232,0.1);border:1px solid rgba(192,37,232,0.2);border-radius:99px;padding:.3rem .9rem;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gm);margin-bottom:1.5rem}
+.hero h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem}
+.grad{background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:560px;margin:0 auto}
+.posts-wrap{max-width:800px;margin:0 auto;padding:2rem}
+.post-card{padding:2rem 0;border-bottom:1px solid var(--border)}
+.post-card:last-child{border-bottom:none}
+.post-card.featured{padding:2rem;background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:2rem}
+.post-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap}
+.post-meta time{font-size:.8rem;color:var(--muted)}
+.tag{display:inline-block;padding:.15rem .6rem;border-radius:99px;background:rgba(46,208,245,0.1);border:1px solid rgba(46,208,245,0.2);color:var(--ge);font-size:.7rem;font-weight:600}
+.post-title{font-family:var(--fd);font-size:1.4rem;font-weight:700;margin-bottom:.75rem;line-height:1.3}
+.post-title a:hover{background:linear-gradient(135deg,var(--gs),var(--gm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.post-excerpt{color:var(--muted);font-size:.95rem;margin-bottom:1rem;line-height:1.6}
+.read-more{color:var(--ge);font-size:.875rem;font-weight:600;transition:opacity .2s}
+.read-more:hover{opacity:.7}
+.empty{text-align:center;padding:4rem 2rem;background:var(--bg2);border:1px dashed rgba(255,255,255,0.1);border-radius:16px}
+.empty-icon{font-size:3rem;margin-bottom:1rem}
+.empty h3{font-family:var(--fd);font-size:1.2rem;font-weight:700;margin-bottom:.5rem}
+.empty p{color:var(--muted);max-width:400px;margin:0 auto}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="logo-mark">∞</div>
+    Fynaptix
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#usecases">Use Cases</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/assessment.html" style="color:#ff5f1f;font-weight:600">Free Assessment</a></li>
+    <li><a class="nav-cta" href="/#contact">Get Started</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div class="eyebrow">● Enterprise AI Insights</div>
+  <h1>The <span class="grad">Fynaptix</span> Blog</h1>
+  <p>Practical guides, deployment frameworks, and enterprise AI insights from practitioners in the field.</p>
+</div>
+<div class="posts-wrap">
+  
+      <article class="post-card featured">
+        <div class="post-meta">
+          <time>12 May 2026</time>
+          <span class="tag">Enterprise AI</span><span class="tag">Claude</span>
+        </div>
+        <h2 class="post-title"><a href="/blog/enterprise-ai-deployment-gap.html">The Enterprise AI Deployment Gap — Why POCs Never Make It to Production</a></h2>
+        <p class="post-excerpt">Most organisations have run a successful Claude proof-of-concept. Almost none have turned it into production infrastructure. Here's why — and how to fix it.</p>
+        <a class="read-more" href="/blog/enterprise-ai-deployment-gap.html">Read article →</a>
+      </article>
+</div>
+
+<footer>
+  <p>© 2026 Fynaptix · Enterprise Claude AI Architecture & Deployment · <a href="mailto:hello@fynaptix.com" style="color:var(--ge)">hello@fynaptix.com</a></p>
+</footer>
+</body>
+</html>

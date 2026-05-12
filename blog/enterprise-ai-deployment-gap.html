@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Enterprise AI Deployment Gap — Why POCs Never Make It to Production · Fynaptix Blog</title>
+<meta name="description" content="Most organisations have run a successful Claude proof-of-concept. Almost none have turned it into production infrastructure. Here's why — and how to fix it."/>
+<meta property="og:title" content="The Enterprise AI Deployment Gap — Why POCs Never Make It to Production"/>
+<meta property="og:description" content="Most organisations have run a successful Claude proof-of-concept. Almost none have turned it into production infrastructure. Here's why — and how to fix it."/>
+<meta property="og:type" content="article"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#05070f;--bg2:#080d1a;--bg3:#0d1526;
+    --gs:#ff5f1f;--gm:#c025e8;--ge:#2ed0f5;
+    --text:#e8edf8;--muted:#6b7a99;
+    --border:rgba(255,255,255,0.07);
+    --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;
+  }
+  html,body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(5,7,15,0.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.9rem 2rem;
+  }
+  .nav-logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-weight:700;font-size:1rem}
+  .logo-mark{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));display:flex;align-items:center;justify-content:center;font-size:.7rem}
+  .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+  .nav-links a{color:var(--muted);font-size:.875rem;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;padding:.4rem 1rem;border-radius:8px;font-weight:600}
+  footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.8rem;margin-top:4rem}
+
+.hero{
+  padding:4rem 2rem 2rem;text-align:center;
+  background:radial-gradient(ellipse at 50% 0%,rgba(192,37,232,0.08) 0%,transparent 60%);
+  border-bottom:1px solid var(--border);
+}
+.back{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.875rem;margin-bottom:2rem;transition:color .2s}
+.back:hover{color:var(--text)}
+.post-meta{display:flex;align-items:center;gap:.75rem;justify-content:center;margin-bottom:1.5rem;flex-wrap:wrap}
+.post-meta time{font-size:.85rem;color:var(--muted)}
+.post-meta .author{font-size:.85rem;color:var(--muted)}
+.tag{display:inline-block;padding:.15rem .6rem;border-radius:99px;background:rgba(46,208,245,0.1);border:1px solid rgba(46,208,245,0.2);color:var(--ge);font-size:.7rem;font-weight:600}
+h1{font-family:var(--fd);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;max-width:720px;margin:0 auto 1rem;line-height:1.2}
+.excerpt{color:var(--muted);font-size:1.1rem;max-width:620px;margin:0 auto}
+.content{max-width:720px;margin:3rem auto;padding:0 2rem}
+.content h2{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--text)}
+.content h3{font-family:var(--fd);font-size:1.15rem;font-weight:600;margin:2rem 0 .75rem;color:var(--text)}
+.content h4{font-family:var(--fd);font-size:1rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--muted)}
+.content p{color:#c8d0e0;margin-bottom:1.25rem;line-height:1.8;font-size:.975rem}
+.content ul,.content ol{padding-left:1.5rem;margin-bottom:1.25rem}
+.content li{color:#c8d0e0;margin-bottom:.4rem;line-height:1.7;font-size:.975rem}
+.content strong{color:var(--text);font-weight:600}
+.content em{color:var(--muted)}
+.content a{color:var(--ge);text-decoration:underline;text-underline-offset:3px}
+.content a:hover{opacity:.8}
+.content blockquote{border-left:3px solid var(--gm);padding:.75rem 1.25rem;margin:1.5rem 0;background:rgba(192,37,232,0.05);border-radius:0 8px 8px 0}
+.content blockquote p{color:var(--muted);margin:0;font-style:italic}
+.content code{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:.1rem .4rem;font-size:.85rem;color:var(--ge);font-family:'Courier New',monospace}
+.content pre{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;overflow-x:auto;margin:1.5rem 0}
+.content pre code{background:none;border:none;padding:0;font-size:.85rem}
+.content hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+.content table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}
+.content th{background:var(--bg2);padding:.6rem 1rem;text-align:left;font-family:var(--fd);font-weight:600;border-bottom:2px solid var(--border)}
+.content td{padding:.6rem 1rem;border-bottom:1px solid var(--border);color:#c8d0e0}
+.content tr:last-child td{border-bottom:none}
+.cta-box{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2.5rem;text-align:center;margin:3rem 0}
+.cta-box h3{font-family:var(--fd);font-size:1.3rem;font-weight:700;margin-bottom:.75rem}
+.cta-box p{color:var(--muted);margin-bottom:1.5rem}
+.cta-btn{display:inline-block;padding:.75rem 2rem;border-radius:10px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-weight:600;font-size:.95rem;transition:opacity .2s}
+.cta-btn:hover{opacity:.9}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="logo-mark">∞</div>
+    Fynaptix
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#usecases">Use Cases</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/assessment.html" style="color:#ff5f1f;font-weight:600">Free Assessment</a></li>
+    <li><a class="nav-cta" href="/#contact">Get Started</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <a class="back" href="/blog">← Back to Blog</a>
+  <div class="post-meta">
+    <time>12 May 2026</time>
+    <span class="author">by Jeremy Moran</span>
+    <span class="tag">Enterprise AI</span><span class="tag">Claude</span><span class="tag">Deployment</span>
+  </div>
+  <h1>The Enterprise AI Deployment Gap — Why POCs Never Make It to Production</h1>
+  <p class="excerpt">Most organisations have run a successful Claude proof-of-concept. Almost none have turned it into production infrastructure. Here's why — and how to fix it.</p>
+</div>
+
+<div class="content">
+  <h2>The Pattern Everyone Recognises</h2>
+<p>A team runs a successful proof-of-concept. Claude handles a legal document review, summarises a week of emails, or drafts a board report. Executives are impressed. Then nothing happens for six months.</p>
+<p>This is the Enterprise AI Deployment Gap — and it&#39;s not a capability problem.</p>
+<p>The bottleneck is never what Claude <em>can</em> do. The bottleneck is everything that has to exist <em>around</em> Claude before it can function as enterprise infrastructure: identity integration, data controls, role-based access, spend management, observability, and the change management that turns a tool into a habit.</p>
+<p>These are solvable problems. But most organisations don&#39;t have a framework for solving them.</p>
+<h2>The Three Gaps</h2>
+<h3>The Demo Gap</h3>
+<p>An impressive POC with no follow-through. IT Security weren&#39;t engaged during the pilot. The architecture that worked for five users doesn&#39;t hold up for five hundred. There&#39;s no plan for what happens when Claude gives a wrong answer.</p>
+<h3>The Integration Gap</h3>
+<p>SSO isn&#39;t configured. Data classification hasn&#39;t been applied. The model is operating outside the organisation&#39;s existing security perimeter. Legal hasn&#39;t signed off on what data can be processed.</p>
+<h3>The Adoption Gap</h3>
+<p>No onboarding programme. No internal champions. No department-specific guidance on how to use Claude for <em>their</em> workflows. A tool was deployed; a capability was not.</p>
+<h2>What Production-Grade Actually Means</h2>
+<p>A production Claude deployment isn&#39;t a chatbot interface. It&#39;s an integrated layer of your organisation&#39;s operating system:</p>
+<ul>
+<li><strong>Identity</strong>: Claude operates within your existing SSO and RBAC framework. Access is provisioned and deprovisioned with employment status.</li>
+<li><strong>Data controls</strong>: Data classification governs what Claude can access and process. Sensitive data stays within defined boundaries.</li>
+<li><strong>Observability</strong>: Every interaction is logged. Anomalous usage triggers alerts. Cost is tracked by department, by team, by project.</li>
+<li><strong>Governance</strong>: An acceptable use policy exists and has been communicated. There&#39;s a clear process for reporting issues.</li>
+<li><strong>Adoption</strong>: Department heads have been trained. Use cases have been identified and documented. Champions are embedded in each team.</li>
+</ul>
+<p>None of this is extraordinarily complex. But all of it requires a structured approach — and most organisations try to figure it out after deployment rather than before.</p>
+<h2>The Discovery Workshop</h2>
+<p>The foundation of every successful Claude deployment is a structured requirements workshop — typically two days — that surfaces constraints, aligns stakeholders, and produces the artefacts the implementation phase depends on.</p>
+<p>The key is getting the right people in the room:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Why They Must Be There</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CIO / CTO</td>
+<td>Strategic priorities, budget, success definition</td>
+</tr>
+<tr>
+<td>IT Security / CISO</td>
+<td>Data classification, compliance constraints</td>
+</tr>
+<tr>
+<td>IT Infrastructure</td>
+<td>Identity provider, network topology</td>
+</tr>
+<tr>
+<td>Legal / Compliance</td>
+<td>Data residency, retention policy</td>
+</tr>
+<tr>
+<td>HR / People &amp; Culture</td>
+<td>Acceptable use policy, change management</td>
+</tr>
+<tr>
+<td>Department Heads (2–4)</td>
+<td>Use case identification, current pain points</td>
+</tr>
+</tbody></table>
+<p>The output of this workshop — a requirements register, architecture constraints document, and prioritised use case backlog — is what separates deployments that succeed from those that stall.</p>
+<h2>The Governance Layer</h2>
+<p>The most common mistake in enterprise AI deployment is treating governance as a compliance checkbox rather than operational infrastructure.</p>
+<p>A functioning AI governance framework covers:</p>
+<ul>
+<li><strong>Acceptable Use Policy</strong>: What Claude can and cannot be used for. What data can be processed. What outputs require human review.</li>
+<li><strong>Incident Response</strong>: What happens when Claude produces an incorrect or harmful output. Who is notified. How it&#39;s remediated.</li>
+<li><strong>Spend Management</strong>: Budget allocation by team. Alert thresholds. Approval workflows for high-volume use cases.</li>
+<li><strong>Model Versioning</strong>: How model updates are managed. Testing requirements before updates are promoted to production.</li>
+</ul>
+<p>Without this layer, AI deployment creates compliance risk rather than business value.</p>
+<h2>Where to Start</h2>
+<p>If your organisation has a successful Claude POC but hasn&#39;t made the jump to production, the path forward isn&#39;t more experimentation — it&#39;s a structured implementation engagement.</p>
+<p>Start with an honest assessment of where you are across five dimensions:</p>
+<ol>
+<li><strong>Strategy</strong>: Is there executive alignment on Claude&#39;s role in your organisation&#39;s AI layer?</li>
+<li><strong>Data</strong>: Have you classified your data and defined what Claude can access?</li>
+<li><strong>Governance</strong>: Do you have the policies and controls that enterprise deployment requires?</li>
+<li><strong>People</strong>: Have your teams been trained and do you have internal champions?</li>
+<li><strong>Technology</strong>: Is your technical infrastructure ready for production AI?</li>
+</ol>
+<p>Understanding where you are is the first step to knowing what needs to happen next.</p>
+<hr>
+<p><em>Fynaptix designs and builds production-grade Claude deployments for enterprise organisations — from requirements workshop through to go-live and ongoing governance. <a href="/assessment.html">Start with a free readiness assessment →</a></em></p>
+
+
+  <div class="cta-box">
+    <h3>Ready to build your Claude AI layer?</h3>
+    <p>Take our free readiness assessment and get a personalised roadmap for your organisation.</p>
+    <a class="cta-btn" href="/assessment.html">Take the Free Assessment →</a>
+  </div>
+</div>
+
+
+<footer>
+  <p>© 2026 Fynaptix · Enterprise Claude AI Architecture & Deployment · <a href="mailto:hello@fynaptix.com" style="color:var(--ge)">hello@fynaptix.com</a></p>
+</footer>
+</body>
+</html>
