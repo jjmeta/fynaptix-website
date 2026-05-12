@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Hub</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#05070f;--bg2:#080d1a;--bg3:#0d1526;--bg4:#111a2e;
+    --gs:#ff5f1f;--gm:#c025e8;--ge:#2ed0f5;
+    --text:#e8edf8;--muted:#6b7a99;--subtle:#3a4560;
+    --border:rgba(255,255,255,0.07);
+    --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;
+    --sidebar:240px;
+  }
+  html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hidden}
+
+  /* ── Layout ── */
+  .layout{display:flex;min-height:100vh}
+
+  /* ── Sidebar ── */
+  .sidebar{
+    width:var(--sidebar);flex-shrink:0;
+    background:var(--bg2);border-right:1px solid var(--border);
+    display:flex;flex-direction:column;
+    position:fixed;top:0;left:0;height:100vh;z-index:100;
+  }
+  .sidebar-logo{
+    padding:1.5rem 1.25rem;border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:.6rem;
+    font-family:var(--fd);font-weight:700;font-size:1rem;color:var(--text);
+    text-decoration:none;
+  }
+  .logo-mark{
+    width:32px;height:32px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+    display:flex;align-items:center;justify-content:center;font-size:.8rem;
+  }
+  .sidebar-section{padding:.75rem .75rem .25rem;font-size:.65rem;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--subtle)}
+  .nav-item{
+    display:flex;align-items:center;gap:.75rem;
+    padding:.65rem 1rem;margin:.1rem .5rem;border-radius:8px;
+    color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;
+    cursor:pointer;transition:all .15s;border:none;background:none;width:calc(100% - 1rem);text-align:left;
+  }
+  .nav-item:hover{background:var(--bg3);color:var(--text)}
+  .nav-item.active{background:rgba(192,37,232,0.12);color:var(--text);border-left:2px solid var(--gm)}
+  .nav-item .icon{font-size:1rem;flex-shrink:0}
+  .sidebar-footer{margin-top:auto;padding:1rem .75rem;border-top:1px solid var(--border)}
+  .logout-btn{
+    display:flex;align-items:center;gap:.75rem;
+    width:100%;padding:.65rem 1rem;border-radius:8px;
+    background:none;border:none;color:var(--muted);font-family:var(--fb);
+    font-size:.875rem;cursor:pointer;transition:all .15s;
+  }
+  .logout-btn:hover{background:rgba(239,68,68,0.1);color:#f87171}
+
+  /* ── Main ── */
+  .main{margin-left:var(--sidebar);flex:1;padding:2rem;min-height:100vh}
+
+  /* ── Top bar ── */
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
+  .topbar-left h2{font-family:var(--fd);font-size:1.5rem;font-weight:700}
+  .topbar-left p{color:var(--muted);font-size:.875rem;margin-top:.2rem}
+  .topbar-right{display:flex;align-items:center;gap:.75rem}
+  .time-badge{
+    background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+    padding:.4rem .9rem;font-size:.8rem;color:var(--muted);font-family:var(--fd);
+  }
+
+  /* ── Sections ── */
+  .section{display:none}
+  .section.active{display:block}
+
+  /* ── Grid ── */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem}
+  @media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}
+  @media(max-width:600px){.grid-3{grid-template-columns:1fr}}
+
+  /* ── Cards ── */
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+  .card-sm{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem}
+  .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+  .card-title{font-family:var(--fd);font-size:.875rem;font-weight:600;color:var(--muted)}
+  .stat-val{font-family:var(--fd);font-size:2rem;font-weight:700}
+  .stat-sub{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+  .pill{
+    display:inline-flex;align-items:center;gap:.3rem;
+    padding:.2rem .6rem;border-radius:99px;font-size:.7rem;font-weight:600;
+  }
+  .pill-green{background:rgba(16,185,129,0.12);color:#10b981;border:1px solid rgba(16,185,129,0.2)}
+  .pill-amber{background:rgba(245,158,11,0.12);color:#f59e0b;border:1px solid rgba(245,158,11,0.2)}
+  .pill-red{background:rgba(239,68,68,0.12);color:#ef4444;border:1px solid rgba(239,68,68,0.2)}
+  .pill-blue{background:rgba(59,130,246,0.12);color:#3b82f6;border:1px solid rgba(59,130,246,0.2)}
+  .pill-purple{background:rgba(192,37,232,0.12);color:#c025e8;border:1px solid rgba(192,37,232,0.2)}
+
+  /* ── Bot cards ── */
+  .bot-card{
+    background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;
+    display:flex;flex-direction:column;gap:1rem;
+  }
+  .bot-head{display:flex;align-items:center;gap:1rem}
+  .bot-icon{
+    width:44px;height:44px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  }
+  .bot-name{font-family:var(--fd);font-weight:600;font-size:1rem}
+  .bot-status{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+  .bot-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+  .bot-stat-label{font-size:.7rem;color:var(--muted);margin-bottom:.2rem}
+  .bot-stat-val{font-family:var(--fd);font-size:1rem;font-weight:600}
+  .connect-btn{
+    width:100%;padding:.6rem;border-radius:8px;border:1px dashed var(--subtle);
+    background:none;color:var(--muted);font-family:var(--fb);font-size:.8rem;
+    cursor:pointer;transition:all .2s;
+  }
+  .connect-btn:hover{border-color:var(--gm);color:var(--gm)}
+
+  /* ── Tools ── */
+  .tool-card{
+    background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+    padding:1.5rem;display:flex;align-items:center;gap:1rem;
+    text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s;
+    cursor:pointer;
+  }
+  .tool-card:hover{border-color:rgba(192,37,232,0.3);transform:translateY(-2px)}
+  .tool-icon{
+    width:48px;height:48px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  }
+  .tool-info h3{font-family:var(--fd);font-weight:600;font-size:.95rem;margin-bottom:.2rem}
+  .tool-info p{font-size:.8rem;color:var(--muted)}
+
+  /* ── Resources ── */
+  .resource-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1rem 0;border-bottom:1px solid var(--border);
+  }
+  .resource-row:last-child{border-bottom:none}
+  .resource-left{display:flex;align-items:center;gap:.75rem}
+  .resource-icon{font-size:1.3rem}
+  .resource-name{font-size:.9rem;font-weight:500}
+  .resource-meta{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+  .dl-btn{
+    padding:.35rem .9rem;border-radius:8px;
+    background:var(--bg3);border:1px solid var(--border);
+    color:var(--muted);font-size:.75rem;font-family:var(--fb);cursor:pointer;
+    text-decoration:none;transition:all .2s;
+  }
+  .dl-btn:hover{border-color:var(--ge);color:var(--ge)}
+
+  /* ── Empty state ── */
+  .empty{
+    text-align:center;padding:3rem 2rem;
+    background:var(--bg2);border:1px dashed var(--subtle);border-radius:14px;
+  }
+  .empty .e-icon{font-size:2.5rem;margin-bottom:1rem}
+  .empty h3{font-family:var(--fd);font-weight:600;margin-bottom:.5rem}
+  .empty p{color:var(--muted);font-size:.875rem}
+
+  /* ── Coming soon badge ── */
+  .coming-soon{
+    display:inline-flex;padding:.15rem .5rem;border-radius:4px;
+    background:rgba(245,158,11,0.1);color:#f59e0b;font-size:.65rem;font-weight:600;
+    letter-spacing:.05em;text-transform:uppercase;margin-left:.5rem;
+  }
+
+  /* ── Divider ── */
+  .section-title{
+    font-family:var(--fd);font-size:1rem;font-weight:700;
+    margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/">
+      <div class="logo-mark">∞</div>
+      Fynaptix Hub
+    </a>
+
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Overview</div>
+      <button class="nav-item active" onclick="showSection('dashboard',this)">
+        <span class="icon">⚡</span> Dashboard
+      </button>
+
+      <div class="sidebar-section" style="margin-top:.5rem">Trading</div>
+      <button class="nav-item" onclick="showSection('trading',this)">
+        <span class="icon">📈</span> Trading Bots
+      </button>
+      <button class="nav-item" onclick="showSection('markets',this)">
+        <span class="icon">🌐</span> Markets <span class="coming-soon">Soon</span>
+      </button>
+
+      <div class="sidebar-section" style="margin-top:.5rem">Tools</div>
+      <button class="nav-item" onclick="showSection('tools',this)">
+        <span class="icon">🛠️</span> My Tools
+      </button>
+      <button class="nav-item" onclick="showSection('ai',this)">
+        <span class="icon">🤖</span> AI Workspace <span class="coming-soon">Soon</span>
+      </button>
+
+      <div class="sidebar-section" style="margin-top:.5rem">Content</div>
+      <button class="nav-item" onclick="showSection('resources',this)">
+        <span class="icon">📁</span> Resources
+      </button>
+      <button class="nav-item" onclick="showSection('notes',this)">
+        <span class="icon">📝</span> Notes <span class="coming-soon">Soon</span>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0">
+        <span class="icon">🌐</span> Public Site
+      </a>
+      <button class="logout-btn" onclick="logout()">
+        <span>🚪</span> Sign out
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="main">
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <h2 id="pageTitle">Dashboard</h2>
+        <p id="pageSubtitle">Welcome back, Jeremy</p>
+      </div>
+      <div class="topbar-right">
+        <div class="time-badge" id="clock">--:--</div>
+      </div>
+    </div>
+
+    <!-- ── DASHBOARD ── -->
+    <div class="section active" id="sec-dashboard">
+      <div class="grid-3">
+        <div class="card-sm">
+          <div class="card-head">
+            <span class="card-title">Active Bots</span>
+            <span>📈</span>
+          </div>
+          <div class="stat-val" id="botCount">0</div>
+          <div class="stat-sub">of 0 connected</div>
+        </div>
+        <div class="card-sm">
+          <div class="card-head">
+            <span class="card-title">Total P&L</span>
+            <span>💰</span>
+          </div>
+          <div class="stat-val" style="color:#10b981">—</div>
+          <div class="stat-sub">Connect a bot to track</div>
+        </div>
+        <div class="card-sm">
+          <div class="card-head">
+            <span class="card-title">Site Leads</span>
+            <span>🎯</span>
+          </div>
+          <div class="stat-val">—</div>
+          <div class="stat-sub">Connect analytics to track</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-title">🚀 Quick Access</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <button class="nav-item" style="margin:0;width:100%;border:1px solid var(--border);border-radius:8px" onclick="showSection('trading',document.querySelector('[onclick*=trading]'))">📈 Trading Bots →</button>
+            <button class="nav-item" style="margin:0;width:100%;border:1px solid var(--border);border-radius:8px" onclick="showSection('tools',document.querySelector('[onclick*=tools]'))">🛠️ My Tools →</button>
+            <button class="nav-item" style="margin:0;width:100%;border:1px solid var(--border);border-radius:8px" onclick="showSection('resources',document.querySelector('[onclick*=resources]'))">📁 Resources →</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="section-title">📋 Fynaptix Site</div>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:.875rem">Assessment Tool</span>
+              <a href="/assessment.html" target="_blank" class="dl-btn">Open →</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:.875rem">Governance Pack</span>
+              <span class="pill pill-amber">Building</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem 0">
+              <span style="font-size:.875rem">Blog</span>
+              <span class="pill pill-amber">Planned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TRADING BOTS ── -->
+    <div class="section" id="sec-trading">
+      <div class="grid-3">
+        <!-- Bot slot 1 -->
+        <div class="bot-card">
+          <div class="bot-head">
+            <div class="bot-icon" style="background:rgba(16,185,129,0.1)">🤖</div>
+            <div>
+              <div class="bot-name">Bot 1</div>
+              <div class="bot-status"><span class="pill pill-amber">Not connected</span></div>
+            </div>
+          </div>
+          <div class="bot-stats">
+            <div><div class="bot-stat-label">P&L</div><div class="bot-stat-val">—</div></div>
+            <div><div class="bot-stat-label">Win rate</div><div class="bot-stat-val">—</div></div>
+            <div><div class="bot-stat-label">Trades</div><div class="bot-stat-val">—</div></div>
+          </div>
+          <button class="connect-btn">+ Connect bot API</button>
+        </div>
+
+        <!-- Bot slot 2 -->
+        <div class="bot-card">
+          <div class="bot-head">
+            <div class="bot-icon" style="background:rgba(59,130,246,0.1)">🤖</div>
+            <div>
+              <div class="bot-name">Bot 2</div>
+              <div class="bot-status"><span class="pill pill-amber">Not connected</span></div>
+            </div>
+          </div>
+          <div class="bot-stats">
+            <div><div class="bot-stat-label">P&L</div><div class="bot-stat-val">—</div></div>
+            <div><div class="bot-stat-label">Win rate</div><div class="bot-stat-val">—</div></div>
+            <div><div class="bot-stat-label">Trades</div><div class="bot-stat-val">—</div></div>
+          </div>
+          <button class="connect-btn">+ Connect bot API</button>
+        </div>
+
+        <!-- Add new bot -->
+        <div class="empty" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px">
+          <div class="e-icon">➕</div>
+          <h3 style="font-size:.95rem">Add a bot</h3>
+          <p style="font-size:.8rem">Connect a trading bot API to monitor it here</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">📊 Trade History</div>
+        <div class="empty" style="background:transparent;border-style:dashed">
+          <div class="e-icon">📉</div>
+          <h3>No trade data yet</h3>
+          <p>Connect a bot above to start seeing trade history and performance metrics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TOOLS ── -->
+    <div class="section" id="sec-tools">
+      <div class="grid-3">
+        <div class="tool-card" onclick="window.open('/assessment.html')">
+          <div class="tool-icon" style="background:rgba(192,37,232,0.1)">📊</div>
+          <div class="tool-info">
+            <h3>Readiness Assessment</h3>
+            <p>Claude AI readiness scorer</p>
+          </div>
+        </div>
+        <div class="tool-card" style="opacity:.5;pointer-events:none">
+          <div class="tool-icon" style="background:rgba(255,95,31,0.1)">🏛️</div>
+          <div class="tool-info">
+            <h3>Governance Pack <span class="coming-soon">Soon</span></h3>
+            <p>AI governance generator</p>
+          </div>
+        </div>
+        <div class="tool-card" style="border-style:dashed;opacity:.6">
+          <div class="tool-icon" style="background:var(--bg3)">➕</div>
+          <div class="tool-info">
+            <h3>Add tool</h3>
+            <p>Link a new tool or dashboard</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RESOURCES ── -->
+    <div class="section" id="sec-resources">
+      <div class="card">
+        <div class="section-title">📁 Private Documents</div>
+        <div class="resource-row">
+          <div class="resource-left">
+            <span class="resource-icon">📄</span>
+            <div>
+              <div class="resource-name">Claude Enterprise Deployment Guide</div>
+              <div class="resource-meta">21 pages · PDF · Fynaptix 2026</div>
+            </div>
+          </div>
+          <a class="dl-btn" href="/assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download>Download</a>
+        </div>
+        <div class="resource-row" style="border-bottom:none;opacity:.5">
+          <div class="resource-left">
+            <span class="resource-icon">➕</span>
+            <div>
+              <div class="resource-name" style="color:var(--muted)">Add a document</div>
+              <div class="resource-meta">Drop files into the repo's assets/files/ folder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MARKETS (placeholder) ── -->
+    <div class="section" id="sec-markets">
+      <div class="empty">
+        <div class="e-icon">🌐</div>
+        <h3>Markets overview</h3>
+        <p>Live market data widget coming soon — connect a data provider to show live prices, watchlist, and signals.</p>
+      </div>
+    </div>
+
+    <!-- ── AI WORKSPACE (placeholder) ── -->
+    <div class="section" id="sec-ai">
+      <div class="empty">
+        <div class="e-icon">🤖</div>
+        <h3>AI Workspace</h3>
+        <p>A private Claude workspace for internal use — prompt templates, conversation history, and model playground coming soon.</p>
+      </div>
+    </div>
+
+    <!-- ── NOTES (placeholder) ── -->
+    <div class="section" id="sec-notes">
+      <div class="empty">
+        <div class="e-icon">📝</div>
+        <h3>Notes</h3>
+        <p>Private notes synced from Notion coming soon.</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // Clock
+  function updateClock() {
+    const now = new Date()
+    document.getElementById('clock').textContent =
+      now.toLocaleTimeString('en-AU', {hour:'2-digit',minute:'2-digit',hour12:true})
+  }
+  updateClock()
+  setInterval(updateClock, 10000)
+
+  // Section switching
+  const titles = {
+    dashboard: ['Dashboard', 'Welcome back, Jeremy'],
+    trading:   ['Trading Bots', 'Monitor your automated strategies'],
+    markets:   ['Markets', 'Live market overview'],
+    tools:     ['My Tools', 'Your private toolkit'],
+    ai:        ['AI Workspace', 'Private Claude workspace'],
+    resources: ['Resources', 'Private documents & files'],
+    notes:     ['Notes', 'Private notes'],
+  }
+
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'))
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'))
+    document.getElementById('sec-' + id).classList.add('active')
+    if (btn) btn.classList.add('active')
+    const t = titles[id] || [id, '']
+    document.getElementById('pageTitle').textContent = t[0]
+    document.getElementById('pageSubtitle').textContent = t[1]
+  }
+
+  // Logout
+  function logout() {
+    window.location.href = '/api/logout'
+  }
+</script>
+</body>
+</html>
