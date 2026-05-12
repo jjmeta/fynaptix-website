@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Governance Pack Generator — Fynaptix</title>
+<meta name="description" content="Generate a tailored AI governance framework for your organisation. 5 policy documents covering acceptable use, model governance, risk, data privacy, and ethics."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ── Brand variables ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#6b7a99;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --border-active:rgba(192,37,232,0.5);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#10b981;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%,rgba(192,37,232,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%);
+}
+
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+.g-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  position:sticky;top:0;z-index:100;
+}
+.g-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.g-nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,0.5))}
+.g-nav-back{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,0.75);
+  text-decoration:none;transition:color .2s;cursor:pointer;background:none;border:none;
+}
+.g-nav-back:hover{color:#fff}
+
+/* ── Progress bar ── */
+.progress-wrap{background:rgba(255,255,255,0.05);height:3px;width:100%}
+.progress-bar{height:3px;background:var(--grad-full);transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+
+/* ── Screens ── */
+.screen{display:none;flex:1;flex-direction:column;align-items:center;padding:40px 20px 80px}
+.screen.active{display:flex}
+.screen.fade-in{animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* Welcome screen is centred */
+#screen-0{justify-content:center}
+
+.card-wrap{width:100%;max-width:700px}
+.card-wrap-wide{width:100%;max-width:900px}
+
+/* ── Eyebrow badge ── */
+.eyebrow-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);
+  border-radius:24px;padding:7px 16px;background:rgba(46,208,245,0.07);
+  backdrop-filter:blur(6px);margin-bottom:24px;
+}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--ge);display:inline-block}
+
+/* ── Headings ── */
+.s-h1{font-family:var(--fd);font-size:clamp(30px,5vw,52px);font-weight:800;
+  line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;text-align:center}
+.s-h1 .gt{background:var(--grad-full);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.s-h2{font-family:var(--fd);font-size:clamp(20px,3.5vw,28px);font-weight:700;
+  line-height:1.2;letter-spacing:-.01em;margin-bottom:8px}
+.s-h2 .gt{background:var(--grad-full);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.s-lead{font-size:16px;color:rgba(232,237,248,0.65);line-height:1.75;
+  margin-bottom:32px;font-family:var(--fb);text-align:center;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* ── Step label ── */
+.step-label{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;
+  color:var(--gm);text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.step-dot{width:6px;height:6px;border-radius:50%;background:var(--gm);display:inline-block}
+
+/* ── Welcome doc grid ── */
+.doc-preview-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+  margin:32px 0;width:100%;max-width:900px;
+}
+.doc-preview-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:18px 14px;display:flex;flex-direction:column;gap:8px;
+  transition:border-color .3s,transform .2s;cursor:default;
+}
+.doc-preview-card:hover{border-color:rgba(192,37,232,0.25);transform:translateY(-2px)}
+.dp-icon{font-size:22px}
+.dp-label{font-family:var(--fd);font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
+.dp-sub{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* ── Buttons ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 32px;border-radius:7px;
+  background:var(--grad);color:#fff;border:none;
+  font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;text-decoration:none;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,0.4)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:7px;
+  background:transparent;color:var(--muted);border:1px solid var(--border2);
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
+.btn-row{display:flex;gap:12px;align-items:center}
+
+.welcome-cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:8px}
+.cta-small{font-size:12px;color:var(--muted)}
+
+/* ── Form inputs ── */
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-label{font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text)}
+.form-input,.form-select{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--fb);
+  outline:none;transition:border-color .2s,background .2s;width:100%;
+}
+.form-input:focus,.form-select:focus{
+  border-color:var(--border-active);background:rgba(192,37,232,0.04)}
+.form-input::placeholder{color:var(--muted)}
+.form-select{cursor:pointer}
+.form-select option{background:#0d1526;color:var(--text)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ── Checkbox / toggle cards ── */
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
+.check-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:14px 16px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:12px;user-select:none;
+}
+.check-card:hover{background:var(--bg3);border-color:var(--border2)}
+.check-card.selected{
+  background:rgba(192,37,232,0.08);border-color:var(--border-active);
+}
+.check-box{
+  width:20px;height:20px;border-radius:5px;border:2px solid var(--border2);
+  flex-shrink:0;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.check-card.selected .check-box{
+  border-color:var(--gm);background:var(--gm);
+}
+.check-box-check{
+  width:11px;height:11px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;opacity:0;transition:opacity .2s;
+}
+.check-card.selected .check-box-check{opacity:1}
+.check-icon{font-size:18px;flex-shrink:0}
+.check-label{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text);line-height:1.3}
+.check-card.selected .check-label{color:var(--gm)}
+
+/* ── Radio cards (single select) ── */
+.radio-group{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.radio-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px 20px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:14px;user-select:none;
+}
+.radio-card:hover{background:var(--bg3);border-color:var(--border2)}
+.radio-card.selected{
+  background:rgba(192,37,232,0.08);border-color:var(--border-active);
+}
+.radio-circle{
+  width:20px;height:20px;border-radius:50%;border:2px solid var(--border2);
+  flex-shrink:0;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.radio-card.selected .radio-circle{border-color:var(--gm);background:var(--gm)}
+.radio-card.selected .radio-circle::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.radio-label{font-family:var(--fd);font-size:14px;font-weight:600;color:var(--text)}
+.radio-sub{font-size:12px;color:var(--muted);font-family:var(--fb);margin-top:2px}
+.radio-card.selected .radio-label{color:var(--gm)}
+
+/* ── Multi-framework checkboxes (compact) ── */
+.fw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}
+.fw-chip{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px;cursor:pointer;transition:all .2s;
+  text-align:center;user-select:none;
+  font-family:var(--fd);font-size:12px;font-weight:700;color:var(--muted);
+}
+.fw-chip:hover{border-color:var(--border2);color:var(--text)}
+.fw-chip.selected{
+  background:rgba(192,37,232,0.1);border-color:var(--border-active);color:var(--gm);
+}
+
+/* ── Existing policy cards ── */
+.policy-check-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.policy-check-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px 20px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:14px;user-select:none;
+}
+.policy-check-card:hover{background:var(--bg3);border-color:var(--border2)}
+.policy-check-card.selected{background:rgba(46,208,245,0.05);border-color:rgba(46,208,245,0.35)}
+.policy-check-card.selected .check-box{border-color:var(--ge);background:var(--ge)}
+.policy-check-card.selected .check-label{color:var(--ge)}
+
+/* ── Section label ── */
+.section-label{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:12px;margin-top:24px;
+}
+
+/* ── Processing screen ── */
+#screen-5{justify-content:center}
+.processing-wrap{display:flex;flex-direction:column;align-items:center;gap:32px;max-width:480px;text-align:center}
+.spin-ring{
+  width:100px;height:100px;border-radius:50%;
+  background:conic-gradient(from 0deg, var(--gs), var(--gm), var(--ge), var(--gs));
+  animation:spin 1.2s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 40px rgba(192,37,232,0.35);
+}
+.spin-ring-inner{
+  width:80px;height:80px;border-radius:50%;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.proc-title{font-family:var(--fd);font-size:26px;font-weight:800;letter-spacing:-.01em}
+.proc-list{display:flex;flex-direction:column;gap:12px;width:100%;text-align:left}
+.proc-item{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--fd);font-size:14px;font-weight:600;color:var(--muted);
+  transition:color .3s;
+}
+.proc-item.done{color:var(--text)}
+.proc-check{
+  width:24px;height:24px;border-radius:50%;
+  border:2px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;flex-shrink:0;
+  transition:all .3s;background:transparent;
+}
+.proc-item.done .proc-check{
+  border-color:var(--green);background:var(--green);color:#fff;
+}
+
+/* ── Results screen ── */
+#screen-6{align-items:center;padding-top:0}
+.results-header{
+  text-align:center;padding:48px 20px 40px;
+  width:100%;border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(192,37,232,0.06) 0%,transparent 100%);
+}
+.results-eyebrow{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ge);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.results-h1{font-family:var(--fd);font-size:clamp(24px,4vw,40px);font-weight:800;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+.results-sub{font-size:15px;color:rgba(232,237,248,0.6);font-family:var(--fb);margin-bottom:28px}
+.stat-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.stat-badge{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:8px;
+  padding:10px 20px;font-family:var(--fd);font-size:12px;font-weight:700;
+  color:var(--text);letter-spacing:.06em;
+}
+.stat-badge span{color:var(--gm)}
+
+.docs-wrap{width:100%;max-width:860px;padding:40px 20px;display:flex;flex-direction:column;gap:32px}
+
+/* ── Document card ── */
+.doc-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;
+}
+.doc-card-type-1{border-left:3px solid var(--gm)}
+.doc-card-type-2{border-left:3px solid var(--ge)}
+.doc-card-type-3{border-left:3px solid var(--gs)}
+.doc-card-type-4{border-left:3px solid #6366f1}
+.doc-card-type-5{border-left:3px solid var(--green)}
+
+.doc-header-bar{
+  background:var(--bg3);border-bottom:1px solid var(--border);
+  padding:14px 24px;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;
+}
+.doc-org-name{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.doc-meta{display:flex;align-items:center;gap:16px}
+.doc-confidential{
+  font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#ef4444;border:1px solid rgba(239,68,68,0.3);border-radius:4px;padding:3px 8px;
+}
+.doc-version{font-family:var(--fd);font-size:11px;color:var(--muted)}
+
+.doc-content{padding:28px 28px 0}
+.doc-title-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.doc-type-icon{font-size:24px}
+.doc-title{font-family:var(--fd);font-size:20px;font-weight:800;letter-spacing:-.01em}
+
+.doc-section-h{
+  font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gm);margin:20px 0 10px;
+}
+.doc-section-h.cyan{color:var(--ge)}
+.doc-section-h.orange{color:var(--gs)}
+.doc-section-h.indigo{color:#818cf8}
+.doc-section-h.emerald{color:var(--green)}
+.doc-p{font-size:14px;color:rgba(232,237,248,0.8);line-height:1.75;margin-bottom:10px;font-family:var(--fb)}
+.doc-ul{margin:8px 0 12px 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.doc-ul li{
+  font-size:14px;color:rgba(232,237,248,0.8);line-height:1.6;font-family:var(--fb);
+  display:flex;gap:10px;
+}
+.doc-ul li::before{content:'→';color:var(--gm);font-family:var(--fd);font-weight:700;flex-shrink:0}
+.doc-table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:13px}
+.doc-table th{
+  background:rgba(255,255,255,0.04);font-family:var(--fd);font-size:11px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);
+}
+.doc-table td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  color:rgba(232,237,248,0.75);font-family:var(--fb);vertical-align:top;
+}
+.doc-table tr:last-child td{border-bottom:none}
+.doc-table td:first-child{font-weight:600;color:var(--text);font-family:var(--fd)}
+
+/* ── Blur overlay ── */
+.doc-blur-wrap{position:relative;overflow:hidden;border-radius:0 0 16px 16px}
+.doc-blur-content{filter:blur(4px);padding:28px;pointer-events:none;user-select:none}
+.doc-blur-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,13,26,0) 0%,rgba(8,13,26,0.7) 30%,rgba(8,13,26,0.97) 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.doc-lock-badge{
+  background:rgba(8,13,26,0.9);border:1px solid var(--border2);border-radius:12px;
+  padding:20px 28px;text-align:center;backdrop-filter:blur(12px);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.doc-lock-icon{font-size:28px}
+.doc-lock-text{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text)}
+.doc-lock-sub{font-size:12px;color:var(--muted);font-family:var(--fb)}
+.doc-more-label{
+  text-align:center;padding:12px 28px 20px;
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* ── Results CTA section ── */
+.results-cta-section{
+  width:100%;max-width:860px;margin:0 20px 60px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:16px;
+  border-top:3px solid transparent;
+  background-clip:padding-box;
+  position:relative;overflow:hidden;
+}
+.results-cta-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--grad-full);
+}
+.results-cta-inner{padding:40px 40px 40px}
+.cta-h2{font-family:var(--fd);font-size:24px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+.cta-sub{font-size:15px;color:rgba(232,237,248,0.6);font-family:var(--fb);margin-bottom:24px}
+.cta-features{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;
+}
+.cta-feature{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;color:rgba(232,237,248,0.8);font-family:var(--fb);
+}
+.cta-feature::before{
+  content:'✓';width:20px;height:20px;border-radius:50%;
+  background:rgba(16,185,129,0.15);color:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;
+}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:7px;
+  background:transparent;color:var(--text);border:1px solid var(--border2);
+  font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;text-decoration:none;
+}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04)}
+
+/* ── Validation ── */
+.form-error{font-size:12px;color:#ef4444;font-family:var(--fb);margin-top:4px;display:none}
+.form-input.error,.form-select.error{border-color:#ef4444}
+
+/* ── Mobile responsive ── */
+@media(max-width:900px){
+  .doc-preview-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  .g-nav{padding:0 20px}
+  .screen{padding:24px 16px 60px}
+  .doc-preview-grid{grid-template-columns:1fr 1fr}
+  .checkbox-grid{grid-template-columns:1fr}
+  .fw-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .cta-features{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column}
+  .results-cta-inner{padding:24px}
+  .doc-content{padding:20px 20px 0}
+  .doc-blur-content{padding:20px}
+  .stat-badges{gap:8px}
+  .btn-row{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-ghost{text-align:center;justify-content:center}
+}
+@media(max-width:420px){
+  .doc-preview-grid{grid-template-columns:1fr}
+}
+
+/* ── Print styles ── */
+@media print{
+  body{background:#fff!important;color:#000!important}
+  .g-nav,.progress-wrap{display:none!important}
+  .doc-blur-wrap{overflow:visible}
+  .doc-blur-content{filter:none!important}
+  .doc-blur-overlay{display:none!important}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- NAV (shared across screens 0-4, swapped for screen 6) -->
+  <nav class="g-nav" id="main-nav">
+    <a href="/" class="g-nav-logo">
+      <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
+    </a>
+    <a href="/" class="g-nav-back">← Back to Fynaptix</a>
+  </nav>
+
+  <!-- PROGRESS BAR (hidden on screen 0 and 5+) -->
+  <div class="progress-wrap" id="progress-wrap" style="display:none">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 0 — Welcome
+  ═══════════════════════════════════════════════ -->
+  <div class="screen active" id="screen-0">
+    <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+      <div class="eyebrow-badge">
+        <span class="eyebrow-dot"></span>
+        FREE TOOL &middot; AI Governance
+      </div>
+      <h1 class="s-h1">Generate Your <span class="gt">AI Governance Pack</span></h1>
+      <p class="s-lead">Answer 4 quick questions about your organisation. We'll generate a tailored AI governance framework covering 5 critical policy areas.</p>
+
+      <div class="doc-preview-grid" style="max-width:900px">
+        <div class="doc-preview-card">
+          <div class="dp-icon">📋</div>
+          <div class="dp-label">AI Acceptable Use Policy</div>
+          <div class="dp-sub">What staff can and cannot use AI for</div>
+        </div>
+        <div class="doc-preview-card">
+          <div class="dp-icon">🤖</div>
+          <div class="dp-label">Claude Model Governance Policy</div>
+          <div class="dp-sub">Controls for LLM usage across your organisation</div>
+        </div>
+        <div class="doc-preview-card">
+          <div class="dp-icon">🛡️</div>
+          <div class="dp-label">AI Risk &amp; Incident Response</div>
+          <div class="dp-sub">How to detect, respond to, and remediate AI failures</div>
+        </div>
+        <div class="doc-preview-card">
+          <div class="dp-icon">🔒</div>
+          <div class="dp-label">Data Privacy &amp; AI Processing</div>
+          <div class="dp-sub">GDPR and data handling requirements for AI systems</div>
+        </div>
+        <div class="doc-preview-card">
+          <div class="dp-icon">⚖️</div>
+          <div class="dp-label">AI Ethics &amp; Bias Guidelines</div>
+          <div class="dp-sub">Principles for fair, transparent and accountable AI</div>
+        </div>
+      </div>
+
+      <div class="welcome-cta">
+        <button class="btn-primary" onclick="showScreen(1)">Generate My Pack →</button>
+        <span class="cta-small">Free. No credit card. Takes 3 minutes.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 1 — Organisation Profile
+  ═══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-1">
+    <div class="card-wrap">
+      <div class="step-label"><span class="step-dot"></span>Step 1 of 4</div>
+      <h2 class="s-h2">Tell us about your <span class="gt">organisation</span></h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:28px;font-family:var(--fb)">This information will be woven directly into your policy documents.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="org-name">Organisation Name *</label>
+          <input class="form-input" type="text" id="org-name" placeholder="e.g. Meridian Capital Ltd"/>
+          <div class="form-error" id="err-org-name">Please enter your organisation name.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="your-name">Your Name *</label>
+          <input class="form-input" type="text" id="your-name" placeholder="e.g. Sarah Chen"/>
+          <div class="form-error" id="err-your-name">Please enter your name.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="your-email">Your Email *</label>
+        <input class="form-input" type="email" id="your-email" placeholder="e.g. sarah@example.com"/>
+        <div class="form-error" id="err-your-email">Please enter a valid email address.</div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="industry">Industry *</label>
+          <select class="form-select" id="industry">
+            <option value="">Select industry...</option>
+            <option value="Financial Services">Financial Services</option>
+            <option value="Legal &amp; Professional Services">Legal &amp; Professional Services</option>
+            <option value="Healthcare &amp; Life Sciences">Healthcare &amp; Life Sciences</option>
+            <option value="Technology &amp; SaaS">Technology &amp; SaaS</option>
+            <option value="Manufacturing &amp; Industrial">Manufacturing &amp; Industrial</option>
+            <option value="Retail &amp; Consumer">Retail &amp; Consumer</option>
+            <option value="Government &amp; Public Sector">Government &amp; Public Sector</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="form-error" id="err-industry">Please select your industry.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="org-size">Organisation Size *</label>
+          <select class="form-select" id="org-size">
+            <option value="">Select size...</option>
+            <option value="1–50 employees">1–50 employees</option>
+            <option value="51–200 employees">51–200 employees</option>
+            <option value="201–1,000 employees">201–1,000 employees</option>
+            <option value="1,001–5,000 employees">1,001–5,000 employees</option>
+            <option value="5,000+ employees">5,000+ employees</option>
+          </select>
+          <div class="form-error" id="err-org-size">Please select your organisation size.</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="validateScreen1()">Next →</button>
+        <button class="btn-ghost" onclick="showScreen(0)">← Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 2 — AI Use Cases
+  ═══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-2">
+    <div class="card-wrap">
+      <div class="step-label"><span class="step-dot"></span>Step 2 of 4</div>
+      <h2 class="s-h2">How are you using <span class="gt">AI today?</span></h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:24px;font-family:var(--fb)">Select all that apply</p>
+
+      <div class="checkbox-grid" id="use-cases-grid">
+        <div class="check-card" data-value="Document drafting &amp; summarisation" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">📝</span>
+          <span class="check-label">Document drafting &amp; summarisation</span>
+        </div>
+        <div class="check-card" data-value="Customer-facing chatbots or assistants" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">💬</span>
+          <span class="check-label">Customer-facing chatbots or assistants</span>
+        </div>
+        <div class="check-card" data-value="Research &amp; data analysis" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">🔍</span>
+          <span class="check-label">Research &amp; data analysis</span>
+        </div>
+        <div class="check-card" data-value="Code generation &amp; development" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">💻</span>
+          <span class="check-label">Code generation &amp; development</span>
+        </div>
+        <div class="check-card" data-value="Email &amp; communication drafting" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">📧</span>
+          <span class="check-label">Email &amp; communication drafting</span>
+        </div>
+        <div class="check-card" data-value="Reporting &amp; business intelligence" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">📊</span>
+          <span class="check-label">Reporting &amp; business intelligence</span>
+        </div>
+        <div class="check-card" data-value="Legal document review" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">⚖️</span>
+          <span class="check-label">Legal document review</span>
+        </div>
+        <div class="check-card" data-value="Clinical or patient-facing workflows" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">🏥</span>
+          <span class="check-label">Clinical or patient-facing workflows</span>
+        </div>
+        <div class="check-card" data-value="Agentic / automated workflows" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">🤖</span>
+          <span class="check-label">Agentic / automated workflows</span>
+        </div>
+        <div class="check-card" data-value="Internal knowledge bases &amp; search" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-icon">🛠️</span>
+          <span class="check-label">Internal knowledge bases &amp; search</span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="showScreen(3)">Next →</button>
+        <button class="btn-ghost" onclick="showScreen(1)">← Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 3 — Compliance & Risk
+  ═══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-3">
+    <div class="card-wrap">
+      <div class="step-label"><span class="step-dot"></span>Step 3 of 4</div>
+      <h2 class="s-h2">Compliance &amp; <span class="gt">risk context</span></h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:24px;font-family:var(--fb)">This shapes the compliance language throughout your documents.</p>
+
+      <div class="section-label">Which frameworks apply to your organisation?</div>
+      <div class="fw-grid" id="frameworks-grid">
+        <div class="fw-chip" data-value="GDPR" onclick="toggleFw(this)">GDPR</div>
+        <div class="fw-chip" data-value="Australian Privacy Act" onclick="toggleFw(this)">Australian Privacy Act</div>
+        <div class="fw-chip" data-value="HIPAA" onclick="toggleFw(this)">HIPAA</div>
+        <div class="fw-chip" data-value="SOC 2" onclick="toggleFw(this)">SOC 2</div>
+        <div class="fw-chip" data-value="ISO 27001" onclick="toggleFw(this)">ISO 27001</div>
+        <div class="fw-chip" data-value="PCI-DSS" onclick="toggleFw(this)">PCI-DSS</div>
+        <div class="fw-chip" data-value="None currently" onclick="toggleFw(this)">None currently</div>
+      </div>
+
+      <div class="section-label">How sensitive is the data your AI systems process?</div>
+      <div class="radio-group" id="data-sensitivity">
+        <div class="radio-card" data-value="Low" onclick="selectRadio(this,'data-sensitivity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Low</div>
+            <div class="radio-sub">Public or non-sensitive data only</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Medium" onclick="selectRadio(this,'data-sensitivity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Medium</div>
+            <div class="radio-sub">Internal business data</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="High" onclick="selectRadio(this,'data-sensitivity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">High</div>
+            <div class="radio-sub">Personal or confidential data</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Critical" onclick="selectRadio(this,'data-sensitivity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Critical</div>
+            <div class="radio-sub">Regulated or highly sensitive data (e.g. health records, financial PII)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">How would you describe your organisation's risk appetite for AI?</div>
+      <div class="radio-group" id="risk-appetite">
+        <div class="radio-card" data-value="Conservative" onclick="selectRadio(this,'risk-appetite')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Conservative</div>
+            <div class="radio-sub">Strict controls, human review of all AI outputs</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Balanced" onclick="selectRadio(this,'risk-appetite')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Balanced</div>
+            <div class="radio-sub">Controls with measured autonomy where appropriate</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Progressive" onclick="selectRadio(this,'risk-appetite')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Progressive</div>
+            <div class="radio-sub">Embrace innovation, manage risks pragmatically</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="validateScreen3()">Next →</button>
+        <button class="btn-ghost" onclick="showScreen(2)">← Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 4 — Existing Policies
+  ═══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-4">
+    <div class="card-wrap">
+      <div class="step-label"><span class="step-dot"></span>Step 4 of 4</div>
+      <h2 class="s-h2">What do you have <span class="gt">in place today?</span></h2>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:24px;font-family:var(--fb)">We'll tailor the framing of your documents to your current baseline.</p>
+
+      <div class="section-label">Select all that apply</div>
+      <div class="policy-check-grid" id="existing-policies">
+        <div class="policy-check-card check-card" data-value="Acceptable use policy for general IT" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-label">✅ &nbsp;We have an acceptable use policy for general IT</span>
+        </div>
+        <div class="policy-check-card check-card" data-value="Data privacy / GDPR policy" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-label">✅ &nbsp;We have a data privacy / GDPR policy</span>
+        </div>
+        <div class="policy-check-card check-card" data-value="Information security policy" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-label">✅ &nbsp;We have an information security policy</span>
+        </div>
+        <div class="policy-check-card check-card" data-value="Started drafting AI-specific policies" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-label">✅ &nbsp;We have started drafting AI-specific policies</span>
+        </div>
+        <div class="policy-check-card check-card" data-value="None — starting from scratch" onclick="toggleCheck(this)">
+          <div class="check-box"><div class="check-box-check"></div></div>
+          <span class="check-label">✅ &nbsp;None of the above — starting from scratch</span>
+        </div>
+      </div>
+
+      <div class="section-label">What best describes your AI governance maturity?</div>
+      <div class="radio-group" id="ai-maturity">
+        <div class="radio-card" data-value="Just starting" onclick="selectRadio(this,'ai-maturity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Just starting</div>
+            <div class="radio-sub">No AI-specific policies in place</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Early stage" onclick="selectRadio(this,'ai-maturity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Early stage</div>
+            <div class="radio-sub">Informal guidelines, nothing formally documented</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Developing" onclick="selectRadio(this,'ai-maturity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Developing</div>
+            <div class="radio-sub">Some policies exist but not consistently enforced</div>
+          </div>
+        </div>
+        <div class="radio-card" data-value="Established" onclick="selectRadio(this,'ai-maturity')">
+          <div class="radio-circle"></div>
+          <div>
+            <div class="radio-label">Established</div>
+            <div class="radio-sub">Formal policies in place, actively governed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="validateScreen4()">Generate My Pack →</button>
+        <button class="btn-ghost" onclick="showScreen(3)">← Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 5 — Processing
+  ═══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-5">
+    <div class="processing-wrap">
+      <div class="spin-ring">
+        <div class="spin-ring-inner">📋</div>
+      </div>
+      <h2 class="proc-title">Building your governance pack...</h2>
+      <div class="proc-list">
+        <div class="proc-item" id="proc-1">
+          <div class="proc-check">1</div>
+          <span>Analysing your industry context</span>
+        </div>
+        <div class="proc-item" id="proc-2">
+          <div class="proc-check">2</div>
+          <span>Applying compliance framework requirements</span>
+        </div>
+        <div class="proc-item" id="proc-3">
+          <div class="proc-check">3</div>
+          <span>Calibrating for your risk profile</span>
+        </div>
+        <div class="proc-item" id="proc-4">
+          <div class="proc-check">4</div>
+          <span>Generating 5 policy documents</span>
+        </div>
+        <div class="proc-item" id="proc-5">
+          <div class="proc-check">5</div>
+          <span>Tailoring language for your organisation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SCREEN 6 — Results
+  ═══════════════════════════════════════════════ -->
+  <div class="screen" id="screen-6" style="padding:0;align-items:stretch">
+
+    <!-- Results nav (replaces main nav) -->
+    <nav class="g-nav" id="results-nav" style="display:none">
+      <a href="/" class="g-nav-logo">
+        <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
+      </a>
+      <button class="g-nav-back" onclick="restartTool()">← Start Over</button>
+    </nav>
+
+    <div class="results-header" id="results-header">
+      <div class="results-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span id="res-eyebrow">Your Governance Pack is Ready</span>
+      </div>
+      <h1 class="results-h1" id="res-h1">Organisation's AI Governance Framework</h1>
+      <p class="results-sub" id="res-sub">5 policy documents generated for your organisation.</p>
+      <div class="stat-badges">
+        <div class="stat-badge"><span>5</span> Documents</div>
+        <div class="stat-badge" id="res-fw-badge"><span>—</span> Frameworks</div>
+        <div class="stat-badge" id="res-risk-badge"><span>—</span> Risk Profile</div>
+      </div>
+    </div>
+
+    <div class="docs-wrap" id="docs-wrap">
+      <!-- Documents injected by JS -->
+    </div>
+
+    <div class="results-cta-section" id="results-cta">
+      <div class="results-cta-inner">
+        <h2 class="cta-h2">Get the Complete Editable Pack</h2>
+        <p class="cta-sub">Your preview contains the first two sections of each document. The full pack includes everything your team needs to implement AI governance from day one.</p>
+        <div class="cta-features">
+          <div class="cta-feature">All 5 policy documents in editable Word format</div>
+          <div class="cta-feature">Version-controlled templates with change history</div>
+          <div class="cta-feature">Implementation guide &amp; rollout checklist</div>
+          <div class="cta-feature">30-minute onboarding call with Fynaptix</div>
+          <div class="cta-feature">Staff training slide deck included</div>
+          <div class="cta-feature">6 months of policy update notifications</div>
+        </div>
+        <div class="cta-btns">
+          <a class="btn-primary" id="mailto-btn" href="#">Request Full Pack →</a>
+          <button class="btn-secondary" onclick="downloadPreview()">Download Preview PDF</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /#app -->
+
+<script>
+/* ════════════════════════════════════════════
+   STATE
+════════════════════════════════════════════ */
+let currentScreen = 0;
+const state = {
+  orgName:'', yourName:'', yourEmail:'', industry:'', orgSize:'',
+  useCases:[], frameworks:[], dataSensitivity:'', riskAppetite:'',
+  existingPolicies:[], aiMaturity:''
+};
+
+/* ════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+function showScreen(n){
+  document.getElementById('screen-'+currentScreen).classList.remove('active','fade-in');
+  currentScreen = n;
+  const s = document.getElementById('screen-'+n);
+  s.classList.add('active');
+  requestAnimationFrame(()=>s.classList.add('fade-in'));
+
+  const pw = document.getElementById('progress-wrap');
+  const pb = document.getElementById('progress-bar');
+  const mn = document.getElementById('main-nav');
+  const rn = document.getElementById('results-nav');
+
+  if(n === 0){
+    pw.style.display='none';
+    mn.style.display='flex';
+    rn.style.display='none';
+  } else if(n >= 1 && n <= 4){
+    pw.style.display='block';
+    pb.style.width = (n/4*100)+'%';
+    mn.style.display='flex';
+    rn.style.display='none';
+  } else if(n === 5){
+    pw.style.display='none';
+    mn.style.display='flex';
+    rn.style.display='none';
+    runProcessing();
+  } else if(n === 6){
+    pw.style.display='none';
+    mn.style.display='none';
+    rn.style.display='flex';
+    buildResults();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+
+function restartTool(){
+  // Reset state
+  Object.assign(state,{
+    orgName:'', yourName:'', yourEmail:'', industry:'', orgSize:'',
+    useCases:[], frameworks:[], dataSensitivity:'', riskAppetite:'',
+    existingPolicies:[], aiMaturity:''
+  });
+  // Clear form fields
+  ['org-name','your-name','your-email'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  ['industry','org-size'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  // Clear all checkboxes/radios
+  document.querySelectorAll('.check-card.selected,.fw-chip.selected,.radio-card.selected')
+    .forEach(el=>el.classList.remove('selected'));
+  showScreen(0);
+}
+
+/* ════════════════════════════════════════════
+   INTERACTIONS — checkboxes, radios, fw chips
+════════════════════════════════════════════ */
+function toggleCheck(el){
+  el.classList.toggle('selected');
+}
+
+function toggleFw(el){
+  el.classList.toggle('selected');
+}
+
+function selectRadio(el, groupId){
+  const group = document.getElementById(groupId);
+  group.querySelectorAll('.radio-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+/* ════════════════════════════════════════════
+   VALIDATION
+════════════════════════════════════════════ */
+function setError(inputId, errId, show){
+  const inp = document.getElementById(inputId);
+  const err = document.getElementById(errId);
+  if(show){ inp.classList.add('error'); err.style.display='block'; }
+  else { inp.classList.remove('error'); err.style.display='none'; }
+}
+
+function validateScreen1(){
+  const orgName = document.getElementById('org-name').value.trim();
+  const yourName = document.getElementById('your-name').value.trim();
+  const yourEmail = document.getElementById('your-email').value.trim();
+  const industry = document.getElementById('industry').value;
+  const orgSize = document.getElementById('org-size').value;
+
+  let valid = true;
+  setError('org-name','err-org-name', !orgName); if(!orgName) valid=false;
+  setError('your-name','err-your-name', !yourName); if(!yourName) valid=false;
+
+  const emailOk = yourEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(yourEmail);
+  setError('your-email','err-your-email', !emailOk); if(!emailOk) valid=false;
+
+  setError('industry','err-industry', !industry); if(!industry) valid=false;
+  setError('org-size','err-org-size', !orgSize); if(!orgSize) valid=false;
+
+  if(valid){
+    state.orgName = orgName;
+    state.yourName = yourName;
+    state.yourEmail = yourEmail;
+    state.industry = industry;
+    state.orgSize = orgSize;
+    showScreen(2);
+  }
+}
+
+function validateScreen3(){
+  // Collect state from screen 2 first (use cases)
+  state.useCases = [...document.querySelectorAll('#use-cases-grid .check-card.selected')]
+    .map(el=>el.dataset.value);
+
+  // frameworks
+  state.frameworks = [...document.querySelectorAll('#frameworks-grid .fw-chip.selected')]
+    .map(el=>el.dataset.value);
+
+  // sensitivity
+  const sensEl = document.querySelector('#data-sensitivity .radio-card.selected');
+  state.dataSensitivity = sensEl ? sensEl.dataset.value : '';
+
+  // risk appetite
+  const riskEl = document.querySelector('#risk-appetite .radio-card.selected');
+  state.riskAppetite = riskEl ? riskEl.dataset.value : '';
+
+  if(!state.dataSensitivity || !state.riskAppetite){
+    alert('Please select a data sensitivity level and risk appetite before continuing.');
+    return;
+  }
+  showScreen(4);
+}
+
+function validateScreen4(){
+  state.existingPolicies = [...document.querySelectorAll('#existing-policies .check-card.selected')]
+    .map(el=>el.dataset.value);
+
+  const matEl = document.querySelector('#ai-maturity .radio-card.selected');
+  state.aiMaturity = matEl ? matEl.dataset.value : '';
+
+  if(!state.aiMaturity){
+    alert('Please select your AI governance maturity level.');
+    return;
+  }
+  showScreen(5);
+}
+
+/* ════════════════════════════════════════════
+   PROCESSING ANIMATION
+════════════════════════════════════════════ */
+function runProcessing(){
+  const items = [1,2,3,4,5];
+  items.forEach((i,idx)=>{
+    setTimeout(()=>{
+      const el = document.getElementById('proc-'+i);
+      el.classList.add('done');
+      el.querySelector('.proc-check').textContent = '✓';
+    }, 400 + idx*420);
+  });
+  setTimeout(()=>showScreen(6), 2800);
+}
+
+/* ════════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════════ */
+function fwList(){ return state.frameworks.filter(f=>f!=='None currently'); }
+function fwStr(){
+  const fw = fwList();
+  return fw.length ? fw.join(', ') : 'general best-practice standards';
+}
+function riskWord(){
+  const r = state.riskAppetite||'Balanced';
+  if(r==='Conservative') return 'conservative';
+  if(r==='Progressive') return 'progressive';
+  return 'balanced';
+}
+function sensitivityNote(){
+  const s = state.dataSensitivity||'Medium';
+  if(s==='Critical') return 'highly regulated and critically sensitive';
+  if(s==='High') return 'personal and confidential';
+  if(s==='Low') return 'non-sensitive and publicly shareable';
+  return 'internal and moderately sensitive';
+}
+function today(){
+  const d = new Date('2026-05-12');
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+}
+function escHtml(str){
+  return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function useCaseSentence(){
+  const uc = state.useCases;
+  if(!uc.length) return 'general AI productivity use cases';
+  if(uc.length<=3) return uc.join(', ');
+  return uc.slice(0,3).join(', ')+' and '+(uc.length-3)+' other use case'+(uc.length-3>1?'s':'');
+}
+
+/* ════════════════════════════════════════════
+   DOCUMENT GENERATORS
+════════════════════════════════════════════ */
+function buildDoc1(){
+  const o=escHtml(state.orgName), ind=escHtml(state.industry), fw=escHtml(fwStr());
+  const permitted = state.useCases.length
+    ? state.useCases.map(u=>`<li>${escHtml(u)}</li>`).join('')
+    : `<li>Document drafting and summarisation with human review</li>
+       <li>Internal research and data analysis</li>
+       <li>Email and communication drafting</li>`;
+  const riskLang = state.riskAppetite==='Conservative'
+    ? 'All AI-generated outputs must be reviewed and approved by a qualified employee before use or distribution. No AI output may be presented as a final work product without explicit human sign-off.'
+    : state.riskAppetite==='Progressive'
+    ? 'AI-generated outputs may be used with proportionate human oversight calibrated to the risk level of the specific task. Staff are empowered to use their judgement when AI outputs are clearly accurate and within approved use cases.'
+    : 'AI-generated outputs must be reviewed by staff before external use or where the output informs significant decisions. Routine internal tasks may proceed with standard diligence.';
+  return `
+<div class="doc-card doc-card-type-1">
+  <div class="doc-header-bar">
+    <div class="doc-org-name">${o}</div>
+    <div class="doc-meta">
+      <div class="doc-confidential">CONFIDENTIAL</div>
+      <div class="doc-version">v1.0 &bull; ${today()}</div>
+    </div>
+  </div>
+  <div class="doc-content">
+    <div class="doc-title-row">
+      <span class="doc-type-icon">📋</span>
+      <span class="doc-title">AI Acceptable Use Policy</span>
+    </div>
+    <div class="doc-section-h">1. Purpose &amp; Scope</div>
+    <p class="doc-p">This Artificial Intelligence Acceptable Use Policy ("Policy") sets out the standards and expectations governing the use of AI-powered tools and services by all employees, contractors, and third parties acting on behalf of ${o}. It applies to all AI systems used in connection with ${o}'s ${ind} operations, whether accessed via approved enterprise platforms, personal accounts, or third-party integrations.</p>
+    <p class="doc-p">This Policy has been developed in response to the rapid proliferation of AI capabilities across the ${ind} sector and reflects ${o}'s commitment to deploying AI responsibly, in alignment with its obligations under ${fw} and in accordance with the risk management standards appropriate to an organisation of ${escHtml(state.orgSize||'our size')}. All personnel must read, understand, and comply with this Policy as a condition of continued access to AI tools.</p>
+
+    <div class="doc-section-h">2. Permitted Uses</div>
+    <p class="doc-p">The following uses of approved AI systems are permitted, subject to the oversight requirements set out in Section 4 of this Policy. ${riskLang}</p>
+    <ul class="doc-ul">${permitted}</ul>
+  </div>
+  <div class="doc-blur-wrap">
+    <div class="doc-blur-content">
+      <div class="doc-section-h">3. Prohibited Uses</div>
+      <p class="doc-p">The following activities are strictly prohibited when using AI tools at ${o}: processing data that would breach our obligations under ${fw}; using AI to generate content that misrepresents its origin to clients or regulators; using personal or unapproved AI accounts for business-related tasks; inputting proprietary client data into AI systems not covered by our data processing agreements.</p>
+      <div class="doc-section-h">4. Approval &amp; Oversight</div>
+      <p class="doc-p">New AI use cases must be submitted to the AI Governance Committee for review prior to deployment. The review process evaluates alignment with this Policy, data protection obligations, and operational risk.</p>
+      <div class="doc-section-h">5. Training Requirements</div>
+      <p class="doc-p">All staff using AI tools must complete the mandatory AI Literacy and Responsible Use training module within 30 days of joining and annually thereafter.</p>
+    </div>
+    <div class="doc-blur-overlay">
+      <div class="doc-lock-badge">
+        <div class="doc-lock-icon">🔒</div>
+        <div class="doc-lock-text">Full document included in the complete pack</div>
+        <div class="doc-lock-sub">Sections 3–6 plus implementation annexes</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-more-label">4 more sections in full document</div>
+</div>`;
+}
+
+function buildDoc2(){
+  const o=escHtml(state.orgName), ind=escHtml(state.industry), fw=escHtml(fwStr());
+  const conservativeClause = state.riskAppetite==='Conservative'
+    ? 'All Claude model interactions involving client data, regulated content, or external communications require a human-in-the-loop review step. Autonomous model responses are not permitted in externally facing contexts.'
+    : 'Claude model interactions may proceed with appropriate automated guardrails in place. Human review is required for externally facing communications and any output that informs consequential decisions.';
+  return `
+<div class="doc-card doc-card-type-2">
+  <div class="doc-header-bar">
+    <div class="doc-org-name">${o}</div>
+    <div class="doc-meta">
+      <div class="doc-confidential">CONFIDENTIAL</div>
+      <div class="doc-version">v1.0 &bull; ${today()}</div>
+    </div>
+  </div>
+  <div class="doc-content">
+    <div class="doc-title-row">
+      <span class="doc-type-icon">🤖</span>
+      <span class="doc-title">Claude Model Governance Policy</span>
+    </div>
+    <div class="doc-section-h cyan">1. Policy Statement</div>
+    <p class="doc-p">This Policy governs ${o}'s use of Anthropic's Claude large language models ("Claude"), including Claude 3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku, and any successor models made available through the Anthropic API, Amazon Bedrock, or authorised reseller partnerships. This Policy supplements the AI Acceptable Use Policy and is specific to the operational and governance requirements associated with deploying frontier AI models within a ${ind} context.</p>
+    <p class="doc-p">${o} recognises that Claude represents a materially capable AI system that can process and generate text at a quality indistinguishable from human output in many contexts. This capability creates both significant business opportunity and commensurate governance obligations. ${conservativeClause}</p>
+
+    <div class="doc-section-h cyan">2. Model Authorisation Register</div>
+    <p class="doc-p">The following Claude models and deployment contexts are currently authorised for use at ${o}. Any deployment not listed below requires prior approval from the AI Governance Lead.</p>
+    <table class="doc-table">
+      <thead><tr><th>Model</th><th>Approved Use Case</th><th>Data Classification</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Claude 3.5 Sonnet</td><td>Internal productivity, drafting, research</td><td>Internal / Confidential</td><td>✓ Approved</td></tr>
+        <tr><td>Claude 3 Haiku</td><td>High-volume automated classification tasks</td><td>Internal only</td><td>✓ Approved</td></tr>
+        <tr><td>Claude 3 Opus</td><td>Complex analysis, legal &amp; compliance review</td><td>Confidential / Restricted</td><td>Pending review</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="doc-blur-wrap">
+    <div class="doc-blur-content">
+      <div class="doc-section-h cyan">3. System Prompt &amp; Prompt Engineering Standards</div>
+      <p class="doc-p">All production Claude deployments must use reviewed and version-controlled system prompts. System prompts must not instruct Claude to override its constitutional AI guidelines or to act contrary to this Policy.</p>
+      <div class="doc-section-h cyan">4. API Key &amp; Access Management</div>
+      <p class="doc-p">Anthropic API keys must be stored in ${o}'s approved secrets management system. Keys must not be embedded in source code repositories or shared via email, messaging platforms, or ticketing systems.</p>
+    </div>
+    <div class="doc-blur-overlay">
+      <div class="doc-lock-badge">
+        <div class="doc-lock-icon">🔒</div>
+        <div class="doc-lock-text">Full document included in the complete pack</div>
+        <div class="doc-lock-sub">Sections 3–7 plus model evaluation framework</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-more-label">5 more sections in full document</div>
+</div>`;
+}
+
+function buildDoc3(){
+  const o=escHtml(state.orgName), ind=escHtml(state.industry);
+  const sens = state.dataSensitivity||'Medium';
+  const critNote = (sens==='Critical'||sens==='High')
+    ? 'Given the critical/high sensitivity of data processed at '+o+', all Tier 2 and above incidents require immediate escalation to the CISO and Data Protection Officer within 4 hours of detection.'
+    : 'Incidents involving personal data must be assessed for reportability under applicable data protection legislation within 72 hours of detection.';
+  return `
+<div class="doc-card doc-card-type-3">
+  <div class="doc-header-bar">
+    <div class="doc-org-name">${o}</div>
+    <div class="doc-meta">
+      <div class="doc-confidential">CONFIDENTIAL</div>
+      <div class="doc-version">v1.0 &bull; ${today()}</div>
+    </div>
+  </div>
+  <div class="doc-content">
+    <div class="doc-title-row">
+      <span class="doc-type-icon">🛡️</span>
+      <span class="doc-title">AI Risk &amp; Incident Response Policy</span>
+    </div>
+    <div class="doc-section-h orange">1. AI Risk Categories</div>
+    <p class="doc-p">This Policy establishes ${o}'s framework for identifying, classifying, and responding to risks and incidents arising from AI systems. Risk categories are defined as follows and are calibrated to the ${escHtml(sensitivityNote())} nature of data processed within ${o}'s ${ind} operations.</p>
+    <table class="doc-table">
+      <thead><tr><th>Risk Tier</th><th>Description</th><th>Examples</th><th>Response SLA</th></tr></thead>
+      <tbody>
+        <tr><td>Tier 1 — Low</td><td>Minor model errors with no material impact</td><td>Factual inaccuracies in internal drafts, hallucinated citations</td><td>72 hours</td></tr>
+        <tr><td>Tier 2 — Medium</td><td>Errors affecting business decisions or client outputs</td><td>Incorrect regulatory advice, biased recommendations surfaced to end-users</td><td>24 hours</td></tr>
+        <tr><td>Tier 3 — High</td><td>Significant harm to individuals, clients, or ${o}</td><td>Data leakage, discriminatory outputs, regulatory breaches</td><td>4 hours</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-h orange">2. Incident Classification &amp; Initial Triage</div>
+    <p class="doc-p">Any employee who identifies a potential AI incident must report it immediately to the AI Governance Lead via the designated AI Incident Register. The initial report must include: the AI system involved, the nature of the anomalous output or behaviour, the data classification of information involved, and the potential business or individual impact. ${critNote}</p>
+  </div>
+  <div class="doc-blur-wrap">
+    <div class="doc-blur-content">
+      <div class="doc-section-h orange">3. Investigation &amp; Remediation Process</div>
+      <p class="doc-p">Upon classification, the AI Governance Lead will convene an Incident Response Team including representatives from Technology, Legal, and the affected business unit.</p>
+      <div class="doc-section-h orange">4. Post-Incident Review</div>
+      <p class="doc-p">All Tier 2 and above incidents require a post-incident review report within 14 days, documenting root cause analysis, corrective actions, and policy updates.</p>
+    </div>
+    <div class="doc-blur-overlay">
+      <div class="doc-lock-badge">
+        <div class="doc-lock-icon">🔒</div>
+        <div class="doc-lock-text">Full document included in the complete pack</div>
+        <div class="doc-lock-sub">Sections 3–6 plus incident response playbook</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-more-label">4 more sections in full document</div>
+</div>`;
+}
+
+function buildDoc4(){
+  const o=escHtml(state.orgName), ind=escHtml(state.industry), fw=escHtml(fwStr());
+  const gdprNote = state.frameworks.includes('GDPR')
+    ? 'As a data controller subject to the General Data Protection Regulation (GDPR), '+o+' must ensure that all personal data processed by AI systems has a lawful basis under Article 6 GDPR (and Article 9 where special category data is involved). Automated decision-making that produces legal or similarly significant effects on data subjects requires an Article 22 compliance assessment prior to deployment.'
+    : 'All AI systems processing personal data must comply with applicable data protection legislation. Staff must not input personal data into AI systems without confirming that a valid data processing agreement and appropriate data classification authorisation are in place.';
+  return `
+<div class="doc-card doc-card-type-4">
+  <div class="doc-header-bar">
+    <div class="doc-org-name">${o}</div>
+    <div class="doc-meta">
+      <div class="doc-confidential">CONFIDENTIAL</div>
+      <div class="doc-version">v1.0 &bull; ${today()}</div>
+    </div>
+  </div>
+  <div class="doc-content">
+    <div class="doc-title-row">
+      <span class="doc-type-icon">🔒</span>
+      <span class="doc-title">Data Privacy &amp; AI Processing Policy</span>
+    </div>
+    <div class="doc-section-h indigo">1. Scope &amp; Regulatory Context</div>
+    <p class="doc-p">This Policy governs how ${o} handles personal and sensitive data when using AI systems and automated processing tools. It applies to all AI deployments across ${o}'s ${ind} operations and must be read in conjunction with ${o}'s overarching Data Protection Policy and Information Security Policy.</p>
+    <p class="doc-p">${gdprNote}</p>
+
+    <div class="doc-section-h indigo">2. Data Classification for AI Processing</div>
+    <p class="doc-p">Prior to submitting data to any AI system, staff must classify the data according to ${o}'s data classification schema. The following table defines permissible AI processing by classification level.</p>
+    <table class="doc-table">
+      <thead><tr><th>Classification</th><th>AI Processing Permitted</th><th>Additional Controls</th></tr></thead>
+      <tbody>
+        <tr><td>Public</td><td>Yes — all approved systems</td><td>None beyond standard logging</td></tr>
+        <tr><td>Internal</td><td>Yes — enterprise platforms only</td><td>DPA in place with vendor required</td></tr>
+        <tr><td>Confidential</td><td>Restricted — pre-approved use cases</td><td>Governance approval + audit trail</td></tr>
+        <tr><td>Restricted / Special Category</td><td>Prohibited without explicit authorisation</td><td>DPO sign-off + DPIA required</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="doc-blur-wrap">
+    <div class="doc-blur-content">
+      <div class="doc-section-h indigo">3. Data Retention &amp; AI Training Opt-Out</div>
+      <p class="doc-p">${o} must ensure that AI vendor agreements include provisions preventing the use of ${o} data for model training purposes unless explicitly authorised by the data owner and, where applicable, the data subjects themselves.</p>
+      <div class="doc-section-h indigo">4. Data Subject Rights &amp; AI</div>
+      <p class="doc-p">Where AI systems are used in processes that affect data subjects, ${o} must be able to fulfil data subject access requests, right to erasure requests, and objections to automated processing within statutory timescales.</p>
+    </div>
+    <div class="doc-blur-overlay">
+      <div class="doc-lock-badge">
+        <div class="doc-lock-icon">🔒</div>
+        <div class="doc-lock-text">Full document included in the complete pack</div>
+        <div class="doc-lock-sub">Sections 3–7 plus DPIA template</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-more-label">5 more sections in full document</div>
+</div>`;
+}
+
+function buildDoc5(){
+  const o=escHtml(state.orgName), ind=escHtml(state.industry);
+  const progressiveNote = state.riskAppetite==='Progressive'
+    ? 'As an organisation with a progressive AI risk appetite, '+o+' is committed to moving quickly while embedding ethics by design — not as a retrospective compliance exercise. Ethical reviews are integrated into the AI deployment lifecycle, not bolted on at the end.'
+    : 'As an organisation committed to responsible AI, '+o+' requires ethical review as a mandatory gate in the AI deployment lifecycle. No AI system that materially affects employees, customers, or third parties may be deployed without a completed AI Ethics Assessment.';
+  return `
+<div class="doc-card doc-card-type-5">
+  <div class="doc-header-bar">
+    <div class="doc-org-name">${o}</div>
+    <div class="doc-meta">
+      <div class="doc-confidential">CONFIDENTIAL</div>
+      <div class="doc-version">v1.0 &bull; ${today()}</div>
+    </div>
+  </div>
+  <div class="doc-content">
+    <div class="doc-title-row">
+      <span class="doc-type-icon">⚖️</span>
+      <span class="doc-title">AI Ethics &amp; Bias Guidelines</span>
+    </div>
+    <div class="doc-section-h emerald">1. Principles</div>
+    <p class="doc-p">These Guidelines establish the ethical principles that govern ${o}'s development and deployment of AI systems across its ${ind} operations. They are informed by internationally recognised AI ethics frameworks including the OECD Principles on AI, the EU AI Act, and Anthropic's responsible scaling commitments, and are tailored to the specific context and values of ${o}.</p>
+    <ul class="doc-ul">
+      <li><strong>Fairness:</strong> AI systems deployed by ${o} must not discriminate against individuals on the basis of protected characteristics. Where algorithmic decision-making is used, it must produce outcomes that are equitable and free from unjustified disparate impact.</li>
+      <li><strong>Transparency:</strong> ${o} will be transparent with employees, clients, and regulators about when and how AI is used in processes that affect them. AI-generated content presented to external parties must be clearly identified as such where material.</li>
+      <li><strong>Accountability:</strong> Every AI deployment at ${o} has a named accountable owner who is responsible for its performance, compliance, and ethical conduct. AI cannot substitute for human accountability.</li>
+      <li><strong>Human Oversight:</strong> ${o} maintains the principle that humans remain in meaningful control of consequential decisions, even where AI assists in the decision-making process. This is particularly critical in ${ind} contexts where outcomes affect livelihoods, safety, or legal rights.</li>
+    </ul>
+
+    <div class="doc-section-h emerald">2. Bias Assessment Requirements</div>
+    <p class="doc-p">${progressiveNote} Prior to deploying any AI system that makes or influences decisions about individuals — including recruitment, credit assessment, insurance pricing, clinical triage, or performance evaluation — ${o} must conduct a Bias Impact Assessment documenting: the training data sources and known limitations; demographic parity testing across relevant protected characteristics; the decision logic and any proxy variables used; and the remediation plan for any identified bias.</p>
+  </div>
+  <div class="doc-blur-wrap">
+    <div class="doc-blur-content">
+      <div class="doc-section-h emerald">3. Human Oversight Standards</div>
+      <p class="doc-p">The level of human oversight required is calibrated to the risk tier of each AI use case. Tier 3 systems require pre-approval by the AI Ethics Committee before deployment.</p>
+      <div class="doc-section-h emerald">4. Continuous Monitoring &amp; Model Drift</div>
+      <p class="doc-p">AI systems must be monitored for model drift, performance degradation, and emergent bias on at least a quarterly basis. The monitoring methodology must be documented in the AI System Registry.</p>
+    </div>
+    <div class="doc-blur-overlay">
+      <div class="doc-lock-badge">
+        <div class="doc-lock-icon">🔒</div>
+        <div class="doc-lock-text">Full document included in the complete pack</div>
+        <div class="doc-lock-sub">Sections 3–6 plus AI Ethics Assessment template</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-more-label">4 more sections in full document</div>
+</div>`;
+}
+
+/* ════════════════════════════════════════════
+   BUILD RESULTS
+════════════════════════════════════════════ */
+function buildResults(){
+  const o = state.orgName || 'Your Organisation';
+  const ind = state.industry || 'your industry';
+  const size = state.orgSize || '';
+  const fw = fwList();
+  const fwCount = fw.length || 0;
+  const risk = state.dataSensitivity || 'Medium';
+
+  // Header
+  document.getElementById('res-h1').textContent = o + "'s AI Governance Framework";
+  document.getElementById('res-sub').textContent =
+    '5 policy documents tailored to ' + ind + (size ? ', ' + size : '') + '. Generated ' + today() + '.';
+
+  document.getElementById('res-fw-badge').innerHTML =
+    '<span>'+(fwCount||0)+'</span> Framework'+(fwCount!==1?'s':'');
+  document.getElementById('res-risk-badge').innerHTML =
+    '<span>'+risk+'</span> Risk Profile';
+
+  // Mailto
+  const subject = encodeURIComponent('AI Governance Pack Request — ' + o);
+  const body = encodeURIComponent(
+    'Hi Fynaptix,\n\n' +
+    'I would like to receive the full AI Governance Pack generated for my organisation.\n\n' +
+    'Organisation: ' + o + '\n' +
+    'Contact: ' + (state.yourName||'') + ' (' + (state.yourEmail||'') + ')\n' +
+    'Industry: ' + ind + '\n' +
+    'Size: ' + size + '\n' +
+    'Risk Level: ' + risk + '\n' +
+    'Compliance Frameworks: ' + (fwList().join(', ')||'None specified') + '\n' +
+    'Risk Appetite: ' + (state.riskAppetite||'Not specified') + '\n' +
+    'AI Governance Maturity: ' + (state.aiMaturity||'Not specified') + '\n\n' +
+    'Please get in touch to discuss next steps.\n\nThanks'
+  );
+  document.getElementById('mailto-btn').href =
+    'mailto:hello@fynaptix.com?subject=' + subject + '&body=' + body;
+
+  // Documents
+  const wrap = document.getElementById('docs-wrap');
+  wrap.innerHTML =
+    buildDoc1() + buildDoc2() + buildDoc3() + buildDoc4() + buildDoc5();
+}
+
+/* ════════════════════════════════════════════
+   DOWNLOAD PREVIEW
+════════════════════════════════════════════ */
+function downloadPreview(){
+  const o = state.orgName || 'Organisation';
+  const win = window.open('', '_blank');
+  const docsHtml = document.getElementById('docs-wrap').innerHTML;
+
+  win.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>${escHtml(o)} — AI Governance Pack Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:#111;padding:40px;font-size:14px}
+h1{font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;margin-bottom:8px}
+.sub{color:#555;font-size:14px;margin-bottom:32px}
+.doc-card{border:1px solid #ddd;border-radius:12px;margin-bottom:32px;overflow:hidden;page-break-inside:avoid}
+.doc-card-type-1{border-left:4px solid #c025e8}
+.doc-card-type-2{border-left:4px solid #2ed0f5}
+.doc-card-type-3{border-left:4px solid #ff5f1f}
+.doc-card-type-4{border-left:4px solid #6366f1}
+.doc-card-type-5{border-left:4px solid #10b981}
+.doc-header-bar{background:#f5f5f5;padding:12px 20px;display:flex;justify-content:space-between;border-bottom:1px solid #eee;font-size:12px;font-family:'Outfit',sans-serif}
+.doc-org-name{font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#555}
+.doc-meta{display:flex;gap:16px;color:#888}
+.doc-confidential{color:#dc2626;font-weight:700;border:1px solid #fca5a5;border-radius:4px;padding:2px 6px}
+.doc-content{padding:24px}
+.doc-title-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.doc-type-icon{font-size:20px}
+.doc-title{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800}
+.doc-section-h{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#c025e8;margin:18px 0 8px}
+.doc-section-h.cyan{color:#0891b2}
+.doc-section-h.orange{color:#ea580c}
+.doc-section-h.indigo{color:#6366f1}
+.doc-section-h.emerald{color:#10b981}
+.doc-p{font-size:13px;color:#333;line-height:1.75;margin-bottom:10px}
+.doc-ul{margin:8px 0 12px;padding:0;list-style:none}
+.doc-ul li{font-size:13px;color:#333;line-height:1.6;display:flex;gap:8px;margin-bottom:4px}
+.doc-ul li::before{content:'→';color:#c025e8;font-family:'Outfit',sans-serif;font-weight:700;flex-shrink:0}
+.doc-table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:12px}
+.doc-table th{background:#f5f5f5;font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#666;padding:8px 12px;text-align:left;border-bottom:1px solid #ddd}
+.doc-table td{padding:8px 12px;border-bottom:1px solid #eee;color:#444;vertical-align:top}
+.doc-table td:first-child{font-weight:600;color:#111;font-family:'Outfit',sans-serif}
+.doc-blur-wrap{display:none}
+.doc-more-label{display:none}
+.footer{text-align:center;font-size:12px;color:#aaa;margin-top:40px;padding-top:20px;border-top:1px solid #eee}
+@media print{body{padding:20px}.doc-card{margin-bottom:24px}}
+</style>
+</head>
+<body>
+<h1>${escHtml(o)} — AI Governance Pack Preview</h1>
+<p class="sub">Generated by Fynaptix &bull; ${today()} &bull; For internal use. Request the full pack at hello@fynaptix.com</p>
+${docsHtml}
+<div class="footer">This is a preview document generated by the Fynaptix AI Governance Pack Generator. Full editable documents available via fynaptix.com &bull; hello@fynaptix.com</div>
+<script>window.print();<\/script>
+</body>
+</html>`);
+  win.document.close();
+}
+</script>
+</body>
+</html>
