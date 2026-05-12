@@ -4,6 +4,23 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
 
+// ── Free Tools dropdown ──
+function toggleDropdown(e) {
+  e.stopPropagation()
+  document.querySelector('.nav-dropdown').classList.toggle('open')
+}
+document.addEventListener('click', () => {
+  document.querySelector('.nav-dropdown')?.classList.remove('open')
+})
+
+// ── Mobile Free Tools submenu ──
+function toggleMobileTools() {
+  const sub = document.getElementById('mob-tools-sub')
+  const arrow = document.getElementById('mob-tools-arrow')
+  const open = sub.classList.toggle('open')
+  arrow.style.transform = open ? 'rotate(180deg)' : ''
+}
+
 // ── Hamburger menu ──
 const burger = document.getElementById('nav-burger');
 const mobileMenu = document.getElementById('nav-mobile');
