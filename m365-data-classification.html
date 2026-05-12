@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M365 Data Classification Planner — Fynaptix</title>
+<meta name="description" content="Design your Microsoft Purview sensitivity label taxonomy and DLP framework — tailored to your organisation's data types and regulatory obligations. Free tool by Fynaptix."/>
+<meta property="og:title" content="M365 Data Classification Planner — Fynaptix"/>
+<meta property="og:description" content="Generate a complete sensitivity label taxonomy, DLP policy framework, and implementation roadmap for Microsoft Purview — in minutes."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+/* ── Brand vars ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#8892a4;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.08);
+  --border-active:rgba(192,37,232,0.5);
+  --card:rgba(255,255,255,0.04);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#22c55e;
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --blue:#3b82f6;
+  --m365:#0078d4;
+  --purview:#7719aa;
+  --radius:16px;
+  --radius-sm:10px;
+  --lc-public:#22c55e;
+  --lc-internal:#3b82f6;
+  --lc-confidential:#f59e0b;
+  --lc-highly:#ef4444;
+}
+
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
+
+/* ── Background glow ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 5%,rgba(192,37,232,0.09) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 85%,rgba(46,208,245,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);
+}
+
+/* ── App wrapper ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+nav#main-nav{
+  position:sticky;top:0;left:0;right:0;z-index:500;
+  padding:0 48px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,.5))}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:9px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important;letter-spacing:.06em}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+.nav-dropdown{position:relative}
+.nav-dropdown-btn{background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-dropdown-btn:hover{color:#fff}
+.nav-dropdown-arrow{font-size:10px;transition:transform .2s}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);width:300px;background:rgba(8,13,26,.97);backdrop-filter:blur(24px);border:1px solid var(--border2);border-radius:14px;padding:8px;z-index:600;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:rgba(8,13,26,.97);border-left:1px solid var(--border2);border-top:1px solid var(--border2);rotate:45deg}
+.nav-dropdown.open .nav-dropdown-menu{display:block;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--text);transition:background .15s}
+.nav-dropdown-item:hover{background:rgba(255,255,255,.06)}
+.ndi-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center}
+.ndi-text{display:flex;flex-direction:column;gap:2px}
+.ndi-text strong{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
+.ndi-text span{font-size:11px;color:var(--muted)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:600}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(5,7,15,.97);backdrop-filter:blur(24px);z-index:499;overflow-y:auto;padding:16px 0 40px}
+.nav-mobile.open{display:block}
+.nav-mobile ul{list-style:none;padding:0}
+.nav-mobile ul li a{display:block;padding:12px 24px;font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:all .15s}
+.nav-mobile ul li a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.nav-mobile .nav-cta{margin:12px 24px 0;display:block;text-align:center;padding:12px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important}
+.mob-tools-parent{list-style:none}
+.mob-tools-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:none;border:none;color:rgba(232,237,248,.75);font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.mob-tools-btn:hover{background:rgba(255,255,255,.05);color:#fff}
+.mob-tools-arrow{font-size:10px;transition:transform .2s}
+.mob-tools-sub{display:none;list-style:none;padding:0 0 4px 12px}
+.mob-tools-sub.open{display:block}
+.mob-tools-sub li a{display:block;padding:10px 24px;font-family:var(--fd);font-size:13px;color:rgba(232,237,248,.65);text-decoration:none;border-radius:8px;letter-spacing:.03em;transition:all .15s}
+.mob-tools-sub li a:hover{background:rgba(255,255,255,.05);color:#fff}
+
+/* ════════════════════════════════════════
+   TOOL LAYOUT
+════════════════════════════════════════ */
+.tool-main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:48px 24px 100px;
+}
+
+/* ── Progress steps ── */
+.tool-progress{
+  width:100%;
+  max-width:680px;
+  margin-bottom:48px;
+}
+.progress-steps{display:flex;align-items:center;gap:0}
+.ps-item{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;position:relative}
+.ps-item::after{content:'';position:absolute;top:16px;left:calc(50% + 16px);right:calc(-50% + 16px);height:2px;background:var(--border2);transition:background .4s}
+.ps-item:last-child::after{display:none}
+.ps-item.completed::after{background:var(--grad-full)}
+.ps-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--border2);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:12px;font-weight:700;color:var(--muted);transition:all .3s;position:relative;z-index:1}
+.ps-item.active .ps-dot{border-color:var(--gm);background:rgba(192,37,232,0.15);color:#fff;box-shadow:0 0 16px rgba(192,37,232,0.4)}
+.ps-item.completed .ps-dot{border-color:var(--ge);background:rgba(46,208,245,0.15);color:var(--ge)}
+.ps-label{font-family:var(--fd);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;white-space:nowrap;transition:color .3s}
+.ps-item.active .ps-label{color:var(--text)}
+.ps-item.completed .ps-label{color:var(--ge)}
+
+/* ── Screens ── */
+.tool-screen{display:none;width:100%;max-width:760px;animation:screenIn .35s ease}
+.tool-screen.active{display:block}
+@keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Screen headers ── */
+.screen-header{margin-bottom:36px}
+.screen-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:24px;border:1px solid rgba(119,25,170,0.4);background:rgba(119,25,170,0.1);font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--purview);margin-bottom:20px}
+.screen-title{font-family:var(--fd);font-size:clamp(26px,3.5vw,38px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.screen-title .gt{background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.screen-subtitle{font-size:15px;color:var(--muted);line-height:1.65;max-width:580px}
+
+/* ── Welcome screen ── */
+.welcome-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0 40px}
+.wc-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 20px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s}
+.wc-card:hover{border-color:rgba(192,37,232,0.3)}
+.wc-icon{font-size:1.6rem;flex-shrink:0}
+.wc-title{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.wc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.welcome-meta{display:flex;align-items:center;gap:8px;font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.welcome-meta span{color:var(--ge)}
+
+/* ── Buttons ── */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:8px;background:var(--grad-full);color:#fff;font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,.4);opacity:.95}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;border:1px solid var(--border2);background:transparent;color:var(--text);font-family:var(--fd);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.screen-nav{display:flex;align-items:center;gap:12px;margin-top:40px}
+
+/* ── Question sections ── */
+.q-section{margin-bottom:28px}
+.q-label{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--text);margin-bottom:4px}
+.q-hint{font-size:12px;color:var(--muted);margin-bottom:14px}
+
+/* ── Radio cards ── */
+.radio-grid{display:grid;gap:10px}
+.radio-grid-2{grid-template-columns:repeat(2,1fr)}
+.radio-grid-5{grid-template-columns:repeat(5,1fr)}
+.radio-card{position:relative;cursor:pointer}
+.radio-card input[type=radio]{position:absolute;opacity:0;width:0;height:0}
+.rc-body{padding:14px 16px;background:var(--card);border:1px solid var(--border2);border-radius:10px;display:flex;align-items:center;gap:10px;transition:all .2s;cursor:pointer}
+.rc-body:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.radio-card input:checked + .rc-body{border-color:var(--gm);background:rgba(192,37,232,.1);box-shadow:0 0 0 1px rgba(192,37,232,.3) inset}
+.rc-dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.radio-card input:checked + .rc-body .rc-dot{border-color:var(--gm);background:var(--gm)}
+.rc-dot::after{content:'';display:none;width:6px;height:6px;background:#fff;border-radius:50%}
+.radio-card input:checked + .rc-body .rc-dot::after{display:block}
+.rc-text{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
+
+/* ── Industry radio grid ── */
+.radio-grid-industry{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+
+/* ── Checkbox cards ── */
+.checkbox-grid{display:grid;gap:10px}
+.checkbox-grid-3{grid-template-columns:repeat(3,1fr)}
+.checkbox-grid-2{grid-template-columns:repeat(2,1fr)}
+.checkbox-card{position:relative;cursor:pointer}
+.checkbox-card input[type=checkbox]{position:absolute;opacity:0;width:0;height:0}
+.cc-body{padding:16px;background:var(--card);border:1px solid var(--border2);border-radius:10px;display:flex;flex-direction:column;gap:8px;transition:all .2s;cursor:pointer;height:100%}
+.cc-body:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.checkbox-card input:checked + .cc-body{border-color:transparent;background:rgba(192,37,232,.1);box-shadow:0 0 0 1.5px var(--gm) inset,0 0 20px rgba(192,37,232,.15)}
+.cc-top{display:flex;align-items:center;gap:10px}
+.cc-icon{font-size:1.3rem;flex-shrink:0}
+.cc-name{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);flex:1}
+.cc-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;background:transparent;font-size:11px;color:transparent}
+.checkbox-card input:checked + .cc-body .cc-check{border-color:var(--gm);background:var(--gm);color:#fff}
+.cc-desc{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* Reg checkboxes (inline list style) */
+.reg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.reg-card{position:relative;cursor:pointer}
+.reg-card input[type=checkbox]{position:absolute;opacity:0;width:0;height:0}
+.reg-body{padding:12px 14px;background:var(--card);border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;gap:10px;transition:all .2s}
+.reg-body:hover{border-color:rgba(255,255,255,.2)}
+.reg-card input:checked + .reg-body{border-color:var(--m365);background:rgba(0,120,212,.1)}
+.reg-dot{width:16px;height:16px;border-radius:3px;border:2px solid var(--border2);flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent}
+.reg-card input:checked + .reg-body .reg-dot{border-color:var(--m365);background:var(--m365);color:#fff}
+.reg-label{font-family:var(--fd);font-size:12px;font-weight:600;color:var(--text)}
+
+/* ── Validation error ── */
+.val-error{display:none;font-size:12px;color:var(--red);font-family:var(--fd);font-weight:600;margin-top:8px;padding:8px 12px;background:rgba(239,68,68,.1);border-radius:6px;border:1px solid rgba(239,68,68,.2)}
+.val-error.visible{display:block}
+
+/* ── Processing screen ── */
+.processing-wrap{text-align:center;padding:60px 0}
+.processing-spinner{width:72px;height:72px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--gm);animation:spin 1s linear infinite;margin:0 auto 40px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.processing-title{font-family:var(--fd);font-size:22px;font-weight:700;margin-bottom:32px}
+.processing-steps{list-style:none;display:flex;flex-direction:column;gap:12px;text-align:left;max-width:400px;margin:0 auto}
+.proc-step{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border:1px solid var(--border2);border-radius:8px;font-family:var(--fd);font-size:13px;font-weight:500;color:var(--muted);opacity:0;transform:translateY(8px);transition:all .3s}
+.proc-step.visible{opacity:1;transform:translateY(0)}
+.proc-step.done{color:var(--text);border-color:rgba(46,208,245,.3);background:rgba(46,208,245,.05)}
+.proc-step-icon{width:20px;height:20px;border-radius:50%;background:var(--border2);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all .3s}
+.proc-step.done .proc-step-icon{background:rgba(46,208,245,.2);color:var(--ge)}
+
+/* ════════════════════════════════════════
+   RESULTS
+════════════════════════════════════════ */
+.results-wrap{width:100%;max-width:860px}
+
+.res-section{margin-bottom:48px}
+.res-section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border2)}
+.res-section-badge{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.res-section-badge.purview{background:rgba(119,25,170,.2)}
+.res-section-badge.dlp{background:rgba(0,120,212,.2)}
+.res-section-badge.road{background:rgba(46,208,245,.15)}
+.res-section-badge.ai{background:rgba(245,158,11,.15)}
+.res-section-title{font-family:var(--fd);font-size:18px;font-weight:800;color:var(--text)}
+.res-section-sub{font-family:var(--fd);font-size:12px;font-weight:500;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+/* ── Taxonomy tree ── */
+.taxonomy-tree{display:flex;flex-direction:column;gap:0}
+.tax-row{display:flex;align-items:flex-start;padding:14px 16px;background:var(--card);border:1px solid var(--border2);border-radius:0;transition:background .2s;margin-bottom:1px}
+.tax-row:first-child{border-radius:12px 12px 0 0}
+.tax-row:last-child{border-radius:0 0 12px 12px;margin-bottom:0}
+.tax-row:only-child{border-radius:12px}
+.tax-row:hover{background:rgba(255,255,255,.05)}
+.tax-row.sub{padding-left:40px;position:relative}
+.tax-row.sub::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.1)}
+.tax-row.sub::after{content:'';position:absolute;left:24px;top:50%;width:12px;height:2px;background:rgba(255,255,255,.1)}
+.tax-row.sub-last::before{height:50%;top:0;bottom:auto}
+.label-chip{width:8px;height:20px;border-radius:4px;flex-shrink:0;margin-right:12px;margin-top:2px}
+.tax-name{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);margin-right:12px;min-width:160px}
+.tax-code{font-family:'Courier New',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;padding:2px 8px;border-radius:4px;margin-right:12px;flex-shrink:0}
+.tax-code.pub{background:rgba(34,197,94,.15);color:var(--lc-public)}
+.tax-code.int{background:rgba(59,130,246,.15);color:var(--lc-internal)}
+.tax-code.conf{background:rgba(245,158,11,.15);color:var(--lc-confidential)}
+.tax-code.high{background:rgba(239,68,68,.15);color:var(--lc-highly)}
+.tax-desc{font-size:12px;color:var(--muted);flex:1;line-height:1.5}
+.tax-action{font-size:11px;font-family:var(--fd);font-weight:600;color:var(--text);text-align:right;white-space:nowrap;padding:2px 8px;background:rgba(255,255,255,.06);border-radius:4px;margin-left:8px;flex-shrink:0}
+
+/* ── DLP table ── */
+.dlp-table-wrap{border-radius:12px;border:1px solid var(--border2);overflow:hidden}
+.dlp-table{width:100%;border-collapse:collapse}
+.dlp-table th{background:rgba(255,255,255,.04);padding:12px 14px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border2)}
+.dlp-table td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;color:var(--text);vertical-align:top;line-height:1.4}
+.dlp-table tr:last-child td{border-bottom:none}
+.dlp-table tr:hover td{background:rgba(255,255,255,.02)}
+.priority-badge{display:inline-flex;padding:3px 10px;border-radius:20px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.priority-badge.critical{background:rgba(239,68,68,.15);color:#ef4444}
+.priority-badge.high{background:rgba(245,158,11,.15);color:#f59e0b}
+.priority-badge.medium{background:rgba(59,130,246,.15);color:#3b82f6}
+.policy-name{font-family:var(--fd);font-size:12px;font-weight:700;color:var(--text)}
+.policy-trigger{font-size:12px;color:var(--muted)}
+
+/* ── Roadmap phases ── */
+.phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.phase-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+.phase-header{display:flex;flex-direction:column;gap:6px}
+.phase-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;width:fit-content}
+.phase-badge.p1{background:rgba(46,208,245,.12);color:var(--ge)}
+.phase-badge.p2{background:rgba(192,37,232,.12);color:var(--gm)}
+.phase-badge.p3{background:rgba(255,95,31,.12);color:var(--gs)}
+.phase-title{font-family:var(--fd);font-size:15px;font-weight:800;color:var(--text)}
+.phase-weeks{font-family:var(--fd);font-size:11px;color:var(--muted);font-weight:500}
+.phase-tasks{display:flex;flex-direction:column;gap:8px}
+.phase-task{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--muted);line-height:1.5}
+.phase-task::before{content:'›';color:var(--ge);font-weight:700;flex-shrink:0;margin-top:1px}
+.phase-task.conditional{color:rgba(232,237,248,.55)}
+.phase-task.conditional::before{color:var(--gm)}
+
+/* ── AI callout ── */
+.ai-callout{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px}
+.ai-callout-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.ai-callout-title{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--amber);margin-bottom:6px}
+.ai-callout-text{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ── Fynaptix recommendation ── */
+.fyn-rec-card{border-radius:var(--radius);padding:2px;background:var(--grad-full);margin-bottom:32px}
+.fyn-rec-inner{background:var(--bg2);border-radius:calc(var(--radius) - 2px);padding:28px 32px;display:flex;flex-direction:column;gap:16px}
+.fyn-rec-eyebrow{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gm)}
+.fyn-rec-title{font-family:var(--fd);font-size:16px;font-weight:800;color:var(--text)}
+.fyn-rec-text{font-size:14px;color:var(--muted);line-height:1.65;max-width:600px}
+
+/* ── Download bar ── */
+.download-bar{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--card);border:1px solid var(--border2);border-radius:12px;margin-top:8px}
+.download-bar-text{flex:1}
+.download-bar-title{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
+.download-bar-sub{font-size:12px;color:var(--muted)}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  nav#main-nav{padding:0 24px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .phases-grid{grid-template-columns:1fr}
+  .checkbox-grid-3{grid-template-columns:repeat(2,1fr)}
+  .radio-grid-5{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .tool-main{padding:32px 16px 80px}
+  .welcome-cards{grid-template-columns:1fr}
+  .radio-grid-2{grid-template-columns:1fr}
+  .radio-grid-industry{grid-template-columns:1fr}
+  .checkbox-grid-2{grid-template-columns:1fr}
+  .checkbox-grid-3{grid-template-columns:1fr}
+  .reg-grid{grid-template-columns:repeat(2,1fr)}
+  .radio-grid-5{grid-template-columns:repeat(2,1fr)}
+  .dlp-table-wrap{overflow-x:auto}
+  .tax-row{flex-wrap:wrap}
+  .screen-nav{flex-direction:column;align-items:stretch}
+  .screen-nav .btn-ghost,.screen-nav .btn-primary{justify-content:center}
+}
+
+/* ════════════════════════════════════════
+   PRINT CSS
+════════════════════════════════════════ */
+@media print{
+  nav#main-nav,.nav-mobile,.screen-nav,.tool-progress,.download-bar,
+  #screen-welcome,#screen-profile,#screen-data,#screen-scope,#screen-processing,
+  .btn-primary,.btn-ghost,.fyn-rec-card{display:none!important}
+  body,html{background:#fff!important;color:#111!important}
+  body::before{display:none}
+  #app{display:block}
+  .tool-main{padding:0}
+  .tool-screen.active{display:block!important}
+  #screen-results{display:block!important}
+  .results-wrap{max-width:100%}
+  .print-header{display:block!important}
+  .tax-row{background:#f8f8f8!important;border:1px solid #ddd!important;break-inside:avoid}
+  .dlp-table th{background:#f0f0f0!important;color:#333!important}
+  .dlp-table td{color:#111!important}
+  .dlp-table tr:hover td{background:transparent!important}
+  .phases-grid{grid-template-columns:repeat(3,1fr)!important}
+  .phase-card{background:#f8f8f8!important;border:1px solid #ddd!important;break-inside:avoid}
+  .phase-task,.phase-task.conditional{color:#444!important}
+  .ai-callout{background:#fffbf0!important;border:1px solid #f59e0b!important;break-inside:avoid}
+  .ai-callout-text{color:#555!important}
+  .res-section-title{color:#111!important}
+  .priority-badge.critical{background:#fee2e2!important;color:#dc2626!important}
+  .priority-badge.high{background:#fef3c7!important;color:#d97706!important}
+  .priority-badge.medium{background:#dbeafe!important;color:#2563eb!important}
+  .tax-code.pub{background:#dcfce7!important;color:#16a34a!important}
+  .tax-code.int{background:#dbeafe!important;color:#2563eb!important}
+  .tax-code.conf{background:#fef3c7!important;color:#d97706!important}
+  .tax-code.high{background:#fee2e2!important;color:#dc2626!important}
+  .tax-name,.policy-name{color:#111!important}
+  .tax-desc,.policy-trigger{color:#555!important}
+  .tax-action{color:#111!important;background:#eee!important}
+}
+.print-header{display:none;margin-bottom:32px;padding-bottom:20px;border-bottom:2px solid #ddd}
+.print-header h1{font-size:22px;font-weight:800;color:#111;margin-bottom:4px}
+.print-header p{font-size:13px;color:#555}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ══ NAV ══ -->
+<nav id="main-nav">
+  <a class="nav-logo" href="/"><img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/></a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#usecases">Use Cases</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li class="nav-dropdown" id="nd-free">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+      </div>
+    </li>
+    <li class="nav-dropdown" id="nd-m365">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon">🏷️</span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
+      </div>
+    </li>
+    <li><a class="nav-cta" href="/#contact">Get Started</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="/#how" onclick="closeMobile()">How It Works</a></li>
+    <li><a href="/#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
+    <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-free-sub">
+        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+      </ul>
+    </li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-m365-sub">
+        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
+        <li><a href="m365-data-classification.html" onclick="closeMobile()">🏷️ Data Classification Planner</a></li>
+      </ul>
+    </li>
+    <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
+  </ul>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main class="tool-main">
+
+  <!-- Progress bar -->
+  <div class="tool-progress" id="tool-progress" style="display:none">
+    <div class="progress-steps">
+      <div class="ps-item active" id="ps-1">
+        <div class="ps-dot">1</div>
+        <div class="ps-label">Profile</div>
+      </div>
+      <div class="ps-item" id="ps-2">
+        <div class="ps-dot">2</div>
+        <div class="ps-label">Data Inventory</div>
+      </div>
+      <div class="ps-item" id="ps-3">
+        <div class="ps-dot">3</div>
+        <div class="ps-label">Scope</div>
+      </div>
+      <div class="ps-item" id="ps-4">
+        <div class="ps-dot">4</div>
+        <div class="ps-label">Results</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SCREEN 1: WELCOME ══ -->
+  <div class="tool-screen active" id="screen-welcome">
+    <div class="screen-header">
+      <div class="screen-eyebrow">🏷️ Microsoft Purview</div>
+      <h1 class="screen-title">M365 <span class="gt">Data Classification</span> Planner</h1>
+      <p class="screen-subtitle">Design your Microsoft Purview sensitivity label taxonomy and DLP framework — tailored to your organisation's data types and regulatory obligations.</p>
+    </div>
+
+    <div class="welcome-cards">
+      <div class="wc-card">
+        <div class="wc-icon">🏷️</div>
+        <div>
+          <div class="wc-title">Sensitivity Label Taxonomy</div>
+          <div class="wc-desc">A complete label hierarchy from Public to Highly Confidential, with sub-labels matched to your data types.</div>
+        </div>
+      </div>
+      <div class="wc-card">
+        <div class="wc-icon">🛡️</div>
+        <div>
+          <div class="wc-title">DLP Policy Framework</div>
+          <div class="wc-desc">Ready-to-deploy DLP policy recommendations mapped to each data type, with priority and enforcement actions.</div>
+        </div>
+      </div>
+      <div class="wc-card">
+        <div class="wc-icon">📋</div>
+        <div>
+          <div class="wc-title">Implementation Roadmap</div>
+          <div class="wc-desc">A phased 16-week rollout plan with conditional steps based on your current Purview state and app scope.</div>
+        </div>
+      </div>
+      <div class="wc-card">
+        <div class="wc-icon">📄</div>
+        <div>
+          <div class="wc-title">Downloadable Plan</div>
+          <div class="wc-desc">Export your complete classification plan as a print-ready PDF to share with your team or compliance team.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="welcome-meta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Estimated time: <span>~6 minutes</span>
+    </div>
+
+    <button class="btn-primary" onclick="startTool()">Build My Classification Plan &rarr;</button>
+  </div>
+
+  <!-- ══ SCREEN 2: ORGANISATION PROFILE ══ -->
+  <div class="tool-screen" id="screen-profile">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 1 of 3</div>
+      <h2 class="screen-title"><span class="gt">Organisation</span> Profile</h2>
+      <p class="screen-subtitle">Tell us about your organisation so we can tailor the label taxonomy and DLP policies to your context.</p>
+    </div>
+
+    <!-- Q1: Industry -->
+    <div class="q-section">
+      <div class="q-label">What industry are you in? <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">Select the closest match.</div>
+      <div class="radio-grid radio-grid-industry">
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Financial Services"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Financial Services</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Legal &amp; Professional Services"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Legal &amp; Professional Services</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Healthcare &amp; Life Sciences"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Healthcare &amp; Life Sciences</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Government &amp; Public Sector"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Government &amp; Public Sector</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Education"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Education</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Technology"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Technology</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Retail &amp; E-commerce"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Retail &amp; E-commerce</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Manufacturing"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Manufacturing</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Media &amp; Creative"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Media &amp; Creative</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="industry" value="Other"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Other</span></div>
+        </label>
+      </div>
+      <div class="val-error" id="err-industry">Please select your industry.</div>
+    </div>
+
+    <!-- Q2: Org size -->
+    <div class="q-section">
+      <div class="q-label">Organisation size <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">Total headcount across your organisation.</div>
+      <div class="radio-grid radio-grid-5">
+        <label class="radio-card">
+          <input type="radio" name="orgSize" value="1–50"/>
+          <div class="rc-body" style="justify-content:center"><div class="rc-dot"></div><span class="rc-text">1–50</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="orgSize" value="51–250"/>
+          <div class="rc-body" style="justify-content:center"><div class="rc-dot"></div><span class="rc-text">51–250</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="orgSize" value="251–1,000"/>
+          <div class="rc-body" style="justify-content:center"><div class="rc-dot"></div><span class="rc-text">251–1,000</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="orgSize" value="1,001–5,000"/>
+          <div class="rc-body" style="justify-content:center"><div class="rc-dot"></div><span class="rc-text">1,001–5,000</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="orgSize" value="5,000+"/>
+          <div class="rc-body" style="justify-content:center"><div class="rc-dot"></div><span class="rc-text">5,000+</span></div>
+        </label>
+      </div>
+      <div class="val-error" id="err-orgSize">Please select your organisation size.</div>
+    </div>
+
+    <!-- Q3: Regulatory obligations -->
+    <div class="q-section">
+      <div class="q-label">Regulatory obligations</div>
+      <div class="q-hint">Select all that apply to your organisation.</div>
+      <div class="reg-grid">
+        <label class="reg-card"><input type="checkbox" name="regulations" value="GDPR"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">GDPR (EU/UK)</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="Australian Privacy Act"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">Australian Privacy Act / APP</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="HIPAA"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">HIPAA (US Healthcare)</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="SOX"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">SOX (Financial)</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="PCI DSS"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">PCI DSS</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="ISO 27001"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">ISO 27001</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="NIST CSF"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">NIST CSF</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="FCA / APRA / FINRA"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">FCA / APRA / FINRA</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="None"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">None / Not sure</span></div></label>
+      </div>
+    </div>
+
+    <!-- Q4: Current classification state -->
+    <div class="q-section">
+      <div class="q-label">Current classification state <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">Where are you today with sensitivity labels in Microsoft Purview?</div>
+      <div class="radio-grid" style="gap:10px">
+        <label class="radio-card">
+          <input type="radio" name="currentState" value="no-labels"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">We have no labels configured</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="currentState" value="labels-not-enforced"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">We have some labels but they're not enforced</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="currentState" value="needs-redesign"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">We have labels but need to redesign them</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="currentState" value="need-dlp"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">We have a working framework — just need DLP policies</span></div>
+        </label>
+      </div>
+      <div class="val-error" id="err-currentState">Please select your current classification state.</div>
+    </div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost" onclick="goBack()">← Back</button>
+      <button class="btn-primary" onclick="nextFromProfile()">Continue: Data Inventory →</button>
+    </div>
+  </div>
+
+  <!-- ══ SCREEN 3: DATA INVENTORY ══ -->
+  <div class="tool-screen" id="screen-data">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 2 of 3</div>
+      <h2 class="screen-title">What <span class="gt">sensitive data</span> does your organisation handle?</h2>
+      <p class="screen-subtitle">Select all that apply — this shapes your label taxonomy and determines which DLP policies are included in your plan.</p>
+    </div>
+
+    <div class="checkbox-grid checkbox-grid-3" id="data-types-grid">
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="pii"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">👤</span><span class="cc-name">Personal Identifiable Information</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Names, addresses, ID numbers, DOBs</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="financial"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">💰</span><span class="cc-name">Financial Records</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Revenue data, bank accounts, P&amp;L</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="health"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">🏥</span><span class="cc-name">Health &amp; Medical Records</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Patient data, clinical information</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="legal"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">⚖️</span><span class="cc-name">Legal &amp; Privileged Documents</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Contracts, legal advice, litigation</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="hr"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">👥</span><span class="cc-name">HR &amp; People Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Salaries, performance reviews, disciplinary</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="ip"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">💡</span><span class="cc-name">Intellectual Property</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Source code, product designs, trade secrets</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="client"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">🤝</span><span class="cc-name">Client &amp; Customer Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">CRM data, engagement records</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="strategy"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">🎯</span><span class="cc-name">Strategic &amp; Board Documents</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Board papers, M&amp;A, investor materials</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="payment"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">💳</span><span class="cc-name">Payment Card Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Cardholder data, PAN, CVV</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="credentials"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">🔑</span><span class="cc-name">Credentials &amp; Access Keys</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Passwords, API keys, certificates</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="regulated"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">📜</span><span class="cc-name">Regulated Industry Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">Sector-specific compliance data</div>
+        </div>
+      </label>
+      <label class="checkbox-card">
+        <input type="checkbox" name="dataTypes" value="thirdparty"/>
+        <div class="cc-body">
+          <div class="cc-top"><span class="cc-icon">🔗</span><span class="cc-name">Third-Party Confidential</span><span class="cc-check">✓</span></div>
+          <div class="cc-desc">NDA'd supplier/partner information</div>
+        </div>
+      </label>
+    </div>
+    <div class="val-error" id="err-dataTypes" style="margin-top:12px">Please select at least one data type.</div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost" onclick="goToScreen('profile')">← Back</button>
+      <button class="btn-primary" onclick="nextFromData()">Continue: Scope →</button>
+    </div>
+  </div>
+
+  <!-- ══ SCREEN 4: SCOPE ══ -->
+  <div class="tool-screen" id="screen-scope">
+    <div class="screen-header">
+      <div class="screen-eyebrow">Step 3 of 3</div>
+      <h2 class="screen-title">Scope &amp; <span class="gt">Current Environment</span></h2>
+      <p class="screen-subtitle">Tell us which M365 apps are in scope and how your Purview environment is currently configured.</p>
+    </div>
+
+    <!-- Q1: Apps in scope -->
+    <div class="q-section">
+      <div class="q-label">Which M365 apps are in scope? <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">Select all that should be covered by your classification and DLP policies.</div>
+      <div class="checkbox-grid checkbox-grid-2">
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="Exchange Online"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">📧</span><span class="cc-name">Exchange Online</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="SharePoint Online"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">📁</span><span class="cc-name">SharePoint Online</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="OneDrive for Business"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">☁️</span><span class="cc-name">OneDrive for Business</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="Microsoft Teams"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">💬</span><span class="cc-name">Microsoft Teams</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="Power BI"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">📊</span><span class="cc-name">Power BI</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="Power Platform"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">⚡</span><span class="cc-name">Power Platform</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="Microsoft Copilot"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">🤖</span><span class="cc-name">Microsoft Copilot</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+        <label class="checkbox-card">
+          <input type="checkbox" name="appsInScope" value="Windows Endpoints"/>
+          <div class="cc-body">
+            <div class="cc-top"><span class="cc-icon">💻</span><span class="cc-name">Windows Endpoints</span><span class="cc-check">✓</span></div>
+          </div>
+        </label>
+      </div>
+      <div class="val-error" id="err-appsInScope">Please select at least one app.</div>
+    </div>
+
+    <!-- Q2: Current Purview usage -->
+    <div class="q-section">
+      <div class="q-label">Current Purview usage <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">How is Microsoft Purview configured in your tenant today?</div>
+      <div class="radio-grid" style="gap:10px">
+        <label class="radio-card">
+          <input type="radio" name="purviewState" value="not-at-all"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Not at all</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="purviewState" value="not-configured"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">We use it but it's not configured properly</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="purviewState" value="basic"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Basic configuration in place</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="purviewState" value="fully-deployed"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Fully deployed</span></div>
+        </label>
+      </div>
+      <div class="val-error" id="err-purviewState">Please select your current Purview usage.</div>
+    </div>
+
+    <!-- Q3: Third-party DLP -->
+    <div class="q-section">
+      <div class="q-label">Third-party DLP tools in use? <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">Do you use any additional DLP platforms alongside Microsoft Purview?</div>
+      <div class="radio-grid radio-grid-2">
+        <label class="radio-card">
+          <input type="radio" name="thirdPartyDLP" value="none"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">No, M365 only</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="thirdPartyDLP" value="Symantec/Broadcom"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Yes — Symantec/Broadcom</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="thirdPartyDLP" value="Forcepoint"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Yes — Forcepoint</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="thirdPartyDLP" value="Varonis"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Yes — Varonis</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="thirdPartyDLP" value="Other"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Yes — Other</span></div>
+        </label>
+      </div>
+      <div class="val-error" id="err-thirdPartyDLP">Please select a DLP option.</div>
+    </div>
+
+    <!-- Q4: AI in use -->
+    <div class="q-section">
+      <div class="q-label">AI currently in use? <span style="color:var(--red)">*</span></div>
+      <div class="q-hint">Is AI being used to access or process your M365 data?</div>
+      <div class="radio-grid radio-grid-2">
+        <label class="radio-card">
+          <input type="radio" name="aiUsage" value="not-yet"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Not yet</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="aiUsage" value="pilot"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Pilot stage</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="aiUsage" value="active"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Actively used by some teams</span></div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="aiUsage" value="widely"/>
+          <div class="rc-body"><div class="rc-dot"></div><span class="rc-text">Widely deployed</span></div>
+        </label>
+      </div>
+      <div class="val-error" id="err-aiUsage">Please select your AI usage.</div>
+    </div>
+
+    <div class="screen-nav">
+      <button class="btn-ghost" onclick="goToScreen('data')">← Back</button>
+      <button class="btn-primary" onclick="nextFromScope()">Generate My Plan →</button>
+    </div>
+  </div>
+
+  <!-- ══ SCREEN: PROCESSING ══ -->
+  <div class="tool-screen" id="screen-processing">
+    <div class="processing-wrap">
+      <div class="processing-spinner"></div>
+      <div class="processing-title">Building your classification plan…</div>
+      <ul class="processing-steps" id="proc-steps">
+        <li class="proc-step" id="proc-0"><span class="proc-step-icon">○</span> Analysing your regulatory profile…</li>
+        <li class="proc-step" id="proc-1"><span class="proc-step-icon">○</span> Mapping data types to label categories…</li>
+        <li class="proc-step" id="proc-2"><span class="proc-step-icon">○</span> Designing sensitivity label taxonomy…</li>
+        <li class="proc-step" id="proc-3"><span class="proc-step-icon">○</span> Building DLP policy recommendations…</li>
+        <li class="proc-step" id="proc-4"><span class="proc-step-icon">○</span> Mapping implementation phases…</li>
+        <li class="proc-step" id="proc-5"><span class="proc-step-icon">○</span> Generating your classification plan…</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ SCREEN 5: RESULTS ══ -->
+  <div class="tool-screen" id="screen-results">
+    <!-- Print header (hidden on screen) -->
+    <div class="print-header">
+      <h1>M365 Data Classification Plan</h1>
+      <p>Generated by Fynaptix — fynaptix.com &nbsp;|&nbsp; <span id="print-date"></span></p>
+    </div>
+
+    <div class="results-wrap">
+
+      <!-- Section A: Sensitivity Label Taxonomy -->
+      <div class="res-section">
+        <div class="res-section-header">
+          <div class="res-section-badge purview">🏷️</div>
+          <div class="res-section-title">Sensitivity Label Taxonomy</div>
+          <div class="res-section-sub" id="label-count-badge"></div>
+        </div>
+        <div class="taxonomy-tree" id="taxonomy-tree"></div>
+      </div>
+
+      <!-- Section B: DLP Policy Recommendations -->
+      <div class="res-section">
+        <div class="res-section-header">
+          <div class="res-section-badge dlp">🛡️</div>
+          <div class="res-section-title">DLP Policy Recommendations</div>
+          <div class="res-section-sub" id="dlp-count-badge"></div>
+        </div>
+        <div class="dlp-table-wrap">
+          <table class="dlp-table">
+            <thead>
+              <tr>
+                <th>Policy Name</th>
+                <th>Triggers On</th>
+                <th>Applies To</th>
+                <th>Action</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody id="dlp-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section C: Implementation Roadmap -->
+      <div class="res-section">
+        <div class="res-section-header">
+          <div class="res-section-badge road">📋</div>
+          <div class="res-section-title">Implementation Roadmap</div>
+        </div>
+        <div class="phases-grid" id="phases-grid"></div>
+      </div>
+
+      <!-- Section D: AI Readiness Note -->
+      <div class="res-section" id="ai-readiness-section" style="display:none">
+        <div class="ai-callout">
+          <div class="ai-callout-icon">⚠️</div>
+          <div>
+            <div class="ai-callout-title">AI Readiness: Classification First</div>
+            <div class="ai-callout-text">Classification is the foundation of safe AI deployment. Before Claude or Copilot can safely access your data, every document and dataset it can reach should carry a sensitivity label. Without classification, AI tools cannot distinguish public-facing content from board-level confidential material. Your roadmap prioritises this before expanding AI access.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section E: Fynaptix Recommendation -->
+      <div class="res-section">
+        <div class="fyn-rec-card">
+          <div class="fyn-rec-inner">
+            <div class="fyn-rec-eyebrow">Fynaptix Recommendation</div>
+            <div class="fyn-rec-title" id="fyn-rec-title"></div>
+            <div class="fyn-rec-text" id="fyn-rec-text"></div>
+            <div>
+              <a href="/#contact" class="btn-primary" style="width:fit-content">Talk to an Expert &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="download-bar">
+          <div class="download-bar-text">
+            <div class="download-bar-title">Download your Classification Plan</div>
+            <div class="download-bar-sub">Exports as a print-ready PDF — share with your compliance team or use as a technical brief.</div>
+          </div>
+          <button class="btn-primary" onclick="window.print()">&#8595; Download Classification Plan</button>
+        </div>
+      </div>
+
+    </div><!-- /results-wrap -->
+  </div><!-- /screen-results -->
+
+</main>
+</div><!-- /app -->
+
+<script>
+/* ══════════════════════════════════════
+   NAV JS (inline — no main.js)
+══════════════════════════════════════ */
+function toggleDropdown(e) {
+  e.stopPropagation();
+  const dropdown = e.currentTarget.closest('.nav-dropdown');
+  const isOpen = dropdown.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  if (!isOpen) dropdown.classList.add('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+});
+const burger = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('nav-mobile');
+if (burger && mobileMenu) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+function closeMobile() {
+  if (burger) burger.classList.remove('open');
+  if (mobileMenu) mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleMobileSub(subId, arrowId) {
+  const sub = document.getElementById(subId);
+  const arrow = document.getElementById(arrowId);
+  if (!sub) return;
+  const open = sub.classList.toggle('open');
+  if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+/* ══════════════════════════════════════
+   STATE
+══════════════════════════════════════ */
+const state = {
+  industry: '',
+  orgSize: '',
+  regulations: [],
+  currentState: '',
+  dataTypes: [],
+  appsInScope: [],
+  purviewState: '',
+  thirdPartyDLP: '',
+  aiUsage: ''
+};
+
+/* ══════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════ */
+const screens = ['welcome','profile','data','scope','processing','results'];
+let currentScreen = 'welcome';
+
+function showScreen(id) {
+  document.querySelectorAll('.tool-screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  currentScreen = id;
+  window.scrollTo({top:0,behavior:'smooth'});
+  const prog = document.getElementById('tool-progress');
+  if (['profile','data','scope','results'].includes(id)) {
+    prog.style.display = 'block';
+    updateProgress(id);
+  } else {
+    prog.style.display = 'none';
+  }
+}
+
+function updateProgress(screen) {
+  const map = {profile:1, data:2, scope:3, results:4};
+  const step = map[screen] || 0;
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('ps-' + i);
+    el.classList.remove('active','completed');
+    if (i < step) el.classList.add('completed');
+    else if (i === step) el.classList.add('active');
+  }
+}
+
+function startTool() {
+  showScreen('profile');
+}
+
+function goBack() {
+  showScreen('welcome');
+}
+
+function goToScreen(id) {
+  showScreen(id);
+}
+
+/* ══════════════════════════════════════
+   VALIDATION HELPERS
+══════════════════════════════════════ */
+function getRadio(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : '';
+}
+
+function getCheckboxes(name) {
+  return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(e => e.value);
+}
+
+function showError(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('visible', show);
+}
+
+/* ══════════════════════════════════════
+   SCREEN TRANSITIONS
+══════════════════════════════════════ */
+function nextFromProfile() {
+  state.industry = getRadio('industry');
+  state.orgSize = getRadio('orgSize');
+  state.currentState = getRadio('currentState');
+  state.regulations = getCheckboxes('regulations');
+
+  let valid = true;
+  if (!state.industry) { showError('err-industry', true); valid = false; } else showError('err-industry', false);
+  if (!state.orgSize) { showError('err-orgSize', true); valid = false; } else showError('err-orgSize', false);
+  if (!state.currentState) { showError('err-currentState', true); valid = false; } else showError('err-currentState', false);
+
+  if (valid) showScreen('data');
+  else {
+    const firstErr = document.querySelector('.val-error.visible');
+    if (firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+function nextFromData() {
+  state.dataTypes = getCheckboxes('dataTypes');
+  if (state.dataTypes.length === 0) {
+    showError('err-dataTypes', true);
+    return;
+  }
+  showError('err-dataTypes', false);
+  showScreen('scope');
+}
+
+function nextFromScope() {
+  state.appsInScope = getCheckboxes('appsInScope');
+  state.purviewState = getRadio('purviewState');
+  state.thirdPartyDLP = getRadio('thirdPartyDLP');
+  state.aiUsage = getRadio('aiUsage');
+
+  let valid = true;
+  if (state.appsInScope.length === 0) { showError('err-appsInScope', true); valid = false; } else showError('err-appsInScope', false);
+  if (!state.purviewState) { showError('err-purviewState', true); valid = false; } else showError('err-purviewState', false);
+  if (!state.thirdPartyDLP) { showError('err-thirdPartyDLP', true); valid = false; } else showError('err-thirdPartyDLP', false);
+  if (!state.aiUsage) { showError('err-aiUsage', true); valid = false; } else showError('err-aiUsage', false);
+
+  if (!valid) {
+    const firstErr = document.querySelector('.val-error.visible');
+    if (firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+
+  showScreen('processing');
+  runProcessing();
+}
+
+/* ══════════════════════════════════════
+   PROCESSING ANIMATION
+══════════════════════════════════════ */
+function runProcessing() {
+  const steps = document.querySelectorAll('.proc-step');
+  steps.forEach(s => { s.classList.remove('visible','done'); s.querySelector('.proc-step-icon').textContent = '○'; });
+
+  let i = 0;
+  function showStep() {
+    if (i < steps.length) {
+      steps[i].classList.add('visible');
+      setTimeout(() => {
+        steps[i].classList.add('done');
+        steps[i].querySelector('.proc-step-icon').textContent = '✓';
+        i++;
+        setTimeout(showStep, 320);
+      }, 280);
+    } else {
+      setTimeout(() => {
+        buildResults();
+        showScreen('results');
+      }, 400);
+    }
+  }
+  setTimeout(showStep, 200);
+}
+
+/* ══════════════════════════════════════
+   RESULT BUILDERS
+══════════════════════════════════════ */
+
+/* ── Taxonomy ── */
+const CONF_SUB_MAP = {
+  pii:       { name:'Personal Data',         desc:'Names, addresses, national IDs, dates of birth',      action:'Access control + audit log' },
+  financial: { name:'Financial Data',        desc:'Revenue records, bank accounts, financial statements', action:'Access control + audit log' },
+  hr:        { name:'HR & People',           desc:'Salaries, performance reviews, disciplinary files',    action:'Restrict to HR team + audit' },
+  client:    { name:'Client Data',           desc:'CRM records, client engagement and contact data',      action:'Block external share + policy tip' },
+  thirdparty:{ name:'Third-Party Confidential',desc:'NDA\'d supplier and partner information',             action:'Encrypt + restrict forwarding' }
+};
+
+const HIGH_SUB_MAP = {
+  health:      { name:'Health Records',       desc:'Patient records, clinical data, PHI',                   action:'Block all external sharing + encrypt' },
+  legal:       { name:'Legal Privileged',     desc:'Legal advice, litigation, privileged communications',   action:'Block forward/print + encrypt' },
+  ip:          { name:'Intellectual Property',desc:'Source code, product designs, trade secrets',           action:'Block external share + encrypt' },
+  strategy:    { name:'Board & Executive',    desc:'Board papers, M&A documents, investor materials',       action:'Block + executive alert + encrypt' },
+  payment:     { name:'Payment Card Data',    desc:'Cardholder data, PAN, CVV, payment processing data',    action:'Block + alert security team' },
+  credentials: { name:'Credentials & Keys',  desc:'Passwords, API keys, certificates, access tokens',      action:'Block + alert immediately' },
+  regulated:   { name:'Regulated Data',       desc:'Sector-specific compliance and regulatory records',     action:'Block + compliance team alert' }
+};
+
+function buildTaxonomy() {
+  const dt = state.dataTypes;
+  const tree = document.getElementById('taxonomy-tree');
+  tree.innerHTML = '';
+
+  const rows = [];
+
+  // Public
+  rows.push({ level:'root', chip:'#22c55e', code:'PUBLIC', codeClass:'pub', name:'Public', desc:'No restrictions — safe for external sharing and public use', action:'No protection' });
+  // Internal
+  rows.push({ level:'root', chip:'#3b82f6', code:'INTERNAL', codeClass:'int', name:'Internal Use Only', desc:'Authenticated employee access required — not for external sharing', action:'Auth required' });
+  // Confidential
+  rows.push({ level:'root', chip:'#f59e0b', code:'CONFIDENTIAL', codeClass:'conf', name:'Confidential', desc:'Access control and audit logging required for all content', action:'Access control + audit' });
+
+  const confSubs = ['pii','financial','hr','client','thirdparty'].filter(k => dt.includes(k));
+  confSubs.forEach((k, idx) => {
+    const m = CONF_SUB_MAP[k];
+    const isLast = idx === confSubs.length - 1;
+    rows.push({ level:'sub', isLast, chip:'#f59e0b', code:'CONFIDENTIAL', codeClass:'conf', name:m.name, desc:m.desc, action:m.action });
+  });
+
+  // Highly Confidential
+  rows.push({ level:'root', chip:'#ef4444', code:'HIGHLY CONF.', codeClass:'high', name:'Highly Confidential', desc:'Encryption + strict access control + no external sharing permitted', action:'Encrypt + block external' });
+
+  const highSubs = ['health','legal','ip','strategy','payment','credentials','regulated'].filter(k => dt.includes(k));
+  highSubs.forEach((k, idx) => {
+    const m = HIGH_SUB_MAP[k];
+    const isLast = idx === highSubs.length - 1;
+    let desc = m.desc;
+    // Append regulation names for regulated data
+    if (k === 'regulated' && state.regulations.length > 0 && !state.regulations.includes('None')) {
+      desc += ' (' + state.regulations.join(', ') + ')';
+    }
+    rows.push({ level:'sub', isLast, chip:'#ef4444', code:'HIGHLY CONF.', codeClass:'high', name:m.name, desc, action:m.action });
+  });
+
+  let totalLabels = 0;
+  rows.forEach((r, idx) => {
+    const div = document.createElement('div');
+    let cls = 'tax-row';
+    if (r.level === 'sub') cls += ' sub';
+    if (r.level === 'sub' && r.isLast) cls += ' sub-last';
+    // First/last handling
+    if (idx === 0) cls += ' '; // will be handled by :first-child css
+    div.className = cls;
+    div.innerHTML = `
+      <div class="label-chip" style="background:${r.chip}"></div>
+      <span class="tax-name">${r.name}</span>
+      <span class="tax-code ${r.codeClass}">${r.code}</span>
+      <span class="tax-desc">${r.desc}</span>
+      <span class="tax-action">${r.action}</span>
+    `;
+    tree.appendChild(div);
+    totalLabels++;
+  });
+
+  document.getElementById('label-count-badge').textContent = totalLabels + ' labels';
+}
+
+/* ── DLP Table ── */
+const DLP_MAP = {
+  pii:        { name:'Block PII External Sharing',        trigger:'Personal identifiers (ID numbers, DOBs)',       apps:'SharePoint, OneDrive, Exchange',    action:'Block external + notify user',           priority:'high' },
+  financial:  { name:'Financial Data Email Warning',       trigger:'Financial keywords, account numbers',           apps:'Exchange, Teams',                    action:'Policy tip + manager notification',       priority:'medium' },
+  health:     { name:'Health Records — No External Sharing',trigger:'Medical record patterns, PHI',                apps:'All apps',                           action:'Block + incident report',                 priority:'high' },
+  payment:    { name:'Payment Card Data — Block & Alert',  trigger:'PAN patterns (16-digit card numbers)',          apps:'All apps',                           action:'Block + alert security team',             priority:'critical' },
+  credentials:{ name:'Credentials Detection — Block',     trigger:'API key patterns, password strings',            apps:'Exchange, Teams',                    action:'Block + alert',                           priority:'critical' },
+  legal:      { name:'Legal Privileged — Restricted Forwarding',trigger:'Legal keywords + privileged markers',     apps:'Exchange',                           action:'Block forward/print + encrypt',           priority:'high' },
+  ip:         { name:'IP — Internal Only',                 trigger:'Source code patterns, design file types',       apps:'SharePoint, OneDrive',               action:'Block external share',                    priority:'high' },
+  strategy:   { name:'Board Documents — Executive Only',  trigger:'Board paper keywords, M&A terms',              apps:'All apps',                           action:'Block + executive alert',                 priority:'critical' },
+  hr:         { name:'HR Data — HR Team Only',             trigger:'Salary, performance review patterns',           apps:'Exchange, SharePoint',               action:'Restrict to HR group + audit',            priority:'high' },
+  client:     { name:'Client Data — CRM Policy',          trigger:'CRM export patterns, client identifiers',       apps:'SharePoint, OneDrive',               action:'Block external + policy tip',             priority:'medium' },
+  regulated:  { name:'Regulated Data — Compliance Hold',  trigger:'Sector-specific identifiers',                   apps:'All apps',                           action:'Block + compliance team alert',           priority:'high' },
+  thirdparty: { name:'Third-Party NDA\'d Content',         trigger:'NDA keywords, supplier identifiers',            apps:'Exchange, SharePoint',               action:'Encrypt + forwarding restriction',         priority:'medium' }
+};
+
+const PRIORITY_ORDER = { critical:0, high:1, medium:2 };
+
+function buildDLPTable() {
+  const dt = state.dataTypes;
+  const tbody = document.getElementById('dlp-table-body');
+  tbody.innerHTML = '';
+
+  const policies = dt
+    .filter(k => DLP_MAP[k])
+    .map(k => ({ ...DLP_MAP[k], key:k }))
+    .sort((a,b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
+
+  policies.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><div class="policy-name">${p.name}</div></td>
+      <td><span class="policy-trigger">${p.trigger}</span></td>
+      <td><span style="font-size:12px;color:var(--muted)">${p.apps}</span></td>
+      <td><span style="font-size:12px;color:var(--text)">${p.action}</span></td>
+      <td><span class="priority-badge ${p.priority}">${p.priority.charAt(0).toUpperCase()+p.priority.slice(1)}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const critCount = policies.filter(p=>p.priority==='critical').length;
+  document.getElementById('dlp-count-badge').textContent = policies.length + ' policies';
+}
+
+/* ── Roadmap ── */
+function buildRoadmap() {
+  const dt = state.dataTypes;
+  const apps = state.appsInScope;
+  const ps = state.purviewState;
+  const cs = state.currentState;
+  const ai = state.aiUsage;
+  const hasCopilot = apps.includes('Microsoft Copilot');
+  const hasEndpoints = apps.includes('Windows Endpoints');
+  const hasPowerBI = apps.includes('Power BI');
+  const aiActive = ai !== 'not-yet';
+
+  // Phase 1
+  const p1Tasks = [
+    'Publish sensitivity labels in Microsoft Purview',
+    'Train pilot group (20–50 users) on manual labelling',
+    'Enable unified audit log for all label activity'
+  ];
+  const highRisk = ['payment','health','credentials'].filter(k => dt.includes(k));
+  if (highRisk.length > 0) {
+    p1Tasks.push('Configure auto-labelling for highest-risk data types: ' + highRisk.map(k => HIGH_SUB_MAP[k]?.name || k).join(', '));
+  }
+  if (cs === 'no-labels') {
+    p1Tasks.push('conditional:Run data discovery scan to identify unlabelled sensitive content');
+  }
+
+  // Phase 2
+  const p2Tasks = [
+    'Deploy DLP policies in simulation/test mode',
+    'Review false positive rates — tune keyword thresholds',
+    'Enforce DLP policies for highest-priority data types first',
+    'Apply default labels to SharePoint document libraries'
+  ];
+  if (hasEndpoints) p2Tasks.push('conditional:Deploy MIP client to Windows endpoints via Intune');
+  if (hasPowerBI) p2Tasks.push('conditional:Apply sensitivity labels to Power BI datasets and reports');
+
+  // Phase 3
+  const p3Tasks = [
+    'Review and tune DLP policy hit rates monthly',
+    'Configure Purview Data Map scanning for SharePoint/OneDrive',
+    'Classify all data accessible by AI tools before expanding AI access'
+  ];
+  if (hasCopilot || aiActive) {
+    p3Tasks.push('conditional:Define label-based access boundaries for Copilot/Claude — exclude Highly Confidential from AI access by default');
+  }
+  p3Tasks.push('Establish quarterly label review process');
+  p3Tasks.push('Implement classification coverage reporting for board/exec');
+
+  const phases = [
+    { badge:'p1', label:'Phase 1', title:'Foundation', weeks:'Weeks 1–4', tasks:p1Tasks },
+    { badge:'p2', label:'Phase 2', title:'Policy Deployment', weeks:'Weeks 5–10', tasks:p2Tasks },
+    { badge:'p3', label:'Phase 3', title:'AI Readiness & Governance', weeks:'Weeks 11–16', tasks:p3Tasks }
+  ];
+
+  const grid = document.getElementById('phases-grid');
+  grid.innerHTML = '';
+
+  phases.forEach(ph => {
+    const card = document.createElement('div');
+    card.className = 'phase-card';
+    const tasksHtml = ph.tasks.map(t => {
+      const conditional = t.startsWith('conditional:');
+      const text = conditional ? t.replace('conditional:','') : t;
+      return `<div class="phase-task${conditional?' conditional':''}">${text}</div>`;
+    }).join('');
+    card.innerHTML = `
+      <div class="phase-header">
+        <div class="phase-badge ${ph.badge}">${ph.label}</div>
+        <div class="phase-title">${ph.title}</div>
+        <div class="phase-weeks">${ph.weeks}</div>
+      </div>
+      <div class="phase-tasks">${tasksHtml}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* ── AI Readiness ── */
+function buildAIReadiness() {
+  const hasCopilot = state.appsInScope.includes('Microsoft Copilot');
+  const aiActive = state.aiUsage !== 'not-yet';
+  const section = document.getElementById('ai-readiness-section');
+  section.style.display = (hasCopilot || aiActive) ? 'block' : 'none';
+}
+
+/* ── Fynaptix Recommendation ── */
+function buildRecommendation() {
+  const ps = state.purviewState;
+  const isFromScratch = ps === 'not-at-all' || ps === 'not-configured';
+  const title = document.getElementById('fyn-rec-title');
+  const text = document.getElementById('fyn-rec-text');
+
+  if (isFromScratch) {
+    title.textContent = 'M365 Data Governance Sprint — Build from scratch in 6 weeks';
+    text.textContent = 'Your organisation needs to build Microsoft Purview from scratch. Our M365 Data Governance Sprint stands up your complete classification framework — labels, DLP policies, and auto-labelling — in 6 weeks, then moves straight into AI readiness.';
+  } else {
+    title.textContent = 'M365 AI Readiness Sprint — Close your gaps in 3–4 weeks';
+    text.textContent = 'You have the foundations in place. Our M365 AI Readiness Sprint closes your DLP gaps and gets your tenant classification-ready for AI deployment in 3–4 weeks.';
+  }
+}
+
+/* ── Print date ── */
+function setPrintDate() {
+  const d = new Date();
+  document.getElementById('print-date').textContent = 'Generated: ' + d.toLocaleDateString('en-GB', { day:'2-digit', month:'long', year:'numeric' });
+}
+
+/* ── Master build ── */
+function buildResults() {
+  buildTaxonomy();
+  buildDLPTable();
+  buildRoadmap();
+  buildAIReadiness();
+  buildRecommendation();
+  setPrintDate();
+}
+
+/* init */
+document.addEventListener('DOMContentLoaded', () => {
+  showScreen('welcome');
+});
+</script>
+</body>
+</html>
