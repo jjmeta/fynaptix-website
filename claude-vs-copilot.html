@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Claude vs Microsoft Copilot — AI Platform Comparison | Fynaptix</title>
+<meta name="description" content="Free interactive tool: Compare Claude AI vs Microsoft Copilot for your organisation. Get scored across 8 dimensions with a clear recommendation in 2 minutes."/>
+<meta property="og:title" content="Claude vs Microsoft Copilot — Platform Comparison | Fynaptix"/>
+<meta property="og:description" content="Answer 4 questions. We score both platforms across 8 dimensions and give you a clear, unbiased recommendation."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ── Brand variables ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#6b7a99;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --copilot:#0078d4;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Background glows ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 10%,rgba(192,37,232,0.11) 0%,transparent 60%),
+    radial-gradient(ellipse 55% 40% at 85% 80%,rgba(0,120,212,0.09) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%,rgba(46,208,245,0.05) 0%,transparent 60%);
+}
+
+/* ── App shell ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+.a-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  position:sticky;top:0;z-index:100;
+}
+.a-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.a-nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,0.5))}
+.a-nav-back{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,0.75);
+  text-decoration:none;transition:color .2s;
+}
+.a-nav-back:hover{color:#fff}
+.nav-btn-run{
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);border-radius:24px;
+  padding:8px 18px;background:rgba(46,208,245,0.07);cursor:pointer;
+  transition:all .2s;text-decoration:none;display:none;
+}
+.nav-btn-run:hover{background:rgba(46,208,245,0.14);border-color:rgba(46,208,245,0.5)}
+.nav-btn-run.visible{display:block}
+
+/* ── Progress bar ── */
+.progress-wrap{padding:0 48px;background:rgba(8,13,26,0.6);border-bottom:1px solid var(--border)}
+.progress-inner{max-width:860px;margin:0 auto;padding:14px 0;display:flex;flex-direction:column;gap:8px}
+.progress-label{font-family:var(--fd);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.progress-track{height:4px;background:var(--border2);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+/* ── Screen base ── */
+.screen{display:none;animation:fadeUp .45s ease both}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Container ── */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.container-sm{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* ══════════════════════════════════════
+   SCREEN 0 — WELCOME
+══════════════════════════════════════ */
+#screen-0{padding:60px 0 80px}
+.welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.eyebrow-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gs);border:1px solid rgba(255,95,31,0.35);border-radius:20px;
+  padding:6px 14px;background:rgba(255,95,31,0.08);margin-bottom:24px;
+}
+.welcome-h1{
+  font-family:var(--fd);font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.12;
+  letter-spacing:-.02em;margin-bottom:20px;
+}
+.h1-line1{display:block}
+.h1-claude{background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h1-copilot{color:var(--copilot)}
+.welcome-sub{font-size:17px;line-height:1.65;color:rgba(232,237,248,0.78);max-width:500px;margin-bottom:32px}
+.btn-start{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;
+  border:none;border-radius:12px;padding:16px 32px;cursor:pointer;
+  transition:opacity .2s,transform .2s;text-decoration:none;
+}
+.btn-start:hover{opacity:.88;transform:translateY(-1px)}
+.welcome-free{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* Platform preview cards */
+.platform-preview{display:flex;align-items:center;gap:12px}
+.platform-card{
+  flex:1;border-radius:var(--radius);padding:20px;
+  border:1px solid var(--border2);background:var(--bg3);position:relative;overflow:hidden;
+}
+.platform-card::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.15}
+.platform-card.claude-card{border-left:3px solid var(--gm)}
+.platform-card.claude-card::before{background:linear-gradient(135deg,rgba(255,95,31,0.3),rgba(192,37,232,0.3))}
+.platform-card.copilot-card{border-left:3px solid var(--copilot)}
+.platform-card.copilot-card::before{background:linear-gradient(135deg,rgba(0,120,212,0.3),rgba(0,120,212,0.1))}
+.pc-name{
+  font-family:var(--fd);font-size:18px;font-weight:800;margin-bottom:2px;
+}
+.pc-name-claude{background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.pc-name-copilot{color:var(--copilot)}
+.pc-by{font-size:12px;color:var(--muted);margin-bottom:14px}
+.pc-bullets{list-style:none;display:flex;flex-direction:column;gap:6px}
+.pc-bullets li{font-size:12px;color:rgba(232,237,248,0.8);display:flex;align-items:center;gap:6px}
+.pc-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.claude-card .pc-bullets li::before{background:var(--gm)}
+.copilot-card .pc-bullets li::before{background:var(--copilot)}
+.vs-badge{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:11px;font-weight:800;letter-spacing:.05em;
+  background:var(--bg2);border:1px solid;
+  border-image:linear-gradient(135deg,var(--gs),var(--gm),var(--copilot)) 1;
+  color:var(--text);
+}
+
+/* Trust badges */
+.trust-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.trust-badge{
+  display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(232,237,248,0.65);
+  background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 14px;
+}
+
+/* ══════════════════════════════════════
+   SCREENS 1–3 — FORM SCREENS
+══════════════════════════════════════ */
+.form-screen{padding:44px 0 80px}
+.form-h2{font-family:var(--fd);font-size:28px;font-weight:800;margin-bottom:6px;letter-spacing:-.02em}
+.form-sub{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.55}
+.form-section-label{font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:28px 0 14px}
+
+/* Form field */
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.field label{font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(232,237,248,0.6)}
+.field input,.field select{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:10px;
+  color:var(--text);font-family:var(--fb);font-size:15px;font-weight:400;
+  padding:12px 16px;outline:none;transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;
+}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a99' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.field input:focus,.field select:focus{border-color:rgba(192,37,232,0.5)}
+.field input.err,.field select.err{border-color:rgba(255,80,80,0.6)}
+.err-msg{font-size:12px;color:#ff5050;display:none}
+.err-msg.show{display:block}
+
+/* Use case grid */
+.uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.uc-card{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:14px 16px;cursor:pointer;transition:border-color .2s,background .2s;
+  display:flex;align-items:flex-start;gap:12px;user-select:none;
+}
+.uc-card:hover{border-color:rgba(192,37,232,0.35);background:rgba(192,37,232,0.05)}
+.uc-card.selected{border-color:rgba(192,37,232,0.6);background:rgba(192,37,232,0.1)}
+.uc-card.selected .uc-check{background:var(--gm);border-color:var(--gm)}
+.uc-check{
+  width:18px;height:18px;border-radius:4px;border:1.5px solid var(--border2);
+  flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.uc-check svg{display:none}
+.uc-card.selected .uc-check svg{display:block}
+.uc-icon{font-size:18px;flex-shrink:0}
+.uc-text{}
+.uc-title{font-family:var(--fd);font-size:14px;font-weight:600;margin-bottom:2px}
+.uc-desc{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* Radio cards */
+.radio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+.radio-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:8px}
+.radio-card{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:16px;cursor:pointer;transition:border-color .2s,background .2s;
+  display:flex;flex-direction:column;gap:6px;user-select:none;
+}
+.radio-card:hover{border-color:rgba(192,37,232,0.35);background:rgba(192,37,232,0.05)}
+.radio-card.selected{border-color:rgba(192,37,232,0.6);background:rgba(192,37,232,0.1)}
+.radio-icon{font-size:22px}
+.radio-title{font-family:var(--fd);font-size:14px;font-weight:700}
+.radio-desc{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* Nav buttons */
+.form-nav{display:flex;align-items:center;justify-content:space-between;margin-top:36px;gap:12px}
+.btn-next{
+  font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;
+  border:none;border-radius:10px;padding:14px 28px;cursor:pointer;
+  transition:opacity .2s,transform .2s;
+}
+.btn-next:hover{opacity:.88;transform:translateY(-1px)}
+.btn-back{
+  font-family:var(--fd);font-size:14px;font-weight:600;
+  background:transparent;border:1px solid var(--border2);border-radius:10px;
+  color:var(--muted);padding:14px 20px;cursor:pointer;transition:all .2s;
+}
+.btn-back:hover{border-color:var(--border2);color:var(--text)}
+.btn-compare{
+  font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+  background-size:200% auto;color:#fff;border:none;border-radius:10px;
+  padding:16px;cursor:pointer;transition:opacity .2s,background-position .4s;
+  width:100%;margin-top:16px;
+}
+.btn-compare:hover{opacity:.9;background-position:right center}
+.uc-err{font-size:13px;color:#ff5050;display:none;margin-top:-18px;margin-bottom:8px}
+.uc-err.show{display:block}
+
+/* ══════════════════════════════════════
+   SCREEN 4 — PROCESSING
+══════════════════════════════════════ */
+#screen-4{padding:80px 0;text-align:center}
+.processing-ring{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 32px;
+  background:conic-gradient(from 0deg,var(--gs),var(--gm),var(--ge),var(--gs));
+  animation:spin 1.2s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+}
+.processing-ring::after{
+  content:'';width:62px;height:62px;border-radius:50%;background:var(--bg);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.processing-h2{font-family:var(--fd);font-size:24px;font-weight:700;margin-bottom:32px}
+.tick-list{list-style:none;display:flex;flex-direction:column;gap:10px;text-align:left;display:inline-flex;min-width:280px}
+.tick-item{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted);opacity:0;transition:opacity .4s,color .4s}
+.tick-item.done{opacity:1;color:var(--ge)}
+.tick-icon{font-size:16px}
+
+/* ══════════════════════════════════════
+   SCREEN 5 — RESULTS
+══════════════════════════════════════ */
+#screen-5{padding:44px 0 80px}
+.results-container{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* Recommendation banner */
+.rec-banner{
+  border-radius:var(--radius);padding:32px 36px;margin-bottom:32px;
+  border:2px solid transparent;position:relative;overflow:hidden;
+}
+.rec-banner::before{content:'';position:absolute;inset:0;opacity:.07;pointer-events:none}
+.rec-banner.claude-win{border-color:var(--gm);background:rgba(192,37,232,0.08)}
+.rec-banner.claude-win::before{background:linear-gradient(135deg,var(--gs),var(--gm))}
+.rec-banner.copilot-win{border-color:var(--copilot);background:rgba(0,120,212,0.08)}
+.rec-banner.copilot-win::before{background:var(--copilot)}
+.rec-banner.hybrid-win{border-image:linear-gradient(90deg,var(--gs),var(--gm),var(--ge)) 1;background:rgba(192,37,232,0.06)}
+.rec-badge{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;
+  font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  border-radius:20px;padding:6px 14px;
+}
+.claude-win .rec-badge{background:rgba(192,37,232,0.2);color:var(--gm);border:1px solid rgba(192,37,232,0.4)}
+.copilot-win .rec-badge{background:rgba(0,120,212,0.2);color:var(--copilot);border:1px solid rgba(0,120,212,0.4)}
+.hybrid-win .rec-badge{background:rgba(46,208,245,0.15);color:var(--ge);border:1px solid rgba(46,208,245,0.35)}
+.rec-title{font-family:var(--fd);font-size:26px;font-weight:800;margin-bottom:8px}
+.rec-sub{font-size:15px;color:rgba(232,237,248,0.78);margin-bottom:18px;line-height:1.6}
+.rec-reasons{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rec-reasons li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:rgba(232,237,248,0.85)}
+.rec-reasons li::before{content:'→';font-weight:700;flex-shrink:0;margin-top:1px}
+.claude-win .rec-reasons li::before{color:var(--gm)}
+.copilot-win .rec-reasons li::before{color:var(--copilot)}
+.hybrid-win .rec-reasons li::before{color:var(--ge)}
+
+/* Scores row */
+.scores-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+.score-card{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:24px;text-align:center;
+}
+.score-label{font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.score-label-claude{color:var(--gm)}
+.score-label-copilot{color:var(--copilot)}
+.score-number{font-family:var(--fd);font-size:48px;font-weight:900;line-height:1}
+.score-number-claude{background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.score-number-copilot{color:var(--copilot)}
+.score-suffix{font-size:18px;color:var(--muted)}
+
+/* Results grid */
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+
+/* Chart card */
+.card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);padding:28px}
+.card-title{font-family:var(--fd);font-size:16px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.chart-wrap{position:relative;height:320px;width:100%}
+
+/* Comparison table */
+.comp-table-wrap{margin-bottom:32px}
+.comp-table{width:100%;border-collapse:collapse;font-size:14px}
+.comp-table th{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:10px 14px;text-align:left;
+  border-bottom:1px solid var(--border2);background:var(--bg2);
+}
+.comp-table td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:middle;line-height:1.4}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:hover td{background:rgba(255,255,255,0.02)}
+.td-dim{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
+.td-score{font-family:var(--fd);font-size:14px;font-weight:700}
+.td-score-claude{color:var(--gm)}
+.td-score-copilot{color:var(--copilot)}
+.td-winner-claude{
+  font-family:var(--fd);font-size:12px;font-weight:700;color:var(--gm);
+  background:rgba(192,37,232,0.12);border-radius:6px;padding:4px 10px;white-space:nowrap;
+}
+.td-winner-copilot{
+  font-family:var(--fd);font-size:12px;font-weight:700;color:var(--copilot);
+  background:rgba(0,120,212,0.12);border-radius:6px;padding:4px 10px;white-space:nowrap;
+}
+.td-winner-tie{
+  font-family:var(--fd);font-size:12px;font-weight:600;color:var(--muted);
+  background:rgba(255,255,255,0.04);border-radius:6px;padding:4px 10px;
+}
+.td-comment{font-size:12px;color:var(--muted);max-width:260px}
+
+/* TCO Section */
+.tco-card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);padding:28px;margin-bottom:32px}
+.tco-row{margin-bottom:20px}
+.tco-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.tco-name{font-family:var(--fd);font-size:14px;font-weight:700}
+.tco-name-claude{background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tco-name-copilot{color:var(--copilot)}
+.tco-amounts{font-size:13px;color:rgba(232,237,248,0.7)}
+.tco-track{height:10px;background:var(--bg2);border-radius:6px;overflow:hidden}
+.tco-fill{height:100%;border-radius:6px;transition:width 1s ease}
+.tco-fill-claude{background:linear-gradient(90deg,var(--gs),var(--gm))}
+.tco-fill-copilot{background:var(--copilot)}
+.tco-note{font-size:12px;color:var(--muted);margin-top:16px;border-top:1px solid var(--border);padding-top:14px}
+
+/* Key considerations */
+.consider-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.consider-card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);padding:24px}
+.consider-title{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.consider-title-claude{color:var(--gm)}
+.consider-title-copilot{color:var(--copilot)}
+.consider-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.consider-list li{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.5;color:rgba(232,237,248,0.8)}
+.consider-list li::before{content:'•';flex-shrink:0;margin-top:0;font-weight:700}
+.claude-list li::before{color:var(--gm)}
+.copilot-list li::before{color:var(--copilot)}
+
+/* CTA */
+.cta-card{
+  background:linear-gradient(135deg,rgba(192,37,232,0.1),rgba(0,120,212,0.1));
+  border:1px solid var(--border2);border-radius:var(--radius);
+  padding:40px;text-align:center;margin-bottom:32px;
+}
+.cta-h2{font-family:var(--fd);font-size:24px;font-weight:800;margin-bottom:10px;letter-spacing:-.02em}
+.cta-sub{font-size:15px;color:rgba(232,237,248,0.7);margin-bottom:28px;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-bottom:16px}
+.btn-dl{
+  font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;
+  border:none;border-radius:10px;padding:13px 24px;cursor:pointer;transition:opacity .2s;
+}
+.btn-dl:hover{opacity:.88}
+.btn-book{
+  font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.04em;
+  background:transparent;border:1px solid rgba(46,208,245,0.4);color:var(--ge);
+  border-radius:10px;padding:13px 24px;cursor:pointer;transition:all .2s;text-decoration:none;
+  display:inline-block;
+}
+.btn-book:hover{background:rgba(46,208,245,0.08)}
+.cta-link{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+.cta-link:hover{color:var(--ge)}
+
+/* ── Utility ── */
+.mt-8{margin-top:8px}
+.section-divider{height:1px;background:var(--border);margin:8px 0 28px}
+
+/* ── Mobile ── */
+@media(max-width:900px){
+  .a-nav{padding:0 20px}
+  .welcome-grid{grid-template-columns:1fr;gap:40px}
+  .platform-preview{flex-direction:column}
+  .vs-badge{display:none}
+  .results-grid{grid-template-columns:1fr}
+  .scores-row{grid-template-columns:1fr 1fr}
+  .consider-grid{grid-template-columns:1fr}
+  .radio-grid{grid-template-columns:1fr}
+  .progress-wrap{padding:0 20px}
+  .container,.container-sm,.results-container{padding:0 16px}
+}
+@media(max-width:640px){
+  .uc-grid{grid-template-columns:1fr}
+  .scores-row{grid-template-columns:1fr}
+  .radio-grid-2{grid-template-columns:1fr}
+  .form-nav{flex-direction:column-reverse}
+  .btn-back{width:100%;text-align:center}
+  .btn-next{width:100%;text-align:center}
+  #screen-0{padding:40px 0 60px}
+  .trust-badges{flex-direction:column}
+  .cta-btns{flex-direction:column;align-items:stretch}
+  .btn-dl,.btn-book{text-align:center}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- NAV -->
+  <nav class="a-nav">
+    <a href="/" class="a-nav-logo">
+      <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
+    </a>
+    <a href="/" class="a-nav-back" id="nav-back-link">&#8592; Back to Fynaptix</a>
+    <button class="nav-btn-run" id="nav-run-again" onclick="runAgain()">&#8592; Run Again</button>
+  </nav>
+
+  <!-- PROGRESS BAR (screens 1-3) -->
+  <div class="progress-wrap" id="progress-wrap" style="display:none">
+    <div class="progress-inner">
+      <div class="progress-label">
+        <span id="progress-text">Step 1 of 3</span>
+        <span id="progress-pct">33%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:33%"></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SCREEN 0 — WELCOME ══════════════ -->
+  <div class="screen active" id="screen-0">
+    <div class="container" style="padding-top:60px;padding-bottom:80px">
+      <div class="welcome-grid">
+        <!-- LEFT -->
+        <div>
+          <div class="eyebrow-badge">FREE TOOL &middot; AI PLATFORM COMPARISON</div>
+          <h1 class="welcome-h1">
+            <span class="h1-line1"><span class="h1-claude">Claude</span> vs <span class="h1-copilot">Copilot</span></span>
+            <span class="h1-line1" style="display:block;margin-top:4px">Which AI is Right for Your Organisation?</span>
+          </h1>
+          <p class="welcome-sub">Answer 4 quick questions. We'll score both platforms across 8 dimensions and give you a clear, unbiased recommendation tailored to your organisation.</p>
+          <button class="btn-start" onclick="goToScreen(1)">Start Comparison &rarr;</button>
+          <p class="welcome-free">Free. Unbiased. 2 minutes.</p>
+
+          <div class="trust-badges" style="margin-top:28px">
+            <div class="trust-badge">&#9878; Scores across 8 dimensions</div>
+            <div class="trust-badge">&#127919; Tailored to your use cases</div>
+            <div class="trust-badge">&#128202; Clear recommendation with rationale</div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+          <div class="platform-preview">
+            <!-- Claude card -->
+            <div class="platform-card claude-card">
+              <div class="pc-name pc-name-claude">Claude</div>
+              <div class="pc-by">by Anthropic</div>
+              <ul class="pc-bullets">
+                <li>Complex reasoning</li>
+                <li>Deep customisation</li>
+                <li>API-first architecture</li>
+              </ul>
+            </div>
+            <!-- VS badge -->
+            <div class="vs-badge">VS</div>
+            <!-- Copilot card -->
+            <div class="platform-card copilot-card">
+              <div class="pc-name pc-name-copilot">Microsoft Copilot</div>
+              <div class="pc-by">by Microsoft</div>
+              <ul class="pc-bullets">
+                <li>M365 native</li>
+                <li>Easy deployment</li>
+                <li>Familiar interface</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SCREEN 1 — ORG ══════════════ -->
+  <div class="screen" id="screen-1">
+    <div class="container-sm form-screen">
+      <h2 class="form-h2">Tell us about your organisation</h2>
+      <div class="section-divider"></div>
+
+      <div class="field">
+        <label for="org-name">Organisation Name <span style="color:#ff5050">*</span></label>
+        <input type="text" id="org-name" placeholder="e.g. Acme Corporation"/>
+        <span class="err-msg" id="org-name-err">Please enter your organisation name</span>
+      </div>
+
+      <div class="field">
+        <label for="industry">Industry</label>
+        <select id="industry">
+          <option value="">Select your industry…</option>
+          <option value="Financial Services">Financial Services</option>
+          <option value="Legal">Legal</option>
+          <option value="Healthcare">Healthcare</option>
+          <option value="Technology">Technology</option>
+          <option value="Professional Services">Professional Services</option>
+          <option value="Government & Public Sector">Government &amp; Public Sector</option>
+          <option value="Education">Education</option>
+          <option value="Retail & eCommerce">Retail &amp; eCommerce</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="org-size">Organisation Size</label>
+        <select id="org-size">
+          <option value="">Select size…</option>
+          <option value="under50">Under 50</option>
+          <option value="50to200">50–200</option>
+          <option value="200to1000">200–1,000</option>
+          <option value="1000to5000">1,000–5,000</option>
+          <option value="5000plus">5,000+</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="m365">Microsoft 365 Investment</label>
+        <select id="m365">
+          <option value="">Select…</option>
+          <option value="heavy">Heavy — M365 is core to how we work (Teams, SharePoint, Outlook daily)</option>
+          <option value="moderate">Moderate — We use M365 but also other tools</option>
+          <option value="light">Light — We use some M365 apps but not heavily</option>
+          <option value="minimal">Minimal — We barely use Microsoft products</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="using-copilot">Do you currently use Microsoft Copilot?</label>
+        <select id="using-copilot">
+          <option value="">Select…</option>
+          <option value="active">Yes, actively deployed</option>
+          <option value="pilot">Currently piloting</option>
+          <option value="evaluating">Evaluating it</option>
+          <option value="no">No, not using it</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="using-claude">Do you currently use Claude?</label>
+        <select id="using-claude">
+          <option value="">Select…</option>
+          <option value="enterprise">Yes, Claude Enterprise deployed</option>
+          <option value="team">Using Claude.ai team</option>
+          <option value="evaluating">Evaluating Claude</option>
+          <option value="no">No, not using it</option>
+        </select>
+      </div>
+
+      <div class="form-nav">
+        <div></div>
+        <button class="btn-next" onclick="validateScreen1()">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SCREEN 2 — USE CASES ══════════════ -->
+  <div class="screen" id="screen-2">
+    <div class="container-sm form-screen">
+      <h2 class="form-h2">What do you need AI to do?</h2>
+      <p class="form-sub">Select your most important use cases.</p>
+
+      <div class="uc-grid" id="uc-grid">
+        <!-- Populated by JS -->
+      </div>
+      <div class="uc-err" id="uc-err">Please select at least 2 use cases to continue.</div>
+
+      <div class="form-section-label">What is your primary goal with AI?</div>
+      <div class="radio-grid" id="goal-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" onclick="goToScreen(1)">&larr; Back</button>
+        <button class="btn-next" onclick="validateScreen2()">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SCREEN 3 — REQUIREMENTS ══════════════ -->
+  <div class="screen" id="screen-3">
+    <div class="container-sm form-screen">
+      <h2 class="form-h2">What matters most to your organisation?</h2>
+
+      <div class="form-section-label">What is your AI budget per user per month?</div>
+      <div class="radio-grid-2" id="budget-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="form-section-label" style="margin-top:28px">Which of these are important requirements?</div>
+      <div class="uc-grid" id="req-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <button class="btn-compare" onclick="validateScreen3()">Compare Now &rarr;</button>
+      <div class="form-nav" style="margin-top:8px">
+        <button class="btn-back" onclick="goToScreen(2)">&larr; Back</button>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SCREEN 4 — PROCESSING ══════════════ -->
+  <div class="screen" id="screen-4">
+    <div class="container-sm" style="display:flex;flex-direction:column;align-items:center;padding-top:80px;padding-bottom:80px">
+      <div class="processing-ring"></div>
+      <h2 class="processing-h2">Running your comparison...</h2>
+      <ul class="tick-list" id="tick-list">
+        <li class="tick-item" id="tick-0"><span class="tick-icon">&#10003;</span> Analysing your M365 investment</li>
+        <li class="tick-item" id="tick-1"><span class="tick-icon">&#10003;</span> Scoring use case fit for each platform</li>
+        <li class="tick-item" id="tick-2"><span class="tick-icon">&#10003;</span> Evaluating your requirements</li>
+        <li class="tick-item" id="tick-3"><span class="tick-icon">&#10003;</span> Calculating total cost of ownership</li>
+        <li class="tick-item" id="tick-4"><span class="tick-icon">&#10003;</span> Generating your recommendation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════ SCREEN 5 — RESULTS ══════════════ -->
+  <div class="screen" id="screen-5">
+    <div class="results-container">
+      <!-- Recommendation banner -->
+      <div id="rec-banner" class="rec-banner" style="margin-top:44px">
+        <div class="rec-badge" id="rec-badge">Our Recommendation</div>
+        <div class="rec-title" id="rec-title"></div>
+        <div class="rec-sub" id="rec-sub"></div>
+        <ul class="rec-reasons" id="rec-reasons"></ul>
+      </div>
+
+      <!-- Score summary -->
+      <div class="scores-row" style="margin-bottom:32px">
+        <div class="score-card">
+          <div class="score-label score-label-claude">Claude Score</div>
+          <div class="score-number score-number-claude" id="claude-score-display">—</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label score-label-copilot">Copilot Score</div>
+          <div class="score-number score-number-copilot" id="copilot-score-display">—</div>
+        </div>
+      </div>
+
+      <!-- Radar + table -->
+      <div class="results-grid">
+        <div class="card">
+          <div class="card-title">&#128202; Platform Comparison — 8 Dimensions</div>
+          <div class="chart-wrap">
+            <canvas id="radar-chart"></canvas>
+          </div>
+          <!-- Chart legend -->
+          <div style="display:flex;gap:16px;justify-content:center;margin-top:16px">
+            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text)"><span style="width:12px;height:12px;border-radius:2px;background:var(--gm);display:inline-block"></span>Claude</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text)"><span style="width:12px;height:12px;border-radius:2px;background:var(--copilot);display:inline-block"></span>Copilot</div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0;overflow:auto">
+          <div style="padding:28px 28px 16px"><div class="card-title" style="margin-bottom:0">Dimension Scores</div></div>
+          <table class="comp-table" id="comp-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th style="color:#c025e8">Claude</th>
+                <th style="color:#0078d4">Copilot</th>
+                <th>Winner</th>
+              </tr>
+            </thead>
+            <tbody id="comp-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TCO -->
+      <div class="tco-card" style="margin-top:24px">
+        <div class="card-title">&#128181; Estimated Annual Cost Comparison</div>
+        <div id="tco-content"></div>
+        <p class="tco-note">Estimates based on published pricing and typical implementation costs. Contact Fynaptix for a detailed TCO analysis tailored to your organisation.</p>
+      </div>
+
+      <!-- Key considerations -->
+      <div class="consider-grid">
+        <div class="consider-card">
+          <div class="consider-title consider-title-claude">&#128161; Choose Claude if...</div>
+          <ul class="consider-list claude-list" id="claude-considerations"></ul>
+        </div>
+        <div class="consider-card">
+          <div class="consider-title consider-title-copilot">&#128161; Choose Copilot if...</div>
+          <ul class="consider-list copilot-list" id="copilot-considerations"></ul>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-card">
+        <h2 class="cta-h2">Get expert guidance on your AI platform decision</h2>
+        <p class="cta-sub">Fynaptix has deployed both Claude and Copilot for enterprise organisations. We'll help you make the right call — or build the hybrid architecture.</p>
+        <div class="cta-btns">
+          <button class="btn-dl" onclick="downloadReport()">&#128196; Download Comparison Report</button>
+          <a class="btn-book" id="book-link" href="#">&#128222; Book a Platform Strategy Call</a>
+        </div>
+        <div><a href="/assessment.html" class="cta-link">Take the full Readiness Assessment &rarr;</a></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- #app -->
+
+<script>
+/* ════════════════════════════════════════════════════
+   STATE
+════════════════════════════════════════════════════ */
+var state = {
+  orgName:'', industry:'', orgSize:'', m365:'', usingCopilot:'', usingClaude:'',
+  useCases:[], primaryGoal:'', budget:'', requirements:[],
+  claudeScore:50, copilotScore:50,
+  dimensions:[], recommendation:'', reasons:[],
+  dimScores:{ claude:[], copilot:[] }
+};
+
+/* ════════════════════════════════════════════════════
+   DATA — USE CASES
+════════════════════════════════════════════════════ */
+var USE_CASES = [
+  {id:'doc',  icon:'📝', title:'Document creation & editing',     desc:'Drafting, rewriting, summarising documents'},
+  {id:'email',icon:'📧', title:'Email & communications',          desc:'Composing and summarising emails'},
+  {id:'research',icon:'🔍',title:'Deep research & analysis',      desc:'Complex research, synthesis, multi-document analysis'},
+  {id:'code', icon:'💻', title:'Code generation',                 desc:'Writing, reviewing and debugging code'},
+  {id:'data', icon:'📊', title:'Data analysis & reporting',       desc:'Analysing data, building reports'},
+  {id:'automation',icon:'🤖',title:'Workflow automation',         desc:'Building automated AI-driven processes'},
+  {id:'customer',icon:'💬',title:'Customer-facing AI',            desc:'Chatbots, customer support, client comms'},
+  {id:'legal',icon:'⚖️', title:'Legal & compliance work',         desc:'Contract review, regulatory analysis'},
+  {id:'knowledge',icon:'📚',title:'Knowledge base & search',      desc:'Searching internal documents and knowledge'},
+  {id:'reasoning',icon:'🧠',title:'Complex reasoning tasks',      desc:'Multi-step analysis, strategic thinking, long documents'}
+];
+
+var GOALS = [
+  {id:'productivity', icon:'🚀', title:'Productivity at scale',    desc:'Help as many staff as possible work faster right now'},
+  {id:'custom',       icon:'🔧', title:'Custom AI workflows',       desc:'Build specific AI-powered processes and integrations'},
+  {id:'competitive',  icon:'🏆', title:'Competitive advantage',     desc:'Deploy AI capabilities our competitors don\'t have'}
+];
+
+var BUDGETS = [
+  {id:'under15',  icon:'💰', title:'Under $15/user',    desc:'Copilot M365 add-on territory'},
+  {id:'15to30',   icon:'💵', title:'$15–$30/user',      desc:'Standard enterprise AI range'},
+  {id:'30to60',   icon:'💳', title:'$30–$60/user',      desc:'Premium AI investment'},
+  {id:'60plus',   icon:'🏦', title:'$60+/user',         desc:'Enterprise-grade, outcome focused'}
+];
+
+var REQUIREMENTS = [
+  {id:'tenant',     icon:'🔒', title:'Data stays within our tenant',     desc:'No data leaves our Microsoft environment'},
+  {id:'customise',  icon:'🔧', title:'Deep customisation of AI behaviour',desc:'Custom instructions, personas, workflows'},
+  {id:'api',        icon:'📡', title:'API access for custom integrations',desc:'Build custom apps and automations'},
+  {id:'singlevend', icon:'🏢', title:'Single vendor simplicity',          desc:'Prefer keeping AI with our existing Microsoft relationship'},
+  {id:'reasoning',  icon:'🧩', title:'Best-in-class AI reasoning',        desc:'Need the most capable AI for complex tasks'},
+  {id:'compliance', icon:'📋', title:'Built-in compliance features',      desc:'GDPR, HIPAA, SOC2 handled by the platform'},
+  {id:'fast',       icon:'⚡', title:'Fast deployment',                   desc:'Up and running across the org quickly'},
+  {id:'outside365', icon:'🌐', title:'Works outside M365',                desc:'Need AI that works in non-Microsoft tools too'}
+];
+
+var DIM_NAMES = [
+  'M365 Integration','Complex Reasoning','Customisation',
+  'Deployment Speed','Cost Efficiency','API & Automation',
+  'Data Privacy','Use Case Breadth'
+];
+
+/* ════════════════════════════════════════════════════
+   RENDER HELPERS
+════════════════════════════════════════════════════ */
+function renderUseCaseGrid() {
+  var g = document.getElementById('uc-grid');
+  g.innerHTML = USE_CASES.map(function(uc){
+    return '<div class="uc-card" data-id="' + uc.id + '" onclick="toggleUseCase(this)">' +
+      '<div class="uc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+      '<div class="uc-icon">' + uc.icon + '</div>' +
+      '<div class="uc-text"><div class="uc-title">' + uc.title + '</div><div class="uc-desc">' + uc.desc + '</div></div>' +
+      '</div>';
+  }).join('');
+}
+
+function renderGoalGrid() {
+  var g = document.getElementById('goal-grid');
+  g.innerHTML = GOALS.map(function(gl){
+    return '<div class="radio-card" data-id="' + gl.id + '" data-group="goal" onclick="selectRadio(this,\'goal\')">' +
+      '<div class="radio-icon">' + gl.icon + '</div>' +
+      '<div class="radio-title">' + gl.title + '</div>' +
+      '<div class="radio-desc">' + gl.desc + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+function renderBudgetGrid() {
+  var g = document.getElementById('budget-grid');
+  g.innerHTML = BUDGETS.map(function(b){
+    return '<div class="radio-card" data-id="' + b.id + '" data-group="budget" onclick="selectRadio(this,\'budget\')">' +
+      '<div class="radio-icon">' + b.icon + '</div>' +
+      '<div class="radio-title">' + b.title + '</div>' +
+      '<div class="radio-desc">' + b.desc + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+function renderReqGrid() {
+  var g = document.getElementById('req-grid');
+  g.innerHTML = REQUIREMENTS.map(function(r){
+    return '<div class="uc-card" data-id="' + r.id + '" onclick="toggleReq(this)">' +
+      '<div class="uc-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+      '<div class="uc-icon">' + r.icon + '</div>' +
+      '<div class="uc-text"><div class="uc-title">' + r.title + '</div><div class="uc-desc">' + r.desc + '</div></div>' +
+      '</div>';
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════
+   TOGGLE / SELECT HANDLERS
+════════════════════════════════════════════════════ */
+function toggleUseCase(el) {
+  el.classList.toggle('selected');
+  var id = el.dataset.id;
+  var idx = state.useCases.indexOf(id);
+  if(idx === -1){ state.useCases.push(id); } else { state.useCases.splice(idx,1); }
+}
+
+function toggleReq(el) {
+  el.classList.toggle('selected');
+  var id = el.dataset.id;
+  var idx = state.requirements.indexOf(id);
+  if(idx === -1){ state.requirements.push(id); } else { state.requirements.splice(idx,1); }
+}
+
+function selectRadio(el, group) {
+  var cards = el.parentElement.querySelectorAll('.radio-card');
+  cards.forEach(function(c){ c.classList.remove('selected'); });
+  el.classList.add('selected');
+  if(group === 'goal'){ state.primaryGoal = el.dataset.id; }
+  if(group === 'budget'){ state.budget = el.dataset.id; }
+}
+
+/* ════════════════════════════════════════════════════
+   SCREEN NAVIGATION
+════════════════════════════════════════════════════ */
+function goToScreen(n) {
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('screen-' + n).classList.add('active');
+
+  var pw = document.getElementById('progress-wrap');
+  var navBack = document.getElementById('nav-back-link');
+  var navRun  = document.getElementById('nav-run-again');
+
+  if(n >= 1 && n <= 3){
+    pw.style.display = 'block';
+    navBack.style.display = 'flex';
+    navRun.classList.remove('visible');
+    var pct = Math.round((n/3)*100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = 'Step ' + n + ' of 3';
+    document.getElementById('progress-pct').textContent = pct + '%';
+  } else if(n === 0){
+    pw.style.display = 'none';
+    navBack.style.display = 'flex';
+    navRun.classList.remove('visible');
+  } else if(n === 4){
+    pw.style.display = 'none';
+    navBack.style.display = 'none';
+    navRun.classList.remove('visible');
+  } else if(n === 5){
+    pw.style.display = 'none';
+    navBack.style.display = 'none';
+    navRun.classList.add('visible');
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function runAgain() {
+  // Reset state
+  state = {
+    orgName:'', industry:'', orgSize:'', m365:'', usingCopilot:'', usingClaude:'',
+    useCases:[], primaryGoal:'', budget:'', requirements:[],
+    claudeScore:50, copilotScore:50,
+    dimensions:[], recommendation:'', reasons:[],
+    dimScores:{ claude:[], copilot:[] }
+  };
+  // Reset form fields
+  document.getElementById('org-name').value = '';
+  document.getElementById('industry').value = '';
+  document.getElementById('org-size').value = '';
+  document.getElementById('m365').value = '';
+  document.getElementById('using-copilot').value = '';
+  document.getElementById('using-claude').value = '';
+  renderUseCaseGrid();
+  renderGoalGrid();
+  renderBudgetGrid();
+  renderReqGrid();
+  // Destroy old chart
+  if(window._radarChart){ window._radarChart.destroy(); window._radarChart = null; }
+  goToScreen(0);
+}
+
+/* ════════════════════════════════════════════════════
+   VALIDATION
+════════════════════════════════════════════════════ */
+function validateScreen1() {
+  var orgName = document.getElementById('org-name').value.trim();
+  if(!orgName){
+    document.getElementById('org-name').classList.add('err');
+    document.getElementById('org-name-err').classList.add('show');
+    document.getElementById('org-name').focus();
+    return;
+  }
+  document.getElementById('org-name').classList.remove('err');
+  document.getElementById('org-name-err').classList.remove('show');
+  state.orgName      = orgName;
+  state.industry     = document.getElementById('industry').value;
+  state.orgSize      = document.getElementById('org-size').value;
+  state.m365         = document.getElementById('m365').value;
+  state.usingCopilot = document.getElementById('using-copilot').value;
+  state.usingClaude  = document.getElementById('using-claude').value;
+  goToScreen(2);
+}
+
+function validateScreen2() {
+  if(state.useCases.length < 2){
+    document.getElementById('uc-err').classList.add('show');
+    return;
+  }
+  document.getElementById('uc-err').classList.remove('show');
+  goToScreen(3);
+}
+
+function validateScreen3() {
+  goToScreen(4);
+  runProcessing();
+}
+
+/* ════════════════════════════════════════════════════
+   PROCESSING ANIMATION
+════════════════════════════════════════════════════ */
+function runProcessing() {
+  var delays = [200, 550, 900, 1250, 1600];
+  delays.forEach(function(d, i){
+    setTimeout(function(){ document.getElementById('tick-' + i).classList.add('done'); }, d);
+  });
+  setTimeout(function(){
+    calculateScores();
+    buildResults();
+    goToScreen(5);
+  }, 2200);
+}
+
+/* ════════════════════════════════════════════════════
+   SCORING ALGORITHM
+════════════════════════════════════════════════════ */
+function calculateScores() {
+  var c = 50, p = 50;
+  var uc = state.useCases;
+  var req = state.requirements;
+
+  // M365 investment
+  if(state.m365 === 'heavy'){ p += 15; c -= 5; }
+  if(state.m365 === 'minimal'){ c += 15; p -= 10; }
+
+  // Budget
+  if(state.budget === 'under15'){ p += 20; }
+  if(state.budget === '60plus'){ c += 10; }
+
+  // Use cases — Claude favoured
+  var claudeUC = ['research','reasoning','automation','customer','legal','code'];
+  claudeUC.forEach(function(id){ if(uc.indexOf(id) !== -1){ c += 5; } });
+
+  // Use cases — Copilot favoured
+  var copilotUC = ['doc','email','knowledge'];
+  copilotUC.forEach(function(id){ if(uc.indexOf(id) !== -1){ p += 5; } });
+
+  // Requirements
+  if(req.indexOf('tenant')    !== -1){ p += 15; }
+  if(req.indexOf('customise') !== -1){ c += 15; }
+  if(req.indexOf('api')       !== -1){ c += 15; }
+  if(req.indexOf('singlevend')!== -1){ p += 20; }
+  if(req.indexOf('reasoning') !== -1){ c += 20; }
+  if(req.indexOf('outside365')!== -1){ c += 15; }
+  if(req.indexOf('fast')      !== -1){ p += 10; }
+
+  // Primary goal
+  if(state.primaryGoal === 'custom'){ c += 20; }
+  if(state.primaryGoal === 'productivity'){ p += 10; }
+
+  state.claudeScore  = Math.min(100, Math.max(0, c));
+  state.copilotScore = Math.min(100, Math.max(0, p));
+
+  // Recommendation
+  var diff = state.claudeScore - state.copilotScore;
+  if(diff >= 20){ state.recommendation = 'claude'; }
+  else if(diff <= -20){ state.recommendation = 'copilot'; }
+  else { state.recommendation = 'hybrid'; }
+}
+
+/* ════════════════════════════════════════════════════
+   DIMENSION SCORING
+════════════════════════════════════════════════════ */
+function calcDimensionScores() {
+  var uc  = state.useCases;
+  var req = state.requirements;
+  var m365= state.m365;
+
+  // 1. M365 Integration
+  var d1c = 4;
+  var d1p = 9;
+  if(m365 === 'heavy'){ d1p = 10; }
+  if(m365 === 'light' || m365 === 'minimal'){ d1p = 7; }
+
+  // 2. Complex Reasoning
+  var d2c = 9;
+  var d2p = 6;
+  if(uc.indexOf('reasoning') !== -1 && uc.indexOf('legal') !== -1 && uc.indexOf('research') !== -1){ d2c = 10; }
+  if(d2p < 7){ d2p = Math.min(7, d2p); }
+
+  // 3. Customisation
+  var d3c = 9;
+  var d3p = 5;
+  if(req.indexOf('customise') !== -1){ d3c = 10; }
+  if(req.indexOf('singlevend') !== -1){ d3p = 6; }
+
+  // 4. Deployment Speed
+  var d4c = 6;
+  var d4p = 8;
+  if(req.indexOf('fast') !== -1){ d4c = 5; d4p = 9; }
+  if(m365 === 'heavy'){ d4p = 9; }
+
+  // 5. Cost Efficiency
+  var d5c = 6;
+  var d5p = 7;
+  if(state.budget === '60plus'){ d5c = 7; }
+  if(state.budget === 'under15'){ d5c = 4; d5p = 9; }
+  if(m365 === 'heavy'){ d5p = 9; }
+
+  // 6. API & Automation
+  var d6c = 9;
+  var d6p = 5;
+  if(req.indexOf('api') !== -1 && uc.indexOf('automation') !== -1){ d6c = 10; }
+  if(uc.indexOf('automation') !== -1){ d6p = Math.min(7, d6p + 2); }
+
+  // 7. Data Privacy & Compliance
+  var d7c = 7;
+  var d7p = 8;
+  if(req.indexOf('compliance') !== -1){ d7c = 6; }
+  if(req.indexOf('tenant') !== -1){ d7p = 10; }
+  if(m365 === 'heavy'){ d7p = Math.max(d7p, 9); }
+
+  // 8. Breadth of Use Cases
+  var d8c = 8;
+  var d8p = 7;
+  if(uc.length > 6){ d8c = 9; }
+  if(req.indexOf('outside365') !== -1){ d8c = 9; }
+  var m365NativeUC = ['doc','email','knowledge','data'].filter(function(id){ return uc.indexOf(id) !== -1; });
+  if(m365 === 'heavy' && m365NativeUC.length >= 4){ d8p = 8; }
+
+  state.dimScores.claude  = [d1c, d2c, d3c, d4c, d5c, d6c, d7c, d8c];
+  state.dimScores.copilot = [d1p, d2p, d3p, d4p, d5p, d6p, d7p, d8p];
+}
+
+/* ════════════════════════════════════════════════════
+   DYNAMIC REASONS
+════════════════════════════════════════════════════ */
+function buildReasons() {
+  var uc  = state.useCases;
+  var req = state.requirements;
+  var rec = state.recommendation;
+  var reasons = [];
+
+  if(rec === 'claude'){
+    if(uc.indexOf('reasoning') !== -1 || uc.indexOf('research') !== -1){
+      reasons.push('Your use cases require advanced reasoning and multi-step analysis — a core Claude strength.');
+    }
+    if(req.indexOf('api') !== -1 || req.indexOf('customise') !== -1){
+      reasons.push('You need deep customisation and API access to build tailored AI workflows beyond out-of-the-box tools.');
+    }
+    if(state.m365 === 'minimal' || state.m365 === 'light'){
+      reasons.push('Your limited M365 footprint means you get minimal extra value from Copilot\'s M365-native integrations.');
+    }
+    if(req.indexOf('reasoning') !== -1){
+      reasons.push('You specified best-in-class AI reasoning as a requirement — Claude leads here by a clear margin.');
+    }
+    if(req.indexOf('outside365') !== -1){
+      reasons.push('You need AI that works across your full toolstack, not just Microsoft products.');
+    }
+    if(state.primaryGoal === 'custom'){
+      reasons.push('Building custom AI workflows is your primary goal — Claude\'s API and customisation capabilities are purpose-built for this.');
+    }
+  } else if(rec === 'copilot'){
+    if(state.m365 === 'heavy'){
+      reasons.push('Your heavy M365 investment means Copilot delivers immediate value with zero additional integration work.');
+    }
+    if(state.budget === 'under15'){
+      reasons.push('Your budget constraint aligns well with Copilot as an M365 add-on — likely the most cost-efficient path.');
+    }
+    if(req.indexOf('singlevend') !== -1){
+      reasons.push('Your preference for single-vendor simplicity is a natural fit for Microsoft\'s unified AI + M365 ecosystem.');
+    }
+    if(req.indexOf('tenant') !== -1){
+      reasons.push('Keeping data within your Microsoft tenant is a core requirement — Copilot\'s native data residency controls address this directly.');
+    }
+    if(req.indexOf('fast') !== -1){
+      reasons.push('Fast deployment is a priority and Copilot can be activated across your M365 estate rapidly.');
+    }
+    if(state.primaryGoal === 'productivity'){
+      reasons.push('Your goal of broad staff productivity gains is well-served by Copilot\'s familiar M365 surface across Teams, Outlook and Word.');
+    }
+  } else {
+    reasons.push('You have significant M365 investment making Copilot ideal for daily productivity tasks in Teams, Outlook and SharePoint.');
+    if(uc.indexOf('research') !== -1 || uc.indexOf('legal') !== -1 || uc.indexOf('code') !== -1){
+      reasons.push('Your higher-complexity use cases (research, legal, code, or customer AI) call for Claude\'s superior reasoning and customisation.');
+    } else {
+      reasons.push('Your complex custom workflow and API requirements go beyond what Copilot supports out of the box.');
+    }
+    reasons.push('A hybrid deployment lets each platform do what it does best — giving you the full range of AI capabilities at lowest overall cost.');
+  }
+
+  // Ensure at least 3
+  while(reasons.length < 3){
+    if(rec === 'claude'){ reasons.push('Claude provides the API-first architecture needed to integrate AI into your unique business processes.'); }
+    else if(rec === 'copilot'){ reasons.push('Microsoft\'s enterprise compliance and security features align with your organisational requirements.'); }
+    else { reasons.push('Hybrid deployments are increasingly common in large enterprises managing diverse AI needs across business units.'); }
+  }
+
+  state.reasons = reasons.slice(0,3);
+}
+
+/* ════════════════════════════════════════════════════
+   BUILD RESULTS UI
+════════════════════════════════════════════════════ */
+function buildResults() {
+  calcDimensionScores();
+  buildReasons();
+
+  var org = state.orgName;
+  var rec = state.recommendation;
+
+  // Recommendation banner
+  var banner = document.getElementById('rec-banner');
+  var badge  = document.getElementById('rec-badge');
+  var title  = document.getElementById('rec-title');
+  var sub    = document.getElementById('rec-sub');
+  var rList  = document.getElementById('rec-reasons');
+
+  banner.className = 'rec-banner';
+  if(rec === 'claude'){
+    banner.classList.add('claude-win');
+    badge.textContent = 'Our Recommendation: Claude AI';
+    title.textContent = 'Claude is the right fit for ' + org;
+    sub.textContent   = 'Based on your use cases and requirements, Claude is the stronger platform for ' + org + '. Here\'s why:';
+  } else if(rec === 'copilot'){
+    banner.classList.add('copilot-win');
+    badge.textContent = 'Our Recommendation: Microsoft Copilot';
+    title.textContent = 'Copilot is the right fit for ' + org;
+    sub.textContent   = 'Based on your M365 investment and priorities, Microsoft Copilot is the stronger fit for ' + org + '. Here\'s why:';
+  } else {
+    banner.classList.add('hybrid-win');
+    badge.textContent = 'Our Recommendation: Hybrid Deployment';
+    title.textContent = org + ' would benefit from both platforms';
+    sub.textContent   = 'Your organisation would benefit from deploying both — Copilot for M365-native tasks, Claude for complex reasoning and custom workflows.';
+  }
+
+  rList.innerHTML = state.reasons.map(function(r){
+    return '<li>' + r + '</li>';
+  }).join('');
+
+  // Score display
+  document.getElementById('claude-score-display').textContent = state.claudeScore;
+  document.getElementById('copilot-score-display').textContent = state.copilotScore;
+
+  // Radar chart
+  buildRadarChart();
+
+  // Comparison table
+  buildCompTable();
+
+  // TCO
+  buildTCO();
+
+  // Key considerations
+  buildConsiderations();
+
+  // Mailto
+  buildMailto();
+}
+
+/* ════════════════════════════════════════════════════
+   RADAR CHART
+════════════════════════════════════════════════════ */
+function buildRadarChart() {
+  if(window._radarChart){ window._radarChart.destroy(); }
+  var ctx = document.getElementById('radar-chart').getContext('2d');
+  window._radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: DIM_NAMES,
+      datasets: [
+        {
+          label: 'Claude',
+          data: state.dimScores.claude,
+          fill: true,
+          backgroundColor: 'rgba(192,37,232,0.2)',
+          borderColor: '#c025e8',
+          borderWidth: 2,
+          pointBackgroundColor: '#c025e8',
+          pointRadius: 3
+        },
+        {
+          label: 'Microsoft Copilot',
+          data: state.dimScores.copilot,
+          fill: true,
+          backgroundColor: 'rgba(0,120,212,0.2)',
+          borderColor: '#0078d4',
+          borderWidth: 2,
+          pointBackgroundColor: '#0078d4',
+          pointRadius: 3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        r: {
+          min: 0,
+          max: 10,
+          ticks: {
+            stepSize: 2,
+            display: false
+          },
+          grid: { color: 'rgba(255,255,255,0.08)' },
+          angleLines: { color: 'rgba(255,255,255,0.08)' },
+          pointLabels: {
+            color: '#6b7a99',
+            font: { size: 11, family: "'Outfit', sans-serif" }
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx){
+              return ctx.dataset.label + ': ' + ctx.raw + '/10';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════
+   COMPARISON TABLE
+════════════════════════════════════════════════════ */
+var DIM_COMMENTS_CLAUDE = [
+  function(){ return state.m365 === 'heavy' ? 'Copilot deeply embedded — Claude needs custom integration.' : 'Claude works across all tools; M365 integration possible via API.'; },
+  function(){ return 'Claude leads on multi-step reasoning, long documents and synthesis.'; },
+  function(){ return req('customise') ? 'Maximum customisation with system prompts and custom personas.' : 'Claude offers unmatched depth of instruction and behaviour tuning.'; },
+  function(){ return 'Claude Enterprise requires API setup; professional services typically needed.'; },
+  function(){ return state.budget === 'under15' ? 'Claude pricing above budget threshold — consider ROI carefully.' : 'Claude pricing competitive for high-value use cases.'; },
+  function(){ return 'Claude\'s API is purpose-built for custom integrations and automation.'; },
+  function(){ return 'Anthropic\'s enterprise tier provides strong data protection and audit controls.'; },
+  function(){ return state.useCases.length > 6 ? 'Excellent breadth — Claude handles diverse complex tasks well.' : 'Claude excels at high-complexity tasks across many domains.'; }
+];
+
+var DIM_COMMENTS_COPILOT = [
+  function(){ return state.m365 === 'heavy' ? 'Native M365 integration — no additional setup required.' : 'Good M365 integration but limited value if M365 adoption is low.'; },
+  function(){ return 'Copilot handles day-to-day reasoning well but trails on complex analysis.'; },
+  function(){ return req('singlevend') ? 'Some customisation via Power Platform and plugins.' : 'Limited deep customisation compared to Claude.'; },
+  function(){ return req('fast') ? 'Rapid deployment via existing M365 admin centre.' : 'Straightforward deployment for M365 shops.'; },
+  function(){ return state.m365 === 'heavy' ? 'Often included or low incremental cost on existing M365 E3/E5 licence.' : 'Standard $30/user pricing; value depends on M365 usage.'; },
+  function(){ return 'Power Automate integration solid; external API access more limited.'; },
+  function(){ return req('tenant') ? 'Data stays within your Microsoft tenant — strong compliance story.' : 'Microsoft\'s enterprise compliance credentials are well-established.'; },
+  function(){ return 'Strong within M365 ecosystem; limited for non-Microsoft tools.'; }
+];
+
+function req(id){ return state.requirements.indexOf(id) !== -1; }
+
+function buildCompTable() {
+  var tbody = document.getElementById('comp-tbody');
+  var rows = '';
+  for(var i = 0; i < 8; i++){
+    var cs = state.dimScores.claude[i];
+    var ps = state.dimScores.copilot[i];
+    var winnerHtml;
+    if(cs > ps){
+      winnerHtml = '<span class="td-winner-claude">Claude ✓</span>';
+    } else if(ps > cs){
+      winnerHtml = '<span class="td-winner-copilot">Copilot ✓</span>';
+    } else {
+      winnerHtml = '<span class="td-winner-tie">Tie</span>';
+    }
+    var comment = cs > ps ? DIM_COMMENTS_CLAUDE[i]() : DIM_COMMENTS_COPILOT[i]();
+    rows += '<tr>' +
+      '<td class="td-dim">' + DIM_NAMES[i] + '</td>' +
+      '<td class="td-score td-score-claude">' + cs + '/10</td>' +
+      '<td class="td-score td-score-copilot">' + ps + '/10</td>' +
+      '<td>' + winnerHtml + '</td>' +
+      '</tr>' +
+      '<tr><td colspan="4" class="td-comment" style="padding-top:2px;padding-bottom:12px;color:var(--muted);font-size:12px">' + comment + '</td></tr>';
+  }
+  tbody.innerHTML = rows;
+}
+
+/* ════════════════════════════════════════════════════
+   TCO ESTIMATE
+════════════════════════════════════════════════════ */
+function getUserCount() {
+  var s = state.orgSize;
+  if(s === 'under50'){ return 25; }
+  if(s === '50to200'){ return 125; }
+  if(s === '200to1000'){ return 600; }
+  if(s === '1000to5000'){ return 3000; }
+  if(s === '5000plus'){ return 7500; }
+  return 200; // default
+}
+
+function fmt(n) {
+  return '$' + n.toLocaleString();
+}
+
+function buildTCO() {
+  var users = getUserCount();
+
+  // Claude costs
+  var claudeMonthly = 30;
+  var claudeOngoing = claudeMonthly * users * 12;
+  var claudeImpl = users <= 200 ? 15000 : users <= 1000 ? 30000 : 50000;
+  var claudeY1 = claudeOngoing + claudeImpl;
+
+  // Copilot costs
+  var copilotMonthly = 30;
+  var copilotOngoing = copilotMonthly * users * 12;
+  var copilotImpl = users <= 200 ? 5000 : 15000;
+  var copilotY1 = copilotOngoing + copilotImpl;
+
+  var maxY1 = Math.max(claudeY1, copilotY1);
+  var claudePct = Math.round((claudeY1 / maxY1) * 100);
+  var copilotPct = Math.round((copilotY1 / maxY1) * 100);
+
+  document.getElementById('tco-content').innerHTML =
+    '<div class="tco-row">' +
+      '<div class="tco-label">' +
+        '<span class="tco-name tco-name-claude">Claude Enterprise</span>' +
+        '<span class="tco-amounts">Year 1: ' + fmt(claudeY1) + ' &nbsp;|&nbsp; Ongoing: ' + fmt(claudeOngoing) + '/yr</span>' +
+      '</div>' +
+      '<div class="tco-track"><div class="tco-fill tco-fill-claude" style="width:' + claudePct + '%"></div></div>' +
+    '</div>' +
+    '<div class="tco-row">' +
+      '<div class="tco-label">' +
+        '<span class="tco-name tco-name-copilot">Microsoft Copilot</span>' +
+        '<span class="tco-amounts">Year 1: ' + fmt(copilotY1) + ' &nbsp;|&nbsp; Ongoing: ' + fmt(copilotOngoing) + '/yr</span>' +
+      '</div>' +
+      '<div class="tco-track"><div class="tco-fill tco-fill-copilot" style="width:' + copilotPct + '%"></div></div>' +
+    '</div>';
+}
+
+/* ════════════════════════════════════════════════════
+   KEY CONSIDERATIONS
+════════════════════════════════════════════════════ */
+function buildConsiderations() {
+  var uc  = state.useCases;
+  var req = state.requirements;
+
+  var claudePoints = [
+    'You need AI that works across all tools, not just Microsoft products',
+    'Complex reasoning, deep research or long-document analysis is a priority',
+    'You want to build custom AI workflows and integrations via API',
+    'Your team has technical capability to configure and manage Claude Enterprise'
+  ];
+  var copilotPoints = [
+    'Microsoft 365 is core to daily work and you want immediate productivity wins',
+    'You want a single vendor for simplicity, compliance and procurement',
+    'Fast deployment with minimal IT overhead is a priority',
+    'Budget constraints favour an M365 add-on over a standalone platform'
+  ];
+
+  if(uc.indexOf('legal') !== -1){ claudePoints.unshift('Legal and compliance analysis requires the highest level of reasoning accuracy'); claudePoints.pop(); }
+  if(uc.indexOf('code') !== -1){ claudePoints.unshift('Code generation and review is a key use case — Claude consistently leads here'); claudePoints.pop(); }
+  if(state.m365 === 'heavy'){ copilotPoints.unshift('Your heavy M365 investment means Copilot adds value with no additional integration'); copilotPoints.pop(); }
+  if(req.indexOf('tenant') !== -1){ copilotPoints.unshift('Keeping data within your Microsoft tenant is a non-negotiable compliance requirement'); copilotPoints.pop(); }
+
+  document.getElementById('claude-considerations').innerHTML = claudePoints.slice(0,4).map(function(p){ return '<li>' + p + '</li>'; }).join('');
+  document.getElementById('copilot-considerations').innerHTML = copilotPoints.slice(0,4).map(function(p){ return '<li>' + p + '</li>'; }).join('');
+}
+
+/* ════════════════════════════════════════════════════
+   MAILTO BUILDER
+════════════════════════════════════════════════════ */
+function buildMailto() {
+  var recLabel = state.recommendation === 'claude' ? 'Claude AI' : state.recommendation === 'copilot' ? 'Microsoft Copilot' : 'Hybrid (Claude + Copilot)';
+  var subject  = encodeURIComponent('AI Platform Strategy — ' + state.orgName);
+  var ucNames  = state.useCases.map(function(id){ var uc = USE_CASES.find(function(u){ return u.id === id; }); return uc ? uc.title : id; });
+
+  var body = [
+    'Organisation: ' + state.orgName,
+    'Industry: ' + (state.industry || 'Not specified'),
+    'Size: ' + (state.orgSize || 'Not specified'),
+    'M365 Investment: ' + (state.m365 || 'Not specified'),
+    '',
+    'Recommendation: ' + recLabel,
+    '',
+    'Top reasons:',
+    state.reasons.map(function(r,i){ return (i+1) + '. ' + r; }).join('\n'),
+    '',
+    'Selected use cases: ' + ucNames.join(', ')
+  ].join('\n');
+
+  var link = 'mailto:hello@fynaptix.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+  document.getElementById('book-link').href = link;
+}
+
+/* ════════════════════════════════════════════════════
+   DOWNLOAD REPORT
+════════════════════════════════════════════════════ */
+function downloadReport() {
+  var recLabel = state.recommendation === 'claude' ? 'Claude AI' : state.recommendation === 'copilot' ? 'Microsoft Copilot' : 'Hybrid Deployment';
+  var recColour = state.recommendation === 'claude' ? '#c025e8' : state.recommendation === 'copilot' ? '#0078d4' : '#2ed0f5';
+
+  var dimRows = DIM_NAMES.map(function(name, i){
+    var cs = state.dimScores.claude[i];
+    var ps = state.dimScores.copilot[i];
+    var winner = cs > ps ? 'Claude' : ps > cs ? 'Copilot' : 'Tie';
+    return '<tr>' +
+      '<td style="padding:8px 12px;border-bottom:1px solid #e5e7eb;font-weight:600">' + name + '</td>' +
+      '<td style="padding:8px 12px;border-bottom:1px solid #e5e7eb;text-align:center;color:#c025e8;font-weight:700">' + cs + '/10</td>' +
+      '<td style="padding:8px 12px;border-bottom:1px solid #e5e7eb;text-align:center;color:#0078d4;font-weight:700">' + ps + '/10</td>' +
+      '<td style="padding:8px 12px;border-bottom:1px solid #e5e7eb;text-align:center;font-weight:700;color:' + (cs > ps ? '#c025e8' : ps > cs ? '#0078d4' : '#888') + '">' + winner + '</td>' +
+    '</tr>';
+  }).join('');
+
+  var users = getUserCount();
+  var claudeY1 = (30 * users * 12) + (users <= 200 ? 15000 : users <= 1000 ? 30000 : 50000);
+  var copilotY1 = (30 * users * 12) + (users <= 200 ? 5000 : 15000);
+
+  var ucNames = state.useCases.map(function(id){
+    var uc = USE_CASES.find(function(u){ return u.id === id; });
+    return uc ? uc.title : id;
+  });
+
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>Comparison Report — ' + state.orgName + '</title>' +
+  '<style>body{font-family:Arial,sans-serif;max-width:900px;margin:0 auto;padding:40px;color:#111}' +
+  'h1{font-size:24px;margin-bottom:4px}h2{font-size:18px;margin:28px 0 12px;border-bottom:2px solid #eee;padding-bottom:6px}' +
+  'table{width:100%;border-collapse:collapse;margin-bottom:20px}th{background:#f3f4f6;padding:8px 12px;text-align:left;font-size:13px}' +
+  '.banner{border-left:5px solid ' + recColour + ';padding:16px 20px;background:#f9f9f9;border-radius:4px;margin-bottom:24px}' +
+  '.footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;font-size:12px;color:#888}' +
+  '</style></head><body>' +
+  '<h1>Claude vs Microsoft Copilot — Platform Comparison Report</h1>' +
+  '<p style="color:#666;margin-bottom:24px">' + state.orgName + ' &nbsp;|&nbsp; ' + new Date().toLocaleDateString('en-AU', {day:'numeric',month:'long',year:'numeric'}) + '</p>' +
+
+  '<div class="banner"><strong style="color:' + recColour + '">Recommendation: ' + recLabel + '</strong><br/>' +
+  '<ul style="margin:8px 0 0;padding-left:20px">' + state.reasons.map(function(r){ return '<li>' + r + '</li>'; }).join('') + '</ul></div>' +
+
+  '<h2>Dimension Scores</h2>' +
+  '<table><thead><tr><th>Dimension</th><th style="color:#c025e8">Claude</th><th style="color:#0078d4">Copilot</th><th>Winner</th></tr></thead><tbody>' + dimRows + '</tbody></table>' +
+
+  '<h2>Estimated Annual Cost</h2>' +
+  '<p><strong>Claude Enterprise Year 1:</strong> ' + fmt(claudeY1) + ' &nbsp;|&nbsp; <strong>Copilot Year 1:</strong> ' + fmt(copilotY1) + '</p>' +
+  '<p style="font-size:12px;color:#888">Based on ' + users + ' users. Estimates only — contact Fynaptix for detailed TCO.</p>' +
+
+  '<h2>Selected Use Cases</h2><p>' + ucNames.join(', ') + '</p>' +
+
+  '<h2>Organisation Context</h2>' +
+  '<p>Industry: ' + (state.industry || '—') + ' &nbsp;|&nbsp; Size: ' + (state.orgSize || '—') + ' &nbsp;|&nbsp; M365 Investment: ' + (state.m365 || '—') + '</p>' +
+
+  '<div class="footer">Generated by Fynaptix &mdash; fynaptix.com &mdash; AI Strategy &amp; Deployment</div>' +
+  '</body></html>';
+
+  var w = window.open('', '_blank');
+  if(w){
+    w.document.write(html);
+    w.document.close();
+    setTimeout(function(){ w.print(); }, 500);
+  }
+}
+
+/* ════════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════════ */
+function init() {
+  renderUseCaseGrid();
+  renderGoalGrid();
+  renderBudgetGrid();
+  renderReqGrid();
+}
+
+init();
+</script>
+</body>
+</html>
