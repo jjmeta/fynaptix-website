@@ -4,13 +4,18 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// ── Free Tools dropdown ──
+// ── Nav dropdowns (supports multiple) ──
 function toggleDropdown(e) {
   e.stopPropagation()
-  document.querySelector('.nav-dropdown').classList.toggle('open')
+  const dropdown = e.currentTarget.closest('.nav-dropdown')
+  const isOpen = dropdown.classList.contains('open')
+  // Close all dropdowns first
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'))
+  // Re-open this one if it wasn't already open
+  if (!isOpen) dropdown.classList.add('open')
 }
 document.addEventListener('click', () => {
-  document.querySelector('.nav-dropdown')?.classList.remove('open')
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'))
 })
 
 // ── Mobile Free Tools submenu ──
