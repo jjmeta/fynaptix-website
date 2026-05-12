@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Claude AI ROI Calculator — Fynaptix</title>
+<meta name="description" content="Calculate the business case for deploying Claude AI. See exactly how much time and money your organisation could save — in under 3 minutes."/>
+<meta property="og:title" content="Claude AI ROI Calculator — Fynaptix"/>
+<meta property="og:description" content="See exactly how much time and money your organisation could save with Claude AI — in under 3 minutes."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ── Brand variables ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#6b7a99;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --border-active:rgba(192,37,232,0.5);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#10b981;
+  --cyan:#2ed0f5;
+  --purple:#c025e8;
+  --orange:#ff5f1f;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Background glow ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%,rgba(192,37,232,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%);
+}
+
+/* ── Layout ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+.a-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  position:sticky;top:0;z-index:100;
+}
+.a-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.a-nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,0.5))}
+.a-nav-back{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,0.75);
+  text-decoration:none;transition:color .2s;
+}
+.a-nav-back:hover{color:#fff}
+.nav-recalc{
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);border-radius:24px;
+  padding:8px 18px;background:rgba(46,208,245,0.07);cursor:pointer;
+  transition:all .2s;text-decoration:none;display:none;
+}
+.nav-recalc:hover{background:rgba(46,208,245,0.14);border-color:rgba(46,208,245,0.5)}
+.nav-recalc.visible{display:block}
+
+/* ── Progress bar ── */
+.progress-wrap{background:rgba(255,255,255,0.05);height:3px;width:100%}
+.progress-bar{height:3px;background:var(--grad-full);transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+
+/* ── Screens ── */
+.screen{display:none;flex:1;flex-direction:column;align-items:center;padding:40px 20px 80px}
+.screen.active{display:flex}
+.screen-center{justify-content:center}
+.screen.fade-in{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Card container ── */
+.card-wrap{width:100%;max-width:760px}
+.card-wrap-wide{width:100%;max-width:1000px}
+
+/* ── Headings ── */
+.s-eyebrow{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);border-radius:24px;
+  padding:7px 16px;background:rgba(46,208,245,0.07);display:inline-block;margin-bottom:20px;
+}
+.s-h1{font-family:var(--fd);font-size:clamp(32px,5vw,52px);font-weight:800;
+  line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+.s-h1 .gt{background:var(--grad-full);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.s-h2{font-family:var(--fd);font-size:clamp(20px,3.5vw,28px);font-weight:700;
+  line-height:1.2;letter-spacing:-.01em;margin-bottom:10px}
+.s-lead{font-size:16px;color:rgba(232,237,248,0.65);line-height:1.75;
+  margin-bottom:28px;font-family:var(--fb)}
+.s-sub{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* ── Buttons ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.03em;
+  padding:16px 32px;border-radius:12px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;
+  transition:opacity .2s,transform .15s;text-decoration:none;
+}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary.full{width:100%;justify-content:center;padding:18px 32px;font-size:16px}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:14px;font-weight:600;letter-spacing:.03em;
+  padding:14px 28px;border-radius:12px;cursor:pointer;
+  background:transparent;border:1px solid var(--border2);color:rgba(232,237,248,0.8);
+  transition:all .2s;text-decoration:none;
+}
+.btn-secondary:hover{background:var(--bg3);border-color:rgba(255,255,255,0.2);color:#fff}
+.btn-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.btn-small-note{font-size:12px;color:var(--muted);font-family:var(--fb)}
+
+/* ── Welcome screen ── */
+.welcome-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;width:100%;max-width:1000px;padding-top:20px}
+.preview-cards{display:flex;flex-direction:column;gap:12px}
+.preview-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;display:flex;align-items:center;gap:14px;
+}
+.preview-card-icon{font-size:24px;flex-shrink:0}
+.preview-card-label{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.preview-card-value{font-family:var(--fd);font-size:22px;font-weight:800;color:var(--text);line-height:1}
+.preview-card-sub{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* Cycling animation */
+@keyframes numCycle{0%,30%{opacity:1}35%,95%{opacity:0}100%{opacity:1}}
+.cycle-val{display:inline-block}
+.cycle-val span{position:absolute;left:0}
+.preview-card-value-wrap{position:relative;display:inline-block;min-width:120px}
+
+.trust-badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+.trust-badge{
+  display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);
+  font-family:var(--fb);
+}
+.trust-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--ge);flex-shrink:0}
+
+/* ── Form inputs ── */
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-label{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text)}
+.form-note{font-size:12px;color:var(--muted);font-family:var(--fb);margin-top:2px}
+.form-input,.form-select{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:14px 16px;font-size:15px;color:var(--text);font-family:var(--fb);
+  outline:none;transition:border-color .2s,background .2s;width:100%;
+}
+.form-input:focus,.form-select:focus{
+  border-color:var(--border-active);background:rgba(192,37,232,0.04)}
+.form-input::placeholder{color:var(--muted)}
+.form-select{cursor:pointer;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a99' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;
+}
+.form-select option{background:#0d1526;color:var(--text)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.input-prefix-wrap{display:flex;align-items:stretch}
+.input-prefix{
+  background:var(--bg3);border:1px solid var(--border);border-right:none;
+  border-radius:10px 0 0 10px;padding:0 14px;display:flex;align-items:center;
+  font-family:var(--fd);font-size:15px;font-weight:600;color:var(--muted);
+  flex-shrink:0;
+}
+.input-prefix + .form-input{border-radius:0 10px 10px 0}
+
+/* ── Step header ── */
+.step-header{margin-bottom:32px}
+.step-label-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.step-dot{width:6px;height:6px;border-radius:50%;background:var(--gm);flex-shrink:0}
+.step-label-text{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gm)}
+
+/* ── Task cards ── */
+.tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.task-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:16px 18px;cursor:pointer;transition:all .2s;user-select:none;
+}
+.task-card:hover{border-color:var(--border2);background:var(--bg3)}
+.task-card.selected{
+  border-color:rgba(192,37,232,0.5);background:rgba(192,37,232,0.05);
+}
+.task-card-top{display:flex;align-items:center;gap:10px;margin-bottom:0}
+.task-icon{font-size:20px;flex-shrink:0}
+.task-name{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text)}
+.task-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px;font-family:var(--fb)}
+.task-slider-wrap{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:none}
+.task-card.selected .task-slider-wrap{display:block}
+.task-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.task-slider-label-text{font-size:12px;color:var(--muted);font-family:var(--fb)}
+.task-slider-val{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--ge)}
+.task-estimate{font-size:11px;color:var(--gm);font-family:var(--fd);font-weight:600;margin-top:8px}
+
+/* ── Range slider ── */
+input[type=range]{
+  -webkit-appearance:none;appearance:none;height:4px;
+  border-radius:2px;outline:none;cursor:pointer;width:100%;
+  background:var(--border2);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--gm);border:2px solid var(--bg);cursor:pointer;
+  box-shadow:0 0 6px rgba(192,37,232,0.4);
+}
+input[type=range]::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--gm);border:2px solid var(--bg);cursor:pointer;
+}
+
+.tasks-total{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:14px 18px;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--fd);font-size:13px;
+}
+.tasks-total-label{color:var(--muted);font-weight:500}
+.tasks-total-val{font-weight:700;color:var(--ge);font-size:15px}
+
+/* ── Assumption cards (radio style) ── */
+.ramp-cards,.gain-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.ramp-card,.gain-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  padding:16px;cursor:pointer;transition:all .2s;user-select:none;text-align:center;
+}
+.ramp-card:hover,.gain-card:hover{border-color:var(--border2)}
+.ramp-card.selected,.gain-card.selected{
+  border-color:var(--border-active);background:rgba(192,37,232,0.05);
+  border-top:2px solid transparent;
+  border-image:linear-gradient(90deg,var(--gs),var(--gm),var(--ge)) 1;
+}
+.ramp-icon,.gain-pct{font-family:var(--fd);font-size:20px;margin-bottom:6px;display:block}
+.gain-pct{font-size:24px;font-weight:800;background:var(--grad-full);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ramp-label,.gain-label{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ramp-sub,.gain-sub{font-size:11px;color:var(--muted);line-height:1.5;font-family:var(--fb)}
+
+/* ── Processing screen ── */
+.processing-wrap{text-align:center;max-width:420px}
+.spinner-ring{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 32px;
+  background:conic-gradient(var(--gs),var(--gm),var(--ge),var(--gs));
+  animation:spinRing 1.2s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.spinner-ring::after{
+  content:'';position:absolute;width:62px;height:62px;border-radius:50%;background:var(--bg);
+}
+@keyframes spinRing{to{transform:rotate(360deg)}}
+.tick-list{list-style:none;text-align:left;margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.tick-item{
+  display:flex;align-items:center;gap:10px;font-size:14px;font-family:var(--fb);
+  color:var(--muted);opacity:0;transform:translateY(6px);
+  transition:opacity .3s,transform .3s,color .3s;
+}
+.tick-item.visible{opacity:1;transform:translateY(0)}
+.tick-item.done{color:var(--text)}
+.tick-check{
+  width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:all .3s;
+}
+.tick-item.done .tick-check{background:var(--green);border-color:var(--green)}
+.tick-check svg{display:none}
+.tick-item.done .tick-check svg{display:block}
+
+/* ── Results screen ── */
+.results-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.kpi-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:20px;position:relative;overflow:hidden;
+}
+.kpi-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+}
+.kpi-card.accent-cyan::before{background:var(--ge)}
+.kpi-card.accent-green::before{background:var(--green)}
+.kpi-card.accent-orange::before{background:linear-gradient(90deg,var(--gs),var(--gm))}
+.kpi-card.accent-purple::before{background:var(--gm)}
+.kpi-number{font-family:var(--fd);font-size:clamp(24px,3vw,34px);font-weight:800;line-height:1;margin-bottom:6px}
+.kpi-card.accent-orange .kpi-number{background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.kpi-label{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi-sub{font-size:12px;color:var(--muted);margin-top:4px;font-family:var(--fb)}
+
+/* ── Chart card ── */
+.chart-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:24px;margin-bottom:20px;
+}
+.chart-title{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:20px;color:var(--text)}
+.chart-wrap{position:relative;height:260px;overflow-x:auto}
+
+/* ── Collapsible ── */
+.collapsible-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;margin-bottom:20px;
+}
+.collapsible-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;cursor:pointer;user-select:none;
+  font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);
+  transition:background .2s;
+}
+.collapsible-header:hover{background:rgba(255,255,255,0.02)}
+.collapsible-chevron{
+  width:18px;height:18px;color:var(--muted);transition:transform .3s;
+}
+.collapsible-header.open .collapsible-chevron{transform:rotate(180deg)}
+.collapsible-body{padding:0 20px 20px;display:none}
+.collapsible-body.open{display:block}
+.assumption-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.assumption-item{display:flex;gap:8px;font-size:13px;font-family:var(--fb);padding:4px 0}
+.assumption-key{color:var(--muted);min-width:130px;flex-shrink:0}
+.assumption-val{color:var(--text)}
+
+/* ── Breakdown table ── */
+.breakdown-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;margin-bottom:20px;
+}
+.breakdown-title{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);padding:16px 20px;border-bottom:1px solid var(--border)}
+.breakdown-table{width:100%;border-collapse:collapse}
+.breakdown-table th{
+  text-align:left;padding:10px 16px;font-family:var(--fd);font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);
+}
+.breakdown-table td{
+  padding:12px 16px;font-size:13px;color:rgba(232,237,248,0.85);font-family:var(--fb);
+  border-bottom:1px solid var(--border);
+}
+.breakdown-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+.breakdown-table tr:hover td{background:rgba(255,255,255,0.02)}
+
+/* ── CTA section ── */
+.cta-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  border-top:1px solid var(--border-active);
+  padding:32px;margin-bottom:20px;
+}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:24px}
+.cta-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.cta-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(232,237,248,0.75);font-family:var(--fb)}
+.cta-list li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+.cta-actions{display:flex;flex-direction:column;gap:10px}
+.cta-text-link{
+  display:inline-flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;
+  font-weight:600;color:var(--ge);text-decoration:none;transition:opacity .2s;
+  letter-spacing:.02em;
+}
+.cta-text-link:hover{opacity:.75}
+
+/* ── Error messages ── */
+.field-error{font-size:12px;color:#ef4444;margin-top:4px;display:none}
+.field-error.show{display:block}
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--bg3);border:1px solid var(--border2);border-radius:12px;
+  padding:14px 22px;font-family:var(--fd);font-size:14px;font-weight:600;
+  color:var(--text);z-index:999;transition:transform .3s;box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.error{border-color:rgba(239,68,68,0.3);color:#ef4444}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .a-nav{padding:0 20px;height:60px}
+  .a-nav-logo img{height:40px}
+  .welcome-layout{grid-template-columns:1fr;gap:28px}
+  .preview-cards{flex-direction:row;flex-wrap:wrap}
+  .preview-card{flex:1;min-width:140px}
+  .form-row{grid-template-columns:1fr}
+  .tasks-grid{grid-template-columns:1fr}
+  .ramp-cards,.gain-cards{grid-template-columns:1fr}
+  .results-kpi-grid{grid-template-columns:1fr 1fr}
+  .cta-grid{grid-template-columns:1fr}
+  .assumption-grid{grid-template-columns:1fr}
+  .trust-badges{flex-direction:column;gap:10px}
+}
+@media(max-width:480px){
+  .results-kpi-grid{grid-template-columns:1fr 1fr}
+  .kpi-number{font-size:22px}
+  .btn-row{flex-direction:column;align-items:stretch}
+  .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- NAV -->
+  <nav class="a-nav" id="mainNav">
+    <a href="/" class="a-nav-logo" aria-label="Fynaptix home">
+      <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
+    </a>
+    <a href="/" class="a-nav-back" id="navBack">← Back to Fynaptix</a>
+    <button class="nav-recalc" id="navRecalc" onclick="recalculate()">Recalculate</button>
+  </nav>
+
+  <!-- PROGRESS BAR (hidden on screen 0, 4, 5) -->
+  <div class="progress-wrap" id="progressWrap" style="display:none">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 0 — WELCOME
+  ========================================================= -->
+  <div class="screen active screen-center fade-in" id="screen0" style="padding:60px 24px 80px">
+    <div class="welcome-layout">
+      <!-- LEFT -->
+      <div>
+        <div class="s-eyebrow">FREE TOOL · ROI CALCULATOR</div>
+        <h1 class="s-h1">Calculate Your Claude AI <span class="gt">ROI</span></h1>
+        <p class="s-lead">See exactly how much time and money your organisation could save with Claude AI — in under 3 minutes.</p>
+        <button class="btn-primary" onclick="goTo(1)">Calculate My ROI &rarr;</button>
+        <p class="btn-small-note" style="margin-top:12px">No sign-up required. Based on real deployment data.</p>
+        <div class="trust-badges">
+          <span class="trust-badge"><span class="trust-badge-dot"></span>Based on real Claude Enterprise deployments</span>
+          <span class="trust-badge"><span class="trust-badge-dot"></span>Trusted by enterprise teams</span>
+          <span class="trust-badge"><span class="trust-badge-dot"></span>Results in 3 minutes</span>
+        </div>
+      </div>
+      <!-- RIGHT -->
+      <div class="preview-cards">
+        <div class="preview-card">
+          <div class="preview-card-icon">🕐</div>
+          <div>
+            <div class="preview-card-label">Time Saved</div>
+            <div class="preview-card-value" id="prevHrs">1,240 hrs/yr</div>
+            <div class="preview-card-sub">Across your organisation</div>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card-icon">💰</div>
+          <div>
+            <div class="preview-card-label">Annual Savings</div>
+            <div class="preview-card-value" id="prevSavings">$186,000</div>
+            <div class="preview-card-sub">Labour cost recovered</div>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card-icon">📈</div>
+          <div>
+            <div class="preview-card-label">ROI</div>
+            <div class="preview-card-value" id="prevRoi">312%</div>
+            <div class="preview-card-sub">First year return</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 1 — ORGANISATION PROFILE
+  ========================================================= -->
+  <div class="screen" id="screen1" style="padding:40px 24px 80px">
+    <div class="card-wrap">
+      <div class="step-header">
+        <div class="step-label-row">
+          <span class="step-dot"></span>
+          <span class="step-label-text">Step 1 of 3</span>
+        </div>
+        <h2 class="s-h2">Tell us about your organisation</h2>
+        <p class="s-lead" style="margin-bottom:0">We'll use this to calculate your hourly cost of time and scale the projections.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="orgName">Organisation Name</label>
+          <input class="form-input" id="orgName" type="text" placeholder="Acme Corporation" autocomplete="organization"/>
+          <div class="field-error" id="err-orgName">Organisation name is required</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="industry">Industry</label>
+          <select class="form-select" id="industry" onchange="onIndustryChange()">
+            <option value="">Select industry...</option>
+            <option value="Financial Services">Financial Services</option>
+            <option value="Legal & Professional Services">Legal &amp; Professional Services</option>
+            <option value="Healthcare & Life Sciences">Healthcare &amp; Life Sciences</option>
+            <option value="Technology & SaaS">Technology &amp; SaaS</option>
+            <option value="Manufacturing & Industrial">Manufacturing &amp; Industrial</option>
+            <option value="Retail & Consumer">Retail &amp; Consumer</option>
+            <option value="Government & Public Sector">Government &amp; Public Sector</option>
+            <option value="Education & Research">Education &amp; Research</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="employees">Total Employees</label>
+          <input class="form-input" id="employees" type="number" placeholder="250" min="1"/>
+          <div class="field-error" id="err-employees">Please enter a valid employee count</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="aiUsers">Staff Who Could Use AI</label>
+          <input class="form-input" id="aiUsers" type="number" placeholder="150" min="1"/>
+          <span class="form-note">How many would realistically use Claude AI?</span>
+          <div class="field-error" id="err-aiUsers">Must be a positive number and &le; total employees</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="salary">Average Annual Salary</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">$</span>
+            <input class="form-input" id="salary" type="text" placeholder="85,000"/>
+          </div>
+          <span class="form-note">Used to calculate hourly cost of time</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="hoursPerWeek">Working Hours Per Week</label>
+          <select class="form-select" id="hoursPerWeek">
+            <option value="35">35 hours</option>
+            <option value="37.5">37.5 hours</option>
+            <option value="40" selected>40 hours (standard)</option>
+            <option value="45">45 hours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="validateAndGoTo2()">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 2 — TIME ON TASKS
+  ========================================================= -->
+  <div class="screen" id="screen2" style="padding:40px 24px 80px">
+    <div class="card-wrap">
+      <div class="step-header">
+        <div class="step-label-row">
+          <span class="step-dot"></span>
+          <span class="step-label-text">Step 2 of 3</span>
+        </div>
+        <h2 class="s-h2">Where does your team spend time?</h2>
+        <p class="s-lead" style="margin-bottom:0">Select tasks your team performs. We'll estimate the AI-assisted time saving for each.</p>
+      </div>
+
+      <div class="tasks-grid" id="tasksGrid"></div>
+
+      <div class="tasks-total">
+        <span class="tasks-total-label">Total hours selected</span>
+        <span class="tasks-total-val" id="totalHrsDisplay">0 hrs/person/week</span>
+      </div>
+
+      <div class="btn-row" style="margin-top:20px">
+        <button class="btn-primary" onclick="validateAndGoTo3()">Next &rarr;</button>
+        <button class="btn-secondary" onclick="goTo(1)">&larr; Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 3 — DEPLOYMENT ASSUMPTIONS
+  ========================================================= -->
+  <div class="screen" id="screen3" style="padding:40px 24px 80px">
+    <div class="card-wrap">
+      <div class="step-header">
+        <div class="step-label-row">
+          <span class="step-dot"></span>
+          <span class="step-label-text">Step 3 of 3</span>
+        </div>
+        <h2 class="s-h2">Deployment assumptions</h2>
+        <p class="s-lead" style="margin-bottom:0">Adjust these based on your rollout plans. We've set sensible defaults.</p>
+      </div>
+
+      <!-- Adoption rate -->
+      <div class="form-group" style="margin-bottom:28px">
+        <label class="form-label">Adoption Rate</label>
+        <span class="form-note" style="margin-bottom:10px">What % of your AI users will actively use Claude?</span>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:8px">
+          <input type="range" id="adoptionSlider" min="20" max="100" step="5" value="70" style="flex:1" oninput="updateAdoptionDisplay()"/>
+          <span id="adoptionVal" style="font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ge);min-width:42px;text-align:right">70%</span>
+        </div>
+      </div>
+
+      <!-- Ramp-up -->
+      <div class="form-group" style="margin-bottom:28px">
+        <label class="form-label">Ramp-Up Time</label>
+        <div class="ramp-cards">
+          <div class="ramp-card" id="ramp-3" onclick="selectRamp(3)">
+            <span class="ramp-icon">⚡</span>
+            <div class="ramp-label">Fast (3 months)</div>
+            <div class="ramp-sub">Dedicated rollout programme</div>
+          </div>
+          <div class="ramp-card selected" id="ramp-6" onclick="selectRamp(6)">
+            <span class="ramp-icon">📈</span>
+            <div class="ramp-label">Standard (6 months)</div>
+            <div class="ramp-sub">Typical enterprise deployment</div>
+          </div>
+          <div class="ramp-card" id="ramp-12" onclick="selectRamp(12)">
+            <span class="ramp-icon">🐢</span>
+            <div class="ramp-label">Gradual (12 months)</div>
+            <div class="ramp-sub">Phased adoption</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Productivity gain -->
+      <div class="form-group" style="margin-bottom:28px">
+        <label class="form-label">Productivity Gain Estimate</label>
+        <div class="gain-cards">
+          <div class="gain-card" id="gain-20" onclick="selectGain(20)">
+            <span class="gain-pct">20%</span>
+            <div class="gain-label">Conservative</div>
+            <div class="gain-sub">Cautious estimate, partial task automation</div>
+          </div>
+          <div class="gain-card selected" id="gain-35" onclick="selectGain(35)">
+            <span class="gain-pct">35%</span>
+            <div class="gain-label">Balanced</div>
+            <div class="gain-sub">Industry benchmark for Claude deployments</div>
+          </div>
+          <div class="gain-card" id="gain-50" onclick="selectGain(50)">
+            <span class="gain-pct">50%</span>
+            <div class="gain-label">Optimistic</div>
+            <div class="gain-sub">Full adoption with workflow integration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude cost -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="claudeCost">Claude Enterprise Cost ($/user/mo)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">$</span>
+            <input class="form-input" id="claudeCost" type="number" placeholder="30" value="30" min="0"/>
+          </div>
+          <span class="form-note">Claude Enterprise ~$30/user/mo. Adjust for your plan.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="implCost">Implementation Cost (optional)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">$</span>
+            <input class="form-input" id="implCost" type="number" placeholder="15,000" min="0"/>
+          </div>
+          <span class="form-note">Include consulting, setup, and training. Leave blank to exclude.</span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary full" onclick="runProcessing()" style="max-width:320px">Calculate My ROI &rarr;</button>
+        <button class="btn-secondary" onclick="goTo(2)">&larr; Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 4 — PROCESSING
+  ========================================================= -->
+  <div class="screen screen-center" id="screen4">
+    <div class="processing-wrap">
+      <div class="spinner-ring"></div>
+      <h2 class="s-h2" style="text-align:center;margin-bottom:0">Calculating your ROI...</h2>
+      <ul class="tick-list" id="tickList">
+        <li class="tick-item" id="tick0">
+          <div class="tick-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Analysing task time data
+        </li>
+        <li class="tick-item" id="tick1">
+          <div class="tick-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Calculating labour cost savings
+        </li>
+        <li class="tick-item" id="tick2">
+          <div class="tick-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Modelling adoption curve
+        </li>
+        <li class="tick-item" id="tick3">
+          <div class="tick-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Projecting 12-month returns
+        </li>
+        <li class="tick-item" id="tick4">
+          <div class="tick-check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Generating your report
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 5 — RESULTS
+  ========================================================= -->
+  <div class="screen" id="screen5" style="padding:40px 24px 80px">
+    <div class="card-wrap-wide">
+
+      <!-- KPI Cards -->
+      <div class="results-kpi-grid">
+        <div class="kpi-card accent-cyan">
+          <div class="kpi-number" id="kpiHours" style="color:var(--ge)">0</div>
+          <div class="kpi-label">Hours saved per year</div>
+          <div class="kpi-sub" id="kpiHoursSub">Across AI users</div>
+        </div>
+        <div class="kpi-card accent-green">
+          <div class="kpi-number" id="kpiSavings" style="color:var(--green)">$0</div>
+          <div class="kpi-label">Annual labour savings</div>
+          <div class="kpi-sub" id="kpiSavingsSub">At $0/hr average</div>
+        </div>
+        <div class="kpi-card accent-orange">
+          <div class="kpi-number" id="kpiRoi">0%</div>
+          <div class="kpi-label">Year 1 ROI</div>
+          <div class="kpi-sub">After all costs</div>
+        </div>
+        <div class="kpi-card accent-purple">
+          <div class="kpi-number" id="kpiPayback" style="color:var(--gm)">0 mo</div>
+          <div class="kpi-label">Break-even point</div>
+          <div class="kpi-sub">Time to recoup investment</div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-card">
+        <div class="chart-title">12-Month Cumulative Returns</div>
+        <div class="chart-wrap">
+          <canvas id="roiChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Assumptions collapsible -->
+      <div class="collapsible-card">
+        <div class="collapsible-header open" id="assumHeader" onclick="toggleCollapsible()">
+          Assumptions Used
+          <svg class="collapsible-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+        <div class="collapsible-body open" id="assumBody">
+          <div class="assumption-grid" id="assumGrid"></div>
+        </div>
+      </div>
+
+      <!-- Per-task breakdown -->
+      <div class="breakdown-card">
+        <div class="breakdown-title">Per-Task Breakdown</div>
+        <div style="overflow-x:auto">
+          <table class="breakdown-table" id="breakdownTable">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Hrs/person/wk</th>
+                <th>Hrs saved/yr</th>
+                <th>$ Saved/yr</th>
+              </tr>
+            </thead>
+            <tbody id="breakdownBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-card">
+        <h2 class="s-h2">Ready to build your Claude AI layer?</h2>
+        <p class="s-lead" style="margin-bottom:0">These projections are based on conservative industry benchmarks. Our team can help you build the business case and deploy the infrastructure.</p>
+        <div class="cta-grid">
+          <div>
+            <p style="font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">What's included in a Fynaptix engagement</p>
+            <ul class="cta-list">
+              <li>Discovery workshop &amp; requirements</li>
+              <li>Architecture design &amp; build</li>
+              <li>Change management &amp; rollout</li>
+              <li>Governance framework</li>
+              <li>Ongoing support</li>
+            </ul>
+          </div>
+          <div class="cta-actions">
+            <button class="btn-primary" onclick="downloadReport()" style="justify-content:center">Download ROI Report</button>
+            <a class="btn-secondary" id="bookCallLink" href="#" style="justify-content:center">Book a Discovery Call</a>
+            <a class="cta-text-link" href="/assessment.html">Take the Readiness Assessment &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- #app -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================
+   STATE
+===================================================== */
+const state = {
+  orgName: '',
+  industry: '',
+  employees: 0,
+  aiUsers: 0,
+  salary: 85000,
+  hoursPerWeek: 40,
+  tasks: {},
+  adoptionRate: 70,
+  rampMonths: 6,
+  productivityGain: 35,
+  claudeCostPerUser: 30,
+  implCost: 0
+};
+
+/* =====================================================
+   TASK DEFINITIONS
+===================================================== */
+const TASKS = [
+  { id:'docs',    icon:'📝', name:'Document Drafting',        desc:'Proposals, reports, policies, and internal docs',                  defaultHrs:4 },
+  { id:'email',   icon:'📧', name:'Email & Communications',   desc:'Composing, summarising, and responding to emails',                  defaultHrs:3 },
+  { id:'research',icon:'🔍', name:'Research & Analysis',      desc:'Gathering information, market research, competitor analysis',        defaultHrs:3 },
+  { id:'data',    icon:'📊', name:'Data & Reporting',         desc:'Analysing data, building reports, creating summaries',               defaultHrs:3 },
+  { id:'meetings',icon:'🗒️', name:'Meeting Notes & Summaries',desc:'Capturing, summarising, and distributing meeting outcomes',          defaultHrs:2 },
+  { id:'code',    icon:'💻', name:'Code & Development',       desc:'Writing, reviewing, and debugging code',                             defaultHrs:5 },
+  { id:'legal',   icon:'⚖️', name:'Legal & Compliance',       desc:'Reviewing contracts, policies, regulatory documents',                defaultHrs:4 },
+  { id:'strategy',icon:'🎯', name:'Strategy & Planning',      desc:'Research for strategic decisions, competitive analysis, planning docs',defaultHrs:2 }
+];
+
+const INDUSTRY_SALARIES = {
+  'Financial Services':         95000,
+  'Legal & Professional Services': 105000,
+  'Healthcare & Life Sciences': 85000,
+  'Technology & SaaS':          110000,
+  'Manufacturing & Industrial': 75000,
+  'Retail & Consumer':          65000,
+  'Government & Public Sector': 80000,
+  'Education & Research':       72000,
+  'Other':                      85000
+};
+
+/* =====================================================
+   PREVIEW CYCLING ANIMATION
+===================================================== */
+const PREVIEW_CYCLES = [
+  { hrs:'1,240 hrs/yr', savings:'$186,000', roi:'312%' },
+  { hrs:'3,400 hrs/yr', savings:'$510,000', roi:'487%' },
+  { hrs:'820 hrs/yr',   savings:'$98,400',  roi:'218%' },
+  { hrs:'6,100 hrs/yr', savings:'$915,000', roi:'620%' }
+];
+let cycleIdx = 0;
+function cyclePreview() {
+  cycleIdx = (cycleIdx + 1) % PREVIEW_CYCLES.length;
+  const c = PREVIEW_CYCLES[cycleIdx];
+  const hEl = document.getElementById('prevHrs');
+  const sEl = document.getElementById('prevSavings');
+  const rEl = document.getElementById('prevRoi');
+  [hEl, sEl, rEl].forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(4px)'; });
+  setTimeout(() => {
+    hEl.textContent = c.hrs;
+    sEl.textContent = c.savings;
+    rEl.textContent = c.roi;
+    [hEl, sEl, rEl].forEach(el => {
+      el.style.transition = 'opacity .4s,transform .4s';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }, 280);
+}
+setInterval(cyclePreview, 3000);
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+let currentScreen = 0;
+let roiChart = null;
+
+function goTo(n) {
+  const prev = document.getElementById('screen' + currentScreen);
+  const next = document.getElementById('screen' + n);
+  if (!next) return;
+  prev.classList.remove('active');
+  next.classList.add('active', 'fade-in');
+  setTimeout(() => next.classList.remove('fade-in'), 400);
+  currentScreen = n;
+  updateProgress(n);
+  updateNav(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(n) {
+  const wrap = document.getElementById('progressWrap');
+  const bar  = document.getElementById('progressBar');
+  if (n >= 1 && n <= 3) {
+    wrap.style.display = 'block';
+    bar.style.width = ((n / 3) * 100) + '%';
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+
+function updateNav(n) {
+  const back   = document.getElementById('navBack');
+  const recalc = document.getElementById('navRecalc');
+  if (n === 5) {
+    back.style.display   = 'none';
+    recalc.classList.add('visible');
+  } else {
+    back.style.display   = '';
+    recalc.classList.remove('visible');
+  }
+}
+
+function recalculate() {
+  goTo(0);
+}
+
+/* =====================================================
+   SCREEN 1 LOGIC
+===================================================== */
+function onIndustryChange() {
+  const sel = document.getElementById('industry').value;
+  if (sel && INDUSTRY_SALARIES[sel]) {
+    const salEl = document.getElementById('salary');
+    salEl.value = INDUSTRY_SALARIES[sel].toLocaleString();
+  }
+}
+
+function parseSalary() {
+  const raw = document.getElementById('salary').value.replace(/,/g, '');
+  return parseFloat(raw) || 0;
+}
+
+document.getElementById('salary').addEventListener('blur', function() {
+  const v = parseSalary();
+  if (v > 0) this.value = v.toLocaleString();
+});
+
+function validateAndGoTo2() {
+  const orgName  = document.getElementById('orgName').value.trim();
+  const employees = parseInt(document.getElementById('employees').value) || 0;
+  const aiUsers   = parseInt(document.getElementById('aiUsers').value)  || 0;
+  const salary    = parseSalary();
+
+  let ok = true;
+
+  toggleError('err-orgName', !orgName);
+  if (!orgName) ok = false;
+
+  toggleError('err-employees', employees <= 0);
+  if (employees <= 0) ok = false;
+
+  toggleError('err-aiUsers', aiUsers <= 0 || aiUsers > employees);
+  if (aiUsers <= 0 || aiUsers > employees) ok = false;
+
+  if (!ok) {
+    showToast('Please fix the highlighted fields', true);
+    return;
+  }
+
+  state.orgName      = orgName;
+  state.industry     = document.getElementById('industry').value;
+  state.employees    = employees;
+  state.aiUsers      = aiUsers;
+  state.salary       = salary > 0 ? salary : 85000;
+  state.hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value) || 40;
+
+  goTo(2);
+}
+
+function toggleError(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('show', show);
+}
+
+/* =====================================================
+   SCREEN 2 — TASKS
+===================================================== */
+function buildTasksGrid() {
+  const grid = document.getElementById('tasksGrid');
+  grid.innerHTML = '';
+  TASKS.forEach(task => {
+    const isSelected = state.tasks[task.id] !== undefined && state.tasks[task.id] > 0;
+    const hrs = state.tasks[task.id] || task.defaultHrs;
+    const card = document.createElement('div');
+    card.className = 'task-card' + (isSelected ? ' selected' : '');
+    card.id = 'taskCard-' + task.id;
+    card.innerHTML = `
+      <div class="task-card-top">
+        <span class="task-icon">${task.icon}</span>
+        <div>
+          <div class="task-name">${task.name}</div>
+          <div class="task-desc">${task.desc}</div>
+        </div>
+      </div>
+      <div class="task-slider-wrap" id="slider-wrap-${task.id}">
+        <div class="task-slider-label">
+          <span class="task-slider-label-text">Hours per person per week</span>
+          <span class="task-slider-val" id="slider-val-${task.id}">${hrs}</span>
+        </div>
+        <input type="range" min="1" max="20" step="0.5" value="${hrs}"
+          id="slider-${task.id}"
+          oninput="onSliderInput('${task.id}', this.value)"
+        />
+        <div class="task-estimate" id="task-est-${task.id}">${getTaskEstimate(task.id, hrs)}</div>
+      </div>
+    `;
+    card.addEventListener('click', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      toggleTask(task.id, task.defaultHrs);
+    });
+    grid.appendChild(card);
+    updateSliderTrack('slider-' + task.id);
+  });
+  updateTotalHours();
+}
+
+function toggleTask(id, defaultHrs) {
+  const card = document.getElementById('taskCard-' + id);
+  if (state.tasks[id]) {
+    delete state.tasks[id];
+    card.classList.remove('selected');
+  } else {
+    const sliderEl = document.getElementById('slider-' + id);
+    const hrs = sliderEl ? parseFloat(sliderEl.value) : defaultHrs;
+    state.tasks[id] = hrs;
+    card.classList.add('selected');
+  }
+  updateTotalHours();
+}
+
+function onSliderInput(id, val) {
+  const v = parseFloat(val);
+  state.tasks[id] = v;
+  const valEl = document.getElementById('slider-val-' + id);
+  if (valEl) valEl.textContent = v;
+  const estEl = document.getElementById('task-est-' + id);
+  if (estEl) estEl.textContent = getTaskEstimate(id, v);
+  updateSliderTrack('slider-' + id);
+  updateTotalHours();
+}
+
+function getTaskEstimate(id, hrs) {
+  const aiU = state.aiUsers || 150;
+  const gain = state.productivityGain / 100;
+  const saved = Math.round(hrs * gain * aiU * 52);
+  return `~${saved.toLocaleString()} hrs saved/yr across your team`;
+}
+
+function updateTotalHours() {
+  const total = Object.values(state.tasks).reduce((a, b) => a + b, 0);
+  const el = document.getElementById('totalHrsDisplay');
+  if (el) el.textContent = total.toFixed(1) + ' hrs/person/week';
+}
+
+function updateSliderTrack(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const min = parseFloat(el.min);
+  const max = parseFloat(el.max);
+  const val = parseFloat(el.value);
+  const pct = ((val - min) / (max - min)) * 100;
+  el.style.background = `linear-gradient(to right, var(--gm) 0%, var(--ge) ${pct}%, rgba(255,255,255,0.13) ${pct}%)`;
+}
+
+function validateAndGoTo3() {
+  if (Object.keys(state.tasks).length === 0) {
+    showToast('Please select at least one task', true);
+    return;
+  }
+  goTo(3);
+}
+
+/* =====================================================
+   SCREEN 3 — ASSUMPTIONS
+===================================================== */
+function updateAdoptionDisplay() {
+  const v = document.getElementById('adoptionSlider').value;
+  document.getElementById('adoptionVal').textContent = v + '%';
+  state.adoptionRate = parseInt(v);
+  updateSliderTrack('adoptionSlider');
+}
+
+function selectRamp(months) {
+  [3, 6, 12].forEach(m => {
+    document.getElementById('ramp-' + m).classList.toggle('selected', m === months);
+  });
+  state.rampMonths = months;
+}
+
+function selectGain(pct) {
+  [20, 35, 50].forEach(p => {
+    document.getElementById('gain-' + p).classList.toggle('selected', p === pct);
+  });
+  state.productivityGain = pct;
+}
+
+// Init adoption slider track
+updateSliderTrack('adoptionSlider');
+
+/* =====================================================
+   SCREEN 4 — PROCESSING
+===================================================== */
+function runProcessing() {
+  state.claudeCostPerUser = parseFloat(document.getElementById('claudeCost').value) || 30;
+  state.implCost = parseFloat(document.getElementById('implCost').value) || 0;
+
+  goTo(4);
+
+  const ticks = document.querySelectorAll('.tick-item');
+  ticks.forEach(t => { t.classList.remove('visible', 'done'); });
+
+  let delay = 200;
+  ticks.forEach((tick, i) => {
+    setTimeout(() => tick.classList.add('visible'), delay + i * 420);
+    setTimeout(() => tick.classList.add('done'), delay + i * 420 + 320);
+  });
+
+  setTimeout(() => {
+    calculateROI();
+    buildResults();
+    goTo(5);
+  }, 2200);
+}
+
+/* =====================================================
+   CALCULATIONS
+===================================================== */
+let results = {};
+
+function calculateROI() {
+  const { salary, hoursPerWeek, aiUsers, adoptionRate, productivityGain,
+          claudeCostPerUser, implCost, rampMonths } = state;
+
+  const hourlyRate       = salary / (hoursPerWeek * 52);
+  const totalTaskHrsPerPersonPerWeek = Object.values(state.tasks).reduce((a,b) => a+b, 0);
+  const aiUsersEffective = aiUsers * (adoptionRate / 100);
+  const hoursSavedPerYear = totalTaskHrsPerPersonPerWeek * (productivityGain / 100) * aiUsersEffective * 52;
+  const annualSavings    = hoursSavedPerYear * hourlyRate;
+  const claudeAnnualCost = aiUsersEffective * claudeCostPerUser * 12;
+  const totalInvestment  = claudeAnnualCost + implCost;
+  const netBenefit       = annualSavings - totalInvestment;
+  const roi              = totalInvestment > 0 ? (netBenefit / totalInvestment) * 100 : 0;
+  const paybackMonths    = annualSavings > 0 ? totalInvestment / (annualSavings / 12) : 999;
+
+  // Monthly chart data (cumulative)
+  const monthlyFullSavings = annualSavings / 12;
+  const monthlyClaudeCost  = claudeAnnualCost / 12;
+
+  let cumSavings = 0;
+  let cumCosts   = 0;
+  const savingsData = [];
+  const costsData   = [];
+  let paybackMonth  = null;
+
+  for (let m = 1; m <= 12; m++) {
+    let rampFactor = 1;
+    if (m <= rampMonths) rampFactor = m / rampMonths;
+    const mSavings = monthlyFullSavings * rampFactor;
+    const mCost    = monthlyClaudeCost + (m === 1 ? implCost : 0);
+    cumSavings += mSavings;
+    cumCosts   += mCost;
+    savingsData.push(Math.round(cumSavings));
+    costsData.push(Math.round(cumCosts));
+    if (paybackMonth === null && cumSavings >= cumCosts) paybackMonth = m;
+  }
+
+  results = {
+    hourlyRate,
+    hoursSavedPerYear,
+    annualSavings,
+    claudeAnnualCost,
+    totalInvestment,
+    netBenefit,
+    roi,
+    paybackMonths,
+    savingsData,
+    costsData,
+    paybackMonth,
+    aiUsersEffective
+  };
+}
+
+/* =====================================================
+   BUILD RESULTS SCREEN
+===================================================== */
+function buildResults() {
+  const r = results;
+
+  // KPI subs
+  document.getElementById('kpiHoursSub').textContent =
+    `Across ${Math.round(r.aiUsersEffective).toLocaleString()} AI users`;
+  document.getElementById('kpiSavingsSub').textContent =
+    `At $${r.hourlyRate.toFixed(0)}/hr average`;
+
+  // Animate KPIs
+  animateCount('kpiHours',   0, Math.round(r.hoursSavedPerYear), 1500, v => v.toLocaleString());
+  animateCount('kpiSavings', 0, Math.round(r.annualSavings),     1500, v => '$' + v.toLocaleString());
+  animateCount('kpiRoi',     0, Math.round(r.roi),               1500, v => v.toLocaleString() + '%');
+  const pm = r.paybackMonths > 24 ? '>24 mo' : r.paybackMonths.toFixed(1) + ' months';
+  if (r.paybackMonths <= 24) {
+    animateCount('kpiPayback', 0, parseFloat(r.paybackMonths.toFixed(1)), 1500,
+      v => v.toFixed(1) + ' months');
+  } else {
+    document.getElementById('kpiPayback').textContent = '>24 months';
+  }
+
+  // Chart
+  buildChart(r.savingsData, r.costsData, r.paybackMonth);
+
+  // Assumptions
+  buildAssumptions();
+
+  // Breakdown table
+  buildBreakdownTable();
+
+  // Mailto
+  buildMailto();
+}
+
+function animateCount(elId, from, to, duration, formatter) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  const start = performance.now();
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = from + (to - from) * eased;
+    el.textContent = formatter(current);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* =====================================================
+   CHART
+===================================================== */
+function buildChart(savingsData, costsData, paybackMonth) {
+  const ctx = document.getElementById('roiChart').getContext('2d');
+  if (roiChart) roiChart.destroy();
+
+  const labels = Array.from({length:12}, (_,i) => 'Month ' + (i+1));
+
+  // Vertical line plugin for payback
+  const paybackPlugin = {
+    id:'paybackLine',
+    afterDraw(chart) {
+      if (!paybackMonth || paybackMonth > 12) return;
+      const {ctx, chartArea, scales} = chart;
+      const x = scales.x.getPixelForValue(paybackMonth - 1);
+      ctx.save();
+      ctx.setLineDash([5,4]);
+      ctx.strokeStyle = 'rgba(46,208,245,0.5)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x, chartArea.top);
+      ctx.lineTo(x, chartArea.bottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(46,208,245,0.9)';
+      ctx.font = '600 11px Outfit,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Break-even', x, chartArea.top - 6);
+      ctx.restore();
+    }
+  };
+
+  roiChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Cumulative Savings',
+          data: savingsData,
+          backgroundColor: 'rgba(192,37,232,0.25)',
+          borderColor: 'rgba(192,37,232,0.6)',
+          borderWidth: 1,
+          borderRadius: 4,
+          order: 2
+        },
+        {
+          type: 'line',
+          label: 'Cumulative Costs',
+          data: costsData,
+          borderColor: 'rgba(46,208,245,0.8)',
+          backgroundColor: 'rgba(46,208,245,0.05)',
+          borderWidth: 2,
+          pointBackgroundColor: 'rgba(46,208,245,0.9)',
+          pointRadius: 3,
+          tension: 0.3,
+          fill: true,
+          order: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#6b7a99',
+            font: { family: 'DM Sans', size: 12 },
+            boxWidth: 12
+          }
+        },
+        tooltip: {
+          backgroundColor: '#0d1526',
+          borderColor: 'rgba(255,255,255,0.07)',
+          borderWidth: 1,
+          titleColor: '#e8edf8',
+          bodyColor: '#6b7a99',
+          callbacks: {
+            label(ctx) {
+              return ' ' + ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString();
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#6b7a99', font: { family: 'DM Sans', size: 11 } }
+        },
+        y: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: {
+            color: '#6b7a99',
+            font: { family: 'DM Sans', size: 11 },
+            callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v)
+          }
+        }
+      }
+    },
+    plugins: [paybackPlugin]
+  });
+}
+
+/* =====================================================
+   ASSUMPTIONS
+===================================================== */
+function buildAssumptions() {
+  const grid = document.getElementById('assumGrid');
+  const taskNames = Object.keys(state.tasks).map(id => {
+    const t = TASKS.find(x => x.id === id);
+    return t ? t.name : id;
+  }).join(', ');
+
+  const items = [
+    ['Organisation', `${state.orgName}${state.industry ? ' · ' + state.industry : ''} · ${state.employees.toLocaleString()} employees`],
+    ['AI Users', `${state.aiUsers.toLocaleString()} (${state.adoptionRate}% adoption = ${Math.round(results.aiUsersEffective).toLocaleString()} active)`],
+    ['Productivity Gain', state.productivityGain + '%'],
+    ['Avg Hourly Rate', '$' + results.hourlyRate.toFixed(2)],
+    ['Ramp-Up', state.rampMonths + ' months'],
+    ['Claude Cost', '$' + state.claudeCostPerUser + '/user/mo'],
+    ['Impl. Cost', state.implCost > 0 ? '$' + state.implCost.toLocaleString() : 'Not included'],
+    ['Tasks', taskNames || 'None selected']
+  ];
+
+  grid.innerHTML = items.map(([k, v]) =>
+    `<div class="assumption-item">
+      <span class="assumption-key">${k}</span>
+      <span class="assumption-val">${v}</span>
+    </div>`
+  ).join('');
+}
+
+/* =====================================================
+   BREAKDOWN TABLE
+===================================================== */
+function buildBreakdownTable() {
+  const body = document.getElementById('breakdownBody');
+  const r = results;
+  const adoptFactor = state.adoptionRate / 100;
+  const gainFactor  = state.productivityGain / 100;
+  let totalHrsSaved = 0;
+  let totalDolSaved = 0;
+
+  const rows = Object.entries(state.tasks).map(([id, hrsWk]) => {
+    const task = TASKS.find(t => t.id === id);
+    const label = task ? task.icon + ' ' + task.name : id;
+    const hrsSavedYr = hrsWk * gainFactor * state.aiUsers * adoptFactor * 52;
+    const dolSavedYr = hrsSavedYr * r.hourlyRate;
+    totalHrsSaved += hrsSavedYr;
+    totalDolSaved += dolSavedYr;
+    return `<tr>
+      <td>${label}</td>
+      <td>${hrsWk.toFixed(1)}</td>
+      <td>${Math.round(hrsSavedYr).toLocaleString()}</td>
+      <td>$${Math.round(dolSavedYr).toLocaleString()}</td>
+    </tr>`;
+  });
+
+  rows.push(`<tr>
+    <td>Total</td>
+    <td>${Object.values(state.tasks).reduce((a,b)=>a+b,0).toFixed(1)}</td>
+    <td>${Math.round(totalHrsSaved).toLocaleString()}</td>
+    <td>$${Math.round(totalDolSaved).toLocaleString()}</td>
+  </tr>`);
+
+  body.innerHTML = rows.join('');
+}
+
+/* =====================================================
+   MAILTO
+===================================================== */
+function buildMailto() {
+  const r = results;
+  const subj = encodeURIComponent(`Claude AI ROI Assessment — ${state.orgName}`);
+  const body = encodeURIComponent(
+    `Organisation: ${state.orgName}\nIndustry: ${state.industry || 'Not specified'}\nEmployees: ${state.employees}\nAI Users: ${state.aiUsers}\n\nProjected Annual Savings: $${Math.round(r.annualSavings).toLocaleString()}\nYear 1 ROI: ${Math.round(r.roi)}%\nPayback Period: ${r.paybackMonths.toFixed(1)} months\n\nI'd like to discuss a discovery engagement.`
+  );
+  const el = document.getElementById('bookCallLink');
+  el.href = `mailto:hello@fynaptix.com?subject=${subj}&body=${body}`;
+}
+
+/* =====================================================
+   COLLAPSIBLE
+===================================================== */
+function toggleCollapsible() {
+  const header = document.getElementById('assumHeader');
+  const body   = document.getElementById('assumBody');
+  header.classList.toggle('open');
+  body.classList.toggle('open');
+}
+
+/* =====================================================
+   DOWNLOAD REPORT
+===================================================== */
+function downloadReport() {
+  const r = results;
+  const taskRows = Object.entries(state.tasks).map(([id, hrsWk]) => {
+    const task = TASKS.find(t => t.id === id);
+    const label = task ? task.name : id;
+    const hrsSavedYr = Math.round(hrsWk * (state.productivityGain/100) * state.aiUsers * (state.adoptionRate/100) * 52);
+    const dolSavedYr = Math.round(hrsSavedYr * r.hourlyRate);
+    return `<tr style="border-bottom:1px solid #e5e7eb">
+      <td style="padding:8px 12px">${label}</td>
+      <td style="padding:8px 12px;text-align:right">${hrsWk.toFixed(1)}</td>
+      <td style="padding:8px 12px;text-align:right">${hrsSavedYr.toLocaleString()}</td>
+      <td style="padding:8px 12px;text-align:right">$${dolSavedYr.toLocaleString()}</td>
+    </tr>`;
+  });
+
+  const projRows = r.savingsData.map((sav, i) =>
+    `<tr style="border-bottom:1px solid #e5e7eb">
+      <td style="padding:6px 12px">Month ${i+1}</td>
+      <td style="padding:6px 12px;text-align:right">$${sav.toLocaleString()}</td>
+      <td style="padding:6px 12px;text-align:right">$${r.costsData[i].toLocaleString()}</td>
+      <td style="padding:6px 12px;text-align:right;color:${sav >= r.costsData[i] ? '#059669' : '#dc2626'}">
+        $${(sav - r.costsData[i]).toLocaleString()}
+      </td>
+    </tr>`
+  );
+
+  const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"/>
+<title>Claude AI ROI Report — ${state.orgName}</title>
+<style>
+  body{font-family:'Segoe UI',Arial,sans-serif;color:#111;background:#fff;padding:32px;max-width:900px;margin:0 auto}
+  h1{font-size:26px;font-weight:800;margin-bottom:4px;color:#0f172a}
+  h2{font-size:17px;font-weight:700;margin:28px 0 12px;color:#0f172a;border-bottom:2px solid #f1f5f9;padding-bottom:6px}
+  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;padding-bottom:16px;border-bottom:3px solid #6d28d9}
+  .header-right{text-align:right;font-size:12px;color:#6b7280}
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+  .kpi{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;text-align:center}
+  .kpi-n{font-size:22px;font-weight:800;color:#6d28d9;display:block;margin-bottom:4px}
+  .kpi-l{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6b7280;font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{background:#f8fafc;text-align:left;padding:8px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6b7280;border-bottom:2px solid #e2e8f0}
+  .footer{margin-top:40px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:12px;color:#9ca3af;text-align:center}
+  @media print{body{padding:16px}}
+</style>
+</head><body>
+<div class="header">
+  <div>
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#6d28d9;font-weight:700;margin-bottom:6px">FYNAPTIX · CLAUDE AI ROI REPORT</div>
+    <h1>${state.orgName}</h1>
+    <div style="color:#6b7280;font-size:13px">${state.industry || ''} &nbsp;·&nbsp; ${state.employees.toLocaleString()} employees &nbsp;·&nbsp; Generated ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div>
+  </div>
+  <div class="header-right">fynaptix.com</div>
+</div>
+
+<h2>Key Metrics</h2>
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi-n">${Math.round(r.hoursSavedPerYear).toLocaleString()}</span><span class="kpi-l">Hours Saved/yr</span></div>
+  <div class="kpi"><span class="kpi-n">$${Math.round(r.annualSavings).toLocaleString()}</span><span class="kpi-l">Annual Savings</span></div>
+  <div class="kpi"><span class="kpi-n">${Math.round(r.roi)}%</span><span class="kpi-l">Year 1 ROI</span></div>
+  <div class="kpi"><span class="kpi-n">${r.paybackMonths <= 24 ? r.paybackMonths.toFixed(1) + ' mo' : '>24 mo'}</span><span class="kpi-l">Payback Period</span></div>
+</div>
+
+<h2>Assumptions</h2>
+<table><tr><th>Parameter</th><th>Value</th></tr>
+  <tr><td style="padding:7px 12px">Organisation</td><td style="padding:7px 12px">${state.orgName}</td></tr>
+  <tr><td style="padding:7px 12px">Industry</td><td style="padding:7px 12px">${state.industry || 'Not specified'}</td></tr>
+  <tr><td style="padding:7px 12px">Total Employees</td><td style="padding:7px 12px">${state.employees.toLocaleString()}</td></tr>
+  <tr><td style="padding:7px 12px">AI Users</td><td style="padding:7px 12px">${state.aiUsers.toLocaleString()} (${state.adoptionRate}% adoption)</td></tr>
+  <tr><td style="padding:7px 12px">Average Annual Salary</td><td style="padding:7px 12px">$${state.salary.toLocaleString()}</td></tr>
+  <tr><td style="padding:7px 12px">Hourly Rate</td><td style="padding:7px 12px">$${r.hourlyRate.toFixed(2)}</td></tr>
+  <tr><td style="padding:7px 12px">Productivity Gain</td><td style="padding:7px 12px">${state.productivityGain}%</td></tr>
+  <tr><td style="padding:7px 12px">Ramp-Up Period</td><td style="padding:7px 12px">${state.rampMonths} months</td></tr>
+  <tr><td style="padding:7px 12px">Claude Cost</td><td style="padding:7px 12px">$${state.claudeCostPerUser}/user/month</td></tr>
+  <tr><td style="padding:7px 12px">Implementation Cost</td><td style="padding:7px 12px">${state.implCost > 0 ? '$' + state.implCost.toLocaleString() : 'Not included'}</td></tr>
+  <tr><td style="padding:7px 12px">Total Annual Investment</td><td style="padding:7px 12px">$${Math.round(r.totalInvestment).toLocaleString()}</td></tr>
+</table>
+
+<h2>Per-Task Breakdown</h2>
+<table>
+  <tr><th>Task</th><th style="text-align:right">Hrs/person/wk</th><th style="text-align:right">Hrs saved/yr</th><th style="text-align:right">$ Saved/yr</th></tr>
+  ${taskRows.join('')}
+</table>
+
+<h2>12-Month Projection</h2>
+<table>
+  <tr><th>Month</th><th style="text-align:right">Cumulative Savings</th><th style="text-align:right">Cumulative Costs</th><th style="text-align:right">Net Position</th></tr>
+  ${projRows.join('')}
+</table>
+
+<div class="footer">
+  Generated by Fynaptix ROI Calculator &nbsp;·&nbsp; fynaptix.com &nbsp;·&nbsp; Based on conservative industry benchmarks for Claude Enterprise deployments
+</div>
+</body></html>`;
+
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+  setTimeout(() => w.print(), 500);
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+/* =====================================================
+   INIT
+===================================================== */
+function init() {
+  buildTasksGrid();
+  // Init adoption slider track
+  updateSliderTrack('adoptionSlider');
+}
+
+init();
+</script>
+</body>
+</html>
