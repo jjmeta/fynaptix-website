@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Claude AI Use Case Prioritisation Matrix — Fynaptix</title>
+<meta name="description" content="Identify which Claude AI use cases to build first. Score them on impact vs effort and get a visual 2×2 priority matrix with a recommended build roadmap."/>
+<meta property="og:title" content="Claude AI Use Case Prioritisation Matrix — Fynaptix"/>
+<meta property="og:description" content="Select use cases, score impact vs effort, and get a visual roadmap showing exactly what to build first."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ── Brand variables ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#6b7a99;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --border-active:rgba(192,37,232,0.5);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#10b981;
+  --amber:#f59e0b;
+  --purple:#c025e8;
+  --orange:#ff5f1f;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Background glow ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%,rgba(192,37,232,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%);
+}
+
+/* ── Layout ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+.a-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  position:sticky;top:0;z-index:100;
+}
+.a-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.a-nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,0.5))}
+.a-nav-back{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,0.75);
+  text-decoration:none;transition:color .2s;
+}
+.a-nav-back:hover{color:#fff}
+.nav-rebuild{
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);border-radius:24px;
+  padding:8px 18px;background:rgba(46,208,245,0.07);cursor:pointer;
+  transition:all .2s;text-decoration:none;display:none;
+}
+.nav-rebuild:hover{background:rgba(46,208,245,0.14);border-color:rgba(46,208,245,0.5)}
+.nav-rebuild.visible{display:block}
+
+/* ── Progress bar ── */
+.progress-bar{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:20px 48px;border-bottom:1px solid var(--border);
+  background:var(--bg2);
+}
+.progress-step{
+  display:flex;align-items:center;gap:8px;font-family:var(--fd);font-size:12px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  transition:color .3s;
+}
+.progress-step.active{color:var(--text)}
+.progress-step.done{color:var(--green)}
+.step-num{
+  width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+  color:var(--muted);transition:all .3s;
+}
+.progress-step.active .step-num{
+  border-color:var(--gm);color:#fff;
+  background:linear-gradient(135deg,var(--gs),var(--gm));
+}
+.progress-step.done .step-num{
+  border-color:var(--green);background:rgba(16,185,129,0.15);color:var(--green);
+}
+.progress-divider{width:32px;height:1px;background:var(--border2)}
+
+/* ── Screens ── */
+.screen{display:none;opacity:0;transform:translateY(16px);transition:opacity .3s ease,transform .3s ease}
+.screen.active{display:block;opacity:1;transform:translateY(0)}
+.screen-content{max-width:1100px;margin:0 auto;padding:60px 48px}
+
+/* ── Welcome screen ── */
+.welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.eyebrow{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(192,37,232,0.8);margin-bottom:20px;
+}
+.hero-h1{
+  font-family:var(--fd);font-size:clamp(32px,4vw,52px);font-weight:800;line-height:1.1;
+  letter-spacing:-.02em;color:var(--text);margin-bottom:20px;
+}
+.grad-text{
+  background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:17px;line-height:1.7;color:rgba(232,237,248,0.7);margin-bottom:36px;max-width:500px;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--gs),var(--gm));
+  color:#fff;font-family:var(--fd);font-size:15px;font-weight:700;
+  letter-spacing:.04em;padding:16px 32px;border-radius:50px;
+  border:none;cursor:pointer;transition:all .25s;text-decoration:none;
+  box-shadow:0 0 32px rgba(192,37,232,0.3);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 4px 48px rgba(192,37,232,0.45)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border2);color:var(--text);
+  font-family:var(--fd);font-size:14px;font-weight:600;
+  padding:14px 28px;border-radius:50px;background:rgba(255,255,255,0.04);
+  cursor:pointer;transition:all .25s;
+}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.07)}
+.free-tag{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* ── CSS Matrix Preview ── */
+.matrix-preview{
+  position:relative;background:var(--bg2);border:1px solid var(--border2);
+  border-radius:var(--radius);padding:24px;
+}
+.matrix-grid{
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+  gap:3px;aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;
+}
+.matrix-quad{
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  padding:14px;position:relative;
+}
+.quad-qw{background:rgba(16,185,129,0.12)}
+.quad-sb{background:rgba(192,37,232,0.12)}
+.quad-fi{background:rgba(245,158,11,0.12)}
+.quad-dp{background:rgba(107,122,153,0.1)}
+.quad-label{
+  font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.quad-label.green{color:var(--green)}
+.quad-label.purple{color:var(--purple)}
+.quad-label.amber{color:var(--amber)}
+.quad-label.muted{color:var(--muted)}
+.preview-dot{
+  position:absolute;width:10px;height:10px;border-radius:50%;
+}
+.matrix-axes{display:flex;align-items:center;gap:8px;margin-top:12px;padding:0 4px}
+.axis-x{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;flex:1}
+.matrix-wrap{display:flex;align-items:center;gap:8px}
+.axis-y{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
+}
+.matrix-caption{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+
+/* ── Trust badges ── */
+.trust-badges{display:flex;flex-direction:column;gap:10px;margin-top:48px}
+.trust-badge{
+  display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(232,237,248,0.65);
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  border-radius:50px;padding:10px 18px;
+}
+
+/* ── Form elements ── */
+.form-section{margin-bottom:36px}
+.form-label{
+  display:block;font-family:var(--fd);font-size:12px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.form-input{
+  width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);
+  color:var(--text);font-family:var(--fb);font-size:15px;padding:14px 18px;
+  outline:none;transition:border-color .2s;
+}
+.form-input:focus{border-color:rgba(192,37,232,0.5)}
+.form-input::placeholder{color:var(--muted)}
+select.form-input option{background:var(--bg3)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* ── Step headers ── */
+.step-header{margin-bottom:40px}
+.step-h2{
+  font-family:var(--fd);font-size:clamp(24px,3vw,36px);font-weight:800;
+  letter-spacing:-.02em;color:var(--text);margin-bottom:10px;
+}
+.step-sub{font-size:15px;color:rgba(232,237,248,0.65);line-height:1.6;max-width:600px}
+
+/* ── Department toggle cards ── */
+.dept-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dept-card{
+  display:flex;align-items:center;gap:12px;
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:16px;cursor:pointer;transition:all .2s;user-select:none;
+}
+.dept-card:hover{border-color:rgba(192,37,232,0.3);background:rgba(192,37,232,0.05)}
+.dept-card.selected{
+  border-color:rgba(192,37,232,0.6);background:rgba(192,37,232,0.1);
+}
+.dept-icon{font-size:22px;flex-shrink:0}
+.dept-name{font-family:var(--fd);font-size:14px;font-weight:600;color:var(--text)}
+.dept-check{
+  margin-left:auto;width:20px;height:20px;border-radius:50%;
+  border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;
+  font-size:10px;transition:all .2s;flex-shrink:0;
+}
+.dept-card.selected .dept-check{
+  background:var(--gm);border-color:var(--gm);color:#fff;
+}
+
+/* ── Maturity radio ── */
+.maturity-options{display:flex;flex-direction:column;gap:12px}
+.maturity-option{
+  display:flex;align-items:flex-start;gap:14px;
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:16px 18px;cursor:pointer;transition:all .2s;
+}
+.maturity-option:hover{border-color:rgba(192,37,232,0.3)}
+.maturity-option.selected{border-color:rgba(192,37,232,0.6);background:rgba(192,37,232,0.08)}
+.maturity-radio{
+  width:18px;height:18px;border-radius:50%;border:2px solid var(--border2);
+  flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.maturity-option.selected .maturity-radio{border-color:var(--gm)}
+.maturity-inner{
+  width:8px;height:8px;border-radius:50%;background:var(--gm);
+  opacity:0;transition:opacity .2s;
+}
+.maturity-option.selected .maturity-inner{opacity:1}
+.maturity-em{font-size:18px;margin-right:2px}
+.maturity-title{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
+.maturity-desc{font-size:13px;color:var(--muted)}
+
+/* ── Use case cards (screen 2) ── */
+.dept-section{margin-bottom:36px}
+.dept-section-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.dept-section-pill{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:5px 12px;border-radius:20px;background:rgba(192,37,232,0.12);color:var(--gm);
+  border:1px solid rgba(192,37,232,0.2);
+}
+.usecase-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.usecase-card{
+  display:flex;flex-direction:column;gap:10px;
+  background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--radius-sm);
+  padding:16px;cursor:pointer;transition:all .2s;user-select:none;
+}
+.usecase-card:hover{border-color:rgba(192,37,232,0.35)}
+.usecase-card.selected{
+  border-color:rgba(192,37,232,0.6);background:rgba(192,37,232,0.08);
+}
+.usecase-top{display:flex;align-items:flex-start;gap:10px}
+.uc-checkbox{
+  width:18px;height:18px;border-radius:4px;border:1.5px solid var(--border2);
+  flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;transition:all .2s;background:transparent;color:transparent;
+}
+.usecase-card.selected .uc-checkbox{
+  background:var(--gm);border-color:var(--gm);color:#fff;
+}
+.uc-name{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
+.uc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.uc-badges{display:flex;gap:8px;flex-wrap:wrap}
+.uc-badge{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.04em;
+  padding:4px 10px;border-radius:20px;
+  background:rgba(255,255,255,0.05);border:1px solid var(--border2);color:var(--muted);
+}
+
+/* ── Sticky footer (screen 2) ── */
+.sticky-footer{
+  position:sticky;bottom:0;z-index:50;
+  background:rgba(8,13,26,0.96);backdrop-filter:blur(16px);
+  border-top:1px solid var(--border2);
+  padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.footer-count{
+  font-family:var(--fd);font-size:14px;font-weight:600;color:var(--text);
+}
+.footer-count span{color:var(--gm)}
+.footer-hint{font-size:12px;color:var(--muted);margin-top:2px}
+.footer-actions{display:flex;align-items:center;gap:12px}
+
+/* ── Scoring cards (screen 3) ── */
+.score-cards{display:flex;flex-direction:column;gap:20px}
+.score-card{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:24px;
+}
+.score-card-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.sc-name{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text)}
+.dept-badge{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:4px 10px;border-radius:20px;
+  background:rgba(192,37,232,0.1);border:1px solid rgba(192,37,232,0.2);color:rgba(192,37,232,0.9);
+}
+.quadrant-badge{
+  margin-left:auto;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:5px 12px;border-radius:20px;
+}
+.qb-quickwin{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:var(--green)}
+.qb-strategic{background:rgba(192,37,232,0.12);border:1px solid rgba(192,37,232,0.3);color:var(--purple)}
+.qb-fillin{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);color:var(--amber)}
+.qb-deprioritise{background:rgba(107,122,153,0.1);border:1px solid rgba(107,122,153,0.2);color:var(--muted)}
+
+.score-sliders{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.slider-group{}
+.slider-label{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+.slider-val{color:var(--text);font-size:14px}
+.slider-hints{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
+
+/* ── Range slider styling ── */
+input[type=range]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer;
+  background:var(--bg3);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gs),var(--gm));
+  border:2px solid rgba(255,255,255,0.2);
+  box-shadow:0 0 8px rgba(192,37,232,0.4);
+  cursor:pointer;
+}
+input[type=range]::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gs),var(--gm));
+  border:2px solid rgba(255,255,255,0.2);cursor:pointer;
+}
+
+/* ── Processing screen ── */
+.processing-center{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:60vh;gap:32px;
+}
+.spin-ring{
+  width:80px;height:80px;border-radius:50%;
+  background:conic-gradient(var(--gs),var(--gm),var(--ge),var(--gs));
+  animation:spin 1s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+}
+.spin-inner{
+  width:60px;height:60px;border-radius:50%;background:var(--bg);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.processing-h2{
+  font-family:var(--fd);font-size:24px;font-weight:700;color:var(--text);
+}
+.tick-list{display:flex;flex-direction:column;gap:12px}
+.tick-item{
+  display:flex;align-items:center;gap:12px;
+  font-size:15px;color:var(--muted);opacity:0;transition:opacity .4s,color .4s;
+}
+.tick-item.shown{opacity:1}
+.tick-item.done{color:var(--green)}
+.tick-icon{font-size:16px}
+
+/* ── Results header ── */
+.results-eyebrow{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(192,37,232,0.8);margin-bottom:14px;
+}
+.results-h1{
+  font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:800;
+  letter-spacing:-.02em;color:var(--text);margin-bottom:10px;line-height:1.2;
+}
+.results-sub{font-size:15px;color:rgba(232,237,248,0.65);margin-bottom:28px}
+.stat-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.stat-badge{
+  font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.06em;
+  padding:8px 16px;border-radius:20px;
+}
+.sb-green{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:var(--green)}
+.sb-purple{background:rgba(192,37,232,0.12);border:1px solid rgba(192,37,232,0.3);color:var(--purple)}
+.sb-amber{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);color:var(--amber)}
+.sb-muted{background:rgba(107,122,153,0.1);border:1px solid rgba(107,122,153,0.2);color:var(--muted)}
+
+/* ── Matrix chart card ── */
+.chart-card{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:32px;margin-bottom:40px;
+}
+.chart-title{
+  font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text);margin-bottom:24px;
+}
+.chart-wrap{position:relative;width:100%;aspect-ratio:1.4;max-height:500px}
+
+/* ── Roadmap swimlanes ── */
+.roadmap-section{margin-bottom:40px}
+.roadmap-title{
+  font-family:var(--fd);font-size:20px;font-weight:700;color:var(--text);margin-bottom:24px;
+}
+.swimlane{
+  border-left:3px solid;border-radius:0 var(--radius) var(--radius) 0;
+  padding:20px 24px;margin-bottom:20px;
+  background:var(--bg2);
+}
+.swimlane-green{border-color:var(--green)}
+.swimlane-purple{border-color:var(--purple)}
+.swimlane-amber{border-color:var(--amber)}
+.swimlane-muted{border-color:var(--muted)}
+.swimlane-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.swimlane-emoji{font-size:20px}
+.swimlane-h3{font-family:var(--fd);font-size:16px;font-weight:700}
+.swimlane-green .swimlane-h3{color:var(--green)}
+.swimlane-purple .swimlane-h3{color:var(--purple)}
+.swimlane-amber .swimlane-h3{color:var(--amber)}
+.swimlane-muted .swimlane-h3{color:var(--muted)}
+.swimlane-sub{font-size:13px;color:var(--muted);margin-left:auto}
+.roadmap-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.roadmap-card{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px;
+}
+.rc-name{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.rc-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.rc-score{font-family:var(--fd);font-size:11px;font-weight:600;padding:3px 8px;border-radius:10px;
+  background:rgba(255,255,255,0.06);color:var(--muted)}
+.rc-service{
+  font-size:12px;color:var(--ge);margin-bottom:4px;
+  display:flex;align-items:center;gap:6px;
+}
+.rc-service::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ge);flex-shrink:0}
+.rc-timeline{font-size:12px;color:var(--muted)}
+
+/* ── CTA section ── */
+.cta-section{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:40px;margin-bottom:40px;
+}
+.cta-h2{
+  font-family:var(--fd);font-size:26px;font-weight:800;color:var(--text);margin-bottom:10px;
+}
+.cta-sub{font-size:15px;color:rgba(232,237,248,0.65);margin-bottom:32px;line-height:1.6}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.cta-left h4{
+  font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.cta-delivery-item{
+  display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:14px;color:rgba(232,237,248,0.75);
+}
+.cta-delivery-item strong{color:var(--text)}
+.cta-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.cta-right{display:flex;flex-direction:column;gap:14px}
+.btn-download{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,var(--gs),var(--gm));
+  color:#fff;font-family:var(--fd);font-size:14px;font-weight:700;
+  letter-spacing:.04em;padding:14px 24px;border-radius:50px;
+  border:none;cursor:pointer;transition:all .25s;
+  box-shadow:0 0 24px rgba(192,37,232,0.25);
+}
+.btn-download:hover{transform:translateY(-2px);box-shadow:0 4px 32px rgba(192,37,232,0.4)}
+.btn-discuss{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--border2);color:var(--text);
+  font-family:var(--fd);font-size:14px;font-weight:600;
+  padding:14px 24px;border-radius:50px;background:rgba(255,255,255,0.04);
+  cursor:pointer;transition:all .25s;text-decoration:none;
+}
+.btn-discuss:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.07)}
+.cta-link{
+  text-align:center;font-size:13px;color:var(--ge);text-decoration:none;
+  display:block;margin-top:4px;
+}
+.cta-link:hover{text-decoration:underline}
+
+/* ── Nav button row ── */
+.nav-btns{display:flex;align-items:center;gap:14px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.nav-btns .btn-primary{font-size:14px;padding:14px 28px}
+.btn-back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);background:none;border:none;cursor:pointer;padding:0;transition:color .2s;
+}
+.btn-back:hover{color:var(--text)}
+
+/* ── Error states ── */
+.field-error{font-size:12px;color:#f87171;margin-top:6px;display:none}
+.field-error.show{display:block}
+.form-input.error{border-color:rgba(248,113,113,0.5)}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .a-nav{padding:0 20px}
+  .screen-content{padding:32px 20px}
+  .welcome-grid{grid-template-columns:1fr;gap:40px}
+  .form-row{grid-template-columns:1fr}
+  .dept-grid{grid-template-columns:1fr}
+  .usecase-grid{grid-template-columns:1fr}
+  .score-sliders{grid-template-columns:1fr}
+  .cta-grid{grid-template-columns:1fr}
+  .stat-row{gap:8px}
+  .roadmap-cards{grid-template-columns:1fr}
+  .sticky-footer{padding:16px 20px}
+  .progress-bar{padding:16px 20px;gap:6px}
+  .progress-divider{width:16px}
+  .progress-step span:not(.step-num){display:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- ── NAV ── -->
+  <nav class="a-nav">
+    <a href="/" class="a-nav-logo">
+      <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
+    </a>
+    <a href="/" class="a-nav-back" id="nav-back">← Back to Fynaptix</a>
+    <button class="nav-rebuild" id="nav-rebuild" onclick="goToScreen(0)">← Rebuild Matrix</button>
+  </nav>
+
+  <!-- ── PROGRESS BAR ── -->
+  <div class="progress-bar" id="progress-bar" style="display:none">
+    <div class="progress-step" id="ps1">
+      <div class="step-num" id="psn1">1</div>
+      <span>Profile</span>
+    </div>
+    <div class="progress-divider"></div>
+    <div class="progress-step" id="ps2">
+      <div class="step-num" id="psn2">2</div>
+      <span>Use Cases</span>
+    </div>
+    <div class="progress-divider"></div>
+    <div class="progress-step" id="ps3">
+      <div class="step-num" id="psn3">3</div>
+      <span>Score</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCREEN 0 — Welcome                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="screen active" id="screen-0">
+    <div class="screen-content" style="max-width:1200px">
+      <div class="welcome-grid">
+        <!-- LEFT -->
+        <div>
+          <div class="eyebrow">FREE TOOL · USE CASE MATRIX</div>
+          <h1 class="hero-h1">
+            <span class="grad-text">Prioritise</span> Your Claude AI Use Cases
+          </h1>
+          <p class="hero-sub">Not sure where to start with Claude AI? Select use cases from our library, score them on impact and effort, and get a visual roadmap showing exactly what to build first.</p>
+          <button class="btn-primary" onclick="goToScreen(1)">Build My Matrix →</button>
+          <p class="free-tag">Free. 3 minutes. No sign-up.</p>
+
+          <div class="trust-badges">
+            <div class="trust-badge">📚 30+ use cases across 7 departments</div>
+            <div class="trust-badge">📍 Visual impact vs effort matrix</div>
+            <div class="trust-badge">🗺️ Downloadable build roadmap</div>
+          </div>
+        </div>
+
+        <!-- RIGHT — CSS Matrix Preview -->
+        <div class="matrix-preview">
+          <div class="matrix-wrap">
+            <div class="axis-y">IMPACT ↑</div>
+            <div style="flex:1">
+              <div class="matrix-grid" style="position:relative">
+                <!-- Quadrant: top-left = QUICK WINS -->
+                <div class="matrix-quad quad-qw" style="order:1">
+                  <div class="quad-label green">QUICK WINS</div>
+                  <div class="preview-dot" style="background:var(--green);top:30%;right:25%"></div>
+                  <div class="preview-dot" style="background:var(--green);top:55%;right:45%"></div>
+                </div>
+                <!-- Quadrant: top-right = STRATEGIC BETS -->
+                <div class="matrix-quad quad-sb" style="order:2">
+                  <div class="quad-label purple">STRATEGIC BETS</div>
+                  <div class="preview-dot" style="background:var(--purple);top:28%;left:30%"></div>
+                </div>
+                <!-- Quadrant: bottom-left = FILL-INS -->
+                <div class="matrix-quad quad-fi" style="order:3">
+                  <div class="quad-label amber">FILL-INS</div>
+                  <div class="preview-dot" style="background:var(--amber);top:40%;right:30%"></div>
+                </div>
+                <!-- Quadrant: bottom-right = DEPRIORITISE -->
+                <div class="matrix-quad quad-dp" style="order:4">
+                  <div class="quad-label muted">DEPRIORITISE</div>
+                  <div class="preview-dot" style="background:var(--muted);top:35%;left:35%"></div>
+                  <div class="preview-dot" style="background:var(--muted);top:60%;left:55%"></div>
+                </div>
+              </div>
+              <div class="matrix-axes">
+                <div class="axis-x">EFFORT →</div>
+              </div>
+            </div>
+          </div>
+          <p class="matrix-caption">Your use cases will appear here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCREEN 1 — Organisation Profile            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="screen" id="screen-1">
+    <div class="screen-content">
+      <div class="step-header">
+        <div class="eyebrow">STEP 1 OF 3</div>
+        <h2 class="step-h2">About your organisation</h2>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label" for="org-name">Organisation Name <span style="color:#f87171">*</span></label>
+        <input type="text" id="org-name" class="form-input" placeholder="e.g. Acme Corporation" oninput="state.orgName=this.value"/>
+        <div class="field-error" id="err-orgname">Please enter your organisation name</div>
+      </div>
+
+      <div class="form-row form-section">
+        <div>
+          <label class="form-label" for="industry">Industry</label>
+          <select id="industry" class="form-input" onchange="state.industry=this.value">
+            <option value="">Select industry…</option>
+            <option>Financial Services & Banking</option>
+            <option>Professional Services & Consulting</option>
+            <option>Technology & Software</option>
+            <option>Healthcare & Life Sciences</option>
+            <option>Manufacturing & Engineering</option>
+            <option>Retail & Consumer Goods</option>
+            <option>Government & Public Sector</option>
+            <option>Education & Not-for-Profit</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="org-size">Organisation Size</label>
+          <select id="org-size" class="form-input" onchange="state.size=this.value">
+            <option value="">Select size…</option>
+            <option>1–50 employees</option>
+            <option>51–200 employees</option>
+            <option>201–500 employees</option>
+            <option>501–2,000 employees</option>
+            <option>2,000+ employees</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">Which departments will use Claude AI? <span style="color:#f87171">*</span></label>
+        <div class="dept-grid" id="dept-grid">
+          <!-- Rendered by JS -->
+        </div>
+        <div class="field-error" id="err-depts">Please select at least one department</div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">What is your current AI maturity?</label>
+        <div class="maturity-options" id="maturity-options">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <button class="btn-back" onclick="goToScreen(0)">← Back</button>
+        <button class="btn-primary" onclick="validateScreen1()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCREEN 2 — Select Use Cases                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="screen" id="screen-2">
+    <div class="screen-content" style="padding-bottom:100px">
+      <div class="step-header">
+        <div class="eyebrow">STEP 2 OF 3</div>
+        <h2 class="step-h2">Select your use cases</h2>
+        <p class="step-sub">Choose the AI use cases you want to evaluate. We've pre-selected the most common ones for your selected departments.</p>
+      </div>
+      <div id="usecase-list"></div>
+    </div>
+    <div class="sticky-footer">
+      <div>
+        <div class="footer-count"><span id="uc-count">0</span> use cases selected</div>
+        <div class="footer-hint">Recommend 5–12 for best matrix</div>
+      </div>
+      <div class="footer-actions">
+        <button class="btn-back" onclick="goToScreen(1)">← Back</button>
+        <button class="btn-primary" onclick="validateScreen2()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCREEN 3 — Score Use Cases                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="screen" id="screen-3">
+    <div class="screen-content">
+      <div class="step-header">
+        <div class="eyebrow">STEP 3 OF 3</div>
+        <h2 class="step-h2">Score each use case</h2>
+        <p class="step-sub">We've pre-filled scores based on industry benchmarks. Adjust them to reflect your organisation's context.</p>
+      </div>
+      <div class="score-cards" id="score-cards"></div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="goToScreen(2)">← Back</button>
+        <button class="btn-primary" style="width:100%" onclick="runProcessing()">Build My Matrix →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCREEN 4 — Processing                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="screen" id="screen-4">
+    <div class="screen-content">
+      <div class="processing-center">
+        <div class="spin-ring"><div class="spin-inner"></div></div>
+        <h2 class="processing-h2">Building your matrix…</h2>
+        <div class="tick-list" id="tick-list">
+          <div class="tick-item" id="t0"><span class="tick-icon">✓</span> Calculating impact scores</div>
+          <div class="tick-item" id="t1"><span class="tick-icon">✓</span> Assessing implementation effort</div>
+          <div class="tick-item" id="t2"><span class="tick-icon">✓</span> Plotting your use cases</div>
+          <div class="tick-item" id="t3"><span class="tick-icon">✓</span> Identifying quick wins</div>
+          <div class="tick-item" id="t4"><span class="tick-icon">✓</span> Generating your roadmap</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCREEN 5 — Results                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="screen" id="screen-5">
+    <div class="screen-content" style="max-width:1100px">
+      <!-- Header -->
+      <div class="results-eyebrow">Your Use Case Matrix is Ready</div>
+      <h1 class="results-h1" id="results-h1"></h1>
+      <p class="results-sub" id="results-sub"></p>
+      <div class="stat-row" id="stat-row"></div>
+
+      <!-- Chart -->
+      <div class="chart-card">
+        <div class="chart-title">Impact vs Effort Matrix</div>
+        <div class="chart-wrap">
+          <canvas id="matrix-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Roadmap -->
+      <div class="roadmap-section">
+        <h3 class="roadmap-title">Recommended Build Order</h3>
+        <div id="roadmap-lanes"></div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 class="cta-h2">Ready to start building?</h2>
+        <p class="cta-sub">Fynaptix can help you deliver your Quick Wins in as little as 2 weeks and architect your Strategic Bets for long-term value.</p>
+        <div class="cta-grid">
+          <div class="cta-left">
+            <h4>What Fynaptix delivers for each phase</h4>
+            <div class="cta-delivery-item">
+              <div class="cta-dot" style="background:var(--green)"></div>
+              <div><strong>Quick Wins:</strong> CoWork deployment, prompt libraries, staff training</div>
+            </div>
+            <div class="cta-delivery-item">
+              <div class="cta-dot" style="background:var(--purple)"></div>
+              <div><strong>Strategic Bets:</strong> Architecture design, agentic workflows, RAG systems</div>
+            </div>
+            <div class="cta-delivery-item">
+              <div class="cta-dot" style="background:var(--ge)"></div>
+              <div><strong>All phases:</strong> Governance framework, change management</div>
+            </div>
+          </div>
+          <div class="cta-right">
+            <button class="btn-download" onclick="downloadRoadmap()">⬇ Download My Roadmap</button>
+            <a class="btn-discuss" id="mailto-link" href="#">✉ Discuss My Use Cases</a>
+            <a class="cta-link" href="/assessment.html">Take the Readiness Assessment →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#app -->
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════════════ */
+const state = {
+  orgName: '',
+  industry: '',
+  size: '',
+  departments: [],
+  maturity: '',
+  selectedCases: [] // array of {id, name, dept, impact, effort}
+};
+
+/* ══════════════════════════════════════════════════════════════
+   STATIC DATA
+══════════════════════════════════════════════════════════════ */
+const DEPARTMENTS = [
+  { id:'ops',      icon:'🏢', name:'Operations & Admin' },
+  { id:'finance',  icon:'💰', name:'Finance & Accounting' },
+  { id:'hr',       icon:'👥', name:'HR & People' },
+  { id:'marketing',icon:'📣', name:'Marketing & Sales' },
+  { id:'legal',    icon:'⚖️', name:'Legal & Compliance' },
+  { id:'it',       icon:'💻', name:'IT & Development' },
+  { id:'cs',       icon:'🎧', name:'Customer Service' },
+  { id:'strategy', icon:'📊', name:'Strategy & Leadership' }
+];
+
+const MATURITY_OPTIONS = [
+  { id:'exploring', em:'🌱', title:'Exploring', desc:'No AI tools deployed yet, evaluating options' },
+  { id:'building',  em:'🔨', title:'Building',  desc:'Some AI tools in use, want to go further' },
+  { id:'scaling',   em:'🚀', title:'Scaling',   desc:'AI in production, expanding use cases' }
+];
+
+const USE_CASES = {
+  ops: [
+    { id:'ops1', name:'Meeting Summarisation',      desc:'Auto-summarise meetings and extract action items',              impact:4, effort:1 },
+    { id:'ops2', name:'Document Drafting',           desc:'Draft policies, procedures, and internal docs',                impact:4, effort:1 },
+    { id:'ops3', name:'Process Documentation',       desc:'Turn tribal knowledge into structured process docs',           impact:3, effort:2 },
+    { id:'ops4', name:'Contract Review',             desc:'First-pass review of vendor and supplier contracts',           impact:4, effort:2 },
+    { id:'ops5', name:'Approval Workflow Assistant', desc:'Summarise approval requests and flag key risks',              impact:3, effort:3 }
+  ],
+  finance: [
+    { id:'fin1', name:'Financial Report Narratives', desc:'Generate written commentary for financial reports',            impact:4, effort:1 },
+    { id:'fin2', name:'Invoice Data Extraction',     desc:'Extract and classify invoice data from PDFs',                 impact:3, effort:3 },
+    { id:'fin3', name:'Budget Variance Analysis',    desc:'Explain budget variances in plain language',                  impact:4, effort:2 },
+    { id:'fin4', name:'Audit Document Review',       desc:'Review audit trails and flag anomalies',                      impact:4, effort:3 },
+    { id:'fin5', name:'Expense Policy Q&A Bot',      desc:'Answer staff questions about expense policies',               impact:2, effort:2 }
+  ],
+  hr: [
+    { id:'hr1',  name:'Job Description Writing',         desc:'Generate and refine job descriptions',                    impact:3, effort:1 },
+    { id:'hr2',  name:'CV Screening Summaries',          desc:'Summarise CVs against role requirements',                 impact:4, effort:1 },
+    { id:'hr3',  name:'Employee Handbook Bot',           desc:'Answer staff questions about policies and entitlements',   impact:4, effort:2 },
+    { id:'hr4',  name:'Performance Review Drafting',     desc:'Help managers draft balanced performance reviews',         impact:4, effort:2 },
+    { id:'hr5',  name:'Onboarding Content Generation',   desc:'Create onboarding guides and FAQs',                       impact:3, effort:2 }
+  ],
+  marketing: [
+    { id:'mkt1', name:'Proposal & Pitch Drafting', desc:'Draft client proposals and pitch decks',                        impact:5, effort:1 },
+    { id:'mkt2', name:'Email Campaign Drafting',   desc:'Generate email sequences and marketing copy',                   impact:4, effort:1 },
+    { id:'mkt3', name:'Competitor Research',       desc:'Synthesise competitor intel into briefings',                    impact:4, effort:2 },
+    { id:'mkt4', name:'Case Study Writing',        desc:'Turn client outcomes into case studies',                        impact:4, effort:2 },
+    { id:'mkt5', name:'RFP Response Drafting',     desc:'Draft responses to requests for proposal',                      impact:5, effort:2 }
+  ],
+  legal: [
+    { id:'leg1', name:'Contract Redlining',           desc:'Identify and flag non-standard clauses',                     impact:5, effort:2 },
+    { id:'leg2', name:'Regulatory Change Summaries',  desc:'Summarise regulatory updates and impact',                    impact:4, effort:2 },
+    { id:'leg3', name:'Compliance Policy Drafting',   desc:'Draft and update compliance policies',                       impact:4, effort:2 },
+    { id:'leg4', name:'Legal Research Briefs',        desc:'Research and summarise legal precedents',                    impact:4, effort:3 },
+    { id:'leg5', name:'NDA & Standard Contract Review',desc:'First-pass NDA and standard agreement review',              impact:4, effort:1 }
+  ],
+  it: [
+    { id:'it1',  name:'Code Review & Documentation', desc:'Review code quality and generate docs',                       impact:4, effort:1 },
+    { id:'it2',  name:'Technical Spec Writing',      desc:'Draft technical specifications and RFPs',                     impact:4, effort:2 },
+    { id:'it3',  name:'IT Ticket Triage',            desc:'Classify and summarise IT support tickets',                   impact:3, effort:2 },
+    { id:'it4',  name:'Security Policy Drafting',    desc:'Draft and update IT security policies',                       impact:3, effort:2 },
+    { id:'it5',  name:'Architecture Decision Records',desc:'Document technical decisions and rationale',                 impact:3, effort:2 }
+  ],
+  cs: [
+    { id:'cs1',  name:'Response Drafting',          desc:'Draft replies to customer emails and tickets',                 impact:5, effort:1 },
+    { id:'cs2',  name:'Knowledge Base Generation',  desc:'Turn support tickets into KB articles',                       impact:4, effort:2 },
+    { id:'cs3',  name:'Customer Feedback Analysis', desc:'Analyse NPS/CSAT feedback themes',                            impact:4, effort:2 },
+    { id:'cs4',  name:'FAQ Generation',             desc:'Generate FAQs from common support queries',                   impact:3, effort:1 },
+    { id:'cs5',  name:'Escalation Summaries',       desc:'Summarise complex cases for escalation',                      impact:4, effort:2 }
+  ],
+  strategy: [
+    { id:'str1', name:'Board Report Drafting',        desc:'Draft board papers and executive summaries',                 impact:5, effort:2 },
+    { id:'str2', name:'Strategic Briefings',          desc:'Synthesise research into strategic briefings',               impact:5, effort:2 },
+    { id:'str3', name:'Stakeholder Communications',   desc:'Draft stakeholder updates and announcements',                impact:4, effort:1 },
+    { id:'str4', name:'Market Intelligence Reports',  desc:'Compile and summarise market intelligence',                  impact:4, effort:2 },
+    { id:'str5', name:'OKR & Strategy Documentation', desc:'Draft and document strategic plans and OKRs',               impact:4, effort:2 }
+  ]
+};
+
+let matrixChart = null;
+let currentScreen = 0;
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN NAVIGATION
+══════════════════════════════════════════════════════════════ */
+function goToScreen(n) {
+  const screens = document.querySelectorAll('.screen');
+  screens.forEach(s => { s.classList.remove('active'); s.style.display = 'none'; });
+
+  const target = document.getElementById('screen-' + n);
+  target.style.display = 'block';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      target.classList.add('active');
+    });
+  });
+
+  currentScreen = n;
+  updateNav(n);
+  updateProgress(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateNav(n) {
+  const navBack = document.getElementById('nav-back');
+  const navRebuild = document.getElementById('nav-rebuild');
+  if (n === 5) {
+    navBack.style.display = 'none';
+    navRebuild.classList.add('visible');
+  } else {
+    navBack.style.display = '';
+    navRebuild.classList.remove('visible');
+  }
+}
+
+function updateProgress(n) {
+  const pb = document.getElementById('progress-bar');
+  if (n >= 1 && n <= 3) {
+    pb.style.display = 'flex';
+    for (let i = 1; i <= 3; i++) {
+      const step = document.getElementById('ps' + i);
+      step.classList.remove('active', 'done');
+      if (i < n) step.classList.add('done');
+      else if (i === n) step.classList.add('active');
+    }
+    // Update done step numbers to checkmarks
+    for (let i = 1; i <= 3; i++) {
+      const num = document.getElementById('psn' + i);
+      if (i < n) num.textContent = '✓';
+      else num.textContent = i;
+    }
+  } else {
+    pb.style.display = 'none';
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN 1 — RENDER & VALIDATE
+══════════════════════════════════════════════════════════════ */
+function renderScreen1() {
+  // Departments
+  const deptGrid = document.getElementById('dept-grid');
+  deptGrid.innerHTML = DEPARTMENTS.map(d => `
+    <div class="dept-card ${state.departments.includes(d.id) ? 'selected' : ''}"
+         id="dept-${d.id}" onclick="toggleDept('${d.id}')">
+      <span class="dept-icon">${d.icon}</span>
+      <span class="dept-name">${d.name}</span>
+      <div class="dept-check">${state.departments.includes(d.id) ? '✓' : ''}</div>
+    </div>
+  `).join('');
+
+  // Maturity
+  const matDiv = document.getElementById('maturity-options');
+  matDiv.innerHTML = MATURITY_OPTIONS.map(m => `
+    <div class="maturity-option ${state.maturity === m.id ? 'selected' : ''}"
+         id="mat-${m.id}" onclick="selectMaturity('${m.id}')">
+      <div class="maturity-radio"><div class="maturity-inner"></div></div>
+      <div>
+        <div class="maturity-title"><span class="maturity-em">${m.em}</span> ${m.title}</div>
+        <div class="maturity-desc">${m.desc}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleDept(id) {
+  const idx = state.departments.indexOf(id);
+  if (idx === -1) state.departments.push(id);
+  else state.departments.splice(idx, 1);
+  renderScreen1();
+}
+
+function selectMaturity(id) {
+  state.maturity = id;
+  renderScreen1();
+}
+
+function validateScreen1() {
+  let ok = true;
+  const orgInput = document.getElementById('org-name');
+  const errOrg = document.getElementById('err-orgname');
+  const errDepts = document.getElementById('err-depts');
+
+  if (!state.orgName.trim()) {
+    orgInput.classList.add('error');
+    errOrg.classList.add('show');
+    ok = false;
+  } else {
+    orgInput.classList.remove('error');
+    errOrg.classList.remove('show');
+  }
+
+  if (state.departments.length === 0) {
+    errDepts.classList.add('show');
+    ok = false;
+  } else {
+    errDepts.classList.remove('show');
+  }
+
+  if (ok) {
+    state.orgName = document.getElementById('org-name').value.trim();
+    renderScreen2();
+    goToScreen(2);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN 2 — RENDER & VALIDATE
+══════════════════════════════════════════════════════════════ */
+function renderScreen2() {
+  const container = document.getElementById('usecase-list');
+
+  // Pre-select top 2 per department if nothing selected yet
+  if (state.selectedCases.length === 0) {
+    state.departments.forEach(deptId => {
+      const cases = USE_CASES[deptId] || [];
+      cases.slice(0, 2).forEach(uc => {
+        if (!state.selectedCases.find(s => s.id === uc.id)) {
+          state.selectedCases.push({ ...uc, dept: deptId });
+        }
+      });
+    });
+  }
+
+  const selectedIds = state.selectedCases.map(s => s.id);
+
+  container.innerHTML = state.departments.map(deptId => {
+    const dept = DEPARTMENTS.find(d => d.id === deptId);
+    const cases = USE_CASES[deptId] || [];
+    return `
+      <div class="dept-section">
+        <div class="dept-section-header">
+          <span style="font-size:20px">${dept.icon}</span>
+          <div class="dept-section-pill">${dept.name}</div>
+        </div>
+        <div class="usecase-grid">
+          ${cases.map(uc => `
+            <div class="usecase-card ${selectedIds.includes(uc.id) ? 'selected' : ''}"
+                 id="uc-card-${uc.id}" onclick="toggleUseCase('${deptId}','${uc.id}')">
+              <div class="usecase-top">
+                <div class="uc-checkbox">${selectedIds.includes(uc.id) ? '✓' : ''}</div>
+                <div>
+                  <div class="uc-name">${uc.name}</div>
+                  <div class="uc-desc">${uc.desc}</div>
+                </div>
+              </div>
+              <div class="uc-badges">
+                <span class="uc-badge">⚡ Impact: ${uc.impact}/5</span>
+                <span class="uc-badge">🔧 Effort: ${uc.effort}/5</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  updateUCCount();
+}
+
+function toggleUseCase(deptId, ucId) {
+  const uc = USE_CASES[deptId].find(u => u.id === ucId);
+  const idx = state.selectedCases.findIndex(s => s.id === ucId);
+  if (idx === -1) {
+    state.selectedCases.push({ ...uc, dept: deptId });
+  } else {
+    state.selectedCases.splice(idx, 1);
+  }
+
+  // Update card visually
+  const card = document.getElementById('uc-card-' + ucId);
+  const isSelected = state.selectedCases.find(s => s.id === ucId);
+  if (isSelected) {
+    card.classList.add('selected');
+    card.querySelector('.uc-checkbox').textContent = '✓';
+  } else {
+    card.classList.remove('selected');
+    card.querySelector('.uc-checkbox').textContent = '';
+  }
+  updateUCCount();
+}
+
+function updateUCCount() {
+  document.getElementById('uc-count').textContent = state.selectedCases.length;
+}
+
+function validateScreen2() {
+  if (state.selectedCases.length < 3) {
+    alert('Please select at least 3 use cases to build your matrix.');
+    return;
+  }
+  renderScreen3();
+  goToScreen(3);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN 3 — RENDER
+══════════════════════════════════════════════════════════════ */
+function renderScreen3() {
+  const container = document.getElementById('score-cards');
+  container.innerHTML = state.selectedCases.map((uc, idx) => {
+    const dept = DEPARTMENTS.find(d => d.id === uc.dept);
+    const q = getQuadrant(uc.impact, uc.effort);
+    const qLabel = quadrantLabel(q);
+    return `
+      <div class="score-card" id="sc-${uc.id}">
+        <div class="score-card-header">
+          <div class="sc-name">${uc.name}</div>
+          <div class="dept-badge">${dept ? dept.icon + ' ' + dept.name : ''}</div>
+          <div class="quadrant-badge ${quadrantBadgeClass(q)}" id="qb-${uc.id}">${qLabel}</div>
+        </div>
+        <div class="score-sliders">
+          <div class="slider-group">
+            <div class="slider-label">
+              Business Impact
+              <span class="slider-val" id="iv-${uc.id}">${uc.impact}/5</span>
+            </div>
+            <input type="range" min="1" max="5" value="${uc.impact}"
+                   oninput="updateScore('${uc.id}','impact',+this.value)"
+                   style="background:${sliderTrack(uc.impact)}"/>
+            <div class="slider-hints"><span>Minimal</span><span>Moderate</span><span>Transformative</span></div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-label">
+              Implementation Effort
+              <span class="slider-val" id="ev-${uc.id}">${uc.effort}/5</span>
+            </div>
+            <input type="range" min="1" max="5" value="${uc.effort}"
+                   oninput="updateScore('${uc.id}','effort',+this.value)"
+                   style="background:${sliderTrack(uc.effort)}"/>
+            <div class="slider-hints"><span>Hours</span><span>Weeks</span><span>Months</span></div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function sliderTrack(val) {
+  const pct = ((val - 1) / 4) * 100;
+  return `linear-gradient(to right, #c025e8 0%, #c025e8 ${pct}%, #0d1526 ${pct}%, #0d1526 100%)`;
+}
+
+function updateScore(ucId, field, val) {
+  const uc = state.selectedCases.find(s => s.id === ucId);
+  if (!uc) return;
+  uc[field] = val;
+
+  // Update display value
+  const prefix = field === 'impact' ? 'iv' : 'ev';
+  document.getElementById(prefix + '-' + ucId).textContent = val + '/5';
+
+  // Update slider track
+  const sliders = document.querySelectorAll(`#sc-${ucId} input[type=range]`);
+  const sliderIdx = field === 'impact' ? 0 : 1;
+  sliders[sliderIdx].style.background = sliderTrack(val);
+
+  // Update quadrant badge
+  const q = getQuadrant(uc.impact, uc.effort);
+  const badge = document.getElementById('qb-' + ucId);
+  badge.textContent = quadrantLabel(q);
+  badge.className = 'quadrant-badge ' + quadrantBadgeClass(q);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN 4 — PROCESSING
+══════════════════════════════════════════════════════════════ */
+function runProcessing() {
+  goToScreen(4);
+  const ticks = ['t0','t1','t2','t3','t4'];
+  ticks.forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      el.classList.add('shown');
+      setTimeout(() => el.classList.add('done'), 200);
+    }, 300 + i * 350);
+  });
+  setTimeout(() => {
+    buildResults();
+    goToScreen(5);
+  }, 2200);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCREEN 5 — RESULTS
+══════════════════════════════════════════════════════════════ */
+function buildResults() {
+  const deptCount = [...new Set(state.selectedCases.map(u => u.dept))].length;
+  const grouped = groupByQuadrant();
+  const qwCount = grouped.quickwin.length;
+  const sbCount = grouped.strategic.length;
+  const fiCount = grouped.fillin.length;
+  const dpCount = grouped.deprioritise.length;
+
+  document.getElementById('results-h1').textContent = state.orgName + "'s Claude AI Priority Matrix";
+  document.getElementById('results-sub').textContent =
+    `${state.selectedCases.length} use cases across ${deptCount} department${deptCount !== 1 ? 's' : ''} · ${qwCount} quick win${qwCount !== 1 ? 's' : ''} identified`;
+
+  // Stat row
+  const statRow = document.getElementById('stat-row');
+  statRow.innerHTML = `
+    <div class="stat-badge sb-green">${qwCount} Quick Win${qwCount !== 1 ? 's' : ''}</div>
+    <div class="stat-badge sb-purple">${sbCount} Strategic Bet${sbCount !== 1 ? 's' : ''}</div>
+    <div class="stat-badge sb-amber">${fiCount} Fill-in${fiCount !== 1 ? 's' : ''}</div>
+    <div class="stat-badge sb-muted">${dpCount} Deprioritise</div>
+  `;
+
+  buildMatrix();
+  buildRoadmap();
+  buildMailto();
+}
+
+function buildMatrix() {
+  if (matrixChart) {
+    matrixChart.destroy();
+    matrixChart = null;
+  }
+
+  const canvas = document.getElementById('matrix-chart');
+  const ctx = canvas.getContext('2d');
+
+  const colorMap = {
+    quickwin: '#10b981',
+    strategic: '#c025e8',
+    fillin: '#f59e0b',
+    deprioritise: '#6b7a99'
+  };
+
+  // Build datasets — one per quadrant colour to allow legend if needed
+  const points = state.selectedCases.map(uc => {
+    const q = getQuadrant(uc.impact, uc.effort);
+    // jitter to avoid overlap on same score
+    const jx = (Math.random() - 0.5) * 0.16;
+    const jy = (Math.random() - 0.5) * 0.16;
+    return {
+      x: Math.min(5, Math.max(1, uc.effort + jx)),
+      y: Math.min(5, Math.max(1, uc.impact + jy)),
+      label: uc.name,
+      impact: uc.impact,
+      effort: uc.effort,
+      quadrant: q,
+      color: colorMap[q]
+    };
+  });
+
+  // Custom plugin: draw quadrant backgrounds before dataset
+  const quadrantPlugin = {
+    id: 'quadrantBg',
+    beforeDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      const { left, right, top, bottom } = chartArea;
+      const xMid = scales.x.getPixelForValue(3);
+      const yMid = scales.y.getPixelForValue(3);
+
+      // Top-left: Quick Wins (high impact, low effort)
+      ctx.save();
+      ctx.fillStyle = 'rgba(16,185,129,0.08)';
+      ctx.fillRect(left, top, xMid - left, yMid - top);
+
+      // Top-right: Strategic Bets (high impact, high effort)
+      ctx.fillStyle = 'rgba(192,37,232,0.08)';
+      ctx.fillRect(xMid, top, right - xMid, yMid - top);
+
+      // Bottom-left: Fill-ins (low impact, low effort)
+      ctx.fillStyle = 'rgba(245,158,11,0.07)';
+      ctx.fillRect(left, yMid, xMid - left, bottom - yMid);
+
+      // Bottom-right: Deprioritise (low impact, high effort)
+      ctx.fillStyle = 'rgba(107,122,153,0.06)';
+      ctx.fillRect(xMid, yMid, right - xMid, bottom - yMid);
+
+      // Quadrant divider lines
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(xMid, top);
+      ctx.lineTo(xMid, bottom);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(left, yMid);
+      ctx.lineTo(right, yMid);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Quadrant labels
+      ctx.font = '700 10px "Outfit", sans-serif';
+      ctx.letterSpacing = '1px';
+
+      ctx.fillStyle = 'rgba(16,185,129,0.5)';
+      ctx.fillText('QUICK WINS', left + 10, top + 16);
+
+      ctx.fillStyle = 'rgba(192,37,232,0.5)';
+      ctx.fillText('STRATEGIC BETS', xMid + 10, top + 16);
+
+      ctx.fillStyle = 'rgba(245,158,11,0.5)';
+      ctx.fillText('FILL-INS', left + 10, bottom - 8);
+
+      ctx.fillStyle = 'rgba(107,122,153,0.5)';
+      ctx.fillText('DEPRIORITISE', xMid + 10, bottom - 8);
+
+      ctx.restore();
+    }
+  };
+
+  matrixChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        data: points,
+        pointBackgroundColor: points.map(p => p.color),
+        pointBorderColor: points.map(p => p.color + '80'),
+        pointBorderWidth: 2,
+        pointRadius: 8,
+        pointHoverRadius: 11
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      animation: { duration: 600 },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: () => '',
+            label: (ctx) => {
+              const p = points[ctx.dataIndex];
+              const qLabels = {
+                quickwin: 'Quick Win',
+                strategic: 'Strategic Bet',
+                fillin: 'Fill-in',
+                deprioritise: 'Deprioritise'
+              };
+              return [
+                p.label,
+                `Impact: ${p.impact}/5  |  Effort: ${p.effort}/5`,
+                qLabels[p.quadrant]
+              ];
+            }
+          },
+          backgroundColor: 'rgba(8,13,26,0.95)',
+          borderColor: 'rgba(255,255,255,0.13)',
+          borderWidth: 1,
+          padding: 12,
+          titleFont: { family: 'Outfit', weight: '700', size: 13 },
+          bodyFont: { family: 'DM Sans', size: 12 },
+          bodyColor: '#6b7a99',
+          titleColor: '#e8edf8'
+        }
+      },
+      scales: {
+        x: {
+          min: 0.5,
+          max: 5.5,
+          title: {
+            display: true,
+            text: 'Implementation Effort →',
+            color: '#6b7a99',
+            font: { family: 'Outfit', size: 12, weight: '700' }
+          },
+          grid: { color: 'rgba(255,255,255,0.05)' },
+          ticks: {
+            color: '#6b7a99',
+            stepSize: 1,
+            callback: (v) => Number.isInteger(v) && v >= 1 && v <= 5 ? v : ''
+          },
+          border: { color: 'rgba(255,255,255,0.1)' }
+        },
+        y: {
+          min: 0.5,
+          max: 5.5,
+          title: {
+            display: true,
+            text: 'Business Impact ↑',
+            color: '#6b7a99',
+            font: { family: 'Outfit', size: 12, weight: '700' }
+          },
+          grid: { color: 'rgba(255,255,255,0.05)' },
+          ticks: {
+            color: '#6b7a99',
+            stepSize: 1,
+            callback: (v) => Number.isInteger(v) && v >= 1 && v <= 5 ? v : ''
+          },
+          border: { color: 'rgba(255,255,255,0.1)' }
+        }
+      }
+    },
+    plugins: [quadrantPlugin]
+  });
+}
+
+function buildRoadmap() {
+  const grouped = groupByQuadrant();
+  const container = document.getElementById('roadmap-lanes');
+  container.innerHTML = '';
+
+  const lanes = [
+    {
+      key: 'quickwin',
+      emoji: '🚀',
+      phase: 'Phase 1: Quick Wins',
+      sub: 'Start here. High impact, low effort. Deploy within weeks.',
+      cls: 'swimlane-green'
+    },
+    {
+      key: 'strategic',
+      emoji: '🎯',
+      phase: 'Phase 2: Strategic Bets',
+      sub: 'Plan these now. High value but need proper architecture.',
+      cls: 'swimlane-purple'
+    },
+    {
+      key: 'fillin',
+      emoji: '📌',
+      phase: 'Phase 3: Fill-ins',
+      sub: 'Nice to have. Tackle when capacity allows.',
+      cls: 'swimlane-amber'
+    },
+    {
+      key: 'deprioritise',
+      emoji: '⏸',
+      phase: 'Deprioritise',
+      sub: 'Low value for the effort. Revisit later.',
+      cls: 'swimlane-muted'
+    }
+  ];
+
+  lanes.forEach(lane => {
+    const items = grouped[lane.key];
+    if (!items.length) return;
+
+    const cardsHtml = items.map(uc => {
+      const dept = DEPARTMENTS.find(d => d.id === uc.dept);
+      const service = recommendedService(uc);
+      const timeline = estimatedTimeline(uc.effort);
+      return `
+        <div class="roadmap-card">
+          <div class="rc-name">${uc.name}</div>
+          <div class="rc-badges">
+            <span class="rc-score">⚡ ${uc.impact}/5</span>
+            <span class="rc-score">🔧 ${uc.effort}/5</span>
+            <span class="dept-badge" style="font-size:10px">${dept ? dept.icon + ' ' + dept.name : ''}</span>
+          </div>
+          <div class="rc-service">${service}</div>
+          <div class="rc-timeline">First value: ${timeline}</div>
+        </div>
+      `;
+    }).join('');
+
+    const laneEl = document.createElement('div');
+    laneEl.className = 'swimlane ' + lane.cls;
+    laneEl.innerHTML = `
+      <div class="swimlane-header">
+        <span class="swimlane-emoji">${lane.emoji}</span>
+        <h3 class="swimlane-h3">${lane.phase}</h3>
+        <span class="swimlane-sub">${lane.sub}</span>
+      </div>
+      <div class="roadmap-cards">${cardsHtml}</div>
+    `;
+    container.appendChild(laneEl);
+  });
+}
+
+function buildMailto() {
+  const grouped = groupByQuadrant();
+  const qwNames = grouped.quickwin.map(u => '- ' + u.name).join('\n');
+  const sbNames = grouped.strategic.map(u => '- ' + u.name).join('\n');
+  const subject = encodeURIComponent(`Claude AI Use Case Roadmap — ${state.orgName}`);
+  const body = encodeURIComponent(
+    `Hi Fynaptix,\n\nI've just built our Claude AI Use Case Matrix for ${state.orgName}.\n\n` +
+    `Quick Wins:\n${qwNames || '(none)'}\n\n` +
+    `Strategic Bets:\n${sbNames || '(none)'}\n\n` +
+    `I'd like to discuss how Fynaptix can help us execute this roadmap.\n\nThanks`
+  );
+  document.getElementById('mailto-link').href = `mailto:hello@fynaptix.com?subject=${subject}&body=${body}`;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DOWNLOAD ROADMAP
+══════════════════════════════════════════════════════════════ */
+function downloadRoadmap() {
+  const grouped = groupByQuadrant();
+  const deptCount = [...new Set(state.selectedCases.map(u => u.dept))].length;
+
+  const qLabels = {
+    quickwin: 'Quick Win',
+    strategic: 'Strategic Bet',
+    fillin: 'Fill-in',
+    deprioritise: 'Deprioritise'
+  };
+
+  const tableRows = state.selectedCases.map(uc => {
+    const q = getQuadrant(uc.impact, uc.effort);
+    return `<tr>
+      <td>${uc.name}</td>
+      <td>${uc.impact}/5</td>
+      <td>${uc.effort}/5</td>
+      <td>${qLabels[q]}</td>
+      <td>${recommendedService(uc)}</td>
+      <td>${estimatedTimeline(uc.effort)}</td>
+    </tr>`;
+  }).join('');
+
+  const phaseSections = [
+    { key:'quickwin', title:'Phase 1: Quick Wins', color:'#10b981' },
+    { key:'strategic', title:'Phase 2: Strategic Bets', color:'#c025e8' },
+    { key:'fillin', title:'Phase 3: Fill-ins', color:'#f59e0b' },
+    { key:'deprioritise', title:'Deprioritise', color:'#6b7a99' }
+  ].map(phase => {
+    const items = grouped[phase.key];
+    if (!items.length) return '';
+    const rows = items.map(uc =>
+      `<tr><td>${uc.name}</td><td>${uc.impact}/5</td><td>${uc.effort}/5</td><td>${recommendedService(uc)}</td><td>${estimatedTimeline(uc.effort)}</td></tr>`
+    ).join('');
+    return `
+      <h3 style="color:${phase.color};margin:24px 0 10px;font-family:Outfit,sans-serif">${phase.title}</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr style="background:#f5f5f5">
+          <th style="text-align:left;padding:8px;border:1px solid #ddd">Use Case</th>
+          <th style="padding:8px;border:1px solid #ddd">Impact</th>
+          <th style="padding:8px;border:1px solid #ddd">Effort</th>
+          <th style="text-align:left;padding:8px;border:1px solid #ddd">Service</th>
+          <th style="text-align:left;padding:8px;border:1px solid #ddd">Timeline</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }).join('');
+
+  const html = `
+<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+<title>${state.orgName} — Claude AI Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&display=swap" rel="stylesheet"/>
+<style>
+  body{font-family:'Outfit',Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 24px;color:#1a1a2e}
+  h1{font-size:28px;font-weight:800;margin-bottom:4px}
+  h2{font-size:18px;font-weight:700;margin:32px 0 12px;border-bottom:2px solid #eee;padding-bottom:8px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px}
+  th,td{padding:8px 10px;border:1px solid #ddd;text-align:left}
+  th{background:#f5f5f5;font-weight:700}
+  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;padding-bottom:20px;border-bottom:3px solid #c025e8}
+  .meta{font-size:14px;color:#666;margin-top:6px}
+  .generated{font-size:12px;color:#999;margin-top:32px}
+  @media print{body{margin:20px}}
+</style>
+</head><body>
+<div class="header">
+  <div>
+    <h1>${state.orgName}</h1>
+    <h1 style="color:#c025e8">Claude AI Priority Matrix</h1>
+    <div class="meta">
+      ${state.selectedCases.length} use cases across ${deptCount} department${deptCount !== 1 ? 's' : ''}
+      ${state.industry ? ' · ' + state.industry : ''}
+      ${state.size ? ' · ' + state.size : ''}
+    </div>
+  </div>
+  <div style="text-align:right;font-size:13px;color:#666">
+    <div>Generated by Fynaptix</div>
+    <div>fynaptix.com</div>
+  </div>
+</div>
+
+<h2>Matrix Summary</h2>
+<table>
+  <thead><tr><th>Use Case</th><th>Impact</th><th>Effort</th><th>Quadrant</th><th>Recommended Service</th><th>Timeline</th></tr></thead>
+  <tbody>${tableRows}</tbody>
+</table>
+
+<h2>Recommended Build Roadmap</h2>
+${phaseSections}
+
+<div class="generated">Generated ${new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})} · Fynaptix Claude AI Use Case Matrix · fynaptix.com</div>
+</body></html>`;
+
+  const win = window.open('', '_blank');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(() => win.print(), 500);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════════════════════ */
+function getQuadrant(impact, effort) {
+  if (impact >= 3 && effort <= 3) return 'quickwin';
+  if (impact >= 3 && effort > 3)  return 'strategic';
+  if (impact < 3  && effort <= 3) return 'fillin';
+  return 'deprioritise';
+}
+
+function groupByQuadrant() {
+  const g = { quickwin: [], strategic: [], fillin: [], deprioritise: [] };
+  state.selectedCases.forEach(uc => {
+    g[getQuadrant(uc.impact, uc.effort)].push(uc);
+  });
+  return g;
+}
+
+function quadrantLabel(q) {
+  return {
+    quickwin: '⚡ Quick Win',
+    strategic: '🎯 Strategic Bet',
+    fillin: '📌 Fill-in',
+    deprioritise: '⏸ Deprioritise'
+  }[q];
+}
+
+function quadrantBadgeClass(q) {
+  return {
+    quickwin: 'qb-quickwin',
+    strategic: 'qb-strategic',
+    fillin: 'qb-fillin',
+    deprioritise: 'qb-deprioritise'
+  }[q];
+}
+
+function recommendedService(uc) {
+  const name = uc.name.toLowerCase();
+  if (name.includes('code') || name.includes('technical spec') || name.includes('architecture')) {
+    return 'Claude Code & Development Integration';
+  }
+  if (name.includes('response drafting') || name.includes('faq') || name.includes('knowledge base') || name.includes('feedback analysis') || name.includes('escalation')) {
+    return 'Claude API & Custom Integration';
+  }
+  if (uc.effort >= 4) return 'Agentic Workflow Design & Implementation';
+  if (uc.effort === 3 && (name.includes('data') || name.includes('document') || name.includes('review') || name.includes('audit') || name.includes('invoice'))) {
+    return 'RAG & Knowledge Base Build';
+  }
+  if (uc.effort <= 2) return 'Claude CoWork Deployment';
+  return 'Agentic Workflow Design & Implementation';
+}
+
+function estimatedTimeline(effort) {
+  const map = { 1:'1–2 weeks', 2:'2–4 weeks', 3:'4–8 weeks', 4:'2–3 months', 5:'3–6 months' };
+  return map[effort] || '2–4 weeks';
+}
+
+/* ══════════════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════════════ */
+(function init() {
+  // Trigger entry animation on screen 0
+  const s0 = document.getElementById('screen-0');
+  s0.style.display = 'block';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      s0.classList.add('active');
+    });
+  });
+
+  // Pre-render screen 1 components
+  renderScreen1();
+})();
+</script>
+</body>
+</html>
