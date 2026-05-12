@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M365 + Claude Integration Planner — Fynaptix</title>
+<meta name="description" content="Generate a tailored integration blueprint showing exactly how Claude AI connects to each Microsoft 365 app in your organisation. Free. No sign-up."/>
+<meta property="og:title" content="M365 + Claude Integration Planner — Fynaptix"/>
+<meta property="og:description" content="Map your Microsoft 365 + Claude AI integration in 2 minutes. Get a step-by-step blueprint tailored to your environment."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ── Brand variables ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#6b7a99;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --border-active:rgba(192,37,232,0.5);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --green:#10b981;
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --cyan:#2ed0f5;
+  --purple:#c025e8;
+  --orange:#ff5f1f;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
+body{display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Background glow ── */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%,rgba(192,37,232,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 60% 20%,rgba(255,95,31,0.05) 0%,transparent 50%);
+}
+
+/* ── Layout ── */
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+.a-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:72px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  position:sticky;top:0;z-index:100;
+}
+.a-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.a-nav-logo img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,0.5))}
+.a-nav-back{
+  display:flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,0.75);
+  text-decoration:none;transition:color .2s;
+}
+.a-nav-back:hover{color:#fff}
+.nav-rebuild{
+  font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);border-radius:24px;
+  padding:8px 18px;background:rgba(46,208,245,0.07);cursor:pointer;
+  transition:all .2s;text-decoration:none;display:none;
+}
+.nav-rebuild:hover{background:rgba(46,208,245,0.14);border-color:rgba(46,208,245,0.5)}
+.nav-rebuild.visible{display:block}
+
+/* ── Progress bar ── */
+.progress-wrap{background:rgba(255,255,255,0.05);height:3px;width:100%}
+.progress-bar{height:3px;background:var(--grad-full);transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+
+/* ── Screens ── */
+.screen{display:none;flex:1;flex-direction:column;align-items:center;padding:60px 20px 100px}
+.screen.active{display:flex}
+.screen.fade-in{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Containers ── */
+.wrap{width:100%;max-width:760px}
+.wrap-wide{width:100%;max-width:1100px}
+.wrap-med{width:100%;max-width:900px}
+
+/* ── Eyebrow ── */
+.eyebrow{
+  font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ge);border:1px solid rgba(46,208,245,0.3);border-radius:24px;
+  padding:7px 16px;background:rgba(46,208,245,0.07);display:inline-block;margin-bottom:20px;
+}
+.eyebrow.purple{color:var(--purple);border-color:rgba(192,37,232,0.3);background:rgba(192,37,232,0.07)}
+
+/* ── Headings ── */
+.s-h1{font-family:var(--fd);font-size:clamp(32px,5vw,54px);font-weight:800;
+  line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+.s-h2{font-family:var(--fd);font-size:clamp(22px,3.5vw,30px);font-weight:700;
+  line-height:1.2;letter-spacing:-.01em;margin-bottom:10px}
+.s-h3{font-family:var(--fd);font-size:20px;font-weight:700;line-height:1.3;margin-bottom:8px}
+.s-lead{font-size:16px;color:rgba(232,237,248,0.65);line-height:1.75;margin-bottom:28px;font-family:var(--fb)}
+.s-sub{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* Gradient text helpers */
+.grad-orange-purple{background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-full{background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── Buttons ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.03em;
+  padding:16px 32px;border-radius:12px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;
+  transition:opacity .2s,transform .15s;text-decoration:none;
+}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary.full{width:100%;justify-content:center;padding:18px 32px;font-size:16px}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--fd);font-size:14px;font-weight:600;letter-spacing:.03em;
+  padding:14px 28px;border-radius:12px;cursor:pointer;
+  background:transparent;border:1px solid var(--border2);color:rgba(232,237,248,0.8);
+  transition:all .2s;text-decoration:none;
+}
+.btn-secondary:hover{background:var(--bg3);border-color:rgba(255,255,255,0.2);color:#fff}
+
+/* ── Step counter ── */
+.step-label{font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:24px}
+.step-label span{color:var(--ge)}
+
+/* ── Validation msg ── */
+.val-msg{font-size:13px;color:var(--red);margin-top:8px;display:none}
+.val-msg.visible{display:block}
+
+/* ========================================
+   SCREEN 0 — Welcome
+   ======================================== */
+
+.welcome-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  width:100%;max-width:1100px;
+}
+.welcome-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.small-note{font-size:13px;color:var(--muted);margin-bottom:32px}
+
+.preview-cards{display:flex;flex-direction:column;gap:14px}
+.preview-card{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:18px 20px;display:flex;align-items:center;gap:16px;
+}
+.preview-card-icon{font-size:1.8rem;line-height:1;flex-shrink:0}
+.preview-card-body{flex:1}
+.preview-card-name{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:3px}
+.preview-card-desc{font-size:13px;color:rgba(232,237,248,0.6);line-height:1.4}
+.complexity-pill{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:20px;flex-shrink:0;
+}
+.complexity-pill.low{background:rgba(16,185,129,0.15);color:var(--green);border:1px solid rgba(16,185,129,0.3)}
+.complexity-pill.medium{background:rgba(245,158,11,0.15);color:var(--amber);border:1px solid rgba(245,158,11,0.3)}
+.complexity-pill.high{background:rgba(239,68,68,0.15);color:var(--red);border:1px solid rgba(239,68,68,0.3)}
+
+.trust-badges{display:flex;gap:24px;flex-wrap:wrap;margin-top:48px;width:100%;max-width:1100px}
+.trust-badge{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;color:rgba(232,237,248,0.6);
+  border:1px solid var(--border);border-radius:40px;
+  padding:10px 20px;background:rgba(255,255,255,0.02);
+}
+
+/* ========================================
+   SCREEN 1 & 2 — App / Priority grid
+   ======================================== */
+
+.app-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  width:100%;margin-bottom:16px;
+}
+.priority-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+  width:100%;margin-bottom:24px;
+}
+
+.sel-card{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:20px 18px;cursor:pointer;position:relative;
+  transition:border-color .2s,background .2s,transform .15s;
+  user-select:none;
+}
+.sel-card:hover{border-color:rgba(192,37,232,0.35);background:rgba(192,37,232,0.04);transform:translateY(-2px)}
+.sel-card.selected{
+  border-color:var(--purple);
+  background:rgba(192,37,232,0.08);
+}
+.sel-card-check{
+  position:absolute;top:12px;right:12px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--purple);display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:#fff;opacity:0;transition:opacity .2s;
+}
+.sel-card.selected .sel-card-check{opacity:1}
+.sel-card-icon{font-size:2.5rem;line-height:1;margin-bottom:12px}
+.sel-card-name{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:5px}
+.sel-card-desc{font-size:13px;color:rgba(232,237,248,0.55);line-height:1.45}
+
+/* Selection counter */
+.sel-counter{
+  font-family:var(--fd);font-size:14px;font-weight:600;color:var(--muted);
+  margin-bottom:24px;
+}
+.sel-counter span{color:var(--ge)}
+
+/* ── IT Capability radio ── */
+.it-section{width:100%;margin-bottom:24px}
+.it-section h3{font-family:var(--fd);font-size:16px;font-weight:700;margin-bottom:14px}
+.it-options{display:flex;flex-direction:column;gap:10px}
+.it-option{
+  display:flex;align-items:flex-start;gap:14px;
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:16px 18px;cursor:pointer;transition:all .2s;
+  background:var(--bg2);
+}
+.it-option:hover{border-color:rgba(192,37,232,0.35);background:rgba(192,37,232,0.04)}
+.it-option.selected{border-color:var(--purple);background:rgba(192,37,232,0.08)}
+.it-option input[type=radio]{display:none}
+.it-dot{
+  width:18px;height:18px;border-radius:50%;border:2px solid var(--border2);
+  flex-shrink:0;margin-top:2px;transition:all .2s;display:flex;align-items:center;justify-content:center;
+}
+.it-option.selected .it-dot{background:var(--purple);border-color:var(--purple)}
+.it-option.selected .it-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff}
+.it-opt-label{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:3px}
+.it-opt-desc{font-size:13px;color:rgba(232,237,248,0.55)}
+
+/* ── Nav buttons row ── */
+.nav-row{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:12px;width:100%}
+.nav-row.with-back{justify-content:space-between}
+
+/* ========================================
+   SCREEN 3 — Environment
+   ======================================== */
+
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  width:100%;margin-bottom:24px;
+}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-group.full{grid-column:1/-1}
+.form-label{font-family:var(--fd);font-size:13px;font-weight:600;color:rgba(232,237,248,0.8);letter-spacing:.03em}
+.form-input,.form-select{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:12px 16px;font-family:var(--fb);font-size:14px;font-weight:400;
+  color:var(--text);outline:none;transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;width:100%;
+}
+.form-select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a99' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:36px;cursor:pointer;
+}
+.form-input:focus,.form-select:focus{border-color:var(--purple)}
+.form-input::placeholder{color:var(--muted)}
+
+/* Copilot radio group */
+.copilot-radios{display:flex;flex-direction:column;gap:8px}
+.copilot-radio{
+  display:flex;align-items:center;gap:12px;
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  padding:12px 16px;cursor:pointer;transition:all .2s;background:var(--bg2);font-size:14px;
+}
+.copilot-radio:hover{border-color:rgba(192,37,232,0.35)}
+.copilot-radio.selected{border-color:var(--purple);background:rgba(192,37,232,0.08)}
+.copilot-radio input[type=radio]{display:none}
+.cop-dot{
+  width:16px;height:16px;border-radius:50%;border:2px solid var(--border2);
+  flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center;
+}
+.copilot-radio.selected .cop-dot{background:var(--purple);border-color:var(--purple)}
+.copilot-radio.selected .cop-dot::after{content:'';width:5px;height:5px;border-radius:50%;background:#fff}
+
+/* ========================================
+   SCREEN 4 — Processing
+   ======================================== */
+
+.processing-center{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  flex:1;min-height:60vh;gap:36px;
+}
+.spinner-ring{
+  width:80px;height:80px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--gs),var(--gm),var(--ge),transparent 270deg);
+  animation:spin 1.2s linear infinite;
+  mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#fff calc(100% - 7px));
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#fff calc(100% - 7px));
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tick-list{display:flex;flex-direction:column;gap:14px;min-width:280px}
+.tick-item{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--fd);font-size:14px;font-weight:500;
+  color:rgba(232,237,248,0.4);opacity:0;transition:opacity .3s,color .3s;
+}
+.tick-item.done{opacity:1;color:var(--text)}
+.tick-item.done .tick-icon{color:var(--green)}
+.tick-icon{width:20px;height:20px;border-radius:50%;background:rgba(16,185,129,0.15);
+  border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;
+  font-size:11px;flex-shrink:0}
+
+/* ========================================
+   SCREEN 5 — Results
+   ======================================== */
+
+.results-header{
+  width:100%;max-width:1100px;
+  padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:40px;
+}
+.stat-badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+.stat-badge{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:40px;
+  padding:10px 22px;font-family:var(--fd);font-size:13px;font-weight:700;color:var(--text);
+  display:flex;align-items:center;gap:8px;
+}
+.stat-badge-num{font-size:18px;font-weight:800;background:var(--grad-full);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── Result section headings ── */
+.result-section{width:100%;max-width:1100px;margin-bottom:48px}
+.result-section-title{
+  font-family:var(--fd);font-size:18px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:rgba(232,237,248,0.5);margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.result-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── Per-app integration cards ── */
+.integration-cards{display:flex;flex-direction:column;gap:20px}
+.int-card{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
+  overflow:hidden;border-left:4px solid var(--muted);
+}
+.int-card.complexity-low{border-left-color:var(--green)}
+.int-card.complexity-medium{border-left-color:var(--amber)}
+.int-card.complexity-high{border-left-color:var(--red)}
+
+.int-card-header{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:20px 24px 16px;border-bottom:1px solid var(--border);
+}
+.int-card-icon{font-size:2rem;line-height:1}
+.int-card-name{font-family:var(--fd);font-size:20px;font-weight:800;flex:1}
+.int-tag{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:20px;
+  background:rgba(46,208,245,0.12);color:var(--cyan);border:1px solid rgba(46,208,245,0.25);
+}
+
+.int-card-body{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+}
+.int-body-section{
+  padding:20px 22px;
+  border-right:1px solid var(--border);
+}
+.int-body-section:last-child{border-right:none}
+.int-body-section h4{
+  font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.int-body-section ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px}
+.int-body-section ul li{
+  font-size:13px;line-height:1.5;color:rgba(232,237,248,0.75);
+  padding-left:14px;position:relative;
+}
+.int-body-section ul li::before{
+  content:'•';position:absolute;left:0;color:var(--purple);
+}
+.int-body-section ol{list-style:none;padding:0;counter-reset:steps;display:flex;flex-direction:column;gap:7px}
+.int-body-section ol li{
+  font-size:13px;line-height:1.5;color:rgba(232,237,248,0.75);
+  padding-left:20px;position:relative;counter-increment:steps;
+}
+.int-body-section ol li::before{
+  content:counter(steps);position:absolute;left:0;
+  font-family:var(--fd);font-size:11px;font-weight:700;
+  color:var(--purple);
+}
+.int-body-section p{font-size:13px;line-height:1.6;color:rgba(232,237,248,0.75)}
+
+.int-card-footer{
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  padding:14px 24px;background:rgba(0,0,0,0.2);
+  border-top:1px solid var(--border);
+}
+.int-footer-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.int-footer-item span{color:rgba(232,237,248,0.7);font-weight:500}
+
+/* ── Build order ── */
+.build-order-list{display:flex;flex-direction:column;gap:12px}
+.build-step{
+  display:flex;align-items:center;gap:16px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:14px 18px;
+}
+.build-num{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gs),var(--gm));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:13px;font-weight:800;color:#fff;flex-shrink:0;
+}
+.build-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.build-name{font-family:var(--fd);font-size:15px;font-weight:700;flex:1}
+.build-reason{font-size:13px;color:rgba(232,237,248,0.55);margin-top:2px}
+
+/* ── Architecture diagram ── */
+.arch-card{
+  background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
+  padding:32px;
+}
+.arch-card h3{font-family:var(--fd);font-size:18px;font-weight:800;margin-bottom:28px;text-align:center}
+.arch-layers{display:flex;flex-direction:column;align-items:center;gap:0;width:100%}
+.arch-layer{
+  width:100%;max-width:700px;border-radius:12px;padding:20px 24px;text-align:center;
+}
+.arch-layer.claude-layer{background:rgba(192,37,232,0.12);border:1px solid rgba(192,37,232,0.3)}
+.arch-layer.int-layer{background:var(--bg3);border:1px solid var(--border2)}
+.arch-layer.m365-layer{background:rgba(46,208,245,0.06);border:1px solid rgba(46,208,245,0.2)}
+.arch-layer-title{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px}
+.arch-layer-content{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.arch-pill{
+  font-family:var(--fd);font-size:12px;font-weight:600;
+  padding:5px 14px;border-radius:20px;
+}
+.arch-pill.purple{background:rgba(192,37,232,0.2);color:var(--purple);border:1px solid rgba(192,37,232,0.3)}
+.arch-pill.cyan{background:rgba(46,208,245,0.12);color:var(--cyan);border:1px solid rgba(46,208,245,0.25)}
+.arch-pill.blue{background:rgba(59,130,246,0.12);color:#60a5fa;border:1px solid rgba(59,130,246,0.25)}
+.arch-arrow{
+  font-size:20px;color:var(--muted);margin:6px 0;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── CTA section ── */
+.cta-section{
+  width:100%;max-width:1100px;
+  border-top:3px solid;
+  border-image:var(--grad-full) 1;
+  background:var(--bg2);border-radius:0 0 var(--radius) var(--radius);
+  padding:48px;margin-bottom:0;
+}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.cta-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.cta-list-item{
+  display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(232,237,248,0.75);
+}
+.cta-check{
+  width:20px;height:20px;border-radius:50%;background:rgba(16,185,129,0.15);
+  border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:var(--green);flex-shrink:0;
+}
+.cta-actions{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.cta-link{
+  font-family:var(--fd);font-size:13px;font-weight:600;color:var(--ge);text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;margin-top:8px;transition:opacity .2s;
+}
+.cta-link:hover{opacity:.75}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .welcome-grid{grid-template-columns:1fr;gap:40px}
+  .app-grid{grid-template-columns:repeat(2,1fr)}
+  .int-card-body{grid-template-columns:1fr;gap:0}
+  .int-body-section{border-right:none;border-bottom:1px solid var(--border)}
+  .int-body-section:last-child{border-bottom:none}
+  .cta-grid{grid-template-columns:1fr;gap:32px}
+  .a-nav{padding:0 20px}
+}
+@media(max-width:600px){
+  .app-grid{grid-template-columns:1fr}
+  .priority-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .trust-badges{flex-direction:column}
+  .stat-badges{flex-direction:column}
+  .screen{padding:40px 16px 80px}
+  .cta-section{padding:32px 20px}
+  .int-card-header{gap:10px}
+  .int-card-body{grid-template-columns:1fr}
+  .build-step{flex-wrap:wrap}
+}
+@media print{
+  body::before{display:none}
+  .a-nav,.progress-wrap,.nav-row,.cta-section{display:none!important}
+  body{background:#fff;color:#111}
+  .int-card{break-inside:avoid;border:1px solid #ddd;border-left:4px solid #ccc}
+  .int-card.complexity-low{border-left-color:#10b981}
+  .int-card.complexity-medium{border-left-color:#f59e0b}
+  .int-card.complexity-high{border-left-color:#ef4444}
+  .int-body-section{border-right:1px solid #eee}
+  .int-body-section ul li,
+  .int-body-section ol li,
+  .int-body-section p{color:#333}
+  .int-body-section h4{color:#666}
+  .print-header{display:block!important;padding:24px 0 16px;border-bottom:2px solid #eee;margin-bottom:24px}
+  .print-header-brand{font-size:22px;font-weight:800;color:#111;font-family:sans-serif;margin-bottom:4px}
+  .print-header-sub{font-size:13px;color:#666}
+  .result-section-title{color:#666;border-bottom:1px solid #eee;padding-bottom:8px}
+  .result-section-title::after{display:none}
+  .build-step{border:1px solid #ddd;background:#f9f9f9}
+  .build-num{background:#c025e8;color:#fff}
+  .build-name,.arch-card h3{color:#111}
+  .build-reason{color:#555}
+  .arch-card{border:1px solid #ddd;background:#f9f9f9}
+  .arch-layer.claude-layer{background:#f3e8ff;border-color:#c025e8}
+  .arch-layer.int-layer{background:#f0f0f0;border-color:#ccc}
+  .arch-layer.m365-layer{background:#e0f2fe;border-color:#0ea5e9}
+  .arch-pill.purple{background:#f3e8ff;color:#7c3aed;border-color:#c4b5fd}
+  .arch-pill.cyan{background:#e0f2fe;color:#0369a1;border-color:#7dd3fc}
+  .arch-pill.blue{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd}
+  .stat-badge{background:#f9f9f9;border:1px solid #ddd}
+  .eyebrow{background:#f3e8ff;color:#7c3aed;border-color:#c4b5fd}
+  #print-header{display:block!important}
+}
+#print-header{display:none}
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- NAV -->
+  <nav class="a-nav">
+    <a class="a-nav-logo" href="/">
+      <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
+    </a>
+    <a class="a-nav-back" href="/" id="nav-back-link">← Back to Fynaptix</a>
+    <button class="nav-rebuild" id="nav-rebuild-btn" onclick="rebuildPlan()">← Rebuild Plan</button>
+  </nav>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- ======================================================
+       SCREEN 0 — WELCOME
+       ====================================================== -->
+  <div class="screen active" id="screen-0">
+    <div style="width:100%;max-width:1100px">
+      <div class="welcome-grid">
+        <!-- LEFT -->
+        <div>
+          <div class="eyebrow">FREE TOOL · M365 INTEGRATION PLANNER</div>
+          <h1 class="s-h1">Map Your <span class="grad-orange-purple">Microsoft 365</span> + Claude Integration</h1>
+          <p class="s-lead">Select the M365 apps your organisation uses. We'll generate a step-by-step integration blueprint tailored to your environment.</p>
+          <div class="welcome-cta-row">
+            <button class="btn-primary" onclick="goToScreen(1)">Build My Integration Plan →</button>
+          </div>
+          <p class="small-note">Free. No sign-up. Takes 2 minutes.</p>
+        </div>
+        <!-- RIGHT -->
+        <div class="preview-cards">
+          <div class="preview-card">
+            <div class="preview-card-icon">💬</div>
+            <div class="preview-card-body">
+              <div class="preview-card-name">Microsoft Teams</div>
+              <div class="preview-card-desc">Claude bot + meeting summarisation</div>
+            </div>
+            <div class="complexity-pill medium">Medium</div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card-icon">📁</div>
+            <div class="preview-card-body">
+              <div class="preview-card-name">SharePoint</div>
+              <div class="preview-card-desc">RAG knowledge base integration</div>
+            </div>
+            <div class="complexity-pill high">High</div>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card-icon">⚡</div>
+            <div class="preview-card-body">
+              <div class="preview-card-name">Power Automate</div>
+              <div class="preview-card-desc">Trigger-based AI workflows</div>
+            </div>
+            <div class="complexity-pill low">Low</div>
+          </div>
+        </div>
+      </div>
+      <!-- Trust badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">🔗 12 M365 app integrations mapped</div>
+        <div class="trust-badge">⚡ Instant blueprint generated</div>
+        <div class="trust-badge">📋 Downloadable implementation guide</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       SCREEN 1 — SELECT APPS
+       ====================================================== -->
+  <div class="screen" id="screen-1">
+    <div class="wrap-wide">
+      <div class="step-label">Step <span>1</span> of 3</div>
+      <h2 class="s-h2">Which Microsoft 365 apps does your organisation use?</h2>
+      <p class="s-lead" style="margin-bottom:28px">Select all that apply. We'll generate integration guidance for each.</p>
+
+      <div class="app-grid" id="app-grid">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div class="sel-counter" id="app-counter"><span id="app-count">0</span> apps selected</div>
+      <div class="val-msg" id="val-apps">Please select at least 2 apps to continue.</div>
+
+      <div class="nav-row">
+        <button class="btn-secondary" onclick="goToScreen(0)">← Back</button>
+        <button class="btn-primary" onclick="validateApps()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       SCREEN 2 — PRIORITIES
+       ====================================================== -->
+  <div class="screen" id="screen-2">
+    <div class="wrap-wide">
+      <div class="step-label">Step <span>2</span> of 3</div>
+      <h2 class="s-h2">What are your integration priorities?</h2>
+      <p class="s-lead" style="margin-bottom:28px">Select your top goals. We'll weight our recommendations accordingly.</p>
+
+      <div class="priority-grid" id="priority-grid">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div class="it-section">
+        <h3>How would you describe your IT team's capability?</h3>
+        <div class="it-options" id="it-options">
+          <label class="it-option" id="it-advanced" onclick="selectIT('Advanced')">
+            <input type="radio" name="it" value="Advanced"/>
+            <div class="it-dot"></div>
+            <div>
+              <div class="it-opt-label">🟢 Advanced</div>
+              <div class="it-opt-desc">Dedicated IT/DevOps team, comfortable with APIs and enterprise integrations</div>
+            </div>
+          </label>
+          <label class="it-option" id="it-intermediate" onclick="selectIT('Intermediate')">
+            <input type="radio" name="it" value="Intermediate"/>
+            <div class="it-dot"></div>
+            <div>
+              <div class="it-opt-label">🟡 Intermediate</div>
+              <div class="it-opt-desc">IT team in place, some integration experience</div>
+            </div>
+          </label>
+          <label class="it-option" id="it-basic" onclick="selectIT('Basic')">
+            <input type="radio" name="it" value="Basic"/>
+            <div class="it-dot"></div>
+            <div>
+              <div class="it-opt-label">🔴 Basic</div>
+              <div class="it-opt-desc">Limited IT resources, prefer low-code/no-code solutions</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="val-msg" id="val-priorities">Please select at least 1 priority and your IT capability.</div>
+
+      <div class="nav-row with-back">
+        <button class="btn-secondary" onclick="goToScreen(1)">← Back</button>
+        <button class="btn-primary" onclick="validatePriorities()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       SCREEN 3 — ENVIRONMENT
+       ====================================================== -->
+  <div class="screen" id="screen-3">
+    <div class="wrap">
+      <div class="step-label">Step <span>3</span> of 3</div>
+      <h2 class="s-h2">Tell us about your environment</h2>
+      <p class="s-lead" style="margin-bottom:28px">A few details help us tailor the blueprint to your specific setup.</p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="org-name">Organisation Name *</label>
+          <input class="form-input" id="org-name" type="text" placeholder="e.g. Acme Corp" autocomplete="organization"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="org-size">Organisation Size *</label>
+          <select class="form-select" id="org-size">
+            <option value="">Select size…</option>
+            <option>Under 50</option>
+            <option>50–200</option>
+            <option>200–1000</option>
+            <option>1000–5000</option>
+            <option>5000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="claude-plan">Claude Plan *</label>
+          <select class="form-select" id="claude-plan">
+            <option value="">Select plan…</option>
+            <option>Claude.ai Team</option>
+            <option>Claude Enterprise</option>
+            <option>Claude API (direct)</option>
+            <option>Not yet decided</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="m365-plan">Microsoft 365 Plan *</label>
+          <select class="form-select" id="m365-plan">
+            <option value="">Select plan…</option>
+            <option>Microsoft 365 Business Basic</option>
+            <option>Microsoft 365 Business Standard</option>
+            <option>Microsoft 365 Business Premium</option>
+            <option>Microsoft 365 E3</option>
+            <option>Microsoft 365 E5</option>
+            <option>Office 365 (legacy)</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Do you currently use Microsoft Copilot? *</label>
+          <div class="copilot-radios" id="copilot-radios">
+            <label class="copilot-radio" onclick="selectCopilot(this,'Yes, actively using')">
+              <input type="radio" name="copilot" value="Yes, actively using"/>
+              <div class="cop-dot"></div>Yes, actively using
+            </label>
+            <label class="copilot-radio" onclick="selectCopilot(this,'Piloting')">
+              <input type="radio" name="copilot" value="Piloting"/>
+              <div class="cop-dot"></div>Piloting
+            </label>
+            <label class="copilot-radio" onclick="selectCopilot(this,'No, evaluating')">
+              <input type="radio" name="copilot" value="No, evaluating"/>
+              <div class="cop-dot"></div>No, evaluating
+            </label>
+            <label class="copilot-radio" onclick="selectCopilot(this,'No, not interested')">
+              <input type="radio" name="copilot" value="No, not interested"/>
+              <div class="cop-dot"></div>No, not interested
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="timeline">Target Rollout Timeline *</label>
+          <select class="form-select" id="timeline">
+            <option value="">Select timeline…</option>
+            <option>Within 1 month</option>
+            <option>1–3 months</option>
+            <option>3–6 months</option>
+            <option>6–12 months</option>
+            <option>Exploring only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="val-msg" id="val-env">Please complete all required fields.</div>
+
+      <button class="btn-primary full" onclick="validateEnv()" style="margin-bottom:14px">Generate My Integration Plan →</button>
+      <button class="btn-secondary" onclick="goToScreen(2)" style="width:100%;justify-content:center">← Back</button>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       SCREEN 4 — PROCESSING
+       ====================================================== -->
+  <div class="screen screen-center" id="screen-4">
+    <div class="processing-center">
+      <div class="spinner-ring"></div>
+      <h2 class="s-h2" style="text-align:center">Building your integration blueprint...</h2>
+      <div class="tick-list" id="tick-list">
+        <div class="tick-item" id="tick-0"><div class="tick-icon">✓</div>Analysing your M365 environment</div>
+        <div class="tick-item" id="tick-1"><div class="tick-icon">✓</div>Mapping Claude integration patterns</div>
+        <div class="tick-item" id="tick-2"><div class="tick-icon">✓</div>Assessing implementation complexity</div>
+        <div class="tick-item" id="tick-3"><div class="tick-icon">✓</div>Generating recommended build order</div>
+        <div class="tick-item" id="tick-4"><div class="tick-icon">✓</div>Preparing your blueprint</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       SCREEN 5 — RESULTS
+       ====================================================== -->
+  <div class="screen" id="screen-5" style="padding-top:40px">
+    <!-- print header (hidden on screen) -->
+    <div id="print-header" style="display:none;width:100%;max-width:1100px">
+      <div class="print-header-brand">Fynaptix</div>
+      <div class="print-header-sub" id="print-sub"></div>
+    </div>
+
+    <div class="results-header" id="results-header">
+      <div class="eyebrow">Your Integration Blueprint is Ready</div>
+      <h1 class="s-h1" id="results-h1">Your M365 + Claude Integration Plan</h1>
+      <p class="s-lead" id="results-sub"></p>
+      <div class="stat-badges" id="stat-badges"></div>
+    </div>
+
+    <!-- Integration cards -->
+    <div class="result-section wrap-wide">
+      <div class="result-section-title">Integration Blueprints</div>
+      <div class="integration-cards" id="integration-cards"></div>
+    </div>
+
+    <!-- Build order -->
+    <div class="result-section wrap-wide">
+      <div class="result-section-title">Recommended Build Order</div>
+      <div class="build-order-list" id="build-order-list"></div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="result-section wrap-wide">
+      <div class="result-section-title">Architecture Overview</div>
+      <div class="arch-card" id="arch-card"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section" id="cta-section">
+      <div class="cta-grid">
+        <div>
+          <h2 class="s-h2">Ready to build your M365 + Claude integration?</h2>
+          <p class="s-sub" style="margin-top:8px;font-size:14px;color:rgba(232,237,248,0.6);line-height:1.6">Our team has delivered M365 + Claude integrations for enterprise organisations across Financial Services, Legal, and Technology sectors.</p>
+          <div class="cta-list">
+            <div class="cta-list-item"><div class="cta-check">✓</div>M365 tenant assessment &amp; integration scoping</div>
+            <div class="cta-list-item"><div class="cta-check">✓</div>Custom Claude Enterprise deployment</div>
+            <div class="cta-list-item"><div class="cta-check">✓</div>MCP server development &amp; configuration</div>
+            <div class="cta-list-item"><div class="cta-check">✓</div>Power Automate flow library</div>
+            <div class="cta-list-item"><div class="cta-check">✓</div>Staff training &amp; change management</div>
+            <div class="cta-list-item"><div class="cta-check">✓</div>Ongoing governance support</div>
+          </div>
+        </div>
+        <div>
+          <div class="cta-actions">
+            <button class="btn-primary full" onclick="downloadBlueprint()">📄 Download Integration Blueprint</button>
+            <a class="btn-secondary full" id="book-workshop-link" href="#" style="justify-content:center">📅 Book an Integration Workshop</a>
+          </div>
+          <a class="cta-link" href="/assessment.html">Take the Readiness Assessment →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /#app -->
+
+<script>
+/* ========================================================
+   DATA
+   ======================================================== */
+
+const APPS = [
+  {id:'teams',      icon:'💬', name:'Microsoft Teams',            desc:'Chat, meetings &amp; collaboration hub'},
+  {id:'outlook',    icon:'📧', name:'Outlook',                    desc:'Email &amp; calendar management'},
+  {id:'sharepoint', icon:'📁', name:'SharePoint',                 desc:'Document management &amp; intranet'},
+  {id:'office',     icon:'📝', name:'Word / Excel / PowerPoint',  desc:'Core productivity suite'},
+  {id:'onedrive',   icon:'☁️', name:'OneDrive',                   desc:'Cloud file storage &amp; sharing'},
+  {id:'powerauto',  icon:'⚡', name:'Power Automate',             desc:'Workflow &amp; process automation'},
+  {id:'powerbi',    icon:'📊', name:'Power BI',                   desc:'Business intelligence &amp; reporting'},
+  {id:'dynamics',   icon:'🔄', name:'Dynamics 365',               desc:'CRM &amp; business applications'},
+  {id:'entra',      icon:'🔐', name:'Microsoft Entra ID',         desc:'Identity &amp; access management'},
+  {id:'copilot',    icon:'🤖', name:'Microsoft Copilot',          desc:'Microsoft\'s built-in AI assistant'},
+  {id:'viva',       icon:'👥', name:'Microsoft Viva',             desc:'Employee experience platform'},
+  {id:'defender',   icon:'🛡️', name:'Microsoft Defender',         desc:'Security &amp; threat protection'},
+];
+
+const PRIORITIES = [
+  {id:'productivity',   icon:'🚀', name:'Staff Productivity',          desc:'Help teams work faster with AI assistance'},
+  {id:'automation',     icon:'🤖', name:'Process Automation',          desc:'Automate repetitive workflows end-to-end'},
+  {id:'knowledge',      icon:'📚', name:'Knowledge Management',        desc:'Make organisational knowledge searchable and accessible'},
+  {id:'communications', icon:'💬', name:'Customer Communications',     desc:'Improve quality and speed of client-facing communications'},
+  {id:'security',       icon:'🔒', name:'Security &amp; Compliance',   desc:'Ensure AI usage meets regulatory requirements'},
+  {id:'data',           icon:'📊', name:'Data &amp; Insights',         desc:'Extract insights from business data with natural language'},
+  {id:'developer',      icon:'👩‍💻', name:'Developer Productivity',     desc:'Accelerate software development with code assistance'},
+  {id:'documents',      icon:'📋', name:'Document Intelligence',       desc:'Automate document review, extraction and generation'},
+];
+
+/* ========================================================
+   STATE
+   ======================================================== */
+const state = {
+  selectedApps: new Set(),
+  selectedPriorities: new Set(),
+  itCapability: '',
+  orgName: '',
+  orgSize: '',
+  claudePlan: '',
+  m365Plan: '',
+  copilotUsage: '',
+  timeline: '',
+};
+
+/* ========================================================
+   SCREEN NAV
+   ======================================================== */
+function goToScreen(n) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active','fade-in'));
+  const target = document.getElementById('screen-'+n);
+  target.classList.add('active');
+  // trigger reflow for animation
+  void target.offsetWidth;
+  target.classList.add('fade-in');
+
+  // progress bar
+  const pct = n === 0 ? 0 : n === 1 ? 33 : n === 2 ? 66 : n === 3 ? 100 : n >= 4 ? 100 : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+
+  // nav back vs rebuild
+  const navBack = document.getElementById('nav-back-link');
+  const navRebuild = document.getElementById('nav-rebuild-btn');
+  if (n === 5) {
+    navBack.style.display = 'none';
+    navRebuild.classList.add('visible');
+  } else {
+    navBack.style.display = '';
+    navRebuild.classList.remove('visible');
+  }
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function rebuildPlan() {
+  // Reset state
+  state.selectedApps.clear();
+  state.selectedPriorities.clear();
+  state.itCapability = '';
+  state.orgName = '';
+  state.orgSize = '';
+  state.claudePlan = '';
+  state.m365Plan = '';
+  state.copilotUsage = '';
+  state.timeline = '';
+  // Reset UI
+  document.querySelectorAll('.sel-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.it-option').forEach(o=>o.classList.remove('selected'));
+  document.querySelectorAll('.copilot-radio').forEach(r=>r.classList.remove('selected'));
+  document.getElementById('org-name').value='';
+  document.getElementById('org-size').value='';
+  document.getElementById('claude-plan').value='';
+  document.getElementById('m365-plan').value='';
+  document.getElementById('timeline').value='';
+  document.getElementById('app-count').textContent='0';
+  goToScreen(1);
+}
+
+/* ========================================================
+   RENDER CARDS
+   ======================================================== */
+function renderAppGrid() {
+  const grid = document.getElementById('app-grid');
+  grid.innerHTML = APPS.map(a => `
+    <div class="sel-card" id="acard-${a.id}" onclick="toggleApp('${a.id}')">
+      <div class="sel-card-check">✓</div>
+      <div class="sel-card-icon">${a.icon}</div>
+      <div class="sel-card-name">${a.name}</div>
+      <div class="sel-card-desc">${a.desc}</div>
+    </div>
+  `).join('');
+}
+
+function renderPriorityGrid() {
+  const grid = document.getElementById('priority-grid');
+  grid.innerHTML = PRIORITIES.map(p => `
+    <div class="sel-card" id="pcard-${p.id}" onclick="togglePriority('${p.id}')">
+      <div class="sel-card-check">✓</div>
+      <div class="sel-card-icon" style="font-size:1.8rem">${p.icon}</div>
+      <div class="sel-card-name">${p.name}</div>
+      <div class="sel-card-desc">${p.desc}</div>
+    </div>
+  `).join('');
+}
+
+/* ========================================================
+   TOGGLE SELECTIONS
+   ======================================================== */
+function toggleApp(id) {
+  const card = document.getElementById('acard-'+id);
+  if (state.selectedApps.has(id)) {
+    state.selectedApps.delete(id);
+    card.classList.remove('selected');
+  } else {
+    state.selectedApps.add(id);
+    card.classList.add('selected');
+  }
+  document.getElementById('app-count').textContent = state.selectedApps.size;
+}
+
+function togglePriority(id) {
+  const card = document.getElementById('pcard-'+id);
+  if (state.selectedPriorities.has(id)) {
+    state.selectedPriorities.delete(id);
+    card.classList.remove('selected');
+  } else {
+    state.selectedPriorities.add(id);
+    card.classList.add('selected');
+  }
+}
+
+function selectIT(val) {
+  state.itCapability = val;
+  ['Advanced','Intermediate','Basic'].forEach(v => {
+    const el = document.getElementById('it-'+v.toLowerCase());
+    el.classList.toggle('selected', v === val);
+  });
+}
+
+function selectCopilot(el, val) {
+  state.copilotUsage = val;
+  document.querySelectorAll('.copilot-radio').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+/* ========================================================
+   VALIDATION
+   ======================================================== */
+function validateApps() {
+  const msg = document.getElementById('val-apps');
+  if (state.selectedApps.size < 2) {
+    msg.classList.add('visible');
+    return;
+  }
+  msg.classList.remove('visible');
+  goToScreen(2);
+}
+
+function validatePriorities() {
+  const msg = document.getElementById('val-priorities');
+  if (state.selectedPriorities.size < 1 || !state.itCapability) {
+    msg.classList.add('visible');
+    return;
+  }
+  msg.classList.remove('visible');
+  goToScreen(3);
+}
+
+function validateEnv() {
+  const orgName = document.getElementById('org-name').value.trim();
+  const orgSize = document.getElementById('org-size').value;
+  const claudePlan = document.getElementById('claude-plan').value;
+  const m365Plan = document.getElementById('m365-plan').value;
+  const timeline = document.getElementById('timeline').value;
+  const msg = document.getElementById('val-env');
+
+  if (!orgName || !orgSize || !claudePlan || !m365Plan || !state.copilotUsage || !timeline) {
+    msg.classList.add('visible');
+    return;
+  }
+  msg.classList.remove('visible');
+  state.orgName = orgName;
+  state.orgSize = orgSize;
+  state.claudePlan = claudePlan;
+  state.m365Plan = m365Plan;
+  state.timeline = timeline;
+
+  startProcessing();
+}
+
+/* ========================================================
+   PROCESSING SCREEN
+   ======================================================== */
+function startProcessing() {
+  goToScreen(4);
+  // reset ticks
+  for (let i=0;i<5;i++) document.getElementById('tick-'+i).classList.remove('done');
+  // stagger ticks
+  let delay = 400;
+  for (let i=0;i<5;i++) {
+    (function(idx,d){ setTimeout(()=>document.getElementById('tick-'+idx).classList.add('done'), d); })(i, delay);
+    delay += 400;
+  }
+  // advance after 2.5s
+  setTimeout(()=>{
+    buildResults();
+    goToScreen(5);
+  }, 2600);
+}
+
+/* ========================================================
+   RESULT GENERATION
+   ======================================================== */
+
+// Per-app data lookup
+function getAppData(id, ctx) {
+  const {claudePlan, m365Plan, itCapability, selectedPriorities} = ctx;
+  const isEnterprise = claudePlan === 'Claude Enterprise';
+  const isApi = claudePlan === 'Claude API (direct)';
+  const isAdvanced = itCapability === 'Advanced';
+  const isBasic = itCapability === 'Basic';
+  const isE3orE5 = m365Plan === 'Microsoft 365 E3' || m365Plan === 'Microsoft 365 E5';
+
+  const map = {
+    teams: {
+      complexity: 'medium',
+      tag: isBasic ? 'Power Automate Connector' : 'Teams Bot + API',
+      enables: [
+        'Meeting summarisation with action items automatically captured',
+        'Claude bot in channels for real-time Q&amp;A and document analysis',
+        'Draft responses to incoming messages with context awareness',
+        'Analysis of files shared within Teams conversations',
+      ],
+      howConnects: isBasic
+        ? `For ${m365Plan} on a Basic IT setup, connect Claude to Teams via Zapier or Make.com using pre-built connectors — no code required. Trigger Claude summaries from meeting recordings stored in OneDrive, and post outputs back to Teams channels via webhook.`
+        : isEnterprise
+        ? `Deploy a custom Teams Bot Framework app registered in Azure, connected to the Claude Enterprise API with an MCP server for real-time Teams data access. The bot can read channel history, parse shared documents, and post structured outputs. SSO via Entra ID ensures users don't need separate credentials.`
+        : `Register an Azure App for the Teams Bot Framework and connect to the ${isApi ? 'Claude API' : 'Claude.ai'} endpoint. Bot handles slash commands, meeting note requests, and channel Q&amp;A. Message payloads are sanitised before sending to Claude to manage token costs.`,
+      steps: isBasic ? [
+        'Set up Zapier/Make account with Microsoft 365 connector',
+        'Create automation: Teams meeting ends → fetch recording → Claude summary → post to channel',
+        'Test flow with a single team as pilot group',
+        'Expand to additional channels and use cases',
+      ] : [
+        'Register Azure App registration for Teams bot with required Microsoft Graph permissions',
+        'Deploy bot manifest to Teams Admin Centre and configure allowed channels',
+        'Connect bot to Claude API endpoint with appropriate system prompt',
+        'Set up channel permissions and pilot with a small team',
+        'Iterate on prompts based on feedback, then roll out organisation-wide',
+      ],
+      time: isBasic ? '1–2 weeks' : '2–3 weeks',
+      prereq: isBasic ? 'Zapier/Make licence' : 'Azure subscription',
+    },
+    outlook: {
+      complexity: isEnterprise ? 'medium' : 'low',
+      tag: isEnterprise ? 'Outlook Add-in' : 'Browser Extension',
+      enables: [
+        'Summarise long email threads into key points and decisions',
+        'Draft smart replies with the right tone for the recipient',
+        'Generate meeting prep briefs from calendar invitations',
+        'Triage and categorise inbox by priority and action required',
+      ],
+      howConnects: isEnterprise
+        ? `Two-phase approach: deploy the Claude.ai browser extension via Intune/MDM for immediate value (day 1), then build a custom Outlook add-in using Office.js and Microsoft Graph API for deeper integration. The Graph API provides calendar context, sender history, and organisation directory data to enrich Claude's responses.`
+        : `Deploy the Claude.ai browser extension via ${isBasic ? 'manual install or MDM' : 'Intune/MDM policy'} for instant access in Outlook on the web and desktop. This covers 80% of email use cases with zero development time. For ${m365Plan}, the browser extension integrates cleanly with Outlook web.`,
+      steps: isEnterprise ? [
+        'Deploy Claude.ai browser extension via Intune MDM policy to all users',
+        'Document approved email use cases and create prompt library for staff',
+        'Register Microsoft Graph API application for calendar and directory access',
+        'Build custom Outlook add-in using Office.js connected to Claude Enterprise API',
+        'Test with pilot group, iterate on prompts, then deploy to all users',
+      ] : [
+        'Deploy Claude.ai browser extension via ${isBasic ? "manual download guide" : "Intune MDM policy"}',
+        'Create usage guidelines for approved email use cases',
+        'Train staff on 5 high-value email prompts (summarise, draft reply, meeting prep)',
+        'Collect feedback and refine prompt templates',
+      ],
+      time: isEnterprise ? '1 day (extension) + 4–6 weeks (add-in)' : '1–3 days',
+      prereq: isEnterprise ? 'Claude Enterprise + Azure subscription' : 'Claude.ai Team licence',
+    },
+    sharepoint: {
+      complexity: 'high',
+      tag: isEnterprise ? 'MCP Server + RAG' : 'REST API + Indexing',
+      enables: [
+        'Natural language search across all SharePoint documents and sites',
+        'Document Q&amp;A: ask questions, get answers with source citations',
+        'Automated content generation from existing templates and standards',
+        'Meeting notes stored in SharePoint automatically indexed and searchable',
+      ],
+      howConnects: isEnterprise
+        ? `This is the highest-value integration for ${state.orgName}. Claude Enterprise connects to SharePoint via an MCP server that reads the Microsoft Graph API. Documents are indexed as vector embeddings for retrieval-augmented generation (RAG). Users query their organisational knowledge in natural language directly within the Claude Enterprise interface.`
+        : `Connect Claude to SharePoint using the Microsoft Graph API with a custom connector. Documents are periodically indexed and stored as embeddings. A lightweight API layer handles search queries, retrieves relevant document chunks, and passes them as context to ${claudePlan}. This requires ${isBasic ? 'a developer resource for initial setup' : 'API development work'}.`,
+      steps: [
+        'Register Microsoft Graph API application with SharePoint read permissions in Entra ID',
+        'Configure SharePoint site permissions and identify priority document libraries',
+        isEnterprise ? 'Build MCP server with Graph API connector for real-time document access' : 'Build document indexing pipeline to extract and embed SharePoint content',
+        'Configure Claude with a custom system prompt scoped to your knowledge base',
+        isEnterprise ? 'Deploy Claude Enterprise with MCP integration and test with pilot users' : 'Deploy API layer and test RAG accuracy with sample queries',
+      ],
+      time: '4–8 weeks',
+      prereq: isEnterprise ? 'Claude Enterprise plan (required for MCP server)' : 'Azure subscription + developer resource',
+    },
+    office: {
+      complexity: isEnterprise ? 'medium' : 'low',
+      tag: isEnterprise ? 'Office Add-in + API' : 'Browser Extension',
+      enables: [
+        'Draft documents from briefs and bullet points directly in Word',
+        'Analyse Excel data and generate plain-English narrative summaries',
+        'Create PowerPoint presentations from structured content',
+        'Summarise, rewrite, and improve existing documents on demand',
+      ],
+      howConnects: isBasic
+        ? `Deploy the Claude.ai browser extension for immediate access in Word Online, Excel Online, and PowerPoint Online. For desktop apps, the extension works via the Outlook web interface. This covers the core drafting and summarisation use cases without any development work.`
+        : isEnterprise
+        ? `Phase 1 (week 1): Deploy Claude.ai browser extension organisation-wide via Intune. Phase 2 (weeks 3–6): Build Microsoft 365 add-ins using Office.js connected to the Claude Enterprise API. For Excel specifically, leverage Python in Excel (available in ${isE3orE5 ? m365Plan : 'Business Standard+'}) to call the Claude API directly from spreadsheets for complex data analysis.`
+        : `Deploy the Claude.ai browser extension via ${isBasic ? 'manual install' : 'Intune MDM'} for immediate productivity gains. Identify 2–3 highest-value document templates (proposals, reports, briefs) and build Office.js add-ins for those specific workflows using the ${claudePlan} endpoint.`,
+      steps: [
+        'Deploy Claude.ai browser extension to all users via MDM or guided install',
+        'Identify highest-value document types: proposals, reports, analysis, presentations',
+        isBasic ? 'Create prompt template library for each document type' : 'Build Office.js add-in for priority document workflows',
+        'Train staff on effective prompts for Word, Excel, and PowerPoint',
+      ],
+      time: isBasic ? '1 week' : '1–2 weeks (extension) + 3–4 weeks (add-ins)',
+      prereq: isEnterprise ? 'Claude Enterprise for add-in integration' : null,
+    },
+    onedrive: {
+      complexity: 'low',
+      tag: 'Power Automate Connector',
+      enables: [
+        'Automatic summarisation of documents when uploaded to OneDrive',
+        'Natural language content search across personal and shared files',
+        'Automatic document classification and metadata tagging on upload',
+        'Weekly digest of new documents added across team drives',
+      ],
+      howConnects: `Connect OneDrive to Claude via Power Automate using a "New file created" trigger. When a document is uploaded, the flow sends the file content to Claude via a custom HTTP connector, receives a summary and suggested tags, and writes the metadata back to the SharePoint/OneDrive properties. Microsoft Graph webhooks can provide real-time processing for time-sensitive workflows.`,
+      steps: [
+        'Create Power Automate flow with OneDrive "When a file is created" trigger',
+        'Add Claude API HTTP action to extract text content and generate summary',
+        'Configure metadata write-back to OneDrive/SharePoint file properties',
+        'Test with sample documents across different file types (Word, PDF, Excel)',
+        'Deploy with error handling and retry logic for production use',
+      ],
+      time: '1–2 weeks',
+      prereq: 'Power Automate licence (included in ' + m365Plan + ')',
+    },
+    powerauto: {
+      complexity: 'low',
+      tag: 'Custom HTTP Connector',
+      enables: [
+        'Document processing pipelines: ingest, extract, summarise, route',
+        'Approval workflows enriched with AI-generated summaries and risk flags',
+        'Email classification and routing based on Claude\'s content analysis',
+        'Data extraction from unstructured documents into structured records',
+      ],
+      howConnects: `Build a reusable custom HTTP connector in Power Automate that wraps the ${isApi ? 'Claude API' : 'Claude Enterprise API'} endpoint. This connector becomes the shared AI backbone that all other Power Automate flows reference — create it once, use it across every automation. For ${m365Plan} environments, Power Automate is already licensed and this unlocks AI capabilities across the full Microsoft 365 stack without additional infrastructure.`,
+      steps: [
+        'Create custom Claude API connector in Power Automate with authentication configured',
+        'Build first production flow: document upload → Claude summary → SharePoint metadata update',
+        'Test, iterate, and document the connector for wider team use',
+        'Publish connector to your organisation\'s environment for reuse across teams',
+        'Train staff on building AI-assisted flows using the shared connector',
+      ],
+      time: '1–2 weeks',
+      prereq: 'Recommended to implement FIRST — enables all other integrations',
+      highlight: true,
+    },
+    powerbi: {
+      complexity: 'medium',
+      tag: 'API + Dataflow',
+      enables: [
+        'Natural language queries over business data in plain English',
+        'Automated narrative generation explaining report trends and anomalies',
+        'Anomaly detection with plain-language explanations of root causes',
+        'Executive summary generation from underlying Power BI datasets',
+      ],
+      howConnects: `Claude receives a semantic description of your ${state.orgName} data models (metric names, relationships, business context) and translates natural language questions into structured query logic. Implemented via Power Automate flows that accept user questions, query the Power BI API or dataflow, and pass results to Claude for narrative generation. For ${isE3orE5 ? m365Plan + ' with Power BI Premium' : 'Power BI'} environments, Power BI Embedded can host custom analytics UIs with Claude integration.`,
+      steps: [
+        'Map key data models, metrics, and business terminology for Claude\'s semantic layer',
+        'Build semantic description document that accurately represents your data schema',
+        'Create Power Automate flow: natural language input → Power BI query → Claude narrative',
+        'Build Power BI report incorporating Claude-generated narrative visuals',
+        'Deploy to report consumers and train on natural language query patterns',
+      ],
+      time: '3–4 weeks',
+      prereq: 'Power BI Pro or Premium licence',
+    },
+    dynamics: {
+      complexity: 'medium',
+      tag: 'Power Automate + CRM Plugin',
+      enables: [
+        'CRM record summarisation: accounts, contacts, opportunities at a glance',
+        'Automated follow-up email drafting based on last interaction and deal stage',
+        'Customer sentiment analysis from support tickets and email threads',
+        'Sales pipeline narrative: explain pipeline health in plain language for leadership',
+      ],
+      howConnects: `Trigger Claude workflows from Dynamics 365 CRM events using Power Automate flows (the Claude connector built in Power Automate is the backbone here). Customer context — deal stage, interaction history, account tier — is passed to Claude as structured JSON. For ${state.orgName}'s ${m365Plan} environment, a Dynamics 365 plugin can also call Claude directly from within CRM record forms for in-context assistance.`,
+      steps: [
+        'Map CRM data fields (account, opportunity, contact) to Claude prompt templates',
+        'Build Power Automate flows for key triggers: new lead, stage change, closed deal',
+        'Create Claude prompt templates for each CRM workflow (follow-up email, summary, pipeline report)',
+        'Deploy to sales and support teams with clear usage guidance',
+        'Monitor output quality and refine prompts based on team feedback',
+      ],
+      time: '3–5 weeks',
+      prereq: 'Dynamics 365 licence + Power Automate (Premium connector)',
+    },
+    entra: {
+      complexity: 'medium',
+      tag: 'SAML/OIDC SSO',
+      enables: [
+        'SSO for Claude Enterprise — users log in with their M365 credentials',
+        'RBAC: security groups control which staff can access Claude and at what tier',
+        'Conditional access policies: MFA, device compliance requirements for AI access',
+        'Unified audit logging of Claude usage alongside all other M365 activity',
+      ],
+      howConnects: `Register Claude Enterprise as an Enterprise Application in Entra ID and configure SAML 2.0 or OIDC SSO. Create security groups (Claude-Users, Claude-Admins, Claude-Power-Users) that map to access tiers in Claude Enterprise. Conditional access policies enforce MFA and device compliance before allowing Claude access — critical for ${isE3orE5 ? m365Plan + ' security posture' : 'compliance requirements'}. All sign-in events appear in Entra audit logs.`,
+      steps: [
+        'Register Claude Enterprise as Enterprise Application in Microsoft Entra ID admin centre',
+        'Configure SAML 2.0 SSO with attribute mappings (email, name, department)',
+        'Create security groups: Claude-Users, Claude-Admins, Claude-Power-Users',
+        'Set conditional access policies (MFA required, compliant device required)',
+        'Test SSO flow with a pilot group of 5–10 users',
+        'Roll out to all licensed users via security group assignment',
+      ],
+      time: '1–2 weeks',
+      prereq: 'Recommended to implement EARLY — foundation for all other integrations',
+      highlight: true,
+    },
+    copilot: {
+      complexity: 'low',
+      tag: 'Governance Policy',
+      enables: [
+        'Clear staff guidance on when to use Copilot vs Claude for each task type',
+        'Copilot for M365-native tasks; Claude for complex reasoning and custom workflows',
+        'Unified acceptable use policy covering both AI tools',
+        'Training programme so staff get maximum value from the hybrid AI stack',
+      ],
+      howConnects: `Copilot and Claude serve complementary strengths for ${state.orgName}. Copilot excels at M365-native tasks (summarising Teams meetings in-app, drafting in Word with document context). Claude excels at complex multi-step reasoning, long document analysis, and API-driven custom workflows. A hybrid deployment policy — documented and communicated clearly — captures value from both without confusion or duplication.`,
+      steps: [
+        'Audit current Copilot usage patterns and satisfaction scores across teams',
+        'Map all AI use cases to the optimal tool (build a Claude vs Copilot decision matrix)',
+        'Document decision framework: task type → recommended tool → example prompts',
+        'Update acceptable use policy to cover both tools and data handling requirements',
+        'Run staff training sessions covering both tools and when to use each',
+      ],
+      time: '1–2 weeks',
+      prereq: 'Microsoft Copilot licences in place',
+    },
+    viva: {
+      complexity: 'low',
+      tag: 'Power Automate + API',
+      enables: [
+        'Employee pulse survey analysis: identify themes and sentiment at scale',
+        'AI training content generation for the internal Microsoft AI adoption programme',
+        'Internal communications drafting for the AI transformation programme',
+        'Skills gap analysis from Viva Learning and Skills data',
+      ],
+      howConnects: `Export Viva Insights and Viva Learning data via the Microsoft Graph API and process with Claude via Power Automate flows. For ${state.orgName}'s AI adoption programme, Claude can generate onboarding content for Viva Learning that teaches staff how to use Claude effectively — a self-reinforcing integration. Viva Amplify can distribute Claude-drafted internal communications about the AI programme.`,
+      steps: [
+        'Export Viva Insights data relevant to AI adoption and workforce analytics',
+        'Build Claude analysis workflow: input survey/insights data → extract themes → generate report',
+        'Create AI onboarding content in Viva Learning covering Claude use cases',
+        'Automate internal communications for the AI programme via Viva Amplify',
+      ],
+      time: '2–3 weeks',
+      prereq: 'Microsoft Viva suite licence',
+    },
+    defender: {
+      complexity: 'medium',
+      tag: 'Logic Apps + API',
+      enables: [
+        'Security alert triage: Claude categorises and prioritises alerts by severity',
+        'Incident report drafting: generate structured incident reports from alert data',
+        'Threat intelligence analysis in plain language for non-technical stakeholders',
+        'Security policy documentation generation and review assistance',
+      ],
+      howConnects: `Microsoft Sentinel or Defender triggers a Logic App (Power Automate) when specific alert conditions are met. The flow extracts anonymised/sanitised alert metadata and passes it to Claude for triage and report generation. Security data remains within the ${state.orgName} tenant at all times — only non-sensitive descriptive context is sent to Claude. For ${isE3orE5 ? m365Plan : 'organisations with Defender licences'}, Sentinel provides the most comprehensive alert integration.`,
+      steps: [
+        'Configure Logic App (or Power Automate) trigger on Defender/Sentinel alert conditions',
+        'Build data sanitisation step to remove sensitive IOCs before passing to Claude',
+        'Create Claude prompt for alert triage: severity, recommended action, summary',
+        'Set up automated report generation for end-of-day security digest',
+        'Test with non-critical alert types first; validate output quality with security team',
+      ],
+      time: '2–4 weeks',
+      prereq: 'Microsoft Defender for Endpoint or Microsoft Sentinel licence',
+    },
+  };
+
+  return map[id] || null;
+}
+
+/* ========================================================
+   BUILD ORDER LOGIC
+   ======================================================== */
+function getBuildOrder(selectedApps, ctx) {
+  const {itCapability, selectedPriorities} = ctx;
+  const apps = [...selectedApps];
+  const order = [];
+
+  // 1. Entra ID always first if selected
+  if (apps.includes('entra')) {
+    order.push({id:'entra', reason:'Foundation for SSO and access control — must be set up before deploying any other Claude integration'});
+  }
+  // 2. Power Automate second if selected
+  if (apps.includes('powerauto')) {
+    order.push({id:'powerauto', reason:'Creates the reusable Claude connector that powers all other automation integrations'});
+  }
+  // 3. Copilot governance early
+  if (apps.includes('copilot')) {
+    order.push({id:'copilot', reason:'Establish Claude vs Copilot usage policy early to avoid staff confusion as rollout begins'});
+  }
+
+  // Build remaining by complexity order
+  const complexityOrder = {
+    teams: {complexity:'medium', priority: selectedPriorities.has('productivity') ? 0 : 1},
+    outlook: {complexity:'low', priority: selectedPriorities.has('productivity') ? 0 : 1},
+    office: {complexity:'low', priority: selectedPriorities.has('productivity') ? 0 : 1},
+    onedrive: {complexity:'low', priority: selectedPriorities.has('knowledge') ? 0 : 2},
+    viva: {complexity:'low', priority: selectedPriorities.has('productivity') ? 1 : 3},
+    powerbi: {complexity:'medium', priority: selectedPriorities.has('data') ? 0 : 2},
+    sharepoint: {complexity:'high', priority: selectedPriorities.has('knowledge') ? 0 : 1},
+    dynamics: {complexity:'medium', priority: selectedPriorities.has('communications') ? 0 : 2},
+    defender: {complexity:'medium', priority: selectedPriorities.has('security') ? 0 : 3},
+  };
+
+  const remaining = apps.filter(id => !order.find(o=>o.id===id));
+  const reasons = {
+    teams: 'High-visibility win — staff see immediate value from meeting summaries and channel bot',
+    outlook: 'Low complexity, immediate productivity gain for every user from day one',
+    office: 'Browser extension deployment takes under a day and benefits all knowledge workers',
+    onedrive: 'Automates document processing without changing user workflows',
+    viva: 'Supports the internal AI adoption programme and change management',
+    powerbi: 'Delivers natural language analytics once data models are understood',
+    sharepoint: 'Higher complexity but transformational for knowledge management once live',
+    dynamics: 'CRM integration requires careful prompt tuning — implement after simpler flows are proven',
+    defender: 'Security integrations should be implemented once governance and policy are established',
+  };
+
+  // Sort remaining by: low complexity first, then by priority score
+  const complexityScore = {low:0, medium:1, high:2};
+  remaining.sort((a,b) => {
+    const ca = complexityOrder[a] ? complexityScore[complexityOrder[a].complexity] : 1;
+    const cb = complexityOrder[b] ? complexityScore[complexityOrder[b].complexity] : 1;
+    if (ca !== cb) return ca - cb;
+    const pa = complexityOrder[a] ? complexityOrder[a].priority : 2;
+    const pb = complexityOrder[b] ? complexityOrder[b].priority : 2;
+    return pa - pb;
+  });
+
+  remaining.forEach(id => {
+    order.push({id, reason: reasons[id] || 'Implement after simpler integrations are proven'});
+  });
+
+  return order;
+}
+
+/* ========================================================
+   RENDER RESULTS
+   ======================================================== */
+function buildResults() {
+  const ctx = {
+    claudePlan: state.claudePlan,
+    m365Plan: state.m365Plan,
+    itCapability: state.itCapability,
+    selectedPriorities: state.selectedPriorities,
+  };
+
+  const orgName = state.orgName;
+  const selectedApps = [...state.selectedApps];
+  const selectedPriorities = [...state.selectedPriorities];
+  const priorityLabels = selectedPriorities.map(id => {
+    const p = PRIORITIES.find(x=>x.id===id);
+    return p ? p.name.replace(/&amp;/g,'&') : id;
+  });
+
+  // Header
+  document.getElementById('results-h1').innerHTML = `${escHtml(orgName)}'s M365 + Claude Integration Plan`;
+  document.getElementById('results-sub').innerHTML = `${selectedApps.length} integration blueprint${selectedApps.length!==1?'s':''} &nbsp;·&nbsp; ${escHtml(state.itCapability)} implementation approach &nbsp;·&nbsp; ${escHtml(state.timeline)} rollout`;
+
+  // Stat badges
+  const appData = selectedApps.map(id => getAppData(id, ctx)).filter(Boolean);
+  const readyCount = appData.filter(d => d.complexity === 'low' || d.complexity === 'medium').length;
+  const timelineWeeks = {'Within 1 month':4, '1–3 months':12, '3–6 months':20, '6–12 months':40, 'Exploring only':52};
+  const weeksEst = Math.min(timelineWeeks[state.timeline] || 12, selectedApps.length * 3);
+
+  document.getElementById('stat-badges').innerHTML = `
+    <div class="stat-badge"><span class="stat-badge-num">${selectedApps.length}</span> Apps Mapped</div>
+    <div class="stat-badge"><span class="stat-badge-num">${readyCount}</span> Integrations Ready to Build</div>
+    <div class="stat-badge"><span class="stat-badge-num">~${weeksEst}</span> Weeks to First Value</div>
+  `;
+
+  // Print header
+  document.getElementById('print-sub').textContent = `M365 + Claude Integration Blueprint — ${orgName} — Generated ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}`;
+
+  // Integration cards
+  const cardsHtml = selectedApps.map(id => {
+    const appMeta = APPS.find(a=>a.id===id);
+    const data = getAppData(id, ctx);
+    if (!appMeta || !data) return '';
+
+    const stepsHtml = data.steps.map(s=>`<li>${s}</li>`).join('');
+    const enablesHtml = data.enables.map(e=>`<li>${e}</li>`).join('');
+    const prereqHtml = data.prereq ? `<div class="int-footer-item">Prerequisite: <span>${escHtml(data.prereq)}</span></div>` : '';
+    const highlightBadge = data.highlight ? `<div style="font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.3);">Start Here</div>` : '';
+
+    return `
+      <div class="int-card complexity-${data.complexity}">
+        <div class="int-card-header">
+          <div class="int-card-icon">${appMeta.icon}</div>
+          <div class="int-card-name">${appMeta.name}</div>
+          <div class="complexity-pill ${data.complexity}">${data.complexity.charAt(0).toUpperCase()+data.complexity.slice(1)}</div>
+          <div class="int-tag">${data.tag}</div>
+          ${highlightBadge}
+        </div>
+        <div class="int-card-body">
+          <div class="int-body-section">
+            <h4>What This Enables</h4>
+            <ul>${enablesHtml}</ul>
+          </div>
+          <div class="int-body-section">
+            <h4>How It Connects</h4>
+            <p>${data.howConnects}</p>
+          </div>
+          <div class="int-body-section">
+            <h4>Implementation Steps</h4>
+            <ol>${stepsHtml}</ol>
+          </div>
+        </div>
+        <div class="int-card-footer">
+          <div class="int-footer-item">Estimated time: <span>${escHtml(data.time)}</span></div>
+          ${prereqHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('integration-cards').innerHTML = cardsHtml;
+
+  // Build order
+  const buildOrder = getBuildOrder(selectedApps, {itCapability: state.itCapability, selectedPriorities: state.selectedPriorities});
+  const buildHtml = buildOrder.map((step, i) => {
+    const appMeta = APPS.find(a=>a.id===step.id);
+    if (!appMeta) return '';
+    return `
+      <div class="build-step">
+        <div class="build-num">${i+1}</div>
+        <div class="build-icon">${appMeta.icon}</div>
+        <div>
+          <div class="build-name">${appMeta.name}</div>
+          <div class="build-reason">${step.reason}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('build-order-list').innerHTML = buildHtml;
+
+  // Architecture diagram
+  const claudeLabel = state.claudePlan || 'Claude AI';
+  const integrationMethods = new Set();
+  const isBasic = state.itCapability === 'Basic';
+  const isEnterprise = state.claudePlan === 'Claude Enterprise';
+  if (selectedApps.includes('sharepoint') && isEnterprise) integrationMethods.add('MCP Server');
+  if (selectedApps.some(id=>['powerauto','onedrive','dynamics','viva','defender','powerbi'].includes(id))) integrationMethods.add('Power Automate');
+  if (selectedApps.some(id=>['teams','outlook','office'].includes(id)) && !isBasic) integrationMethods.add('REST API');
+  if (selectedApps.some(id=>['outlook','office'].includes(id))) integrationMethods.add('Browser Extension');
+  if (selectedApps.includes('entra')) integrationMethods.add('SSO / Entra ID');
+  if (selectedApps.includes('teams') && !isBasic) integrationMethods.add('Teams Bot Framework');
+
+  const intMethodPills = [...integrationMethods].map(m=>`<div class="arch-pill cyan">${m}</div>`).join('');
+  const appPills = selectedApps.map(id=>{
+    const a = APPS.find(x=>x.id===id);
+    return a ? `<div class="arch-pill blue">${a.icon} ${a.name}</div>` : '';
+  }).join('');
+
+  document.getElementById('arch-card').innerHTML = `
+    <h3>Integration Architecture Overview</h3>
+    <div class="arch-layers">
+      <div class="arch-layer claude-layer">
+        <div class="arch-layer-title">Claude AI Layer</div>
+        <div class="arch-layer-content">
+          <div class="arch-pill purple">${escHtml(claudeLabel)}</div>
+          ${isEnterprise ? '<div class="arch-pill purple">MCP Protocol</div>' : ''}
+          <div class="arch-pill purple">Anthropic API</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer int-layer">
+        <div class="arch-layer-title">Integration Layer</div>
+        <div class="arch-layer-content">
+          ${intMethodPills || '<div class="arch-pill cyan">HTTP Connectors</div>'}
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer m365-layer">
+        <div class="arch-layer-title">Microsoft 365 Layer — ${escHtml(state.m365Plan)}</div>
+        <div class="arch-layer-content">
+          ${appPills}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // mailto link
+  const priorityNames = selectedPriorities.map(id=>{const p=PRIORITIES.find(x=>x.id===id);return p?p.name.replace(/&amp;/g,'&'):id;}).join(', ');
+  const appNames = selectedApps.map(id=>{const a=APPS.find(x=>x.id===id);return a?a.name.replace(/&amp;/g,'&'):id;}).join(', ');
+  const subject = encodeURIComponent(`M365 + Claude Integration Workshop — ${orgName}`);
+  const body = encodeURIComponent(
+    `Hi Fynaptix team,\n\nI've just used the M365 + Claude Integration Planner and would like to book a workshop.\n\n` +
+    `Organisation: ${orgName}\n` +
+    `Size: ${state.orgSize}\n` +
+    `Microsoft 365 Plan: ${state.m365Plan}\n` +
+    `Claude Plan: ${state.claudePlan}\n` +
+    `IT Capability: ${state.itCapability}\n` +
+    `Selected Apps: ${appNames}\n` +
+    `Top Priorities: ${priorityNames}\n` +
+    `Target Timeline: ${state.timeline}\n\n` +
+    `Looking forward to hearing from you.`
+  );
+  document.getElementById('book-workshop-link').href = `mailto:hello@fynaptix.com?subject=${subject}&body=${body}`;
+}
+
+/* ========================================================
+   DOWNLOAD BLUEPRINT
+   ======================================================== */
+function downloadBlueprint() {
+  document.getElementById('print-header').style.display = 'block';
+  window.print();
+  setTimeout(()=>{ document.getElementById('print-header').style.display = 'none'; }, 500);
+}
+
+/* ========================================================
+   UTILS
+   ======================================================== */
+function escHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ========================================================
+   INIT
+   ======================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  renderAppGrid();
+  renderPriorityGrid();
+});
+</script>
+</body>
+</html>
