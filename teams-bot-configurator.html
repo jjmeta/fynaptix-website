@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Teams Bot Configurator — Fynaptix</title>
+<meta name="description" content="Generate the exact configuration files to deploy a Claude AI bot in Microsoft Teams. Get manifest.json, .env template, bot-config.json and a full deployment guide — free."/>
+<meta property="og:title" content="Teams Bot Configurator — Fynaptix"/>
+<meta property="og:description" content="Answer a few questions and get the exact configuration files and deployment guide to run a Claude AI bot inside Microsoft Teams."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+/* ── Brand vars ── */
+:root{
+  --bg:#05070f;
+  --bg2:#080d1a;
+  --bg3:#0d1526;
+  --gs:#ff5f1f;
+  --gm:#c025e8;
+  --ge:#2ed0f5;
+  --text:#e8edf8;
+  --muted:#8892a4;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.08);
+  --border-active:rgba(192,37,232,0.5);
+  --card:rgba(255,255,255,0.04);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;
+  --fb:'DM Sans',sans-serif;
+  --ms-blue:#0078d4;
+  --teams-purple:#6264a7;
+  --radius:16px;
+  --radius-sm:10px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 5%,rgba(192,37,232,0.09) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 85%,rgba(46,208,245,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);
+}
+
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ════ NAV ════ */
+nav#main-nav{
+  position:sticky;top:0;left:0;right:0;z-index:500;
+  padding:0 48px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,.5))}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:9px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important;letter-spacing:.06em}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+.nav-dropdown{position:relative}
+.nav-dropdown-btn{background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-dropdown-btn:hover{color:#fff}
+.nav-dropdown-arrow{font-size:10px;transition:transform .2s}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);width:300px;background:rgba(8,13,26,.97);backdrop-filter:blur(24px);border:1px solid var(--border2);border-radius:14px;padding:8px;z-index:600;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:rgba(8,13,26,.97);border-left:1px solid var(--border2);border-top:1px solid var(--border2);rotate:45deg}
+.nav-dropdown.open .nav-dropdown-menu{display:block;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--text);transition:background .15s}
+.nav-dropdown-item:hover{background:rgba(255,255,255,.06)}
+.ndi-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center}
+.ndi-text{display:flex;flex-direction:column;gap:2px}
+.ndi-text strong{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
+.ndi-text span{font-size:11px;color:var(--muted)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(5,7,15,.97);backdrop-filter:blur(24px);z-index:490;overflow-y:auto;padding:16px}
+.nav-mobile.open{display:block}
+.nav-mobile ul{list-style:none}
+.nav-mobile ul li a{display:block;padding:12px 16px;font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;border-radius:8px;transition:all .15s}
+.nav-mobile ul li a:hover{background:rgba(255,255,255,.05);color:#fff}
+.mob-tools-parent{list-style:none}
+.mob-tools-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:none;border:none;color:rgba(232,237,248,.75);font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border-radius:8px;transition:all .15s}
+.mob-tools-btn:hover{background:rgba(255,255,255,.05);color:#fff}
+.mob-tools-arrow{font-size:10px;transition:transform .2s}
+.mob-tools-sub{display:none;list-style:none;padding:0 0 4px 12px}
+.mob-tools-sub.open{display:block}
+.mob-tools-sub li a{display:block;padding:10px 16px;font-family:var(--fd);font-size:13px;color:rgba(232,237,248,.65);text-decoration:none;border-radius:8px;letter-spacing:.03em;transition:all .15s}
+.mob-tools-sub li a:hover{background:rgba(255,255,255,.05);color:#fff}
+.nav-mobile .nav-cta{display:block;margin:12px 16px 0;text-align:center;padding:12px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+
+/* ════ MAIN CONTENT ════ */
+.page-main{flex:1;padding:48px 24px 80px;max-width:860px;margin:0 auto;width:100%}
+
+/* ════ PROGRESS BAR ════ */
+.wizard-progress{display:flex;align-items:center;gap:0;margin-bottom:48px;overflow-x:auto;padding-bottom:4px}
+.wp-step{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.wp-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:11px;font-weight:700;color:var(--muted);transition:all .3s;flex-shrink:0}
+.wp-dot.active{border-color:var(--gm);background:rgba(192,37,232,.15);color:#fff}
+.wp-dot.done{border-color:var(--ge);background:rgba(46,208,245,.15);color:var(--ge)}
+.wp-label{font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;transition:color .3s}
+.wp-label.active{color:#fff}
+.wp-label.done{color:var(--ge)}
+.wp-line{flex:1;height:1px;background:var(--border2);margin:0 8px;min-width:20px;transition:background .3s}
+.wp-line.done{background:var(--ge)}
+
+/* ════ SCREENS ════ */
+.screen{display:none}
+.screen.active{display:block}
+
+/* ════ WELCOME SCREEN ════ */
+.welcome-hero{text-align:center;padding:40px 0 32px}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:24px;border:1px solid rgba(46,208,245,.3);background:rgba(46,208,245,.07);font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ge);margin-bottom:24px}
+.page-title{font-family:var(--fd);font-size:clamp(28px,4vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
+.grad-text{background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-subtitle{font-size:16px;color:rgba(232,237,248,.65);max-width:560px;margin:0 auto 40px;line-height:1.75}
+.feature-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px}
+.feature-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:24px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s}
+.feature-card:hover{border-color:rgba(192,37,232,.3)}
+.fc-icon{font-size:1.8rem;flex-shrink:0}
+.fc-title{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:4px}
+.fc-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.info-note{background:rgba(46,208,245,.06);border:1px solid rgba(46,208,245,.2);border-radius:8px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;margin-bottom:32px;font-size:13px;color:rgba(232,237,248,.7);line-height:1.6}
+.info-note-icon{color:var(--ge);font-size:1rem;flex-shrink:0;margin-top:1px}
+
+/* ════ STEP SCREENS ════ */
+.step-header{margin-bottom:32px}
+.step-title{font-family:var(--fd);font-size:clamp(22px,3vw,32px);font-weight:800;margin-bottom:8px}
+.step-subtitle{font-size:15px;color:var(--muted)}
+
+.form-group{margin-bottom:24px}
+.form-label{display:block;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(232,237,248,.8);margin-bottom:8px}
+.form-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.char-count{font-family:var(--fd);font-size:11px;color:var(--muted)}
+.form-input{width:100%;background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--fb);font-size:14px;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:rgba(192,37,232,.5)}
+.form-input::placeholder{color:rgba(136,146,164,.5)}
+.form-textarea{width:100%;background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--fb);font-size:14px;outline:none;transition:border-color .2s;resize:vertical;min-height:80px}
+.form-textarea:focus{border-color:rgba(192,37,232,.5)}
+.form-textarea::placeholder{color:rgba(136,146,164,.5)}
+.form-helper{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-row-3{display:grid;grid-template-columns:2fr 2fr 1fr;gap:16px}
+
+/* ─── colour chips ─── */
+.colour-chips{display:flex;gap:10px;flex-wrap:wrap}
+.colour-chip{width:36px;height:36px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s;position:relative}
+.colour-chip.selected{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.4)}
+.colour-chip:hover{transform:scale(1.15)}
+
+/* ─── radio cards ─── */
+.radio-cards{display:flex;flex-direction:column;gap:10px}
+.radio-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px 18px;cursor:pointer;display:flex;align-items:flex-start;gap:14px;transition:all .2s}
+.radio-card:hover{border-color:rgba(192,37,232,.3)}
+.radio-card.selected{border-color:rgba(192,37,232,.6);background:rgba(192,37,232,.07)}
+.radio-card input[type=radio]{display:none}
+.rc-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.radio-card.selected .rc-dot{border-color:var(--gm);background:var(--gm)}
+.rc-dot::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff;display:none}
+.radio-card.selected .rc-dot::after{display:block}
+.rc-body{}
+.rc-title{font-family:var(--fd);font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.rc-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.badge-rec{display:inline-block;padding:2px 7px;border-radius:4px;background:rgba(46,208,245,.12);border:1px solid rgba(46,208,245,.3);font-family:var(--fd);font-size:10px;font-weight:700;color:var(--ge);text-transform:uppercase;letter-spacing:.05em}
+
+/* ─── checkbox grid ─── */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.check-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;transition:all .2s}
+.check-card:hover{border-color:rgba(192,37,232,.3)}
+.check-card.selected{border-color:rgba(192,37,232,.6);background:rgba(192,37,232,.07)}
+.check-card input[type=checkbox]{display:none}
+.cc-box{width:18px;height:18px;border-radius:4px;border:2px solid var(--border2);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.check-card.selected .cc-box{border-color:var(--gm);background:var(--gm)}
+.cc-box::after{content:'✓';font-size:11px;color:#fff;font-weight:700;display:none}
+.check-card.selected .cc-box::after{display:block}
+.cc-title{font-family:var(--fd);font-size:13px;font-weight:700;margin-bottom:3px}
+.cc-desc{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* ─── slider ─── */
+.slider-wrap{display:flex;align-items:center;gap:16px}
+.slider-wrap input[type=range]{flex:1;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--border2);outline:none;cursor:pointer}
+.slider-wrap input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--gs),var(--gm));cursor:pointer;box-shadow:0 0 8px rgba(192,37,232,.4)}
+.slider-badge{background:var(--card);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;font-family:var(--fd);font-size:13px;font-weight:700;color:#fff;min-width:64px;text-align:center;flex-shrink:0}
+
+/* ─── toggle ─── */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px 18px}
+.toggle-info{}
+.toggle-label-main{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:3px}
+.toggle-label-sub{font-size:12px;color:var(--muted)}
+.toggle-switch{position:relative;width:44px;height:24px;flex-shrink:0}
+.toggle-switch input{display:none}
+.toggle-slider{position:absolute;inset:0;border-radius:12px;background:rgba(255,255,255,.12);cursor:pointer;transition:background .2s}
+.toggle-slider::before{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .2s}
+.toggle-switch input:checked + .toggle-slider{background:linear-gradient(135deg,var(--gs),var(--gm))}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+.toggle-extra{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* ─── template pills ─── */
+.template-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tpl-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:var(--card);color:rgba(232,237,248,.75);font-family:var(--fd);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.tpl-btn:hover{border-color:rgba(192,37,232,.4);color:#fff;background:rgba(192,37,232,.08)}
+.tpl-btn.active{border-color:var(--gm);background:rgba(192,37,232,.12);color:#fff}
+
+/* ─── section divider ─── */
+.form-section{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.form-section:last-of-type{border-bottom:none}
+.form-section-label{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gm);margin-bottom:16px}
+
+/* ════ NAV BUTTONS ════ */
+.step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.btn-back{background:none;border:1px solid var(--border2);color:var(--muted);font-family:var(--fd);font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;cursor:pointer;transition:all .2s}
+.btn-back:hover{border-color:rgba(255,255,255,.2);color:var(--text)}
+.btn-next{background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-size:13px;font-weight:700;padding:12px 28px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.btn-next:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 30px rgba(192,37,232,.35)}
+.btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-generate{background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));color:#fff;font-family:var(--fd);font-size:14px;font-weight:700;padding:14px 32px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+.btn-generate:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 10px 40px rgba(192,37,232,.4)}
+.btn-generate:disabled{opacity:.4;cursor:not-allowed}
+
+/* ════ PROCESSING SCREEN ════ */
+.processing-wrap{text-align:center;padding:80px 24px}
+.proc-spinner{width:64px;height:64px;border:3px solid var(--border2);border-top-color:var(--gm);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 32px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-title{font-family:var(--fd);font-size:24px;font-weight:700;margin-bottom:24px}
+.proc-steps{list-style:none;text-align:left;max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.proc-step{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted);transition:color .3s}
+.proc-step.done{color:var(--ge)}
+.proc-step.active{color:#fff}
+.proc-step-dot{width:8px;height:8px;border-radius:50%;background:var(--border2);flex-shrink:0;transition:background .3s}
+.proc-step.done .proc-step-dot{background:var(--ge)}
+.proc-step.active .proc-step-dot{background:var(--gm);animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ════ RESULTS SCREEN ════ */
+.results-header{text-align:center;margin-bottom:40px}
+.results-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:24px;border:1px solid rgba(46,208,245,.3);background:rgba(46,208,245,.07);font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ge);margin-bottom:20px}
+.results-title{font-family:var(--fd);font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:12px}
+.summary-pills{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.sum-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:var(--card);font-family:var(--fd);font-size:12px;font-weight:600;color:rgba(232,237,248,.8)}
+.sum-pill-dot{width:7px;height:7px;border-radius:50%}
+
+/* ─── tabs ─── */
+.tab-nav{display:flex;gap:0;border-bottom:1px solid var(--border2);margin-bottom:24px;overflow-x:auto}
+.tab-btn{padding:12px 20px;border:none;background:none;color:var(--muted);font-family:var(--fd);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;position:relative;border-bottom:2px solid transparent}
+.tab-btn:hover{color:#fff}
+.tab-btn.active{color:#fff;border-bottom-color:transparent}
+.tab-btn.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge))}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ─── code block ─── */
+.code-block{
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding:20px;
+  overflow-x:auto;
+  font-family:'Consolas','Monaco','Courier New',monospace;
+  font-size:13px;
+  line-height:1.6;
+  color:#e8edf8;
+  white-space:pre;
+  max-height:400px;
+  overflow-y:auto;
+}
+
+/* ─── file action bar ─── */
+.file-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btn-copy{background:var(--card);border:1px solid var(--border2);color:var(--text);font-family:var(--fd);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .2s}
+.btn-copy:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.btn-download{background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-size:12px;font-weight:700;padding:9px 18px;border-radius:7px;border:none;cursor:pointer;transition:all .2s}
+.btn-download:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(192,37,232,.3)}
+
+/* ─── deployment guide (HTML) ─── */
+.deploy-guide{font-size:14px;line-height:1.8}
+.deploy-guide h2{font-family:var(--fd);font-size:20px;font-weight:800;margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.deploy-guide h3{font-family:var(--fd);font-size:15px;font-weight:700;margin:20px 0 8px;color:rgba(232,237,248,.9)}
+.deploy-guide p{color:rgba(232,237,248,.75);margin-bottom:10px}
+.deploy-guide ul,.deploy-guide ol{padding-left:20px;color:rgba(232,237,248,.75);margin-bottom:10px}
+.deploy-guide li{margin-bottom:5px}
+.code-inline{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:1px 6px;font-family:'Consolas','Monaco',monospace;font-size:12px;color:var(--ge)}
+.deploy-code{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 16px;margin:10px 0;font-family:'Consolas','Monaco',monospace;font-size:12px;color:#e8edf8;overflow-x:auto;white-space:pre;line-height:1.6}
+.checklist-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.checklist-item .ci-check{color:var(--ge);flex-shrink:0;margin-top:2px}
+.step-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:18px 20px;margin-bottom:14px}
+.step-card h3{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.step-num-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gs),var(--gm));font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
+.deploy-note{background:rgba(255,95,31,.06);border-left:3px solid var(--gs);padding:10px 14px;margin:10px 0;font-size:13px;color:rgba(232,237,248,.75);border-radius:0 6px 6px 0}
+.fynaptix-callout{background:rgba(192,37,232,.07);border:1px solid rgba(192,37,232,.25);border-radius:var(--radius-sm);padding:20px 24px;margin-top:32px;display:flex;align-items:flex-start;gap:16px}
+.fynaptix-callout-icon{font-size:1.8rem;flex-shrink:0}
+.fynaptix-callout-body h3{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:6px}
+.fynaptix-callout-body p{font-size:13px;color:rgba(232,237,248,.7);line-height:1.6;margin:0}
+.fynaptix-callout-body a{color:var(--gm);text-decoration:none;font-weight:600}
+.fynaptix-callout-body a:hover{text-decoration:underline}
+
+.results-restart{text-align:center;margin-top:32px}
+.btn-restart{background:none;border:1px solid var(--border2);color:var(--muted);font-family:var(--fd);font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;cursor:pointer;transition:all .2s}
+.btn-restart:hover{border-color:rgba(255,255,255,.2);color:var(--text)}
+
+/* ════ FOOTER ════ */
+footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer p{font-size:12px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none;font-size:12px}
+footer a:hover{color:var(--text)}
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:768px){
+  nav#main-nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .page-main{padding:32px 16px 60px}
+  .feature-cards{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .form-row-3{grid-template-columns:1fr 1fr}
+  .wizard-progress{gap:4px}
+  .wp-label{display:none}
+  footer{padding:24px 20px;flex-direction:column;text-align:center}
+}
+
+/* ════ PRINT ════ */
+@media print{
+  nav,#main-nav,.nav-mobile,.wizard-progress,.tab-nav,.btn-download,.btn-copy,.results-restart,footer{display:none!important}
+  body{background:white!important;color:black!important}
+  .deploy-guide{display:block!important;padding:0}
+  .deploy-guide h2,.deploy-guide h3{color:#111!important}
+  .code-inline{background:#f0f0f0!important;color:#111!important}
+  .deploy-code{background:#f4f4f4!important;color:#111!important;border-color:#ccc!important}
+  .fynaptix-callout{border:2px solid #ccc!important;background:#f8f8f8!important;color:#111!important}
+  .step-card{background:#f8f8f8!important;border-color:#ddd!important}
+  .tab-panel{display:block!important}
+  .tab-panel:not(#tab-guide){display:none!important}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="/"><img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/></a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#usecases">Use Cases</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li class="nav-dropdown" id="nd-free">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+      </div>
+    </li>
+    <li class="nav-dropdown" id="nd-m365">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon">🏷️</span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
+        <a href="teams-bot-configurator.html" class="nav-dropdown-item"><span class="ndi-icon">🤖</span><span class="ndi-text"><strong>Teams Bot Configurator</strong><span>Generate Claude bot config files</span></span></a>
+      </div>
+    </li>
+    <li><a class="nav-cta" href="/#contact">Get Started</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="/#how" onclick="closeMobile()">How It Works</a></li>
+    <li><a href="/#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
+    <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-free-sub">
+        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+      </ul>
+    </li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-m365-sub">
+        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
+        <li><a href="m365-data-classification.html" onclick="closeMobile()">🏷️ Data Classification Planner</a></li>
+        <li><a href="teams-bot-configurator.html" onclick="closeMobile()">🤖 Teams Bot Configurator</a></li>
+      </ul>
+    </li>
+    <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
+  </ul>
+</div>
+
+<!-- MAIN -->
+<main class="page-main">
+
+  <!-- PROGRESS -->
+  <div class="wizard-progress" id="wizard-progress">
+    <div class="wp-step">
+      <div class="wp-dot active" id="dot-1">1</div>
+      <div class="wp-label active" id="lbl-1">Bot Identity</div>
+    </div>
+    <div class="wp-line" id="line-1"></div>
+    <div class="wp-step">
+      <div class="wp-dot" id="dot-2">2</div>
+      <div class="wp-label" id="lbl-2">Claude Config</div>
+    </div>
+    <div class="wp-line" id="line-2"></div>
+    <div class="wp-step">
+      <div class="wp-dot" id="dot-3">3</div>
+      <div class="wp-label" id="lbl-3">Teams Scope</div>
+    </div>
+    <div class="wp-line" id="line-3"></div>
+    <div class="wp-step">
+      <div class="wp-dot" id="dot-4">4</div>
+      <div class="wp-label" id="lbl-4">Results</div>
+    </div>
+  </div>
+
+  <!-- ─── SCREEN 0: WELCOME ─── -->
+  <div class="screen active" id="screen-welcome">
+    <div class="wizard-progress" style="display:none"></div>
+    <div class="welcome-hero">
+      <div class="page-eyebrow">M365 Tenant Tools</div>
+      <h1 class="page-title">Claude + Teams <span class="grad-text">Bot Configurator</span></h1>
+      <p class="page-subtitle">Answer a few questions and get the exact configuration files and deployment guide to run a Claude AI bot inside Microsoft Teams.</p>
+    </div>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="fc-icon">📋</div>
+        <div>
+          <div class="fc-title">manifest.json</div>
+          <div class="fc-desc">Complete Teams app manifest v1.17 with your bot identity, scopes, and valid domains pre-filled.</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">⚙️</div>
+        <div>
+          <div class="fc-title">Bot Config</div>
+          <div class="fc-desc">Structured bot-config.json with Claude model settings, rate limits, and hosting preferences.</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🔐</div>
+        <div>
+          <div class="fc-title">.env Template</div>
+          <div class="fc-desc">Ready-to-fill environment file with every variable your bot needs, labelled clearly.</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">📖</div>
+        <div>
+          <div class="fc-title">Deployment Guide</div>
+          <div class="fc-desc">Printable step-by-step Azure setup and deployment walkthrough tailored to your choices.</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-note">
+      <span class="info-note-icon">ℹ️</span>
+      <span>You'll need an Azure subscription and Anthropic API key before deploying. This tool generates the config — the deployment steps are included in your output.</span>
+    </div>
+    <div style="text-align:center">
+      <button class="btn-generate" onclick="goToStep(1)">Configure My Bot →</button>
+    </div>
+  </div>
+
+  <!-- ─── SCREEN 1: BOT IDENTITY ─── -->
+  <div class="screen" id="screen-1">
+    <div class="step-header">
+      <h2 class="step-title">Bot Identity</h2>
+      <p class="step-subtitle">How your bot will appear to users in Teams</p>
+    </div>
+
+    <div class="form-row-3">
+      <div class="form-group" style="grid-column:1/3">
+        <label class="form-label">Bot Name</label>
+        <input class="form-input" id="f-botName" type="text" placeholder="e.g. Aria, Atlas, Lex" maxlength="30" oninput="syncState('botName',this.value);validateStep1()"/>
+        <div class="form-helper">This is the display name users will see in Teams.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Version</label>
+        <input class="form-input" id="f-version" type="text" value="1.0.0" maxlength="15" oninput="syncState('version',this.value)"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label-row">
+        <label class="form-label" style="margin:0">Short Description</label>
+        <span class="char-count" id="cnt-short">0 / 80</span>
+      </div>
+      <input class="form-input" id="f-shortDesc" type="text" maxlength="80" placeholder="e.g. Your AI assistant for instant answers in Teams" oninput="syncState('shortDesc',this.value);updateCharCount('f-shortDesc','cnt-short',80);validateStep1()"/>
+      <div class="form-helper">Shown in the Teams app store listing. Keep it punchy.</div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label-row">
+        <label class="form-label" style="margin:0">Full Description</label>
+        <span class="char-count" id="cnt-full">0 / 256</span>
+      </div>
+      <textarea class="form-textarea" id="f-fullDesc" maxlength="256" rows="3" placeholder="Explain what the bot does and who it's for." oninput="syncState('fullDesc',this.value);updateCharCount('f-fullDesc','cnt-full',256);validateStep1()"></textarea>
+      <div class="form-helper">Explain what the bot does and who it's for.</div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Organisation Name</label>
+        <input class="form-input" id="f-orgName" type="text" placeholder="Contoso Ltd" oninput="syncState('orgName',this.value);validateStep1()"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Organisation Domain</label>
+        <input class="form-input" id="f-orgDomain" type="text" placeholder="contoso.com" oninput="syncState('orgDomain',this.value);validateStep1()"/>
+        <div class="form-helper">Used in the package name and valid domains list.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Accent Colour</label>
+      <div class="colour-chips" id="colour-chips">
+        <div class="colour-chip selected" style="background:#6264a7" data-color="#6264a7" onclick="selectColour(this)" title="Teams Purple"></div>
+        <div class="colour-chip" style="background:#0078d4" data-color="#0078d4" onclick="selectColour(this)" title="Microsoft Blue"></div>
+        <div class="colour-chip" style="background:#ff5f1f" data-color="#ff5f1f" onclick="selectColour(this)" title="Fynaptix Orange"></div>
+        <div class="colour-chip" style="background:#107c41" data-color="#107c41" onclick="selectColour(this)" title="Teams Green"></div>
+        <div class="colour-chip" style="background:#c025e8" data-color="#c025e8" onclick="selectColour(this)" title="Purple"></div>
+        <div class="colour-chip" style="background:#2ed0f5" data-color="#2ed0f5" onclick="selectColour(this)" title="Cyan"></div>
+        <div class="colour-chip" style="background:#e3008c" data-color="#e3008c" onclick="selectColour(this)" title="Pink"></div>
+        <div class="colour-chip" style="background:#ffb900" data-color="#ffb900" onclick="selectColour(this)" title="Gold"></div>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goToWelcome()">← Back</button>
+      <button class="btn-next" id="btn-next-1" onclick="goToStep(2)" disabled>Next: Claude Config →</button>
+    </div>
+  </div>
+
+  <!-- ─── SCREEN 2: CLAUDE CONFIGURATION ─── -->
+  <div class="screen" id="screen-2">
+    <div class="step-header">
+      <h2 class="step-title">Claude Configuration</h2>
+      <p class="step-subtitle">Choose the model and behaviour for your bot</p>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">Claude Model</div>
+      <div class="radio-cards" id="model-cards">
+        <label class="radio-card" onclick="selectModel('claude-opus-4-7',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Claude Opus 4.7</div>
+            <div class="rc-desc">Most capable. Complex reasoning, nuanced responses. Higher cost. Best for legal, strategy, and research bots.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectModel('claude-sonnet-4-6',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Claude Sonnet 4.6 <span class="badge-rec">Recommended</span></div>
+            <div class="rc-desc">Balanced performance and speed. Ideal for most enterprise bots. Best value.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectModel('claude-haiku-4-5-20251001',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Claude Haiku 4.5</div>
+            <div class="rc-desc">Fastest response times. Highest volume, lowest cost. Best for high-frequency helpdesk bots.</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">System Prompt</div>
+      <div class="template-pills">
+        <button class="tpl-btn" onclick="applyTemplate('general',this)">General Assistant</button>
+        <button class="tpl-btn" onclick="applyTemplate('it',this)">IT Helpdesk</button>
+        <button class="tpl-btn" onclick="applyTemplate('hr',this)">HR Assistant</button>
+        <button class="tpl-btn" onclick="applyTemplate('kb',this)">Knowledge Base</button>
+        <button class="tpl-btn" onclick="applyTemplate('custom',this)">Custom</button>
+      </div>
+      <textarea class="form-textarea" id="f-systemPrompt" rows="6" placeholder="Describe how your bot should behave, what it can help with, and any constraints..." oninput="syncState('systemPrompt',this.value);validateStep2()"></textarea>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">Max Tokens per Response</div>
+      <div class="slider-wrap">
+        <input type="range" id="slider-tokens" min="256" max="4096" step="256" value="1024" oninput="updateTokens(this.value)"/>
+        <div class="slider-badge" id="badge-tokens">1024</div>
+      </div>
+      <div class="form-helper" style="margin-top:8px">Controls maximum response length. 1024 is a good default for most bots.</div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">Conversation Memory</div>
+      <div class="radio-cards" id="memory-cards">
+        <label class="radio-card" onclick="selectMemory('single',0,this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Single message</div>
+            <div class="rc-desc">No history. Fastest, lowest cost. Each message treated independently.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectMemory('last5',5,this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Last 5 messages <span class="badge-rec">Recommended</span></div>
+            <div class="rc-desc">Short-term context. Good for most use cases.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectMemory('last10',10,this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Last 10 messages</div>
+            <div class="rc-desc">Extended context. Better for complex ongoing discussions.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectMemory('full',999,this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Full session</div>
+            <div class="rc-desc">Complete history until session ends. Highest quality, highest cost.</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goToStep(1)">← Back</button>
+      <button class="btn-next" id="btn-next-2" onclick="goToStep(3)" disabled>Next: Teams Scope →</button>
+    </div>
+  </div>
+
+  <!-- ─── SCREEN 3: TEAMS SCOPE & DEPLOYMENT ─── -->
+  <div class="screen" id="screen-3">
+    <div class="step-header">
+      <h2 class="step-title">Teams Scope &amp; Deployment</h2>
+      <p class="step-subtitle">Where your bot will be available and how it'll be hosted</p>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">A — Teams Scope <span style="font-weight:400;color:var(--muted)">(select at least one)</span></div>
+      <div class="check-grid" id="scope-grid">
+        <label class="check-card" onclick="toggleScope('personal',this)">
+          <div class="cc-box"></div>
+          <div>
+            <div class="cc-title">💬 Personal Chat</div>
+            <div class="cc-desc">Users can chat 1:1 with the bot</div>
+          </div>
+        </label>
+        <label class="check-card" onclick="toggleScope('team',this)">
+          <div class="cc-box"></div>
+          <div>
+            <div class="cc-title">📢 Team Channels</div>
+            <div class="cc-desc">Bot can be added to team channels and @mentioned</div>
+          </div>
+        </label>
+        <label class="check-card" onclick="toggleScope('groupchat',this)">
+          <div class="cc-box"></div>
+          <div>
+            <div class="cc-title">👥 Group Chats</div>
+            <div class="cc-desc">Bot can be added to group conversations</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">B — User Access</div>
+      <div class="radio-cards" id="access-cards">
+        <label class="radio-card" onclick="selectAccess('all-users',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">All users in tenant</div>
+            <div class="rc-desc">Anyone in your Microsoft 365 tenant can add and use the bot.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectAccess('admin-managed',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Admin-managed rollout</div>
+            <div class="rc-desc">IT admin controls which users and groups have access via Teams admin centre.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectAccess('security-group',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Specific security group</div>
+            <div class="rc-desc">Only members of a named security group can use the bot (you'll configure this in Azure).</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">C — Rate Limiting</div>
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-label-main">Enable rate limiting</div>
+          <div class="toggle-label-sub">Prevent API cost spikes by limiting messages per user per hour</div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-ratelimit" checked onchange="toggleRateLimit(this.checked)"/>
+          <div class="toggle-slider"></div>
+        </label>
+      </div>
+      <div class="toggle-extra" id="ratelimit-extra">
+        <label class="form-label">Messages per user per hour</label>
+        <div class="slider-wrap">
+          <input type="range" id="slider-ratelimit" min="10" max="200" step="10" value="60" oninput="updateRateLimit(this.value)"/>
+          <div class="slider-badge" id="badge-ratelimit">60</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">D — Hosting Platform</div>
+      <div class="radio-cards" id="hosting-cards">
+        <label class="radio-card" onclick="selectHosting('azure-app-service',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">☁️ Azure App Service <span class="badge-rec">Recommended</span></div>
+            <div class="rc-desc">PaaS hosting, auto-scaling, always-on. Best for production bots.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectHosting('azure-container-apps',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">📦 Azure Container Apps</div>
+            <div class="rc-desc">Containerised deployment. Good if you use Docker or CI pipelines.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectHosting('azure-functions',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">⚡ Azure Functions</div>
+            <div class="rc-desc">Serverless. Pay per execution. Best for low-volume or bursty usage.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectHosting('self-hosted',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">🖥️ Self-hosted</div>
+            <div class="rc-desc">On-premises or third-party hosting. You manage infrastructure.</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">E — SDK Language</div>
+      <div class="radio-cards" id="sdk-cards">
+        <label class="radio-card" onclick="selectSdk('nodejs',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Node.js / TypeScript <span class="badge-rec">Recommended</span></div>
+            <div class="rc-desc">Most Bot Framework examples and community support.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectSdk('python',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">Python</div>
+            <div class="rc-desc">Good if your team prefers Python.</div>
+          </div>
+        </label>
+        <label class="radio-card" onclick="selectSdk('dotnet',this)">
+          <div class="rc-dot"></div>
+          <div class="rc-body">
+            <div class="rc-title">C# / .NET</div>
+            <div class="rc-desc">Best for Microsoft-heavy engineering teams.</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-label">F — CI/CD Workflow</div>
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-label-main">Include GitHub Actions CI/CD workflow</div>
+          <div class="toggle-label-sub">Get a ready-to-use workflow file that deploys on push to main</div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-cicd" checked onchange="syncState('cicd',this.checked)"/>
+          <div class="toggle-slider"></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goToStep(2)">← Back</button>
+      <button class="btn-generate" id="btn-generate" onclick="startGeneration()" disabled>Generate My Config Files →</button>
+    </div>
+  </div>
+
+  <!-- ─── PROCESSING ─── -->
+  <div class="screen" id="screen-processing">
+    <div class="processing-wrap">
+      <div class="proc-spinner"></div>
+      <h2 class="proc-title">Building your configuration…</h2>
+      <ul class="proc-steps" id="proc-steps">
+        <li class="proc-step active" id="ps-1"><div class="proc-step-dot"></div> Generating Teams app manifest…</li>
+        <li class="proc-step" id="ps-2"><div class="proc-step-dot"></div> Building bot configuration…</li>
+        <li class="proc-step" id="ps-3"><div class="proc-step-dot"></div> Creating environment template…</li>
+        <li class="proc-step" id="ps-4"><div class="proc-step-dot"></div> Writing deployment guide…</li>
+        <li class="proc-step" id="ps-5"><div class="proc-step-dot"></div> Packaging your files…</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── SCREEN 4: RESULTS ─── -->
+  <div class="screen" id="screen-results">
+    <div class="results-header">
+      <div class="results-badge">✓ Configuration Ready</div>
+      <h2 class="results-title">Your Bot Configuration is <span class="grad-text">Ready</span></h2>
+      <div class="summary-pills" id="summary-pills"></div>
+    </div>
+
+    <div class="tab-nav" id="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('manifest',this)">manifest.json</button>
+      <button class="tab-btn" onclick="switchTab('env',this)">.env template</button>
+      <button class="tab-btn" onclick="switchTab('botconfig',this)">bot-config.json</button>
+      <button class="tab-btn" onclick="switchTab('guide',this)">Deployment Guide</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-manifest">
+      <pre class="code-block" id="out-manifest"></pre>
+      <div class="file-actions">
+        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-manifest').textContent,this)">⧉ Copy to Clipboard</button>
+        <button class="btn-download" onclick="downloadFile(document.getElementById('out-manifest').textContent,'manifest.json','application/json')">⬇ Download manifest.json</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-env">
+      <pre class="code-block" id="out-env"></pre>
+      <div class="file-actions">
+        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-env').textContent,this)">⧉ Copy to Clipboard</button>
+        <button class="btn-download" onclick="downloadFile(document.getElementById('out-env').textContent,'.env.example','text/plain')">⬇ Download .env.example</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-botconfig">
+      <pre class="code-block" id="out-botconfig"></pre>
+      <div class="file-actions">
+        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-botconfig').textContent,this)">⧉ Copy to Clipboard</button>
+        <button class="btn-download" onclick="downloadFile(document.getElementById('out-botconfig').textContent,'bot-config.json','application/json')">⬇ Download bot-config.json</button>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-guide">
+      <div class="file-actions" style="margin-bottom:20px">
+        <button class="btn-download" onclick="window.print()">⬇ Download as PDF</button>
+      </div>
+      <div class="deploy-guide" id="out-guide"></div>
+    </div>
+
+    <div class="results-restart">
+      <button class="btn-restart" onclick="restartWizard()">← Start Over</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Fynaptix. All rights reserved.</p>
+  <div style="display:flex;gap:20px">
+    <a href="/#contact">Contact</a>
+    <a href="/blog">Blog</a>
+  </div>
+</footer>
+
+</div><!-- #app -->
+
+<script>
+/* ════════════════════════════════════════
+   NAV JS
+════════════════════════════════════════ */
+function toggleDropdown(e) {
+  e.stopPropagation();
+  const dd = e.currentTarget.closest('.nav-dropdown');
+  const isOpen = dd.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  if (!isOpen) dd.classList.add('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+});
+const burger = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('nav-mobile');
+if (burger && mobileMenu) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+function closeMobile() {
+  if (burger) burger.classList.remove('open');
+  if (mobileMenu) mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleMobileSub(subId, arrowId) {
+  const sub = document.getElementById(subId);
+  const arrow = document.getElementById(arrowId);
+  if (!sub) return;
+  const open = sub.classList.toggle('open');
+  if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+/* ════════════════════════════════════════
+   STATE
+════════════════════════════════════════ */
+const state = {
+  botName: '', shortDesc: '', fullDesc: '', orgName: '', orgDomain: '',
+  accentColor: '#6264a7', version: '1.0.0',
+  claudeModel: '', systemPrompt: '', maxTokens: 1024, memoryMode: '', memoryCount: 5,
+  teamsScopes: [], userAccess: '', rateLimitEnabled: true, rateLimitMessages: 60,
+  hosting: '', sdk: '', cicd: true
+};
+
+function syncState(key, val) { state[key] = val; }
+
+/* ════════════════════════════════════════
+   SCREEN NAVIGATION
+════════════════════════════════════════ */
+let currentScreen = 'welcome';
+const STEPS = ['welcome','1','2','3','processing','results'];
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  currentScreen = id;
+  updateProgress(id);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress(screenId) {
+  const progressEl = document.getElementById('wizard-progress');
+  if (!progressEl) return;
+  const numMap = {'welcome':0,'1':1,'2':2,'3':3,'processing':3,'results':4};
+  const current = numMap[screenId] || 0;
+  if (current === 0) { progressEl.style.display='none'; return; }
+  progressEl.style.display='flex';
+
+  for (let i = 1; i <= 4; i++) {
+    const dot = document.getElementById('dot-' + i);
+    const lbl = document.getElementById('lbl-' + i);
+    const line = document.getElementById('line-' + i);
+    if (!dot) continue;
+    dot.className = 'wp-dot' + (i < current ? ' done' : i === current ? ' active' : '');
+    if (lbl) lbl.className = 'wp-label' + (i < current ? ' done' : i === current ? ' active' : '');
+    if (line) line.className = 'wp-line' + (i < current ? ' done' : '');
+    dot.textContent = i < current ? '✓' : i;
+  }
+}
+
+function goToWelcome() { showScreen('welcome'); }
+function goToStep(n) { showScreen(String(n)); }
+
+/* ════════════════════════════════════════
+   VALIDATION
+════════════════════════════════════════ */
+function validateStep1() {
+  const btn = document.getElementById('btn-next-1');
+  const ok = state.botName.trim() && state.shortDesc.trim() && state.fullDesc.trim() && state.orgName.trim() && state.orgDomain.trim();
+  btn.disabled = !ok;
+}
+
+function validateStep2() {
+  const btn = document.getElementById('btn-next-2');
+  const ok = state.claudeModel && state.systemPrompt.trim() && state.memoryMode;
+  btn.disabled = !ok;
+}
+
+function validateStep3() {
+  const btn = document.getElementById('btn-generate');
+  const ok = state.teamsScopes.length > 0 && state.userAccess && state.hosting && state.sdk;
+  btn.disabled = !ok;
+}
+
+/* ════════════════════════════════════════
+   FORM HELPERS
+════════════════════════════════════════ */
+function updateCharCount(inputId, countId, max) {
+  const el = document.getElementById(inputId);
+  const cnt = document.getElementById(countId);
+  if (el && cnt) cnt.textContent = el.value.length + ' / ' + max;
+}
+
+function selectColour(chip) {
+  document.querySelectorAll('.colour-chip').forEach(c => c.classList.remove('selected'));
+  chip.classList.add('selected');
+  state.accentColor = chip.dataset.color;
+}
+
+function selectModel(model, card) {
+  document.querySelectorAll('#model-cards .radio-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  state.claudeModel = model;
+  validateStep2();
+}
+
+function selectMemory(mode, count, card) {
+  document.querySelectorAll('#memory-cards .radio-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  state.memoryMode = mode;
+  state.memoryCount = count;
+  validateStep2();
+}
+
+function updateTokens(val) {
+  state.maxTokens = parseInt(val);
+  document.getElementById('badge-tokens').textContent = val;
+}
+
+function applyTemplate(tpl, btn) {
+  document.querySelectorAll('.tpl-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const ta = document.getElementById('f-systemPrompt');
+  const org = state.orgName || '[Organisation]';
+  const templates = {
+    general: `You are a helpful AI assistant deployed within Microsoft Teams for ${org}. You help employees with questions, tasks, and information lookup. Be concise, professional, and accurate. If you are unsure of something, say so.`,
+    it: `You are an IT support assistant for ${org} employees. Help users troubleshoot common issues with Microsoft 365, hardware, software, and connectivity. Escalate complex issues by saying 'Please raise a ticket with the IT team at [helpdesk email]'. Keep responses brief and step-by-step.`,
+    hr: `You are an HR assistant for ${org} employees. Answer questions about policies, leave, benefits, and onboarding. Do not share individual employee data. For sensitive matters, direct users to HR at [hr email]. Always be empathetic and professional.`,
+    kb: `You are a knowledge base assistant for ${org}. Help employees find information, procedures, and documentation. When you don't know something specific to the organisation, acknowledge this and suggest who to contact.`,
+    custom: ''
+  };
+  ta.value = templates[tpl] || '';
+  if (tpl === 'custom') ta.focus();
+  state.systemPrompt = ta.value;
+  validateStep2();
+}
+
+function toggleScope(scope, card) {
+  card.classList.toggle('selected');
+  const idx = state.teamsScopes.indexOf(scope);
+  if (idx > -1) state.teamsScopes.splice(idx, 1);
+  else state.teamsScopes.push(scope);
+  validateStep3();
+}
+
+function selectAccess(access, card) {
+  document.querySelectorAll('#access-cards .radio-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  state.userAccess = access;
+  validateStep3();
+}
+
+function toggleRateLimit(enabled) {
+  state.rateLimitEnabled = enabled;
+  document.getElementById('ratelimit-extra').style.display = enabled ? 'block' : 'none';
+}
+
+function updateRateLimit(val) {
+  state.rateLimitMessages = parseInt(val);
+  document.getElementById('badge-ratelimit').textContent = val;
+}
+
+function selectHosting(platform, card) {
+  document.querySelectorAll('#hosting-cards .radio-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  state.hosting = platform;
+  validateStep3();
+}
+
+function selectSdk(sdk, card) {
+  document.querySelectorAll('#sdk-cards .radio-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  state.sdk = sdk;
+  validateStep3();
+}
+
+/* ════════════════════════════════════════
+   GENERATION
+════════════════════════════════════════ */
+function startGeneration() {
+  showScreen('processing');
+  const steps = ['ps-1','ps-2','ps-3','ps-4','ps-5'];
+  let i = 0;
+  steps.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('active','done'); }
+  });
+  document.getElementById('ps-1').classList.add('active');
+
+  function advance() {
+    if (i < steps.length) {
+      const el = document.getElementById(steps[i]);
+      if (el) { el.classList.remove('active'); el.classList.add('done'); }
+      i++;
+      if (i < steps.length) {
+        const next = document.getElementById(steps[i]);
+        if (next) next.classList.add('active');
+        setTimeout(advance, 480);
+      } else {
+        setTimeout(() => {
+          buildOutputs();
+          showScreen('results');
+        }, 300);
+      }
+    }
+  }
+  setTimeout(advance, 500);
+}
+
+/* ════════════════════════════════════════
+   SLUG HELPERS
+════════════════════════════════════════ */
+function toBotSlug(name) {
+  return name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+}
+function toDomainSlug(domain) {
+  return domain.toLowerCase().replace(/\./g,'').replace(/[^a-z0-9]/g,'');
+}
+function getBotDomain(slug, hosting) {
+  switch(hosting) {
+    case 'azure-container-apps': return slug + '.australiaeast.azurecontainerapps.io';
+    case 'azure-functions': return slug + '.azurewebsites.net';
+    case 'self-hosted': return 'your-bot-domain.com';
+    default: return slug + '.azurewebsites.net';
+  }
+}
+function getScopesArray() {
+  return state.teamsScopes.map(s => '"' + s + '"').join(', ');
+}
+function getModelLabel(model) {
+  const map = {
+    'claude-opus-4-7': 'Claude Opus 4.7',
+    'claude-sonnet-4-6': 'Claude Sonnet 4.6',
+    'claude-haiku-4-5-20251001': 'Claude Haiku 4.5'
+  };
+  return map[model] || model;
+}
+function getHostingLabel(h) {
+  const map = {
+    'azure-app-service':'Azure App Service',
+    'azure-container-apps':'Azure Container Apps',
+    'azure-functions':'Azure Functions',
+    'self-hosted':'Self-hosted'
+  };
+  return map[h] || h;
+}
+function getSdkLabel(s) {
+  const map = {'nodejs':'Node.js / TypeScript','python':'Python','dotnet':'C# / .NET'};
+  return map[s] || s;
+}
+function escapeJson(str) {
+  return str.replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n').replace(/\r/g,'\\r').replace(/\t/g,'\\t');
+}
+
+/* ════════════════════════════════════════
+   BUILD OUTPUTS
+════════════════════════════════════════ */
+function buildOutputs() {
+  const slug = toBotSlug(state.botName || 'my-bot');
+  const domainSlug = toDomainSlug(state.orgDomain || 'example.com');
+  const botDomain = getBotDomain(slug, state.hosting);
+  const scopesArr = getScopesArray();
+  const fullDescShort = (state.fullDesc || '').substring(0, 100);
+
+  /* ─── manifest.json ─── */
+  const manifest = {
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.17",
+    "version": state.version || '1.0.0',
+    "id": "{{REPLACE_WITH_AZURE_BOT_APP_ID}}",
+    "packageName": `com.${domainSlug}.${slug}`,
+    "developer": {
+      "name": state.orgName,
+      "websiteUrl": `https://${state.orgDomain}`,
+      "privacyUrl": `https://${state.orgDomain}/privacy`,
+      "termsOfUseUrl": `https://${state.orgDomain}/terms`
+    },
+    "icons": {
+      "color": "color.png",
+      "outline": "outline.png"
+    },
+    "name": {
+      "short": state.botName,
+      "full": fullDescShort
+    },
+    "description": {
+      "short": state.shortDesc,
+      "full": state.fullDesc
+    },
+    "accentColor": state.accentColor,
+    "bots": [
+      {
+        "botId": "{{REPLACE_WITH_AZURE_BOT_APP_ID}}",
+        "scopes": state.teamsScopes,
+        "supportsFiles": false,
+        "isNotificationOnly": false,
+        "commandLists": [
+          {
+            "scopes": state.teamsScopes,
+            "commands": [
+              { "title": "help", "description": `Show what ${state.botName} can help with` },
+              { "title": "reset", "description": "Clear conversation history" }
+            ]
+          }
+        ]
+      }
+    ],
+    "permissions": ["identity", "messageTeamMembers"],
+    "validDomains": ["*.botframework.com", botDomain]
+  };
+  document.getElementById('out-manifest').textContent = JSON.stringify(manifest, null, 2);
+
+  /* ─── .env template ─── */
+  let envContent = `# ─────────────────────────────────────────
+# ${state.botName} — Environment Configuration
+# Generated by Fynaptix Teams Bot Configurator
+# ─────────────────────────────────────────
+
+# Azure Bot Service (from Azure Portal → Bot Registration)
+MICROSOFT_APP_ID=REPLACE_WITH_YOUR_AZURE_BOT_APP_ID
+MICROSOFT_APP_PASSWORD=REPLACE_WITH_YOUR_AZURE_BOT_APP_SECRET
+MICROSOFT_APP_TYPE=MultiTenant
+MICROSOFT_APP_TENANT_ID=REPLACE_WITH_YOUR_TENANT_ID
+
+# Anthropic Claude API (from console.anthropic.com)
+ANTHROPIC_API_KEY=REPLACE_WITH_YOUR_ANTHROPIC_API_KEY
+CLAUDE_MODEL=${state.claudeModel}
+CLAUDE_MAX_TOKENS=${state.maxTokens}
+CLAUDE_MEMORY_MESSAGES=${state.memoryCount}
+
+# Bot Identity
+BOT_NAME=${state.botName}
+BOT_VERSION=${state.version || '1.0.0'}
+
+# Server
+PORT=3978
+NODE_ENV=production
+`;
+  if (state.rateLimitEnabled) {
+    envContent += `
+# Rate Limiting
+RATE_LIMIT_ENABLED=true
+RATE_LIMIT_MESSAGES_PER_HOUR=${state.rateLimitMessages}
+`;
+  }
+  envContent += `
+# Optional: Application Insights (recommended for production)
+APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE_IF_USING_APP_INSIGHTS`;
+  document.getElementById('out-env').textContent = envContent;
+
+  /* ─── bot-config.json ─── */
+  const botConfig = {
+    bot: {
+      name: state.botName,
+      version: state.version || '1.0.0',
+      model: state.claudeModel,
+      maxTokens: state.maxTokens,
+      memoryMessages: state.memoryCount,
+      systemPrompt: state.systemPrompt
+    },
+    teams: {
+      scopes: state.teamsScopes,
+      userAccess: state.userAccess
+    },
+    rateLimit: {
+      enabled: state.rateLimitEnabled,
+      messagesPerUserPerHour: state.rateLimitMessages
+    },
+    hosting: {
+      platform: state.hosting,
+      sdk: state.sdk,
+      cicd: state.cicd
+    },
+    organisation: {
+      name: state.orgName,
+      domain: state.orgDomain
+    }
+  };
+  document.getElementById('out-botconfig').textContent = JSON.stringify(botConfig, null, 2);
+
+  /* ─── Deployment Guide ─── */
+  buildDeploymentGuide(slug, botDomain);
+
+  /* ─── Summary pills ─── */
+  const pills = document.getElementById('summary-pills');
+  pills.innerHTML = `
+    <div class="sum-pill"><div class="sum-pill-dot" style="background:var(--gm)"></div>${state.botName}</div>
+    <div class="sum-pill"><div class="sum-pill-dot" style="background:var(--ge)"></div>${getModelLabel(state.claudeModel)}</div>
+    <div class="sum-pill"><div class="sum-pill-dot" style="background:var(--gs)"></div>${getHostingLabel(state.hosting)}</div>
+    <div class="sum-pill"><div class="sum-pill-dot" style="background:#fff"></div>${getSdkLabel(state.sdk)}</div>
+  `;
+}
+
+function buildDeploymentGuide(slug, botDomain) {
+  const s = state;
+  const sdkSetupCmd = {
+    nodejs: `npx @microsoft/teamsfx-cli new --template bot --programming-language typescript`,
+    python: `pip install botframework-connector botbuilder-core\ngit clone https://github.com/microsoft/BotBuilder-Samples\ncd BotBuilder-Samples/samples/python/02.echo-bot`,
+    dotnet: `dotnet new -i Microsoft.Bot.Builder.Templates\ndotnet new echobot -n ${slug}-bot`
+  }[s.sdk] || '';
+
+  const deployStep = buildDeployStep(slug, botDomain);
+  const cicdBlock = s.cicd ? buildCicdBlock(slug) : '';
+  const systemPromptShort = (s.systemPrompt || '').replace(/\n/g, ' ').substring(0, 120);
+  const memoryLabel = {single:'0 (single message — no history)',last5:'5',last10:'10',full:'999 (full session)'}[s.memoryMode] || s.memoryCount;
+
+  const html = `
+<div style="margin-bottom:24px">
+  <button class="btn-download" onclick="window.print()" style="margin-bottom:16px">⬇ Print / Save as PDF</button>
+</div>
+
+<h2>Prerequisites</h2>
+<div>
+  ${checklist([
+    'Azure subscription — <a href="https://azure.microsoft.com/free" target="_blank" style="color:var(--ge)">free tier</a> works for development',
+    'Microsoft 365 tenant with Teams enabled',
+    'Anthropic API key — get one at <a href="https://console.anthropic.com" target="_blank" style="color:var(--ge)">console.anthropic.com</a>',
+    getSdkPrereq(s.sdk),
+    'Azure CLI installed: <code class="code-inline">winget install Microsoft.AzureCLI</code> or download from <a href="https://aka.ms/installazurecliwindows" target="_blank" style="color:var(--ge)">aka.ms/installazurecliwindows</a>',
+    'Teams Toolkit VS Code extension (optional but recommended — <a href="https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension" target="_blank" style="color:var(--ge)">install from Marketplace</a>)'
+  ])}
+</div>
+
+<h2>Azure Setup</h2>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">1</span> Create Azure Resource Group &amp; Bot Service Registration</h3>
+  <pre class="deploy-code">az login
+az group create \\
+  --name ${slug}-rg \\
+  --location australiaeast
+
+az bot create \\
+  --resource-group ${slug}-rg \\
+  --name ${slug}-bot \\
+  --kind registration \\
+  --sku F0</pre>
+  <div class="deploy-note">Copy the <strong>App ID</strong> from the command output — this is your <code class="code-inline">MICROSOFT_APP_ID</code>. You will need it in every subsequent step.</div>
+</div>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">2</span> Create an App Secret (Client Secret)</h3>
+  <ol>
+    <li>Go to <strong>Azure Portal</strong> → <strong>App registrations</strong></li>
+    <li>Find <strong>${slug}-bot</strong> in the list</li>
+    <li>Select <strong>Certificates &amp; secrets</strong> → <strong>New client secret</strong></li>
+    <li>Add a description (e.g. "Teams Bot Secret") and set an expiry</li>
+    <li>Click <strong>Add</strong> — copy the <strong>Value</strong> immediately (it is shown only once)</li>
+  </ol>
+  <div class="deploy-note">Store this value securely. This is your <code class="code-inline">MICROSOFT_APP_PASSWORD</code>.</div>
+</div>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">3</span> Configure Bot Messaging Endpoint</h3>
+  <p>In <strong>Azure Portal</strong> → <strong>Bot Service</strong> → <strong>Configuration</strong>, set the Messaging endpoint to:</p>
+  <pre class="deploy-code">https://${botDomain}/api/messages</pre>
+  <div class="deploy-note">For local development with ngrok, use <code class="code-inline">https://&lt;your-ngrok-id&gt;.ngrok-free.app/api/messages</code> instead and update this when you deploy.</div>
+</div>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">4</span> Enable the Teams Channel</h3>
+  <ol>
+    <li>In <strong>Azure Portal</strong> → <strong>Bot Service</strong> → <strong>Channels</strong></li>
+    <li>Click <strong>Microsoft Teams</strong> under "Available channels"</li>
+    <li>Accept the terms of service and click <strong>Save</strong></li>
+  </ol>
+</div>
+
+<h2>Application Setup</h2>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">5</span> Scaffold the Bot Application</h3>
+  <pre class="deploy-code">${sdkSetupCmd}</pre>
+  ${s.sdk === 'nodejs' ? `<div class="deploy-note">The Teams Toolkit CLI will scaffold a complete TypeScript bot project. Open it in VS Code and follow the prompts.</div>` : ''}
+</div>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">6</span> Configure Your Environment</h3>
+  <p>Copy the <strong>.env.example</strong> file from this configurator and save it as <strong>.env</strong> in your project root. Fill in the placeholder values from Steps 1–2:</p>
+  <pre class="deploy-code">cp .env.example .env
+# Then open .env and replace all REPLACE_WITH_... values</pre>
+  <p style="margin-top:10px">Your key variables are:</p>
+  <ul>
+    <li><code class="code-inline">MICROSOFT_APP_ID</code> — from Step 1 output</li>
+    <li><code class="code-inline">MICROSOFT_APP_PASSWORD</code> — from Step 2</li>
+    <li><code class="code-inline">MICROSOFT_APP_TENANT_ID</code> — your Azure AD tenant ID</li>
+    <li><code class="code-inline">ANTHROPIC_API_KEY</code> — from console.anthropic.com</li>
+  </ul>
+</div>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">7</span> Add the Claude Integration</h3>
+  <p>Install the Anthropic SDK and add the following to your bot handler:</p>
+  <pre class="deploy-code">npm install @anthropic-ai/sdk</pre>
+  <pre class="deploy-code">// bot/claudeHandler.ts
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+export async function getClaudeResponse(
+  userMessage: string,
+  history: { role: 'user' | 'assistant'; content: string }[]
+): Promise&lt;string&gt; {
+  const response = await client.messages.create({
+    model: process.env.CLAUDE_MODEL || '${s.claudeModel}',
+    max_tokens: parseInt(process.env.CLAUDE_MAX_TOKENS || '${s.maxTokens}'),
+    system: \`${systemPromptShort.replace(/`/g, '\\`').substring(0, 80)}...\`,
+    messages: [...history, { role: 'user', content: userMessage }]
+  });
+  return response.content[0].type === 'text' ? response.content[0].text : '';
+}</pre>
+  <div class="deploy-note">For conversation memory, maintain a <code class="code-inline">history</code> array per user and trim it to the last <strong>${memoryLabel}</strong> messages as configured.</div>
+</div>
+
+<h2>Deployment to ${getHostingLabel(s.hosting)}</h2>
+
+${deployStep}
+
+<div class="step-card">
+  <h3><span class="step-num-badge">${s.hosting === 'self-hosted' ? '9' : '9'}</span> Test with Bot Framework Emulator</h3>
+  <p>Download the Bot Framework Emulator from <a href="https://aka.ms/botframework-emulator" target="_blank" style="color:var(--ge)">aka.ms/botframework-emulator</a>.</p>
+  <ol>
+    <li>Open the emulator and click <strong>Open Bot</strong></li>
+    <li>Set Bot URL to <code class="code-inline">http://localhost:3978/api/messages</code></li>
+    <li>Enter your <strong>App ID</strong> and <strong>App Password</strong></li>
+    <li>Click <strong>Connect</strong> — type a message to test your Claude integration</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <h3><span class="step-num-badge">10</span> Package and Upload to Microsoft Teams</h3>
+  <p>Create your Teams app package — a ZIP file containing three files:</p>
+  <pre class="deploy-code"># You need two icon files first:
+# color.png  — 192×192 px, full-colour icon
+# outline.png — 32×32 px, white/transparent outline icon
+
+zip -r ${slug}-teams-app.zip manifest.json color.png outline.png</pre>
+  <p style="margin-top:10px">Upload via Teams Admin Centre:</p>
+  <ol>
+    <li>Go to <a href="https://admin.teams.microsoft.com" target="_blank" style="color:var(--ge)">admin.teams.microsoft.com</a></li>
+    <li>Navigate to <strong>Teams apps</strong> → <strong>Manage apps</strong></li>
+    <li>Click <strong>Upload new app</strong> → select your ZIP file</li>
+    <li>The bot will appear in your tenant's app catalogue</li>
+  </ol>
+  <div class="deploy-note">For the user access policy you selected (<strong>${s.userAccess === 'all-users' ? 'All users in tenant' : s.userAccess === 'admin-managed' ? 'Admin-managed rollout' : 'Specific security group'}</strong>), configure the app permission policy accordingly in Teams Admin Centre → <strong>Teams apps</strong> → <strong>Permission policies</strong>.</div>
+</div>
+
+<h2>Post-Deployment</h2>
+
+${cicdBlock}
+
+<div class="step-card">
+  <h3>Monitoring &amp; Observability</h3>
+  <p>Enable <strong>Application Insights</strong> on your App Service for usage tracking, error alerting, and performance monitoring:</p>
+  <pre class="deploy-code">az monitor app-insights component create \\
+  --app ${slug}-insights \\
+  --location australiaeast \\
+  --resource-group ${slug}-rg
+
+az webapp config appsettings set \\
+  --resource-group ${slug}-rg \\
+  --name ${slug} \\
+  --settings APPINSIGHTS_INSTRUMENTATIONKEY=&lt;your-key&gt;</pre>
+</div>
+
+${s.rateLimitEnabled ? `
+<div class="step-card">
+  <h3>Rate Limiting Implementation</h3>
+  <p>Your bot is configured to allow <strong>${s.rateLimitMessages} messages per user per hour</strong>. Implement this in your bot middleware:</p>
+  <pre class="deploy-code">// middleware/rateLimiter.ts
+const userMessageCounts = new Map&lt;string, { count: number; resetAt: number }&gt;();
+
+export function checkRateLimit(userId: string): boolean {
+  const now = Date.now();
+  const limit = parseInt(process.env.RATE_LIMIT_MESSAGES_PER_HOUR || '${s.rateLimitMessages}');
+  const entry = userMessageCounts.get(userId);
+
+  if (!entry || now > entry.resetAt) {
+    userMessageCounts.set(userId, { count: 1, resetAt: now + 3600000 });
+    return true; // allowed
+  }
+  if (entry.count >= limit) return false; // blocked
+  entry.count++;
+  return true;
+}</pre>
+</div>` : ''}
+
+<div class="fynaptix-callout">
+  <div class="fynaptix-callout-icon">🚀</div>
+  <div class="fynaptix-callout-body">
+    <h3>Need help deploying?</h3>
+    <p>Fynaptix builds and deploys production-grade Claude bots for Microsoft Teams as part of our <strong>Enterprise Claude Deployment</strong> service. We handle Azure setup, bot development, security review, and ongoing support. <a href="/#contact">Talk to us →</a></p>
+  </div>
+</div>
+`;
+
+  document.getElementById('out-guide').innerHTML = html;
+}
+
+function checklist(items) {
+  return items.map(i => `<div class="checklist-item"><span class="ci-check">✅</span><span>${i}</span></div>`).join('');
+}
+
+function getSdkPrereq(sdk) {
+  switch(sdk) {
+    case 'nodejs': return 'Node.js 18+ installed locally — <a href="https://nodejs.org" target="_blank" style="color:var(--ge)">nodejs.org</a>';
+    case 'python': return 'Python 3.10+ installed locally — <a href="https://python.org" target="_blank" style="color:var(--ge)">python.org</a>';
+    case 'dotnet': return '.NET 7+ SDK installed — <a href="https://dotnet.microsoft.com/download" target="_blank" style="color:var(--ge)">dotnet.microsoft.com</a>';
+    default: return 'Runtime environment installed locally';
+  }
+}
+
+function buildDeployStep(slug, botDomain) {
+  const s = state;
+  switch (s.hosting) {
+    case 'azure-app-service':
+      return `<div class="step-card">
+  <h3><span class="step-num-badge">8</span> Deploy to Azure App Service</h3>
+  <pre class="deploy-code">az appservice plan create \\
+  --name ${slug}-plan \\
+  --resource-group ${slug}-rg \\
+  --sku B1 \\
+  --is-linux
+
+az webapp create \\
+  --resource-group ${slug}-rg \\
+  --plan ${slug}-plan \\
+  --name ${slug} \\
+  --runtime "NODE:18-lts"
+
+# Set environment variables from your .env file
+az webapp config appsettings set \\
+  --resource-group ${slug}-rg \\
+  --name ${slug} \\
+  --settings \\
+    MICROSOFT_APP_ID=&lt;your-app-id&gt; \\
+    MICROSOFT_APP_PASSWORD=&lt;your-app-secret&gt; \\
+    MICROSOFT_APP_TENANT_ID=&lt;your-tenant-id&gt; \\
+    ANTHROPIC_API_KEY=&lt;your-claude-key&gt; \\
+    CLAUDE_MODEL=${s.claudeModel} \\
+    CLAUDE_MAX_TOKENS=${s.maxTokens} \\
+    NODE_ENV=production
+
+# Deploy your application
+az webapp up \\
+  --resource-group ${slug}-rg \\
+  --name ${slug} \\
+  --runtime "NODE:18-lts"</pre>
+  <div class="deploy-note">After deployment, update your bot's messaging endpoint in Azure Portal to: <code class="code-inline">https://${botDomain}/api/messages</code></div>
+</div>`;
+
+    case 'azure-functions':
+      return `<div class="step-card">
+  <h3><span class="step-num-badge">8</span> Deploy to Azure Functions</h3>
+  <pre class="deploy-code"># Install Azure Functions Core Tools
+npm install -g azure-functions-core-tools@4
+
+# Create the Function App
+az functionapp create \\
+  --resource-group ${slug}-rg \\
+  --consumption-plan-location australiaeast \\
+  --runtime node \\
+  --runtime-version 18 \\
+  --functions-version 4 \\
+  --name ${slug} \\
+  --storage-account ${slug.replace(/-/g,'')}store
+
+# Set environment variables
+az functionapp config appsettings set \\
+  --name ${slug} \\
+  --resource-group ${slug}-rg \\
+  --settings \\
+    MICROSOFT_APP_ID=&lt;your-app-id&gt; \\
+    MICROSOFT_APP_PASSWORD=&lt;your-app-secret&gt; \\
+    ANTHROPIC_API_KEY=&lt;your-claude-key&gt; \\
+    CLAUDE_MODEL=${s.claudeModel}
+
+# Deploy
+func azure functionapp publish ${slug}</pre>
+  <div class="deploy-note">Your messaging endpoint will be: <code class="code-inline">https://${botDomain}/api/messages</code>. Update this in your Azure Bot Service configuration.</div>
+</div>`;
+
+    case 'azure-container-apps':
+      return `<div class="step-card">
+  <h3><span class="step-num-badge">8</span> Deploy to Azure Container Apps</h3>
+  <pre class="deploy-code"># Build and push your Docker image
+docker build -t ${slug}:latest .
+docker tag ${slug}:latest &lt;your-registry&gt;/${slug}:latest
+docker push &lt;your-registry&gt;/${slug}:latest
+
+# Create Container Apps environment
+az containerapp env create \\
+  --name ${slug}-env \\
+  --resource-group ${slug}-rg \\
+  --location australiaeast
+
+# Deploy the container
+az containerapp create \\
+  --name ${slug} \\
+  --resource-group ${slug}-rg \\
+  --environment ${slug}-env \\
+  --image &lt;your-registry&gt;/${slug}:latest \\
+  --target-port 3978 \\
+  --ingress external \\
+  --env-vars \\
+    MICROSOFT_APP_ID=&lt;your-app-id&gt; \\
+    MICROSOFT_APP_PASSWORD=&lt;your-app-secret&gt; \\
+    ANTHROPIC_API_KEY=&lt;your-claude-key&gt; \\
+    CLAUDE_MODEL=${s.claudeModel}</pre>
+  <div class="deploy-note">After deployment, copy the app URL and update your bot messaging endpoint to: <code class="code-inline">https://&lt;app-url&gt;/api/messages</code></div>
+</div>`;
+
+    default: // self-hosted
+      return `<div class="step-card">
+  <h3><span class="step-num-badge">8</span> Self-hosted Deployment</h3>
+  <p>Configure your server to expose port <code class="code-inline">3978</code> publicly with a valid HTTPS certificate. For local testing, use ngrok:</p>
+  <pre class="deploy-code"># Install ngrok: https://ngrok.com
+ngrok http 3978</pre>
+  <p style="margin-top:10px">For production self-hosting, ensure:</p>
+  <ul>
+    <li>HTTPS with a valid TLS certificate (Let's Encrypt recommended)</li>
+    <li>Firewall rules allow inbound traffic on port 443</li>
+    <li>Your server has outbound access to <code class="code-inline">api.anthropic.com</code> and <code class="code-inline">*.botframework.com</code></li>
+    <li>A process manager like PM2 (Node.js) keeps the bot running: <code class="code-inline">pm2 start dist/index.js --name ${slug}</code></li>
+  </ul>
+  <div class="deploy-note">Update your Azure Bot Service messaging endpoint to your public HTTPS URL: <code class="code-inline">https://your-domain.com/api/messages</code></div>
+</div>`;
+  }
+}
+
+function buildCicdBlock(slug) {
+  if (!state.cicd) return '';
+  return `<div class="step-card">
+  <h3>GitHub Actions CI/CD Workflow</h3>
+  <p>Save this file as <code class="code-inline">.github/workflows/deploy.yml</code> in your repository:</p>
+  <pre class="deploy-code">name: Deploy ${state.botName}
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run tests
+        run: npm test --if-present
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: '${slug}'
+          publish-profile: \${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .</pre>
+  <div class="deploy-note">Add the <code class="code-inline">AZURE_WEBAPP_PUBLISH_PROFILE</code> secret in your GitHub repository settings. Download the publish profile from Azure Portal → App Service → Overview → Get publish profile.</div>
+</div>`;
+}
+
+/* ════════════════════════════════════════
+   TABS
+════════════════════════════════════════ */
+function switchTab(name, btn) {
+  const tabMap = { manifest:'tab-manifest', env:'tab-env', botconfig:'tab-botconfig', guide:'tab-guide' };
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById(tabMap[name]);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+/* ════════════════════════════════════════
+   FILE UTILS
+════════════════════════════════════════ */
+function downloadFile(content, filename, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+async function copyToClipboard(text, btn) {
+  try {
+    await navigator.clipboard.writeText(text);
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  } catch(e) {
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  }
+}
+
+/* ════════════════════════════════════════
+   RESTART
+════════════════════════════════════════ */
+function restartWizard() {
+  // reset state
+  Object.assign(state, {
+    botName:'', shortDesc:'', fullDesc:'', orgName:'', orgDomain:'',
+    accentColor:'#6264a7', version:'1.0.0',
+    claudeModel:'', systemPrompt:'', maxTokens:1024, memoryMode:'', memoryCount:5,
+    teamsScopes:[], userAccess:'', rateLimitEnabled:true, rateLimitMessages:60,
+    hosting:'', sdk:'', cicd:true
+  });
+  // reset form inputs
+  ['f-botName','f-shortDesc','f-fullDesc','f-orgName','f-orgDomain'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('f-version').value = '1.0.0';
+  document.getElementById('cnt-short').textContent = '0 / 80';
+  document.getElementById('cnt-full').textContent = '0 / 256';
+  document.getElementById('f-systemPrompt').value = '';
+  document.getElementById('slider-tokens').value = 1024;
+  document.getElementById('badge-tokens').textContent = '1024';
+  document.getElementById('toggle-ratelimit').checked = true;
+  document.getElementById('ratelimit-extra').style.display = 'block';
+  document.getElementById('slider-ratelimit').value = 60;
+  document.getElementById('badge-ratelimit').textContent = '60';
+  document.getElementById('toggle-cicd').checked = true;
+  // reset colour chips
+  document.querySelectorAll('.colour-chip').forEach(c => {
+    c.classList.toggle('selected', c.dataset.color === '#6264a7');
+  });
+  // reset all card selections
+  document.querySelectorAll('.radio-card,.check-card').forEach(c => c.classList.remove('selected'));
+  // reset template pills
+  document.querySelectorAll('.tpl-btn').forEach(b => b.classList.remove('active'));
+  // disable next buttons
+  document.getElementById('btn-next-1').disabled = true;
+  document.getElementById('btn-next-2').disabled = true;
+  document.getElementById('btn-generate').disabled = true;
+  goToWelcome();
+}
+
+/* ════════════════════════════════════════
+   INIT
+════════════════════════════════════════ */
+document.getElementById('wizard-progress').style.display = 'none';
+</script>
+</body>
+</html>
