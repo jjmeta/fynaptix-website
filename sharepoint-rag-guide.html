@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SharePoint + Claude RAG Setup Guide — Fynaptix</title>
+<meta name="description" content="Generate a custom architecture document for connecting your SharePoint document libraries to Claude as an intelligent knowledge base using RAG."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+:root{
+  --bg:#05070f;--bg2:#080d1a;--bg3:#0d1526;
+  --gs:#ff5f1f;--gm:#c025e8;--ge:#2ed0f5;
+  --text:#e8edf8;--muted:#8892a4;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.08);
+  --card:rgba(255,255,255,0.04);
+  --grad:linear-gradient(135deg,var(--gs),var(--gm));
+  --grad-full:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+  --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;
+  --green:#22c55e;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;
+  --sp:#038387;--ms:#0078d4;
+  --radius:16px;--radius-sm:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 40% at 15% 5%,rgba(3,131,135,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 85%,rgba(46,208,245,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);}
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(3,131,135,.5))}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:9px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important}
+.nav-dropdown{position:relative}
+.nav-dropdown-btn{background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-dropdown-btn:hover{color:#fff}
+.nav-dropdown-arrow{font-size:10px;transition:transform .2s}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);width:300px;background:rgba(8,13,26,.97);backdrop-filter:blur(24px);border:1px solid var(--border2);border-radius:14px;padding:8px;z-index:600;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:rgba(8,13,26,.97);border-left:1px solid var(--border2);border-top:1px solid var(--border2);rotate:45deg}
+.nav-dropdown.open .nav-dropdown-menu{display:block;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--text);transition:background .15s}
+.nav-dropdown-item:hover{background:rgba(255,255,255,.06)}
+.ndi-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center}
+.ndi-text{display:flex;flex-direction:column;gap:2px}
+.ndi-text strong{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
+.ndi-text span{font-size:11px;color:var(--muted)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;inset:72px 0 0;background:rgba(5,7,15,0.98);backdrop-filter:blur(24px);z-index:490;overflow-y:auto;padding:24px 24px 40px}
+.nav-mobile.open{display:block}
+.nav-mobile ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.nav-mobile ul li a{display:block;padding:12px 16px;border-radius:8px;color:var(--text);text-decoration:none;font-family:var(--fd);font-size:14px;font-weight:500}
+.nav-mobile ul li a:hover{background:var(--card)}
+.mob-tools-parent{display:flex;flex-direction:column}
+.mob-tools-btn{background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-radius:8px;color:var(--text);font-family:var(--fd);font-size:14px;font-weight:500;width:100%;text-align:left}
+.mob-tools-btn:hover{background:var(--card)}
+.mob-tools-arrow{transition:transform .2s;font-size:12px}
+.mob-tools-sub{display:none;flex-direction:column;gap:2px;padding:4px 0 4px 16px}
+.mob-tools-sub.open{display:flex}
+.mob-tools-sub li a{font-size:13px;padding:8px 16px;color:var(--muted)}
+@media(max-width:960px){.nav-links{display:none}.nav-burger{display:flex}nav#main-nav{padding:0 20px}}
+
+/* ── Progress ── */
+.wizard-progress{display:flex;align-items:center;justify-content:center;gap:0;padding:28px 24px 0;max-width:680px;margin:0 auto;width:100%}
+.wp-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative}
+.wp-step:not(:last-child)::after{content:'';position:absolute;top:14px;left:calc(50% + 16px);right:calc(-50% + 16px);height:1px;background:var(--border2)}
+.wp-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:12px;font-weight:600;color:var(--muted);background:var(--bg2);position:relative;z-index:1;transition:all .3s}
+.wp-step.active .wp-dot{border-color:var(--gm);color:var(--text);background:rgba(192,37,232,0.15)}
+.wp-step.done .wp-dot{border-color:var(--sp);background:rgba(3,131,135,0.2);color:var(--sp)}
+.wp-label{font-family:var(--fd);font-size:11px;font-weight:500;color:var(--muted);text-align:center;letter-spacing:.04em}
+.wp-step.active .wp-label{color:var(--text)}
+
+/* ── Screens ── */
+.screen{display:none;flex:1;flex-direction:column;align-items:center;padding:32px 24px 60px;max-width:820px;margin:0 auto;width:100%}
+.screen.active{display:flex}
+
+/* ── Welcome ── */
+.welcome-hero{text-align:center;padding:40px 0 32px}
+.welcome-hero h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:16px}
+.g-text{background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.welcome-hero p{font-size:1.1rem;color:var(--muted);max-width:560px;margin:0 auto 24px;line-height:1.7}
+.info-box{background:rgba(3,131,135,0.08);border:1px solid rgba(3,131,135,0.25);border-radius:10px;padding:14px 18px;margin-bottom:32px;font-size:14px;color:#7dd3d4;line-height:1.6;text-align:left;width:100%;max-width:620px}
+.info-box strong{color:#2ed0f5}
+.feature-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:100%;max-width:620px;margin-bottom:32px}
+@media(max-width:520px){.feature-cards{grid-template-columns:1fr}}
+.fc{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:18px;display:flex;align-items:flex-start;gap:14px}
+.fc-icon{font-size:1.6rem;flex-shrink:0}
+.fc-body h4{font-family:var(--fd);font-size:14px;font-weight:600;margin-bottom:4px}
+.fc-body p{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* ── Buttons ── */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:8px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:opacity .2s,transform .2s;text-decoration:none}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ghost{background:var(--card);border:1px solid var(--border2);color:var(--text);font-family:var(--fd);font-size:14px;font-weight:500;padding:11px 24px;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-ghost:hover{background:rgba(255,255,255,0.08)}
+.btn-row{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:32px;width:100%}
+
+/* ── Form screens ── */
+.screen-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;margin-bottom:6px;align-self:flex-start}
+.screen-sub{color:var(--muted);font-size:0.95rem;margin-bottom:28px;align-self:flex-start}
+.q-block{width:100%;margin-bottom:24px}
+.q-label{font-family:var(--fd);font-size:14px;font-weight:600;margin-bottom:10px;display:block}
+.q-helper{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* Radio cards */
+.radio-grid{display:grid;gap:10px}
+.radio-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.radio-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:600px){.radio-grid.cols-2,.radio-grid.cols-3{grid-template-columns:1fr}}
+.r-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:4px}
+.r-card:hover{border-color:rgba(192,37,232,0.4);background:rgba(192,37,232,0.05)}
+.r-card.selected{border-color:var(--gm);background:rgba(192,37,232,0.1)}
+.r-card .r-name{font-family:var(--fd);font-size:13px;font-weight:600}
+.r-card .r-desc{font-size:11px;color:var(--muted);line-height:1.4}
+.r-card .r-badge{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sp);margin-top:2px}
+
+/* Checkbox cards */
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:600px){.check-grid{grid-template-columns:1fr}}
+.c-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:12px}
+.c-card:hover{border-color:rgba(3,131,135,0.4)}
+.c-card.selected{border-color:var(--sp);background:rgba(3,131,135,0.08)}
+.c-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .2s;margin-top:1px}
+.c-card.selected .c-check{background:var(--sp);border-color:var(--sp);color:#fff}
+.c-body .c-name{font-family:var(--fd);font-size:13px;font-weight:600;margin-bottom:2px}
+.c-body .c-desc{font-size:11px;color:var(--muted)}
+
+/* ── Processing ── */
+.processing-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:32px;padding:60px 0}
+.proc-spinner{width:56px;height:56px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--sp);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-steps{display:flex;flex-direction:column;gap:10px;width:100%;max-width:400px}
+.proc-step{display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;background:var(--card);border:1px solid var(--border2);font-size:14px;color:var(--muted);transition:all .4s}
+.proc-step.active{color:var(--text);border-color:rgba(3,131,135,0.4);background:rgba(3,131,135,0.08)}
+.proc-step.done{color:var(--sp)}
+.proc-icon{font-size:16px;width:20px;text-align:center}
+
+/* ── Results / Architecture Doc ── */
+.results-wrap{width:100%;max-width:900px}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:gap}
+.results-header h2{font-family:var(--fd);font-size:1.5rem;font-weight:700}
+.btn-pdf{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-size:13px;font-weight:700;border:none;cursor:pointer}
+.btn-pdf:hover{opacity:.9}
+
+/* Architecture doc styling */
+.arch-doc{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:40px;display:flex;flex-direction:column;gap:36px}
+@media(max-width:640px){.arch-doc{padding:24px}}
+.doc-header{border-bottom:1px solid var(--border2);padding-bottom:24px}
+.doc-header h1{font-family:var(--fd);font-size:1.6rem;font-weight:800;margin-bottom:6px}
+.doc-meta{font-size:13px;color:var(--muted)}
+.doc-meta span{color:var(--sp)}
+.doc-accent{height:3px;background:linear-gradient(90deg,var(--sp),var(--gm),var(--ge));border-radius:2px;margin-top:16px}
+
+.doc-section h2{font-family:var(--fd);font-size:1.15rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.doc-section h2 .sec-num{width:28px;height:28px;border-radius:6px;background:rgba(3,131,135,0.15);border:1px solid rgba(3,131,135,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--sp);flex-shrink:0}
+.doc-section p{font-size:14px;line-height:1.75;color:rgba(232,237,248,0.85);margin-bottom:12px}
+.doc-section h3{font-family:var(--fd);font-size:1rem;font-weight:600;margin:20px 0 10px;color:var(--text)}
+
+/* Architecture diagram */
+.arch-diagram{display:flex;flex-direction:column;align-items:stretch;gap:0;border-radius:10px;overflow:hidden;border:1px solid var(--border2);margin:16px 0}
+.arch-layer{padding:14px 20px;border-bottom:1px solid var(--border2)}
+.arch-layer:last-child{border-bottom:none}
+.arch-layer.layer-user{background:rgba(255,255,255,0.03)}
+.arch-layer.layer-orch{background:rgba(192,37,232,0.07);border-left:3px solid var(--gm)}
+.arch-layer.layer-split{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.arch-layer.layer-split .arch-sub{padding:14px 20px}
+.arch-layer.layer-split .arch-sub:first-child{border-right:1px solid var(--border2);background:rgba(46,208,245,0.06)}
+.arch-layer.layer-split .arch-sub:last-child{background:rgba(255,95,31,0.06);border-left:3px solid var(--gs)}
+.arch-layer.layer-ingest{background:rgba(255,255,255,0.03)}
+.arch-layer.layer-sp{background:rgba(3,131,135,0.1);border-left:3px solid var(--sp)}
+.arch-arrow{text-align:center;padding:4px;color:var(--muted);font-size:12px;background:var(--bg2)}
+.arch-layer-title{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.arch-layer-detail{font-size:13px;color:var(--text);line-height:1.5}
+.arch-layer-detail code{font-size:11px;background:rgba(0,0,0,0.3);padding:1px 5px;border-radius:3px;font-family:monospace}
+
+/* Code blocks */
+.code-block{background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:18px;overflow-x:auto;font-family:'Consolas','Monaco','Courier New',monospace;font-size:12.5px;line-height:1.65;color:#e6edf3;white-space:pre;margin:12px 0}
+.code-comment{color:#8b949e}
+.ic{background:rgba(135,131,120,0.15);color:#79c0ff;border-radius:3px;padding:1px 5px;font-family:monospace;font-size:0.88em}
+
+/* Tables */
+.doc-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+.doc-table th{background:rgba(3,131,135,0.15);color:var(--sp);font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:10px 12px;text-align:left;border-bottom:1px solid rgba(3,131,135,0.3)}
+.doc-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:rgba(232,237,248,0.85);vertical-align:top;line-height:1.5}
+.doc-table tr:hover td{background:rgba(255,255,255,0.02)}
+.doc-table tr.highlight-row td{background:rgba(3,131,135,0.08);border-left:2px solid var(--sp)}
+
+/* Phase cards */
+.phase-grid{display:flex;flex-direction:column;gap:16px}
+.phase-card{background:rgba(255,255,255,0.03);border:1px solid var(--border2);border-radius:10px;padding:20px}
+.phase-card h4{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.phase-badge{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.phase-1 .phase-badge{background:rgba(3,131,135,0.15);color:var(--sp)}
+.phase-2 .phase-badge{background:rgba(192,37,232,0.15);color:var(--gm)}
+.phase-3 .phase-badge{background:rgba(46,208,245,0.15);color:var(--ge)}
+.phase-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.phase-card ul li{font-size:13px;color:rgba(232,237,248,0.8);padding-left:18px;position:relative;line-height:1.5}
+.phase-card ul li::before{content:'→';position:absolute;left:0;color:var(--muted);font-size:12px}
+
+/* Callout */
+.fyn-callout{border:1px solid rgba(3,131,135,0.4);border-radius:10px;padding:24px;background:rgba(3,131,135,0.06)}
+.fyn-callout p{font-size:14px;line-height:1.7;color:rgba(232,237,248,0.9);margin-bottom:12px}
+.fyn-callout a{color:var(--sp);font-weight:600;text-decoration:none}
+.fyn-callout a:hover{text-decoration:underline}
+
+/* ── Print ── */
+@media print{
+  nav,#nav-mobile,.wizard-progress,.btn-pdf,.btn-row,footer{display:none!important}
+  body{background:#fff!important;color:#111!important;font-size:12pt}
+  .arch-doc{background:#fff!important;border:none!important;padding:0!important;box-shadow:none}
+  .doc-section h2{color:#038387!important}
+  .doc-section h3{color:#0078d4!important}
+  .code-block{background:#f4f4f4!important;color:#111!important;border:1px solid #ddd!important}
+  .doc-table th{background:#038387!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc-table td{border-color:#ddd!important}
+  .doc-table tr.highlight-row td{background:#e6f7f7!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .arch-diagram{display:none!important}
+  .fyn-callout{border:2px solid #038387!important;background:#f0fafa!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .phase-card{border:1px solid #ddd!important;background:#fafafa!important}
+  .results-header{margin-bottom:16px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ── Nav ── -->
+<nav id="main-nav">
+  <a class="nav-logo" href="/"><img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/></a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#usecases">Use Cases</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li class="nav-dropdown" id="nd-free">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+      </div>
+    </li>
+    <li class="nav-dropdown" id="nd-m365">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon">🏷️</span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
+        <a href="teams-bot-configurator.html" class="nav-dropdown-item"><span class="ndi-icon">🤖</span><span class="ndi-text"><strong>Teams Bot Configurator</strong><span>Generate Claude bot config files</span></span></a>
+        <a href="sharepoint-rag-guide.html" class="nav-dropdown-item"><span class="ndi-icon">📚</span><span class="ndi-text"><strong>SharePoint RAG Guide</strong><span>Connect SharePoint to Claude as a knowledge base</span></span></a>
+      </div>
+    </li>
+    <li><a class="nav-cta" href="/#contact">Get Started</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ── Mobile nav ── -->
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="/#how" onclick="closeMobile()">How It Works</a></li>
+    <li><a href="/#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
+    <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-free-sub">
+        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+      </ul>
+    </li>
+    <li class="mob-tools-parent">
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <ul class="mob-tools-sub" id="mob-m365-sub">
+        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
+        <li><a href="m365-data-classification.html" onclick="closeMobile()">🏷️ Data Classification Planner</a></li>
+        <li><a href="teams-bot-configurator.html" onclick="closeMobile()">🤖 Teams Bot Configurator</a></li>
+        <li><a href="sharepoint-rag-guide.html" onclick="closeMobile()">📚 SharePoint RAG Guide</a></li>
+      </ul>
+    </li>
+    <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
+  </ul>
+</div>
+
+<!-- ── Progress ── -->
+<div class="wizard-progress" id="wizard-progress">
+  <div class="wp-step active" id="wp-1"><div class="wp-dot">1</div><div class="wp-label">Environment</div></div>
+  <div class="wp-step" id="wp-2"><div class="wp-dot">2</div><div class="wp-label">Documents</div></div>
+  <div class="wp-step" id="wp-3"><div class="wp-dot">3</div><div class="wp-label">Tech Stack</div></div>
+  <div class="wp-step" id="wp-4"><div class="wp-dot">4</div><div class="wp-label">Your Guide</div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN: WELCOME
+══════════════════════════════════════ -->
+<div class="screen active" id="s-welcome" style="padding-top:20px">
+  <div class="welcome-hero">
+    <h1>SharePoint + Claude<br/><span class="g-text">RAG Setup Guide</span></h1>
+    <p>Tell us about your SharePoint environment and get a custom architecture document showing exactly how to connect your document libraries to Claude as an intelligent knowledge base.</p>
+  </div>
+  <div class="info-box">
+    <strong>What is RAG?</strong> Retrieval-Augmented Generation lets Claude answer questions using your actual SharePoint documents — policies, procedures, contracts, knowledge bases — rather than just its training data. Only relevant passages are sent to Claude at query time, keeping costs low and responses accurate.
+  </div>
+  <div class="feature-cards">
+    <div class="fc"><div class="fc-icon">🏗️</div><div class="fc-body"><h4>Custom Architecture</h4><p>Tailored to your SharePoint version, document types, and tech stack</p></div></div>
+    <div class="fc"><div class="fc-icon">🔌</div><div class="fc-body"><h4>Integration Blueprint</h4><p>Ingestion pipeline, vector DB selection, and sync strategy</p></div></div>
+    <div class="fc"><div class="fc-icon">💻</div><div class="fc-body"><h4>Real Code Snippets</h4><p>Python/TypeScript examples for auth, parsing, chunking, and querying</p></div></div>
+    <div class="fc"><div class="fc-icon">📄</div><div class="fc-body"><h4>Downloadable Doc</h4><p>Print-ready architecture document for your team or stakeholders</p></div></div>
+  </div>
+  <button class="btn-primary" onclick="goTo('s-env')">Build My Architecture Guide →</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN: SHAREPOINT ENVIRONMENT
+══════════════════════════════════════ -->
+<div class="screen" id="s-env">
+  <div class="screen-title">Your SharePoint Environment</div>
+  <div class="screen-sub">This shapes the authentication approach, API availability, and sync options.</div>
+
+  <div class="q-block">
+    <label class="q-label">SharePoint version</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('spVersion','spo',this)"><span class="r-name">SharePoint Online (M365)</span><span class="r-desc">Cloud-hosted via Microsoft 365</span><span class="r-badge">Most common</span></div>
+      <div class="r-card" onclick="pick('spVersion','sp2019',this)"><span class="r-name">SharePoint Server 2019</span><span class="r-desc">On-premises, modern UI</span></div>
+      <div class="r-card" onclick="pick('spVersion','sp2016',this)"><span class="r-name">SharePoint Server 2016</span><span class="r-desc">On-premises, classic UI</span></div>
+      <div class="r-card" onclick="pick('spVersion','sp2013',this)"><span class="r-name">SharePoint Server 2013 or older</span><span class="r-desc">Legacy, limited API support</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Estimated document library size</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('librarySize','small',this)"><span class="r-name">Small — Under 1,000 docs</span></div>
+      <div class="r-card" onclick="pick('librarySize','medium',this)"><span class="r-name">Medium — 1,000–10,000 docs</span></div>
+      <div class="r-card" onclick="pick('librarySize','large',this)"><span class="r-name">Large — 10,000–100,000 docs</span></div>
+      <div class="r-card" onclick="pick('librarySize','enterprise',this)"><span class="r-name">Enterprise — 100,000+ docs</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">How often do documents change?</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('updateFreq','static',this)"><span class="r-name">Static</span><span class="r-desc">Rarely updated — policies, archives</span></div>
+      <div class="r-card" onclick="pick('updateFreq','low',this)"><span class="r-name">Low</span><span class="r-desc">Weekly or monthly updates</span></div>
+      <div class="r-card" onclick="pick('updateFreq','moderate',this)"><span class="r-name">Moderate</span><span class="r-desc">Daily updates</span></div>
+      <div class="r-card" onclick="pick('updateFreq','high',this)"><span class="r-name">High</span><span class="r-desc">Multiple updates per day</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Authentication setup</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('authSetup','entraid',this)"><span class="r-name">Entra ID (Azure AD) SSO</span><span class="r-desc">Modern auth, service principals</span><span class="r-badge">Recommended</span></div>
+      <div class="r-card" onclick="pick('authSetup','hybrid',this)"><span class="r-name">On-prem AD + AAD Connect</span><span class="r-desc">Synced hybrid identity</span></div>
+      <div class="r-card" onclick="pick('authSetup','standalone',this)"><span class="r-name">Standalone SharePoint auth</span><span class="r-desc">No Azure AD</span></div>
+      <div class="r-card" onclick="pick('authSetup','unsure',this)"><span class="r-name">Not sure / mixed</span></div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-ghost" onclick="goTo('s-welcome')">← Back</button>
+    <button class="btn-primary" id="btn-env-next" onclick="goTo('s-docs')" disabled>Next: Documents →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN: DOCUMENT PROFILE
+══════════════════════════════════════ -->
+<div class="screen" id="s-docs">
+  <div class="screen-title">Your Documents</div>
+  <div class="screen-sub">This shapes chunking strategy, parser selection, and retrieval tuning.</div>
+
+  <div class="q-block">
+    <label class="q-label">Primary document types <span style="color:var(--muted);font-weight:400">(select all that apply)</span></label>
+    <div class="check-grid">
+      <div class="c-card" onclick="toggle('docTypes','docx',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📄 Word Documents</div><div class="c-desc">Policies, reports, contracts</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','xlsx',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📊 Excel Spreadsheets</div><div class="c-desc">Data tables, registers, schedules</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','pdf',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📑 PDFs</div><div class="c-desc">Formal reports, external materials</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','pptx',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📋 PowerPoint</div><div class="c-desc">Presentations, training materials</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','pages',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📝 SharePoint Pages</div><div class="c-desc">Intranet content, how-to guides</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','onenote',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📧 OneNote Notebooks</div><div class="c-desc">Team notes, meeting records</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','images',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">🖼️ Scanned / Image docs</div><div class="c-desc">Forms, diagrams with labels</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','other',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📁 Other file types</div><div class="c-desc">CSVs, text files, etc.</div></div></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Document sensitivity</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('docSensitivity','public',this)"><span class="r-name">All public / internal</span><span class="r-desc">No confidential material in scope</span></div>
+      <div class="r-card" onclick="pick('docSensitivity','mixed',this)"><span class="r-name">Mixed</span><span class="r-desc">Some confidential docs in same libraries</span></div>
+      <div class="r-card" onclick="pick('docSensitivity','mostly',this)"><span class="r-name">Mostly confidential</span><span class="r-desc">Sensitive data throughout</span></div>
+      <div class="r-card" onclick="pick('docSensitivity','classified',this)"><span class="r-name">Strictly classified</span><span class="r-desc">Highly confidential / regulated</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Average document length</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('avgDocLength','short',this)"><span class="r-name">Short — Under 5 pages</span><span class="r-desc">Mostly tables, quick references</span></div>
+      <div class="r-card" onclick="pick('avgDocLength','medium',this)"><span class="r-name">Medium — 5–20 pages</span></div>
+      <div class="r-card" onclick="pick('avgDocLength','long',this)"><span class="r-name">Long — 20–100 pages</span></div>
+      <div class="r-card" onclick="pick('avgDocLength','vlong',this)"><span class="r-name">Very long — 100+ pages</span><span class="r-desc">Technical manuals, legal docs</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">User access pattern</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('userAccess','shared',this)"><span class="r-name">Shared interface</span><span class="r-desc">All users, same document access</span></div>
+      <div class="r-card" onclick="pick('userAccess','rolebased',this)"><span class="r-name">Role-based filtering</span><span class="r-desc">Different users see different doc subsets</span></div>
+      <div class="r-card" onclick="pick('userAccess','pertrimming',this)"><span class="r-name">Per-user permission trimming</span><span class="r-desc">Claude respects each user's SP permissions</span></div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-ghost" onclick="goTo('s-env')">← Back</button>
+    <button class="btn-primary" id="btn-docs-next" onclick="goTo('s-tech')" disabled>Next: Tech Stack →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN: TECHNICAL STACK
+══════════════════════════════════════ -->
+<div class="screen" id="s-tech">
+  <div class="screen-title">Technical Stack</div>
+  <div class="screen-sub">These choices determine the code examples and component recommendations in your guide.</div>
+
+  <div class="q-block">
+    <label class="q-label">Preferred backend language</label>
+    <div class="radio-grid cols-3">
+      <div class="r-card" onclick="pick('backendLang','python',this)"><span class="r-name">Python</span><span class="r-desc">Best RAG ecosystem</span><span class="r-badge">Recommended</span></div>
+      <div class="r-card" onclick="pick('backendLang','node',this)"><span class="r-name">Node.js / TypeScript</span><span class="r-desc">Great M365 SDK support</span></div>
+      <div class="r-card" onclick="pick('backendLang','dotnet',this)"><span class="r-name">C# / .NET</span><span class="r-desc">Strong Microsoft ecosystem fit</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Vector database</label>
+    <div class="radio-grid cols-2">
+      <div class="r-card" onclick="pick('vectorDb','azuresearch',this)"><span class="r-name">Azure AI Search</span><span class="r-desc">Native M365 integration, managed, Purview-compatible</span><span class="r-badge">Recommended</span></div>
+      <div class="r-card" onclick="pick('vectorDb','pinecone',this)"><span class="r-name">Pinecone</span><span class="r-desc">Fully managed, fast, popular for enterprise RAG</span></div>
+      <div class="r-card" onclick="pick('vectorDb','weaviate',this)"><span class="r-name">Weaviate</span><span class="r-desc">Open source, self-hosted or cloud</span></div>
+      <div class="r-card" onclick="pick('vectorDb','chroma',this)"><span class="r-name">Chroma</span><span class="r-desc">Dev-friendly, great for prototyping</span></div>
+      <div class="r-card" onclick="pick('vectorDb','pgvector',this)"><span class="r-name">pgvector (PostgreSQL)</span><span class="r-desc">Good if you already run Postgres</span></div>
+      <div class="r-card" onclick="pick('vectorDb','none',this)"><span class="r-name">No preference</span><span class="r-desc">Recommend the best option</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Sync requirement</label>
+    <div class="radio-grid cols-3">
+      <div class="r-card" onclick="pick('syncRequirement','nightly',this)"><span class="r-name">Nightly batch</span><span class="r-desc">Reindex overnight is fine</span></div>
+      <div class="r-card" onclick="pick('syncRequirement','nearreal',this)"><span class="r-name">Near real-time</span><span class="r-desc">Within an hour is acceptable</span></div>
+      <div class="r-card" onclick="pick('syncRequirement','realtime',this)"><span class="r-name">Real-time</span><span class="r-desc">Changes within minutes</span></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <label class="q-label">Existing Azure services in use <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+    <div class="check-grid">
+      <div class="c-card" onclick="toggle('azureServices','aoai',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure OpenAI Service</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','aisearch',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure AI Search</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','functions',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure Functions</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','keyvault',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure Key Vault</div></div></div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-ghost" onclick="goTo('s-docs')">← Back</button>
+    <button class="btn-primary" id="btn-tech-next" onclick="runProcessing()" disabled>Generate My Guide →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN: PROCESSING
+══════════════════════════════════════ -->
+<div class="screen" id="s-processing" style="justify-content:center">
+  <div class="processing-wrap">
+    <div class="proc-spinner"></div>
+    <div class="proc-steps">
+      <div class="proc-step" id="ps-1"><span class="proc-icon">🔍</span> Analysing your SharePoint environment…</div>
+      <div class="proc-step" id="ps-2"><span class="proc-icon">🏗️</span> Designing ingestion pipeline…</div>
+      <div class="proc-step" id="ps-3"><span class="proc-icon">🧩</span> Selecting vector indexing strategy…</div>
+      <div class="proc-step" id="ps-4"><span class="proc-icon">🔐</span> Mapping authentication & permissions…</div>
+      <div class="proc-step" id="ps-5"><span class="proc-icon">💻</span> Writing architecture components…</div>
+      <div class="proc-step" id="ps-6"><span class="proc-icon">📄</span> Generating your custom guide…</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN: RESULTS
+══════════════════════════════════════ -->
+<div class="screen" id="s-results" style="max-width:960px">
+  <div class="results-header" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+    <h2 style="font-family:var(--fd);font-size:1.4rem;font-weight:700">Your Architecture Guide is Ready</h2>
+    <button class="btn-pdf" onclick="window.print()">⬇ Download as PDF</button>
+  </div>
+  <div class="arch-doc" id="arch-doc">
+    <!-- Populated by buildResults() -->
+  </div>
+</div>
+
+</div><!-- /#app -->
+
+<script>
+/* ── Nav JS ── */
+function toggleDropdown(e) {
+  e.stopPropagation();
+  const dd = e.currentTarget.closest('.nav-dropdown');
+  const isOpen = dd.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  if (!isOpen) dd.classList.add('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+});
+const burger = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('nav-mobile');
+if (burger && mobileMenu) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+function closeMobile() {
+  if (burger) burger.classList.remove('open');
+  if (mobileMenu) mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleMobileSub(subId, arrowId) {
+  const sub = document.getElementById(subId);
+  const arrow = document.getElementById(arrowId);
+  if (!sub) return;
+  const open = sub.classList.toggle('open');
+  if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+/* ── State ── */
+const state = {
+  spVersion:'', librarySize:'', updateFreq:'', authSetup:'',
+  docTypes:[], docSensitivity:'', avgDocLength:'', userAccess:'',
+  backendLang:'', vectorDb:'', syncRequirement:'', azureServices:[]
+};
+
+/* ── Navigation ── */
+const STEPS = { 's-welcome':0, 's-env':1, 's-docs':2, 's-tech':3, 's-processing':null, 's-results':4 };
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  updateProgress(STEPS[id]);
+  window.scrollTo(0,0);
+}
+function updateProgress(step) {
+  if (step === null) return;
+  [1,2,3,4].forEach(i => {
+    const el = document.getElementById('wp-'+i);
+    if (!el) return;
+    el.classList.remove('active','done');
+    if (i < step) el.classList.add('done');
+    else if (i === step) el.classList.add('active');
+  });
+  const prog = document.getElementById('wizard-progress');
+  if (prog) prog.style.display = (step === 4) ? 'none' : 'flex';
+}
+
+/* ── Selection helpers ── */
+function pick(field, val, el) {
+  state[field] = val;
+  el.closest('.radio-grid').querySelectorAll('.r-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  validate();
+}
+function toggle(field, val, el) {
+  const arr = state[field];
+  const idx = arr.indexOf(val);
+  if (idx === -1) arr.push(val); else arr.splice(idx,1);
+  el.classList.toggle('selected', arr.includes(val));
+  validate();
+}
+
+/* ── Validation ── */
+function validate() {
+  const env = state.spVersion && state.librarySize && state.updateFreq && state.authSetup;
+  const docs = state.docTypes.length > 0 && state.docSensitivity && state.avgDocLength && state.userAccess;
+  const tech = state.backendLang && state.vectorDb && state.syncRequirement;
+  const envBtn = document.getElementById('btn-env-next');
+  const docsBtn = document.getElementById('btn-docs-next');
+  const techBtn = document.getElementById('btn-tech-next');
+  if (envBtn) envBtn.disabled = !env;
+  if (docsBtn) docsBtn.disabled = !docs;
+  if (techBtn) techBtn.disabled = !tech;
+}
+
+/* ── Processing ── */
+function runProcessing() {
+  goTo('s-processing');
+  document.getElementById('wizard-progress').style.display = 'none';
+  const steps = ['ps-1','ps-2','ps-3','ps-4','ps-5','ps-6'];
+  steps.forEach((id, i) => {
+    setTimeout(() => {
+      if (i > 0) document.getElementById(steps[i-1]).classList.replace('active','done');
+      document.getElementById(id).classList.add('active');
+    }, i * 420);
+  });
+  setTimeout(() => {
+    buildResults();
+    goTo('s-results');
+  }, steps.length * 420 + 400);
+}
+
+/* ── Result helpers ── */
+function vdbName(v) {
+  return {azuresearch:'Azure AI Search',pinecone:'Pinecone',weaviate:'Weaviate',chroma:'Chroma',pgvector:'pgvector (PostgreSQL)',none:'Azure AI Search'}[v] || v;
+}
+function langName(l) { return {python:'Python',node:'Node.js / TypeScript',dotnet:'C# / .NET'}[l] || l; }
+function chunkConfig() {
+  return {short:{size:512,overlap:50},medium:{size:1024,overlap:100},long:{size:1500,overlap:150},vlong:{size:2000,overlap:200}}[state.avgDocLength] || {size:1024,overlap:100};
+}
+function syncLabel() {
+  return {nightly:'Nightly batch reindex',nearreal:'Near real-time (delta sync, ~1hr lag)',realtime:'Real-time (webhook-driven)'}[state.syncRequirement];
+}
+function libSizeLabel() {
+  return {small:'Small (<1,000 documents)',medium:'Medium (1,000–10,000 documents)',large:'Large (10,000–100,000 documents)',enterprise:'Enterprise (100,000+ documents)'}[state.librarySize];
+}
+function docTypeLabels() {
+  const map = {docx:'Word documents',xlsx:'Excel spreadsheets',pdf:'PDFs',pptx:'PowerPoint files',pages:'SharePoint pages',onenote:'OneNote notebooks',images:'Scanned/image documents',other:'Other file types'};
+  return state.docTypes.map(d => map[d] || d).join(', ');
+}
+function needsOCR() { return state.docTypes.includes('images') || state.docTypes.includes('pdf'); }
+function needsPermTrimming() { return state.userAccess === 'rolebased' || state.userAccess === 'pertrimming'; }
+
+/* ── Build Results ── */
+function buildResults() {
+  const s = state;
+  const chunk = chunkConfig();
+  const vdb = vdbName(s.vectorDb || 'azuresearch');
+  const lang = langName(s.backendLang);
+  const today = new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'});
+
+  const embedLib = s.azureServices.includes('aoai')
+    ? '<code class="ic">text-embedding-3-small</code> via Azure OpenAI'
+    : '<code class="ic">sentence-transformers/all-MiniLM-L6-v2</code> (self-hosted)';
+
+  const orchestration = s.backendLang === 'dotnet' ? 'Semantic Kernel' : s.backendLang === 'node' ? 'LlamaIndex.TS or LangChain.js' : 'LangChain (Python)';
+
+  const authSnippet = s.authSetup === 'entraid' || s.authSetup === 'hybrid' ? `<span class="code-comment"># Service Principal auth — least-privilege, auditable</span>
+from azure.identity import ClientSecretCredential
+from msgraph import GraphServiceClient
+import os
+
+credential = ClientSecretCredential(
+    tenant_id=os.environ["AZURE_TENANT_ID"],
+    client_id=os.environ["AZURE_CLIENT_ID"],
+    client_secret=os.environ["AZURE_CLIENT_SECRET"]
+)
+graph_client = GraphServiceClient(credentials=credential)` : `<span class="code-comment"># App-only auth using SharePoint PnP</span>
+from office365.runtime.auth.client_credential import ClientCredential
+from office365.sharepoint.client_context import ClientContext
+
+ctx = ClientContext(SITE_URL).with_credentials(
+    ClientCredential(CLIENT_ID, CLIENT_SECRET)
+)`;
+
+  const parserSnippet = s.docTypes.includes('docx') ? `<span class="code-comment"># Word documents (.docx)</span>
+from docx import Document
+def parse_docx(file_bytes: bytes) -> str:
+    doc = Document(io.BytesIO(file_bytes))
+    return "\\n\\n".join(p.text for p in doc.paragraphs if p.text.strip())` :
+  s.docTypes.includes('pdf') ? `<span class="code-comment"># PDFs — use Azure Document Intelligence for scanned docs</span>
+from azure.ai.formrecognizer import DocumentAnalysisClient
+def parse_pdf(file_bytes: bytes) -> str:
+    client = DocumentAnalysisClient(endpoint, credential)
+    poller = client.begin_analyze_document("prebuilt-read", file_bytes)
+    return poller.result().content` :
+  `<span class="code-comment"># SharePoint pages via Graph API</span>
+async def get_page_content(site_id: str, page_id: str) -> str:
+    page = await graph_client.sites.by_site_id(site_id)\\
+        .pages.by_base_site_page_id(page_id).get()
+    return page.web_parts[0].inner_html if page.web_parts else ""`;
+
+  const vdbSnippet = (s.vectorDb === 'azuresearch' || s.vectorDb === 'none') ? `<span class="code-comment"># Azure AI Search — hybrid vector + keyword search</span>
+from azure.search.documents import SearchClient
+from azure.core.credentials import AzureKeyCredential
+
+search_client = SearchClient(
+    endpoint=os.environ["AZURE_SEARCH_ENDPOINT"],
+    index_name="sharepoint-rag-index",
+    credential=AzureKeyCredential(os.environ["AZURE_SEARCH_KEY"])
+)
+
+def index_chunk(chunk: str, metadata: dict, embedding: list):
+    search_client.upload_documents([{
+        "id": metadata["id"],
+        "content": chunk,
+        "source": metadata["source"],
+        "siteId": metadata["siteId"],
+        "modified": metadata["modified"],
+        "contentVector": embedding
+    }])` : s.vectorDb === 'pinecone' ? `<span class="code-comment"># Pinecone vector indexing</span>
+from pinecone import Pinecone
+
+pc = Pinecone(api_key=os.environ["PINECONE_API_KEY"])
+index = pc.Index("sharepoint-rag")
+
+def index_chunk(chunk: str, metadata: dict, embedding: list):
+    index.upsert(vectors=[{
+        "id": metadata["id"],
+        "values": embedding,
+        "metadata": {"text": chunk, "source": metadata["source"]}
+    }])` : `<span class="code-comment"># Chroma vector indexing</span>
+import chromadb
+client = chromadb.PersistentClient(path="./chroma_db")
+collection = client.get_or_create_collection("sharepoint-rag")
+
+def index_chunk(chunk: str, metadata: dict, embedding: list):
+    collection.add(
+        ids=[metadata["id"]],
+        embeddings=[embedding],
+        documents=[chunk],
+        metadatas=[{"source": metadata["source"]}]
+    )`;
+
+  const syncSnippet = s.syncRequirement === 'realtime' ? `<span class="code-comment"># SharePoint webhook → Azure Event Grid → real-time ingest</span>
+<span class="code-comment"># Register webhook on SharePoint list</span>
+POST https://graph.microsoft.com/v1.0/sites/{siteId}/lists/{listId}/subscriptions
+{
+  "changeType": "updated,deleted",
+  "notificationUrl": "https://your-function.azurewebsites.net/api/sp-webhook",
+  "resource": "sites/{siteId}/lists/{listId}",
+  "expirationDateTime": "2026-12-01T00:00:00Z"
+}` : s.syncRequirement === 'nearreal' ? `<span class="code-comment"># Delta sync — only re-index changed documents (runs hourly)</span>
+async def delta_sync(delta_token: str = None) -> str:
+    url = f"/sites/{SITE_ID}/drives/{LIBRARY_ID}/items/delta"
+    if delta_token:
+        url += f"?$deltatoken={delta_token}"
+
+    response = await graph_client.get(url)
+    changed = response.get("value", [])
+    new_token = response.get("@odata.deltaLink","").split("deltatoken=")[-1]
+
+    for item in changed:
+        if item.get("deleted"):
+            await remove_from_index(item["id"])
+        else:
+            await reindex_document(item)
+
+    save_delta_token(new_token)
+    return new_token` : `<span class="code-comment"># Nightly batch reindex via Azure Functions timer trigger</span>
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.timer_trigger(schedule="0 2 * * *",  # 2am nightly
+                   arg_name="timer", run_on_startup=False)
+async def nightly_reindex(timer: func.TimerRequest):
+    docs = await get_all_sharepoint_documents()
+    for doc in docs:
+        await reindex_document(doc)
+    logging.info(f"Reindexed {len(docs)} documents")`;
+
+  const permSection = needsPermTrimming() ? `
+  <div class="doc-section">
+    <h2><span class="sec-num">6</span> Permission Trimming</h2>
+    <p>Your configuration requires that Claude only surfaces documents each user has permission to access in SharePoint. Without trimming, all users would see results from all indexed documents regardless of their SharePoint permissions.</p>
+    ${s.userAccess === 'rolebased' ? `
+    <h3>Group-based filtering (Role-based)</h3>
+    <p>Index each document with an <span class="ic">allowedGroups</span> metadata field at ingest time, populated from SharePoint permissions via Graph API. Filter search queries by the requesting user's groups.</p>
+    <div class="code-block"><span class="code-comment"># At ingest time — store allowed groups per document</span>
+async def get_item_permissions(site_id: str, item_id: str) -> list:
+    perms = await graph_client.sites.by_site_id(site_id)\\
+        .drive.items.by_drive_item_id(item_id).permissions.get()
+    return [p.granted_to.group.id for p in perms.value if p.granted_to and p.granted_to.group]
+
+<span class="code-comment"># At query time — filter by user's group memberships</span>
+user_groups = await get_user_groups(user_id)  <span class="code-comment"># via Graph API /memberOf</span>
+group_filter = " or ".join([f"allowedGroups/any(g: g eq '{gid}')" for gid in user_groups])
+results = search_client.search(query, filter=group_filter, top=5)</div>` : `
+    <h3>On-behalf-of token (Per-user permission trimming)</h3>
+    <p>Use the user's delegated access token to query SharePoint directly. Microsoft Graph API enforces permissions at retrieval time — the most accurate approach but requires a full OAuth flow per user.</p>
+    <div class="code-block"><span class="code-comment"># Exchange user's access token for SharePoint-scoped token</span>
+from msal import ConfidentialClientApplication
+
+def get_user_graph_client(user_access_token: str):
+    <span class="code-comment"># On-behalf-of flow — Graph enforces SP permissions</span>
+    app = ConfidentialClientApplication(CLIENT_ID, CLIENT_SECRET)
+    result = app.acquire_token_on_behalf_of(
+        user_assertion=user_access_token,
+        scopes=["https://graph.microsoft.com/Sites.Read.All"]
+    )
+    user_credential = AccessTokenCredential(result["access_token"])
+    return GraphServiceClient(credentials=user_credential)</div>`}
+  </div>` : '';
+
+  const costRows = {
+    small:  ['~$0.50','~$0 (free tier)','~$10–30/mo','~$15/mo','~$25–50/mo'],
+    medium: ['~$5','~$25–70/mo','~$30–100/mo','~$30/mo','~$90–200/mo'],
+    large:  ['~$50','~$100–300/mo','~$100–400/mo','~$60/mo','~$310–810/mo'],
+    enterprise:['~$500','$300–1,000/mo','Custom','$100+/mo','Custom pricing']
+  };
+  const costLabels = ['Small (<1K docs)','Medium (1K–10K)','Large (10K–100K)','Enterprise (100K+)'];
+  const costKeys = ['small','medium','large','enterprise'];
+  const costTableRows = costKeys.map(k => {
+    const isMe = k === s.librarySize;
+    return `<tr${isMe?' class="highlight-row"':''}><td>${costLabels[costKeys.indexOf(k)]}${isMe?' ← you':''}</td><td>${costRows[k][0]}</td><td>${costRows[k][1]}</td><td>${costRows[k][2]}</td><td>${costRows[k][3]}</td><td><strong>${costRows[k][4]}</strong></td></tr>`;
+  }).join('');
+
+  document.getElementById('arch-doc').innerHTML = `
+  <div class="doc-header">
+    <div class="doc-meta">SharePoint + Claude RAG Architecture &nbsp;·&nbsp; <span>Custom Setup Guide</span></div>
+    <h1>Your SharePoint RAG Architecture</h1>
+    <div class="doc-meta" style="margin-top:6px">Generated: ${today} &nbsp;·&nbsp; Prepared by Fynaptix &nbsp;·&nbsp; <span>${libSizeLabel()}</span></div>
+    <div class="doc-accent"></div>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">1</span> Architecture Overview</h2>
+    <p>This architecture connects your <strong>${s.spVersion === 'spo' ? 'SharePoint Online' : 'SharePoint Server'}</strong> document libraries to Claude using a Retrieval-Augmented Generation (RAG) pipeline. Rather than sending all your documents to Claude directly, the system indexes your content into <strong>${vdb}</strong>, then retrieves only the most relevant passages at query time — keeping costs manageable and responses grounded in your actual content.</p>
+    <p>Given your <strong>${libSizeLabel()}</strong>, <strong>${{public:'all-public/internal',mixed:'mixed-sensitivity',mostly:'mostly-confidential',classified:'strictly-classified'}[s.docSensitivity]}</strong> document profile, and <strong>${lang}</strong> stack, this guide recommends ${s.spVersion === 'spo' ? 'a Microsoft Graph API ingestion pipeline' : 'a SharePoint REST API ingestion pipeline'} with <strong>${vdb}</strong> for vector storage, <strong>${orchestration}</strong> for orchestration, and a <strong>${syncLabel()}</strong> sync strategy.</p>
+    <div class="arch-diagram">
+      <div class="arch-layer layer-user">
+        <div class="arch-layer-title">User Interface</div>
+        <div class="arch-layer-detail">Teams Bot / Web Application / API Client</div>
+      </div>
+      <div class="arch-arrow">▼ Query</div>
+      <div class="arch-layer layer-orch">
+        <div class="arch-layer-title">Orchestration Layer</div>
+        <div class="arch-layer-detail">${orchestration} &nbsp;·&nbsp; Query embedding &nbsp;·&nbsp; Context assembly &nbsp;·&nbsp; Response formatting</div>
+      </div>
+      <div class="arch-arrow">▼ Retrieve &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▼ Generate</div>
+      <div class="arch-layer layer-split">
+        <div class="arch-sub">
+          <div class="arch-layer-title">Vector Database</div>
+          <div class="arch-layer-detail"><strong>${vdb}</strong><br/>Embeddings index &nbsp;·&nbsp; Semantic search &nbsp;·&nbsp; Metadata filtering</div>
+        </div>
+        <div class="arch-sub">
+          <div class="arch-layer-title">Claude API</div>
+          <div class="arch-layer-detail"><code>claude-sonnet-4-6</code><br/>Retrieved context + user query → grounded answer</div>
+        </div>
+      </div>
+      <div class="arch-arrow">▼ Index (${syncLabel()})</div>
+      <div class="arch-layer layer-ingest">
+        <div class="arch-layer-title">Ingestion Pipeline</div>
+        <div class="arch-layer-detail">Graph API fetch &nbsp;→&nbsp; Document parser &nbsp;→&nbsp; Chunker (${chunk.size} tokens / ${chunk.overlap} overlap) &nbsp;→&nbsp; Embeddings &nbsp;→&nbsp; Vector store</div>
+      </div>
+      <div class="arch-arrow">▼ Source</div>
+      <div class="arch-layer layer-sp">
+        <div class="arch-layer-title">SharePoint${s.spVersion === 'spo' ? ' Online' : ' Server'}</div>
+        <div class="arch-layer-detail">Document libraries &nbsp;·&nbsp; ${docTypeLabels()}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">2</span> Component Recommendations</h2>
+    <table class="doc-table">
+      <thead><tr><th>Component</th><th>Recommended</th><th>Why</th><th>Alternative</th></tr></thead>
+      <tbody>
+        <tr><td>Graph API Client</td><td><code class="ic">${s.backendLang === 'node' ? '@microsoft/microsoft-graph-client' : s.backendLang === 'dotnet' ? 'Microsoft.Graph SDK' : 'msgraph-sdk-python'}</code></td><td>Native M365 auth, handles pagination & throttling</td><td>SharePoint REST API (more limited)</td></tr>
+        <tr><td>Document Parser</td><td>${needsOCR() ? '<code class="ic">Azure Document Intelligence</code> (PDFs/scans)' : s.docTypes.includes('docx') ? '<code class="ic">python-docx</code> / <code class="ic">mammoth</code>' : '<code class="ic">BeautifulSoup</code> (HTML pages)'}</td><td>${needsOCR() ? 'Handles scanned docs and complex layouts' : 'Lightweight, reliable for structured Office docs'}</td><td>${needsOCR() ? 'PyPDF2, pdfplumber (text-only PDFs)' : 'Apache Tika, Unstructured.io'}</td></tr>
+        <tr><td>Text Chunker</td><td><code class="ic">RecursiveCharacterTextSplitter</code></td><td>Respects semantic boundaries, configurable overlap. Use ${chunk.size} / ${chunk.overlap} for your doc lengths.</td><td>LlamaIndex SentenceSplitter</td></tr>
+        <tr><td>Embeddings</td><td>${embedLib}</td><td>${s.azureServices.includes('aoai') ? 'Already in your Azure stack, Purview-compatible' : 'Free, strong multilingual support, runs locally'}</td><td>Cohere Embed, Voyage AI</td></tr>
+        <tr><td>Vector Store</td><td><code class="ic">${vdb}</code></td><td>${s.vectorDb === 'azuresearch' || s.vectorDb === 'none' ? 'Native M365 integration, hybrid search, Purview ACL support' : s.vectorDb === 'pinecone' ? 'Fully managed, no infrastructure overhead, fast at scale' : s.vectorDb === 'pgvector' ? 'Reuses existing Postgres infrastructure, no extra cost' : 'Open source, active community, flexible schema'}</td><td>${s.vectorDb === 'azuresearch' || s.vectorDb === 'none' ? 'Pinecone (fully managed SaaS)' : 'Azure AI Search (deepest M365 integration)'}</td></tr>
+        <tr><td>Orchestration</td><td><code class="ic">${orchestration}</code></td><td>Proven RAG patterns, active ecosystem, good Claude support</td><td>${s.backendLang === 'dotnet' ? 'LangChain.NET' : 'LlamaIndex, custom orchestration'}</td></tr>
+        <tr><td>LLM</td><td><code class="ic">claude-sonnet-4-6</code> via Anthropic API</td><td>Best balance of quality and cost for RAG. 200K context window handles long retrieved passages.</td><td><code class="ic">claude-opus-4-7</code> for complex reasoning tasks</td></tr>
+        <tr><td>Auth</td><td>Entra ID Service Principal + certificate</td><td>Least-privilege, auditable, no password rotation risk</td><td>Client secret (rotate every 90 days minimum)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">3</span> Ingestion Pipeline</h2>
+    <h3>Step 1 — Authentication</h3>
+    <div class="code-block">${authSnippet}</div>
+    <h3>Step 2 — Fetch documents from SharePoint</h3>
+    <div class="code-block"><span class="code-comment"># Retrieve all documents from a document library</span>
+async def get_library_documents(site_id: str, library_id: str) -> list:
+    drives = await graph_client.sites.by_site_id(site_id)\\
+        .drives.by_drive_id(library_id).items.get()
+    return [item for item in drives.value
+            if item.file and not item.deleted]
+
+<span class="code-comment"># Download file content</span>
+async def download_file(site_id: str, item_id: str) -> bytes:
+    content = await graph_client.sites.by_site_id(site_id)\\
+        .drive.items.by_drive_item_id(item_id).content.get()
+    return content</div>
+    <h3>Step 3 — Parse documents</h3>
+    <div class="code-block">${parserSnippet}</div>
+    <h3>Step 4 — Chunk text</h3>
+    <div class="code-block"><span class="code-comment"># Tuned for your document length profile (${({short:'short',medium:'medium',long:'long',vlong:'very long'}[s.avgDocLength])} documents)</span>
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=${chunk.size},
+    chunk_overlap=${chunk.overlap},
+    separators=["\\n\\n", "\\n", ". ", " ", ""]
+)
+
+def chunk_document(text: str, metadata: dict) -> list[dict]:
+    chunks = splitter.split_text(text)
+    return [{
+        "id": f"{metadata['id']}-chunk-{i}",
+        "content": chunk,
+        "source": metadata["name"],
+        "siteId": metadata["siteId"],
+        "modified": metadata["lastModifiedDateTime"],
+        "chunkIndex": i
+    } for i, chunk in enumerate(chunks)]</div>
+    <h3>Step 5 — Embed and index</h3>
+    <div class="code-block">${vdbSnippet}</div>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">4</span> Query & Retrieval</h2>
+    <p>At query time, the user's question is embedded and matched against the vector index. The top-5 most relevant chunks are assembled into context and passed to Claude alongside the question.</p>
+    <div class="code-block">import anthropic
+
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+async def query_knowledge_base(user_question: str) -> dict:
+    <span class="code-comment"># 1. Embed the question</span>
+    question_embedding = embed_text(user_question)
+
+    <span class="code-comment"># 2. Retrieve top-5 relevant chunks</span>
+    results = search_vector_db(question_embedding, top_k=5)
+
+    <span class="code-comment"># 3. Assemble context from retrieved chunks</span>
+    context_parts = []
+    sources = []
+    for result in results:
+        context_parts.append(f"[Source: {result['source']}]\\n{result['content']}")
+        sources.append(result["source"])
+
+    context = "\\n\\n---\\n\\n".join(context_parts)
+
+    <span class="code-comment"># 4. Query Claude with grounded context</span>
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1024,
+        system="""You are a helpful assistant with access to the organisation's
+knowledge base. Answer questions using ONLY the provided context.
+If the answer is not in the context, say so clearly.
+Always cite the source document by name.""",
+        messages=[{
+            "role": "user",
+            "content": f"Context:\\n{context}\\n\\nQuestion: {user_question}"
+        }]
+    )
+
+    return {
+        "answer": response.content[0].text,
+        "sources": list(dict.fromkeys(sources))  <span class="code-comment"># deduplicated, ordered</span>
+    }</div>
+  </div>
+
+  ${permSection}
+
+  <div class="doc-section">
+    <h2><span class="sec-num">${needsPermTrimming() ? 7 : 5}</span> Sync Strategy</h2>
+    <p>Your selected sync strategy is <strong>${syncLabel()}</strong>. ${s.syncRequirement === 'realtime' ? 'SharePoint webhooks notify your ingestion service immediately when documents change.' : s.syncRequirement === 'nearreal' ? "The Graph API's delta endpoint returns only documents changed since the last run — efficient for large libraries." : 'A nightly Azure Functions timer triggers a full reindex, appropriate for your static/low-frequency document library.'}</p>
+    <div class="code-block">${syncSnippet}</div>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">${needsPermTrimming() ? 8 : 6}</span> Environment Variables</h2>
+    <table class="doc-table">
+      <thead><tr><th>Variable</th><th>Purpose</th><th>Where to find it</th></tr></thead>
+      <tbody>
+        <tr><td><code class="ic">AZURE_TENANT_ID</code></td><td>Entra ID tenant identifier</td><td>Azure Portal → Entra ID → Overview</td></tr>
+        <tr><td><code class="ic">AZURE_CLIENT_ID</code></td><td>Service principal App ID</td><td>Azure Portal → App registrations</td></tr>
+        <tr><td><code class="ic">AZURE_CLIENT_SECRET</code></td><td>Service principal secret</td><td>App registrations → Certificates & secrets</td></tr>
+        <tr><td><code class="ic">SHAREPOINT_SITE_ID</code></td><td>Your SharePoint site</td><td>Graph Explorer: <code class="ic">GET /v1.0/sites?search=yoursite</code></td></tr>
+        <tr><td><code class="ic">SHAREPOINT_LIBRARY_ID</code></td><td>Document library drive ID</td><td>Graph Explorer: <code class="ic">GET /v1.0/sites/{id}/drives</code></td></tr>
+        <tr><td><code class="ic">ANTHROPIC_API_KEY</code></td><td>Claude API access</td><td>console.anthropic.com</td></tr>
+        ${s.azureServices.includes('aoai') ? '<tr><td><code class="ic">AZURE_OPENAI_ENDPOINT</code></td><td>Embeddings endpoint</td><td>Azure Portal → Azure OpenAI resource</td></tr><tr><td><code class="ic">AZURE_OPENAI_KEY</code></td><td>Embeddings API key</td><td>Azure Portal → Azure OpenAI → Keys</td></tr>' : ''}
+        ${(s.vectorDb === 'azuresearch' || s.vectorDb === 'none') ? '<tr><td><code class="ic">AZURE_SEARCH_ENDPOINT</code></td><td>Azure AI Search endpoint</td><td>Azure Portal → AI Search resource</td></tr><tr><td><code class="ic">AZURE_SEARCH_KEY</code></td><td>Search admin key</td><td>Azure Portal → AI Search → Keys</td></tr>' : ''}
+        ${s.vectorDb === 'pinecone' ? '<tr><td><code class="ic">PINECONE_API_KEY</code></td><td>Pinecone API key</td><td>app.pinecone.io → API Keys</td></tr><tr><td><code class="ic">PINECONE_INDEX_NAME</code></td><td>Index name</td><td>Your Pinecone project</td></tr>' : ''}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">${needsPermTrimming() ? 9 : 7}</span> Estimated Monthly Costs</h2>
+    <table class="doc-table">
+      <thead><tr><th>Library size</th><th>Embeddings (one-time)</th><th>Vector DB</th><th>Claude API</th><th>Compute</th><th>Total est.</th></tr></thead>
+      <tbody>${costTableRows}</tbody>
+    </table>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px">Costs vary with query volume. <code class="ic">claude-haiku-4-5</code> reduces API costs ~10× for high-volume scenarios at some quality trade-off. One-time embedding cost is paid at initial indexing only.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2><span class="sec-num">${needsPermTrimming() ? 10 : 8}</span> Implementation Roadmap</h2>
+    <div class="phase-grid">
+      <div class="phase-card phase-1">
+        <h4><span class="phase-badge">Phase 1</span> Proof of Concept — Weeks 1–2</h4>
+        <ul>
+          <li>Register Entra ID service principal with SharePoint read permissions</li>
+          <li>Ingest one pilot document library (50–100 documents)</li>
+          <li>Stand up ${vdb} and validate basic semantic search</li>
+          <li>Build minimal query endpoint and test grounded Claude responses</li>
+          <li>Validate chunk quality — review retrieved passages for accuracy</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-2">
+        <h4><span class="phase-badge">Phase 2</span> Pilot — Weeks 3–6</h4>
+        <ul>
+          <li>Ingest all document libraries in scope (${docTypeLabels()})</li>
+          ${needsPermTrimming() ? '<li>Implement permission trimming — group-based or per-user token flow</li>' : ''}
+          <li>Build user-facing interface (Teams bot or web app)</li>
+          <li>Tune chunk size and retrieval top-K for your query patterns</li>
+          <li>Set up ${syncLabel()} sync pipeline</li>
+          <li>Pilot with 10–20 internal users, gather feedback</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-3">
+        <h4><span class="phase-badge">Phase 3</span> Production — Weeks 7–12</h4>
+        <ul>
+          <li>Harden authentication and rotate credentials to Key Vault</li>
+          <li>Add Application Insights monitoring and alerting</li>
+          <li>Set up CI/CD pipeline for index updates and app deployments</li>
+          <li>User training and broader rollout</li>
+          <li>Establish quarterly relevance review — audit retrieval quality and retune</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="fyn-callout">
+    <p><strong>Fynaptix builds production-grade SharePoint + Claude RAG systems</strong> for enterprise organisations — from architecture design through to go-live. We handle the Graph API integration, vector indexing, permission trimming, and Claude prompt engineering so your team can focus on the business outcomes.</p>
+    <p><a href="/#contact">Start with a free scoping call →</a></p>
+  </div>
+  `;
+}
+</script>
+</body>
+</html>
