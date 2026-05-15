@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Claude for Enterprise — Fynaptix</title>
+<meta name="description" content="End-to-end Claude architecture, deployment, and governance for enterprise organisations. From Claude API integration and agentic workflows to MCP servers and AI governance frameworks."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+:root{
+  --bg:#05070f;--bg2:#080d1a;--bg3:#0d1526;
+  --gs:#ff5f1f;--gm:#c025e8;--ge:#2ed0f5;
+  --ent:#c025e8;--ent2:#2ed0f5;
+  --text:#e8edf8;--muted:#8892a4;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.08);
+  --card:rgba(255,255,255,0.04);
+  --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;
+  --radius:16px;--radius-sm:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 40% at 80% 10%,rgba(192,37,232,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 15% 80%,rgba(46,208,245,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 40%,rgba(255,95,31,0.03) 0%,transparent 50%);}
+#app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
+
+/* ── Nav ── */
+nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(192,37,232,.5))}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:9px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-weight:700!important}
+.nav-dropdown{position:relative}
+.nav-dropdown-btn{background:none;border:none;cursor:pointer;font-family:var(--fd);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,237,248,.75);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-dropdown-btn:hover{color:#fff}
+.nav-dropdown-arrow{font-size:10px;transition:transform .2s}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg)}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%);width:300px;background:rgba(8,13,26,.97);backdrop-filter:blur(24px);border:1px solid var(--border2);border-radius:14px;padding:8px;z-index:600;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:rgba(8,13,26,.97);border-left:1px solid var(--border2);border-top:1px solid var(--border2);rotate:45deg}
+.nav-dropdown.open .nav-dropdown-menu{display:block;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--text);transition:background .15s}
+.nav-dropdown-item:hover{background:rgba(255,255,255,.06)}
+.ndi-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center}
+.ndi-text{display:flex;flex-direction:column;gap:2px}
+.ndi-text strong{font-family:var(--fd);font-size:13px;font-weight:600}
+.ndi-text span{font-size:11px;color:var(--muted)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;inset:72px 0 0;background:rgba(5,7,15,0.98);backdrop-filter:blur(24px);z-index:490;overflow-y:auto;padding:24px}
+.nav-mobile.open{display:block}
+.nav-mobile ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.nav-mobile ul li a{display:block;padding:12px 16px;border-radius:8px;color:var(--text);text-decoration:none;font-family:var(--fd);font-size:14px}
+.nav-mobile ul li a:hover{background:var(--card)}
+@media(max-width:960px){.nav-links{display:none}.nav-burger{display:flex}nav#main-nav{padding:0 20px}}
+
+/* ── Page layout ── */
+.section{padding:64px 48px}
+@media(max-width:768px){.section{padding:44px 20px}}
+.section-inner{max-width:1100px;margin:0 auto}
+.se{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ent);margin-bottom:10px}
+.sh2{font-family:var(--fd);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;margin-bottom:12px}
+.slead{color:var(--muted);font-size:1rem;line-height:1.7;max-width:640px;margin-bottom:40px}
+.g-text{background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0 48px}
+@media(max-width:768px){.section-divider{margin:0 20px}}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--fd);font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:12px 0;transition:color .2s}
+.back-link:hover{color:var(--text)}
+
+/* Hero */
+.ent-hero{padding:72px 48px 56px;max-width:1100px;margin:0 auto}
+@media(max-width:768px){.ent-hero{padding:44px 20px 36px}}
+.ent-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ent);background:rgba(192,37,232,0.1);border:1px solid rgba(192,37,232,0.25);padding:5px 14px;border-radius:20px;margin-bottom:20px}
+.ent-hero h1{font-family:var(--fd);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:16px;max-width:780px}
+.ent-hero p{font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:28px;max-width:620px}
+.ent-hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-ent{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:8px;background:linear-gradient(135deg,var(--gm),var(--ge));color:#fff;font-family:var(--fd);font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s}
+.btn-ent:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ghost-ent{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;background:rgba(192,37,232,0.08);border:1px solid rgba(192,37,232,0.3);color:var(--ent);font-family:var(--fd);font-size:15px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-ghost-ent:hover{background:rgba(192,37,232,0.15)}
+
+/* Audience tags */
+.audience-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.aud-tag{font-family:var(--fd);font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid var(--border2);color:var(--muted)}
+
+/* Service areas */
+.service-areas{display:flex;flex-direction:column;gap:32px}
+.svc-area{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden}
+.svc-area-hdr{padding:24px 28px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:14px}
+.svc-area-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.svc-area-icon-1{background:rgba(255,95,31,0.12);border:1px solid rgba(255,95,31,0.2)}
+.svc-area-icon-2{background:rgba(192,37,232,0.12);border:1px solid rgba(192,37,232,0.2)}
+.svc-area-icon-3{background:rgba(46,208,245,0.12);border:1px solid rgba(46,208,245,0.2)}
+.svc-area-icon-4{background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.2)}
+.svc-area-hdr h3{font-family:var(--fd);font-size:1.1rem;font-weight:700}
+.svc-area-hdr p{font-size:13px;color:var(--muted);margin-top:3px}
+.svc-area-body{padding:20px 28px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:600px){.svc-area-body{grid-template-columns:1fr}}
+.svc-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(232,237,248,0.85);line-height:1.5}
+.svc-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.dot-orange{background:var(--gs)}
+.dot-purple{background:var(--gm)}
+.dot-cyan{background:var(--ge)}
+.dot-green{background:#22c55e}
+
+/* Engagement models */
+.engagement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:768px){.engagement-grid{grid-template-columns:1fr}}
+.eng-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:28px;transition:border-color .2s}
+.eng-card:hover{border-color:rgba(192,37,232,0.4)}
+.eng-card h3{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.eng-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.eng-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(192,37,232,0.12);color:var(--ent)}
+
+/* Why grid */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+.why-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:20px}
+.why-card h4{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:6px}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* CTA */
+.cta-section{padding:80px 48px;text-align:center}
+@media(max-width:768px){.cta-section{padding:56px 20px}}
+.cta-box{max-width:660px;margin:0 auto;background:rgba(192,37,232,0.05);border:1px solid rgba(192,37,232,0.25);border-radius:24px;padding:52px 40px}
+@media(max-width:600px){.cta-box{padding:36px 24px}}
+.cta-box h2{font-family:var(--fd);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin-bottom:14px}
+.cta-box p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:28px}
+</style>
+</head>
+<body>
+<div id="app">
+
+<nav id="main-nav">
+  <a class="nav-logo" href="/"><img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li class="nav-dropdown" id="nd-free">
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+      </div>
+    </li>
+    <li><a class="nav-cta" href="#contact">Book a Strategy Session</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <ul>
+    <li><a href="/" onclick="closeMobile()">Home</a></li>
+    <li><a href="/#how" onclick="closeMobile()">How It Works</a></li>
+    <li><a href="/#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeMobile()">Book a Strategy Session</a></li>
+  </ul>
+</div>
+
+<!-- ── Hero ── -->
+<div class="ent-hero">
+  <div style="margin-bottom:12px"><a href="/" class="back-link">← Back to Home</a></div>
+  <div class="ent-eyebrow">◈ Claude for Enterprise</div>
+  <h1>Build the AI Layer <span class="g-text">Your Business Will Run On</span></h1>
+  <p>Strategic deployment, governance, and architecture for organisations serious about Claude at scale. From API integration and agentic workflows to MCP servers, Entra ID integration, and AI governance frameworks.</p>
+  <div class="ent-hero-btns">
+    <a href="#contact" class="btn-ent">Book a Strategy Session →</a>
+    <a href="#services" class="btn-ghost-ent">See All Services</a>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── Who it's for ── -->
+<div class="section">
+  <div class="section-inner">
+    <div class="se">Who This Is For</div>
+    <h2 class="sh2">Built for Organisations Deploying AI at Scale</h2>
+    <p class="slead">We work with mid-size to large enterprises across financial services, professional services, legal, and technology — particularly those with Microsoft 365 infrastructure and compliance requirements.</p>
+    <div class="audience-tags">
+      <span class="aud-tag">100+ staff</span>
+      <span class="aud-tag">Financial Services</span>
+      <span class="aud-tag">Professional Services</span>
+      <span class="aud-tag">Legal & Compliance</span>
+      <span class="aud-tag">Technology Companies</span>
+      <span class="aud-tag">Microsoft 365 environments</span>
+      <span class="aud-tag">Regulated industries</span>
+      <span class="aud-tag">AI-first strategy</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── Service Areas ── -->
+<div class="section" id="services">
+  <div class="section-inner">
+    <div class="se">Service Areas</div>
+    <h2 class="sh2">Four Practice Areas. Everything You Need.</h2>
+    <p class="slead">We design and build the complete Claude AI layer — from the API through to governance, agentic workflows, and organisation-wide enablement.</p>
+    <div class="service-areas">
+
+      <div class="svc-area">
+        <div class="svc-area-hdr">
+          <div class="svc-area-icon svc-area-icon-1">⚡</div>
+          <div>
+            <h3>Claude Architecture & Deployment</h3>
+            <p>Production AI systems built for enterprise scale</p>
+          </div>
+        </div>
+        <div class="svc-area-body">
+          <div class="svc-item"><span class="svc-dot dot-orange"></span>Claude API integration design and implementation</div>
+          <div class="svc-item"><span class="svc-dot dot-orange"></span>Model selection and configuration (Opus, Sonnet, Haiku) for cost/performance balance</div>
+          <div class="svc-item"><span class="svc-dot dot-orange"></span>Prompt engineering, system prompt design, and guardrail configuration</div>
+          <div class="svc-item"><span class="svc-dot dot-orange"></span>Claude Cowork enterprise deployment and rollout planning</div>
+          <div class="svc-item"><span class="svc-dot dot-orange"></span>MCP (Model Context Protocol) server development for custom integrations</div>
+          <div class="svc-item"><span class="svc-dot dot-orange"></span>RAG architecture and enterprise knowledge base systems</div>
+        </div>
+      </div>
+
+      <div class="svc-area">
+        <div class="svc-area-hdr">
+          <div class="svc-area-icon svc-area-icon-2">🔐</div>
+          <div>
+            <h3>Identity, Security & Governance</h3>
+            <p>Enterprise-grade security and compliance infrastructure</p>
+          </div>
+        </div>
+        <div class="svc-area-body">
+          <div class="svc-item"><span class="svc-dot dot-purple"></span>Entra ID / Azure AD integration with Claude Platform</div>
+          <div class="svc-item"><span class="svc-dot dot-purple"></span>Conditional Access policy design for AI tooling</div>
+          <div class="svc-item"><span class="svc-dot dot-purple"></span>Data handling, retention, and privacy configuration</div>
+          <div class="svc-item"><span class="svc-dot dot-purple"></span>AI usage policy and governance framework development</div>
+          <div class="svc-item"><span class="svc-dot dot-purple"></span>Compliance alignment — SOC2, ISO27001, industry-specific requirements</div>
+          <div class="svc-item"><span class="svc-dot dot-purple"></span>Microsoft Purview data classification for AI access control</div>
+        </div>
+      </div>
+
+      <div class="svc-area">
+        <div class="svc-area-hdr">
+          <div class="svc-area-icon svc-area-icon-3">🤖</div>
+          <div>
+            <h3>Agentic Workflow Design</h3>
+            <p>Multi-agent systems that handle complex enterprise processes</p>
+          </div>
+        </div>
+        <div class="svc-area-body">
+          <div class="svc-item"><span class="svc-dot dot-cyan"></span>Multi-agent architecture design and build</div>
+          <div class="svc-item"><span class="svc-dot dot-cyan"></span>Custom automation workflows using Claude API + MCP</div>
+          <div class="svc-item"><span class="svc-dot dot-cyan"></span>Integration with ServiceNow, Salesforce, SAP, M365, Intune</div>
+          <div class="svc-item"><span class="svc-dot dot-cyan"></span>n8n and workflow orchestration setup</div>
+          <div class="svc-item"><span class="svc-dot dot-cyan"></span>Agentic payment and commerce infrastructure (x402, EIP-8004)</div>
+          <div class="svc-item"><span class="svc-dot dot-cyan"></span>Observability, cost controls, and failure handling</div>
+        </div>
+      </div>
+
+      <div class="svc-area">
+        <div class="svc-area-hdr">
+          <div class="svc-area-icon svc-area-icon-4">📋</div>
+          <div>
+            <h3>AI Governance & Strategy</h3>
+            <p>Frameworks, training, and ongoing advisory</p>
+          </div>
+        </div>
+        <div class="svc-area-body">
+          <div class="svc-item"><span class="svc-dot dot-green"></span>AI Fluency training for leadership and technical teams</div>
+          <div class="svc-item"><span class="svc-dot dot-green"></span>AI readiness assessment and deployment roadmap</div>
+          <div class="svc-item"><span class="svc-dot dot-green"></span>Policy, risk, and compliance frameworks</div>
+          <div class="svc-item"><span class="svc-dot dot-green"></span>Ongoing advisory and architecture review retainer</div>
+          <div class="svc-item"><span class="svc-dot dot-green"></span>AIOps monitoring — observability, alerting, cost dashboards</div>
+          <div class="svc-item"><span class="svc-dot dot-green"></span>Board and executive AI strategy presentations</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── Engagement Models ── -->
+<div class="section">
+  <div class="section-inner">
+    <div class="se">How We Engage</div>
+    <h2 class="sh2">Three Ways to Work with Fynaptix</h2>
+    <p class="slead">Whether you need a defined implementation, ongoing guidance, or an embedded architect — we have an engagement model that fits.</p>
+    <div class="engagement-grid">
+      <div class="eng-card">
+        <h3><span class="eng-tag">Project</span></h3>
+        <h3 style="margin-top:10px">Project-Based</h3>
+        <p>Scoped implementation with defined deliverables, timeline, and fixed price. Right for discrete builds — a new RAG system, MCP server, CoWork rollout, or governance framework.</p>
+      </div>
+      <div class="eng-card">
+        <h3><span class="eng-tag">Retainer</span></h3>
+        <h3 style="margin-top:10px">Ongoing Retainer</h3>
+        <p>Monthly architecture guidance, governance review, and technical support. Keeps your AI systems current, compliant, and continuously improving as your organisation evolves.</p>
+      </div>
+      <div class="eng-card">
+        <h3><span class="eng-tag">Advisory</span></h3>
+        <h3 style="margin-top:10px">Fractional AI Architect</h3>
+        <p>A Fynaptix architect embedded part-time in your team. Attends your planning meetings, reviews builds, advises on vendor decisions, and acts as your internal AI centre of excellence.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── Why Fynaptix ── -->
+<div class="section">
+  <div class="section-inner">
+    <div class="se">Why Fynaptix</div>
+    <h2 class="sh2">Practitioners, Not Generalists</h2>
+    <p class="slead">Every engagement is delivered by people who build and run production Claude systems — not consultants who read the same AI playbook everyone else is using.</p>
+    <div class="why-grid">
+      <div class="why-card"><h4>🧠 Deep Claude Expertise</h4><p>Anthropic AI Fluency certified. Hands-on experience with the full Claude stack — API, CoWork, MCP, agentic systems, and RAG architectures.</p></div>
+      <div class="why-card"><h4>🏗️ 20+ Years Microsoft Stack</h4><p>Deep experience with Intune, Entra ID, M365, and Azure. Critical for enterprises where security and identity are non-negotiable.</p></div>
+      <div class="why-card"><h4>⚡ We Build, Not Just Advise</h4><p>Every engagement ends with working infrastructure — not slide decks. Production-grade systems, deployed and documented.</p></div>
+      <div class="why-card"><h4>🛡 Governance from Day One</h4><p>Safety, compliance, and responsible deployment built into every system — not bolted on afterwards. Your CIO and legal team will thank you.</p></div>
+      <div class="why-card"><h4>🔮 First-Mover Agentic Commerce</h4><p>First-mover expertise in x402 and EIP-8004 agentic payment infrastructure — for organisations building next-generation AI commerce systems.</p></div>
+      <div class="why-card"><h4>🌍 Financial Services Experience</h4><p>Proven track record working within the compliance, audit, and risk requirements of regulated financial services environments.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── Free Tools callout ── -->
+<div class="section">
+  <div class="section-inner" style="text-align:center">
+    <div class="se">Before You Engage</div>
+    <h2 class="sh2" style="max-width:560px;margin:0 auto 12px">Start With a Free Assessment</h2>
+    <p class="slead" style="margin:0 auto 32px">Not sure where you stand? Use our free tools to assess your readiness, calculate ROI, and generate governance documents — before committing to an engagement.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <a href="assessment.html" class="btn-ghost-ent">🎯 AI Readiness Assessment</a>
+      <a href="roi-calculator.html" class="btn-ghost-ent">📊 ROI Calculator</a>
+      <a href="m365-audit.html" class="btn-ghost-ent">🔍 M365 AI Audit</a>
+      <a href="governance.html" class="btn-ghost-ent">🏛️ Governance Pack</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── CTA ── -->
+<div class="cta-section" id="contact">
+  <div class="cta-box">
+    <div style="font-size:2rem;margin-bottom:16px">◈</div>
+    <h2>Ready to Build Your AI Layer?</h2>
+    <p>Book a 45-minute strategy session with a Fynaptix architect. We'll assess your current Claude maturity, identify your highest-value use cases, and outline a concrete path to production deployment.</p>
+    <a href="mailto:hello@fynaptix.com?subject=Claude for Enterprise — Strategy Session" class="btn-ent" style="display:inline-flex;margin:0 auto">Book a Strategy Session →</a>
+    <p style="margin-top:16px;font-size:13px;color:var(--muted)">Or email us at <a href="mailto:hello@fynaptix.com" style="color:var(--ent)">hello@fynaptix.com</a></p>
+  </div>
+</div>
+
+</div>
+
+<script>
+function toggleDropdown(e) {
+  e.stopPropagation();
+  const dd = e.currentTarget.closest('.nav-dropdown');
+  const isOpen = dd.classList.contains('open');
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  if (!isOpen) dd.classList.add('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+});
+const burger = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('nav-mobile');
+if (burger && mobileMenu) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+function closeMobile() {
+  if (burger) burger.classList.remove('open');
+  if (mobileMenu) mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

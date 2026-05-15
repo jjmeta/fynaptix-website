@@ -162,13 +162,13 @@
 </div>
 <!-- RIGHT: Text content -->
 <div class="hero-text">
-<div class="hero-eyebrow"><div class="ey-dot"></div>Enterprise Claude AI · Architecture &amp; Deployment</div>
+<div class="hero-eyebrow"><div class="ey-dot"></div>Claude AI Implementation · Small Business &amp; Enterprise</div>
 <h1 class="hero-h1">
-<span>Build the AI Layer</span>
-<span class="gt">Your Business</span>
-<span>Will Run On</span>
+<span>Claude.</span>
+<span class="gt">Configured.</span>
+<span>Running.</span>
 </h1>
-<p class="hero-sub">Enterprise Claude AI Architecture &amp; Deployment — design, build, and operationalise production-grade Claude systems across your organisation.</p>
+<p class="hero-sub">Whether you're a small business getting started with Claude or an enterprise deploying AI at scale — we configure, implement, and run Claude for your organisation.</p>
 <div class="hero-btns">
 <a class="btn-primary" href="/assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download="Fynaptix_Claude_Enterprise_Deployment_Guide.pdf">Free Deployment Guide ↓</a>
 <a class="btn-ghost" href="#how">See How It Works</a>
@@ -178,11 +178,107 @@
 </div>
 <!-- ─── STRIP ─── -->
 <div class="strip">
-<div class="si"><div class="sn">Claude</div><div class="sl2">Enterprise Architecture</div></div>
-<div class="si"><div class="sn">MCP</div><div class="sl2">Enterprise Integration</div></div>
-<div class="si"><div class="sn">CoWork</div><div class="sl2">Enterprise Deployment</div></div>
-<div class="si"><div class="sn">AI</div><div class="sl2">Governance &amp; Safety</div></div>
+<div class="si"><div class="sn">Small Business</div><div class="sl2">Claude in Days, Not Months</div></div>
+<div class="si"><div class="sn">Enterprise</div><div class="sl2">Architecture &amp; Governance</div></div>
+<div class="si"><div class="sn">MCP</div><div class="sl2">Custom Integrations</div></div>
+<div class="si"><div class="sn">CoWork</div><div class="sl2">Full Deployment</div></div>
 </div>
+<!-- ─── OFFERINGS ─── -->
+<style>
+.offerings-section{padding:80px 48px;max-width:1200px;margin:0 auto}
+@media(max-width:768px){.offerings-section{padding:48px 20px}}
+.offerings-intro{text-align:center;margin-bottom:52px}
+.offerings-intro h2{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:12px}
+.offerings-intro p{color:#8892a4;font-size:1.05rem;max-width:560px;margin:0 auto;line-height:1.7}
+.offerings-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:768px){.offerings-grid{grid-template-columns:1fr}}
+.off-card{border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:24px;cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.off-card:hover{transform:translateY(-4px)}
+.off-card-smb{background:rgba(255,95,31,0.06);border:1px solid rgba(255,95,31,0.25)}
+.off-card-smb:hover{box-shadow:0 20px 60px rgba(255,95,31,0.15);border-color:rgba(255,95,31,0.5)}
+.off-card-ent{background:rgba(192,37,232,0.06);border:1px solid rgba(192,37,232,0.25)}
+.off-card-ent:hover{box-shadow:0 20px 60px rgba(192,37,232,0.15);border-color:rgba(192,37,232,0.5)}
+.off-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;width:fit-content}
+.off-badge-smb{background:rgba(255,95,31,0.15);color:#ff5f1f}
+.off-badge-ent{background:rgba(192,37,232,0.15);color:#c025e8}
+.off-badge-new{background:rgba(46,208,245,0.15);color:#2ed0f5;margin-left:8px}
+.off-card h3{font-family:'Outfit',sans-serif;font-size:1.55rem;font-weight:800;line-height:1.2;color:#e8edf8;margin:0}
+.off-card .off-sub{color:#8892a4;font-size:0.95rem;line-height:1.6;margin:0}
+.off-features{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.off-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(232,237,248,0.85);line-height:1.5}
+.off-feat-dot-smb{width:6px;height:6px;border-radius:50%;background:#ff5f1f;flex-shrink:0;margin-top:6px}
+.off-feat-dot-ent{width:6px;height:6px;border-radius:50%;background:#c025e8;flex-shrink:0;margin-top:6px}
+.off-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.off-tool{font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;background:rgba(255,95,31,0.1);color:#ff7a3d;border:1px solid rgba(255,95,31,0.2)}
+.off-tool-ent{background:rgba(192,37,232,0.1);color:#d060f0;border:1px solid rgba(192,37,232,0.2)}
+.off-cta{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:8px;margin-top:auto;transition:opacity .2s,transform .2s;width:fit-content}
+.off-cta-smb{background:linear-gradient(135deg,#ff5f1f,#e8420a);color:#fff}
+.off-cta-ent{background:linear-gradient(135deg,#c025e8,#2ed0f5);color:#fff}
+.off-cta:hover{opacity:.9;transform:translateY(-1px)}
+.off-divider{width:100%;height:1px;background:rgba(255,255,255,0.07);margin:4px 0}
+</style>
+<section class="offerings-section">
+  <div class="offerings-intro">
+    <div class="se">Our Services</div>
+    <h2>Which best describes you?</h2>
+    <p>We work with businesses of every size — from SMBs getting Claude running in their existing tools, to enterprises building production AI infrastructure at scale.</p>
+  </div>
+  <div class="offerings-grid">
+    <!-- Small Business Card -->
+    <a href="small-business.html" class="off-card off-card-smb">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <span class="off-badge off-badge-smb">Small Business</span>
+          <span class="off-badge off-badge-new">✦ New</span>
+        </div>
+        <h3>AI That Works Inside the Tools You Already Use</h3>
+        <p class="off-sub" style="margin-top:10px">Get Claude running inside your business in days — not months. No technical team required.</p>
+      </div>
+      <div class="off-divider"></div>
+      <ul class="off-features">
+        <li><span class="off-feat-dot-smb"></span>Works with QuickBooks, HubSpot, PayPal, Canva, DocuSign &amp; more</li>
+        <li><span class="off-feat-dot-smb"></span>Pre-built workflow templates for finance, sales, ops &amp; marketing</li>
+        <li><span class="off-feat-dot-smb"></span>Live in 1–2 weeks with full staff training included</li>
+        <li><span class="off-feat-dot-smb"></span>You stay in control — Claude asks before it acts</li>
+      </ul>
+      <div class="off-tools">
+        <span class="off-tool">QuickBooks</span>
+        <span class="off-tool">HubSpot</span>
+        <span class="off-tool">PayPal</span>
+        <span class="off-tool">Canva</span>
+        <span class="off-tool">DocuSign</span>
+        <span class="off-tool">Google Workspace</span>
+      </div>
+      <span class="off-cta off-cta-smb">See How It Works →</span>
+    </a>
+    <!-- Enterprise Card -->
+    <a href="enterprise.html" class="off-card off-card-ent">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <span class="off-badge off-badge-ent">Enterprise</span>
+        </div>
+        <h3>Build the AI Layer Your Business Will Run On</h3>
+        <p class="off-sub" style="margin-top:10px">Strategic deployment, governance, and architecture for organisations deploying Claude at scale.</p>
+      </div>
+      <div class="off-divider"></div>
+      <ul class="off-features">
+        <li><span class="off-feat-dot-ent"></span>Claude API integration, agentic workflows &amp; MCP server development</li>
+        <li><span class="off-feat-dot-ent"></span>Entra ID / SSO, data governance &amp; compliance frameworks</li>
+        <li><span class="off-feat-dot-ent"></span>CoWork enterprise deployment with RBAC &amp; spend management</li>
+        <li><span class="off-feat-dot-ent"></span>Ongoing architecture advisory &amp; AI governance retainer</li>
+      </ul>
+      <div class="off-tools">
+        <span class="off-tool-ent off-tool">Claude API</span>
+        <span class="off-tool-ent off-tool">MCP Servers</span>
+        <span class="off-tool-ent off-tool">Azure / M365</span>
+        <span class="off-tool-ent off-tool">Entra ID</span>
+        <span class="off-tool-ent off-tool">RAG Systems</span>
+        <span class="off-tool-ent off-tool">Agentic Workflows</span>
+      </div>
+      <span class="off-cta off-cta-ent">Explore Enterprise Services →</span>
+    </a>
+  </div>
+</section>
 <!-- ─── PROBLEM / SOLUTION ─── -->
 <section class="reveal" id="why">
 <div class="se">The Challenge</div>
