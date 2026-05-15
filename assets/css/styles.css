@@ -90,6 +90,11 @@ nav.scrolled{background:rgba(5,7,15,.93);backdrop-filter:blur(24px);border-botto
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,.4)}
 .btn-ghost{padding:14px 32px;border-radius:7px;border:1px solid var(--border2);color:var(--text);font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:transparent;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
 .btn-ghost:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.hero-btns-secondary{margin-top:0}
+.btn-smb{padding:14px 28px;border-radius:7px;background:linear-gradient(135deg,#ff5f1f,#e8420a);color:#fff;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-smb:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(255,95,31,.4)}
+.btn-ent{padding:14px 28px;border-radius:7px;background:linear-gradient(135deg,#c025e8,#2ed0f5);color:#fff;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-ent:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,.4)}
 
 /* ─── STRIP ─── */
 .strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 48px;background:var(--bg2);display:flex;align-items:center;justify-content:center}
