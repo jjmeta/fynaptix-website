@@ -26,7 +26,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     radial-gradient(ellipse 40% 30% at 50% 40%,rgba(192,37,232,0.04) 0%,transparent 50%);}
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ── Nav ── */
+/*  Nav  */
 nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
 .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
 .nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(255,95,31,.4))}
@@ -66,7 +66,7 @@ nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;displa
 .mob-tools-sub li a{font-size:13px;padding:8px 16px;color:var(--muted)}
 @media(max-width:960px){.nav-links{display:none}.nav-burger{display:flex}nav#main-nav{padding:0 20px}}
 
-/* ── Page styles ── */
+/*  Page styles  */
 .page-wrap{max-width:1100px;margin:0 auto;padding:0 48px}
 @media(max-width:768px){.page-wrap{padding:0 20px}}
 
@@ -157,11 +157,11 @@ nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;displa
     <li><a href="/#how">How It Works</a></li>
     <li><a href="/#services">Services</a></li>
     <li class="nav-dropdown" id="nd-free">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
-        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
-        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
       </div>
     </li>
     <li><a class="nav-cta" href="#contact">Book a Call</a></li>
@@ -177,11 +177,11 @@ nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;displa
   </ul>
 </div>
 
-<!-- ── Hero ── -->
+<!--  Hero  -->
 <div class="smb-hero">
   <div>
     <div style="margin-bottom:12px"><a href="/" class="back-link">← Back to Home</a></div>
-    <div class="smb-eyebrow">✦ Claude for Small Business</div>
+    <div class="smb-eyebrow"> Claude for Small Business</div>
     <h1>AI That Works Inside the Tools You <span class="orange">Already Use</span></h1>
     <p>Get Claude running inside your business in days — not months. Connected directly to QuickBooks, HubSpot, PayPal, Canva, DocuSign and more. No technical team required.</p>
     <div class="smb-hero-btns">
@@ -190,18 +190,18 @@ nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;displa
     </div>
   </div>
   <div class="smb-hero-visual">
-    <div class="tool-chip"><div class="tool-chip-icon">💰</div><div><div class="tool-chip-name">QuickBooks</div><div class="tool-chip-desc">Finance & payroll</div></div></div>
-    <div class="tool-chip"><div class="tool-chip-icon">📧</div><div><div class="tool-chip-name">HubSpot</div><div class="tool-chip-desc">Sales & CRM</div></div></div>
-    <div class="tool-chip"><div class="tool-chip-icon">💳</div><div><div class="tool-chip-name">PayPal</div><div class="tool-chip-desc">Payments & invoicing</div></div></div>
-    <div class="tool-chip"><div class="tool-chip-icon">🎨</div><div><div class="tool-chip-name">Canva</div><div class="tool-chip-desc">Marketing & content</div></div></div>
-    <div class="tool-chip"><div class="tool-chip-icon">✍️</div><div><div class="tool-chip-name">DocuSign</div><div class="tool-chip-desc">Contracts & signing</div></div></div>
-    <div class="tool-chip"><div class="tool-chip-icon">📁</div><div><div class="tool-chip-name">Google Workspace</div><div class="tool-chip-desc">Docs, Sheets & Drive</div></div></div>
+    <div class="tool-chip"><div class="tool-chip-icon"></div><div><div class="tool-chip-name">QuickBooks</div><div class="tool-chip-desc">Finance & payroll</div></div></div>
+    <div class="tool-chip"><div class="tool-chip-icon"></div><div><div class="tool-chip-name">HubSpot</div><div class="tool-chip-desc">Sales & CRM</div></div></div>
+    <div class="tool-chip"><div class="tool-chip-icon"></div><div><div class="tool-chip-name">PayPal</div><div class="tool-chip-desc">Payments & invoicing</div></div></div>
+    <div class="tool-chip"><div class="tool-chip-icon"></div><div><div class="tool-chip-name">Canva</div><div class="tool-chip-desc">Marketing & content</div></div></div>
+    <div class="tool-chip"><div class="tool-chip-icon"></div><div><div class="tool-chip-name">DocuSign</div><div class="tool-chip-desc">Contracts & signing</div></div></div>
+    <div class="tool-chip"><div class="tool-chip-icon"></div><div><div class="tool-chip-name">Google Workspace</div><div class="tool-chip-desc">Docs, Sheets & Drive</div></div></div>
   </div>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- ── How It Works ── -->
+<!--  How It Works  -->
 <div class="section" id="how-it-works">
   <div class="section-inner">
     <div class="se">The Process</div>
@@ -229,26 +229,26 @@ nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;displa
 
 <div class="section-divider"></div>
 
-<!-- ── Workflows ── -->
+<!--  Workflows  -->
 <div class="section">
   <div class="section-inner">
     <div class="se">What Claude Handles</div>
     <h2 class="sh2">Workflows We Configure for You</h2>
     <p class="slead">These are real examples of tasks Claude takes off your plate — across finance, sales, marketing, and admin.</p>
     <div class="workflows-grid">
-      <div class="wf-card"><div class="wf-icon">💰</div><div><h4>Monthly Financial Close</h4><p>Claude pulls your QuickBooks data, flags anomalies, and drafts your monthly close summary for review.</p></div></div>
-      <div class="wf-card"><div class="wf-icon">📬</div><div><h4>Automated Invoice Chasing</h4><p>Claude monitors PayPal for overdue invoices and drafts follow-up messages on your behalf — you approve before they send.</p></div></div>
-      <div class="wf-card"><div class="wf-icon">🎯</div><div><h4>Lead Qualification & CRM Updates</h4><p>New HubSpot leads are automatically triaged, scored, and CRM records updated — no manual data entry.</p></div></div>
-      <div class="wf-card"><div class="wf-icon">📢</div><div><h4>Marketing Campaign Creation</h4><p>Claude drafts social content, email campaigns, and Canva briefs based on your product and calendar.</p></div></div>
-      <div class="wf-card"><div class="wf-icon">✍️</div><div><h4>Contract Preparation & Routing</h4><p>Claude prepares contract drafts and routes them through DocuSign with the right signatories and deadlines.</p></div></div>
-      <div class="wf-card"><div class="wf-icon">📊</div><div><h4>Cash Position & Sales Dashboards</h4><p>Weekly summaries of your cash position and pipeline health — drafted by Claude, ready for your inbox Monday morning.</p></div></div>
+      <div class="wf-card"><div class="wf-icon"></div><div><h4>Monthly Financial Close</h4><p>Claude pulls your QuickBooks data, flags anomalies, and drafts your monthly close summary for review.</p></div></div>
+      <div class="wf-card"><div class="wf-icon"></div><div><h4>Automated Invoice Chasing</h4><p>Claude monitors PayPal for overdue invoices and drafts follow-up messages on your behalf — you approve before they send.</p></div></div>
+      <div class="wf-card"><div class="wf-icon"></div><div><h4>Lead Qualification & CRM Updates</h4><p>New HubSpot leads are automatically triaged, scored, and CRM records updated — no manual data entry.</p></div></div>
+      <div class="wf-card"><div class="wf-icon"></div><div><h4>Marketing Campaign Creation</h4><p>Claude drafts social content, email campaigns, and Canva briefs based on your product and calendar.</p></div></div>
+      <div class="wf-card"><div class="wf-icon"></div><div><h4>Contract Preparation & Routing</h4><p>Claude prepares contract drafts and routes them through DocuSign with the right signatories and deadlines.</p></div></div>
+      <div class="wf-card"><div class="wf-icon"></div><div><h4>Cash Position & Sales Dashboards</h4><p>Weekly summaries of your cash position and pipeline health — drafted by Claude, ready for your inbox Monday morning.</p></div></div>
     </div>
   </div>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- ── What's Included ── -->
+<!--  What's Included  -->
 <div class="section">
   <div class="section-inner">
     <div class="se">What You Get</div>
@@ -267,27 +267,27 @@ nav#main-nav{position:sticky;top:0;z-index:500;padding:0 48px;height:72px;displa
 
 <div class="section-divider"></div>
 
-<!-- ── Why Fynaptix ── -->
+<!--  Why Fynaptix  -->
 <div class="section">
   <div class="section-inner">
     <div class="se">Why Fynaptix</div>
     <h2 class="sh2">The People Behind Your Setup</h2>
     <p class="slead">We're Claude specialists — not generalist IT consultants picking up a new product.</p>
     <div class="why-grid">
-      <div class="why-card"><h4>🏅 Anthropic AI Fluency Certified</h4><p>We're trained and certified by Anthropic — the company that makes Claude. You're getting the real thing, not a workaround.</p></div>
-      <div class="why-card"><h4>⚡ Live in 1–2 Weeks</h4><p>Most small business clients are fully live within two weeks of first contact. We move fast because your time matters.</p></div>
-      <div class="why-card"><h4>💸 No Hidden Licence Costs</h4><p>We don't mark up Claude licences. You pay Anthropic directly for your Claude for Small Business subscription. We charge for setup and configuration only.</p></div>
-      <div class="why-card"><h4>🛡 You Stay in Control</h4><p>Claude suggests, drafts, and prepares — but nothing sends, posts, or pays without your approval. You're always in the loop.</p></div>
+      <div class="why-card"><h4> Anthropic AI Fluency Certified</h4><p>We're trained and certified by Anthropic — the company that makes Claude. You're getting the real thing, not a workaround.</p></div>
+      <div class="why-card"><h4> Live in 1–2 Weeks</h4><p>Most small business clients are fully live within two weeks of first contact. We move fast because your time matters.</p></div>
+      <div class="why-card"><h4> No Hidden Licence Costs</h4><p>We don't mark up Claude licences. You pay Anthropic directly for your Claude for Small Business subscription. We charge for setup and configuration only.</p></div>
+      <div class="why-card"><h4> You Stay in Control</h4><p>Claude suggests, drafts, and prepares — but nothing sends, posts, or pays without your approval. You're always in the loop.</p></div>
     </div>
   </div>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- ── CTA ── -->
+<!--  CTA  -->
 <div class="cta-section" id="contact">
   <div class="cta-box">
-    <div style="font-size:2rem;margin-bottom:16px">🚀</div>
+    <div style="font-size:2rem;margin-bottom:16px"></div>
     <h2>Ready to Get Started?</h2>
     <p>Book a free 30-minute discovery call. We'll walk through your current tools, identify your biggest time drains, and show you exactly what Claude can take off your plate — no commitment required.</p>
     <a href="mailto:hello@fynaptix.com?subject=Claude for Small Business — Discovery Call" class="btn-smb" style="display:inline-flex;margin:0 auto">Book a Free Discovery Call →</a>

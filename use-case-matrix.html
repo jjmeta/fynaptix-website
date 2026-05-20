@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-/* ── Brand variables ── */
+/*  Brand variables  */
 :root{
   --bg:#05070f;
   --bg2:#080d1a;
@@ -38,12 +38,12 @@
   --radius-sm:10px;
 }
 
-/* ── Reset & base ── */
+/*  Reset & base  */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
 body{display:flex;flex-direction:column;min-height:100vh}
 
-/* ── Background glow ── */
+/*  Background glow  */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
@@ -51,10 +51,10 @@ body::before{
     radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%);
 }
 
-/* ── Layout ── */
+/*  Layout  */
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ── Nav ── */
+/*  Nav  */
 .a-nav{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;height:72px;
@@ -79,7 +79,7 @@ body::before{
 .nav-rebuild:hover{background:rgba(46,208,245,0.14);border-color:rgba(46,208,245,0.5)}
 .nav-rebuild.visible{display:block}
 
-/* ── Progress bar ── */
+/*  Progress bar  */
 .progress-bar{
   display:flex;align-items:center;justify-content:center;gap:12px;
   padding:20px 48px;border-bottom:1px solid var(--border);
@@ -106,12 +106,12 @@ body::before{
 }
 .progress-divider{width:32px;height:1px;background:var(--border2)}
 
-/* ── Screens ── */
+/*  Screens  */
 .screen{display:none;opacity:0;transform:translateY(16px);transition:opacity .3s ease,transform .3s ease}
 .screen.active{display:block;opacity:1;transform:translateY(0)}
 .screen-content{max-width:1100px;margin:0 auto;padding:60px 48px}
 
-/* ── Welcome screen ── */
+/*  Welcome screen  */
 .welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .eyebrow{
   font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
@@ -146,7 +146,7 @@ body::before{
 .btn-secondary:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.07)}
 .free-tag{font-size:13px;color:var(--muted);margin-top:14px}
 
-/* ── CSS Matrix Preview ── */
+/*  CSS Matrix Preview  */
 .matrix-preview{
   position:relative;background:var(--bg2);border:1px solid var(--border2);
   border-radius:var(--radius);padding:24px;
@@ -182,7 +182,7 @@ body::before{
 }
 .matrix-caption{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
 
-/* ── Trust badges ── */
+/*  Trust badges  */
 .trust-badges{display:flex;flex-direction:column;gap:10px;margin-top:48px}
 .trust-badge{
   display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(232,237,248,0.65);
@@ -190,7 +190,7 @@ body::before{
   border-radius:50px;padding:10px 18px;
 }
 
-/* ── Form elements ── */
+/*  Form elements  */
 .form-section{margin-bottom:36px}
 .form-label{
   display:block;font-family:var(--fd);font-size:12px;font-weight:600;
@@ -206,7 +206,7 @@ body::before{
 select.form-input option{background:var(--bg3)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 
-/* ── Step headers ── */
+/*  Step headers  */
 .step-header{margin-bottom:40px}
 .step-h2{
   font-family:var(--fd);font-size:clamp(24px,3vw,36px);font-weight:800;
@@ -214,7 +214,7 @@ select.form-input option{background:var(--bg3)}
 }
 .step-sub{font-size:15px;color:rgba(232,237,248,0.65);line-height:1.6;max-width:600px}
 
-/* ── Department toggle cards ── */
+/*  Department toggle cards  */
 .dept-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .dept-card{
   display:flex;align-items:center;gap:12px;
@@ -236,7 +236,7 @@ select.form-input option{background:var(--bg3)}
   background:var(--gm);border-color:var(--gm);color:#fff;
 }
 
-/* ── Maturity radio ── */
+/*  Maturity radio  */
 .maturity-options{display:flex;flex-direction:column;gap:12px}
 .maturity-option{
   display:flex;align-items:flex-start;gap:14px;
@@ -260,7 +260,7 @@ select.form-input option{background:var(--bg3)}
 .maturity-title{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
 .maturity-desc{font-size:13px;color:var(--muted)}
 
-/* ── Use case cards (screen 2) ── */
+/*  Use case cards (screen 2)  */
 .dept-section{margin-bottom:36px}
 .dept-section-header{
   display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;
@@ -299,7 +299,7 @@ select.form-input option{background:var(--bg3)}
   background:rgba(255,255,255,0.05);border:1px solid var(--border2);color:var(--muted);
 }
 
-/* ── Sticky footer (screen 2) ── */
+/*  Sticky footer (screen 2)  */
 .sticky-footer{
   position:sticky;bottom:0;z-index:50;
   background:rgba(8,13,26,0.96);backdrop-filter:blur(16px);
@@ -313,7 +313,7 @@ select.form-input option{background:var(--bg3)}
 .footer-hint{font-size:12px;color:var(--muted);margin-top:2px}
 .footer-actions{display:flex;align-items:center;gap:12px}
 
-/* ── Scoring cards (screen 3) ── */
+/*  Scoring cards (screen 3)  */
 .score-cards{display:flex;flex-direction:column;gap:20px}
 .score-card{
   background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:24px;
@@ -344,7 +344,7 @@ select.form-input option{background:var(--bg3)}
 .slider-val{color:var(--text);font-size:14px}
 .slider-hints{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
 
-/* ── Range slider styling ── */
+/*  Range slider styling  */
 input[type=range]{
   -webkit-appearance:none;appearance:none;
   width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer;
@@ -364,7 +364,7 @@ input[type=range]::-moz-range-thumb{
   border:2px solid rgba(255,255,255,0.2);cursor:pointer;
 }
 
-/* ── Processing screen ── */
+/*  Processing screen  */
 .processing-center{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:60vh;gap:32px;
@@ -391,7 +391,7 @@ input[type=range]::-moz-range-thumb{
 .tick-item.done{color:var(--green)}
 .tick-icon{font-size:16px}
 
-/* ── Results header ── */
+/*  Results header  */
 .results-eyebrow{
   font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:rgba(192,37,232,0.8);margin-bottom:14px;
@@ -411,7 +411,7 @@ input[type=range]::-moz-range-thumb{
 .sb-amber{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);color:var(--amber)}
 .sb-muted{background:rgba(107,122,153,0.1);border:1px solid rgba(107,122,153,0.2);color:var(--muted)}
 
-/* ── Matrix chart card ── */
+/*  Matrix chart card  */
 .chart-card{
   background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
   padding:32px;margin-bottom:40px;
@@ -421,7 +421,7 @@ input[type=range]::-moz-range-thumb{
 }
 .chart-wrap{position:relative;width:100%;aspect-ratio:1.4;max-height:500px}
 
-/* ── Roadmap swimlanes ── */
+/*  Roadmap swimlanes  */
 .roadmap-section{margin-bottom:40px}
 .roadmap-title{
   font-family:var(--fd);font-size:20px;font-weight:700;color:var(--text);margin-bottom:24px;
@@ -460,7 +460,7 @@ input[type=range]::-moz-range-thumb{
 .rc-service::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ge);flex-shrink:0}
 .rc-timeline{font-size:12px;color:var(--muted)}
 
-/* ── CTA section ── */
+/*  CTA section  */
 .cta-section{
   background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);
   padding:40px;margin-bottom:40px;
@@ -503,7 +503,7 @@ input[type=range]::-moz-range-thumb{
 }
 .cta-link:hover{text-decoration:underline}
 
-/* ── Nav button row ── */
+/*  Nav button row  */
 .nav-btns{display:flex;align-items:center;gap:14px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
 .nav-btns .btn-primary{font-size:14px;padding:14px 28px}
 .btn-back{
@@ -513,12 +513,12 @@ input[type=range]::-moz-range-thumb{
 }
 .btn-back:hover{color:var(--text)}
 
-/* ── Error states ── */
+/*  Error states  */
 .field-error{font-size:12px;color:#f87171;margin-top:6px;display:none}
 .field-error.show{display:block}
 .form-input.error{border-color:rgba(248,113,113,0.5)}
 
-/* ── Responsive ── */
+/*  Responsive  */
 @media(max-width:768px){
   .a-nav{padding:0 20px}
   .screen-content{padding:32px 20px}
@@ -539,7 +539,7 @@ input[type=range]::-moz-range-thumb{
 </head>
 <body>
 <div id="app">
-  <!-- ── NAV ── -->
+  <!--  NAV  -->
   <nav class="a-nav">
     <a href="/" class="a-nav-logo">
       <img src="/assets/images/embedded-image-1.png" alt="Fynaptix"/>
@@ -548,7 +548,7 @@ input[type=range]::-moz-range-thumb{
     <button class="nav-rebuild" id="nav-rebuild" onclick="goToScreen(0)">← Rebuild Matrix</button>
   </nav>
 
-  <!-- ── PROGRESS BAR ── -->
+  <!--  PROGRESS BAR  -->
   <div class="progress-bar" id="progress-bar" style="display:none">
     <div class="progress-step" id="ps1">
       <div class="step-num" id="psn1">1</div>
@@ -566,9 +566,9 @@ input[type=range]::-moz-range-thumb{
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <!-- SCREEN 0 — Welcome                         -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <div class="screen active" id="screen-0">
     <div class="screen-content" style="max-width:1200px">
       <div class="welcome-grid">
@@ -583,9 +583,9 @@ input[type=range]::-moz-range-thumb{
           <p class="free-tag">Free. 3 minutes. No sign-up.</p>
 
           <div class="trust-badges">
-            <div class="trust-badge">📚 30+ use cases across 7 departments</div>
-            <div class="trust-badge">📍 Visual impact vs effort matrix</div>
-            <div class="trust-badge">🗺️ Downloadable build roadmap</div>
+            <div class="trust-badge"> 30+ use cases across 7 departments</div>
+            <div class="trust-badge"> Visual impact vs effort matrix</div>
+            <div class="trust-badge"> Downloadable build roadmap</div>
           </div>
         </div>
 
@@ -629,9 +629,9 @@ input[type=range]::-moz-range-thumb{
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <!-- SCREEN 1 — Organisation Profile            -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <div class="screen" id="screen-1">
     <div class="screen-content">
       <div class="step-header">
@@ -696,9 +696,9 @@ input[type=range]::-moz-range-thumb{
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <!-- SCREEN 2 — Select Use Cases                -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <div class="screen" id="screen-2">
     <div class="screen-content" style="padding-bottom:100px">
       <div class="step-header">
@@ -720,9 +720,9 @@ input[type=range]::-moz-range-thumb{
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <!-- SCREEN 3 — Score Use Cases                 -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <div class="screen" id="screen-3">
     <div class="screen-content">
       <div class="step-header">
@@ -738,28 +738,28 @@ input[type=range]::-moz-range-thumb{
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <!-- SCREEN 4 — Processing                      -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <div class="screen" id="screen-4">
     <div class="screen-content">
       <div class="processing-center">
         <div class="spin-ring"><div class="spin-inner"></div></div>
         <h2 class="processing-h2">Building your matrix…</h2>
         <div class="tick-list" id="tick-list">
-          <div class="tick-item" id="t0"><span class="tick-icon">✓</span> Calculating impact scores</div>
-          <div class="tick-item" id="t1"><span class="tick-icon">✓</span> Assessing implementation effort</div>
-          <div class="tick-item" id="t2"><span class="tick-icon">✓</span> Plotting your use cases</div>
-          <div class="tick-item" id="t3"><span class="tick-icon">✓</span> Identifying quick wins</div>
-          <div class="tick-item" id="t4"><span class="tick-icon">✓</span> Generating your roadmap</div>
+          <div class="tick-item" id="t0"><span class="tick-icon"></span> Calculating impact scores</div>
+          <div class="tick-item" id="t1"><span class="tick-icon"></span> Assessing implementation effort</div>
+          <div class="tick-item" id="t2"><span class="tick-icon"></span> Plotting your use cases</div>
+          <div class="tick-item" id="t3"><span class="tick-icon"></span> Identifying quick wins</div>
+          <div class="tick-item" id="t4"><span class="tick-icon"></span> Generating your roadmap</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <!-- SCREEN 5 — Results                         -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!--  -->
   <div class="screen" id="screen-5">
     <div class="screen-content" style="max-width:1100px">
       <!-- Header -->
@@ -803,8 +803,8 @@ input[type=range]::-moz-range-thumb{
             </div>
           </div>
           <div class="cta-right">
-            <button class="btn-download" onclick="downloadRoadmap()">⬇ Download My Roadmap</button>
-            <a class="btn-discuss" id="mailto-link" href="#">✉ Discuss My Use Cases</a>
+            <button class="btn-download" onclick="downloadRoadmap()"> Download My Roadmap</button>
+            <a class="btn-discuss" id="mailto-link" href="#"> Discuss My Use Cases</a>
             <a class="cta-link" href="/assessment.html">Take the Readiness Assessment →</a>
           </div>
         </div>
@@ -815,9 +815,9 @@ input[type=range]::-moz-range-thumb{
 </div><!-- /#app -->
 
 <script>
-/* ══════════════════════════════════════════════════════════════
+/* 
    STATE
-══════════════════════════════════════════════════════════════ */
+ */
 const state = {
   orgName: '',
   industry: '',
@@ -827,24 +827,24 @@ const state = {
   selectedCases: [] // array of {id, name, dept, impact, effort}
 };
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    STATIC DATA
-══════════════════════════════════════════════════════════════ */
+ */
 const DEPARTMENTS = [
-  { id:'ops',      icon:'🏢', name:'Operations & Admin' },
-  { id:'finance',  icon:'💰', name:'Finance & Accounting' },
-  { id:'hr',       icon:'👥', name:'HR & People' },
-  { id:'marketing',icon:'📣', name:'Marketing & Sales' },
-  { id:'legal',    icon:'⚖️', name:'Legal & Compliance' },
-  { id:'it',       icon:'💻', name:'IT & Development' },
-  { id:'cs',       icon:'🎧', name:'Customer Service' },
-  { id:'strategy', icon:'📊', name:'Strategy & Leadership' }
+  { id:'ops',      icon:'', name:'Operations & Admin' },
+  { id:'finance',  icon:'', name:'Finance & Accounting' },
+  { id:'hr',       icon:'', name:'HR & People' },
+  { id:'marketing',icon:'', name:'Marketing & Sales' },
+  { id:'legal',    icon:'', name:'Legal & Compliance' },
+  { id:'it',       icon:'', name:'IT & Development' },
+  { id:'cs',       icon:'', name:'Customer Service' },
+  { id:'strategy', icon:'', name:'Strategy & Leadership' }
 ];
 
 const MATURITY_OPTIONS = [
-  { id:'exploring', em:'🌱', title:'Exploring', desc:'No AI tools deployed yet, evaluating options' },
-  { id:'building',  em:'🔨', title:'Building',  desc:'Some AI tools in use, want to go further' },
-  { id:'scaling',   em:'🚀', title:'Scaling',   desc:'AI in production, expanding use cases' }
+  { id:'exploring', em:'', title:'Exploring', desc:'No AI tools deployed yet, evaluating options' },
+  { id:'building',  em:'', title:'Building',  desc:'Some AI tools in use, want to go further' },
+  { id:'scaling',   em:'', title:'Scaling',   desc:'AI in production, expanding use cases' }
 ];
 
 const USE_CASES = {
@@ -909,9 +909,9 @@ const USE_CASES = {
 let matrixChart = null;
 let currentScreen = 0;
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN NAVIGATION
-══════════════════════════════════════════════════════════════ */
+ */
 function goToScreen(n) {
   const screens = document.querySelectorAll('.screen');
   screens.forEach(s => { s.classList.remove('active'); s.style.display = 'none'; });
@@ -955,7 +955,7 @@ function updateProgress(n) {
     // Update done step numbers to checkmarks
     for (let i = 1; i <= 3; i++) {
       const num = document.getElementById('psn' + i);
-      if (i < n) num.textContent = '✓';
+      if (i < n) num.textContent = '';
       else num.textContent = i;
     }
   } else {
@@ -963,9 +963,9 @@ function updateProgress(n) {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN 1 — RENDER & VALIDATE
-══════════════════════════════════════════════════════════════ */
+ */
 function renderScreen1() {
   // Departments
   const deptGrid = document.getElementById('dept-grid');
@@ -974,7 +974,7 @@ function renderScreen1() {
          id="dept-${d.id}" onclick="toggleDept('${d.id}')">
       <span class="dept-icon">${d.icon}</span>
       <span class="dept-name">${d.name}</span>
-      <div class="dept-check">${state.departments.includes(d.id) ? '✓' : ''}</div>
+      <div class="dept-check">${state.departments.includes(d.id) ? '' : ''}</div>
     </div>
   `).join('');
 
@@ -1033,9 +1033,9 @@ function validateScreen1() {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN 2 — RENDER & VALIDATE
-══════════════════════════════════════════════════════════════ */
+ */
 function renderScreen2() {
   const container = document.getElementById('usecase-list');
 
@@ -1067,15 +1067,15 @@ function renderScreen2() {
             <div class="usecase-card ${selectedIds.includes(uc.id) ? 'selected' : ''}"
                  id="uc-card-${uc.id}" onclick="toggleUseCase('${deptId}','${uc.id}')">
               <div class="usecase-top">
-                <div class="uc-checkbox">${selectedIds.includes(uc.id) ? '✓' : ''}</div>
+                <div class="uc-checkbox">${selectedIds.includes(uc.id) ? '' : ''}</div>
                 <div>
                   <div class="uc-name">${uc.name}</div>
                   <div class="uc-desc">${uc.desc}</div>
                 </div>
               </div>
               <div class="uc-badges">
-                <span class="uc-badge">⚡ Impact: ${uc.impact}/5</span>
-                <span class="uc-badge">🔧 Effort: ${uc.effort}/5</span>
+                <span class="uc-badge"> Impact: ${uc.impact}/5</span>
+                <span class="uc-badge"> Effort: ${uc.effort}/5</span>
               </div>
             </div>
           `).join('')}
@@ -1101,7 +1101,7 @@ function toggleUseCase(deptId, ucId) {
   const isSelected = state.selectedCases.find(s => s.id === ucId);
   if (isSelected) {
     card.classList.add('selected');
-    card.querySelector('.uc-checkbox').textContent = '✓';
+    card.querySelector('.uc-checkbox').textContent = '';
   } else {
     card.classList.remove('selected');
     card.querySelector('.uc-checkbox').textContent = '';
@@ -1122,9 +1122,9 @@ function validateScreen2() {
   goToScreen(3);
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN 3 — RENDER
-══════════════════════════════════════════════════════════════ */
+ */
 function renderScreen3() {
   const container = document.getElementById('score-cards');
   container.innerHTML = state.selectedCases.map((uc, idx) => {
@@ -1191,9 +1191,9 @@ function updateScore(ucId, field, val) {
   badge.className = 'quadrant-badge ' + quadrantBadgeClass(q);
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN 4 — PROCESSING
-══════════════════════════════════════════════════════════════ */
+ */
 function runProcessing() {
   goToScreen(4);
   const ticks = ['t0','t1','t2','t3','t4'];
@@ -1210,9 +1210,9 @@ function runProcessing() {
   }, 2200);
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN 5 — RESULTS
-══════════════════════════════════════════════════════════════ */
+ */
 function buildResults() {
   const deptCount = [...new Set(state.selectedCases.map(u => u.dept))].length;
   const grouped = groupByQuadrant();
@@ -1427,21 +1427,21 @@ function buildRoadmap() {
   const lanes = [
     {
       key: 'quickwin',
-      emoji: '🚀',
+      emoji: '',
       phase: 'Phase 1: Quick Wins',
       sub: 'Start here. High impact, low effort. Deploy within weeks.',
       cls: 'swimlane-green'
     },
     {
       key: 'strategic',
-      emoji: '🎯',
+      emoji: '',
       phase: 'Phase 2: Strategic Bets',
       sub: 'Plan these now. High value but need proper architecture.',
       cls: 'swimlane-purple'
     },
     {
       key: 'fillin',
-      emoji: '📌',
+      emoji: '',
       phase: 'Phase 3: Fill-ins',
       sub: 'Nice to have. Tackle when capacity allows.',
       cls: 'swimlane-amber'
@@ -1467,8 +1467,8 @@ function buildRoadmap() {
         <div class="roadmap-card">
           <div class="rc-name">${uc.name}</div>
           <div class="rc-badges">
-            <span class="rc-score">⚡ ${uc.impact}/5</span>
-            <span class="rc-score">🔧 ${uc.effort}/5</span>
+            <span class="rc-score"> ${uc.impact}/5</span>
+            <span class="rc-score"> ${uc.effort}/5</span>
             <span class="dept-badge" style="font-size:10px">${dept ? dept.icon + ' ' + dept.name : ''}</span>
           </div>
           <div class="rc-service">${service}</div>
@@ -1505,9 +1505,9 @@ function buildMailto() {
   document.getElementById('mailto-link').href = `mailto:hello@fynaptix.com?subject=${subject}&body=${body}`;
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    DOWNLOAD ROADMAP
-══════════════════════════════════════════════════════════════ */
+ */
 function downloadRoadmap() {
   const grouped = groupByQuadrant();
   const deptCount = [...new Set(state.selectedCases.map(u => u.dept))].length;
@@ -1609,9 +1609,9 @@ ${phaseSections}
   setTimeout(() => win.print(), 500);
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    HELPERS
-══════════════════════════════════════════════════════════════ */
+ */
 function getQuadrant(impact, effort) {
   if (impact >= 3 && effort <= 3) return 'quickwin';
   if (impact >= 3 && effort > 3)  return 'strategic';
@@ -1629,9 +1629,9 @@ function groupByQuadrant() {
 
 function quadrantLabel(q) {
   return {
-    quickwin: '⚡ Quick Win',
-    strategic: '🎯 Strategic Bet',
-    fillin: '📌 Fill-in',
+    quickwin: ' Quick Win',
+    strategic: ' Strategic Bet',
+    fillin: ' Fill-in',
     deprioritise: '⏸ Deprioritise'
   }[q];
 }
@@ -1666,9 +1666,9 @@ function estimatedTimeline(effort) {
   return map[effort] || '2–4 weeks';
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    INIT
-══════════════════════════════════════════════════════════════ */
+ */
 (function init() {
   // Trigger entry animation on screen 0
   const s0 = document.getElementById('screen-0');

@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
-/* ── Page-specific brand vars ── */
+/*  Page-specific brand vars  */
 :root{
   --bg:#05070f;
   --bg2:#080d1a;
@@ -39,11 +39,11 @@
   --radius-sm:10px;
 }
 
-/* ── Reset & base ── */
+/*  Reset & base  */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
 
-/* ── Background glow ── */
+/*  Background glow  */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
@@ -52,12 +52,12 @@ body::before{
     radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);
 }
 
-/* ── App wrapper ── */
+/*  App wrapper  */
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ════════════════════════════════════════
+/* 
    NAV — matches main site
-════════════════════════════════════════ */
+ */
 nav#main-nav{
   position:sticky;top:0;left:0;right:0;z-index:500;
   padding:0 48px;height:72px;
@@ -113,9 +113,9 @@ nav#main-nav{
 .mob-tools-sub li a{display:block;padding:10px 24px;font-family:var(--fd);font-size:13px;color:rgba(232,237,248,.65);text-decoration:none;border-radius:8px;letter-spacing:.03em;transition:all .15s}
 .mob-tools-sub li a:hover{background:rgba(255,255,255,.05);color:#fff}
 
-/* ════════════════════════════════════════
+/* 
    AUDIT TOOL LAYOUT
-════════════════════════════════════════ */
+ */
 .audit-main{
   flex:1;
   display:flex;
@@ -124,7 +124,7 @@ nav#main-nav{
   padding:48px 24px 80px;
 }
 
-/* ── Progress steps ── */
+/*  Progress steps  */
 .audit-progress{
   width:100%;
   max-width:680px;
@@ -187,7 +187,7 @@ nav#main-nav{
 .ps-item.active .ps-label{color:var(--text)}
 .ps-item.completed .ps-label{color:var(--ge)}
 
-/* ── Screens ── */
+/*  Screens  */
 .audit-screen{
   display:none;
   width:100%;
@@ -197,7 +197,7 @@ nav#main-nav{
 .audit-screen.active{display:block}
 @keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── Screen headers ── */
+/*  Screen headers  */
 .screen-header{margin-bottom:36px}
 .screen-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
@@ -219,7 +219,7 @@ nav#main-nav{
 }
 .screen-subtitle{font-size:15px;color:var(--muted);line-height:1.65;max-width:560px}
 
-/* ── Welcome screen ── */
+/*  Welcome screen  */
 .welcome-what{
   display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
   margin:32px 0 40px;
@@ -242,7 +242,7 @@ nav#main-nav{
 }
 .welcome-meta span{color:var(--ge)}
 
-/* ── CTA buttons ── */
+/*  CTA buttons  */
 .btn-audit{
   display:inline-flex;align-items:center;gap:8px;
   padding:14px 32px;border-radius:8px;
@@ -266,7 +266,7 @@ nav#main-nav{
 .btn-ghost-audit:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
 .screen-nav{display:flex;align-items:center;gap:12px;margin-top:36px}
 
-/* ── Question card ── */
+/*  Question card  */
 .q-section{margin-bottom:12px}
 .q-section-label{
   font-family:var(--fd);font-size:11px;font-weight:700;
@@ -288,7 +288,7 @@ nav#main-nav{
   color:var(--muted);margin-right:8px;
 }
 
-/* ── Radio options ── */
+/*  Radio options  */
 .radio-group{display:flex;flex-wrap:wrap;gap:8px}
 .radio-opt{
   display:flex;align-items:center;gap:6px;
@@ -366,9 +366,9 @@ nav#main-nav{
 .audit-select option{background:#0d1526;color:var(--text)}
 .select-wrap{position:relative;margin-top:8px}
 
-/* ════════════════════════════════════════
+/* 
    PROCESSING SCREEN
-════════════════════════════════════════ */
+ */
 .processing-screen{
   display:none;
   flex-direction:column;align-items:center;justify-content:center;
@@ -406,9 +406,9 @@ nav#main-nav{
 .proc-step.visible:not(.done) .step-dot{background:var(--gm);animation:pulseDot 1s infinite}
 @keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* ════════════════════════════════════════
+/* 
    RESULTS SCREEN
-════════════════════════════════════════ */
+ */
 .results-screen{width:100%;max-width:860px}
 
 /* Overall score banner */
@@ -602,9 +602,9 @@ nav#main-nav{
   font-style:italic;padding:16px 0;
 }
 
-/* ════════════════════════════════════════
+/* 
    FOOTER
-════════════════════════════════════════ */
+ */
 .audit-footer{
   text-align:center;padding:28px 24px;
   border-top:1px solid var(--border);
@@ -615,9 +615,9 @@ nav#main-nav{
 .audit-footer a{color:var(--muted);text-decoration:none;transition:color .2s}
 .audit-footer a:hover{color:var(--text)}
 
-/* ════════════════════════════════════════
+/* 
    PRINT STYLES
-════════════════════════════════════════ */
+ */
 @media print{
   body{background:#fff;color:#000}
   body::before{display:none}
@@ -641,9 +641,9 @@ nav#main-nav{
   padding-bottom:16px;margin-bottom:24px;
 }
 
-/* ════════════════════════════════════════
+/* 
    RESPONSIVE
-════════════════════════════════════════ */
+ */
 @media(max-width:768px){
   nav#main-nav{padding:0 20px}
   .nav-links{display:none}
@@ -671,9 +671,9 @@ nav#main-nav{
 <body>
 <div id="app">
 
-<!-- ════════════════════════════════════════
+<!-- 
      NAV
-════════════════════════════════════════ -->
+ -->
 <nav id="main-nav">
   <a class="nav-logo" href="/">
     <img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/>
@@ -684,21 +684,21 @@ nav#main-nav{
     <li><a href="/#usecases">Use Cases</a></li>
     <li><a href="/blog">Blog</a></li>
     <li class="nav-dropdown" id="nd-free">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event,'nd-free')">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event,'nd-free')">Free Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
-        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
-        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
-        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
-        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
-        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
-        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
       </div>
     </li>
     <li class="nav-dropdown" id="nd-m365">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event,'nd-m365')">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event,'nd-m365')">M365 Tenant Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
       </div>
     </li>
     <li><a class="nav-cta" href="/#contact">Get Started</a></li>
@@ -712,30 +712,30 @@ nav#main-nav{
     <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
     <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSection('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSection('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-free-sub">
-        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
-        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
-        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
-        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
-        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
-        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
-        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+        <li><a href="assessment.html" onclick="closeMobile()"> Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()"> Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()"> ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()"> M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()"> Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()"> Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()"> Deployment Guide</a></li>
       </ul>
     </li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSection('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSection('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-m365-sub">
-        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
+        <li><a href="m365-audit.html" onclick="closeMobile()"> AI Readiness Audit</a></li>
       </ul>
     </li>
     <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
   </ul>
 </div>
 
-<!-- ════════════════════════════════════════
+<!-- 
      MAIN CONTENT
-════════════════════════════════════════ -->
+ -->
 <main class="audit-main">
 
   <!-- PROGRESS STEPS -->
@@ -764,7 +764,7 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ── SCREEN 0: WELCOME ── -->
+  <!--  SCREEN 0: WELCOME  -->
   <div class="audit-screen active" id="screen-welcome">
     <div class="screen-header">
       <div class="screen-eyebrow">Microsoft 365 — AI Readiness Audit</div>
@@ -774,28 +774,28 @@ nav#main-nav{
 
     <div class="welcome-what">
       <div class="ww-card">
-        <span class="ww-icon">🔐</span>
+        <span class="ww-icon"></span>
         <div class="ww-content">
           <div class="ww-title">Identity &amp; Security</div>
           <div class="ww-desc">MFA, Conditional Access, PIM, Defender, and access governance</div>
         </div>
       </div>
       <div class="ww-card">
-        <span class="ww-icon">🗂️</span>
+        <span class="ww-icon"></span>
         <div class="ww-content">
           <div class="ww-title">Data Governance</div>
           <div class="ww-desc">Sensitivity labels, DLP, retention, audit logging, and compliance posture</div>
         </div>
       </div>
       <div class="ww-card">
-        <span class="ww-icon">🤝</span>
+        <span class="ww-icon"></span>
         <div class="ww-content">
           <div class="ww-title">Collaboration &amp; Apps</div>
           <div class="ww-desc">SharePoint, Teams, OneDrive sharing controls and app governance</div>
         </div>
       </div>
       <div class="ww-card">
-        <span class="ww-icon">🤖</span>
+        <span class="ww-icon"></span>
         <div class="ww-content">
           <div class="ww-title">AI Readiness</div>
           <div class="ww-desc">Governance, ownership, training, and executive alignment for AI deployment</div>
@@ -813,7 +813,7 @@ nav#main-nav{
     <button class="btn-audit" onclick="goToScreen('profile')">Start the Audit &rarr;</button>
   </div>
 
-  <!-- ── SCREEN 1: TENANT PROFILE ── -->
+  <!--  SCREEN 1: TENANT PROFILE  -->
   <div class="audit-screen" id="screen-profile">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 1 of 4 — Tenant Profile</div>
@@ -932,11 +932,11 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ── SCREEN 2: IDENTITY & SECURITY ── -->
+  <!--  SCREEN 2: IDENTITY & SECURITY  -->
   <div class="audit-screen" id="screen-identity">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 2 of 4 — Identity &amp; Security</div>
-      <h2 class="screen-title">🔐 Identity &amp; Security</h2>
+      <h2 class="screen-title"> Identity &amp; Security</h2>
       <p class="screen-subtitle">The foundation for safe AI deployment. These controls determine whether AI can be accessed and governed safely.</p>
     </div>
 
@@ -948,11 +948,11 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ── SCREEN 3: DATA & COMPLIANCE ── -->
+  <!--  SCREEN 3: DATA & COMPLIANCE  -->
   <div class="audit-screen" id="screen-data">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 3 of 4 — Data &amp; Compliance</div>
-      <h2 class="screen-title">🗂️ Data &amp; Compliance</h2>
+      <h2 class="screen-title"> Data &amp; Compliance</h2>
       <p class="screen-subtitle">AI needs clean, classified, governed data. These controls determine whether your data is safe for AI to access and process.</p>
     </div>
 
@@ -964,11 +964,11 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ── SCREEN 4: AI READINESS ── -->
+  <!--  SCREEN 4: AI READINESS  -->
   <div class="audit-screen" id="screen-aireadiness">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 4 of 4 — AI Readiness</div>
-      <h2 class="screen-title">🤖 AI Readiness</h2>
+      <h2 class="screen-title"> AI Readiness</h2>
       <p class="screen-subtitle">Where you stand for deploying Claude or Copilot. Governance, ownership, and organisational alignment.</p>
     </div>
 
@@ -980,7 +980,7 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ── PROCESSING SCREEN ── -->
+  <!--  PROCESSING SCREEN  -->
   <div class="processing-screen audit-screen" id="screen-processing">
     <div class="proc-spinner"></div>
     <div class="proc-title">Analysing your <span class="gt">M365 tenant…</span></div>
@@ -994,7 +994,7 @@ nav#main-nav{
     </ul>
   </div>
 
-  <!-- ── SCREEN 5: RESULTS ── -->
+  <!--  SCREEN 5: RESULTS  -->
   <div class="audit-screen results-screen" id="screen-results">
 
     <!-- Print header (hidden on screen, shown on print) -->
@@ -1017,13 +1017,13 @@ nav#main-nav{
 
     <!-- Gap analysis -->
     <div class="results-section" id="gap-section">
-      <div class="results-section-title">📋 Gap Analysis</div>
+      <div class="results-section-title"> Gap Analysis</div>
       <div id="gap-table-wrap"></div>
     </div>
 
     <!-- Action plan -->
     <div class="results-section" id="action-section">
-      <div class="results-section-title">🗺️ Prioritised Action Plan</div>
+      <div class="results-section-title"> Prioritised Action Plan</div>
       <div id="action-plan-wrap"></div>
     </div>
 
@@ -1055,12 +1055,12 @@ nav#main-nav{
 
 <script src="assets/js/main.js"></script>
 <script>
-/* ══════════════════════════════════════════════════════════════
+/* 
    PAGE-SPECIFIC JS — M365 AI Readiness Audit
    Overrides nav functions with multi-dropdown signatures.
-══════════════════════════════════════════════════════════════ */
+ */
 
-/* ── Nav overrides ── */
+/*  Nav overrides  */
 function toggleDropdown(e, id) {
   e.stopPropagation();
   const el = document.getElementById(id);
@@ -1101,9 +1101,9 @@ function toggleMobileSection(subId, arrowId) {
   }
 })();
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    QUESTION DEFINITIONS
-══════════════════════════════════════════════════════════════ */
+ */
 const IDENTITY_QUESTIONS = [
   'MFA is enforced for all users (not just admins)',
   'Conditional Access policies are in place (e.g. block legacy auth, require compliant devices)',
@@ -1137,9 +1137,9 @@ const AI_QUESTIONS = [
   'The Board or Executive team have approved an AI strategy or investment'
 ];
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    STATE
-══════════════════════════════════════════════════════════════ */
+ */
 const state = {
   orgSize: null,
   licenseType: null,
@@ -1150,9 +1150,9 @@ const state = {
   aiReadiness: new Array(8).fill(null)
 };
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCREEN MANAGEMENT
-══════════════════════════════════════════════════════════════ */
+ */
 const SCREEN_ORDER = ['welcome', 'profile', 'identity', 'data', 'aireadiness', 'processing', 'results'];
 const STEP_MAP = { profile: 1, identity: 2, data: 3, aireadiness: 4, results: 5 };
 const PROGRESS_SCREENS = ['profile', 'identity', 'data', 'aireadiness', 'results'];
@@ -1191,9 +1191,9 @@ function updateProgress(screenName) {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    QUESTION RENDERING
-══════════════════════════════════════════════════════════════ */
+ */
 function renderYNP(containerId, questions, stateKey, btnId) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -1206,13 +1206,13 @@ function renderYNP(containerId, questions, stateKey, btnId) {
       <div class="q-text"><span class="q-num">Q${i + 1}</span>${q}</div>
       <div class="ynp-group" data-q="${i}" data-key="${stateKey}">
         <button class="ynp-opt" data-val="yes" onclick="selectYNP(this,'${stateKey}',${i},'yes','${btnId}')">
-          <span>✅</span> Yes, fully
+          <span></span> Yes, fully
         </button>
         <button class="ynp-opt" data-val="partial" onclick="selectYNP(this,'${stateKey}',${i},'partial','${btnId}')">
-          <span>⚠️</span> Partially
+          <span></span> Partially
         </button>
         <button class="ynp-opt" data-val="no" onclick="selectYNP(this,'${stateKey}',${i},'no','${btnId}')">
-          <span>❌</span> Not yet
+          <span></span> Not yet
         </button>
       </div>
     `;
@@ -1231,9 +1231,9 @@ function selectYNP(btn, stateKey, idx, val, btnId) {
   validateScreen(stateKey, btnId);
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    RADIO CARD HANDLING (Profile screen)
-══════════════════════════════════════════════════════════════ */
+ */
 document.addEventListener('DOMContentLoaded', function() {
   // Init question sections
   renderYNP('identity-questions', IDENTITY_QUESTIONS, 'identity', 'btn-identity-next');
@@ -1260,16 +1260,16 @@ document.addEventListener('DOMContentLoaded', function() {
   if (pd) pd.textContent = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 });
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    STATE HELPERS
-══════════════════════════════════════════════════════════════ */
+ */
 function updateState(key, val) {
   state[key] = val;
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    VALIDATION
-══════════════════════════════════════════════════════════════ */
+ */
 function validateScreen(screen, btnId) {
   let valid = false;
   if (screen === 'profile') {
@@ -1292,9 +1292,9 @@ function validateScreen(screen, btnId) {
   return valid;
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    PROCESSING ANIMATION
-══════════════════════════════════════════════════════════════ */
+ */
 function runProcessing() {
   goToScreen('processing');
   const steps = document.querySelectorAll('.proc-step');
@@ -1317,9 +1317,9 @@ function runProcessing() {
   setTimeout(showStep, 300);
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    SCORING
-══════════════════════════════════════════════════════════════ */
+ */
 function scoreArray(arr) {
   return arr.reduce((sum, v) => sum + (v === 'yes' ? 3 : v === 'partial' ? 1 : 0), 0);
 }
@@ -1363,15 +1363,15 @@ function tlBadge(pct) {
 }
 
 function overallBadge(pct) {
-  if (pct >= 85) return { emoji: '✅', label: 'AI Ready', cls: 'badge-blue', desc: 'Your tenant is well-positioned for AI deployment.' };
-  if (pct >= 65) return { emoji: '🟢', label: 'Nearly Ready', cls: 'badge-green', desc: 'Strong foundations — focus on the remaining gaps.' };
-  if (pct >= 40) return { emoji: '🟡', label: 'Foundations in Progress', cls: 'badge-amber', desc: 'Good progress, but key gaps must be addressed.' };
-  return { emoji: '🔴', label: 'Not Ready', cls: 'badge-red', desc: 'Significant foundational work required before AI deployment.' };
+  if (pct >= 85) return { emoji: '', label: 'AI Ready', cls: 'badge-blue', desc: 'Your tenant is well-positioned for AI deployment.' };
+  if (pct >= 65) return { emoji: '', label: 'Nearly Ready', cls: 'badge-green', desc: 'Strong foundations — focus on the remaining gaps.' };
+  if (pct >= 40) return { emoji: '', label: 'Foundations in Progress', cls: 'badge-amber', desc: 'Good progress, but key gaps must be addressed.' };
+  return { emoji: '', label: 'Not Ready', cls: 'badge-red', desc: 'Significant foundational work required before AI deployment.' };
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    RESULTS BUILDING
-══════════════════════════════════════════════════════════════ */
+ */
 function buildResults() {
   const scores = computeScores();
   window._auditScores = scores; // store for animation
@@ -1386,10 +1386,10 @@ function buildResults() {
   // Category cards
   const catGrid = document.getElementById('cat-grid');
   const cats = [
-    { icon: '🔐', label: 'Identity & Security', score: scores.identity, max: 24, pct: scores.identityPct },
-    { icon: '🗂️', label: 'Data & Compliance',   score: scores.data,     max: 24, pct: scores.dataPct },
-    { icon: '🤖', label: 'AI Readiness',         score: scores.ai,       max: 24, pct: scores.aiPct },
-    { icon: '📋', label: 'License Tier Bonus',   score: scores.bonus,    max: 5,  pct: scores.bonusPct }
+    { icon: '', label: 'Identity & Security', score: scores.identity, max: 24, pct: scores.identityPct },
+    { icon: '', label: 'Data & Compliance',   score: scores.data,     max: 24, pct: scores.dataPct },
+    { icon: '', label: 'AI Readiness',         score: scores.ai,       max: 24, pct: scores.aiPct },
+    { icon: '', label: 'License Tier Bonus',   score: scores.bonus,    max: 5,  pct: scores.bonusPct }
   ];
 
   catGrid.innerHTML = cats.map((c, idx) => {
@@ -1431,7 +1431,7 @@ function buildGapTable(scores) {
     <tr>
       <td><span class="gap-area">${g.area}</span></td>
       <td>${g.question}</td>
-      <td>${g.response === 'partial' ? '⚠️ Partial' : '❌ Not yet'}</td>
+      <td>${g.response === 'partial' ? ' Partial' : ' Not yet'}</td>
       <td>${g.priority === 'High' ? '<span class="gap-priority-high">High</span>' : '<span class="gap-priority-med">Medium</span>'}</td>
     </tr>
   `).join('');
@@ -1463,7 +1463,7 @@ function buildActionPlan() {
 
   // Address First
   html += `<div class="action-section first">
-    <div class="action-section-header">🚨 Address First <span style="color:var(--muted);font-size:12px;font-weight:400">(${high.length} item${high.length !== 1 ? 's' : ''})</span></div>`;
+    <div class="action-section-header"> Address First <span style="color:var(--muted);font-size:12px;font-weight:400">(${high.length} item${high.length !== 1 ? 's' : ''})</span></div>`;
   if (high.length === 0) {
     html += '<div class="no-gaps">No critical gaps — excellent foundation.</div>';
   } else {
@@ -1477,7 +1477,7 @@ function buildActionPlan() {
 
   // Quick Wins
   html += `<div class="action-section quick">
-    <div class="action-section-header">⚡ Quick Wins <span style="color:var(--muted);font-size:12px;font-weight:400">(Already started — complete these)</span></div>`;
+    <div class="action-section-header"> Quick Wins <span style="color:var(--muted);font-size:12px;font-weight:400">(Already started — complete these)</span></div>`;
   if (quick.length === 0) {
     html += '<div class="no-gaps">No partial items — you either have these covered or have not yet started them.</div>';
   } else {
@@ -1491,7 +1491,7 @@ function buildActionPlan() {
 
   // Plan For Later
   html += `<div class="action-section">
-    <div class="action-section-header">📅 Plan For Later <span style="color:var(--muted);font-size:12px;font-weight:400">(Lower priority)</span></div>`;
+    <div class="action-section-header"> Plan For Later <span style="color:var(--muted);font-size:12px;font-weight:400">(Lower priority)</span></div>`;
   if (later.length === 0) {
     html += '<div class="no-gaps">No low-priority gaps remaining.</div>';
   } else {
@@ -1539,9 +1539,9 @@ function buildRecommendation(pct) {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    ANIMATIONS
-══════════════════════════════════════════════════════════════ */
+ */
 function animateScoreCount() {
   const el = document.getElementById('score-number');
   const target = window._auditScores ? window._auditScores.pct : 0;
@@ -1566,9 +1566,9 @@ function animateBars() {
   });
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    DOWNLOAD / PRINT
-══════════════════════════════════════════════════════════════ */
+ */
 function downloadReport() {
   // Make bars fully rendered before print
   document.querySelectorAll('.cat-bar-fill').forEach(bar => {
@@ -1578,9 +1578,9 @@ function downloadReport() {
   window.print();
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    RESTART
-══════════════════════════════════════════════════════════════ */
+ */
 function restartAudit() {
   // Reset state
   state.orgSize = null;
@@ -1614,9 +1614,9 @@ function restartAudit() {
   updateProgress('welcome');
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* 
    INITIALISE
-══════════════════════════════════════════════════════════════ */
+ */
 (function init() {
   updateProgress('welcome');
 })();

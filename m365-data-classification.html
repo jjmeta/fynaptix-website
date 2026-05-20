@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
-/* ── Brand vars ── */
+/*  Brand vars  */
 :root{
   --bg:#05070f;
   --bg2:#080d1a;
@@ -45,11 +45,11 @@
   --lc-highly:#ef4444;
 }
 
-/* ── Reset ── */
+/*  Reset  */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden;min-height:100%}
 
-/* ── Background glow ── */
+/*  Background glow  */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
@@ -58,12 +58,12 @@ body::before{
     radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);
 }
 
-/* ── App wrapper ── */
+/*  App wrapper  */
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ════════════════════════════════════════
+/* 
    NAV
-════════════════════════════════════════ */
+ */
 nav#main-nav{
   position:sticky;top:0;left:0;right:0;z-index:500;
   padding:0 48px;height:72px;
@@ -113,9 +113,9 @@ nav#main-nav{
 .mob-tools-sub li a{display:block;padding:10px 24px;font-family:var(--fd);font-size:13px;color:rgba(232,237,248,.65);text-decoration:none;border-radius:8px;letter-spacing:.03em;transition:all .15s}
 .mob-tools-sub li a:hover{background:rgba(255,255,255,.05);color:#fff}
 
-/* ════════════════════════════════════════
+/* 
    TOOL LAYOUT
-════════════════════════════════════════ */
+ */
 .tool-main{
   flex:1;
   display:flex;
@@ -124,7 +124,7 @@ nav#main-nav{
   padding:48px 24px 100px;
 }
 
-/* ── Progress steps ── */
+/*  Progress steps  */
 .tool-progress{
   width:100%;
   max-width:680px;
@@ -142,19 +142,19 @@ nav#main-nav{
 .ps-item.active .ps-label{color:var(--text)}
 .ps-item.completed .ps-label{color:var(--ge)}
 
-/* ── Screens ── */
+/*  Screens  */
 .tool-screen{display:none;width:100%;max-width:760px;animation:screenIn .35s ease}
 .tool-screen.active{display:block}
 @keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── Screen headers ── */
+/*  Screen headers  */
 .screen-header{margin-bottom:36px}
 .screen-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:24px;border:1px solid rgba(119,25,170,0.4);background:rgba(119,25,170,0.1);font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--purview);margin-bottom:20px}
 .screen-title{font-family:var(--fd);font-size:clamp(26px,3.5vw,38px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
 .screen-title .gt{background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .screen-subtitle{font-size:15px;color:var(--muted);line-height:1.65;max-width:580px}
 
-/* ── Welcome screen ── */
+/*  Welcome screen  */
 .welcome-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0 40px}
 .wc-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 20px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s}
 .wc-card:hover{border-color:rgba(192,37,232,0.3)}
@@ -164,7 +164,7 @@ nav#main-nav{
 .welcome-meta{display:flex;align-items:center;gap:8px;font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
 .welcome-meta span{color:var(--ge)}
 
-/* ── Buttons ── */
+/*  Buttons  */
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:8px;background:var(--grad-full);color:#fff;font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(192,37,232,.4);opacity:.95}
 .btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
@@ -172,12 +172,12 @@ nav#main-nav{
 .btn-ghost:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
 .screen-nav{display:flex;align-items:center;gap:12px;margin-top:40px}
 
-/* ── Question sections ── */
+/*  Question sections  */
 .q-section{margin-bottom:28px}
 .q-label{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--text);margin-bottom:4px}
 .q-hint{font-size:12px;color:var(--muted);margin-bottom:14px}
 
-/* ── Radio cards ── */
+/*  Radio cards  */
 .radio-grid{display:grid;gap:10px}
 .radio-grid-2{grid-template-columns:repeat(2,1fr)}
 .radio-grid-5{grid-template-columns:repeat(5,1fr)}
@@ -192,10 +192,10 @@ nav#main-nav{
 .radio-card input:checked + .rc-body .rc-dot::after{display:block}
 .rc-text{font-family:var(--fd);font-size:13px;font-weight:600;color:var(--text)}
 
-/* ── Industry radio grid ── */
+/*  Industry radio grid  */
 .radio-grid-industry{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 
-/* ── Checkbox cards ── */
+/*  Checkbox cards  */
 .checkbox-grid{display:grid;gap:10px}
 .checkbox-grid-3{grid-template-columns:repeat(3,1fr)}
 .checkbox-grid-2{grid-template-columns:repeat(2,1fr)}
@@ -222,11 +222,11 @@ nav#main-nav{
 .reg-card input:checked + .reg-body .reg-dot{border-color:var(--m365);background:var(--m365);color:#fff}
 .reg-label{font-family:var(--fd);font-size:12px;font-weight:600;color:var(--text)}
 
-/* ── Validation error ── */
+/*  Validation error  */
 .val-error{display:none;font-size:12px;color:var(--red);font-family:var(--fd);font-weight:600;margin-top:8px;padding:8px 12px;background:rgba(239,68,68,.1);border-radius:6px;border:1px solid rgba(239,68,68,.2)}
 .val-error.visible{display:block}
 
-/* ── Processing screen ── */
+/*  Processing screen  */
 .processing-wrap{text-align:center;padding:60px 0}
 .processing-spinner{width:72px;height:72px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--gm);animation:spin 1s linear infinite;margin:0 auto 40px}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -238,9 +238,9 @@ nav#main-nav{
 .proc-step-icon{width:20px;height:20px;border-radius:50%;background:var(--border2);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all .3s}
 .proc-step.done .proc-step-icon{background:rgba(46,208,245,.2);color:var(--ge)}
 
-/* ════════════════════════════════════════
+/* 
    RESULTS
-════════════════════════════════════════ */
+ */
 .results-wrap{width:100%;max-width:860px}
 
 .res-section{margin-bottom:48px}
@@ -253,7 +253,7 @@ nav#main-nav{
 .res-section-title{font-family:var(--fd);font-size:18px;font-weight:800;color:var(--text)}
 .res-section-sub{font-family:var(--fd);font-size:12px;font-weight:500;color:var(--muted);margin-left:auto;white-space:nowrap}
 
-/* ── Taxonomy tree ── */
+/*  Taxonomy tree  */
 .taxonomy-tree{display:flex;flex-direction:column;gap:0}
 .tax-row{display:flex;align-items:flex-start;padding:14px 16px;background:var(--card);border:1px solid var(--border2);border-radius:0;transition:background .2s;margin-bottom:1px}
 .tax-row:first-child{border-radius:12px 12px 0 0}
@@ -274,7 +274,7 @@ nav#main-nav{
 .tax-desc{font-size:12px;color:var(--muted);flex:1;line-height:1.5}
 .tax-action{font-size:11px;font-family:var(--fd);font-weight:600;color:var(--text);text-align:right;white-space:nowrap;padding:2px 8px;background:rgba(255,255,255,.06);border-radius:4px;margin-left:8px;flex-shrink:0}
 
-/* ── DLP table ── */
+/*  DLP table  */
 .dlp-table-wrap{border-radius:12px;border:1px solid var(--border2);overflow:hidden}
 .dlp-table{width:100%;border-collapse:collapse}
 .dlp-table th{background:rgba(255,255,255,.04);padding:12px 14px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border2)}
@@ -288,7 +288,7 @@ nav#main-nav{
 .policy-name{font-family:var(--fd);font-size:12px;font-weight:700;color:var(--text)}
 .policy-trigger{font-size:12px;color:var(--muted)}
 
-/* ── Roadmap phases ── */
+/*  Roadmap phases  */
 .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .phase-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:24px 20px;display:flex;flex-direction:column;gap:16px}
 .phase-header{display:flex;flex-direction:column;gap:6px}
@@ -304,26 +304,26 @@ nav#main-nav{
 .phase-task.conditional{color:rgba(232,237,248,.55)}
 .phase-task.conditional::before{color:var(--gm)}
 
-/* ── AI callout ── */
+/*  AI callout  */
 .ai-callout{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px}
 .ai-callout-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
 .ai-callout-title{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--amber);margin-bottom:6px}
 .ai-callout-text{font-size:13px;color:var(--muted);line-height:1.6}
 
-/* ── Fynaptix recommendation ── */
+/*  Fynaptix recommendation  */
 .fyn-rec-card{border-radius:var(--radius);padding:2px;background:var(--grad-full);margin-bottom:32px}
 .fyn-rec-inner{background:var(--bg2);border-radius:calc(var(--radius) - 2px);padding:28px 32px;display:flex;flex-direction:column;gap:16px}
 .fyn-rec-eyebrow{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gm)}
 .fyn-rec-title{font-family:var(--fd);font-size:16px;font-weight:800;color:var(--text)}
 .fyn-rec-text{font-size:14px;color:var(--muted);line-height:1.65;max-width:600px}
 
-/* ── Download bar ── */
+/*  Download bar  */
 .download-bar{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--card);border:1px solid var(--border2);border-radius:12px;margin-top:8px}
 .download-bar-text{flex:1}
 .download-bar-title{font-family:var(--fd);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
 .download-bar-sub{font-size:12px;color:var(--muted)}
 
-/* ── Responsive ── */
+/*  Responsive  */
 @media(max-width:900px){
   nav#main-nav{padding:0 24px}
   .nav-links{display:none}
@@ -347,9 +347,9 @@ nav#main-nav{
   .screen-nav .btn-ghost,.screen-nav .btn-primary{justify-content:center}
 }
 
-/* ════════════════════════════════════════
+/* 
    PRINT CSS
-════════════════════════════════════════ */
+ */
 @media print{
   nav#main-nav,.nav-mobile,.screen-nav,.tool-progress,.download-bar,
   #screen-welcome,#screen-profile,#screen-data,#screen-scope,#screen-processing,
@@ -391,7 +391,7 @@ nav#main-nav{
 <body>
 <div id="app">
 
-<!-- ══ NAV ══ -->
+<!--  NAV  -->
 <nav id="main-nav">
   <a class="nav-logo" href="/"><img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/></a>
   <ul class="nav-links">
@@ -400,22 +400,22 @@ nav#main-nav{
     <li><a href="/#usecases">Use Cases</a></li>
     <li><a href="/blog">Blog</a></li>
     <li class="nav-dropdown" id="nd-free">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
-        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
-        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
-        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
-        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
-        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
-        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
       </div>
     </li>
     <li class="nav-dropdown" id="nd-m365">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
-        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon">🏷️</span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
       </div>
     </li>
     <li><a class="nav-cta" href="/#contact">Get Started</a></li>
@@ -429,29 +429,29 @@ nav#main-nav{
     <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
     <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-free-sub">
-        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
-        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
-        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
-        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
-        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
-        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
-        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+        <li><a href="assessment.html" onclick="closeMobile()"> Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()"> Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()"> ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()"> M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()"> Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()"> Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()"> Deployment Guide</a></li>
       </ul>
     </li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-m365-sub">
-        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
-        <li><a href="m365-data-classification.html" onclick="closeMobile()">🏷️ Data Classification Planner</a></li>
+        <li><a href="m365-audit.html" onclick="closeMobile()"> AI Readiness Audit</a></li>
+        <li><a href="m365-data-classification.html" onclick="closeMobile()"> Data Classification Planner</a></li>
       </ul>
     </li>
     <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
   </ul>
 </div>
 
-<!-- ══ MAIN ══ -->
+<!--  MAIN  -->
 <main class="tool-main">
 
   <!-- Progress bar -->
@@ -476,38 +476,38 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ══ SCREEN 1: WELCOME ══ -->
+  <!--  SCREEN 1: WELCOME  -->
   <div class="tool-screen active" id="screen-welcome">
     <div class="screen-header">
-      <div class="screen-eyebrow">🏷️ Microsoft Purview</div>
+      <div class="screen-eyebrow"> Microsoft Purview</div>
       <h1 class="screen-title">M365 <span class="gt">Data Classification</span> Planner</h1>
       <p class="screen-subtitle">Design your Microsoft Purview sensitivity label taxonomy and DLP framework — tailored to your organisation's data types and regulatory obligations.</p>
     </div>
 
     <div class="welcome-cards">
       <div class="wc-card">
-        <div class="wc-icon">🏷️</div>
+        <div class="wc-icon"></div>
         <div>
           <div class="wc-title">Sensitivity Label Taxonomy</div>
           <div class="wc-desc">A complete label hierarchy from Public to Highly Confidential, with sub-labels matched to your data types.</div>
         </div>
       </div>
       <div class="wc-card">
-        <div class="wc-icon">🛡️</div>
+        <div class="wc-icon"></div>
         <div>
           <div class="wc-title">DLP Policy Framework</div>
           <div class="wc-desc">Ready-to-deploy DLP policy recommendations mapped to each data type, with priority and enforcement actions.</div>
         </div>
       </div>
       <div class="wc-card">
-        <div class="wc-icon">📋</div>
+        <div class="wc-icon"></div>
         <div>
           <div class="wc-title">Implementation Roadmap</div>
           <div class="wc-desc">A phased 16-week rollout plan with conditional steps based on your current Purview state and app scope.</div>
         </div>
       </div>
       <div class="wc-card">
-        <div class="wc-icon">📄</div>
+        <div class="wc-icon"></div>
         <div>
           <div class="wc-title">Downloadable Plan</div>
           <div class="wc-desc">Export your complete classification plan as a print-ready PDF to share with your team or compliance team.</div>
@@ -523,7 +523,7 @@ nav#main-nav{
     <button class="btn-primary" onclick="startTool()">Build My Classification Plan &rarr;</button>
   </div>
 
-  <!-- ══ SCREEN 2: ORGANISATION PROFILE ══ -->
+  <!--  SCREEN 2: ORGANISATION PROFILE  -->
   <div class="tool-screen" id="screen-profile">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 1 of 3</div>
@@ -614,15 +614,15 @@ nav#main-nav{
       <div class="q-label">Regulatory obligations</div>
       <div class="q-hint">Select all that apply to your organisation.</div>
       <div class="reg-grid">
-        <label class="reg-card"><input type="checkbox" name="regulations" value="GDPR"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">GDPR (EU/UK)</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="Australian Privacy Act"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">Australian Privacy Act / APP</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="HIPAA"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">HIPAA (US Healthcare)</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="SOX"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">SOX (Financial)</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="PCI DSS"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">PCI DSS</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="ISO 27001"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">ISO 27001</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="NIST CSF"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">NIST CSF</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="FCA / APRA / FINRA"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">FCA / APRA / FINRA</span></div></label>
-        <label class="reg-card"><input type="checkbox" name="regulations" value="None"/><div class="reg-body"><div class="reg-dot">✓</div><span class="reg-label">None / Not sure</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="GDPR"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">GDPR (EU/UK)</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="Australian Privacy Act"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">Australian Privacy Act / APP</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="HIPAA"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">HIPAA (US Healthcare)</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="SOX"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">SOX (Financial)</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="PCI DSS"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">PCI DSS</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="ISO 27001"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">ISO 27001</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="NIST CSF"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">NIST CSF</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="FCA / APRA / FINRA"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">FCA / APRA / FINRA</span></div></label>
+        <label class="reg-card"><input type="checkbox" name="regulations" value="None"/><div class="reg-body"><div class="reg-dot"></div><span class="reg-label">None / Not sure</span></div></label>
       </div>
     </div>
 
@@ -657,7 +657,7 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ══ SCREEN 3: DATA INVENTORY ══ -->
+  <!--  SCREEN 3: DATA INVENTORY  -->
   <div class="tool-screen" id="screen-data">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 2 of 3</div>
@@ -669,84 +669,84 @@ nav#main-nav{
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="pii"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">👤</span><span class="cc-name">Personal Identifiable Information</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Personal Identifiable Information</span><span class="cc-check"></span></div>
           <div class="cc-desc">Names, addresses, ID numbers, DOBs</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="financial"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">💰</span><span class="cc-name">Financial Records</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Financial Records</span><span class="cc-check"></span></div>
           <div class="cc-desc">Revenue data, bank accounts, P&amp;L</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="health"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">🏥</span><span class="cc-name">Health &amp; Medical Records</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Health &amp; Medical Records</span><span class="cc-check"></span></div>
           <div class="cc-desc">Patient data, clinical information</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="legal"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">⚖️</span><span class="cc-name">Legal &amp; Privileged Documents</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Legal &amp; Privileged Documents</span><span class="cc-check"></span></div>
           <div class="cc-desc">Contracts, legal advice, litigation</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="hr"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">👥</span><span class="cc-name">HR &amp; People Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">HR &amp; People Data</span><span class="cc-check"></span></div>
           <div class="cc-desc">Salaries, performance reviews, disciplinary</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="ip"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">💡</span><span class="cc-name">Intellectual Property</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Intellectual Property</span><span class="cc-check"></span></div>
           <div class="cc-desc">Source code, product designs, trade secrets</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="client"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">🤝</span><span class="cc-name">Client &amp; Customer Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Client &amp; Customer Data</span><span class="cc-check"></span></div>
           <div class="cc-desc">CRM data, engagement records</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="strategy"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">🎯</span><span class="cc-name">Strategic &amp; Board Documents</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Strategic &amp; Board Documents</span><span class="cc-check"></span></div>
           <div class="cc-desc">Board papers, M&amp;A, investor materials</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="payment"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">💳</span><span class="cc-name">Payment Card Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Payment Card Data</span><span class="cc-check"></span></div>
           <div class="cc-desc">Cardholder data, PAN, CVV</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="credentials"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">🔑</span><span class="cc-name">Credentials &amp; Access Keys</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Credentials &amp; Access Keys</span><span class="cc-check"></span></div>
           <div class="cc-desc">Passwords, API keys, certificates</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="regulated"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">📜</span><span class="cc-name">Regulated Industry Data</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Regulated Industry Data</span><span class="cc-check"></span></div>
           <div class="cc-desc">Sector-specific compliance data</div>
         </div>
       </label>
       <label class="checkbox-card">
         <input type="checkbox" name="dataTypes" value="thirdparty"/>
         <div class="cc-body">
-          <div class="cc-top"><span class="cc-icon">🔗</span><span class="cc-name">Third-Party Confidential</span><span class="cc-check">✓</span></div>
+          <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Third-Party Confidential</span><span class="cc-check"></span></div>
           <div class="cc-desc">NDA'd supplier/partner information</div>
         </div>
       </label>
@@ -759,7 +759,7 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ══ SCREEN 4: SCOPE ══ -->
+  <!--  SCREEN 4: SCOPE  -->
   <div class="tool-screen" id="screen-scope">
     <div class="screen-header">
       <div class="screen-eyebrow">Step 3 of 3</div>
@@ -775,49 +775,49 @@ nav#main-nav{
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="Exchange Online"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">📧</span><span class="cc-name">Exchange Online</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Exchange Online</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="SharePoint Online"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">📁</span><span class="cc-name">SharePoint Online</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">SharePoint Online</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="OneDrive for Business"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">☁️</span><span class="cc-name">OneDrive for Business</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">OneDrive for Business</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="Microsoft Teams"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">💬</span><span class="cc-name">Microsoft Teams</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Microsoft Teams</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="Power BI"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">📊</span><span class="cc-name">Power BI</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Power BI</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="Power Platform"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">⚡</span><span class="cc-name">Power Platform</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Power Platform</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="Microsoft Copilot"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">🤖</span><span class="cc-name">Microsoft Copilot</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Microsoft Copilot</span><span class="cc-check"></span></div>
           </div>
         </label>
         <label class="checkbox-card">
           <input type="checkbox" name="appsInScope" value="Windows Endpoints"/>
           <div class="cc-body">
-            <div class="cc-top"><span class="cc-icon">💻</span><span class="cc-name">Windows Endpoints</span><span class="cc-check">✓</span></div>
+            <div class="cc-top"><span class="cc-icon"></span><span class="cc-name">Windows Endpoints</span><span class="cc-check"></span></div>
           </div>
         </label>
       </div>
@@ -909,23 +909,23 @@ nav#main-nav{
     </div>
   </div>
 
-  <!-- ══ SCREEN: PROCESSING ══ -->
+  <!--  SCREEN: PROCESSING  -->
   <div class="tool-screen" id="screen-processing">
     <div class="processing-wrap">
       <div class="processing-spinner"></div>
       <div class="processing-title">Building your classification plan…</div>
       <ul class="processing-steps" id="proc-steps">
-        <li class="proc-step" id="proc-0"><span class="proc-step-icon">○</span> Analysing your regulatory profile…</li>
-        <li class="proc-step" id="proc-1"><span class="proc-step-icon">○</span> Mapping data types to label categories…</li>
-        <li class="proc-step" id="proc-2"><span class="proc-step-icon">○</span> Designing sensitivity label taxonomy…</li>
-        <li class="proc-step" id="proc-3"><span class="proc-step-icon">○</span> Building DLP policy recommendations…</li>
-        <li class="proc-step" id="proc-4"><span class="proc-step-icon">○</span> Mapping implementation phases…</li>
-        <li class="proc-step" id="proc-5"><span class="proc-step-icon">○</span> Generating your classification plan…</li>
+        <li class="proc-step" id="proc-0"><span class="proc-step-icon"></span> Analysing your regulatory profile…</li>
+        <li class="proc-step" id="proc-1"><span class="proc-step-icon"></span> Mapping data types to label categories…</li>
+        <li class="proc-step" id="proc-2"><span class="proc-step-icon"></span> Designing sensitivity label taxonomy…</li>
+        <li class="proc-step" id="proc-3"><span class="proc-step-icon"></span> Building DLP policy recommendations…</li>
+        <li class="proc-step" id="proc-4"><span class="proc-step-icon"></span> Mapping implementation phases…</li>
+        <li class="proc-step" id="proc-5"><span class="proc-step-icon"></span> Generating your classification plan…</li>
       </ul>
     </div>
   </div>
 
-  <!-- ══ SCREEN 5: RESULTS ══ -->
+  <!--  SCREEN 5: RESULTS  -->
   <div class="tool-screen" id="screen-results">
     <!-- Print header (hidden on screen) -->
     <div class="print-header">
@@ -938,7 +938,7 @@ nav#main-nav{
       <!-- Section A: Sensitivity Label Taxonomy -->
       <div class="res-section">
         <div class="res-section-header">
-          <div class="res-section-badge purview">🏷️</div>
+          <div class="res-section-badge purview"></div>
           <div class="res-section-title">Sensitivity Label Taxonomy</div>
           <div class="res-section-sub" id="label-count-badge"></div>
         </div>
@@ -948,7 +948,7 @@ nav#main-nav{
       <!-- Section B: DLP Policy Recommendations -->
       <div class="res-section">
         <div class="res-section-header">
-          <div class="res-section-badge dlp">🛡️</div>
+          <div class="res-section-badge dlp"></div>
           <div class="res-section-title">DLP Policy Recommendations</div>
           <div class="res-section-sub" id="dlp-count-badge"></div>
         </div>
@@ -971,7 +971,7 @@ nav#main-nav{
       <!-- Section C: Implementation Roadmap -->
       <div class="res-section">
         <div class="res-section-header">
-          <div class="res-section-badge road">📋</div>
+          <div class="res-section-badge road"></div>
           <div class="res-section-title">Implementation Roadmap</div>
         </div>
         <div class="phases-grid" id="phases-grid"></div>
@@ -980,7 +980,7 @@ nav#main-nav{
       <!-- Section D: AI Readiness Note -->
       <div class="res-section" id="ai-readiness-section" style="display:none">
         <div class="ai-callout">
-          <div class="ai-callout-icon">⚠️</div>
+          <div class="ai-callout-icon"></div>
           <div>
             <div class="ai-callout-title">AI Readiness: Classification First</div>
             <div class="ai-callout-text">Classification is the foundation of safe AI deployment. Before Claude or Copilot can safely access your data, every document and dataset it can reach should carry a sensitivity label. Without classification, AI tools cannot distinguish public-facing content from board-level confidential material. Your roadmap prioritises this before expanding AI access.</div>
@@ -1016,9 +1016,9 @@ nav#main-nav{
 </div><!-- /app -->
 
 <script>
-/* ══════════════════════════════════════
+/* 
    NAV JS (inline — no main.js)
-══════════════════════════════════════ */
+ */
 function toggleDropdown(e) {
   e.stopPropagation();
   const dropdown = e.currentTarget.closest('.nav-dropdown');
@@ -1051,9 +1051,9 @@ function toggleMobileSub(subId, arrowId) {
   if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
 }
 
-/* ══════════════════════════════════════
+/* 
    STATE
-══════════════════════════════════════ */
+ */
 const state = {
   industry: '',
   orgSize: '',
@@ -1066,9 +1066,9 @@ const state = {
   aiUsage: ''
 };
 
-/* ══════════════════════════════════════
+/* 
    NAVIGATION
-══════════════════════════════════════ */
+ */
 const screens = ['welcome','profile','data','scope','processing','results'];
 let currentScreen = 'welcome';
 
@@ -1109,9 +1109,9 @@ function goToScreen(id) {
   showScreen(id);
 }
 
-/* ══════════════════════════════════════
+/* 
    VALIDATION HELPERS
-══════════════════════════════════════ */
+ */
 function getRadio(name) {
   const el = document.querySelector(`input[name="${name}"]:checked`);
   return el ? el.value : '';
@@ -1126,9 +1126,9 @@ function showError(id, show) {
   if (el) el.classList.toggle('visible', show);
 }
 
-/* ══════════════════════════════════════
+/* 
    SCREEN TRANSITIONS
-══════════════════════════════════════ */
+ */
 function nextFromProfile() {
   state.industry = getRadio('industry');
   state.orgSize = getRadio('orgSize');
@@ -1179,12 +1179,12 @@ function nextFromScope() {
   runProcessing();
 }
 
-/* ══════════════════════════════════════
+/* 
    PROCESSING ANIMATION
-══════════════════════════════════════ */
+ */
 function runProcessing() {
   const steps = document.querySelectorAll('.proc-step');
-  steps.forEach(s => { s.classList.remove('visible','done'); s.querySelector('.proc-step-icon').textContent = '○'; });
+  steps.forEach(s => { s.classList.remove('visible','done'); s.querySelector('.proc-step-icon').textContent = ''; });
 
   let i = 0;
   function showStep() {
@@ -1192,7 +1192,7 @@ function runProcessing() {
       steps[i].classList.add('visible');
       setTimeout(() => {
         steps[i].classList.add('done');
-        steps[i].querySelector('.proc-step-icon').textContent = '✓';
+        steps[i].querySelector('.proc-step-icon').textContent = '';
         i++;
         setTimeout(showStep, 320);
       }, 280);
@@ -1206,11 +1206,11 @@ function runProcessing() {
   setTimeout(showStep, 200);
 }
 
-/* ══════════════════════════════════════
+/* 
    RESULT BUILDERS
-══════════════════════════════════════ */
+ */
 
-/* ── Taxonomy ── */
+/*  Taxonomy  */
 const CONF_SUB_MAP = {
   pii:       { name:'Personal Data',         desc:'Names, addresses, national IDs, dates of birth',      action:'Access control + audit log' },
   financial: { name:'Financial Data',        desc:'Revenue records, bank accounts, financial statements', action:'Access control + audit log' },
@@ -1288,7 +1288,7 @@ function buildTaxonomy() {
   document.getElementById('label-count-badge').textContent = totalLabels + ' labels';
 }
 
-/* ── DLP Table ── */
+/*  DLP Table  */
 const DLP_MAP = {
   pii:        { name:'Block PII External Sharing',        trigger:'Personal identifiers (ID numbers, DOBs)',       apps:'SharePoint, OneDrive, Exchange',    action:'Block external + notify user',           priority:'high' },
   financial:  { name:'Financial Data Email Warning',       trigger:'Financial keywords, account numbers',           apps:'Exchange, Teams',                    action:'Policy tip + manager notification',       priority:'medium' },
@@ -1332,7 +1332,7 @@ function buildDLPTable() {
   document.getElementById('dlp-count-badge').textContent = policies.length + ' policies';
 }
 
-/* ── Roadmap ── */
+/*  Roadmap  */
 function buildRoadmap() {
   const dt = state.dataTypes;
   const apps = state.appsInScope;
@@ -1409,7 +1409,7 @@ function buildRoadmap() {
   });
 }
 
-/* ── AI Readiness ── */
+/*  AI Readiness  */
 function buildAIReadiness() {
   const hasCopilot = state.appsInScope.includes('Microsoft Copilot');
   const aiActive = state.aiUsage !== 'not-yet';
@@ -1417,7 +1417,7 @@ function buildAIReadiness() {
   section.style.display = (hasCopilot || aiActive) ? 'block' : 'none';
 }
 
-/* ── Fynaptix Recommendation ── */
+/*  Fynaptix Recommendation  */
 function buildRecommendation() {
   const ps = state.purviewState;
   const isFromScratch = ps === 'not-at-all' || ps === 'not-configured';
@@ -1433,13 +1433,13 @@ function buildRecommendation() {
   }
 }
 
-/* ── Print date ── */
+/*  Print date  */
 function setPrintDate() {
   const d = new Date();
   document.getElementById('print-date').textContent = 'Generated: ' + d.toLocaleDateString('en-GB', { day:'2-digit', month:'long', year:'numeric' });
 }
 
-/* ── Master build ── */
+/*  Master build  */
 function buildResults() {
   buildTaxonomy();
   buildDLPTable();

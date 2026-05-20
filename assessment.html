@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-/* ── Brand variables (exact match to fynaptix main site) ── */
+/*  Brand variables (exact match to fynaptix main site)  */
 :root{
   --bg:#05070f;
   --bg2:#080d1a;
@@ -34,12 +34,12 @@
   --radius-sm:10px;
 }
 
-/* ── Reset & base ── */
+/*  Reset & base  */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;overflow-x:hidden}
 body{display:flex;flex-direction:column;min-height:100vh}
 
-/* ── Background glow (matches main site hero glow) ── */
+/*  Background glow (matches main site hero glow)  */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
@@ -47,10 +47,10 @@ body::before{
     radial-gradient(ellipse 50% 40% at 80% 80%,rgba(46,208,245,0.07) 0%,transparent 60%);
 }
 
-/* ── Layout ── */
+/*  Layout  */
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ── Nav ── */
+/*  Nav  */
 .a-nav{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 48px;height:72px;
@@ -75,21 +75,21 @@ body::before{
 .a-nav-back:hover{color:#fff}
 .a-nav-back svg{width:14px;height:14px}
 
-/* ── Progress bar ── */
+/*  Progress bar  */
 .progress-wrap{background:rgba(255,255,255,0.05);height:3px;width:100%}
 .progress-bar{height:3px;background:var(--grad-full);background-size:200% 100%;
   transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
 
-/* ── Screens ── */
+/*  Screens  */
 .screen{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px 60px}
 .screen.active{display:flex}
 .screen.fade-in{animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── Card container ── */
+/*  Card container  */
 .card-wrap{width:100%;max-width:680px}
 
-/* ── Step label (matches .se on main site) ── */
+/*  Step label (matches .se on main site)  */
 .step-label{
   font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;
   color:var(--gm);text-transform:uppercase;margin-bottom:16px;
@@ -97,7 +97,7 @@ body::before{
 }
 .step-dot{width:6px;height:6px;border-radius:50%;background:var(--gm);display:inline-block}
 
-/* ── Headings (matches main site .sh2/.hero-h1) ── */
+/*  Headings (matches main site .sh2/.hero-h1)  */
 .s-h1{font-family:var(--fd);font-size:clamp(28px,5vw,46px);font-weight:800;
   line-height:1.05;letter-spacing:-.02em;margin-bottom:22px}
 .s-h1 .gt{background:var(--grad-full);-webkit-background-clip:text;
@@ -107,7 +107,7 @@ body::before{
 .s-lead{font-size:16px;color:rgba(232,237,248,0.65);line-height:1.75;
   margin-bottom:32px;font-family:var(--fb)}
 
-/* ── Welcome screen ── */
+/*  Welcome screen  */
 .welcome-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:32px 0}
 .wg-card{
   background:var(--bg2);border:1px solid var(--border);border-radius:14px;
@@ -128,7 +128,7 @@ body::before{
 }
 .dim-pill .pill-dot{width:7px;height:7px;border-radius:50%}
 
-/* ── Form inputs ── */
+/*  Form inputs  */
 .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
 .form-label{font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.06em;
   text-transform:uppercase;color:var(--text)}
@@ -144,7 +144,7 @@ body::before{
 .form-select option{background:#0d1526;color:var(--text)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
-/* ── Question screen ── */
+/*  Question screen  */
 .q-header{
   display:flex;align-items:center;gap:14px;margin-bottom:28px;
   background:var(--bg2);border:1px solid var(--border);border-radius:14px;
@@ -181,13 +181,13 @@ body::before{
 .option-desc{font-size:13px;color:var(--muted);line-height:1.6;font-family:var(--fb)}
 .option-card.selected .option-label{color:var(--gm)}
 
-/* ── Step dots ── */
+/*  Step dots  */
 .step-dots{display:flex;gap:8px;align-items:center;justify-content:center;margin-bottom:28px}
 .sdot{width:8px;height:8px;border-radius:50%;background:var(--border2);transition:all .3s}
 .sdot.done{background:var(--gm)}
 .sdot.active{width:24px;border-radius:4px;background:var(--grad)}
 
-/* ── Buttons (exact match to main site) ── */
+/*  Buttons (exact match to main site)  */
 .btn-row{display:flex;gap:12px;align-items:center}
 .btn-primary{
   display:inline-flex;align-items:center;gap:8px;
@@ -208,7 +208,7 @@ body::before{
 .btn-ghost:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04)}
 .btn-icon{width:16px;height:16px}
 
-/* ── Processing screen ── */
+/*  Processing screen  */
 .processing-wrap{text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
 .proc-ring{
   width:80px;height:80px;border-radius:50%;
@@ -229,7 +229,7 @@ body::before{
   font-size:10px;color:var(--ge);flex-shrink:0;
 }
 
-/* ── Results screen ── */
+/*  Results screen  */
 .results-wrap{width:100%;max-width:800px}
 
 .overall-hero{
@@ -326,7 +326,7 @@ body::before{
   font-family:var(--fb);line-height:1.75;position:relative}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
 
-/* ── Responsive ── */
+/*  Responsive  */
 @media(max-width:960px){
   .a-nav{padding:0 20px}
   .a-nav-badge{display:none}
@@ -361,7 +361,7 @@ body::before{
   </nav>
   <div class="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
 
-  <!-- ── SCREEN 0: Welcome ── -->
+  <!--  SCREEN 0: Welcome  -->
   <div class="screen active fade-in" id="screen-welcome">
     <div class="card-wrap">
       <div class="step-label"><span class="step-dot"></span>Free Assessment</div>
@@ -378,17 +378,17 @@ body::before{
 
       <div class="welcome-grid">
         <div class="wg-card">
-          <div class="wg-icon">📊</div>
+          <div class="wg-icon"></div>
           <div class="wg-label">Dimension scores</div>
           <div class="wg-sub">See exactly where you're strong and where you have gaps</div>
         </div>
         <div class="wg-card">
-          <div class="wg-icon">🗺️</div>
+          <div class="wg-icon"></div>
           <div class="wg-label">Personalised roadmap</div>
           <div class="wg-sub">Prioritised recommendations based on your specific results</div>
         </div>
         <div class="wg-card">
-          <div class="wg-icon">📄</div>
+          <div class="wg-icon"></div>
           <div class="wg-label">Downloadable report</div>
           <div class="wg-sub">Export your results as a PDF to share with leadership</div>
         </div>
@@ -403,7 +403,7 @@ body::before{
     </div>
   </div>
 
-  <!-- ── SCREEN 1: Contact ── -->
+  <!--  SCREEN 1: Contact  -->
   <div class="screen" id="screen-contact">
     <div class="card-wrap">
       <div class="step-label"><span class="step-dot"></span>About You</div>
@@ -483,24 +483,24 @@ body::before{
     </div>
   </div>
 
-  <!-- ── SCREENS 2–6: Dimensions (generated by JS) ── -->
+  <!--  SCREENS 2–6: Dimensions (generated by JS)  -->
   <div class="screen" id="screen-dim"></div>
 
-  <!-- ── SCREEN 7: Processing ── -->
+  <!--  SCREEN 7: Processing  -->
   <div class="screen" id="screen-processing">
     <div class="processing-wrap">
       <div class="proc-ring"></div>
       <h2 class="s-h2" style="text-align:center">Analysing your responses…</h2>
       <div class="proc-items" id="proc-items">
-        <div class="proc-item" id="pi-0"><div class="pi-tick">✓</div>Scoring across 5 dimensions</div>
-        <div class="proc-item" id="pi-1"><div class="pi-tick">✓</div>Identifying your readiness tier</div>
-        <div class="proc-item" id="pi-2"><div class="pi-tick">✓</div>Mapping priority recommendations</div>
-        <div class="proc-item" id="pi-3"><div class="pi-tick">✓</div>Building your personalised roadmap</div>
+        <div class="proc-item" id="pi-0"><div class="pi-tick"></div>Scoring across 5 dimensions</div>
+        <div class="proc-item" id="pi-1"><div class="pi-tick"></div>Identifying your readiness tier</div>
+        <div class="proc-item" id="pi-2"><div class="pi-tick"></div>Mapping priority recommendations</div>
+        <div class="proc-item" id="pi-3"><div class="pi-tick"></div>Building your personalised roadmap</div>
       </div>
     </div>
   </div>
 
-  <!-- ── SCREEN 8: Results ── -->
+  <!--  SCREEN 8: Results  -->
   <div class="screen" id="screen-results">
     <div class="results-wrap" id="results-content">
       <!-- populated by JS -->
@@ -510,15 +510,15 @@ body::before{
 </div><!-- #app -->
 
 <script>
-/* ═══════════════════════════════════════════
+/* 
    DATA
-═══════════════════════════════════════════ */
+ */
 const DIMENSIONS = [
-  {id:'strategy', label:'Strategy',       icon:'🎯', color:'#a855f7', desc:'Vision, sponsorship & investment'},
-  {id:'data',     label:'Data',           icon:'🗄️', color:'#3b82f6', desc:'Accessibility, quality & classification'},
-  {id:'gov',      label:'Governance',     icon:'🛡️', color:'#10b981', desc:'Policy, compliance & oversight'},
-  {id:'people',   label:'People',         icon:'👥', color:'#f59e0b', desc:'Skills, capability & change readiness'},
-  {id:'tech',     label:'Technology',     icon:'⚡', color:'#ec4899', desc:'Infrastructure, tools & integration'},
+  {id:'strategy', label:'Strategy',       icon:'', color:'#a855f7', desc:'Vision, sponsorship & investment'},
+  {id:'data',     label:'Data',           icon:'', color:'#3b82f6', desc:'Accessibility, quality & classification'},
+  {id:'gov',      label:'Governance',     icon:'', color:'#10b981', desc:'Policy, compliance & oversight'},
+  {id:'people',   label:'People',         icon:'', color:'#f59e0b', desc:'Skills, capability & change readiness'},
+  {id:'tech',     label:'Technology',     icon:'', color:'#ec4899', desc:'Infrastructure, tools & integration'},
 ];
 
 const QUESTIONS = {
@@ -742,9 +742,9 @@ const RECOMMENDATIONS = {
   },
 };
 
-/* ═══════════════════════════════════════════
+/* 
    STATE
-═══════════════════════════════════════════ */
+ */
 let currentScreen = 'welcome';
 let currentDimIdx = 0;   // 0–4
 let currentQIdx   = 0;   // 0–3 within a dimension
@@ -754,9 +754,9 @@ let contact = {};
 const SCREEN_ORDER = ['welcome','contact','dim','processing','results'];
 const TOTAL_STEPS  = 2 + (DIMENSIONS.length * 4); // contact + 20 questions
 
-/* ═══════════════════════════════════════════
+/* 
    NAVIGATION
-═══════════════════════════════════════════ */
+ */
 function goTo(screen){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active','fade-in'));
   const el = document.getElementById('screen-'+screen);
@@ -777,9 +777,9 @@ function updateProgress(){
   document.getElementById('progress-bar').style.width = pct+'%';
 }
 
-/* ═══════════════════════════════════════════
+/* 
    CONTACT VALIDATION + START
-═══════════════════════════════════════════ */
+ */
 function startAssessment(){
   const name  = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
@@ -802,9 +802,9 @@ function startAssessment(){
   goTo('dim');
 }
 
-/* ═══════════════════════════════════════════
+/* 
    QUESTION RENDERING
-═══════════════════════════════════════════ */
+ */
 function renderQuestion(){
   const dim = DIMENSIONS[currentDimIdx];
   const qs  = QUESTIONS[dim.id];
@@ -899,9 +899,9 @@ function prevQuestion(){
   updateProgress();
 }
 
-/* ═══════════════════════════════════════════
+/* 
    SCORING
-═══════════════════════════════════════════ */
+ */
 function getDimScore(dimId){
   const qs = QUESTIONS[dimId];
   let total=0;
@@ -966,9 +966,9 @@ function getRec(dimId, score){
   return RECOMMENDATIONS[dimId][tier];
 }
 
-/* ═══════════════════════════════════════════
+/* 
    PROCESSING ANIMATION
-═══════════════════════════════════════════ */
+ */
 function runProcessing(){
   const items = document.querySelectorAll('.proc-item');
   items.forEach(el=>el.classList.remove('show'));
@@ -979,9 +979,9 @@ function runProcessing(){
   }, 3000);
 }
 
-/* ═══════════════════════════════════════════
+/* 
    RESULTS BUILDER
-═══════════════════════════════════════════ */
+ */
 function buildResults(){
   const overall = getOverallScore();
   const tier    = getTier(overall);
@@ -1094,9 +1094,9 @@ function buildResults(){
   setTimeout(()=>drawRadar('radar-chart', scores), 300);
 }
 
-/* ═══════════════════════════════════════════
+/* 
    CHARTS
-═══════════════════════════════════════════ */
+ */
 function drawRing(canvasId, pct){
   const canvas = document.getElementById(canvasId);
   if(!canvas) return;
@@ -1161,9 +1161,9 @@ function animateCount(elId, target, suffix, duration){
   requestAnimationFrame(step);
 }
 
-/* ═══════════════════════════════════════════
+/* 
    REPORT DOWNLOAD
-═══════════════════════════════════════════ */
+ */
 function downloadReport(){
   const overall = getOverallScore();
   const tier    = getTier(overall);
@@ -1279,9 +1279,9 @@ function downloadReport(){
   win.document.close();
 }
 
-/* ═══════════════════════════════════════════
+/* 
    INIT
-═══════════════════════════════════════════ */
+ */
 updateProgress();
 </script>
 </body>

@@ -106,14 +106,14 @@
       Fynaptix
     </a>
 
-    <div class="badge">🔒 Private Access</div>
+    <div class="badge"> Private Access</div>
 
     <h1>Welcome back, Jeremy</h1>
     <p>Enter your password to access the private hub.</p>
 
     <form id="loginForm">
       <div class="field">
-        <span class="icon">🔑</span>
+        <span class="icon"></span>
         <input type="password" id="password" placeholder="Password" autocomplete="current-password" required/>
       </div>
       <button class="btn" type="submit" id="submitBtn">Enter Hub</button>
@@ -143,7 +143,7 @@
       })
 
       if (res.ok) {
-        btn.textContent = '✓ Access Granted'
+        btn.textContent = ' Access Granted'
         setTimeout(() => { window.location.href = '/private/' }, 500)
       } else {
         err.classList.add('show')

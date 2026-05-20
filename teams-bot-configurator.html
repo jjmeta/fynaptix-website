@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
-/* ── Brand vars ── */
+/*  Brand vars  */
 :root{
   --bg:#05070f;
   --bg2:#080d1a;
@@ -50,7 +50,7 @@ body::before{
 
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ════ NAV ════ */
+/*  NAV  */
 nav#main-nav{
   position:sticky;top:0;left:0;right:0;z-index:500;
   padding:0 48px;height:72px;
@@ -100,10 +100,10 @@ nav#main-nav{
 .mob-tools-sub li a:hover{background:rgba(255,255,255,.05);color:#fff}
 .nav-mobile .nav-cta{display:block;margin:12px 16px 0;text-align:center;padding:12px 22px!important;border-radius:6px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff!important;font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
 
-/* ════ MAIN CONTENT ════ */
+/*  MAIN CONTENT  */
 .page-main{flex:1;padding:48px 24px 80px;max-width:860px;margin:0 auto;width:100%}
 
-/* ════ PROGRESS BAR ════ */
+/*  PROGRESS BAR  */
 .wizard-progress{display:flex;align-items:center;gap:0;margin-bottom:48px;overflow-x:auto;padding-bottom:4px}
 .wp-step{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .wp-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:11px;font-weight:700;color:var(--muted);transition:all .3s;flex-shrink:0}
@@ -115,11 +115,11 @@ nav#main-nav{
 .wp-line{flex:1;height:1px;background:var(--border2);margin:0 8px;min-width:20px;transition:background .3s}
 .wp-line.done{background:var(--ge)}
 
-/* ════ SCREENS ════ */
+/*  SCREENS  */
 .screen{display:none}
 .screen.active{display:block}
 
-/* ════ WELCOME SCREEN ════ */
+/*  WELCOME SCREEN  */
 .welcome-hero{text-align:center;padding:40px 0 32px}
 .page-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:24px;border:1px solid rgba(46,208,245,.3);background:rgba(46,208,245,.07);font-family:var(--fd);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ge);margin-bottom:24px}
 .page-title{font-family:var(--fd);font-size:clamp(28px,4vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
@@ -134,7 +134,7 @@ nav#main-nav{
 .info-note{background:rgba(46,208,245,.06);border:1px solid rgba(46,208,245,.2);border-radius:8px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;margin-bottom:32px;font-size:13px;color:rgba(232,237,248,.7);line-height:1.6}
 .info-note-icon{color:var(--ge);font-size:1rem;flex-shrink:0;margin-top:1px}
 
-/* ════ STEP SCREENS ════ */
+/*  STEP SCREENS  */
 .step-header{margin-bottom:32px}
 .step-title{font-family:var(--fd);font-size:clamp(22px,3vw,32px);font-weight:800;margin-bottom:8px}
 .step-subtitle{font-size:15px;color:var(--muted)}
@@ -153,13 +153,13 @@ nav#main-nav{
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-row-3{display:grid;grid-template-columns:2fr 2fr 1fr;gap:16px}
 
-/* ─── colour chips ─── */
+/*  colour chips  */
 .colour-chips{display:flex;gap:10px;flex-wrap:wrap}
 .colour-chip{width:36px;height:36px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s;position:relative}
 .colour-chip.selected{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.4)}
 .colour-chip:hover{transform:scale(1.15)}
 
-/* ─── radio cards ─── */
+/*  radio cards  */
 .radio-cards{display:flex;flex-direction:column;gap:10px}
 .radio-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px 18px;cursor:pointer;display:flex;align-items:flex-start;gap:14px;transition:all .2s}
 .radio-card:hover{border-color:rgba(192,37,232,.3)}
@@ -174,7 +174,7 @@ nav#main-nav{
 .rc-desc{font-size:12px;color:var(--muted);line-height:1.5}
 .badge-rec{display:inline-block;padding:2px 7px;border-radius:4px;background:rgba(46,208,245,.12);border:1px solid rgba(46,208,245,.3);font-family:var(--fd);font-size:10px;font-weight:700;color:var(--ge);text-transform:uppercase;letter-spacing:.05em}
 
-/* ─── checkbox grid ─── */
+/*  checkbox grid  */
 .check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
 .check-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;transition:all .2s}
 .check-card:hover{border-color:rgba(192,37,232,.3)}
@@ -182,18 +182,18 @@ nav#main-nav{
 .check-card input[type=checkbox]{display:none}
 .cc-box{width:18px;height:18px;border-radius:4px;border:2px solid var(--border2);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .check-card.selected .cc-box{border-color:var(--gm);background:var(--gm)}
-.cc-box::after{content:'✓';font-size:11px;color:#fff;font-weight:700;display:none}
+.cc-box::after{content:'';font-size:11px;color:#fff;font-weight:700;display:none}
 .check-card.selected .cc-box::after{display:block}
 .cc-title{font-family:var(--fd);font-size:13px;font-weight:700;margin-bottom:3px}
 .cc-desc{font-size:12px;color:var(--muted);line-height:1.4}
 
-/* ─── slider ─── */
+/*  slider  */
 .slider-wrap{display:flex;align-items:center;gap:16px}
 .slider-wrap input[type=range]{flex:1;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--border2);outline:none;cursor:pointer}
 .slider-wrap input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--gs),var(--gm));cursor:pointer;box-shadow:0 0 8px rgba(192,37,232,.4)}
 .slider-badge{background:var(--card);border:1px solid var(--border2);border-radius:6px;padding:6px 12px;font-family:var(--fd);font-size:13px;font-weight:700;color:#fff;min-width:64px;text-align:center;flex-shrink:0}
 
-/* ─── toggle ─── */
+/*  toggle  */
 .toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:16px 18px}
 .toggle-info{}
 .toggle-label-main{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:3px}
@@ -206,18 +206,18 @@ nav#main-nav{
 .toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
 .toggle-extra{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 
-/* ─── template pills ─── */
+/*  template pills  */
 .template-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .tpl-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:var(--card);color:rgba(232,237,248,.75);font-family:var(--fd);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .tpl-btn:hover{border-color:rgba(192,37,232,.4);color:#fff;background:rgba(192,37,232,.08)}
 .tpl-btn.active{border-color:var(--gm);background:rgba(192,37,232,.12);color:#fff}
 
-/* ─── section divider ─── */
+/*  section divider  */
 .form-section{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border)}
 .form-section:last-of-type{border-bottom:none}
 .form-section-label{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gm);margin-bottom:16px}
 
-/* ════ NAV BUTTONS ════ */
+/*  NAV BUTTONS  */
 .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
 .btn-back{background:none;border:1px solid var(--border2);color:var(--muted);font-family:var(--fd);font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;cursor:pointer;transition:all .2s}
 .btn-back:hover{border-color:rgba(255,255,255,.2);color:var(--text)}
@@ -228,7 +228,7 @@ nav#main-nav{
 .btn-generate:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 10px 40px rgba(192,37,232,.4)}
 .btn-generate:disabled{opacity:.4;cursor:not-allowed}
 
-/* ════ PROCESSING SCREEN ════ */
+/*  PROCESSING SCREEN  */
 .processing-wrap{text-align:center;padding:80px 24px}
 .proc-spinner{width:64px;height:64px;border:3px solid var(--border2);border-top-color:var(--gm);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 32px}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -242,7 +242,7 @@ nav#main-nav{
 .proc-step.active .proc-step-dot{background:var(--gm);animation:blink 1s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ════ RESULTS SCREEN ════ */
+/*  RESULTS SCREEN  */
 .results-header{text-align:center;margin-bottom:40px}
 .results-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:24px;border:1px solid rgba(46,208,245,.3);background:rgba(46,208,245,.07);font-family:var(--fd);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ge);margin-bottom:20px}
 .results-title{font-family:var(--fd);font-size:clamp(24px,3.5vw,36px);font-weight:800;margin-bottom:12px}
@@ -250,7 +250,7 @@ nav#main-nav{
 .sum-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:var(--card);font-family:var(--fd);font-size:12px;font-weight:600;color:rgba(232,237,248,.8)}
 .sum-pill-dot{width:7px;height:7px;border-radius:50%}
 
-/* ─── tabs ─── */
+/*  tabs  */
 .tab-nav{display:flex;gap:0;border-bottom:1px solid var(--border2);margin-bottom:24px;overflow-x:auto}
 .tab-btn{padding:12px 20px;border:none;background:none;color:var(--muted);font-family:var(--fd);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;position:relative;border-bottom:2px solid transparent}
 .tab-btn:hover{color:#fff}
@@ -259,7 +259,7 @@ nav#main-nav{
 .tab-panel{display:none}
 .tab-panel.active{display:block}
 
-/* ─── code block ─── */
+/*  code block  */
 .code-block{
   background:rgba(0,0,0,0.5);
   border:1px solid rgba(255,255,255,0.1);
@@ -275,14 +275,14 @@ nav#main-nav{
   overflow-y:auto;
 }
 
-/* ─── file action bar ─── */
+/*  file action bar  */
 .file-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .btn-copy{background:var(--card);border:1px solid var(--border2);color:var(--text);font-family:var(--fd);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .2s}
 .btn-copy:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
 .btn-download{background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-size:12px;font-weight:700;padding:9px 18px;border-radius:7px;border:none;cursor:pointer;transition:all .2s}
 .btn-download:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(192,37,232,.3)}
 
-/* ─── deployment guide (HTML) ─── */
+/*  deployment guide (HTML)  */
 .deploy-guide{font-size:14px;line-height:1.8}
 .deploy-guide h2{font-family:var(--fd);font-size:20px;font-weight:800;margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
 .deploy-guide h3{font-family:var(--fd);font-size:15px;font-weight:700;margin:20px 0 8px;color:rgba(232,237,248,.9)}
@@ -308,13 +308,13 @@ nav#main-nav{
 .btn-restart{background:none;border:1px solid var(--border2);color:var(--muted);font-family:var(--fd);font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;cursor:pointer;transition:all .2s}
 .btn-restart:hover{border-color:rgba(255,255,255,.2);color:var(--text)}
 
-/* ════ FOOTER ════ */
+/*  FOOTER  */
 footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer p{font-size:12px;color:var(--muted)}
 footer a{color:var(--muted);text-decoration:none;font-size:12px}
 footer a:hover{color:var(--text)}
 
-/* ════ RESPONSIVE ════ */
+/*  RESPONSIVE  */
 @media(max-width:768px){
   nav#main-nav{padding:0 20px}
   .nav-links{display:none}
@@ -328,7 +328,7 @@ footer a:hover{color:var(--text)}
   footer{padding:24px 20px;flex-direction:column;text-align:center}
 }
 
-/* ════ PRINT ════ */
+/*  PRINT  */
 @media print{
   nav,#main-nav,.nav-mobile,.wizard-progress,.tab-nav,.btn-download,.btn-copy,.results-restart,footer{display:none!important}
   body{background:white!important;color:black!important}
@@ -355,23 +355,23 @@ footer a:hover{color:var(--text)}
     <li><a href="/#usecases">Use Cases</a></li>
     <li><a href="/blog">Blog</a></li>
     <li class="nav-dropdown" id="nd-free">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
-        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
-        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
-        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
-        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
-        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
-        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
       </div>
     </li>
     <li class="nav-dropdown" id="nd-m365">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
-        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon">🏷️</span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
-        <a href="teams-bot-configurator.html" class="nav-dropdown-item"><span class="ndi-icon">🤖</span><span class="ndi-text"><strong>Teams Bot Configurator</strong><span>Generate Claude bot config files</span></span></a>
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
+        <a href="teams-bot-configurator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Teams Bot Configurator</strong><span>Generate Claude bot config files</span></span></a>
       </div>
     </li>
     <li><a class="nav-cta" href="/#contact">Get Started</a></li>
@@ -385,23 +385,23 @@ footer a:hover{color:var(--text)}
     <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
     <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-free-sub">
-        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
-        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
-        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
-        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
-        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
-        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
-        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+        <li><a href="assessment.html" onclick="closeMobile()"> Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()"> Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()"> ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()"> M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()"> Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()"> Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()"> Deployment Guide</a></li>
       </ul>
     </li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-m365-sub">
-        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
-        <li><a href="m365-data-classification.html" onclick="closeMobile()">🏷️ Data Classification Planner</a></li>
-        <li><a href="teams-bot-configurator.html" onclick="closeMobile()">🤖 Teams Bot Configurator</a></li>
+        <li><a href="m365-audit.html" onclick="closeMobile()"> AI Readiness Audit</a></li>
+        <li><a href="m365-data-classification.html" onclick="closeMobile()"> Data Classification Planner</a></li>
+        <li><a href="teams-bot-configurator.html" onclick="closeMobile()"> Teams Bot Configurator</a></li>
       </ul>
     </li>
     <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
@@ -434,7 +434,7 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- ─── SCREEN 0: WELCOME ─── -->
+  <!--  SCREEN 0: WELCOME  -->
   <div class="screen active" id="screen-welcome">
     <div class="wizard-progress" style="display:none"></div>
     <div class="welcome-hero">
@@ -444,28 +444,28 @@ footer a:hover{color:var(--text)}
     </div>
     <div class="feature-cards">
       <div class="feature-card">
-        <div class="fc-icon">📋</div>
+        <div class="fc-icon"></div>
         <div>
           <div class="fc-title">manifest.json</div>
           <div class="fc-desc">Complete Teams app manifest v1.17 with your bot identity, scopes, and valid domains pre-filled.</div>
         </div>
       </div>
       <div class="feature-card">
-        <div class="fc-icon">⚙️</div>
+        <div class="fc-icon"></div>
         <div>
           <div class="fc-title">Bot Config</div>
           <div class="fc-desc">Structured bot-config.json with Claude model settings, rate limits, and hosting preferences.</div>
         </div>
       </div>
       <div class="feature-card">
-        <div class="fc-icon">🔐</div>
+        <div class="fc-icon"></div>
         <div>
           <div class="fc-title">.env Template</div>
           <div class="fc-desc">Ready-to-fill environment file with every variable your bot needs, labelled clearly.</div>
         </div>
       </div>
       <div class="feature-card">
-        <div class="fc-icon">📖</div>
+        <div class="fc-icon"></div>
         <div>
           <div class="fc-title">Deployment Guide</div>
           <div class="fc-desc">Printable step-by-step Azure setup and deployment walkthrough tailored to your choices.</div>
@@ -473,7 +473,7 @@ footer a:hover{color:var(--text)}
       </div>
     </div>
     <div class="info-note">
-      <span class="info-note-icon">ℹ️</span>
+      <span class="info-note-icon">ℹ</span>
       <span>You'll need an Azure subscription and Anthropic API key before deploying. This tool generates the config — the deployment steps are included in your output.</span>
     </div>
     <div style="text-align:center">
@@ -481,7 +481,7 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- ─── SCREEN 1: BOT IDENTITY ─── -->
+  <!--  SCREEN 1: BOT IDENTITY  -->
   <div class="screen" id="screen-1">
     <div class="step-header">
       <h2 class="step-title">Bot Identity</h2>
@@ -550,7 +550,7 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- ─── SCREEN 2: CLAUDE CONFIGURATION ─── -->
+  <!--  SCREEN 2: CLAUDE CONFIGURATION  -->
   <div class="screen" id="screen-2">
     <div class="step-header">
       <h2 class="step-title">Claude Configuration</h2>
@@ -645,7 +645,7 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- ─── SCREEN 3: TEAMS SCOPE & DEPLOYMENT ─── -->
+  <!--  SCREEN 3: TEAMS SCOPE & DEPLOYMENT  -->
   <div class="screen" id="screen-3">
     <div class="step-header">
       <h2 class="step-title">Teams Scope &amp; Deployment</h2>
@@ -658,21 +658,21 @@ footer a:hover{color:var(--text)}
         <label class="check-card" onclick="toggleScope('personal',this)">
           <div class="cc-box"></div>
           <div>
-            <div class="cc-title">💬 Personal Chat</div>
+            <div class="cc-title"> Personal Chat</div>
             <div class="cc-desc">Users can chat 1:1 with the bot</div>
           </div>
         </label>
         <label class="check-card" onclick="toggleScope('team',this)">
           <div class="cc-box"></div>
           <div>
-            <div class="cc-title">📢 Team Channels</div>
+            <div class="cc-title"> Team Channels</div>
             <div class="cc-desc">Bot can be added to team channels and @mentioned</div>
           </div>
         </label>
         <label class="check-card" onclick="toggleScope('groupchat',this)">
           <div class="cc-box"></div>
           <div>
-            <div class="cc-title">👥 Group Chats</div>
+            <div class="cc-title"> Group Chats</div>
             <div class="cc-desc">Bot can be added to group conversations</div>
           </div>
         </label>
@@ -733,28 +733,28 @@ footer a:hover{color:var(--text)}
         <label class="radio-card" onclick="selectHosting('azure-app-service',this)">
           <div class="rc-dot"></div>
           <div class="rc-body">
-            <div class="rc-title">☁️ Azure App Service <span class="badge-rec">Recommended</span></div>
+            <div class="rc-title"> Azure App Service <span class="badge-rec">Recommended</span></div>
             <div class="rc-desc">PaaS hosting, auto-scaling, always-on. Best for production bots.</div>
           </div>
         </label>
         <label class="radio-card" onclick="selectHosting('azure-container-apps',this)">
           <div class="rc-dot"></div>
           <div class="rc-body">
-            <div class="rc-title">📦 Azure Container Apps</div>
+            <div class="rc-title"> Azure Container Apps</div>
             <div class="rc-desc">Containerised deployment. Good if you use Docker or CI pipelines.</div>
           </div>
         </label>
         <label class="radio-card" onclick="selectHosting('azure-functions',this)">
           <div class="rc-dot"></div>
           <div class="rc-body">
-            <div class="rc-title">⚡ Azure Functions</div>
+            <div class="rc-title"> Azure Functions</div>
             <div class="rc-desc">Serverless. Pay per execution. Best for low-volume or bursty usage.</div>
           </div>
         </label>
         <label class="radio-card" onclick="selectHosting('self-hosted',this)">
           <div class="rc-dot"></div>
           <div class="rc-body">
-            <div class="rc-title">🖥️ Self-hosted</div>
+            <div class="rc-title"> Self-hosted</div>
             <div class="rc-desc">On-premises or third-party hosting. You manage infrastructure.</div>
           </div>
         </label>
@@ -808,7 +808,7 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- ─── PROCESSING ─── -->
+  <!--  PROCESSING  -->
   <div class="screen" id="screen-processing">
     <div class="processing-wrap">
       <div class="proc-spinner"></div>
@@ -823,10 +823,10 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- ─── SCREEN 4: RESULTS ─── -->
+  <!--  SCREEN 4: RESULTS  -->
   <div class="screen" id="screen-results">
     <div class="results-header">
-      <div class="results-badge">✓ Configuration Ready</div>
+      <div class="results-badge"> Configuration Ready</div>
       <h2 class="results-title">Your Bot Configuration is <span class="grad-text">Ready</span></h2>
       <div class="summary-pills" id="summary-pills"></div>
     </div>
@@ -841,30 +841,30 @@ footer a:hover{color:var(--text)}
     <div class="tab-panel active" id="tab-manifest">
       <pre class="code-block" id="out-manifest"></pre>
       <div class="file-actions">
-        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-manifest').textContent,this)">⧉ Copy to Clipboard</button>
-        <button class="btn-download" onclick="downloadFile(document.getElementById('out-manifest').textContent,'manifest.json','application/json')">⬇ Download manifest.json</button>
+        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-manifest').textContent,this)"> Copy to Clipboard</button>
+        <button class="btn-download" onclick="downloadFile(document.getElementById('out-manifest').textContent,'manifest.json','application/json')"> Download manifest.json</button>
       </div>
     </div>
 
     <div class="tab-panel" id="tab-env">
       <pre class="code-block" id="out-env"></pre>
       <div class="file-actions">
-        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-env').textContent,this)">⧉ Copy to Clipboard</button>
-        <button class="btn-download" onclick="downloadFile(document.getElementById('out-env').textContent,'.env.example','text/plain')">⬇ Download .env.example</button>
+        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-env').textContent,this)"> Copy to Clipboard</button>
+        <button class="btn-download" onclick="downloadFile(document.getElementById('out-env').textContent,'.env.example','text/plain')"> Download .env.example</button>
       </div>
     </div>
 
     <div class="tab-panel" id="tab-botconfig">
       <pre class="code-block" id="out-botconfig"></pre>
       <div class="file-actions">
-        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-botconfig').textContent,this)">⧉ Copy to Clipboard</button>
-        <button class="btn-download" onclick="downloadFile(document.getElementById('out-botconfig').textContent,'bot-config.json','application/json')">⬇ Download bot-config.json</button>
+        <button class="btn-copy" onclick="copyToClipboard(document.getElementById('out-botconfig').textContent,this)"> Copy to Clipboard</button>
+        <button class="btn-download" onclick="downloadFile(document.getElementById('out-botconfig').textContent,'bot-config.json','application/json')"> Download bot-config.json</button>
       </div>
     </div>
 
     <div class="tab-panel" id="tab-guide">
       <div class="file-actions" style="margin-bottom:20px">
-        <button class="btn-download" onclick="window.print()">⬇ Download as PDF</button>
+        <button class="btn-download" onclick="window.print()"> Download as PDF</button>
       </div>
       <div class="deploy-guide" id="out-guide"></div>
     </div>
@@ -888,9 +888,9 @@ footer a:hover{color:var(--text)}
 </div><!-- #app -->
 
 <script>
-/* ════════════════════════════════════════
+/* 
    NAV JS
-════════════════════════════════════════ */
+ */
 function toggleDropdown(e) {
   e.stopPropagation();
   const dd = e.currentTarget.closest('.nav-dropdown');
@@ -923,9 +923,9 @@ function toggleMobileSub(subId, arrowId) {
   if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
 }
 
-/* ════════════════════════════════════════
+/* 
    STATE
-════════════════════════════════════════ */
+ */
 const state = {
   botName: '', shortDesc: '', fullDesc: '', orgName: '', orgDomain: '',
   accentColor: '#6264a7', version: '1.0.0',
@@ -936,9 +936,9 @@ const state = {
 
 function syncState(key, val) { state[key] = val; }
 
-/* ════════════════════════════════════════
+/* 
    SCREEN NAVIGATION
-════════════════════════════════════════ */
+ */
 let currentScreen = 'welcome';
 const STEPS = ['welcome','1','2','3','processing','results'];
 
@@ -966,16 +966,16 @@ function updateProgress(screenId) {
     dot.className = 'wp-dot' + (i < current ? ' done' : i === current ? ' active' : '');
     if (lbl) lbl.className = 'wp-label' + (i < current ? ' done' : i === current ? ' active' : '');
     if (line) line.className = 'wp-line' + (i < current ? ' done' : '');
-    dot.textContent = i < current ? '✓' : i;
+    dot.textContent = i < current ? '' : i;
   }
 }
 
 function goToWelcome() { showScreen('welcome'); }
 function goToStep(n) { showScreen(String(n)); }
 
-/* ════════════════════════════════════════
+/* 
    VALIDATION
-════════════════════════════════════════ */
+ */
 function validateStep1() {
   const btn = document.getElementById('btn-next-1');
   const ok = state.botName.trim() && state.shortDesc.trim() && state.fullDesc.trim() && state.orgName.trim() && state.orgDomain.trim();
@@ -994,9 +994,9 @@ function validateStep3() {
   btn.disabled = !ok;
 }
 
-/* ════════════════════════════════════════
+/* 
    FORM HELPERS
-════════════════════════════════════════ */
+ */
 function updateCharCount(inputId, countId, max) {
   const el = document.getElementById(inputId);
   const cnt = document.getElementById(countId);
@@ -1086,9 +1086,9 @@ function selectSdk(sdk, card) {
   validateStep3();
 }
 
-/* ════════════════════════════════════════
+/* 
    GENERATION
-════════════════════════════════════════ */
+ */
 function startGeneration() {
   showScreen('processing');
   const steps = ['ps-1','ps-2','ps-3','ps-4','ps-5'];
@@ -1119,9 +1119,9 @@ function startGeneration() {
   setTimeout(advance, 500);
 }
 
-/* ════════════════════════════════════════
+/* 
    SLUG HELPERS
-════════════════════════════════════════ */
+ */
 function toBotSlug(name) {
   return name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
 }
@@ -1164,9 +1164,9 @@ function escapeJson(str) {
   return str.replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,'\\n').replace(/\r/g,'\\r').replace(/\t/g,'\\t');
 }
 
-/* ════════════════════════════════════════
+/* 
    BUILD OUTPUTS
-════════════════════════════════════════ */
+ */
 function buildOutputs() {
   const slug = toBotSlug(state.botName || 'my-bot');
   const domainSlug = toDomainSlug(state.orgDomain || 'example.com');
@@ -1174,7 +1174,7 @@ function buildOutputs() {
   const scopesArr = getScopesArray();
   const fullDescShort = (state.fullDesc || '').substring(0, 100);
 
-  /* ─── manifest.json ─── */
+  /*  manifest.json  */
   const manifest = {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
     "manifestVersion": "1.17",
@@ -1222,11 +1222,11 @@ function buildOutputs() {
   };
   document.getElementById('out-manifest').textContent = JSON.stringify(manifest, null, 2);
 
-  /* ─── .env template ─── */
-  let envContent = `# ─────────────────────────────────────────
+  /*  .env template  */
+  let envContent = `# 
 # ${state.botName} — Environment Configuration
 # Generated by Fynaptix Teams Bot Configurator
-# ─────────────────────────────────────────
+# 
 
 # Azure Bot Service (from Azure Portal → Bot Registration)
 MICROSOFT_APP_ID=REPLACE_WITH_YOUR_AZURE_BOT_APP_ID
@@ -1260,7 +1260,7 @@ RATE_LIMIT_MESSAGES_PER_HOUR=${state.rateLimitMessages}
 APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE_IF_USING_APP_INSIGHTS`;
   document.getElementById('out-env').textContent = envContent;
 
-  /* ─── bot-config.json ─── */
+  /*  bot-config.json  */
   const botConfig = {
     bot: {
       name: state.botName,
@@ -1290,10 +1290,10 @@ APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE_IF_USING_APP_INSIGHTS`;
   };
   document.getElementById('out-botconfig').textContent = JSON.stringify(botConfig, null, 2);
 
-  /* ─── Deployment Guide ─── */
+  /*  Deployment Guide  */
   buildDeploymentGuide(slug, botDomain);
 
-  /* ─── Summary pills ─── */
+  /*  Summary pills  */
   const pills = document.getElementById('summary-pills');
   pills.innerHTML = `
     <div class="sum-pill"><div class="sum-pill-dot" style="background:var(--gm)"></div>${state.botName}</div>
@@ -1318,7 +1318,7 @@ function buildDeploymentGuide(slug, botDomain) {
 
   const html = `
 <div style="margin-bottom:24px">
-  <button class="btn-download" onclick="window.print()" style="margin-bottom:16px">⬇ Print / Save as PDF</button>
+  <button class="btn-download" onclick="window.print()" style="margin-bottom:16px"> Print / Save as PDF</button>
 </div>
 
 <h2>Prerequisites</h2>
@@ -1498,7 +1498,7 @@ export function checkRateLimit(userId: string): boolean {
 </div>` : ''}
 
 <div class="fynaptix-callout">
-  <div class="fynaptix-callout-icon">🚀</div>
+  <div class="fynaptix-callout-icon"></div>
   <div class="fynaptix-callout-body">
     <h3>Need help deploying?</h3>
     <p>Fynaptix builds and deploys production-grade Claude bots for Microsoft Teams as part of our <strong>Enterprise Claude Deployment</strong> service. We handle Azure setup, bot development, security review, and ongoing support. <a href="/#contact">Talk to us →</a></p>
@@ -1510,7 +1510,7 @@ export function checkRateLimit(userId: string): boolean {
 }
 
 function checklist(items) {
-  return items.map(i => `<div class="checklist-item"><span class="ci-check">✅</span><span>${i}</span></div>`).join('');
+  return items.map(i => `<div class="checklist-item"><span class="ci-check"></span><span>${i}</span></div>`).join('');
 }
 
 function getSdkPrereq(sdk) {
@@ -1681,9 +1681,9 @@ jobs:
 </div>`;
 }
 
-/* ════════════════════════════════════════
+/* 
    TABS
-════════════════════════════════════════ */
+ */
 function switchTab(name, btn) {
   const tabMap = { manifest:'tab-manifest', env:'tab-env', botconfig:'tab-botconfig', guide:'tab-guide' };
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1693,9 +1693,9 @@ function switchTab(name, btn) {
   if (btn) btn.classList.add('active');
 }
 
-/* ════════════════════════════════════════
+/* 
    FILE UTILS
-════════════════════════════════════════ */
+ */
 function downloadFile(content, filename, mimeType) {
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
@@ -1712,7 +1712,7 @@ async function copyToClipboard(text, btn) {
   try {
     await navigator.clipboard.writeText(text);
     const orig = btn.textContent;
-    btn.textContent = '✓ Copied!';
+    btn.textContent = ' Copied!';
     setTimeout(() => btn.textContent = orig, 2000);
   } catch(e) {
     // fallback
@@ -1725,14 +1725,14 @@ async function copyToClipboard(text, btn) {
     document.execCommand('copy');
     document.body.removeChild(ta);
     const orig = btn.textContent;
-    btn.textContent = '✓ Copied!';
+    btn.textContent = ' Copied!';
     setTimeout(() => btn.textContent = orig, 2000);
   }
 }
 
-/* ════════════════════════════════════════
+/* 
    RESTART
-════════════════════════════════════════ */
+ */
 function restartWizard() {
   // reset state
   Object.assign(state, {
@@ -1773,9 +1773,9 @@ function restartWizard() {
   goToWelcome();
 }
 
-/* ════════════════════════════════════════
+/* 
    INIT
-════════════════════════════════════════ */
+ */
 document.getElementById('wizard-progress').style.display = 'none';
 </script>
 </body>

@@ -31,7 +31,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     radial-gradient(ellipse 40% 30% at 55% 50%,rgba(255,95,31,0.04) 0%,transparent 50%);}
 #app{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 
-/* ── Nav ── */
+/*  Nav  */
 nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,7,15,0.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
 .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
 .nav-logo-img{height:52px;width:auto;filter:drop-shadow(0 0 8px rgba(3,131,135,.5))}
@@ -73,7 +73,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 .mob-tools-sub li a{font-size:13px;padding:8px 16px;color:var(--muted)}
 @media(max-width:960px){.nav-links{display:none}.nav-burger{display:flex}nav#main-nav{padding:0 20px}}
 
-/* ── Progress ── */
+/*  Progress  */
 .wizard-progress{display:flex;align-items:center;justify-content:center;gap:0;padding:28px 24px 0;max-width:680px;margin:0 auto;width:100%}
 .wp-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative}
 .wp-step:not(:last-child)::after{content:'';position:absolute;top:14px;left:calc(50% + 16px);right:calc(-50% + 16px);height:1px;background:var(--border2)}
@@ -83,11 +83,11 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 .wp-label{font-family:var(--fd);font-size:11px;font-weight:500;color:var(--muted);text-align:center;letter-spacing:.04em}
 .wp-step.active .wp-label{color:var(--text)}
 
-/* ── Screens ── */
+/*  Screens  */
 .screen{display:none;flex:1;flex-direction:column;align-items:center;padding:32px 24px 60px;max-width:820px;margin:0 auto;width:100%}
 .screen.active{display:flex}
 
-/* ── Welcome ── */
+/*  Welcome  */
 .welcome-hero{text-align:center;padding:40px 0 32px}
 .welcome-hero h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:16px}
 .g-text{background:var(--grad-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -101,14 +101,14 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 .fc-body h4{font-family:var(--fd);font-size:14px;font-weight:600;margin-bottom:4px}
 .fc-body p{font-size:12px;color:var(--muted);line-height:1.5}
 
-/* ── Buttons ── */
+/*  Buttons  */
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:8px;background:linear-gradient(135deg,var(--gs),var(--gm));color:#fff;font-family:var(--fd);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:opacity .2s,transform .2s;text-decoration:none}
 .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
 .btn-ghost{background:var(--card);border:1px solid var(--border2);color:var(--text);font-family:var(--fd);font-size:14px;font-weight:500;padding:11px 24px;border-radius:8px;cursor:pointer;transition:background .2s}
 .btn-ghost:hover{background:rgba(255,255,255,0.08)}
 .btn-row{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:32px;width:100%}
 
-/* ── Form screens ── */
+/*  Form screens  */
 .screen-title{font-family:var(--fd);font-size:1.8rem;font-weight:700;margin-bottom:6px;align-self:flex-start}
 .screen-sub{color:var(--muted);font-size:0.95rem;margin-bottom:28px;align-self:flex-start}
 .q-block{width:100%;margin-bottom:24px}
@@ -138,7 +138,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 .c-body .c-name{font-family:var(--fd);font-size:13px;font-weight:600;margin-bottom:2px}
 .c-body .c-desc{font-size:11px;color:var(--muted)}
 
-/* ── Processing ── */
+/*  Processing  */
 .processing-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:32px;padding:60px 0}
 .proc-spinner{width:56px;height:56px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--sp);animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -148,7 +148,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 .proc-step.done{color:var(--sp)}
 .proc-icon{font-size:16px;width:20px;text-align:center}
 
-/* ── Results / Architecture Doc ── */
+/*  Results / Architecture Doc  */
 .results-wrap{width:100%;max-width:900px}
 .results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:gap}
 .results-header h2{font-family:var(--fd);font-size:1.5rem;font-weight:700}
@@ -216,7 +216,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 .fyn-callout a{color:var(--sp);font-weight:600;text-decoration:none}
 .fyn-callout a:hover{text-decoration:underline}
 
-/* ── Print ── */
+/*  Print  */
 @media print{
   nav,#nav-mobile,.wizard-progress,.btn-pdf,.btn-row,footer{display:none!important}
   body{background:#fff!important;color:#111!important;font-size:12pt}
@@ -237,7 +237,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 <body>
 <div id="app">
 
-<!-- ── Nav ── -->
+<!--  Nav  -->
 <nav id="main-nav">
   <a class="nav-logo" href="/"><img src="assets/images/embedded-image-1.png" alt="Fynaptix" class="nav-logo-img"/></a>
   <ul class="nav-links">
@@ -246,24 +246,24 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
     <li><a href="/#usecases">Use Cases</a></li>
     <li><a href="/blog">Blog</a></li>
     <li class="nav-dropdown" id="nd-free">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">Free Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
-        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon">🏛️</span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
-        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon">📊</span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
-        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon">🔗</span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
-        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon">⚖️</span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
-        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon">🎯</span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
-        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon">📄</span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
+        <a href="assessment.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Readiness Assessment</strong><span>Score your Claude AI readiness</span></span></a>
+        <a href="governance.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Governance Pack</strong><span>Generate 5 AI policy documents</span></span></a>
+        <a href="roi-calculator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>ROI Calculator</strong><span>Calculate your Claude AI returns</span></span></a>
+        <a href="m365-planner.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>M365 Integration Planner</strong><span>Map your M365 + Claude blueprint</span></span></a>
+        <a href="claude-vs-copilot.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Claude vs Copilot</strong><span>Find the right platform for you</span></span></a>
+        <a href="use-case-matrix.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Use Case Matrix</strong><span>Prioritise AI use cases by impact</span></span></a>
+        <a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Deployment Guide</strong><span>Free 21-page PDF guide</span></span></a>
       </div>
     </li>
     <li class="nav-dropdown" id="nd-m365">
-      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow">▾</span></button>
+      <button class="nav-dropdown-btn" onclick="toggleDropdown(event)">M365 Tenant Tools <span class="nav-dropdown-arrow"></span></button>
       <div class="nav-dropdown-menu">
-        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon">🔍</span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
-        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon">🏷️</span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
-        <a href="teams-bot-configurator.html" class="nav-dropdown-item"><span class="ndi-icon">🤖</span><span class="ndi-text"><strong>Teams Bot Configurator</strong><span>Generate Claude bot config files</span></span></a>
-        <a href="sharepoint-rag-guide.html" class="nav-dropdown-item"><span class="ndi-icon">📚</span><span class="ndi-text"><strong>SharePoint RAG Guide</strong><span>Connect SharePoint to Claude as a knowledge base</span></span></a>
+        <a href="m365-audit.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>AI Readiness Audit</strong><span>Assess your tenant for AI deployment</span></span></a>
+        <a href="m365-data-classification.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Data Classification Planner</strong><span>Design your Purview label taxonomy</span></span></a>
+        <a href="teams-bot-configurator.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>Teams Bot Configurator</strong><span>Generate Claude bot config files</span></span></a>
+        <a href="sharepoint-rag-guide.html" class="nav-dropdown-item"><span class="ndi-icon"></span><span class="ndi-text"><strong>SharePoint RAG Guide</strong><span>Connect SharePoint to Claude as a knowledge base</span></span></a>
       </div>
     </li>
     <li><a class="nav-cta" href="/#contact">Get Started</a></li>
@@ -271,7 +271,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ── Mobile nav ── -->
+<!--  Mobile nav  -->
 <div class="nav-mobile" id="nav-mobile">
   <ul>
     <li><a href="/#how" onclick="closeMobile()">How It Works</a></li>
@@ -279,31 +279,31 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
     <li><a href="/#usecases" onclick="closeMobile()">Use Cases</a></li>
     <li><a href="/blog" onclick="closeMobile()">Blog</a></li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-free-sub','mob-free-arrow')">Free Tools <span class="mob-tools-arrow" id="mob-free-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-free-sub">
-        <li><a href="assessment.html" onclick="closeMobile()">🎯 Readiness Assessment</a></li>
-        <li><a href="governance.html" onclick="closeMobile()">🏛️ Governance Pack</a></li>
-        <li><a href="roi-calculator.html" onclick="closeMobile()">📊 ROI Calculator</a></li>
-        <li><a href="m365-planner.html" onclick="closeMobile()">🔗 M365 Planner</a></li>
-        <li><a href="claude-vs-copilot.html" onclick="closeMobile()">⚖️ Claude vs Copilot</a></li>
-        <li><a href="use-case-matrix.html" onclick="closeMobile()">🎯 Use Case Matrix</a></li>
-        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()">📄 Deployment Guide</a></li>
+        <li><a href="assessment.html" onclick="closeMobile()"> Readiness Assessment</a></li>
+        <li><a href="governance.html" onclick="closeMobile()"> Governance Pack</a></li>
+        <li><a href="roi-calculator.html" onclick="closeMobile()"> ROI Calculator</a></li>
+        <li><a href="m365-planner.html" onclick="closeMobile()"> M365 Planner</a></li>
+        <li><a href="claude-vs-copilot.html" onclick="closeMobile()"> Claude vs Copilot</a></li>
+        <li><a href="use-case-matrix.html" onclick="closeMobile()"> Use Case Matrix</a></li>
+        <li><a href="assets/files/Fynaptix_Claude_Enterprise_Deployment_Guide.pdf" download onclick="closeMobile()"> Deployment Guide</a></li>
       </ul>
     </li>
     <li class="mob-tools-parent">
-      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow">▾</span></button>
+      <button class="mob-tools-btn" onclick="toggleMobileSub('mob-m365-sub','mob-m365-arrow')">M365 Tenant Tools <span class="mob-tools-arrow" id="mob-m365-arrow"></span></button>
       <ul class="mob-tools-sub" id="mob-m365-sub">
-        <li><a href="m365-audit.html" onclick="closeMobile()">🔍 AI Readiness Audit</a></li>
-        <li><a href="m365-data-classification.html" onclick="closeMobile()">🏷️ Data Classification Planner</a></li>
-        <li><a href="teams-bot-configurator.html" onclick="closeMobile()">🤖 Teams Bot Configurator</a></li>
-        <li><a href="sharepoint-rag-guide.html" onclick="closeMobile()">📚 SharePoint RAG Guide</a></li>
+        <li><a href="m365-audit.html" onclick="closeMobile()"> AI Readiness Audit</a></li>
+        <li><a href="m365-data-classification.html" onclick="closeMobile()"> Data Classification Planner</a></li>
+        <li><a href="teams-bot-configurator.html" onclick="closeMobile()"> Teams Bot Configurator</a></li>
+        <li><a href="sharepoint-rag-guide.html" onclick="closeMobile()"> SharePoint RAG Guide</a></li>
       </ul>
     </li>
     <li><a href="/#contact" class="nav-cta" onclick="closeMobile()">Get Started</a></li>
   </ul>
 </div>
 
-<!-- ── Progress ── -->
+<!--  Progress  -->
 <div class="wizard-progress" id="wizard-progress">
   <div class="wp-step active" id="wp-1"><div class="wp-dot">1</div><div class="wp-label">Environment</div></div>
   <div class="wp-step" id="wp-2"><div class="wp-dot">2</div><div class="wp-label">Documents</div></div>
@@ -311,9 +311,9 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   <div class="wp-step" id="wp-4"><div class="wp-dot">4</div><div class="wp-label">Your Guide</div></div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- 
      SCREEN: WELCOME
-══════════════════════════════════════ -->
+ -->
 <div class="screen active" id="s-welcome" style="padding-top:20px">
   <div class="welcome-hero">
     <h1>SharePoint + Claude<br/><span class="g-text">RAG Setup Guide</span></h1>
@@ -323,17 +323,17 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
     <strong>What is RAG?</strong> Retrieval-Augmented Generation lets Claude answer questions using your actual SharePoint documents — policies, procedures, contracts, knowledge bases — rather than just its training data. Only relevant passages are sent to Claude at query time, keeping costs low and responses accurate.
   </div>
   <div class="feature-cards">
-    <div class="fc"><div class="fc-icon">🏗️</div><div class="fc-body"><h4>Custom Architecture</h4><p>Tailored to your SharePoint version, document types, and tech stack</p></div></div>
-    <div class="fc"><div class="fc-icon">🔌</div><div class="fc-body"><h4>Integration Blueprint</h4><p>Ingestion pipeline, vector DB selection, and sync strategy</p></div></div>
-    <div class="fc"><div class="fc-icon">💻</div><div class="fc-body"><h4>Real Code Snippets</h4><p>Python/TypeScript examples for auth, parsing, chunking, and querying</p></div></div>
-    <div class="fc"><div class="fc-icon">📄</div><div class="fc-body"><h4>Downloadable Doc</h4><p>Print-ready architecture document for your team or stakeholders</p></div></div>
+    <div class="fc"><div class="fc-icon"></div><div class="fc-body"><h4>Custom Architecture</h4><p>Tailored to your SharePoint version, document types, and tech stack</p></div></div>
+    <div class="fc"><div class="fc-icon"></div><div class="fc-body"><h4>Integration Blueprint</h4><p>Ingestion pipeline, vector DB selection, and sync strategy</p></div></div>
+    <div class="fc"><div class="fc-icon"></div><div class="fc-body"><h4>Real Code Snippets</h4><p>Python/TypeScript examples for auth, parsing, chunking, and querying</p></div></div>
+    <div class="fc"><div class="fc-icon"></div><div class="fc-body"><h4>Downloadable Doc</h4><p>Print-ready architecture document for your team or stakeholders</p></div></div>
   </div>
   <button class="btn-primary" onclick="goTo('s-env')">Build My Architecture Guide →</button>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- 
      SCREEN: SHAREPOINT ENVIRONMENT
-══════════════════════════════════════ -->
+ -->
 <div class="screen" id="s-env">
   <div class="screen-title">Your SharePoint Environment</div>
   <div class="screen-sub">This shapes the authentication approach, API availability, and sync options.</div>
@@ -384,9 +384,9 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- 
      SCREEN: DOCUMENT PROFILE
-══════════════════════════════════════ -->
+ -->
 <div class="screen" id="s-docs">
   <div class="screen-title">Your Documents</div>
   <div class="screen-sub">This shapes chunking strategy, parser selection, and retrieval tuning.</div>
@@ -394,14 +394,14 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   <div class="q-block">
     <label class="q-label">Primary document types <span style="color:var(--muted);font-weight:400">(select all that apply)</span></label>
     <div class="check-grid">
-      <div class="c-card" onclick="toggle('docTypes','docx',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📄 Word Documents</div><div class="c-desc">Policies, reports, contracts</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','xlsx',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📊 Excel Spreadsheets</div><div class="c-desc">Data tables, registers, schedules</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','pdf',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📑 PDFs</div><div class="c-desc">Formal reports, external materials</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','pptx',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📋 PowerPoint</div><div class="c-desc">Presentations, training materials</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','pages',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📝 SharePoint Pages</div><div class="c-desc">Intranet content, how-to guides</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','onenote',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📧 OneNote Notebooks</div><div class="c-desc">Team notes, meeting records</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','images',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">🖼️ Scanned / Image docs</div><div class="c-desc">Forms, diagrams with labels</div></div></div>
-      <div class="c-card" onclick="toggle('docTypes','other',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">📁 Other file types</div><div class="c-desc">CSVs, text files, etc.</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','docx',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> Word Documents</div><div class="c-desc">Policies, reports, contracts</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','xlsx',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> Excel Spreadsheets</div><div class="c-desc">Data tables, registers, schedules</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','pdf',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> PDFs</div><div class="c-desc">Formal reports, external materials</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','pptx',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> PowerPoint</div><div class="c-desc">Presentations, training materials</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','pages',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> SharePoint Pages</div><div class="c-desc">Intranet content, how-to guides</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','onenote',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> OneNote Notebooks</div><div class="c-desc">Team notes, meeting records</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','images',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> Scanned / Image docs</div><div class="c-desc">Forms, diagrams with labels</div></div></div>
+      <div class="c-card" onclick="toggle('docTypes','other',this)"><div class="c-check"></div><div class="c-body"><div class="c-name"> Other file types</div><div class="c-desc">CSVs, text files, etc.</div></div></div>
     </div>
   </div>
 
@@ -440,9 +440,9 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- 
      SCREEN: TECHNICAL STACK
-══════════════════════════════════════ -->
+ -->
 <div class="screen" id="s-tech">
   <div class="screen-title">Technical Stack</div>
   <div class="screen-sub">These choices determine the code examples and component recommendations in your guide.</div>
@@ -480,10 +480,10 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   <div class="q-block">
     <label class="q-label">Existing Azure services in use <span style="color:var(--muted);font-weight:400">(optional)</span></label>
     <div class="check-grid">
-      <div class="c-card" onclick="toggle('azureServices','aoai',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure OpenAI Service</div></div></div>
-      <div class="c-card" onclick="toggle('azureServices','aisearch',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure AI Search</div></div></div>
-      <div class="c-card" onclick="toggle('azureServices','functions',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure Functions</div></div></div>
-      <div class="c-card" onclick="toggle('azureServices','keyvault',this)"><div class="c-check">✓</div><div class="c-body"><div class="c-name">Azure Key Vault</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','aoai',this)"><div class="c-check"></div><div class="c-body"><div class="c-name">Azure OpenAI Service</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','aisearch',this)"><div class="c-check"></div><div class="c-body"><div class="c-name">Azure AI Search</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','functions',this)"><div class="c-check"></div><div class="c-body"><div class="c-name">Azure Functions</div></div></div>
+      <div class="c-card" onclick="toggle('azureServices','keyvault',this)"><div class="c-check"></div><div class="c-body"><div class="c-name">Azure Key Vault</div></div></div>
     </div>
   </div>
 
@@ -493,30 +493,30 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- 
      SCREEN: PROCESSING
-══════════════════════════════════════ -->
+ -->
 <div class="screen" id="s-processing" style="justify-content:center">
   <div class="processing-wrap">
     <div class="proc-spinner"></div>
     <div class="proc-steps">
-      <div class="proc-step" id="ps-1"><span class="proc-icon">🔍</span> Analysing your SharePoint environment…</div>
-      <div class="proc-step" id="ps-2"><span class="proc-icon">🏗️</span> Designing ingestion pipeline…</div>
-      <div class="proc-step" id="ps-3"><span class="proc-icon">🧩</span> Selecting vector indexing strategy…</div>
-      <div class="proc-step" id="ps-4"><span class="proc-icon">🔐</span> Mapping authentication & permissions…</div>
-      <div class="proc-step" id="ps-5"><span class="proc-icon">💻</span> Writing architecture components…</div>
-      <div class="proc-step" id="ps-6"><span class="proc-icon">📄</span> Generating your custom guide…</div>
+      <div class="proc-step" id="ps-1"><span class="proc-icon"></span> Analysing your SharePoint environment…</div>
+      <div class="proc-step" id="ps-2"><span class="proc-icon"></span> Designing ingestion pipeline…</div>
+      <div class="proc-step" id="ps-3"><span class="proc-icon"></span> Selecting vector indexing strategy…</div>
+      <div class="proc-step" id="ps-4"><span class="proc-icon"></span> Mapping authentication & permissions…</div>
+      <div class="proc-step" id="ps-5"><span class="proc-icon"></span> Writing architecture components…</div>
+      <div class="proc-step" id="ps-6"><span class="proc-icon"></span> Generating your custom guide…</div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- 
      SCREEN: RESULTS
-══════════════════════════════════════ -->
+ -->
 <div class="screen" id="s-results" style="max-width:960px">
   <div class="results-header" style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:24px;flex-wrap:wrap;gap:12px">
     <h2 style="font-family:var(--fd);font-size:1.4rem;font-weight:700">Your Architecture Guide is Ready</h2>
-    <button class="btn-pdf" onclick="window.print()">⬇ Download as PDF</button>
+    <button class="btn-pdf" onclick="window.print()"> Download as PDF</button>
   </div>
   <div class="arch-doc" id="arch-doc">
     <!-- Populated by buildResults() -->
@@ -526,7 +526,7 @@ nav#main-nav{position:sticky;top:0;left:0;right:0;z-index:500;padding:0 48px;hei
 </div><!-- /#app -->
 
 <script>
-/* ── Nav JS ── */
+/*  Nav JS  */
 function toggleDropdown(e) {
   e.stopPropagation();
   const dd = e.currentTarget.closest('.nav-dropdown');
@@ -559,14 +559,14 @@ function toggleMobileSub(subId, arrowId) {
   if (arrow) arrow.style.transform = open ? 'rotate(180deg)' : '';
 }
 
-/* ── State ── */
+/*  State  */
 const state = {
   spVersion:'', librarySize:'', updateFreq:'', authSetup:'',
   docTypes:[], docSensitivity:'', avgDocLength:'', userAccess:'',
   backendLang:'', vectorDb:'', syncRequirement:'', azureServices:[]
 };
 
-/* ── Navigation ── */
+/*  Navigation  */
 const STEPS = { 's-welcome':0, 's-env':1, 's-docs':2, 's-tech':3, 's-processing':null, 's-results':4 };
 function goTo(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -587,7 +587,7 @@ function updateProgress(step) {
   if (prog) prog.style.display = (step === 4) ? 'none' : 'flex';
 }
 
-/* ── Selection helpers ── */
+/*  Selection helpers  */
 function pick(field, val, el) {
   state[field] = val;
   el.closest('.radio-grid').querySelectorAll('.r-card').forEach(c => c.classList.remove('selected'));
@@ -602,7 +602,7 @@ function toggle(field, val, el) {
   validate();
 }
 
-/* ── Validation ── */
+/*  Validation  */
 function validate() {
   const env = state.spVersion && state.librarySize && state.updateFreq && state.authSetup;
   const docs = state.docTypes.length > 0 && state.docSensitivity && state.avgDocLength && state.userAccess;
@@ -615,7 +615,7 @@ function validate() {
   if (techBtn) techBtn.disabled = !tech;
 }
 
-/* ── Processing ── */
+/*  Processing  */
 function runProcessing() {
   goTo('s-processing');
   document.getElementById('wizard-progress').style.display = 'none';
@@ -632,7 +632,7 @@ function runProcessing() {
   }, steps.length * 420 + 400);
 }
 
-/* ── Result helpers ── */
+/*  Result helpers  */
 function vdbName(v) {
   return {azuresearch:'Azure AI Search',pinecone:'Pinecone',weaviate:'Weaviate',chroma:'Chroma',pgvector:'pgvector (PostgreSQL)',none:'Azure AI Search'}[v] || v;
 }
@@ -653,7 +653,7 @@ function docTypeLabels() {
 function needsOCR() { return state.docTypes.includes('images') || state.docTypes.includes('pdf'); }
 function needsPermTrimming() { return state.userAccess === 'rolebased' || state.userAccess === 'pertrimming'; }
 
-/* ── Build Results ── */
+/*  Build Results  */
 function buildResults() {
   const s = state;
   const chunk = chunkConfig();
@@ -845,12 +845,12 @@ def get_user_graph_client(user_access_token: str):
         <div class="arch-layer-title">User Interface</div>
         <div class="arch-layer-detail">Teams Bot / Web Application / API Client</div>
       </div>
-      <div class="arch-arrow">▼ Query</div>
+      <div class="arch-arrow"> Query</div>
       <div class="arch-layer layer-orch">
         <div class="arch-layer-title">Orchestration Layer</div>
         <div class="arch-layer-detail">${orchestration} &nbsp;·&nbsp; Query embedding &nbsp;·&nbsp; Context assembly &nbsp;·&nbsp; Response formatting</div>
       </div>
-      <div class="arch-arrow">▼ Retrieve &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ▼ Generate</div>
+      <div class="arch-arrow"> Retrieve &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Generate</div>
       <div class="arch-layer layer-split">
         <div class="arch-sub">
           <div class="arch-layer-title">Vector Database</div>
@@ -861,12 +861,12 @@ def get_user_graph_client(user_access_token: str):
           <div class="arch-layer-detail"><code>claude-sonnet-4-6</code><br/>Retrieved context + user query → grounded answer</div>
         </div>
       </div>
-      <div class="arch-arrow">▼ Index (${syncLabel()})</div>
+      <div class="arch-arrow"> Index (${syncLabel()})</div>
       <div class="arch-layer layer-ingest">
         <div class="arch-layer-title">Ingestion Pipeline</div>
         <div class="arch-layer-detail">Graph API fetch &nbsp;→&nbsp; Document parser &nbsp;→&nbsp; Chunker (${chunk.size} tokens / ${chunk.overlap} overlap) &nbsp;→&nbsp; Embeddings &nbsp;→&nbsp; Vector store</div>
       </div>
-      <div class="arch-arrow">▼ Source</div>
+      <div class="arch-arrow"> Source</div>
       <div class="arch-layer layer-sp">
         <div class="arch-layer-title">SharePoint${s.spVersion === 'spo' ? ' Online' : ' Server'}</div>
         <div class="arch-layer-detail">Document libraries &nbsp;·&nbsp; ${docTypeLabels()}</div>
