@@ -74,6 +74,24 @@
   .news-tag.Robotics{background:rgba(192,37,232,.12);color:#d478f0}
   .news-tag.Tech{background:rgba(255,255,255,.06);color:var(--muted)}
   #newsStatus{font-size:.78rem;color:var(--muted);padding:1rem}
+
+  /* Subscribe */
+  .sub-box{background:linear-gradient(135deg,rgba(255,95,31,.06),rgba(192,37,232,.08),rgba(46,208,245,.05));
+    border:1px solid rgba(192,37,232,.3);border-radius:16px;padding:1.6rem}
+  .sub-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+  .sub-row input{flex:1;min-width:220px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+    color:var(--text);font-family:var(--fb);font-size:.9rem;padding:.7rem .9rem;outline:none}
+  .sub-row input:focus{border-color:var(--gm)}
+  .sub-btn{background:linear-gradient(90deg,var(--gs),var(--gm));border:none;border-radius:10px;color:#fff;
+    font-family:var(--fd);font-weight:700;font-size:.9rem;padding:.7rem 1.6rem;cursor:pointer}
+  .sub-btn:disabled{opacity:.6;cursor:wait}
+  .sub-lists{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:1rem}
+  .sub-chip{font-family:var(--fm);font-size:.6rem;letter-spacing:.06em;padding:.4rem .8rem;border-radius:99px;cursor:pointer;
+    background:var(--bg2);border:1px solid var(--border);color:var(--muted);user-select:none}
+  .sub-chip.on{background:rgba(46,208,245,.12);border-color:rgba(46,208,245,.4);color:var(--ge)}
+  #subMsg{font-size:.8rem;margin-top:.8rem;display:none}
+  #subMsg.ok{color:var(--green);display:block}
+  #subMsg.err{color:var(--red);display:block}
 </style>
 </head>
 <body>
@@ -128,6 +146,7 @@
         <a class="cta primary" href="/private/overview.html">★ This Week's Brief</a>
         <a class="cta ghost" href="/private/watchlist.html">Live Watchlist</a>
         <a class="cta ghost" href="/private/education.html">Learn to Invest</a>
+        <a class="cta ghost" href="#subscribe">✉ Subscribe</a>
       </div>
     </div>
 
@@ -204,6 +223,32 @@
       <div class="sec-note" style="margin-top:.6rem">Pulled live from TechCrunch's AI, robotics and main feeds (refreshed ~every 15 minutes). Headlines link to techcrunch.com.</div>
     </section>
 
+    <section id="subscribe">
+      <div class="kicker">NEWSLETTERS</div>
+      <div class="sec-title">Get the Research in Your Inbox</div>
+      <div class="sub-box">
+        <p style="font-size:.88rem;color:var(--muted);max-width:640px;line-height:1.55">Every Monday the research pipeline publishes here — subscribe and it lands in your mailbox too. Pick the Weekly Brief for the full cross-sector picture, and any individual sectors you want as dedicated deep-dive emails.</p>
+        <div class="sub-lists" id="subLists">
+          <span class="sub-chip on" data-list="Weekly Brief">★ WEEKLY BRIEF</span>
+          <span class="sub-chip" data-list="AI &amp; Compute">AI &amp; COMPUTE</span>
+          <span class="sub-chip" data-list="Robotics">ROBOTICS</span>
+          <span class="sub-chip" data-list="Defense Tech">DEFENSE</span>
+          <span class="sub-chip" data-list="Nuclear &amp; SMRs">NUCLEAR</span>
+          <span class="sub-chip" data-list="Critical Minerals">MINERALS</span>
+          <span class="sub-chip" data-list="Space Economy">SPACE</span>
+          <span class="sub-chip" data-list="Energy Storage">STORAGE</span>
+          <span class="sub-chip" data-list="AI Biotech">BIOTECH</span>
+          <span class="sub-chip" data-list="Quantum">QUANTUM</span>
+        </div>
+        <div class="sub-row">
+          <input type="email" id="subEmail" placeholder="you@example.com" autocomplete="email"/>
+          <button class="sub-btn" id="subBtn" onclick="subscribe()">Subscribe</button>
+        </div>
+        <div id="subMsg"></div>
+        <p style="font-family:var(--fm);font-size:.58rem;letter-spacing:.05em;color:var(--subtle);margin-top:.9rem">FREE · UNSUBSCRIBE ANYTIME (LINK IN EVERY EMAIL) · RESEARCH &amp; EDUCATION, NEVER FINANCIAL ADVICE</p>
+      </div>
+    </section>
+
     <footer>
       <div style="margin-top:.5rem">Sector dashboards refresh Monday mornings; the Weekly Brief synthesizes them at midday; markets and news sections are live. Figures approximate — confirm independently before acting.</div>
     </footer>
@@ -255,6 +300,26 @@ function filterNews(f, el){
 }
 fetch('/api/technews').then(r => r.json()).then(d => { newsItems = d.items || []; renderNews(); })
   .catch(() => { document.getElementById('newsStatus').textContent = 'Could not load headlines right now — visit techcrunch.com directly.'; });
+</script>
+<script>
+document.querySelectorAll('.sub-chip').forEach(ch => ch.addEventListener('click', () => ch.classList.toggle('on')));
+function subscribe(){
+  const email = document.getElementById('subEmail').value.trim();
+  const lists = [...document.querySelectorAll('.sub-chip.on')].map(c => c.dataset.list.replace(/&amp;/g,'&'));
+  const msg = document.getElementById('subMsg'), btn = document.getElementById('subBtn');
+  msg.className = '';
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.className='err'; msg.textContent='Please enter a valid email address.'; return; }
+  if(!lists.length){ msg.className='err'; msg.textContent='Pick at least one newsletter.'; return; }
+  btn.disabled = true; btn.textContent = 'Subscribing…';
+  fetch('/api/subscribe', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email, lists }) })
+    .then(r => r.json().then(d => ({ ok: r.ok, d })))
+    .then(({ok, d}) => {
+      if(ok){ msg.className='ok'; msg.textContent='Subscribed to: ' + d.subscribed.join(', ') + '. First email arrives after next Monday\'s research run.'; document.getElementById('subEmail').value=''; }
+      else { msg.className='err'; msg.textContent = d.error || 'Something went wrong — try again later.'; }
+    })
+    .catch(() => { msg.className='err'; msg.textContent='Network error — try again later.'; })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Subscribe'; });
+}
 </script>
 </body>
 </html>
