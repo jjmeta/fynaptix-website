@@ -15,13 +15,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="research.css"/>
 <style>
-  .sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.4rem;
+  /* Hero */
+  .hero{padding:2.2rem 0 1.6rem}
+  .hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.15;margin-bottom:.5rem}
+  .hero h1 .grad{background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:.95rem;max-width:640px}
+  .hero-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .chip{font-family:var(--fm);font-size:.62rem;letter-spacing:.08em;color:var(--muted);background:var(--bg2);
+    border:1px solid var(--border);border-radius:99px;padding:.35rem .8rem}
+  .chip b{color:var(--ge);font-weight:700}
+  .hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}
+  .cta{font-family:var(--fd);font-weight:600;font-size:.85rem;padding:.6rem 1.2rem;border-radius:10px;text-decoration:none}
+  .cta.primary{background:linear-gradient(90deg,var(--gs),var(--gm));color:#fff}
+  .cta.ghost{background:var(--bg2);border:1px solid var(--border);color:var(--text)}
+  .cta.ghost:hover{border-color:var(--gm)}
+
+  /* Section tiles */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.2rem 0 1.4rem}
+  .tile{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.2rem;cursor:pointer;
+    transition:border-color .2s,transform .15s;position:relative;overflow:hidden;font-family:var(--fb);text-align:left;width:100%;color:var(--text)}
+  .tile:hover{transform:translateY(-2px)}
+  .tile .ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.7rem}
+  .tile h3{font-family:var(--fd);font-weight:700;font-size:1.05rem;margin-bottom:.25rem}
+  .tile p{font-size:.75rem;color:var(--muted);line-height:1.45}
+  .tile .count{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:var(--subtle);margin-top:.6rem;display:block}
+  .tile.t-research .ico{background:rgba(46,208,245,.14)}
+  .tile.t-markets .ico{background:rgba(192,37,232,.14)}
+  .tile.t-education .ico{background:rgba(16,185,129,.14)}
+  .tile.t-strategy .ico{background:rgba(255,95,31,.14)}
+  .tile.open{border-color:var(--gm);background:linear-gradient(135deg,rgba(255,95,31,.05),rgba(192,37,232,.07))}
+  .tile.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge))}
+
+  /* Drawer */
+  .drawer{display:none;animation:fade .25s ease}
+  .drawer.open{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem;
     text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s;display:block}
-  .sector-card:hover{border-color:rgba(192,37,232,0.35);transform:translateY(-2px)}
-  .sector-card .sc-tag{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;color:var(--ge)}
-  .sector-card h3{font-family:var(--fd);font-weight:700;font-size:1rem;margin:.25rem 0 .35rem}
-  .sector-card p{font-size:.78rem;color:var(--muted);line-height:1.5}
-  .sector-card.featured{background:linear-gradient(135deg,rgba(255,95,31,0.08),rgba(192,37,232,0.08));border-color:rgba(192,37,232,0.3)}
+  .sector-card:hover{border-color:rgba(192,37,232,.35);transform:translateY(-2px)}
+  .sector-card .sc-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;color:var(--ge)}
+  .sector-card h3{font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .3rem}
+  .sector-card p{font-size:.75rem;color:var(--muted);line-height:1.45}
+  .sector-card.featured{background:linear-gradient(135deg,rgba(255,95,31,.08),rgba(192,37,232,.08));border-color:rgba(192,37,232,.3)}
+
+  /* News */
+  .news-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-bottom:.9rem}
+  .news-filters{display:flex;gap:.4rem}
+  .nf{font-family:var(--fm);font-size:.62rem;letter-spacing:.08em;padding:.3rem .8rem;border-radius:99px;cursor:pointer;
+    background:var(--bg2);border:1px solid var(--border);color:var(--muted)}
+  .nf.active{background:rgba(192,37,232,.12);border-color:rgba(192,37,232,.35);color:var(--text)}
+  .news-item{display:flex;align-items:flex-start;gap:.9rem;padding:.8rem 1rem;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+  .news-item:last-child{border-bottom:none}
+  .news-item:hover{background:var(--bg3)}
+  .news-item .nt{font-size:.86rem;color:var(--text);line-height:1.4;flex:1}
+  .news-item .nm{font-family:var(--fm);font-size:.58rem;color:var(--muted);white-space:nowrap;padding-top:.15rem;text-align:right}
+  .news-tag{font-family:var(--fm);font-size:.55rem;letter-spacing:.08em;padding:.15rem .5rem;border-radius:6px;white-space:nowrap;margin-top:.1rem}
+  .news-tag.AI{background:rgba(46,208,245,.12);color:var(--ge)}
+  .news-tag.Robotics{background:rgba(192,37,232,.12);color:#d478f0}
+  .news-tag.Tech{background:rgba(255,255,255,.06);color:var(--muted)}
+  #newsStatus{font-size:.78rem;color:var(--muted);padding:1rem}
 </style>
 </head>
 <body>
@@ -48,6 +100,8 @@
       <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
       <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
       <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
       <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
       <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
       <a class="nav-item" href="/private/journal.html">Decision Journal</a>
@@ -59,66 +113,148 @@
   </aside>
 
   <main class="main">
-    <div class="topbar">
-      <div class="topbar-left">
-        <div class="kicker">FYNAPTIX INVESTMENT RESEARCH</div>
-        <h2>Emerging Tech Research Hub</h2>
-        <p>Eight sector dashboards + a weekly cross-sector brief, refreshed automatically every Monday</p>
+
+    <div class="hero">
+      <div class="kicker">FYNAPTIX INVESTMENT RESEARCH</div>
+      <h1>Emerging tech investing,<br/><span class="grad">researched every week.</span></h1>
+      <p>Nine sector dashboards, live markets, an investing school, and strategy tools — refreshed automatically every Monday by an AI research pipeline.</p>
+      <div class="hero-chips">
+        <span class="chip"><b>9</b>&nbsp;SECTORS</span>
+        <span class="chip"><b>WEEKLY</b>&nbsp;AUTO-REFRESH</span>
+        <span class="chip"><b>LIVE</b>&nbsp;QUOTES &amp; NEWS</span>
+        <span class="chip"><b>60+</b>&nbsp;TRACKED TICKERS</span>
       </div>
-      <div class="time-badge"><div class="pulse"></div>Auto-refreshed Mondays</div>
+      <div class="hero-cta">
+        <a class="cta primary" href="/private/overview.html">★ This Week's Brief</a>
+        <a class="cta ghost" href="/private/watchlist.html">Live Watchlist</a>
+        <a class="cta ghost" href="/private/education.html">Learn to Invest</a>
+      </div>
     </div>
 
-    <div class="disclaimer"><strong>Not financial advice.</strong> These dashboards organize public information for research purposes only — not recommendations to buy or sell any security. Always verify current prices and do your own due diligence before investing.</div>
+    <div class="disclaimer"><strong>Not financial advice.</strong> Everything here organizes public information for research and education — not recommendations to buy or sell any security. Do your own due diligence.</div>
 
     <section>
-      <div class="kicker">01 // START HERE</div>
-      <div class="sec-title">This Week</div>
-      <div class="grid-cards">
-        <a class="sector-card featured" href="/private/overview.html">
-          <span class="sc-tag">★ WEEKLY BRIEF</span>
-          <h3>All Sectors at a Glance</h3>
-          <p>Sector scoreboard, cross-cutting themes, news of the week, valuation heat gauge, and the week ahead — synthesized from all eight dashboards every Monday.</p>
-        </a>
+      <div class="kicker">EXPLORE</div>
+      <div class="sec-title">Pick a Section</div>
+      <div class="tiles">
+        <button class="tile t-research open" onclick="openDrawer('research',this)"><span class="ico">🔬</span><h3>Deep-Dive Research</h3><p>Nine emerging-tech sectors, each with tiered watchlists, bear cases &amp; catalysts.</p><span class="count">9 DASHBOARDS + WEEKLY BRIEF</span></button>
+        <button class="tile t-markets" onclick="openDrawer('markets',this)"><span class="ico">📈</span><h3>Markets</h3><p>Live quotes, the catalyst calendar, IPO pipeline, ETF comparisons &amp; macro.</p><span class="count">5 TOOLS · 2 LIVE</span></button>
+        <button class="tile t-education" onclick="openDrawer('education',this)"><span class="ico">🎓</span><h3>Education</h3><p>Learn investing from first principles — stocks, ETFs &amp; crypto, honestly explained.</p><span class="count">INVESTING 101 GUIDE</span></button>
+        <button class="tile t-strategy" onclick="openDrawer('strategy',this)"><span class="ico">🧭</span><h3>Strategy</h3><p>Portfolio construction, your decision journal &amp; paper-trading practice.</p><span class="count">1 GUIDE · 2 PRIVATE TOOLS</span></button>
+      </div>
+
+      <div id="drawer-research" class="drawer open">
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/overview.html"><span class="sc-tag">★ WEEKLY BRIEF</span><h3>All Sectors at a Glance</h3><p>Scoreboard, live markets, themes, news, risk gauge &amp; the week ahead — every Monday.</p></a>
+          <a class="sector-card" href="/private/ai.html"><span class="sc-tag">THE SUPERCYCLE</span><h3>AI &amp; Compute</h3><p>Hyperscaler capex, silicon stack &amp; the bubble debate.</p></a>
+          <a class="sector-card" href="/private/robotics.html"><span class="sc-tag">PHYSICAL AI</span><h3>Robotics</h3><p>Humanoids, warehouse automation &amp; components.</p></a>
+          <a class="sector-card" href="/private/defense.html"><span class="sc-tag">AUTONOMY</span><h3>Defense Tech</h3><p>AI battlefield software, drones &amp; rearmament.</p></a>
+          <a class="sector-card" href="/private/nuclear.html"><span class="sc-tag">AI POWER TRADE</span><h3>Nuclear &amp; SMRs</h3><p>Reactors, uranium &amp; data-center demand.</p></a>
+          <a class="sector-card" href="/private/minerals.html"><span class="sc-tag">SOVEREIGNTY</span><h3>Critical Minerals</h3><p>Rare earths, lithium &amp; onshoring.</p></a>
+          <a class="sector-card" href="/private/space.html"><span class="sc-tag">FRONTIER</span><h3>Space Economy</h3><p>Launch &amp; satellites post-SpaceX IPO.</p></a>
+          <a class="sector-card" href="/private/storage.html"><span class="sc-tag">GRID</span><h3>Energy Storage</h3><p>Grid batteries &amp; next-gen chemistry.</p></a>
+          <a class="sector-card" href="/private/biotech.html"><span class="sc-tag">COMPUTATIONAL BIO</span><h3>AI Biotech</h3><p>AI drug discovery &amp; longevity capital.</p></a>
+          <a class="sector-card" href="/private/quantum.html"><span class="sc-tag">DEEP TECH</span><h3>Quantum</h3><p>Pure-plays, giants &amp; the road to advantage.</p></a>
+        </div>
+      </div>
+
+      <div id="drawer-markets" class="drawer">
+        <div class="grid-cards">
+          <a class="sector-card" href="/private/watchlist.html"><span class="sc-tag">LIVE</span><h3>Live Watchlist</h3><p>Real-time quotes for every tracked ticker, by sector.</p></a>
+          <a class="sector-card" href="/private/calendar.html"><span class="sc-tag">WEEKLY</span><h3>Catalyst Calendar</h3><p>Every dated event in one ordered view.</p></a>
+          <a class="sector-card" href="/private/ipo.html"><span class="sc-tag">WEEKLY</span><h3>IPO Pipeline</h3><p>Private giants heading to public markets.</p></a>
+          <a class="sector-card" href="/private/etfs.html"><span class="sc-tag">WEEKLY</span><h3>ETF Compare</h3><p>All thematic funds: fees, concentration, character.</p></a>
+          <a class="sector-card" href="/private/macro.html"><span class="sc-tag">LIVE</span><h3>Macro Dashboard</h3><p>Rates, VIX, gold, bitcoin &amp; the dollar.</p></a>
+        </div>
+      </div>
+
+      <div id="drawer-education" class="drawer">
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/education.html"><span class="sc-tag">START HERE</span><h3>Investing 101</h3><p>First principles, how markets work, buying stocks step-by-step, ETFs explained, crypto with both eyes open, risk management &amp; the classic mistakes — one honest guide.</p></a>
+          <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRACTICE</span><h3>Paper Portfolio</h3><p>Apply what you learn with zero-risk practice positions.</p></a>
+          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">DISCIPLINE</span><h3>Decision Journal</h3><p>The habit that separates investors from gamblers.</p></a>
+        </div>
+      </div>
+
+      <div id="drawer-strategy" class="drawer">
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/strategy.html"><span class="sc-tag">EVERGREEN GUIDE</span><h3>Portfolio Strategy</h3><p>Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses — plus rebalancing discipline.</p></a>
+          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">PRIVATE</span><h3>Decision Journal</h3><p>Write the thesis before acting. Browser-only storage.</p></a>
+          <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRIVATE</span><h3>Paper Portfolio</h3><p>Hypothetical positions with automatic P/L.</p></a>
+        </div>
       </div>
     </section>
 
     <section>
-      <div class="kicker">02 // SECTOR DASHBOARDS</div>
-      <div class="sec-title">Deep-Dive Research</div>
-      <div class="grid-cards">
-        <a class="sector-card" href="/private/ai.html"><span class="sc-tag">THE SUPERCYCLE</span><h3>AI &amp; Compute</h3><p>Hyperscaler capex, the silicon stack, foundation-model giants &amp; the bubble debate.</p></a>
-        <a class="sector-card" href="/private/robotics.html"><span class="sc-tag">PHYSICAL AI</span><h3>Robotics</h3><p>Humanoids, warehouse automation, surgical robotics, components &amp; the supply chain.</p></a>
-        <a class="sector-card" href="/private/defense.html"><span class="sc-tag">AUTONOMY</span><h3>Defense Tech</h3><p>AI battlefield software, drones, European rearmament &amp; the venture surge.</p></a>
-        <a class="sector-card" href="/private/nuclear.html"><span class="sc-tag">AI POWER TRADE</span><h3>Nuclear &amp; SMRs</h3><p>Small modular reactors, uranium &amp; AI data-center power demand.</p></a>
-        <a class="sector-card" href="/private/minerals.html"><span class="sc-tag">SOVEREIGNTY</span><h3>Critical Minerals</h3><p>Rare earths, lithium &amp; the Western supply-chain onshoring push.</p></a>
-        <a class="sector-card" href="/private/space.html"><span class="sc-tag">FRONTIER</span><h3>Space Economy</h3><p>Launch, satellites &amp; constellations in the post-SpaceX-IPO era.</p></a>
-        <a class="sector-card" href="/private/storage.html"><span class="sc-tag">GRID</span><h3>Energy Storage</h3><p>Grid-scale batteries, storage software &amp; next-gen chemistry.</p></a>
-        <a class="sector-card" href="/private/biotech.html"><span class="sc-tag">COMPUTATIONAL BIO</span><h3>AI Biotech</h3><p>AI-native drug discovery, platform biotech &amp; longevity capital.</p></a>
-        <a class="sector-card" href="/private/quantum.html"><span class="sc-tag">DEEP TECH</span><h3>Quantum</h3><p>Pure-plays, hedged giants &amp; the road to commercial advantage.</p></a>
-        <a class="sector-card" href="/private/strategy.html"><span class="sc-tag">EVERGREEN GUIDE</span><h3>Portfolio Strategy</h3><p>Diversification frameworks: shares, real estate, gold, bitcoin, cash &amp; businesses — plus rebalancing discipline.</p></a>
+      <div class="news-head">
+        <div>
+          <div class="kicker">TECH NEWS // TECHCRUNCH</div>
+          <div class="sec-title" style="margin-bottom:0">Latest Tech Headlines</div>
+        </div>
+        <div class="news-filters">
+          <button class="nf active" onclick="filterNews('All',this)">ALL</button>
+          <button class="nf" onclick="filterNews('AI',this)">AI</button>
+          <button class="nf" onclick="filterNews('Robotics',this)">ROBOTICS</button>
+        </div>
       </div>
-    </section>
-
-    <section>
-      <div class="kicker">03 // TOOLS</div>
-      <div class="sec-title">Markets &amp; Strategy Tools</div>
-      <div class="grid-cards">
-        <a class="sector-card" href="/private/watchlist.html"><span class="sc-tag">LIVE</span><h3>Live Watchlist</h3><p>Real-time quotes for every tracked ticker, streamed via TradingView.</p></a>
-        <a class="sector-card" href="/private/calendar.html"><span class="sc-tag">WEEKLY</span><h3>Catalyst Calendar</h3><p>Every dated event across all sectors in one ordered view.</p></a>
-        <a class="sector-card" href="/private/ipo.html"><span class="sc-tag">WEEKLY</span><h3>IPO Pipeline</h3><p>Private companies heading for public markets — status &amp; valuations.</p></a>
-        <a class="sector-card" href="/private/etfs.html"><span class="sc-tag">WEEKLY</span><h3>ETF Compare</h3><p>All thematic funds side by side: fees, concentration, character.</p></a>
-        <a class="sector-card" href="/private/macro.html"><span class="sc-tag">LIVE</span><h3>Macro Dashboard</h3><p>Rates, VIX, gold, bitcoin, dollar — the backdrop behind everything.</p></a>
-        <a class="sector-card" href="/private/journal.html"><span class="sc-tag">PRIVATE</span><h3>Decision Journal</h3><p>Write the thesis before acting. Stored only in your browser.</p></a>
-        <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRIVATE</span><h3>Paper Portfolio</h3><p>Practice positions with auto P/L before real money.</p></a>
+      <div class="card" style="padding:.3rem 0">
+        <div id="newsList"></div>
+        <div id="newsStatus">Loading latest headlines…</div>
       </div>
+      <div class="sec-note" style="margin-top:.6rem">Pulled live from TechCrunch's AI, robotics and main feeds (refreshed ~every 15 minutes). Headlines link to techcrunch.com.</div>
     </section>
 
     <footer>
-      <div style="margin-top:.5rem">Each dashboard is independently researched and refreshed every Monday morning; the Weekly Brief synthesizes them at midday. Figures are approximate and sourced from public reporting — confirm independently before acting.</div>
+      <div style="margin-top:.5rem">Sector dashboards refresh Monday mornings; the Weekly Brief synthesizes them at midday; markets and news sections are live. Figures approximate — confirm independently before acting.</div>
     </footer>
   </main>
 </div>
+
 <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script>
+// Section drawers
+function openDrawer(name, el){
+  document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.tile').forEach(t => t.classList.remove('open'));
+  document.getElementById('drawer-' + name).classList.add('open');
+  el.classList.add('open');
+}
+
+// Tech news feed
+let newsItems = [], newsFilter = 'All';
+const decode = (s) => new DOMParser().parseFromString(s, 'text/html').documentElement.textContent || '';
+function ago(d){
+  const m = Math.floor((Date.now() - new Date(d).getTime()) / 60000);
+  if(isNaN(m)) return '';
+  if(m < 60) return m + 'm ago';
+  if(m < 1440) return Math.floor(m/60) + 'h ago';
+  return Math.floor(m/1440) + 'd ago';
+}
+function renderNews(){
+  const list = document.getElementById('newsList');
+  const status = document.getElementById('newsStatus');
+  const shown = newsItems.filter(i => newsFilter === 'All' || i.tag === newsFilter).slice(0, 10);
+  if(!shown.length){ status.style.display = 'block'; status.textContent = 'No headlines in this category right now.'; list.innerHTML = ''; return; }
+  status.style.display = 'none';
+  list.innerHTML = '';
+  shown.forEach(i => {
+    const a = document.createElement('a');
+    a.className = 'news-item'; a.href = i.link; a.target = '_blank'; a.rel = 'noopener';
+    const tag = document.createElement('span'); tag.className = 'news-tag ' + i.tag; tag.textContent = i.tag.toUpperCase();
+    const t = document.createElement('span'); t.className = 'nt'; t.textContent = decode(i.title);
+    const m = document.createElement('span'); m.className = 'nm'; m.textContent = ago(i.date);
+    a.append(tag, t, m); list.appendChild(a);
+  });
+}
+function filterNews(f, el){
+  newsFilter = f;
+  document.querySelectorAll('.nf').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderNews();
+}
+fetch('/api/technews').then(r => r.json()).then(d => { newsItems = d.items || []; renderNews(); })
+  .catch(() => { document.getElementById('newsStatus').textContent = 'Could not load headlines right now — visit techcrunch.com directly.'; });
+</script>
 </body>
 </html>
