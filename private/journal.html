@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Decision Journal</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="research.css"/>
+<style>
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+  label{display:block;font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:.3rem}
+  input,textarea,select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);
+    font-family:var(--fb);font-size:.85rem;padding:.6rem .7rem;outline:none}
+  input:focus,textarea:focus{border-color:var(--gm)}
+  textarea{min-height:70px;resize:vertical}
+  .btn{background:linear-gradient(90deg,var(--gs),var(--gm));border:none;border-radius:8px;color:#fff;font-family:var(--fd);
+    font-weight:600;font-size:.85rem;padding:.65rem 1.4rem;cursor:pointer}
+  .btn-ghost{background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:.75rem;
+    padding:.4rem .8rem;cursor:pointer;font-family:var(--fb)}
+  .btn-ghost:hover{color:var(--text);border-color:var(--gm)}
+  .entry{border-left:3px solid var(--ge)}
+  .entry .head{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;flex-wrap:wrap}
+  .entry .tkr{font-family:var(--fm);font-weight:700;font-size:1rem;color:var(--ge)}
+  .entry .meta{font-family:var(--fm);font-size:.62rem;color:var(--muted);letter-spacing:.05em}
+  .entry .lbl2{font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin:.6rem 0 .15rem}
+  .entry .txt{font-size:.82rem;line-height:1.5}
+  .entry.due{border-left-color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item active" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">DECISION JOURNAL // PRIVATE</div>
+        <h2>Investment Decision Journal</h2>
+        <p>Write the thesis before you act — review it on a schedule, not on emotion</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Stored only in this browser</div>
+    </div>
+
+    <div class="disclaimer"><strong>Private to this device.</strong> Entries are saved in your browser's local storage — they never leave this device and aren't visible to anyone else with the site link. Use Export to back up. Clearing browser data erases the journal.</div>
+
+    <section>
+      <div class="kicker">01 // NEW ENTRY</div>
+      <div class="sec-title">Log a Thesis</div>
+      <div class="card">
+        <div class="form-grid">
+          <div><label>Ticker / Asset</label><input id="f-ticker" placeholder="e.g. SYM, BTC, ROBO"/></div>
+          <div><label>Action considered</label><select id="f-action"><option>Buy</option><option>Add</option><option>Hold</option><option>Trim</option><option>Sell</option><option>Watch only</option></select></div>
+          <div><label>Price at decision</label><input id="f-price" placeholder="e.g. 43.60"/></div>
+          <div><label>Review date</label><input id="f-review" type="date"/></div>
+        </div>
+        <div style="margin-top:.8rem"><label>Thesis — why? (be specific enough to be provably wrong later)</label><textarea id="f-thesis" placeholder="What do you believe that the market doesn't? What's the catalyst?"></textarea></div>
+        <div style="margin-top:.8rem"><label>Exit criteria — what would make you sell or admit the thesis failed?</label><textarea id="f-exit" placeholder="e.g. backlog growth stalls two quarters running; thesis catalyst passes without effect; -30% stop"></textarea></div>
+        <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+          <button class="btn" onclick="saveEntry()">Save entry</button>
+          <button class="btn-ghost" onclick="exportJournal()">Export JSON</button>
+          <button class="btn-ghost" onclick="document.getElementById('importFile').click()">Import</button>
+          <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJournal(event)"/>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // ENTRIES</div>
+      <div class="sec-title">Your Log <span class="sec-note" style="display:inline" id="count"></span></div>
+      <div id="entries" class="grid-cards" style="grid-template-columns:1fr"></div>
+    </section>
+
+    <footer>
+      <div style="margin-top:.5rem">Research consistently shows that written pre-commitment and scheduled reviews improve investor outcomes more than better stock-picking. Amber border = review date reached.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script>
+const KEY = 'fynaptix-journal-v1';
+const load = () => JSON.parse(localStorage.getItem(KEY) || '[]');
+const store = (d) => localStorage.setItem(KEY, JSON.stringify(d));
+const esc = (s) => (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function saveEntry(){
+  const t = document.getElementById('f-ticker').value.trim().toUpperCase();
+  if(!t){ alert('Ticker required'); return; }
+  const d = load();
+  d.unshift({
+    id: Date.now(), ticker: t,
+    action: document.getElementById('f-action').value,
+    price: document.getElementById('f-price').value.trim(),
+    review: document.getElementById('f-review').value,
+    thesis: document.getElementById('f-thesis').value.trim(),
+    exit: document.getElementById('f-exit').value.trim(),
+    created: new Date().toISOString().slice(0,10)
+  });
+  store(d);
+  ['f-ticker','f-price','f-review','f-thesis','f-exit'].forEach(i => document.getElementById(i).value = '');
+  render();
+}
+function delEntry(id){ if(confirm('Delete this entry?')){ store(load().filter(e => e.id !== id)); render(); } }
+function exportJournal(){
+  const blob = new Blob([JSON.stringify(load(), null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fynaptix-journal-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+}
+function importJournal(ev){
+  const f = ev.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = () => { try { const d = JSON.parse(r.result); if(Array.isArray(d)){ store(d); render(); } else alert('Invalid file'); } catch(e){ alert('Invalid file'); } };
+  r.readAsText(f);
+}
+function render(){
+  const d = load();
+  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('count').textContent = d.length ? '· ' + d.length + ' entries' : '';
+  document.getElementById('entries').innerHTML = d.length ? d.map(e => `
+    <div class="card-sm entry${e.review && e.review <= today ? ' due' : ''}">
+      <div class="head">
+        <div><span class="tkr">${esc(e.ticker)}</span> <span class="pill pill-blue" style="margin-left:.4rem">${esc(e.action)}</span></div>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <span class="meta">LOGGED ${esc(e.created)}${e.price ? ' @ ' + esc(e.price) : ''}${e.review ? ' · REVIEW ' + esc(e.review) : ''}</span>
+          <button class="btn-ghost" onclick="delEntry(${e.id})">✕</button>
+        </div>
+      </div>
+      ${e.thesis ? '<div class="lbl2">Thesis</div><div class="txt">' + esc(e.thesis) + '</div>' : ''}
+      ${e.exit ? '<div class="lbl2">Exit criteria</div><div class="txt">' + esc(e.exit) + '</div>' : ''}
+    </div>`).join('') :
+    '<div class="card-sm" style="color:var(--muted);font-size:.85rem">No entries yet. Log your first thesis above — future you will thank present you.</div>';
+}
+render();
+</script>
+</body>
+</html>

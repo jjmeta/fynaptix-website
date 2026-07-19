@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Live Watchlist</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item active" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">LIVE WATCHLIST // ALL SECTORS</div>
+        <h2>Live Market Watchlist</h2>
+        <p>Real-time quotes for every ticker tracked across the sector dashboards</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Live · Powered by TradingView</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> Quotes provided by TradingView for research purposes. Presence on this watchlist is not a recommendation to buy or sell.</div>
+
+    <section>
+      <div class="card" style="padding:.5rem">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              {"proName":"NASDAQ:NVDA","title":"NVDA"},
+              {"proName":"NASDAQ:TSLA","title":"TSLA"},
+              {"proName":"NASDAQ:SYM","title":"SYM"},
+              {"proName":"NASDAQ:PLTR","title":"PLTR"},
+              {"proName":"NASDAQ:RKLB","title":"RKLB"},
+              {"proName":"NYSE:OKLO","title":"OKLO"},
+              {"proName":"NYSE:MP","title":"MP"},
+              {"proName":"NYSE:IONQ","title":"IONQ"},
+              {"proName":"BITSTAMP:BTCUSD","title":"BTC"},
+              {"proName":"TVC:GOLD","title":"GOLD"}
+            ],
+            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">01 // SECTOR QUOTES</div>
+      <div class="sec-title">All Tracked Tickers</div>
+      <div class="card" style="padding:.5rem">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+          {
+            "width": "100%", "height": 700, "colorTheme": "dark", "isTransparent": true, "locale": "en", "showSymbolLogo": true,
+            "symbolsGroups": [
+              {"name": "Robotics", "symbols": [
+                {"name":"NASDAQ:NVDA","displayName":"NVIDIA"},
+                {"name":"NASDAQ:TSLA","displayName":"Tesla"},
+                {"name":"NASDAQ:SYM","displayName":"Symbotic"},
+                {"name":"NASDAQ:ISRG","displayName":"Intuitive Surgical"},
+                {"name":"NASDAQ:TER","displayName":"Teradyne"},
+                {"name":"NYSE:ROK","displayName":"Rockwell"},
+                {"name":"NASDAQ:SERV","displayName":"Serve Robotics"},
+                {"name":"NYSE:RRX","displayName":"Regal Rexnord"},
+                {"name":"NASDAQ:CGNX","displayName":"Cognex"}
+              ]},
+              {"name": "Defense", "symbols": [
+                {"name":"NASDAQ:PLTR","displayName":"Palantir"},
+                {"name":"NASDAQ:AVAV","displayName":"AeroVironment"},
+                {"name":"NASDAQ:KTOS","displayName":"Kratos"},
+                {"name":"NASDAQ:RCAT","displayName":"Red Cat"},
+                {"name":"NASDAQ:ONDS","displayName":"Ondas"},
+                {"name":"NYSE:LHX","displayName":"L3Harris"}
+              ]},
+              {"name": "Nuclear", "symbols": [
+                {"name":"NASDAQ:CEG","displayName":"Constellation"},
+                {"name":"NYSE:CCJ","displayName":"Cameco"},
+                {"name":"NYSE:OKLO","displayName":"Oklo"},
+                {"name":"NYSE:SMR","displayName":"NuScale"},
+                {"name":"NYSE:BWXT","displayName":"BWX Tech"},
+                {"name":"NYSE:GEV","displayName":"GE Vernova"},
+                {"name":"AMEX:LEU","displayName":"Centrus"}
+              ]},
+              {"name": "Minerals", "symbols": [
+                {"name":"NYSE:MP","displayName":"MP Materials"},
+                {"name":"NYSE:ALB","displayName":"Albemarle"},
+                {"name":"NYSE:FCX","displayName":"Freeport"},
+                {"name":"AMEX:UUUU","displayName":"Energy Fuels"},
+                {"name":"NYSE:LAC","displayName":"Lithium Americas"},
+                {"name":"NASDAQ:USAR","displayName":"USA Rare Earth"}
+              ]},
+              {"name": "Space", "symbols": [
+                {"name":"NASDAQ:RKLB","displayName":"Rocket Lab"},
+                {"name":"NASDAQ:ASTS","displayName":"AST SpaceMobile"},
+                {"name":"NASDAQ:LUNR","displayName":"Intuitive Machines"},
+                {"name":"NYSE:PL","displayName":"Planet Labs"},
+                {"name":"NYSE:RDW","displayName":"Redwire"}
+              ]},
+              {"name": "Storage", "symbols": [
+                {"name":"NASDAQ:FLNC","displayName":"Fluence"},
+                {"name":"NASDAQ:ENPH","displayName":"Enphase"},
+                {"name":"NYSE:QS","displayName":"QuantumScape"},
+                {"name":"NASDAQ:EOSE","displayName":"Eos Energy"},
+                {"name":"NYSE:STEM","displayName":"Stem"}
+              ]},
+              {"name": "AI Biotech", "symbols": [
+                {"name":"NASDAQ:RXRX","displayName":"Recursion"},
+                {"name":"NASDAQ:SDGR","displayName":"Schrödinger"},
+                {"name":"NASDAQ:RLAY","displayName":"Relay Tx"},
+                {"name":"NYSE:LLY","displayName":"Eli Lilly"}
+              ]},
+              {"name": "Quantum", "symbols": [
+                {"name":"NYSE:IONQ","displayName":"IonQ"},
+                {"name":"NASDAQ:RGTI","displayName":"Rigetti"},
+                {"name":"NYSE:QBTS","displayName":"D-Wave"},
+                {"name":"NYSE:IBM","displayName":"IBM"},
+                {"name":"NASDAQ:GOOGL","displayName":"Alphabet"}
+              ]},
+              {"name": "ETFs", "symbols": [
+                {"name":"AMEX:ROBO","displayName":"ROBO"},
+                {"name":"NASDAQ:BOTZ","displayName":"BOTZ"},
+                {"name":"AMEX:ITA","displayName":"ITA"},
+                {"name":"AMEX:URA","displayName":"URA"},
+                {"name":"AMEX:REMX","displayName":"REMX"},
+                {"name":"AMEX:UFO","displayName":"UFO"},
+                {"name":"NASDAQ:GRID","displayName":"GRID"},
+                {"name":"AMEX:XBI","displayName":"XBI"},
+                {"name":"AMEX:QTUM","displayName":"QTUM"},
+                {"name":"AMEX:LIT","displayName":"LIT"}
+              ]}
+            ]
+          }
+          </script>
+        </div>
+      </div>
+      <div class="sec-note" style="margin-top:.6rem">International names (Fanuc 6954.T, Keyence 6861.T, Yaskawa 6506.T, Harmonic Drive 6324.T, Lynas LYC.AX, Rheinmetall RHM.DE) trade on overseas exchanges — search them directly on TradingView or your broker.</div>
+    </section>
+
+    <footer>
+      <div style="margin-top:.5rem">Quotes stream live via TradingView widgets — no refresh schedule needed. Tracked tickers follow the sector dashboards; the weekly research may add or remove names over time.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</body>
+</html>
