@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · AI &amp; Compute Research</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item active" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">AI &amp; COMPUTE // JUL 2026</div>
+        <h2>AI &amp; Compute Intelligence</h2>
+        <p>The capex supercycle, silicon stack, foundation-model giants &amp; the bubble debate</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Generated Jul 19, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This page organizes public information for research purposes only — not a recommendation to buy or sell any security. AI is the market's most crowded trade; concentration and drawdown risk are significant. Verify current prices and do your own due diligence before investing.</div>
+
+    <section>
+      <div class="kicker">01 // SECTOR OVERVIEW</div>
+      <div class="sec-title">Market Size &amp; Momentum</div>
+      <div class="grid-4">
+        <div class="card-sm hl"><div class="stat-val">$725B</div><div class="stat-sub">+77% YOY — TOP 4 HYPERSCALERS</div><div class="stat-lbl">2026 capex (Google, Microsoft, Meta, Amazon); ~75% tied directly to AI infrastructure</div></div>
+        <div class="card-sm"><div class="stat-val">$510B</div><div class="stat-sub">H1 2026 — RECORD</div><div class="stat-lbl">Global venture funding; OpenAI + Anthropic alone took 43% of it</div></div>
+        <div class="card-sm"><div class="stat-val">$965B</div><div class="stat-sub">ANTHROPIC SERIES H</div><div class="stat-lbl">Most valuable AI startup; OpenAI at $852B with IPO filed targeting ~$1T</div></div>
+        <div class="card-sm"><div class="stat-val">~90%</div><div class="stat-sub">AI ACCELERATOR SHARE</div><div class="stat-lbl">NVIDIA's estimated share of AI chip spending; data-center revenue $93.7B FY2026</div></div>
+      </div>
+      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // PUBLIC WATCHLIST</div>
+      <div class="sec-title">Public Companies by Tier</div>
+      <div class="sec-note">Tiered by role in the stack — not a ranked buy list.</div>
+
+      <div class="tier-hdr"><span class="pill pill-green">TIER 1</span><span class="th-label">Compute &amp; Silicon — the Checks Get Cashed Here</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">NVDA</td><td>NVIDIA</td><td>~90% of AI accelerator spend; DC revenue $93.7B FY26; every hyperscaler capex plan starts with GPUs</td><td>Custom-ASIC encroachment; deepening investments in its own customers (circularity)</td></tr>
+        <tr><td class="tk">AVGO</td><td>Broadcom</td><td>Custom ASICs (Apple, Meta, Alphabet, ByteDance) + AI networking; AI revenue $8.4B Q1 (+106%)</td><td>ASIC pipeline wins vs NVDA share</td></tr>
+        <tr><td class="tk">AMD</td><td>AMD</td><td>Credible #2 in GPUs; DC revenue $5.8B Q1 (+57%); stock +114% in 2026, outpacing NVDA</td><td>MI-series adoption at hyperscalers; can momentum hold at higher multiples</td></tr>
+        <tr><td class="tk">TSM</td><td>TSMC</td><td>Makes the chips for all of the above; ~68% global foundry share — the sector's chokepoint</td><td>Geopolitical (Taiwan) risk is the sector's biggest single tail risk</td></tr>
+      </table></div>
+
+      <div class="tier-hdr"><span class="pill pill-blue">TIER 2</span><span class="th-label">Hyperscalers — Spending to Win</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">MSFT</td><td>Microsoft</td><td>Azure + OpenAI partnership; enterprise AI distribution machine</td><td>AI revenue attach vs capex burden each quarter</td></tr>
+        <tr><td class="tk">GOOGL</td><td>Alphabet</td><td>Full stack: TPUs, Gemini, DeepMind/Isomorphic, Waymo</td><td>Search disruption vs AI monetization race</td></tr>
+        <tr><td class="tk">AMZN</td><td>Amazon</td><td>~$200B 2026 capex (+60%); AWS + Anthropic stake + Trainium silicon</td><td>AWS growth reacceleration</td></tr>
+        <tr><td class="tk">META</td><td>Meta</td><td>Open-weight models + massive ad-AI flywheel</td><td>Capex discipline vs superintelligence spending</td></tr>
+        <tr><td class="tk">ORCL</td><td>Oracle</td><td>Neocloud at scale; huge AI compute contracts</td><td>Debt-funded buildout economics; backlog conversion</td></tr>
+      </table></div>
+
+      <div class="tier-hdr"><span class="pill pill-red">TIER 3</span><span class="th-label">Software &amp; Applications — Where Value Must Eventually Land</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">PLTR</td><td>Palantir</td><td>The AI-application proof point: government + enterprise deployment at scale</td><td>Valuation vs growth durability (also on Defense dashboard)</td></tr>
+        <tr><td class="tk">PATH</td><td>UiPath</td><td>Automation software navigating the agentic-AI transition</td><td>Whether AI agents are tailwind or replacement</td></tr>
+        <tr><td class="tk">—</td><td>Vertical AI (healthcare, legal, finance software)</td><td>2026's favored VC theme: domain-specific AI with compliance moats</td><td>Public pure-plays still scarce — watch the IPO pipeline</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // PRIVATE MARKET</div>
+      <div class="sec-title">Foundation-Model Giants</div>
+      <div class="grid-cards">
+        <div class="card-sm pvt"><div class="name">Anthropic</div><div class="vl">$965B VAL · $65B SERIES H</div><div class="note">Most valuable AI startup; $47B revenue run rate (up from $30B earlier this year, $10B last year).</div></div>
+        <div class="card-sm pvt"><div class="name">OpenAI</div><div class="vl">$852B VAL · $122B ROUND</div><div class="note">Record-breaking raise; IPO filed Jun 8, 2026 targeting ~$1T listing — the pipeline's main event.</div></div>
+        <div class="card-sm pvt"><div class="name">xAI</div><div class="vl">~$230B LAST MARK</div><div class="note">Acquired by SpaceX — exposure now via SpaceX shares.</div></div>
+        <div class="card-sm pvt"><div class="name">Waymo</div><div class="vl">$16B ROUND (2026)</div><div class="note">Alphabet-controlled autonomy leader; one of H1's four mega-rounds.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // BEAR CASE</div>
+      <div class="sec-title">The Bubble Debate</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">The revenue gap</div><div class="d">OpenAI reportedly spends ~$60B/yr on compute against ~$13B revenue. Sequoia-style analysis says ~$600B of annual AI revenue is needed to justify current capex — and the gap is widening.</div></div>
+        <div class="card-sm risk"><div class="t">Off-balance-sheet obligations</div><div class="d">Moody's flags ~$662B of signed-but-not-commenced data-center lease commitments sitting off hyperscaler balance sheets.</div></div>
+        <div class="card-sm risk"><div class="t">Circular financing</div><div class="d">NVIDIA investing in its own largest customers, model labs raising from their cloud providers — revenue quality gets murky when the money moves in circles.</div></div>
+        <div class="card-sm risk"><div class="t">Depreciation clock</div><div class="d">GPUs depreciate over ~3–5 years. If inference revenue doesn't outgrow fleet depreciation, the correction follows the hardware's replacement schedule. Bulls counter: ~$1.19–1.32 of revenue now arrives per $1 of depreciation.</div></div>
+        <div class="card-sm risk"><div class="t">Concentration everywhere</div><div class="d">AI is simultaneously the market's largest index weight, VC's largest allocation (43% to two companies), and this hub's connective thread — a drawdown would hit robotics, nuclear, storage, and quantum sentiment at once.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // CATALYSTS</div>
+      <div class="sec-title">News &amp; Upcoming Events</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">H2 2026</div><div class="tt">OpenAI IPO</div><div class="bd">Filed Jun 8 targeting ~$1T — likely the largest listing ever; will reprice the entire AI complex, public and private.</div></div>
+        <div class="tl"><div class="dt">LATE JUL–AUG</div><div class="tt">Hyperscaler earnings + capex guides</div><div class="bd">MSFT/GOOGL/AMZN/META quarterly capex guidance is the sector's heartbeat; any deceleration signal moves everything.</div></div>
+        <div class="tl"><div class="dt">AUG (EST.)</div><div class="tt">NVIDIA earnings</div><div class="bd">The single most market-moving print in equities; watch data-center growth rate and customer concentration disclosures.</div></div>
+        <div class="tl"><div class="dt">ONGOING</div><div class="tt">Anthropic revenue trajectory</div><div class="bd">$47B run rate vs $10B a year ago — whether this pace holds is the bull case's strongest evidence.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // ETFS</div>
+      <div class="sec-title">Diversified Exposure</div>
+      <div class="grid-cards">
+        <div class="card-sm etf"><div class="n">SMH</div><div class="nm">VanEck Semiconductor</div><div class="s">The silicon layer: NVDA/TSM/AVGO-heavy</div></div>
+        <div class="card-sm etf"><div class="n">AIQ</div><div class="nm">Global X Artificial Intelligence &amp; Tech</div><div class="s">Broad AI beneficiaries across the stack</div></div>
+        <div class="card-sm etf"><div class="n">QQQ</div><div class="nm">Invesco Nasdaq-100</div><div class="s">The de-facto AI mega-cap index — cheapest exposure, most concentration overlap with everything else you own</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES // THIS EDITION</div>
+      <div class="src-list">
+        <div><a href="https://www.investing.com/analysis/big-tech-will-spend-600b-on-ai-in-2026-5-stocks-cashing-the-checks-200674615" target="_blank" rel="noopener">Investing.com — $600B+ hyperscaler spend</a></div>
+        <div><a href="https://www.fool.com/investing/2026/05/28/my-top-4-stocks-that-benefit-most-from-the-725-bil/" target="_blank" rel="noopener">Motley Fool — $725B AI infrastructure supercycle</a></div>
+        <div><a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html" target="_blank" rel="noopener">CNBC — Anthropic tops OpenAI at $965B</a></div>
+        <div><a href="https://news.crunchbase.com/venture/foundational-ai-startup-funding-doubled-openai-anthropic-xai-q1-2026/" target="_blank" rel="noopener">Crunchbase — Foundational AI funding</a></div>
+        <div><a href="https://aiweekly.co/alerts/openai-and-anthropic-take-43-of-h1-2026-venture-funding" target="_blank" rel="noopener">AI Weekly — 43% of H1 venture funding</a></div>
+        <div><a href="https://introl.com/blog/hyperscaler-capex-600b-2026-ai-infrastructure-debt-january-2026" target="_blank" rel="noopener">Introl — Capex &amp; infrastructure debt</a></div>
+        <div><a href="https://investorplace.com/hypergrowthinvesting/2026/07/the-ai-capex-bear-case-just-lost-its-best-argument/" target="_blank" rel="noopener">InvestorPlace — Bear case vs depreciation math</a></div>
+        <div><a href="https://www.man.com/insights/the-ai-bubble" target="_blank" rel="noopener">Man Group — AI bubble risks &amp; opportunities</a></div>
+      </div>
+      <div style="margin-top:.8rem">Figures approximate, from public reporting as of Jul 19, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script>
+  new Chart(document.getElementById('secChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2023','2024','2025','2026 (plan)'],
+      datasets: [{
+        label: 'Top-4 hyperscaler capex ($B, est.)',
+        data: [150, 230, 410, 725],
+        backgroundColor: 'rgba(255,95,31,0.5)',
+        borderColor: '#ff5f1f', borderWidth: 1, borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } } },
+        title: { display: true, text: 'THE AI CAPEX SUPERCYCLE (GOOGL+MSFT+META+AMZN, EST.)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
+      },
+      scales: {
+        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
+        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+</script>
+</body>
+</html>
