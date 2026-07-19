@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Defense Tech Research</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Overview</div>
+      <a class="nav-item" href="/private/"><span class="icon"></span> Dashboard</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Research</div>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item active" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+      <button class="logout-btn" onclick="window.location.href='/api/logout'"><span></span> Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">DEFENSE TECH &amp; AUTONOMY // JUL 2026</div>
+        <h2>Defense Technology Intelligence</h2>
+        <p>AI battlefield software, drones, autonomy &amp; European rearmament</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Generated Jul 19, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Defense names carry policy, program-concentration, and valuation risk. Verify current prices and do your own due diligence before investing.</div>
+
+    <section>
+      <div class="kicker">01 // SECTOR OVERVIEW</div>
+      <div class="sec-title">Market Size &amp; Momentum</div>
+      <div class="grid-4">
+        <div class="card-sm"><div class="stat-val">~€800B</div><div class="stat-sub">BY END OF DECADE</div><div class="stat-lbl">European NATO core defense spending trajectory (doubled since 2019)</div></div>
+        <div class="card-sm"><div class="stat-val">$15B+</div><div class="stat-sub">2025 · UP FROM &lt;$1B IN 2018</div><div class="stat-lbl">VC investment in defense tech — fastest-growing venture category</div></div>
+        <div class="card-sm"><div class="stat-val">$4.5B</div><div class="stat-sub">Q1 2026 — RECORD QUARTER</div><div class="stat-lbl">Defense-related venture funding (Crunchbase)</div></div>
+        <div class="card-sm hl"><div class="stat-val">$75B</div><div class="stat-sub">PENTAGON FY27 REQUEST</div><div class="stat-lbl">Unmanned systems &amp; counter-drone budget incl. $54B+ autonomous drones</div></div>
+      </div>
+      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // PUBLIC WATCHLIST</div>
+      <div class="sec-title">Public Companies by Tier</div>
+      <div class="sec-note">Tiered by maturity/risk — not a ranked buy list.</div>
+
+      <div class="tier-hdr"><span class="pill pill-green">TIER 1</span><span class="th-label">Established / Software &amp; Primes</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">PLTR</td><td>Palantir</td><td>Maven now a DoD "program of record"; $10B Army contract; Maven deployed with NATO</td><td>Valuation vs growth; commercial AIP momentum</td></tr>
+        <tr><td class="tk">RHM.DE</td><td>Rheinmetall</td><td>Flagship of European rearmament; multi-year order book</td><td>European budget follow-through; capacity expansion</td></tr>
+        <tr><td class="tk">LHX</td><td>L3Harris</td><td>Sensors, comms, missiles; eVTOL/autonomy partnerships (Joby)</td><td>Program wins under FY27 budget</td></tr>
+        <tr><td class="tk">BA.L</td><td>BAE Systems</td><td>European prime with electronic-warfare depth</td><td>UK/EU procurement cycles</td></tr>
+      </table></div>
+
+      <div class="tier-hdr"><span class="pill pill-blue">TIER 2</span><span class="th-label">High-Growth Autonomy Pure-Plays</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">AVAV</td><td>AeroVironment</td><td>Switchblade + Puma; $1.2B fully-funded backlog, 1.4 book-to-bill</td><td>Stock down 2026 despite backlog growth</td></tr>
+        <tr><td class="tk">KTOS</td><td>Kratos Defense</td><td>XQ-58 Valkyrie low-cost combat drone; $2B+ backlog (~72% funded)</td><td>CCA program decisions</td></tr>
+        <tr><td class="tk">RCAT</td><td>Red Cat Holdings</td><td>Small military drones (Black Widow)</td><td>Small-cap volatility; Army SRR orders</td></tr>
+        <tr><td class="tk">ONDS</td><td>Ondas Holdings</td><td>Autonomous drone systems &amp; networks</td><td>Speculative; contract cadence</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // PRIVATE MARKET</div>
+      <div class="sec-title">VC-Backed Watchlist</div>
+      <div class="grid-cards">
+        <div class="card-sm pvt"><div class="name">Anduril</div><div class="vl">~$61B VALUATION</div><div class="note">~$4.3B 2026E revenue; Arsenal-1 ($1B, 5M sq ft, Ohio) production began Jul 2026; up-to-$20B Army contract; 10-yr $642M USMC deal. IPO frequently speculated.</div></div>
+        <div class="card-sm pvt"><div class="name">Shield AI</div><div class="vl">~$5B VALUATION</div><div class="note">Hivemind autonomy software; V-BAT drones.</div></div>
+        <div class="card-sm pvt"><div class="name">Saronic</div><div class="vl">~$4B VALUATION</div><div class="note">Autonomous surface vessels for the Navy.</div></div>
+        <div class="card-sm pvt"><div class="name">Helsing</div><div class="vl">EUROPE'S AI DEFENSE LEADER</div><div class="note">AI software + strike drones; rides the European rearmament wave.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // BEAR CASE</div>
+      <div class="sec-title">Risks &amp; Counterarguments</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">Valuation re-rating debate</div><div class="d">Markets are rethinking what defense-tech growth is worth; drone/EW names have already corrected in 2026 despite record backlogs.</div></div>
+        <div class="card-sm risk"><div class="t">Budget politics</div><div class="d">FY27 requests aren't appropriations; continuing resolutions and election cycles can delay or shrink programs.</div></div>
+        <div class="card-sm risk"><div class="t">Legacy vs new-tech split</div><div class="d">If money flows to legacy platforms over AI/drones/EW, software-first names underperform expectations.</div></div>
+        <div class="card-sm risk"><div class="t">Program concentration</div><div class="d">Pure-plays often depend on a handful of contracts; a single loss (e.g., CCA downselect) can reprice a stock sharply.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // CATALYSTS</div>
+      <div class="sec-title">News &amp; Upcoming Events</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">JUL 2026</div><div class="tt">Anduril Arsenal-1 production begins</div><div class="bd">Ohio plant online; 6,000 tactical rocket motors/yr targeted by end-2026.</div></div>
+        <div class="tl"><div class="dt">2026</div><div class="tt">European defense IPO wave</div><div class="bd">Tank, munitions, and drone makers becoming the year's hottest listings.</div></div>
+        <div class="tl"><div class="dt">FY27 CYCLE</div><div class="tt">Pentagon autonomy budget</div><div class="bd">$54B+ autonomous drones request — a 240x increase over FY26 line items.</div></div>
+        <div class="tl"><div class="dt">ONGOING</div><div class="tt">Palantir Maven expansion</div><div class="bd">Program-of-record status locks Maven into US military infrastructure; NATO rollout continues.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // ETFS</div>
+      <div class="sec-title">Diversified Exposure</div>
+      <div class="grid-cards">
+        <div class="card-sm etf"><div class="n">SHLD</div><div class="nm">Global X Defense Tech</div><div class="s">Tilted toward defense technology names incl. Palantir</div></div>
+        <div class="card-sm etf"><div class="n">ITA</div><div class="nm">iShares US Aerospace &amp; Defense</div><div class="s">Broad US primes exposure</div></div>
+        <div class="card-sm etf"><div class="n">PPA</div><div class="nm">Invesco Aerospace &amp; Defense</div><div class="s">US-focused, includes mid-caps</div></div>
+        <div class="card-sm etf"><div class="n">EUAD</div><div class="nm">Select STOXX Europe Defense</div><div class="s">European rearmament pure exposure</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES // THIS EDITION</div>
+      <div class="src-list">
+        <div><a href="https://www.cnbc.com/2026/07/01/europe-defense-stocks-rearmament.html" target="_blank" rel="noopener">CNBC — Europe rearmament test</a></div>
+        <div><a href="https://valueaddvc.com/defense-tech" target="_blank" rel="noopener">ValueAdd VC — Defense tech startups ranked</a></div>
+        <div><a href="https://augment.market/pulse/anduril-at-61b-and-defense-techs-2026-reset" target="_blank" rel="noopener">Augment — Anduril at $61B</a></div>
+        <div><a href="https://www.cnbc.com/2026/07/06/defense-tech-stocks-drones-electronic-warfare-valuation.html" target="_blank" rel="noopener">CNBC — Rethinking defense valuations</a></div>
+        <div><a href="https://internationalfinance.com/markets/europes-defence-boom-turns-tanks-and-drones-into-stock-markets-favourite-trade/" target="_blank" rel="noopener">Intl Finance — Europe's defence boom</a></div>
+        <div><a href="https://finance.yahoo.com/markets/article/defense-stocks-surge-as-governments-boost-spending-on-weapons-ai-battlefield-technology-132142444.html" target="_blank" rel="noopener">Yahoo — Defense stocks surge</a></div>
+      </div>
+      <div style="margin-top:.8rem">Figures approximate, from public reporting as of Jul 19, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  new Chart(document.getElementById('secChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2018','2022','2024','2025','2026 (Q1 ann.)'],
+      datasets: [{
+        label: 'Defense tech VC funding ($B)',
+        data: [0.9, 6, 11, 15, 18],
+        backgroundColor: 'rgba(192,37,232,0.5)',
+        borderColor: '#c025e8', borderWidth: 1, borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } } },
+        title: { display: true, text: 'DEFENSE TECH VENTURE FUNDING GROWTH', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
+      },
+      scales: {
+        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
+        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+</script>
+</body>
+</html>

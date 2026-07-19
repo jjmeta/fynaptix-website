@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Nuclear &amp; SMR Research</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Overview</div>
+      <a class="nav-item" href="/private/"><span class="icon"></span> Dashboard</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Research</div>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item active" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+      <button class="logout-btn" onclick="window.location.href='/api/logout'"><span></span> Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">NUCLEAR &amp; SMRS // JUL 2026</div>
+        <h2>Nuclear Energy Intelligence</h2>
+        <p>Small modular reactors, uranium &amp; the AI power-demand trade</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Generated Jul 19, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This page organizes public information for research purposes only — not a recommendation to buy or sell any security. SMR developers are pre-revenue with long regulatory timelines; verify current prices and do your own due diligence before investing.</div>
+
+    <section>
+      <div class="kicker">01 // SECTOR OVERVIEW</div>
+      <div class="sec-title">Market Size &amp; Momentum</div>
+      <div class="grid-4">
+        <div class="card-sm hl"><div class="stat-val">~$1T</div><div class="stat-sub">CAPEX THROUGH 2029</div><div class="stat-lbl">Expected US grid investment to match AI-driven electricity demand growth</div></div>
+        <div class="card-sm"><div class="stat-val">First</div><div class="stat-sub">IN DECADES</div><div class="stat-lbl">US electricity demand growing again — driven by AI/data centers</div></div>
+        <div class="card-sm"><div class="stat-val">6 GW</div><div class="stat-sub">NUSCALE × TVA</div><div class="stat-lbl">Construction on NuScale's biggest project could begin later in 2026</div></div>
+        <div class="card-sm"><div class="stat-val">0</div><div class="stat-sub">OPERATING SMR PLANTS</div><div class="stat-lbl">Neither Oklo nor NuScale has a plant in operation — thesis is forward-looking</div></div>
+      </div>
+      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // PUBLIC WATCHLIST</div>
+      <div class="sec-title">Public Companies by Tier</div>
+      <div class="sec-note">Tiered by maturity/risk — not a ranked buy list.</div>
+
+      <div class="tier-hdr"><span class="pill pill-green">TIER 1</span><span class="th-label">Operating / Cash-Generating Exposure</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">CEG</td><td>Constellation Energy</td><td>Largest US nuclear fleet operator; direct data-center PPAs</td><td>Power price contracts with hyperscalers</td></tr>
+        <tr><td class="tk">CCJ</td><td>Cameco</td><td>Major Western uranium producer + Westinghouse stake</td><td>Uranium spot/term price cycle</td></tr>
+        <tr><td class="tk">BWXT</td><td>BWX Technologies</td><td>Nuclear components, naval reactors, advanced reactor work</td><td>Government program cadence</td></tr>
+        <tr><td class="tk">GEV</td><td>GE Vernova</td><td>Grid equipment + BWRX-300 SMR design via GE Hitachi</td><td>SMR order book, grid backlog</td></tr>
+      </table></div>
+
+      <div class="tier-hdr"><span class="pill pill-red">TIER 2</span><span class="th-label">Pre-Revenue SMR Developers — Speculative</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">OKLO</td><td>Oklo</td><td>Fast reactors using recycled waste; Sam Altman-backed; deals directly with AI/data-center customers</td><td>NRC licensing milestones; first deployment timeline</td></tr>
+        <tr><td class="tk">SMR</td><td>NuScale Power</td><td>Only SMR design with NRC formal approval; utility-focused; 6 GW TVA partnership</td><td>TVA construction start later in 2026</td></tr>
+        <tr><td class="tk">LEU</td><td>Centrus Energy</td><td>HALEU enrichment — fuel for advanced reactors</td><td>DOE contracts; fuel supply bottleneck position</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // PRIVATE MARKET</div>
+      <div class="sec-title">VC-Backed Watchlist</div>
+      <div class="grid-cards">
+        <div class="card-sm pvt"><div class="name">TerraPower</div><div class="vl">GATES-BACKED · NATRIUM</div><div class="note">Building Natrium reactor in Wyoming; furthest along of the private advanced-reactor builds.</div></div>
+        <div class="card-sm pvt"><div class="name">X-energy</div><div class="vl">AMAZON-BACKED</div><div class="note">Xe-100 high-temp gas reactor; data-center alignment via AWS.</div></div>
+        <div class="card-sm pvt"><div class="name">Commonwealth Fusion</div><div class="vl">FUSION · SPARC</div><div class="note">MIT spinout; best-funded fusion startup.</div></div>
+        <div class="card-sm pvt"><div class="name">Helion</div><div class="vl">FUSION · MICROSOFT PPA</div><div class="note">Altman-backed; has a power purchase agreement with Microsoft.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // BEAR CASE</div>
+      <div class="sec-title">Risks &amp; Counterarguments</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">Nothing is operating yet</div><div class="d">Oklo and NuScale are valued on promise; neither has an operating plant. First-of-a-kind builds historically run over budget and schedule (see Vogtle).</div></div>
+        <div class="card-sm risk"><div class="t">Regulatory timelines</div><div class="d">NRC licensing is slow even with reform; slips of years are normal and stocks reprice hard on delays.</div></div>
+        <div class="card-sm risk"><div class="t">Competition for the same demand</div><div class="d">Gas turbines, renewables + storage are faster to deploy for data centers; SMRs must win on 2030s economics that are unproven.</div></div>
+        <div class="card-sm risk"><div class="t">Hype-cycle valuations</div><div class="d">SMR names have already re-rated on AI-power narratives; a single delayed milestone can unwind multi-bagger moves.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // CATALYSTS</div>
+      <div class="sec-title">News &amp; Upcoming Events</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">LATE 2026</div><div class="tt">NuScale × TVA construction start</div><div class="bd">Groundbreaking on the 6 GW partnership would be the sector's biggest de-risking event.</div></div>
+        <div class="tl"><div class="dt">ONGOING</div><div class="tt">Hyperscaler nuclear PPAs</div><div class="bd">Watch for new data-center power deals (Constellation, Oklo, X-energy pattern).</div></div>
+        <div class="tl"><div class="dt">2026–2027</div><div class="tt">Oklo NRC licensing milestones</div><div class="bd">Approval progress is the primary valuation driver for pre-revenue SMR names.</div></div>
+        <div class="tl"><div class="dt">CONTINUOUS</div><div class="tt">Uranium price cycle</div><div class="bd">Term-price strength supports CCJ/LEU regardless of SMR timelines.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // ETFS</div>
+      <div class="sec-title">Diversified Exposure</div>
+      <div class="grid-cards">
+        <div class="card-sm etf"><div class="n">URA</div><div class="nm">Global X Uranium</div><div class="s">Uranium miners + fuel cycle</div></div>
+        <div class="card-sm etf"><div class="n">NLR</div><div class="nm">VanEck Uranium &amp; Nuclear</div><div class="s">Utilities + miners + SMR developers blend</div></div>
+        <div class="card-sm etf"><div class="n">URNM</div><div class="nm">Sprott Uranium Miners</div><div class="s">Pure miner exposure, higher beta</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES // THIS EDITION</div>
+      <div class="src-list">
+        <div><a href="https://www.indexbox.io/blog/nuclear-energy-stocks-nuscale-power-and-oklo-inc-as-long-term-investments/" target="_blank" rel="noopener">IndexBox — NuScale &amp; Oklo for AI demand</a></div>
+        <div><a href="https://www.fool.com/investing/2026/07/17/2-nuclear-stocks-poised-to-benefit-from-rising-ai/" target="_blank" rel="noopener">Motley Fool — Nuclear stocks &amp; AI adoption</a></div>
+        <div><a href="https://smrintel.com/smr-stocks/" target="_blank" rel="noopener">SMR Intel — SMR stocks investor guide</a></div>
+        <div><a href="https://www.fool.com/investing/2025/12/17/should-you-buy-nuclear-energy-stocks-in-2026/" target="_blank" rel="noopener">Motley Fool — Nuclear stocks in 2026</a></div>
+        <div><a href="https://simplywall.st/stocks/us/capital-goods/nyse-smr/nuscale-power/news/nuclear-energy-stocks-for-the-ai-power-boom-investors-are-ey" target="_blank" rel="noopener">Simply Wall St — Nuclear for the AI power boom</a></div>
+      </div>
+      <div style="margin-top:.8rem">Figures approximate, from public reporting as of Jul 19, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  new Chart(document.getElementById('secChart'), {
+    type: 'line',
+    data: {
+      labels: ['2024','2025','2026','2027','2028','2029'],
+      datasets: [{
+        label: 'Cumulative US grid capex to meet AI demand ($B, est.)',
+        data: [80, 240, 430, 630, 820, 1000],
+        borderColor: '#c025e8', backgroundColor: 'rgba(192,37,232,0.08)',
+        fill: true, tension: 0.35, pointRadius: 3.5, pointBackgroundColor: '#c025e8'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } } },
+        title: { display: true, text: 'US GRID INVESTMENT TRAJECTORY (ANALYST EST.)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
+      },
+      scales: {
+        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
+        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      }
+    }
+  });
+</script>
+</body>
+</html>

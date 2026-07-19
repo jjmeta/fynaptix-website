@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · AI Biotech Research</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Overview</div>
+      <a class="nav-item" href="/private/"><span class="icon"></span> Dashboard</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Research</div>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item active" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+      <button class="logout-btn" onclick="window.location.href='/api/logout'"><span></span> Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">AI DRUG DISCOVERY &amp; BIOTECH // JUL 2026</div>
+        <h2>AI Biotech Intelligence</h2>
+        <p>AI-native drug discovery, computational biology &amp; longevity capital</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Generated Jul 19, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Biotech carries binary clinical risk; AI-discovery names trade on catalysts, not revenue. Verify current prices and do your own due diligence before investing.</div>
+
+    <section>
+      <div class="kicker">01 // SECTOR OVERVIEW</div>
+      <div class="sec-title">Market Size &amp; Momentum</div>
+      <div class="grid-4">
+        <div class="card-sm"><div class="stat-val">$38B</div><div class="stat-sub">2025 · +28% YOY</div><div class="stat-lbl">Global biotech venture funding, recovering from post-pandemic correction</div></div>
+        <div class="card-sm hl"><div class="stat-val">$2.1B</div><div class="stat-sub">ISOMORPHIC SERIES B</div><div class="stat-lbl">Largest AI-drug-discovery round ever (2023's biggest biotech round: ~$465M)</div></div>
+        <div class="card-sm"><div class="stat-val">&lt;30 mo</div><div class="stat-sub">VS 6–8 YEARS TRADITIONAL</div><div class="stat-lbl">Insilico: target ID to Phase II for its AI-discovered IPF drug</div></div>
+        <div class="card-sm"><div class="stat-val">$435M</div><div class="stat-sub">NEW LIMIT SERIES C</div><div class="stat-lbl">Longevity/epigenetic reprogramming round (Founders Fund, Lilly Ventures)</div></div>
+      </div>
+      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // PUBLIC WATCHLIST</div>
+      <div class="sec-title">Public Companies by Tier</div>
+      <div class="sec-note">Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.</div>
+
+      <div class="tier-hdr"><span class="pill pill-green">TIER 1</span><span class="th-label">Established / Hedged Exposure</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">LLY</td><td>Eli Lilly</td><td>Isomorphic partner ($1.7B+ milestones); scale AI adopter with blockbuster cash flows</td><td>AI-originated pipeline entries</td></tr>
+        <tr><td class="tk">NVS</td><td>Novartis</td><td>Isomorphic partnership (~$1.2B)</td><td>Same — platform validation via renewals</td></tr>
+        <tr><td class="tk">NVDA</td><td>NVIDIA</td><td>BioNeMo/compute layer for computational biology</td><td>Pharma platform partnerships</td></tr>
+      </table></div>
+
+      <div class="tier-hdr"><span class="pill pill-red">TIER 2</span><span class="th-label">AI-Native Platforms — Speculative</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">RXRX</td><td>Recursion</td><td>Millions of automated cell-imaging experiments feeding AI "maps of biology"</td><td>Pipeline readouts; partnership economics</td></tr>
+        <tr><td class="tk">SDGR</td><td>Schrödinger</td><td>Physics-based + ML molecular simulation; software revenue cushions pipeline risk</td><td>Software growth vs pipeline burn</td></tr>
+        <tr><td class="tk">RLAY</td><td>Relay Therapeutics</td><td>Motion-based protein modeling for precision oncology</td><td>Clinical readouts</td></tr>
+        <tr><td class="tk">GNRT*</td><td>Generate Biomedicines</td><td>Generative protein design — 2026 IPO</td><td>Post-IPO lockups; platform deals</td></tr>
+        <tr><td class="tk">EIKN*</td><td>Eikon Therapeutics</td><td>Live-cell single-molecule tracking — 2026 IPO</td><td>First platform-derived clinical data</td></tr>
+      </table></div>
+      <div class="sec-note" style="margin-top:.5rem">*Recent 2026 IPOs — confirm tickers before trading.</div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // PRIVATE MARKET</div>
+      <div class="sec-title">VC-Backed Watchlist</div>
+      <div class="grid-cards">
+        <div class="card-sm pvt"><div class="name">Isomorphic Labs</div><div class="vl">$2.1B SERIES B · ALPHABET</div><div class="note">AlphaFold lineage; Lilly + Novartis deals make it the most pharma-validated platform.</div></div>
+        <div class="card-sm pvt"><div class="name">Insilico Medicine</div><div class="vl">FIRST PHASE IIA PROOF POINT</div><div class="note">Rentosertib positive Phase IIa in IPF (Nature Medicine 2025) — the field's first peer-reviewed clinical validation.</div></div>
+        <div class="card-sm pvt"><div class="name">Xaira Therapeutics</div><div class="vl">$1B+ LAUNCH</div><div class="note">ARCH/Foresite mega-launch around generative biology.</div></div>
+        <div class="card-sm pvt"><div class="name">New Limit</div><div class="vl">$435M SERIES C</div><div class="note">Epigenetic reprogramming for longevity (Founders Fund, Lilly Ventures).</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // BEAR CASE</div>
+      <div class="sec-title">Risks &amp; Counterarguments</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">Biology still fails in the clinic</div><div class="d">AI speeds discovery, but most drugs still fail in humans; one Phase IIa success is not a field-wide validation.</div></div>
+        <div class="card-sm risk"><div class="t">Catalyst-driven volatility</div><div class="d">These stocks trade on announcements; between catalysts they drift and dilute.</div></div>
+        <div class="card-sm risk"><div class="t">Platform-value skepticism</div><div class="d">If pharma can license AI tools cheaply (or build in-house), platform companies may capture less value than valuations imply.</div></div>
+        <div class="card-sm risk"><div class="t">Rate sensitivity</div><div class="d">Long-duration biotech cash flows are highly sensitive to rates; macro can swamp fundamentals.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // CATALYSTS</div>
+      <div class="sec-title">News &amp; Upcoming Events</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">ONGOING</div><div class="tt">Big-pharma AI partnership announcements</div><div class="bd">Each new Isomorphic-style deal validates (and re-rates) the platform group.</div></div>
+        <div class="tl"><div class="dt">2026–2027</div><div class="tt">AI-discovered drug readouts</div><div class="bd">Insilico Phase II follow-ups and peers' first clinical data are the field's make-or-break events.</div></div>
+        <div class="tl"><div class="dt">2026</div><div class="tt">Generate &amp; Eikon post-IPO execution</div><div class="bd">First public-market tests of generative-biology platforms.</div></div>
+        <div class="tl"><div class="dt">CONTINUOUS</div><div class="tt">IND filings cadence</div><div class="bd">The volume of AI-originated INDs is the best leading indicator of platform productivity.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // ETFS</div>
+      <div class="sec-title">Diversified Exposure</div>
+      <div class="grid-cards">
+        <div class="card-sm etf"><div class="n">XBI</div><div class="nm">SPDR S&amp;P Biotech</div><div class="s">Equal-weight biotech — broad sector beta</div></div>
+        <div class="card-sm etf"><div class="n">ARKG</div><div class="nm">ARK Genomic Revolution</div><div class="s">Active, concentrated genomics/AI-bio bets</div></div>
+        <div class="card-sm etf"><div class="n">IBB</div><div class="nm">iShares Biotechnology</div><div class="s">Large-cap-weighted biotech</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES // THIS EDITION</div>
+      <div class="src-list">
+        <div><a href="https://intuitionlabs.ai/articles/isomorphic-labs-series-b-ai-drug-discovery" target="_blank" rel="noopener">IntuitionLabs — Isomorphic $2.1B Series B</a></div>
+        <div><a href="https://www.onhealthcare.tech/p/the-ai-drug-discovery-capital-stack" target="_blank" rel="noopener">OnHealthcare — AI drug discovery capital stack</a></div>
+        <div><a href="https://marketwise.com/investing/ai-drug-discovery-stocks-isomorphic-labs/" target="_blank" rel="noopener">MarketWise — 6 AI drug discovery stocks</a></div>
+        <div><a href="https://visionlifesciences.com/insights/ai-drug-discovery-companies" target="_blank" rel="noopener">Vision Life Sciences — 2026 power list</a></div>
+        <div><a href="https://www.genengnews.com/topics/artificial-intelligence/pharma-races-to-scale-ai-as-billions-flow-into-drug-discovery/" target="_blank" rel="noopener">GEN — Pharma races to scale AI</a></div>
+        <div><a href="https://www.pharmavoice.com/news/biotech-large-haul-fundraising-drug-pharma/824012/" target="_blank" rel="noopener">PharmaVoice — Big biotech raises</a></div>
+      </div>
+      <div style="margin-top:.8rem">Figures approximate, from public reporting as of Jul 19, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  new Chart(document.getElementById('secChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2023','2024','2025','2026 (trend)'],
+      datasets: [{
+        label: 'Global biotech VC funding ($B)',
+        data: [24, 30, 38, 42],
+        backgroundColor: 'rgba(255,95,31,0.5)',
+        borderColor: '#ff5f1f', borderWidth: 1, borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } } },
+        title: { display: true, text: 'BIOTECH VENTURE FUNDING RECOVERY (EST.)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
+      },
+      scales: {
+        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
+        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+</script>
+</body>
+</html>

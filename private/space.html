@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Space Economy Research</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Overview</div>
+      <a class="nav-item" href="/private/"><span class="icon"></span> Dashboard</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Research</div>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item active" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+      <button class="logout-btn" onclick="window.location.href='/api/logout'"><span></span> Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">SPACE ECONOMY // JUL 2026</div>
+        <h2>Space Economy Intelligence</h2>
+        <p>Launch, satellites, constellations &amp; the post-SpaceX-IPO landscape</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Generated Jul 19, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Space is capital-intensive with heavy government-customer concentration. Verify current prices and do your own due diligence before investing.</div>
+
+    <section>
+      <div class="kicker">01 // SECTOR OVERVIEW</div>
+      <div class="sec-title">Market Size &amp; Momentum</div>
+      <div class="grid-4">
+        <div class="card-sm"><div class="stat-val">$1.8T</div><div class="stat-sub">BY 2035 (MCKINSEY)</div><div class="stat-lbl">Projected global space economy, from ~$470–626B in 2026</div></div>
+        <div class="card-sm hl"><div class="stat-val">~$2T</div><div class="stat-sub">JUN 2026 IPO</div><div class="stat-lbl">SpaceX valuation — one of the largest IPOs in market history</div></div>
+        <div class="card-sm"><div class="stat-val">$9.4B</div><div class="stat-sub">Q1 2026 · 82 COMPANIES</div><div class="stat-lbl">Private space investment in a single quarter (2025 full year: $12.4B, +48%)</div></div>
+        <div class="card-sm"><div class="stat-val">12M</div><div class="stat-sub">$11B ANNUAL REVENUE</div><div class="stat-lbl">Starlink active subscribers worldwide</div></div>
+      </div>
+      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // PUBLIC WATCHLIST</div>
+      <div class="sec-title">Public Companies by Tier</div>
+      <div class="sec-note">Tiered by maturity/risk — not a ranked buy list.</div>
+
+      <div class="tier-hdr"><span class="pill pill-green">TIER 1</span><span class="th-label">Scale Players</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">SPACEX</td><td>SpaceX</td><td>Launch monopoly economics + Starlink (12M subs, $11B rev); public since Jun 2026 at ~$2T</td><td>Post-IPO lockups; Starship cadence; Starlink growth rate</td></tr>
+        <tr><td class="tk">RKLB</td><td>Rocket Lab</td><td>Q1 revenue +63.5%; $816M missile-warning satellite contract; acquiring Iridium for $8B (66-sat LEO constellation)</td><td>Iridium deal close; Neutron rocket milestones</td></tr>
+        <tr><td class="tk">LHX</td><td>L3Harris</td><td>Space sensors/payloads at prime scale</td><td>SDA/missile-tracking awards</td></tr>
+      </table></div>
+
+      <div class="tier-hdr"><span class="pill pill-red">TIER 2</span><span class="th-label">Growth / Speculative</span></div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
+        <tr><td class="tk">ASTS</td><td>AST SpaceMobile</td><td>Direct-to-phone satellite broadband; carrier partnerships</td><td>Constellation deployment pace; funding</td></tr>
+        <tr><td class="tk">LUNR</td><td>Intuitive Machines</td><td>Lunar landers + NASA services</td><td>Mission success/failure binary risk</td></tr>
+        <tr><td class="tk">PL</td><td>Planet Labs</td><td>Earth-observation data subscription model</td><td>Path to sustained profitability</td></tr>
+        <tr><td class="tk">RDW</td><td>Redwire</td><td>Space infrastructure components</td><td>M&amp;A integration, margins</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // PRIVATE MARKET</div>
+      <div class="sec-title">Still-Private Watchlist</div>
+      <div class="grid-cards">
+        <div class="card-sm pvt"><div class="name">Blue Origin</div><div class="vl">BEZOS-FUNDED</div><div class="note">New Glenn heavy launch + Kuiper-adjacent ambitions; IPO speculation persists.</div></div>
+        <div class="card-sm pvt"><div class="name">Firefly Aerospace</div><div class="vl">LAUNCH + LANDERS</div><div class="note">Alpha rocket and Blue Ghost lunar lander.</div></div>
+        <div class="card-sm pvt"><div class="name">Stoke Space</div><div class="vl">FULLY REUSABLE</div><div class="note">Nova — fully reusable two-stage rocket in development.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // BEAR CASE</div>
+      <div class="sec-title">Risks &amp; Counterarguments</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">Capital intensity</div><div class="d">Rockets and constellations burn billions before returns; dilution is chronic among small caps.</div></div>
+        <div class="card-sm risk"><div class="t">Government concentration</div><div class="d">Much of the sector's revenue is NASA/DoD; budget shifts reprice backlogs fast.</div></div>
+        <div class="card-sm risk"><div class="t">SpaceX absorbs the value</div><div class="d">A ~$2T incumbent with launch-cost dominance can compress everyone else's margins (launch and broadband alike).</div></div>
+        <div class="card-sm risk"><div class="t">Binary mission risk</div><div class="d">One failed landing or launch can halve a small-cap (see lunar-lander names).</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // CATALYSTS</div>
+      <div class="sec-title">News &amp; Upcoming Events</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">2026</div><div class="tt">Rocket Lab × Iridium ($8B)</div><div class="bd">Deal would hand RKLB a revenue-generating 66-satellite LEO constellation — a business-model transformation.</div></div>
+        <div class="tl"><div class="dt">POST-IPO</div><div class="tt">SpaceX first public earnings cycles</div><div class="bd">First real financial disclosure from the industry's dominant player; sets sector comps.</div></div>
+        <div class="tl"><div class="dt">ONGOING</div><div class="tt">Golden Dome / missile-defense awards</div><div class="bd">Missile-warning and tracking contracts (RKLB's $816M win is the template) keep flowing from DoD.</div></div>
+        <div class="tl"><div class="dt">2026–2027</div><div class="tt">Neutron development milestones</div><div class="bd">Rocket Lab's medium-lift rocket progress is its biggest organic catalyst.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // ETFS</div>
+      <div class="sec-title">Diversified Exposure</div>
+      <div class="grid-cards">
+        <div class="card-sm etf"><div class="n">UFO</div><div class="nm">Procure Space</div><div class="s">Pure-play space index</div></div>
+        <div class="card-sm etf"><div class="n">ARKX</div><div class="nm">ARK Space Exploration</div><div class="s">Active management, broader tech adjacency</div></div>
+        <div class="card-sm etf"><div class="n">ROKT</div><div class="nm">SPDR Kensho Final Frontiers</div><div class="s">Space + deep-sea exploration blend</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES // THIS EDITION</div>
+      <div class="src-list">
+        <div><a href="https://www.fool.com/investing/2026/07/08/better-space-stock-buy-spacex-rocket-lab/" target="_blank" rel="noopener">Motley Fool — SpaceX vs Rocket Lab</a></div>
+        <div><a href="https://www.fool.com/investing/stock-market/market-sectors/industrials/space-stocks/" target="_blank" rel="noopener">Motley Fool — Best space stocks</a></div>
+        <div><a href="https://investsnips.com/best-space-stocks/" target="_blank" rel="noopener">InvestSnips — SpaceX IPO &amp; top picks</a></div>
+        <div><a href="https://www.stocktitan.net/stocks/themes/space-stocks" target="_blank" rel="noopener">StockTitan — 40+ satellite &amp; rocket names</a></div>
+        <div><a href="https://coincentral.com/space-stocks-are-taking-off-spacex-rocket-lab-and-ast-spacemobile-lead-the-charge/" target="_blank" rel="noopener">CoinCentral — Space stocks taking off</a></div>
+        <div><a href="https://fnex.com/newsletter/space-technology-investment/" target="_blank" rel="noopener">FNEX — Space technology investment</a></div>
+      </div>
+      <div style="margin-top:.8rem">Figures approximate, from public reporting as of Jul 19, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  new Chart(document.getElementById('secChart'), {
+    type: 'line',
+    data: {
+      labels: ['2026','2028','2030','2033','2035'],
+      datasets: [{
+        label: 'Global space economy ($B, est.)',
+        data: [550, 700, 900, 1300, 1800],
+        borderColor: '#2ed0f5', backgroundColor: 'rgba(46,208,245,0.08)',
+        fill: true, tension: 0.35, pointRadius: 3.5, pointBackgroundColor: '#2ed0f5'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } } },
+        title: { display: true, text: 'SPACE ECONOMY PROJECTION TO 2035 (MCKINSEY / ANALYST EST.)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
+      },
+      scales: {
+        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
+        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' } }
+      }
+    }
+  });
+</script>
+</body>
+</html>
