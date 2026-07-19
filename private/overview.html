@@ -80,7 +80,71 @@
     </section>
 
     <section>
-      <div class="kicker">02 // CROSS-CUTTING THEMES</div>
+      <div class="kicker">02 // MARKETS THIS WEEK</div>
+      <div class="sec-title">Stock &amp; Crypto Market Performance</div>
+      <div class="sec-note">Live widgets — use the range tabs (1D/1M) to frame the recent week. Stocks left, biggest US movers right, crypto below.</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem">
+        <div class="card" style="padding:.5rem">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+            {
+              "colorTheme": "dark", "dateRange": "1M", "showChart": true, "locale": "en",
+              "width": "100%", "height": 440, "isTransparent": true, "showSymbolLogo": true,
+              "plotLineColorGrowing": "rgba(46, 208, 245, 1)", "plotLineColorFalling": "rgba(239, 68, 68, 1)",
+              "gridLineColor": "rgba(255, 255, 255, 0.04)", "scaleFontColor": "rgba(107, 122, 153, 1)",
+              "belowLineFillColorGrowing": "rgba(46, 208, 245, 0.08)", "belowLineFillColorFalling": "rgba(239, 68, 68, 0.08)",
+              "symbolActiveColor": "rgba(192, 37, 232, 0.12)",
+              "tabs": [
+                { "title": "US Indices", "symbols": [
+                  { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
+                  { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" },
+                  { "s": "FOREXCOM:DJI", "d": "Dow Jones" },
+                  { "s": "CAPITALCOM:RTY", "d": "Russell 2000" }
+                ]},
+                { "title": "Crypto", "symbols": [
+                  { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
+                  { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
+                  { "s": "CRYPTOCAP:TOTAL", "d": "Total Crypto Mkt Cap" },
+                  { "s": "CRYPTOCAP:BTC.D", "d": "BTC Dominance %" }
+                ]}
+              ]
+            }
+            </script>
+          </div>
+        </div>
+        <div class="card" style="padding:.5rem">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+            {
+              "colorTheme": "dark", "dateRange": "1M", "exchange": "US", "showChart": true,
+              "locale": "en", "width": "100%", "height": 440, "isTransparent": true, "showSymbolLogo": false,
+              "plotLineColorGrowing": "rgba(46, 208, 245, 1)", "plotLineColorFalling": "rgba(239, 68, 68, 1)",
+              "gridLineColor": "rgba(255, 255, 255, 0.04)", "scaleFontColor": "rgba(107, 122, 153, 1)",
+              "belowLineFillColorGrowing": "rgba(46, 208, 245, 0.08)", "belowLineFillColorFalling": "rgba(239, 68, 68, 0.08)",
+              "symbolActiveColor": "rgba(192, 37, 232, 0.12)"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="padding:.5rem;margin-top:1rem">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+          {
+            "width": "100%", "height": 430, "defaultColumn": "performance", "defaultScreen": "general",
+            "market": "crypto", "showToolbar": true, "colorTheme": "dark", "isTransparent": true, "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
+      <div class="sec-note" style="margin-top:.6rem">The crypto screener's "Performance" columns include weekly (7d) change per coin. For deeper macro context see the <a href="/private/macro.html" style="color:var(--ge)">Macro dashboard</a>.</div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // CROSS-CUTTING THEMES</div>
       <div class="sec-title">The Threads Connecting Everything</div>
       <div class="grid-cards">
         <div class="card-sm theme"><span class="tag">THE AI POWER TRADE</span><div class="t">Compute demand → energy infrastructure</div><div class="d">AI data centers link nuclear (generation), storage (grid stability), minerals (copper/lithium), and semiconductors. ~$1T US grid capex expected through 2029. One macro bet, four expressions.</div></div>
@@ -92,7 +156,7 @@
     </section>
 
     <section>
-      <div class="kicker">03 // NEWS OF THE WEEK</div>
+      <div class="kicker">04 // NEWS OF THE WEEK</div>
       <div class="sec-title">Top Cross-Sector Events</div>
       <div class="timeline">
         <div class="tl"><div class="dt">JUL 17 · BIOTECH/SURGICAL</div><div class="tt">ISRG sinks despite earnings beat</div><div class="bd">Procedure-growth guidance (13–15%) disappointed; the market is punishing decelerating growth even at quality franchises.</div></div>
@@ -104,14 +168,14 @@
     </section>
 
     <section>
-      <div class="kicker">04 // RISK GAUGE</div>
+      <div class="kicker">05 // RISK GAUGE</div>
       <div class="sec-title">Valuation Heat by Sector</div>
       <div class="sec-note">Subjective ranking of how much future perfection is priced in — higher = more air underneath if sentiment turns.</div>
       <div class="card chart-wrap"><canvas id="heatChart"></canvas></div>
     </section>
 
     <section>
-      <div class="kicker">05 // THE WEEK AHEAD</div>
+      <div class="kicker">06 // THE WEEK AHEAD</div>
       <div class="sec-title">Catalysts to Watch</div>
       <div class="timeline">
         <div class="tl"><div class="dt">JUL 22</div><div class="tt">Tesla Q2 earnings</div><div class="bd">Optimus ramp detail + robotaxi economics — moves robotics and the whole physical-AI complex.</div></div>
