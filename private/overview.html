@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Weekly Brief</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="research.css"/>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Overview</div>
+      <a class="nav-item" href="/private/"><span class="icon"></span> Dashboard</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Research</div>
+      <a class="nav-item active" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+      <button class="logout-btn" onclick="window.location.href='/api/logout'"><span></span> Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">WEEKLY BRIEF // ALL SECTORS // JUL 2026</div>
+        <h2>Emerging Tech Weekly Brief</h2>
+        <p>Cross-sector overview: momentum, news, themes &amp; the week ahead</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Week of Jul 19, 2026 · Refreshes Mondays ~12:30pm</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This brief synthesizes the eight sector dashboards for research purposes only — not a recommendation to buy or sell any security. Verify current prices and do your own due diligence before investing.</div>
+
+    <section>
+      <div class="kicker">01 // SECTOR SCOREBOARD</div>
+      <div class="sec-title">All Sectors at a Glance</div>
+      <div class="sec-note">Momentum reflects news flow and fundamentals direction, not a price signal. Click any sector in the sidebar for the full dashboard.</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Sector</th><th>Momentum</th><th>This week's story</th><th>Fundamentals check</th></tr>
+        <tr><td class="tk"><a href="/private/robotics.html" style="color:var(--ge);text-decoration:none">Robotics</a></td><td><span class="pill pill-amber">HOT</span></td><td>Chinese humanoid IPO rush (Unitree ~$6.2B approved); Tesla converts Fremont to Optimus production</td><td>Warehouse automation (SYM $22.7B backlog) is where the revenue is; humanoids still pre-commercial</td></tr>
+        <tr><td class="tk"><a href="/private/defense.html" style="color:var(--ge);text-decoration:none">Defense Tech</a></td><td><span class="pill pill-green">CONSTRUCTIVE</span></td><td>Anduril's Arsenal-1 begins production; European IPO wave builds</td><td>Order books stretch years out; stocks corrected despite record backlogs — fundamentals ahead of prices for once</td></tr>
+        <tr><td class="tk"><a href="/private/nuclear.html" style="color:var(--ge);text-decoration:none">Nuclear &amp; SMRs</a></td><td><span class="pill pill-amber">SPECULATIVE-HOT</span></td><td>AI power-demand narrative intact; NuScale × TVA construction eyed for late 2026</td><td>Zero operating SMR plants — the entire pure-play thesis is forward-looking</td></tr>
+        <tr><td class="tk"><a href="/private/minerals.html" style="color:var(--ge);text-decoration:none">Critical Minerals</a></td><td><span class="pill pill-green">POLICY-BACKED</span></td><td>Project Vault stockpile buying; MP magnet sales approach (H2 2026)</td><td>Government demand floor de-risks domestic producers; commodity cycle risk remains</td></tr>
+        <tr><td class="tk"><a href="/private/space.html" style="color:var(--ge);text-decoration:none">Space Economy</a></td><td><span class="pill pill-blue">REPRICING</span></td><td>Post-SpaceX-IPO era begins (~$2T); RKLB × Iridium $8B deal pending</td><td>Starlink's $11B revenue is real; small-caps still capital-hungry</td></tr>
+        <tr><td class="tk"><a href="/private/storage.html" style="color:var(--ge);text-decoration:none">Energy Storage</a></td><td><span class="pill pill-green">FUNDAMENTALS-STRONG</span></td><td>Record 24 GW US buildout on track; Megapack 3 ramping</td><td>Best revenue visibility on this list — Fluence 85% of guidance in backlog</td></tr>
+        <tr><td class="tk"><a href="/private/biotech.html" style="color:var(--ge);text-decoration:none">AI Biotech</a></td><td><span class="pill pill-blue">RECOVERING</span></td><td>Capital returning ($38B VC, +28%); Isomorphic's $2.1B resets platform valuations</td><td>One Phase IIa proof point so far; catalysts, not revenue, drive these names</td></tr>
+        <tr><td class="tk"><a href="/private/quantum.html" style="color:var(--ge);text-decoration:none">Quantum</a></td><td><span class="pill pill-red">EXTREME SPECULATION</span></td><td>$2B CHIPS funding flowing; IonQ backlog +550%</td><td>P/S 100–800× — years of perfection already priced in</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // CROSS-CUTTING THEMES</div>
+      <div class="sec-title">The Threads Connecting Everything</div>
+      <div class="grid-cards">
+        <div class="card-sm theme"><span class="tag">THE AI POWER TRADE</span><div class="t">Compute demand → energy infrastructure</div><div class="d">AI data centers link nuclear (generation), storage (grid stability), minerals (copper/lithium), and semiconductors. ~$1T US grid capex expected through 2029. One macro bet, four expressions.</div></div>
+        <div class="card-sm theme"><span class="tag">PHYSICAL AI</span><div class="t">Intelligence gets a body</div><div class="d">Robotics, defense autonomy, and space systems share the same stack: NVIDIA compute, foundation models (Skild, Physical Intelligence), actuators and sensors. Component makers sell into all three.</div></div>
+        <div class="card-sm theme"><span class="tag">SOVEREIGNTY</span><div class="t">Onshoring as investment thesis</div><div class="d">Rare earths, defense production, quantum policy, CHIPS funding — governments are now price-setters and demand floors across half these sectors. Policy risk cuts both ways.</div></div>
+        <div class="card-sm theme"><span class="tag">HYPE VS FUNDAMENTALS</span><div class="t">The valuation divergence</div><div class="d">Quantum, humanoids, and SMRs trade on narratives; storage, warehouse automation, and defense backlogs trade on booked revenue. The gap between the two groups is this cycle's defining risk.</div></div>
+        <div class="card-sm theme"><span class="tag">IPO WINDOW</span><div class="t">Private giants going public</div><div class="d">SpaceX (~$2T, June), Agility Robotics SPAC, Unitree/Agibot in China, European defense listings, Generate/Eikon in biotech. Watch lockups and whether debuts hold — it's a sentiment barometer for the whole complex.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // NEWS OF THE WEEK</div>
+      <div class="sec-title">Top Cross-Sector Events</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">JUL 17 · BIOTECH/SURGICAL</div><div class="tt">ISRG sinks despite earnings beat</div><div class="bd">Procedure-growth guidance (13–15%) disappointed; the market is punishing decelerating growth even at quality franchises.</div></div>
+        <div class="tl"><div class="dt">JUL 13 · ROBOTICS/CHINA</div><div class="tt">Chinese humanoid IPO rush accelerates</div><div class="bd">Unitree STAR approval (~$6.2B) despite profit -52% YoY — listing-window urgency over fundamentals.</div></div>
+        <div class="tl"><div class="dt">JUL · DEFENSE</div><div class="tt">Anduril Arsenal-1 production begins</div><div class="bd">$1B Ohio plant online — defense-tech manufacturing at scale becomes real.</div></div>
+        <div class="tl"><div class="dt">JUL · ROBOTICS/TESLA</div><div class="tt">Fremont converted to Optimus production</div><div class="bd">Model S/X lines dismantled in under 7 weeks; Q2 earnings Jul 22 will detail the ramp.</div></div>
+        <div class="tl"><div class="dt">ONGOING · MINERALS</div><div class="tt">Project Vault buying + MP magnet countdown</div><div class="bd">US government demand floor operating; MP's mine-to-magnet completion lands H2 2026.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // RISK GAUGE</div>
+      <div class="sec-title">Valuation Heat by Sector</div>
+      <div class="sec-note">Subjective ranking of how much future perfection is priced in — higher = more air underneath if sentiment turns.</div>
+      <div class="card chart-wrap"><canvas id="heatChart"></canvas></div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // THE WEEK AHEAD</div>
+      <div class="sec-title">Catalysts to Watch</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">JUL 22</div><div class="tt">Tesla Q2 earnings</div><div class="bd">Optimus ramp detail + robotaxi economics — moves robotics and the whole physical-AI complex.</div></div>
+        <div class="tl"><div class="dt">THIS WEEK</div><div class="tt">Earnings season broadens</div><div class="bd">Industrial/defense reports will show whether backlogs keep building (ROK, defense primes on deck through late July).</div></div>
+        <div class="tl"><div class="dt">H2 WATCH</div><div class="tt">Agility Robotics SPAC completion</div><div class="bd">First US-listed pure-play humanoid — a sentiment test for the category.</div></div>
+        <div class="tl"><div class="dt">H2 WATCH</div><div class="dt"></div><div class="tt">CHIPS quantum award announcements</div><div class="bd">Which companies capture the $2B decides the next leg for pure-plays.</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">ABOUT THIS BRIEF</div>
+      <div style="margin-top:.5rem">Synthesized weekly from the eight sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Jul 19, 2026 — always confirm independently.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  new Chart(document.getElementById('heatChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Quantum','Humanoid robotics','Nuclear/SMR','Space small-caps','Defense tech','AI biotech','Critical minerals','Energy storage'],
+      datasets: [{
+        label: 'Valuation heat (subjective, 1–10)',
+        data: [10, 9, 8, 7, 6, 6, 5, 4],
+        backgroundColor: ['rgba(239,68,68,0.55)','rgba(239,68,68,0.45)','rgba(255,95,31,0.5)','rgba(255,95,31,0.4)','rgba(245,158,11,0.45)','rgba(245,158,11,0.35)','rgba(16,185,129,0.4)','rgba(16,185,129,0.5)'],
+        borderColor: ['#ef4444','#ef4444','#ff5f1f','#ff5f1f','#f59e0b','#f59e0b','#10b981','#10b981'],
+        borderWidth: 1, borderRadius: 6
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: 'HOW MUCH PERFECTION IS PRICED IN (SUBJECTIVE)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, min: 0, max: 10 },
+        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+</script>
+</body>
+</html>
