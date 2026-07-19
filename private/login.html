@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Private Access</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#05070f;--bg2:#080d1a;--bg3:#0d1526;
+    --gs:#ff5f1f;--gm:#c025e8;--ge:#2ed0f5;
+    --text:#e8edf8;--muted:#6b7a99;
+    --border:rgba(255,255,255,0.07);
+    --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;
+  }
+  html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--fb)}
+
+  .wrap{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:2rem;
+    background:radial-gradient(ellipse at 50% 0%,rgba(192,37,232,0.12) 0%,transparent 60%),
+               radial-gradient(ellipse at 80% 80%,rgba(255,95,31,0.08) 0%,transparent 50%),
+               var(--bg);
+  }
+
+  .card{
+    width:100%;max-width:420px;
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:3rem 2.5rem;
+    text-align:center;
+  }
+
+  .logo{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:var(--fd);font-weight:700;font-size:1.2rem;
+    color:var(--text);text-decoration:none;margin-bottom:2rem;
+  }
+  .logo-mark{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gs),var(--gm),var(--ge));
+    display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;
+  }
+
+  .badge{
+    display:inline-flex;align-items:center;gap:.4rem;
+    background:rgba(192,37,232,0.12);border:1px solid rgba(192,37,232,0.25);
+    border-radius:99px;padding:.3rem .9rem;
+    font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gm);margin-bottom:1.5rem;
+  }
+
+  h1{font-family:var(--fd);font-size:1.6rem;font-weight:700;margin-bottom:.5rem}
+  p{color:var(--muted);font-size:.9rem;margin-bottom:2rem}
+
+  .field{position:relative;margin-bottom:1.2rem}
+  .field input{
+    width:100%;padding:.9rem 1rem .9rem 3rem;
+    background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+    color:var(--text);font-family:var(--fb);font-size:1rem;outline:none;
+    transition:border-color .2s;
+  }
+  .field input:focus{border-color:rgba(192,37,232,0.5)}
+  .field .icon{
+    position:absolute;left:1rem;top:50%;transform:translateY(-50%);
+    color:var(--muted);font-size:1rem;pointer-events:none;
+  }
+  .field input::placeholder{color:var(--muted)}
+
+  .btn{
+    width:100%;padding:.9rem;border:none;border-radius:10px;cursor:pointer;
+    background:linear-gradient(135deg,var(--gs),var(--gm));
+    color:#fff;font-family:var(--fd);font-size:1rem;font-weight:600;
+    transition:opacity .2s,transform .1s;
+  }
+  .btn:hover{opacity:.9}
+  .btn:active{transform:scale(.98)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+
+  .error{
+    display:none;margin-top:1rem;padding:.75rem 1rem;
+    background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);
+    border-radius:8px;color:#f87171;font-size:.85rem;
+  }
+  .error.show{display:block}
+
+  .back{
+    display:inline-block;margin-top:1.5rem;
+    color:var(--muted);font-size:.8rem;text-decoration:none;
+    transition:color .2s;
+  }
+  .back:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <a class="logo" href="/">
+      <div class="logo-mark">∞</div>
+      Fynaptix
+    </a>
+
+    <div class="badge"> Private Access</div>
+
+    <h1>Welcome back, Jeremy</h1>
+    <p>Enter your password to access the private hub.</p>
+
+    <form id="loginForm">
+      <div class="field">
+        <span class="icon"></span>
+        <input type="password" id="password" placeholder="Password" autocomplete="current-password" required/>
+      </div>
+      <button class="btn" type="submit" id="submitBtn">Enter Hub</button>
+      <div class="error" id="errorMsg">Incorrect password. Try again.</div>
+    </form>
+
+    <a class="back" href="/">← Back to Fynaptix</a>
+  </div>
+</div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const btn = document.getElementById('submitBtn')
+    const err = document.getElementById('errorMsg')
+    const password = document.getElementById('password').value
+
+    btn.disabled = true
+    btn.textContent = 'Checking...'
+    err.classList.remove('show')
+
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      })
+
+      if (res.ok) {
+        btn.textContent = ' Access Granted'
+        setTimeout(() => { window.location.href = '/private/' }, 500)
+      } else {
+        err.classList.add('show')
+        btn.disabled = false
+        btn.textContent = 'Enter Hub'
+        document.getElementById('password').value = ''
+        document.getElementById('password').focus()
+      }
+    } catch {
+      err.textContent = 'Connection error. Please try again.'
+      err.classList.add('show')
+      btn.disabled = false
+      btn.textContent = 'Enter Hub'
+    }
+  })
+</script>
+</body>
+</html>
