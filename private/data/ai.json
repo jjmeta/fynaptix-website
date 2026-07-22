@@ -1,0 +1,291 @@
+{
+  "sector": "ai_compute",
+  "title": "Fynaptix · AI & Compute Research",
+  "heading": "AI & Compute Intelligence",
+  "subheading": "The capex supercycle, silicon stack, foundation-model giants & the bubble debate",
+  "kicker": "AI & COMPUTE // JUL 2026",
+  "generated": "Jul 20, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. AI is the market's most crowded trade; concentration and drawdown risk are significant. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "$725B",
+      "sub": "+77% YOY — TOP 4 HYPERSCALERS",
+      "label": "2026 capex (Google, Microsoft, Meta, Amazon), up from $410B in 2025; Meta just raised its range to $125–145B, Microsoft guiding ~$190B",
+      "highlight": true
+    },
+    {
+      "value": "$412.7B",
+      "sub": "H1 2026 — RECORD (US)",
+      "label": "US venture funding per PitchBook; AI captured 86% of it ($355.9B)",
+      "highlight": false
+    },
+    {
+      "value": "$965B",
+      "sub": "ANTHROPIC SERIES H",
+      "label": "Most valuable AI startup; OpenAI at $852B, both have filed confidential S-1s",
+      "highlight": false
+    },
+    {
+      "value": "$75.2B",
+      "sub": "NVIDIA DATA CENTER, Q1 FY27",
+      "label": "Record quarterly Data Center revenue, +92% YoY; total revenue $81.6B (+85% YoY)",
+      "highlight": false
+    }
+  ],
+  "themes": [],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Compute & Silicon — the Checks Get Cashed Here",
+      "note": "Tiered by role in the stack — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "NVDA",
+          "company": "NVIDIA",
+          "angle": "Record Data Center revenue $75.2B Q1 FY27 (+92% YoY); Blackwell/GB300 ramp; every hyperscaler capex plan starts with GPUs",
+          "watch for": "Custom-ASIC share now 22–25% of accelerator spend and growing; deepening investments in its own customers (circularity)"
+        },
+        {
+          "ticker": "AVGO",
+          "company": "Broadcom",
+          "angle": "Custom ASICs (Apple, Meta, Alphabet, ByteDance) + AI networking; AI revenue $8.4B Q1 (+106%)",
+          "watch for": "ASIC pipeline wins vs NVDA share"
+        },
+        {
+          "ticker": "AMD",
+          "company": "AMD",
+          "angle": "Credible #2 in GPUs; DC revenue $5.8B Q1 (+57%); stock +114% in 2026, outpacing NVDA",
+          "watch for": "MI-series adoption at hyperscalers; can momentum hold at higher multiples"
+        },
+        {
+          "ticker": "TSM",
+          "company": "TSMC",
+          "angle": "Makes the chips for all of the above; ~68% global foundry share — the sector's chokepoint",
+          "watch for": "Geopolitical (Taiwan) risk is the sector's biggest single tail risk"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "Hyperscalers — Spending to Win",
+      "note": "Tiered by role in the stack — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "MSFT",
+          "company": "Microsoft",
+          "angle": "Azure + OpenAI partnership; CFO guiding ~$190B CY2026 capex; enterprise AI distribution machine",
+          "watch for": "AI revenue attach vs capex burden each quarter"
+        },
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "angle": "Full stack: TPUs, Gemini, DeepMind/Isomorphic, Waymo (now $126B valuation); Cloud backlog >$460B",
+          "watch for": "Search disruption vs AI monetization race; Gemini release timing"
+        },
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "angle": "~$200B 2026 capex; AWS +28%, Trainium chip business at $20B revenue run rate",
+          "watch for": "AWS growth reacceleration"
+        },
+        {
+          "ticker": "META",
+          "company": "Meta",
+          "angle": "Raised 2026 capex guide to $125–145B (from $115–135B) on component costs; open-weight models + ad-AI flywheel",
+          "watch for": "Capex discipline vs superintelligence spending"
+        },
+        {
+          "ticker": "ORCL",
+          "company": "Oracle",
+          "angle": "Neocloud at scale; huge AI compute contracts",
+          "watch for": "Debt-funded buildout economics; backlog conversion"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 3",
+      "label": "Software & Applications — Where Value Must Eventually Land",
+      "note": "Tiered by role in the stack — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "PLTR",
+          "company": "Palantir",
+          "angle": "The AI-application proof point: government + enterprise deployment at scale",
+          "watch for": "Valuation vs growth durability (also on Defense dashboard)"
+        },
+        {
+          "ticker": "PATH",
+          "company": "UiPath",
+          "angle": "Automation software navigating the agentic-AI transition",
+          "watch for": "Whether AI agents are tailwind or replacement"
+        },
+        {
+          "ticker": "SPCX",
+          "company": "SpaceX",
+          "angle": "Newly public (IPO'd Jun 12 at $135, largest IPO ever, ~$1.8T debut valuation); now includes xAI/Grok after Feb 2026 all-stock merger",
+          "watch for": "Stock down to ~$124 (~$1.74T mkt cap) on Starship setbacks; Grok/xAI monetization still unproven"
+        },
+        {
+          "ticker": "—",
+          "company": "Vertical AI (healthcare, legal, finance software)",
+          "angle": "2026's favored VC theme, though vertical deal volume cooled ($22B/948 deals, down QoQ) as capital concentrates in foundation models",
+          "watch for": "Public pure-plays still scarce — watch the IPO pipeline"
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [
+    {
+      "name": "Anthropic",
+      "value": "$965B VAL · $65B SERIES H",
+      "note": "Most valuable AI startup; $47B revenue run rate (up from $30B earlier this year, $10B last year). Confidential S-1 filed Jun 1, 2026."
+    },
+    {
+      "name": "OpenAI",
+      "value": "$852B VAL · $122B ROUND",
+      "note": "~$25B ARR. Confidential S-1 filed Jun 8, 2026, but reportedly leaning toward waiting until 2027 to actually list."
+    },
+    {
+      "name": "Mistral",
+      "value": "~$14B VAL · SERIES C",
+      "note": "Europe's frontier-model contender; CEO targets ~€1B ($1.2B) revenue in 2026."
+    },
+    {
+      "name": "Waymo",
+      "value": "$126B VAL (JUL 2026)",
+      "note": "Up from $110B at its $16B Feb 2026 round (Lightspeed, SoftBank, Amazon, Bezos, Coatue). Alphabet-controlled autonomy leader."
+    }
+  ],
+  "bear_case": [
+    {
+      "title": "The revenue gap",
+      "description": "Hyperscalers are on pace to deploy ~$660–690B of capex in 2026 against ~$51B of direct AI revenue generated — roughly a 10:1 ratio, versus 2.4:1 when cloud computing was at a similar adoption stage in 2011."
+    },
+    {
+      "title": "Off-balance-sheet obligations",
+      "description": "Moody's flags ~$662B of signed-but-not-commenced data-center lease commitments sitting off hyperscaler balance sheets."
+    },
+    {
+      "title": "Circular financing",
+      "description": "Interlocking vendor-equity stakes and take-or-pay compute deals among NVIDIA, Microsoft, OpenAI, Anthropic, Oracle and CoreWeave — echoing the Lucent/Nortel vendor-financing dynamics of 1999–2001 — make end-demand look larger and more independent than it is."
+    },
+    {
+      "title": "Depreciation clock",
+      "description": "Hyperscalers depreciate AI hardware over 5–6 years, but bears (Michael Burry among them) argue the chips' real economic life is closer to 1–3 years — an estimated ~$176B understatement of depreciation across 2026–2028 that flatters reported earnings."
+    },
+    {
+      "title": "Concentration everywhere",
+      "description": "AI is simultaneously the market's largest index weight, VC's largest allocation (86% of $412.7B H1 2026 US venture funding), and this hub's connective thread — a drawdown would hit robotics, nuclear, storage, and quantum sentiment at once."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "JUN 12, 2026",
+      "title": "SpaceX IPO (largest ever)",
+      "description": "Priced at $135, popped 19% to $161, peaked near $225 — now trading ~$124 (~$1.74T mkt cap) after a scrubbed Starship test. Brings xAI/Grok public by extension."
+    },
+    {
+      "date": "JUN 1 & 8, 2026",
+      "title": "Anthropic and OpenAI file confidential S-1s",
+      "description": "Anthropic filed first; OpenAI reportedly may wait until 2027 to actually list. Sets up the AI complex's first real public-market valuation test."
+    },
+    {
+      "date": "THIS WEEK",
+      "title": "Earnings season in full swing",
+      "description": "Intel, GM, Danaher, Capital One and others report; investors want monetization evidence, not just capex headlines. Alphabet already slid on reports Gemini's next model is running months behind."
+    },
+    {
+      "date": "LATE JUL–AUG",
+      "title": "Hyperscaler earnings + capex guides",
+      "description": "MSFT/GOOGL/AMZN/META quarterly capex guidance is the sector's heartbeat; Meta already raised its 2026 range to $125–145B — any further deceleration or acceleration signal moves everything."
+    },
+    {
+      "date": "ONGOING",
+      "title": "Chinese model competition",
+      "description": "Moonshot AI's new model narrowed the gap with top US offerings and pressured semiconductor stocks — a live check on the \"US compute moat\" thesis."
+    },
+    {
+      "date": "ONGOING",
+      "title": "Anthropic revenue trajectory",
+      "description": "$47B run rate vs $10B a year ago — whether this pace holds is the bull case's strongest evidence."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "SMH",
+      "name": "VanEck Semiconductor",
+      "summary": "The silicon layer: NVDA/TSM/AVGO-heavy. +64% YTD, +71% over 3 months — best performer of the three"
+    },
+    {
+      "ticker": "AIQ",
+      "name": "Global X Artificial Intelligence & Tech",
+      "summary": "Broad AI beneficiaries across the stack. +20% YTD, +40% over 1 year"
+    },
+    {
+      "ticker": "QQQ",
+      "name": "Invesco Nasdaq-100",
+      "summary": "The de-facto AI mega-cap index. +20% YTD — cheapest exposure, most concentration overlap with everything else you own"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Tom's Hardware — $725B hyperscaler capex, 2026",
+      "url": "https://www.tomshardware.com/tech-industry/big-tech/big-techs-ai-spending-plans-reach-725-billion"
+    },
+    {
+      "title": "Fortune — Meta raises capex guide to $145B",
+      "url": "https://fortune.com/2026/04/29/meta-zuckerberg-145-billion-ai-spending-roi/"
+    },
+    {
+      "title": "NVIDIA Newsroom — Q1 FY27 results, record Data Center revenue",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027"
+    },
+    {
+      "title": "Fortune — Anthropic files for IPO at $965B",
+      "url": "https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/"
+    },
+    {
+      "title": "FutureSearch — OpenAI revenue & IPO forecast",
+      "url": "https://futuresearch.ai/openai-financial-forecast/"
+    },
+    {
+      "title": "SiliconANGLE / PitchBook — $412.7B H1 2026 US venture, 86% AI",
+      "url": "https://siliconangle.com/2026/07/09/pitchbook-us-venture-funding-hits-412-7b-first-half-ai-deals-dominate/"
+    },
+    {
+      "title": "TechCrunch — SpaceX prices largest IPO ever",
+      "url": "https://techcrunch.com/2026/06/11/spacex-officially-prices-shares-at-135-in-the-largest-ipo-ever/"
+    },
+    {
+      "title": "CNBC — AI rotation and earnings season, Jul 18",
+      "url": "https://www.cnbc.com/2026/07/18/the-ai-rotation-stole-the-spotlight-from-a-strong-start-to-earnings-season-.html"
+    },
+    {
+      "title": "Sourcery Intel — AI infrastructure financial bubble, depreciation & circularity",
+      "url": "https://sourceryintel.com/reports/ai-infrastructure-financial-bubble"
+    },
+    {
+      "title": "Man Group — AI bubble risks & opportunities",
+      "url": "https://www.man.com/insights/the-ai-bubble"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Jul 20, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+}

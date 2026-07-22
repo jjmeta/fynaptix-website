@@ -1,0 +1,240 @@
+{
+  "sector": "biotech",
+  "title": "Fynaptix · AI Biotech Research",
+  "heading": "AI Biotech Intelligence",
+  "subheading": "AI-native drug discovery, computational biology & longevity capital",
+  "kicker": "AI DRUG DISCOVERY & BIOTECH // JUL 2026",
+  "generated": "Jul 20, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Biotech carries binary clinical risk; AI-discovery names trade on catalysts, not revenue. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "$9.1B",
+      "sub": "H1 2026 · 68 DEALS",
+      "label": "Global biotech VC funding, strongest first half since 2022",
+      "highlight": false
+    },
+    {
+      "value": "$2.75B",
+      "sub": "LILLY–INSILICO LICENSING DEAL",
+      "label": "Record AI-drug research & licensing pact (Mar 2026); Isomorphic's combined pharma deals now near $3B",
+      "highlight": true
+    },
+    {
+      "value": "12–18 mo",
+      "sub": "VS 2.5–4 YEARS TRADITIONAL",
+      "label": "Insilico: target ID to preclinical candidate via its Pharma.AI platform",
+      "highlight": false
+    },
+    {
+      "value": "$1.8B",
+      "sub": "RETRO BIOSCIENCES VALUATION",
+      "label": "Altman-backed longevity round; New Limit has now raised $610M across three rounds",
+      "highlight": false
+    }
+  ],
+  "themes": [],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Established / Hedged Exposure",
+      "note": "Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "LLY",
+          "company": "Eli Lilly",
+          "angle": "Isomorphic partner ($1.7B+ milestones) + $2.75B Insilico licensing deal (Mar 2026); scale AI adopter with blockbuster cash flows",
+          "watch for": "AI-originated pipeline entries; NVIDIA co-innovation lab progress"
+        },
+        {
+          "ticker": "NVS",
+          "company": "Novartis",
+          "angle": "Isomorphic partnership, doubled to ~$1.2B+",
+          "watch for": "Same — platform validation via renewals"
+        },
+        {
+          "ticker": "NVDA",
+          "company": "NVIDIA",
+          "angle": "BioNeMo/compute layer for computational biology; $1B AI-lab deepening with Lilly",
+          "watch for": "Pharma platform partnerships"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "AI-Native Platforms — Speculative",
+      "note": "Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "RXRX",
+          "company": "Recursion",
+          "angle": "Millions of automated cell-imaging experiments feeding AI \"maps of biology\"; collabs with Roche, Bayer, Merck, Sanofi",
+          "watch for": "REV102 (ENPP1 inhibitor) targeted for Phase I by late 2026"
+        },
+        {
+          "ticker": "SDGR",
+          "company": "Schrödinger",
+          "angle": "Physics-based + ML molecular simulation; software revenue cushions pipeline risk",
+          "watch for": "Software growth vs pipeline burn"
+        },
+        {
+          "ticker": "RLAY",
+          "company": "Relay Therapeutics",
+          "angle": "Motion-based protein modeling for precision oncology",
+          "watch for": "RLY-2608 advancing toward Phase III in metastatic breast cancer"
+        },
+        {
+          "ticker": "GENB",
+          "company": "Generate Biomedicines",
+          "angle": "Generative protein design — IPO'd Feb 2026, $400M raised",
+          "watch for": "GB-0985 (anti-TSLP) Phase 3 readouts in severe asthma"
+        },
+        {
+          "ticker": "EIKN",
+          "company": "Eikon Therapeutics",
+          "angle": "Live-cell single-molecule tracking — IPO'd Feb 2026, $381M raised",
+          "watch for": "EIK1001 (TLR7/8) Phase II/III with pembrolizumab in melanoma"
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [
+    {
+      "name": "Isomorphic Labs",
+      "value": "~$3B COMBINED PHARMA DEALS · ALPHABET",
+      "note": "AlphaFold 3 lineage; added Johnson & Johnson as a third partner alongside Lilly and Novartis. First oncology clinical trials expected by year-end 2026."
+    },
+    {
+      "name": "Insilico Medicine",
+      "value": "$2.75B LILLY DEAL + $2.5B SK BIOPHARMA DEAL",
+      "note": "Rentosertib Phase IIa readout in IPF still the field's clearest clinical proof point; now stacking a Lilly licensing pact and a BIO 2026 CNS collaboration with SK Biopharmaceuticals."
+    },
+    {
+      "name": "Xaira Therapeutics",
+      "value": "$1B+ LAUNCH — LARGEST EVER",
+      "note": "ARCH/Foresite mega-launch around generative biology; still the largest single debut round in AI-biotech history."
+    },
+    {
+      "name": "New Limit",
+      "value": "$610M ACROSS 3 ROUNDS",
+      "note": "Epigenetic reprogramming for longevity (Founders Fund, Lilly Ventures); Retro Biosciences also notable, now valued at $1.8B with an Alzheimer's trial underway."
+    }
+  ],
+  "bear_case": [
+    {
+      "title": "Biology still fails in the clinic",
+      "description": "AI speeds discovery, but most drugs still fail in humans; one Phase IIa success is not a field-wide validation."
+    },
+    {
+      "title": "Catalyst-driven volatility",
+      "description": "These stocks trade on announcements; between catalysts they drift and dilute. Both Generate (GENB) and Eikon (EIKN) traded below their Feb 2026 IPO prices shortly after debut."
+    },
+    {
+      "title": "Platform-value skepticism",
+      "description": "If pharma can license AI tools cheaply (or build in-house), platform companies may capture less value than valuations imply."
+    },
+    {
+      "title": "Rate sensitivity",
+      "description": "Long-duration biotech cash flows are highly sensitive to rates; macro can swamp fundamentals."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "JUL 2026",
+      "title": "Insilico × SK Biopharmaceuticals ink $2.5B CNS deal",
+      "description": "Announced at BIO 2026; targets neuroinflammatory, neurodegenerative and rare neurological indications via Insilico's Pharma.AI platform."
+    },
+    {
+      "date": "MAR 2026",
+      "title": "Eli Lilly × Insilico $2.75B licensing pact",
+      "description": "Record AI-drug research & licensing agreement — the largest single Lilly-AI deal to date."
+    },
+    {
+      "date": "FEB 2026",
+      "title": "Generate (GENB) & Eikon (EIKN) IPOs",
+      "description": "$400M and $381M raised respectively — the two largest AI-biotech IPOs since 2024; both dipped post-debut."
+    },
+    {
+      "date": "MAY 2026",
+      "title": "Retro Biosciences raises at $1.8B valuation",
+      "description": "Altman-backed longevity startup advancing its Alzheimer's clinical trial."
+    },
+    {
+      "date": "H1 2026",
+      "title": "Biotech VC funding hits $9.1B",
+      "description": "Strongest first half since 2022 across 68 deals, though the funding gap between well-capitalized and early-stage names is widening."
+    },
+    {
+      "date": "END 2026",
+      "title": "Isomorphic's first oncology clinical trials",
+      "description": "AlphaFold 3-designed candidates expected to enter the clinic — the platform's first real-world test."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "XBI",
+      "name": "SPDR S&P Biotech",
+      "summary": "Equal-weight biotech — broad sector beta. +17.9% YTD (mid-Jun), ~94% trailing 1-yr total return."
+    },
+    {
+      "ticker": "ARKG",
+      "name": "ARK Genomic Revolution",
+      "summary": "Active, concentrated genomics/AI-bio bets. +20% YTD (mid-Jun 2026)."
+    },
+    {
+      "ticker": "IBB",
+      "name": "iShares Biotechnology",
+      "summary": "Large-cap-weighted biotech. ~45% trailing 1-yr total return."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Insilico Medicine — $2.5B SK Biopharmaceuticals CNS deal (BIO 2026)",
+      "url": "https://insilico.com/news/tt2t6rbzr1-insilico-medicine-caps-monumental-week-a"
+    },
+    {
+      "title": "PharmExec — Lilly & Insilico $2.75B licensing agreement",
+      "url": "https://www.pharmexec.com/view/eli-lilly-insilico-enter-2-billion-research-licensing-agreement-advance-ai-drug-discovery"
+    },
+    {
+      "title": "MedPath — Isomorphic's ~$3B Lilly/Novartis/J&J milestone",
+      "url": "https://trial.medpath.com/news/ai-designed-drug-discovery-reaches-3-billion-milestone-as-isomorphic-labs-partners-with-eli-lilly-and-novartis"
+    },
+    {
+      "title": "BioSpace — IPO Tracker 2026: Eikon & Generate",
+      "url": "https://www.biospace.com/business/ipo-tracker-2026-eikon-clocks-largest-ipo-since-2024-generate-follows-as-ipo-tap-opens"
+    },
+    {
+      "title": "BioPharma Dive — Biotech VC funding, H1 2026",
+      "url": "https://www.biopharmadive.com/news/biotech-venture-capital-funding-2026-first-half/824881/"
+    },
+    {
+      "title": "STAT News — Retro Biosciences $1.8B valuation",
+      "url": "https://www.statnews.com/2026/05/22/retro-biosciences-longevity-valuation/"
+    },
+    {
+      "title": "New Market Pitch — Longevity biotech funding analysis",
+      "url": "https://newmarketpitch.com/blogs/news/longevity-biotech-funding-analysis"
+    },
+    {
+      "title": "Yahoo Finance — Biotech ETFs, 1H 2026 performance",
+      "url": "https://finance.yahoo.com/healthcare/articles/biotech-etfs-put-strong-show-160000067.html"
+    },
+    {
+      "title": "Yahoo Finance — RXRX vs. RLAY comparison",
+      "url": "https://finance.yahoo.com/news/rxrx-vs-rlay-precision-biotech-153300374.html"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Jul 20, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+}
