@@ -4,7 +4,7 @@
   "heading": "Space Economy Intelligence",
   "subheading": "Launch, satellites, constellations & the post-SpaceX-IPO landscape",
   "kicker": "SPACE ECONOMY // JUL 2026",
-  "generated": "Jul 20, 2026",
+  "generated": "July 27, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Space is capital-intensive with heavy government-customer concentration. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
@@ -14,21 +14,21 @@
       "highlight": false
     },
     {
-      "value": "-40%",
+      "value": "-47%",
       "sub": "SINCE POST-IPO HIGH",
-      "label": "SpaceX (SPCX) IPO'd Jun 12 at ~$1.8–2.3T valuation, $85.7B raised — now trading near/below its $135 IPO price amid a sector sell-off",
+      "label": "SpaceX (SPCX) joined the Nasdaq-100 Jul 7 — just 15 days post-IPO, one of the fastest adds ever — but shares are now down ~47% from their $225.64 post-IPO high and below the $135 IPO price; ~$1.58T market cap, ~40x est. 2026 revenue",
       "highlight": true
     },
     {
-      "value": "$31.6B",
-      "sub": "Q2 2026 · 129 COMPANIES",
-      "label": "Space Capital-tracked investment; H1 2026 total of $67.7B already tops all of 2025",
+      "value": "$67.7B",
+      "sub": "H1 2026 · RECORD YEAR",
+      "label": "Space Capital-tracked investment; Q2 alone was $31.6B across 129 companies, with infrastructure posting a record $20.7B quarter",
       "highlight": false
     },
     {
       "value": "10.3M",
-      "sub": "$11.4B 2025 REVENUE (61% OF TOTAL)",
-      "label": "Starlink active subscribers; Quilty Space projects 16.8M by year-end 2026",
+      "sub": "ARPU DOWN TO $66 (FROM $86)",
+      "label": "Starlink active subscribers, +105% YoY; Quilty Space still projects ~16.8M by year-end 2026 even as per-user revenue cools",
       "highlight": false
     }
   ],
@@ -48,20 +48,20 @@
         {
           "ticker": "SPCX",
           "company": "SpaceX",
-          "angle": "Launch monopoly economics + Starlink (10.3M subs, $11.4B 2025 rev); IPO'd Jun 12, 2026 at ~$1.8–2.3T; now down ~40-44% from its post-IPO high",
-          "watch for": "August/September lockup expirations; Starship cadence; Starlink subscriber growth toward 16.8M year-end target"
+          "angle": "Launch monopoly economics + Starlink (10.3M subs, $11.4B 2025 rev, but Q1 2026 ARPU down to $66 from $86); joined the Nasdaq-100 Jul 7, just 15 days post-IPO; now down ~47% from its post-IPO high, ~$1.58T mkt cap (~40x est. 2026 revenue)",
+          "watch for": "August/September lockup expirations; Starship cadence after a mid-July test flight abort (engine ignition failure); Starlink ARPU trend"
         },
         {
           "ticker": "RKLB",
           "company": "Rocket Lab",
-          "angle": "Agreed to acquire Iridium for ~$8B cash+stock ($54/share, closing targeted mid-2027); selected for Golden Dome Space Based Interceptor program with Raytheon; closed Mynaric AG laser-comms acquisition",
-          "watch for": "Neutron debut (targeted Q4 2026 after a successful 5.5-min upper-stage engine test); Iridium deal financing ($3.6B bridge facility)"
+          "angle": "Agreed to acquire Iridium for ~$8B cash+stock ($54/share — $27 cash plus RKLB stock, exchange ratio TBD; closing targeted mid-2027); selected for Golden Dome Space Based Interceptor program with Raytheon; closed Mynaric AG laser-comms acquisition",
+          "watch for": "Neutron debut (targeted Q4 2026 after a successful 5.5-min upper-stage engine test); Iridium deal financing/regulatory approval; stock drew fresh buying Jul 22 on an Air Force win plus the Iridium news"
         },
         {
           "ticker": "LHX",
           "company": "L3Harris",
-          "angle": "Awarded $955M by SDA (Jul 13) to build 18 Golden Dome Tranche 3 missile-tracking satellites",
-          "watch for": "Further SDA/missile-tracking award flow"
+          "angle": "Awarded $955M by SDA (Jul 13) for 18 more Golden Dome Tranche 3 missile-tracking satellites, part of a $1.75B round (with Sierra Space) that brings total Tranche 3 to 104 spacecraft",
+          "watch for": "Further SDA/missile-tracking award flow; 2028 launch readiness"
         }
       ]
     },
@@ -79,25 +79,25 @@
         {
           "ticker": "ASTS",
           "company": "AST SpaceMobile",
-          "angle": "Direct-to-phone satellite broadband; reaffirmed $150-200M 2026 revenue guidance, targeting ~45 BlueBird satellites in orbit by year-end",
-          "watch for": "$1B convertible note offering raising dilution concerns (stock down ~59% from May highs); speculation it could acquire a launch company"
+          "angle": "Direct-to-phone satellite broadband; reaffirmed $150-200M 2026 revenue guidance with nearly 60 mobile-network-operator partners covering 3B+ subscribers",
+          "watch for": "Shares fell ~29% in July after a sharp run-up; $1B convertible note dilution overhang; speculation it could acquire a launch company (Firefly, Relativity, Stoke named)"
         },
         {
           "ticker": "LUNR",
           "company": "Intuitive Machines",
           "angle": "Lunar landers + NASA services; 2026 revenue guidance up to $1B, backlog ~$943M anchored by NASA/defense",
-          "watch for": "Mission success/failure binary risk"
+          "watch for": "Steepest July drawdown in the group (~40%); mission success/failure binary risk"
         },
         {
           "ticker": "PL",
           "company": "Planet Labs",
-          "angle": "Earth-observation data subscription model; earlier-stage, longer runway to profitability",
+          "angle": "Earth-observation data subscription model; ~6% weight in the Procure Space ETF (UFO); earlier-stage, longer runway to profitability",
           "watch for": "Path to sustained profitability"
         },
         {
           "ticker": "RDW",
           "company": "Redwire",
-          "angle": "Space infrastructure components; earlier-stage plays that could benefit from post-IPO institutional inflows",
+          "angle": "Space infrastructure components; among the hardest-hit names in July's pullback (~40% decline)",
           "watch for": "M&A integration, margins"
         }
       ]
@@ -107,17 +107,17 @@
     {
       "name": "Blue Origin",
       "value": "BEZOS-FUNDED",
-      "note": "New Glenn's 2nd flight deployed NASA's ESCAPADE spacecraft and landed its booster; a May 28 hotfire anomaly has since delayed the return-to-flight timeline."
+      "note": "New Glenn's 2nd flight deployed NASA's ESCAPADE spacecraft and landed its booster; a May 28 hotfire anomaly delayed the return-to-flight timeline, with recovery work still ongoing."
     },
     {
       "name": "Firefly Aerospace",
-      "value": "LAUNCH + LANDERS",
-      "note": "Alpha Block 2 debut planned; Blue Ghost Mission 2 targets a lunar far-side landing plus an ESA relay satellite deployment later in 2026."
+      "value": "NASDAQ: FLY",
+      "note": "Record 2025 revenue of $159.9M (+163% YoY); landed a $75M NASA JPL subcontract for the \"MoonFall\" Moon Base mission; Blue Ghost Mission 2 targets a lunar far-side landing plus an ESA relay satellite deployment later in 2026."
     },
     {
       "name": "Stoke Space",
       "value": "FULLY REUSABLE",
-      "note": "Converting Cape Canaveral LC-14 for Nova's first flight, planned later in 2026; named as a possible acquisition target amid AST SpaceMobile's capital raise."
+      "note": "One of five firms (with SpaceX, ULA, Blue Origin, Rocket Lab) eligible for national-security launch missions; converting Cape Canaveral LC-14 for Nova's first flight, planned later in 2026; still named as a possible acquisition target amid AST SpaceMobile's capital raise."
     }
   ],
   "bear_case": [
@@ -131,7 +131,7 @@
     },
     {
       "title": "SpaceX absorbs the value",
-      "description": "A dominant incumbent with launch-cost leverage can compress everyone else's margins — and SpaceX itself trades near 70-99x sales, ~15x the Nasdaq-100's multiple, with 2025 free cash flow of -$13.8B and Q1 2026 FCF of -$9.1B."
+      "description": "A dominant incumbent with launch-cost leverage can compress everyone else's margins — and SpaceX itself trades near 40x estimated 2026 revenue on a ~$1.58T market cap, with 2025 free cash flow of -$13.8B, Q1 2026 FCF of -$9.1B, and Starlink ARPU already sliding from $86 to $66."
     },
     {
       "title": "Binary mission risk",
@@ -140,86 +140,102 @@
   ],
   "catalysts": [
     {
-      "date": "JUN 29",
-      "title": "Rocket Lab agrees to acquire Iridium (~$8B)",
-      "description": "Cash-and-stock deal at $54/share hands RKLB Iridium's 500+ partner ecosystem and recurring cash flows ($871.7M 2025 revenue); closing targeted mid-2027."
+      "date": "JUL 22",
+      "title": "Rocket Lab draws fresh buyers on Air Force win + Iridium news",
+      "description": "A U.S. Air Force contract win landed alongside continued follow-through on the Iridium acquisition, pulling traders back into RKLB after early-July weakness."
+    },
+    {
+      "date": "JUL 17",
+      "title": "SpaceX stock down ~23% since Nasdaq-100 inclusion; Starship test aborted",
+      "description": "A Starship test flight was scrubbed by an engine ignition failure, compounding a sell-off that has erased nearly a quarter of SPCX's value in ten days."
     },
     {
       "date": "JUL 13–14",
       "title": "SDA awards $1.75B for Golden Dome Tranche 3",
-      "description": "L3Harris ($955M/18 sats) and Sierra Space ($798M/18 sats) will build accelerated missile-tracking satellites for 2028 launch readiness."
+      "description": "L3Harris ($955M/18 sats) and Sierra Space ($798M/18 sats) will build accelerated missile-tracking satellites for 2028 launch readiness, bringing the tranche total to 104 spacecraft."
     },
     {
-      "date": "JUL 16",
-      "title": "Neutron upper-stage engine test succeeds",
-      "description": "Full-duration ~5.5-minute test keeps Rocket Lab on track for a Neutron debut targeted in Q4 2026."
+      "date": "JUL 7",
+      "title": "SpaceX joins the Nasdaq-100",
+      "description": "One of the fastest additions in index history — just 15 days after its June 12 IPO — triggering billions in passive index-fund flows."
     },
     {
-      "date": "MID-JUL",
-      "title": "AST SpaceMobile raises $1B in convertible notes",
-      "description": "Dilution concerns drove the stock down ~59% from May highs; sparked speculation ASTS could acquire a launch company (Firefly, Relativity, Stoke named)."
+      "date": "JUL 6–24",
+      "title": "Broad space-stock pullback",
+      "description": "ASTS fell ~29% and LUNR/RDW sank ~40% in July's profit-taking wave after a torrid run; Viasat and Iridium were among the few names to close the month positive."
     },
     {
-      "date": "SINCE IPO",
-      "title": "SpaceX shares down ~40-44% from post-IPO high",
-      "description": "Broad space-sector sell-off plus looming August/September lockup expirations are weighing on sentiment across the group."
-    },
-    {
-      "date": "MAY 28",
-      "title": "Blue Origin New Glenn hotfire anomaly",
-      "description": "Follows a successful 2nd orbital flight (ESCAPADE deployment, booster landing); recovery work has delayed the next launch."
+      "date": "JUN 29",
+      "title": "Rocket Lab agrees to acquire Iridium (~$8B)",
+      "description": "Cash-and-stock deal at $54/share ($27 cash plus RKLB stock) hands Rocket Lab Iridium's global network and recurring cash flows; closing targeted mid-2027."
     }
   ],
   "etfs": [
     {
       "ticker": "UFO",
       "name": "Procure Space",
-      "summary": "Pure-play, revenue-weighted; +63% over the past year"
+      "summary": "Pure-play, revenue-weighted (RKLB, PL, VSAT, MDA, ASTS top holdings); ~+31% YTD, +122% 1yr"
     },
     {
       "ticker": "ARKX",
       "name": "ARK Space Exploration",
-      "summary": "Actively managed, broader tech adjacency; +10% YTD, +35% 1yr"
+      "summary": "Actively managed, broader tech adjacency; ~+28% YTD, +76% 1yr — lagging the index funds"
     },
     {
       "ticker": "ROKT",
       "name": "SPDR Kensho Final Frontiers",
-      "summary": "Equal-weight, space + deep-sea blend; +32% YTD, +77% 1yr"
+      "summary": "Equal-weight, space + defense + deep-sea blend; ~+29-58% YTD, +100-131% 1yr depending on pricing date"
     }
   ],
   "sources": [
     {
-      "title": "Motley Fool — How low can SpaceX stock go?",
-      "url": "https://www.fool.com/investing/2026/07/13/how-low-can-spacex-stock-go/"
+      "title": "CNBC — SpaceX down ~23% since Nasdaq-100 inclusion, Starship abort",
+      "url": "https://www.cnbc.com/2026/07/17/spacex-stock-starship-test-flight-aborted.html"
     },
     {
-      "title": "Motley Fool — Starlink subscriber growth",
+      "title": "Motley Fool — SpaceX valuation & revenue multiple",
+      "url": "https://www.fool.com/investing/2026/07/23/prediction-1000-invested-in-spacex-stock-will-be-w/"
+    },
+    {
+      "title": "Motley Fool — Starlink subscriber growth & ARPU",
       "url": "https://www.fool.com/investing/2026/07/02/starlink-million-subscribers-spacex-investors/"
+    },
+    {
+      "title": "Motley Fool — SpaceX joins the Nasdaq-100",
+      "url": "https://www.fool.com/investing/2026/07/07/spacex-is-joining-the-nasdaq-100-thisnext-week-wha/"
     },
     {
       "title": "Motley Fool — Rocket Lab's Iridium acquisition",
       "url": "https://www.fool.com/investing/2026/07/13/what-rocket-labs-8-billion-iridium-acquisition/"
     },
     {
-      "title": "CNBC — Rocket Lab, Iridium $8B deal",
-      "url": "https://www.cnbc.com/2026/06/29/rocket-lab-buys-iridium.html"
+      "title": "Motley Fool — Rocket Lab, Air Force win + Iridium follow-through",
+      "url": "https://www.fool.com/investing/2026/07/24/huge-news-for-rocket-lab-investors/"
     },
     {
-      "title": "Breaking Defense — SDA Golden Dome Tranche 3 awards",
-      "url": "https://breakingdefense.com/2026/07/sda-awards-l3harris-sierra-1-75b-for-missile-defense-satellites/"
+      "title": "Space Development Agency — Golden Dome Tranche 3 awards",
+      "url": "https://www.sda.mil/space-development-agency-issues-awards-to-build-36-accelerated-missile-defense-tracking-layer-satellites-for-tranche-3-in-support-of-golden-dome-for-america/"
     },
     {
-      "title": "CNBC — SpaceX post-IPO sell-off",
-      "url": "https://www.cnbc.com/2026/07/17/retail-and-wall-street-are-underwater-on-spacex-but-not-going-down-without-a-fight.html"
-    },
-    {
-      "title": "24/7 Wall St. — Space ETFs & $500B backlog",
-      "url": "https://247wallst.com/investing/2026/07/06/the-commercial-space-economy-just-crossed-500-billion-in-backlog-and-these-3-etfs-own-the-pure-play-names/"
+      "title": "24/7 Wall St. — Space stocks pull back",
+      "url": "https://247wallst.com/investing/2026/07/06/rocket-lab-falls-7-ast-spacemobile-drops-5-intuitive-machines-and-spacex-slip-3-as-space-stocks-pull-back/"
     },
     {
       "title": "SpaceNews — Satellite investment record, H1 2026",
       "url": "https://spacenews.com/satellite-investment-sets-annual-record-halfway-through-2026/"
+    },
+    {
+      "title": "TipRanks — Space Capital Q2 2026 investment report",
+      "url": "https://www.tipranks.com/news/private-companies/space-capital-highlights-spacex-ipo-and-shifting-investment-dynamics-in-space-economy"
+    },
+    {
+      "title": "Barchart — Firefly Aerospace FY2025 results",
+      "url": "https://www.barchart.com/story/news/866119/firefly-aerospace-announces-fourth-quarter-and-full-year-2025-financial-results-with-record-annual-revenue-up-163-year-over-year"
+    },
+    {
+      "title": "Yahoo Finance — UFO, ROKT, ARKX space ETF comparison",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ufo-rokt-arkx-space-etf-142720659.html"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Jul 20, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
 }
