@@ -4,152 +4,152 @@
   "heading": "Emerging Tech Weekly Brief",
   "subheading": "Cross-sector overview: momentum, news, themes & the week ahead",
   "kicker": "WEEKLY BRIEF // ALL SECTORS // JUL 2026",
-  "week_of": "Jul 20, 2026",
+  "week_of": "July 27, 2026",
   "disclaimer": "Not financial advice. This brief synthesizes the eight sector dashboards for research purposes only — not a recommendation to buy or sell any security. Verify current prices and do your own due diligence before investing.",
   "sector_scoreboard": [
     {
       "sector": "AI & Compute",
       "sector_url": "/private/ai.html",
-      "momentum": "EXTREME / BUBBLE DEBATE",
-      "story": "Anthropic ($965B) and OpenAI ($852B) both sit on confidential S-1s; OpenAI reportedly leaning toward waiting until 2027 as Altman holds out for a $1T valuation",
-      "fundamentals_check": "Anthropic's $47B revenue run rate (from $10B a year ago) is the bull case; a ~10:1 capex-to-revenue ratio is the bear case"
+      "momentum": "REPRICING",
+      "story": "Alphabet beat Q2 estimates but fell >7% — worst day in a year — after raising capex guidance to $195–205B; Mag 7 lost 5.7% in a week as spending is now punished, not rewarded",
+      "fundamentals_check": "TSMC (+34% rev) and NVIDIA (record $75.2B Data Center rev) validate real demand; the ~10:1 capex-to-revenue ratio remains the bear case"
     },
     {
       "sector": "Robotics",
       "sector_url": "/private/robotics.html",
       "momentum": "HOT",
-      "story": "ISRG sinks 25%+ YTD despite an earnings beat; Chinese humanoid IPO rush continues (Unitree ~$6.2B approved)",
-      "fundamentals_check": "Warehouse automation (SYM $22.7B backlog) is where the revenue is; humanoids and surgical growth-deceleration both still pre-commercial or repricing"
+      "story": "ISRG sinks 25%+ YTD despite an earnings beat; Chinese humanoid IPO rush accelerates (Unitree STAR approval now ~$14.7B, LimX closes $200M pre-IPO at $2.2B)",
+      "fundamentals_check": "Warehouse automation (SYM $22.7B backlog) is where the revenue is; Unitree's profit fell 52% YoY even as its IPO cleared — multiples, not fundamentals, doing the work"
     },
     {
       "sector": "Defense Tech",
       "sector_url": "/private/defense.html",
       "momentum": "CONSTRUCTIVE",
-      "story": "Anduril's YFQ-44A fires a live AMRAAM — first air-to-air launch by a US-funded CCA; Helsing raises $1.8B at $18B, demand exceeded allocation",
-      "fundamentals_check": "Record backlogs (L3Harris $40.7B) but AVAV/KTOS down 40%+ YTD — public markets repricing ahead of private valuations"
+      "story": "Anduril in talks to raise at ~$100B — over 3x last year's mark, up from $61B just two months ago; Helsing closed $1.8B at $18B with demand exceeding allocation",
+      "fundamentals_check": "Record backlogs (L3Harris $40.7B) but AVAV/KTOS still down 40%+ YTD — the private/public valuation gap keeps widening"
     },
     {
       "sector": "Nuclear & SMRs",
       "sector_url": "/private/nuclear.html",
       "momentum": "SPECULATIVE-HOT",
-      "story": "OKLO, SMR, XE fell 8-9% Jul 16 on AI-trade profit-taking; Oklo still targeting Groves reactor criticality this month",
-      "fundamentals_check": "Zero operating SMR plants; NRC's licensing-overhaul comment period (open now) is the real de-risking lever, not sentiment"
+      "story": "Oklo received DOE startup authorization for its Groves reactor Jul 23 — yet the stock slid to the low $40s anyway as Barclays, Goldman and Truist all cut price targets",
+      "fundamentals_check": "Zero operating SMR plants; Aug 13 NRC mandatory hearing on Clinch River's construction permit is the next real de-risking event, not sentiment"
     },
     {
       "sector": "Critical Minerals",
       "sector_url": "/private/minerals.html",
       "momentum": "POLICY-BACKED",
-      "story": "China added MP Materials and USA Rare Earth to its export-control entity list; Lynas reports June-quarter results Jul 22",
-      "fundamentals_check": "$2.9B federal funding blitz is a real demand floor; China's Nov 10 export-control reprieve expiry is the sector's biggest swing factor"
+      "story": "MP Materials lands $900M in new capital (Apple offtake + DoD stake); Lynas posts record revenue (+70% YoY) but shares fall anyway",
+      "fundamentals_check": "$2.9B+ federal funding blitz is a real demand floor; China's Nov 10 export-control reprieve expiry remains the sector's biggest swing factor"
     },
     {
       "sector": "Space Economy",
       "sector_url": "/private/space.html",
       "momentum": "REPRICING",
-      "story": "SpaceX down ~40-44% from its post-IPO high; Rocket Lab's Neutron upper-stage test succeeds, keeping Q4 debut on track",
-      "fundamentals_check": "Starlink's $11.4B revenue is real cash flow; SpaceX itself still trades near 70-99x sales with negative free cash flow"
+      "story": "SpaceX now down ~47% from its post-IPO high after a Starship test abort; Rocket Lab draws fresh buyers on an Air Force win plus Iridium follow-through",
+      "fundamentals_check": "Starlink ARPU keeps sliding ($86→$66) even as subscribers hit 10.3M (+105%); H1 2026 was still a record $67.7B investment year for the sector"
     },
     {
       "sector": "Energy Storage",
       "sector_url": "/private/storage.html",
       "momentum": "FUNDAMENTALS-STRONG",
-      "story": "Tesla deploys 13.5 GWh in Q2 (2nd-best quarter ever, +53% QoQ); Fluence backlog hits a record $5.6B",
-      "fundamentals_check": "Best revenue visibility on this list — 24 GW US buildout on track for a record year; China's cost advantage (CATL) remains the structural risk"
+      "story": "GE Vernova posts a blowout Q2 — orders +88% YoY, backlog hits $176B, on track for $200B by 2027; Tesla deploys record-adjacent 13.5 GWh but energy margin nearly halves",
+      "fundamentals_check": "Best revenue visibility on this list — 24.3 GW US buildout on track for a record year; China's cost advantage (CATL/BYD) plus new 58%+ effective tariffs remain the structural fight"
     },
     {
       "sector": "AI Biotech",
       "sector_url": "/private/biotech.html",
-      "momentum": "RECOVERING",
-      "story": "Insilico stacks a $2.5B SK Biopharmaceuticals CNS deal on top of its $2.75B Lilly pact; H1 VC funding hits $9.1B, strongest since 2022",
-      "fundamentals_check": "One Phase IIa proof point (Insilico's rentosertib) still anchors the field; both Feb-2026 IPOs (GENB, EIKN) trade below their debut price"
+      "momentum": "MIXED",
+      "story": "Relay Therapeutics whipsawed between fresh Buy initiations and a Zacks downgrade to Strong Sell within the same two weeks; Recursion fell ~8% on an unfavorable trial readout",
+      "fundamentals_check": "173 AI-discovered programs are now in clinical development — zero have reached full FDA approval; H1 VC funding still hit $9.1B, strongest since 2022"
     },
     {
       "sector": "Quantum",
       "sector_url": "/private/quantum.html",
       "momentum": "EXTREME SPECULATION",
-      "story": "IonQ/Rigetti/D-Wave fell 6-8% Jul 13 in a Hormuz-tension risk-off selloff; Rigetti's sovereign-quantum bull case debated Jul 17",
-      "fundamentals_check": "P/S 100–836× prices in decades of perfect execution; the $2.01B CHIPS awards remain the clearest revenue signal so far"
+      "story": "D-Wave transfers its listing to Nasdaq Jul 27; PsiQuantum expands its DARPA deal to $125M even as a $988M five-year insider-selling tally circulates across IonQ/RGTI/QBTS",
+      "fundamentals_check": "P/S 109–836× prices in decades of perfect execution; insiders have sold ~$988M against under $4M in purchases — conviction gap, not just valuation gap"
     }
   ],
   "cross_cutting_themes": [
     {
-      "tag": "THE AI POWER TRADE",
-      "title": "Compute demand → energy infrastructure",
-      "description": "AI data centers link nuclear (generation), storage (grid stability), minerals (copper/lithium), and semiconductors. ~$1T US grid capex expected through 2029. One macro bet, four expressions."
+      "tag": "CAPEX NOW PUNISHED",
+      "title": "The market flips on AI spending",
+      "description": "Alphabet beat Q2 estimates but fell >7% — its worst day in over a year — after raising 2026 capex guidance to $195–205B; the Magnificent Seven lost 5.7% in a single week. This week's Microsoft/Meta (Jul 29) and Amazon (Jul 30) reports test whether that punishment dynamic holds across the rest of Big Tech."
     },
     {
       "tag": "PHYSICAL AI",
-      "title": "Intelligence gets a body",
-      "description": "Robotics, defense autonomy, and space systems share the same stack: NVIDIA compute, foundation models (Skild, Physical Intelligence), actuators and sensors. Anduril's live-fire CCA missile test this week is the clearest proof yet that autonomy is leaving the demo stage."
+      "title": "Intelligence gets a body — and a price tag",
+      "description": "Robotics, defense autonomy, and space systems share the same stack: NVIDIA compute, foundation models (Skild, Physical Intelligence), actuators and sensors. Anduril in talks at ~$100B — over 3x last year's mark — is the clearest proof yet that private markets are pricing autonomy as a generational bet, even as public pure-plays (AVAV, KTOS) stay repriced 40%+ below highs."
     },
     {
       "tag": "SOVEREIGNTY",
       "title": "Onshoring as investment thesis",
-      "description": "Rare earths, defense production, quantum policy, CHIPS funding — governments are now price-setters and demand floors across half these sectors. China's entity-list escalation against MP Materials and USA Rare Earth this month shows the policy risk cuts both ways."
+      "description": "Rare earths, defense production, quantum policy, CHIPS funding — governments are now price-setters and demand floors across half these sectors. MP Materials' $900M in new capital (Apple + DoD) and a $2.9B+ federal minerals blitz show the playbook is scaling, even as China's entity-list retaliation shows the policy risk cuts both ways."
     },
     {
       "tag": "HYPE VS FUNDAMENTALS",
       "title": "The valuation divergence",
-      "description": "Quantum, humanoids, and SMRs trade on narratives; storage, warehouse automation, and defense backlogs trade on booked revenue. This week the market actively repriced the gap — SMRs and quantum pure-plays both sold off 6-9% while storage and defense backlogs kept setting records."
+      "description": "Quantum, humanoids, and SMRs trade on narratives; storage, warehouse automation, and defense backlogs trade on booked revenue. Oklo cleared a real regulatory milestone (DOE startup authorization) and still sold off on profit-taking — proof the market is now demanding execution, not just catalysts, before it pays up."
     },
     {
       "tag": "IPO WINDOW",
-      "title": "Private giants going public",
-      "description": "SpaceX (~$2T, June) is now down 40%+ from its post-IPO high; Anthropic and OpenAI both sit on confidential S-1s; Quantinuum and X-energy already listed; Holtec Nuclear just filed. Watch lockups and whether debuts hold — it's a sentiment barometer for the whole complex."
+      "title": "Private giants going public — and repricing fast",
+      "description": "SpaceX is now down ~47% from its post-IPO high; Anthropic and OpenAI both sit on confidential S-1s, with OpenAI reportedly leaning toward a 2027 debut as Altman holds out for $1T; D-Wave just uplisted to Nasdaq. Whether debuts hold remains the best real-time sentiment gauge for the whole complex."
     }
   ],
   "news_of_the_week": [
     {
-      "date": "JUL 15 · DEFENSE",
-      "title": "Anduril's YFQ-44A fires a live AMRAAM",
-      "description": "First air-to-air missile launch by a US-funded Collaborative Combat Aircraft, over the Mojave Desert — autonomy leaving the demo stage."
+      "date": "JUL 22 · AI & COMPUTE",
+      "title": "Alphabet Q2 beat, stock falls >7% anyway",
+      "description": "Worst day in over a year after capex guidance rose to $195–205B and free cash flow went negative for the first time since the 2004 IPO."
     },
     {
-      "date": "JUL 16 · NUCLEAR",
-      "title": "SMR stocks sell off 8-9% in a day",
-      "description": "OKLO, SMR, XE fell together on AI-trade profit-taking and analyst skepticism (Goldman, Truist) about execution timelines."
+      "date": "JUL 24 · DEFENSE",
+      "title": "Anduril in talks at ~$100B valuation",
+      "description": "Over 3x last year's mark and up from $61B just two months ago — would near Lockheed Martin's ~$130B market cap; no deal finalized."
     },
     {
-      "date": "JUL 17 · ROBOTICS/SURGICAL",
-      "title": "ISRG sinks despite earnings beat",
-      "description": "Procedure-growth guidance (13–15%) disappointed; the market is punishing decelerating growth even at quality franchises."
+      "date": "JUL 23 · NUCLEAR",
+      "title": "Oklo clears DOE authorization, stock slides anyway",
+      "description": "Groves reactor cleared for fuel loading and first criticality — a genuine regulatory milestone — yet OKLO fell to the low $40s as analysts cut targets."
     },
     {
-      "date": "JUL 13 · QUANTUM",
-      "title": "Risk-off selloff hits quantum pure-plays",
-      "description": "IonQ -8%, Rigetti/D-Wave -6% as Strait of Hormuz tensions and an oil-price spike triggered broad de-risking — macro-driven, not company-specific."
+      "date": "JUL 22 · ENERGY STORAGE",
+      "title": "GE Vernova posts a blowout Q2",
+      "description": "Orders +88% YoY to $24.2B; total backlog hits $176B, on track for $200B by 2027 — the sector's clearest fundamentals story this week."
     },
     {
-      "date": "JUN · MINERALS",
-      "title": "China adds MP Materials, USA Rare Earth to entity list",
-      "description": "Escalation alongside a new violation-reporting mechanism effective Jul 1 — watch for further retaliatory moves ahead of the Nov 10 reprieve expiry."
+      "date": "JUL 22-27 · QUANTUM",
+      "title": "D-Wave uplists to Nasdaq amid an insider-selling flag",
+      "description": "Listing transfer coincides with a $988M five-year insider-selling tally across IonQ/Rigetti/D-Wave against under $4M in insider buying."
     }
   ],
   "week_ahead": [
     {
-      "date": "JUL 22",
-      "title": "Tesla, GE Vernova & QuantumScape report Q2",
-      "description": "Optimus ramp + robotaxi economics, electrification backlog growth, and QS's solid-state roadmap all land the same day."
+      "date": "JUL 28-29",
+      "title": "FOMC meeting & rate decision",
+      "description": "Widely expected to hold; Q2 GDP (est. +2.3% annualized), June PCE and durable goods land the same week — near-term rate-path catalysts for every long-duration sector on this hub."
     },
     {
-      "date": "JUL 22",
-      "title": "Lynas June-quarter results",
-      "description": "Investor briefing on production and magnet-metals progress — an imminent minerals catalyst."
+      "date": "JUL 29-30",
+      "title": "Microsoft, Meta & Amazon report Q2",
+      "description": "The real test of whether last week's AI-capex punishment (Alphabet -7%) extends across the rest of Big Tech; 175 S&P 500 companies report this week overall."
     },
     {
-      "date": "THIS WEEK",
-      "title": "Fed Chair Warsh's first congressional testimony",
-      "description": "Lands amid a heavy Q2 earnings week (FactSet sees +23.1% YoY for the S&P 500) — both are near-term rate-path catalysts."
+      "date": "JUL 30",
+      "title": "BAE Systems half-year results",
+      "description": "First earnings test after a European defense-sector selloff (BAE, Hensoldt, Renk, Saab, Leonardo all down on the month)."
     },
     {
-      "date": "WEEK OF JUL 27",
-      "title": "NATO summit in Turkey",
-      "description": "Leaders review European rearmament delivery goals; US pressure on allies over spending commitments continues."
+      "date": "AUG 3",
+      "title": "Palantir Q2 earnings",
+      "description": "FY26 revenue guide already raised to $7.65–7.66B (+71% YoY); valuation vs growth durability remains the debate."
     },
     {
-      "date": "H2 WATCH",
-      "title": "Agility Robotics SPAC completion",
-      "description": "First US-listed pure-play humanoid — a sentiment test for the category."
+      "date": "AUG 13",
+      "title": "NRC mandatory hearing on Clinch River SMR permit",
+      "description": "Final procedural step before a first-of-its-kind construction permit can be issued — the sector's next real de-risking event."
     }
   ],
   "risk_gauge": [
@@ -166,15 +166,15 @@
       "valuation_heat": 8
     },
     {
+      "sector": "Defense tech",
+      "valuation_heat": 7
+    },
+    {
       "sector": "Nuclear/SMR",
       "valuation_heat": 7
     },
     {
       "sector": "Space small-caps",
-      "valuation_heat": 6
-    },
-    {
-      "sector": "Defense tech",
       "valuation_heat": 6
     },
     {
@@ -190,5 +190,5 @@
       "valuation_heat": 3
     }
   ],
-  "footnote": "ABOUT THIS BRIEF Synthesized weekly from the nine sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Jul 20, 2026 — always confirm independently."
+  "footnote": "ABOUT THIS BRIEF Synthesized weekly from the nine sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Jul 27, 2026 — always confirm independently."
 }
