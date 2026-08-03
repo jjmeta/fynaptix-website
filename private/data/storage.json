@@ -3,14 +3,14 @@
   "title": "Fynaptix · Energy Storage Research",
   "heading": "Energy Storage Intelligence",
   "subheading": "Grid-scale batteries, the storage software layer & next-gen chemistry",
-  "kicker": "ENERGY STORAGE & GRID // JUL 2026",
-  "generated": "Jul 27, 2026",
+  "kicker": "ENERGY STORAGE & GRID // AUG 2026",
+  "generated": "Aug 3, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
       "value": "24.3 GW",
       "sub": "US 2026 PLANNED — RECORD",
-      "label": "Utility-scale battery additions planned (vs 15 GW record in 2025); EIA sees total US fleet surging to 64.9 GW by end of 2026, led by Texas (12.9 GW)",
+      "label": "Utility-scale battery additions planned (vs 15 GW record in 2025); EIA sees total US fleet surging to 64.9 GW by end of 2026 — Texas (53%), California (14%) and Arizona (13%) account for ~80% of additions",
       "highlight": true
     },
     {
@@ -27,8 +27,8 @@
     },
     {
       "value": "$5.6B",
-      "sub": "FLUENCE BACKLOG",
-      "label": "FY26 revenue guidance reaffirmed at $3.2–3.6B; next earnings (Q3) due Aug 5, 2026",
+      "sub": "FLUENCE BACKLOG — Q3 DUE AUG 5",
+      "label": "FY26 revenue guidance reaffirmed at $3.2–3.6B; Q3 FY26 results due Aug 5 after market close, call Aug 6",
       "highlight": false
     }
   ],
@@ -55,7 +55,7 @@
           "ticker": "FLNC",
           "company": "Fluence Energy",
           "angle": "Global grid-scale leader (Siemens/AES JV origin); AI bidding software across ~50 markets is the moat; record $5.6B backlog",
-          "watch for": "Q3 earnings Aug 5; hyperscaler MSAs; margin trajectory"
+          "watch for": "Q3 FY26 earnings Aug 5 after close (call Aug 6); hyperscaler MSAs; margin trajectory"
         },
         {
           "ticker": "GEV",
@@ -66,8 +66,8 @@
         {
           "ticker": "ENPH",
           "company": "Enphase",
-          "angle": "Residential solar + battery systems",
-          "watch for": "US resi solar demand recovery"
+          "angle": "Residential solar + battery systems; Q2 2026 revenue $291.9M (+3% QoQ, -20% YoY), 113.8 MWh of batteries shipped, ~40% national resi battery attach rate",
+          "watch for": "Q3 guide $290–320M incl. ~$75M safe-harbor revenue and 130–150 MWh battery shipments; IQ Battery G5 (50% higher density, ~40% lower $/kWh) ships Q4"
         }
       ]
     },
@@ -92,13 +92,13 @@
           "ticker": "EOSE",
           "company": "Eos Energy",
           "angle": "Zinc-based long-duration storage (LDES); pre-announced record Q2 revenue $68–69M (~3x shipments), backlog $807M; Golden Dome defense deal for Z3 system",
-          "watch for": "Completed $37.7M rights offering (~$263M raised total) to fund Frontier Power USA + $1B+ project capital; stock down ~40% in a month on dilution"
+          "watch for": "Completed $37.7M rights offering (~$263M raised total) to fund Frontier Power USA + $1B+ project capital; formal Q2 GAAP print due Aug 5; stock volatile on dilution"
         },
         {
           "ticker": "STEM",
           "company": "Stem Inc",
-          "angle": "AI-driven storage optimization software (PowerTrack); Q1 2026 marked 4th straight quarter of positive adjusted EBITDA, PowerTrack revenue +16% YoY",
-          "watch for": "Susquehanna cut PT to $7.50 from $10 (Jul 10); BMO reaffirmed Hold (Jul 17); won Smarter E 2026 award"
+          "angle": "AI-driven storage optimization software (PowerTrack); Q1 2026 marked 4th straight quarter of positive adjusted EBITDA, PowerTrack revenue +16% YoY; new Bluesphere Ventures services pact for NY VDER-program BESS projects",
+          "watch for": "Barclays slashed PT to $8 from $18 (Jul 28) citing EV-charging segment weakness; shares near $5.37; Susquehanna PT $7.50 (Jul 10), BMO Hold (Jul 17)"
         }
       ]
     }
@@ -107,7 +107,7 @@
   "bear_case": [
     {
       "title": "China dominates cells",
-      "description": "CATL (40.2%) and BYD (14.4%) hold over half of global EV/storage battery shipments through May 2026 (CATL installs +23% YoY); together they command ~64% of China's domestic market. Western integrators compete on software and services, not hardware cost."
+      "description": "CATL (40.2%) and BYD (14.4%) hold over half of global EV/storage battery shipments through May 2026; in China's domestic market alone CATL held 42.70% and BYD 18.49% as of June, and seven Chinese firms control 72.2% of the global market. GlobalData sees installed global BESS capacity rising sixfold, 224.8 GW to 1,300 GW, by 2030 — with the US and China holding a combined 74.6% share. Western integrators compete on software and services, not hardware cost."
     },
     {
       "title": "Policy whiplash",
@@ -124,34 +124,34 @@
   ],
   "catalysts": [
     {
-      "date": "JUL 22, 2026",
-      "title": "GE Vernova posts blowout Q2",
-      "description": "Orders +88% YoY to $24.2B; total backlog $176B (+$13B QoQ, on track for $200B by 2027); Electrification backlog $41B (+69% YoY); 2026 revenue guide raised to $45.5–46.5B."
+      "date": "JUL 28, 2026",
+      "title": "Barclays slashes Stem price target to $8",
+      "description": "Cut from $18, equal-weight maintained, citing EV-charging segment weakness — despite Stem's new Bluesphere Ventures services pact for NY VDER-program BESS projects. Shares fell toward $5.37."
     },
     {
-      "date": "JUL 22, 2026",
-      "title": "Tesla Q2: record revenue, energy margin hit",
-      "description": "$28.2B record revenue overall; energy-segment margin fell to 20.4% from 39.5% on a $240M warranty charge and a lapsed tariff benefit, despite 13.5 GWh deployed (+53% QoQ)."
+      "date": "JUL 28, 2026",
+      "title": "GlobalData: global BESS capacity to grow sixfold by 2030",
+      "description": "Installed capacity seen rising from 224.8 GW (end-2025) to 1,300 GW by 2030 (42% CAGR), driven by utility procurement, grid constraints and AI data-center demand; US and China hold a combined 74.6% share today."
     },
     {
-      "date": "JUL 22–23, 2026",
-      "title": "QuantumScape shares slide despite narrower loss",
-      "description": "Q2 net loss $98.2M on $859M liquidity; Honda partnership and amended VW/PowerCo milestones highlighted, but cell-output ramp and pre-revenue timeline keep investors cautious."
+      "date": "JUL 29, 2026",
+      "title": "Enphase Q2 2026: storage-led recovery",
+      "description": "Revenue $291.9M (+3% QoQ, -20% YoY); 113.8 MWh of batteries shipped, ~40% national resi attach rate; Q3 guide $290–320M with IQ Battery G5 (50% higher density, ~40% lower $/kWh) shipping Q4."
     },
     {
-      "date": "JUL 23, 2026",
-      "title": "Eos Energy completes rights offering",
-      "description": "Raised ~$263M total to fund Frontier Power USA and unlock $1B+ of project capital; pre-announced record Q2 revenue of $68–69M (~3x shipments) and backlog of $807M."
+      "date": "JUL 30, 2026",
+      "title": "Eos Energy: defense deal, fresh capital, volatile trading",
+      "description": "Golden Dome Z3 defense contract and completed $263M capital raise offset by continued share-price volatility ahead of the formal Q2 GAAP print."
     },
     {
-      "date": "ONGOING",
-      "title": "Data-center co-located storage deals",
-      "description": "Energy North's 16 GWh Project Ares (Australia) and Firmus's 600 MW supply deal; BloombergNEF now tracks 4.9 GW of storage co-located with onsite generation at data centers globally."
+      "date": "AUG 5, 2026 (UPCOMING)",
+      "title": "Fluence Q3 FY26 earnings",
+      "description": "Reports after market close; call Aug 6. Watch FY26 revenue guidance ($3.2–3.6B) and progress on first US-made LFP cell shipments toward FEOC-compliant supply."
     },
     {
-      "date": "JUL 2026",
-      "title": "Fluence ships first US-made LFP cells",
-      "description": "Domestic lithium-iron-phosphate production begins ahead of Q3 earnings (Aug 5), a step toward FEOC-compliant, tariff-insulated supply."
+      "date": "AUG 5, 2026 (UPCOMING)",
+      "title": "Eos Energy Q2 2026 GAAP results",
+      "description": "Formal print follows the pre-announced record revenue of $68–69M (~3x shipments) and $807M backlog."
     }
   ],
   "etfs": [
@@ -185,21 +185,29 @@
       "url": "https://finance.biggo.com/quote/GEV/earnings-call/US_GEV_2026-07-22"
     },
     {
-      "title": "Investing.com — QuantumScape Q2 2026 earnings call transcript",
-      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-quantumscape-falls-after-q2-2026-update-on-losses-93CH-4807147"
+      "title": "SolarQuarter — Enphase Q2 2026 revenue $291.9M, storage & AI grid expansion",
+      "url": "https://solarquarter.com/2026/07/29/enphase-energy-posts-291-9-million-q2-2026-revenue-expands-solar-battery-storage-and-ai-grid-technologies/"
+    },
+    {
+      "title": "Daily Political — Barclays cuts Stem price target to $8",
+      "url": "https://www.dailypolitical.com/2026/07/29/barclays-cuts-stem-nysestem-price-target-to-8-00.html"
+    },
+    {
+      "title": "ESS News — GlobalData: world's battery storage capacity to grow sixfold by 2030",
+      "url": "https://www.ess-news.com/2026/07/28/worlds-battery-storage-capacity-to-grow-sixfold-by-2030-says-globaldata/"
     },
     {
       "title": "GlobeNewswire — Eos Energy rights offering results",
       "url": "https://www.globenewswire.com/news-release/2026/07/23/3332149/0/en/Eos-Energy-Announces-Expiration-and-Results-of-Rights-Offering.html"
     },
     {
-      "title": "CnEVPost — CATL & BYD global battery market share, Jan–May 2026",
-      "url": "https://cnevpost.com/2026/07/03/global-ev-battery-market-share-jan-may-2026/"
+      "title": "CnEVPost — CATL & BYD China battery market share, June 2026",
+      "url": "https://cnevpost.com/2026/07/16/top-battery-makers-share-china-jun-2026/"
     },
     {
       "title": "Energy-Storage.news — US import tariffs raise BESS policy risk",
       "url": "https://www.energy-storage.news/us-import-tariffs-increase-the-policy-risk-for-bess/"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
 }
