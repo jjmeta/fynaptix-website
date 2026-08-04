@@ -1,0 +1,220 @@
+{
+  "sector": "quantum",
+  "title": "Fynaptix · Quantum Computing Research",
+  "heading": "Quantum Computing Intelligence",
+  "subheading": "Pure-plays, hedged giants & the road to commercial advantage",
+  "kicker": "QUANTUM COMPUTING // JUL 2026",
+  "generated": "Jul 27, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S 109–836×) and are highly speculative — position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "$97B",
+      "sub": "BY 2035 (PROJECTED)",
+      "label": "Quantum technologies market projection",
+      "highlight": false
+    },
+    {
+      "value": "+755%",
+      "sub": "IONQ Q1 2026 YOY",
+      "label": "Revenue $64.7M; backlog $470M (+554%); FY26 guidance raised to $260–270M after first 256-qubit Tempo sale (Univ. of Cambridge)",
+      "highlight": true
+    },
+    {
+      "value": "$2.01B",
+      "sub": "CHIPS QUANTUM AWARDS",
+      "label": "9 companies incl. IBM ($1B) & six startups ($100M each, some via equity stakes) — May 2026",
+      "highlight": false
+    },
+    {
+      "value": "109–836×",
+      "sub": "P/S RATIOS (JUL 2026)",
+      "label": "IonQ (~109×) / Rigetti (~836×) / D-Wave (~791×) price-to-sales — extreme speculation territory",
+      "highlight": false
+    }
+  ],
+  "themes": [],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Hedged Giants — Quantum as an Option",
+      "note": "Tiered by maturity/risk — not a ranked buy list. Most quantum systems remain in R&D; true commercial systems are likely years away.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "IBM",
+          "company": "IBM",
+          "angle": "Nighthawk 120-qubit chip; 10x error-correction speedup hit a year ahead of schedule, on track for verified quantum advantage by end-2026; won $1B CHIPS quantum foundry award",
+          "watch for": "Kookaburra qLDPC rollout; Starling fault-tolerant target 2029"
+        },
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "angle": "Willow: below-threshold error correction confirmed as grid scaled 3×3→5×5→7×7, with logical error rate halving at each step",
+          "watch for": "Gate-operation demos beyond memory preservation"
+        },
+        {
+          "ticker": "MSFT",
+          "company": "Microsoft",
+          "angle": "Topological qubit program + Azure Quantum; Quantinuum collab hit 12 logical qubits at 0.2% error rate",
+          "watch for": "Majorana milestone reproducibility"
+        },
+        {
+          "ticker": "NVDA",
+          "company": "NVIDIA",
+          "angle": "CUDA-Q hybrid quantum-classical tooling",
+          "watch for": "Quantum-AI hybrid workloads"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "Pure-Plays — Highly Speculative",
+      "note": "Tiered by maturity/risk — not a ranked buy list. Most quantum systems remain in R&D; true commercial systems are likely years away.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "IONQ",
+          "company": "IonQ",
+          "angle": "Trapped-ion leader; closed $1.075B Oxford Ionics acquisition (Jan 2026); first 256-qubit Tempo system sold to Univ. of Cambridge; $470M backlog; FY26 revenue guide raised to $260–270M",
+          "watch for": "Backlog conversion; P/S ~109×; pending Vector Atomic (sensing) deal"
+        },
+        {
+          "ticker": "RGTI",
+          "company": "Rigetti",
+          "angle": "Superconducting full-stack; $100M CHIPS letter of intent; sovereign-quantum-hardware bull case; FY26 revenue growth guided ~241% to ~$24M",
+          "watch for": "Qubit fidelity milestones; P/S ~836×"
+        },
+        {
+          "ticker": "QBTS",
+          "company": "D-Wave",
+          "angle": "Quantum annealing + gate-model; $100M CHIPS deal; transferred listing from NYSE to Nasdaq, debut Jul 27, 2026 (ticker unchanged); FY26 revenue growth guided ~79% to ~$44M",
+          "watch for": "Bookings conversion; P/S ~791×"
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [
+    {
+      "name": "PsiQuantum",
+      "value": "PHOTONIC · UTILITY-SCALE BET",
+      "note": "Expanded DARPA agreement to $125M (Jul 22, 2026) — one of only two companies in Stage C, the final validation stage of DARPA's Quantum Benchmarking Initiative; targeting 1M-qubit system with Microsoft/NVIDIA/GlobalFoundries."
+    },
+    {
+      "name": "Quantinuum",
+      "value": "IPO'D JUN 2026 · NASDAQ: QNT",
+      "note": "Honeywell-backed; upsized $1.68B IPO raise at $60/share (~$12.7B valuation). New Rolls-Royce/Riverlane/Univ. of Edinburgh industrial-design pact (Jul 14) and SoftBank roadmap (Helios now → Sol 2027 → Apollo 2029 → Lumos 2030s fault tolerance)."
+    },
+    {
+      "name": "QuEra",
+      "value": "NEUTRAL ATOMS",
+      "note": "$230M+ raise backed by Google Quantum AI, SoftBank, NVentures; 96 verified logical qubits — industry-leading."
+    }
+  ],
+  "bear_case": [
+    {
+      "title": "Years from commercial advantage",
+      "description": "Most systems remain R&D-phase; revenue today is mostly government contracts and research access, not commercial workloads."
+    },
+    {
+      "title": "Valuations price in perfection",
+      "description": "P/S of 109–836× means decades of flawless execution are already in the price; drawdowns of 50%+ are routine — IonQ/RGTI/QBTS fell 6-8% in a single session on Jul 13, 2026 amid broad risk-off selling."
+    },
+    {
+      "title": "Insiders aren't buying",
+      "description": "Insiders at IonQ, Rigetti and D-Wave have collectively sold ~$988M in stock over five years versus under $4M in insider purchases combined (as of Jul 22, 2026) — a persistent gap between executive selling and executive conviction."
+    },
+    {
+      "title": "Dilution as a business model",
+      "description": "Pure-plays fund R&D via repeated equity raises; share counts grow relentlessly. CHIPS Act awards to Rigetti, D-Wave and others are structured partly as government equity stakes — another layer of dilution on top."
+    },
+    {
+      "title": "Winner may not be listed",
+      "description": "IBM/Google/Microsoft or private Quantinuum/PsiQuantum could reach fault tolerance first, stranding pure-play premiums."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "JUL 27, 2026",
+      "title": "D-Wave moves its listing to Nasdaq",
+      "description": "D-Wave transfers its primary listing from NYSE to Nasdaq under the same QBTS ticker; CEO Alan Baratz rings the opening bell, aligning the stock with Nasdaq's tech-focused investor base."
+    },
+    {
+      "date": "JUL 22, 2026",
+      "title": "PsiQuantum expands DARPA deal to $125M",
+      "description": "New agreement under DARPA's Quantum Benchmarking Initiative; PsiQuantum is one of only two companies to reach Stage C, the program's final validation stage for utility-scale hardware claims."
+    },
+    {
+      "date": "JUL 22, 2026",
+      "title": "$988M insider-selling warning",
+      "description": "Five-year cumulative insider sales across IonQ, Rigetti and D-Wave top $988M against under $4M in insider buying combined — a fresh valuation-discipline flag from Wall St. commentary."
+    },
+    {
+      "date": "JUL 14, 2026",
+      "title": "Quantinuum partners with Rolls-Royce, Riverlane, Edinburgh",
+      "description": "Industrial design and simulation collaboration announced alongside a Quantinuum/SoftBank roadmap mapping use-case classes to hardware milestones: Helios (now) → Sol (2027) → Apollo (2029) → Lumos (2030s fault tolerance)."
+    },
+    {
+      "date": "JUN 22, 2026",
+      "title": "Trump signs quantum executive orders",
+      "description": "Targets a \"scientifically relevant\" quantum computer by 2028 and accelerated federal migration to post-quantum cryptography; government took equity stakes in Rigetti and D-Wave as part of the CHIPS deal."
+    },
+    {
+      "date": "MAY 21, 2026",
+      "title": "$2.01B CHIPS quantum awards",
+      "description": "Commerce Dept signs letters of intent with 9 companies — IBM ($1B, new quantum foundry), GlobalFoundries ($375M), Rigetti/D-Wave/Quantinuum/PsiQuantum/Atom Computing ($100M each), Diraq ($38M)."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "QTUM",
+      "name": "Defiance Quantum",
+      "summary": "Quantum + advanced computing basket — YTD +51%, ~$5.5B AUM, but volatile short-term (-3.6% past 2wk); the standard diversified route"
+    },
+    {
+      "ticker": "SMH",
+      "name": "VanEck Semiconductor",
+      "summary": "Indirect: the compute substrate quantum must beat (and currently rides)"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Business Wire — D-Wave transfers listing to Nasdaq",
+      "url": "https://www.businesswire.com/news/home/20260714481869/en/D-Wave-Announces-Transfer-of-Stock-Exchange-Listing-to-Nasdaq"
+    },
+    {
+      "title": "HPCwire — PsiQuantum signs $125M DARPA agreement",
+      "url": "https://www.hpcwire.com/off-the-wire/psiquantum-signs-125m-agreement-with-darpa/"
+    },
+    {
+      "title": "Motley Fool — $988M insider-selling warning",
+      "url": "https://www.fool.com/investing/2026/07/22/quantum-computing-stocks-ionq-988-million-warning/"
+    },
+    {
+      "title": "Quantinuum — Rolls-Royce/Riverlane/Edinburgh partnership & SoftBank roadmap",
+      "url": "https://www.quantinuum.com/news/news"
+    },
+    {
+      "title": "Business Wire — IonQ Q1 2026 results, Cambridge 256-qubit sale",
+      "url": "https://www.businesswire.com/news/home/20260506736198/en/IonQ-Announces-First-Quarter-2026-Financial-Results"
+    },
+    {
+      "title": "NIST/Commerce Dept — $2B CHIPS quantum letters of intent",
+      "url": "https://www.nist.gov/news-events/news/2026/05/department-commerce-announces-letters-intent-9-companies-2-billion"
+    },
+    {
+      "title": "Google Quantum AI — Willow error-correction milestone",
+      "url": "https://quantumai.google/qecmilestone"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+}

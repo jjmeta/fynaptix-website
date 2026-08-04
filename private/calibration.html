@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Calibration</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  .due{border-left:3px solid var(--amber)}
+  .scored{border-left:3px solid var(--border)}
+  .due .hd,.scored .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem;flex-wrap:wrap}
+  .tkr{font-family:var(--fm);font-weight:700;font-size:.95rem;color:var(--ge)}
+  .meta{font-family:var(--fm);font-size:.58rem;color:var(--muted);letter-spacing:.05em}
+  .lbl2{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin:.55rem 0 .12rem}
+  .txt{font-size:.8rem;line-height:1.5}
+  .scorebtns{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem}
+  .sb{font-family:var(--fm);font-size:.62rem;letter-spacing:.05em;padding:.42rem .85rem;border-radius:8px;cursor:pointer;
+    background:var(--bg3);border:1px solid var(--border);color:var(--muted);transition:all .15s}
+  .sb:hover{color:var(--text)}
+  .sb.right:hover,.sb.right.on{background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.45);color:var(--green)}
+  .sb.partial:hover,.sb.partial.on{background:rgba(245,158,11,.14);border-color:rgba(245,158,11,.45);color:var(--amber)}
+  .sb.wrong:hover,.sb.wrong.on{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.45);color:var(--red)}
+  .sb.pending:hover,.sb.pending.on{background:var(--bg2);border-color:var(--subtle);color:var(--text)}
+  .verdict{font-family:var(--fm);font-size:.6rem;letter-spacing:.06em;padding:.22rem .6rem;border-radius:6px}
+  .v-right{background:rgba(16,185,129,.12);color:var(--green)}
+  .v-partial{background:rgba(245,158,11,.12);color:var(--amber)}
+  .v-wrong{background:rgba(239,68,68,.12);color:var(--red)}
+  .note-in{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);
+    font-family:var(--fb);font-size:.8rem;padding:.5rem .6rem;outline:none;margin-top:.5rem;min-height:48px;resize:vertical}
+  .note-in:focus{border-color:var(--gm)}
+  .empty{font-size:.85rem;color:var(--muted);line-height:1.55}
+  .btn-ghost{background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:.72rem;
+    padding:.4rem .8rem;cursor:pointer;font-family:var(--fb)}
+  .btn-ghost:hover{color:var(--text);border-color:var(--gm)}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item active" href="/private/calibration.html">Calibration</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">TRACK RECORD // CALIBRATION</div>
+        <h2>Calibration Scoreboard</h2>
+        <p>Were you right? Scored honestly, by sector and by conviction</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Stored only in this browser</div>
+    </div>
+
+    <div class="disclaimer"><strong>The only page that grades you.</strong> It reads your <a href="/private/journal.html" style="color:var(--amber)">Decision Journal</a> entries, surfaces the ones whose review date has passed, and asks you to score the outcome. Scores stay in this browser. It needs many months of entries before the percentages mean anything — the point is to start collecting now.</div>
+
+    <section>
+      <div class="kicker">01 // SCORECARD</div>
+      <div class="sec-title">Your Record</div>
+      <div class="grid-4">
+        <div class="card-sm"><div class="stat-val" id="s-total">–</div><div class="stat-lbl">Theses logged</div></div>
+        <div class="card-sm"><div class="stat-val" id="s-scored">–</div><div class="stat-lbl">Reviewed &amp; scored</div></div>
+        <div class="card-sm hl"><div class="stat-val" id="s-hit">–</div><div class="stat-lbl">Hit rate (right ÷ scored)</div></div>
+        <div class="card-sm"><div class="stat-val" id="s-due">–</div><div class="stat-lbl">Awaiting review now</div></div>
+      </div>
+      <div id="warn" class="sec-note" style="margin-top:.7rem"></div>
+    </section>
+
+    <section id="dueSec">
+      <div class="kicker">02 // REVIEW DUE</div>
+      <div class="sec-title">Score These Honestly</div>
+      <div class="sec-note">Judge the <em>thesis</em>, not the price. A thesis can be right while the stock fell, and wrong while it rose — that distinction is the whole point.</div>
+      <div id="dueList" class="grid-cards" style="grid-template-columns:1fr"></div>
+    </section>
+
+    <section id="chartSec" style="display:none">
+      <div class="kicker">03 // BY SECTOR</div>
+      <div class="sec-title">Where Your Judgment Holds Up</div>
+      <div class="sec-note">Sectors with the most scored calls first. Small samples lie — treat anything under ~10 calls as noise.</div>
+      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
+    </section>
+
+    <section id="convSec" style="display:none">
+      <div class="kicker">04 // CONVICTION CHECK</div>
+      <div class="sec-title">Are You Confident About the Right Things?</div>
+      <div class="sec-note">Well-calibrated means your high-conviction calls land more often than your low-conviction ones. If the bars are level — or inverted — your confidence isn't carrying information.</div>
+      <div class="card chart-wrap"><canvas id="convChart"></canvas></div>
+    </section>
+
+    <section id="histSec">
+      <div class="kicker">05 // SCORED HISTORY</div>
+      <div class="sec-title">Everything You've Graded</div>
+      <div id="histList" class="grid-cards" style="grid-template-columns:1fr"></div>
+      <div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+        <button class="btn-ghost" onclick="exportScores()">Export scores</button>
+        <button class="btn-ghost" onclick="document.getElementById('impFile').click()">Import scores</button>
+        <input type="file" id="impFile" accept=".json" style="display:none" onchange="importScores(event)"/>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-top:.5rem">Scores live in this browser under <code>fynaptix-calibration-v1</code>, alongside your journal. Export regularly — clearing browser data erases both. When the agent system arrives, this file is the training signal that tells it which of your judgments to weight.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script>
+const JKEY='fynaptix-journal-v1', CKEY='fynaptix-calibration-v1';
+const SECTORS=['AI & Compute','Robotics','Defense Tech','Nuclear & SMRs','Critical Minerals','Space Economy','Energy Storage','AI Biotech','Quantum','ETF / Broad','Crypto','Other'];
+const esc=s=>(s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const jload=()=>{try{return JSON.parse(localStorage.getItem(JKEY)||'[]')}catch(e){return[]}};
+const cload=()=>{try{return JSON.parse(localStorage.getItem(CKEY)||'{}')}catch(e){return{}}};
+const csave=d=>localStorage.setItem(CKEY,JSON.stringify(d));
+const today=()=>new Date().toISOString().slice(0,10);
+let charts={};
+
+function setScore(id,verdict){
+  const c=cload(); c[id]=Object.assign({},c[id],{verdict,scoredOn:today()}); csave(c); render();
+}
+function setField(id,field,val){
+  const c=cload(); c[id]=Object.assign({},c[id],{[field]:val}); csave(c);
+}
+function entryCard(e,sc,isDue){
+  const v=sc&&sc.verdict;
+  const badge=v?`<span class="verdict v-${v}">${v.toUpperCase()}</span>`:'';
+  return `<div class="card-sm ${isDue?'due':'scored'}">
+    <div class="hd">
+      <div><span class="tkr">${esc(e.ticker)}</span> <span class="pill pill-blue" style="margin-left:.35rem">${esc(e.action)}</span> ${badge}</div>
+      <span class="meta">LOGGED ${esc(e.created)}${e.price?' @ '+esc(e.price):''}${e.review?' · REVIEW '+esc(e.review):''}</span>
+    </div>
+    ${e.thesis?`<div class="lbl2">Thesis</div><div class="txt">${esc(e.thesis)}</div>`:''}
+    ${e.exit?`<div class="lbl2">Exit criteria</div><div class="txt">${esc(e.exit)}</div>`:''}
+    ${isDue?`
+      <div class="lbl2">Sector</div>
+      <select class="note-in" style="min-height:0" onchange="setField(${e.id},'sector',this.value)">
+        <option value="">— pick a sector —</option>
+        ${SECTORS.map(s=>`<option ${sc&&sc.sector===s?'selected':''}>${esc(s)}</option>`).join('')}
+      </select>
+      <div class="lbl2">Conviction at the time</div>
+      <select class="note-in" style="min-height:0" onchange="setField(${e.id},'conviction',this.value)">
+        <option value="">— pick —</option>
+        ${['High','Medium','Low'].map(s=>`<option ${sc&&sc.conviction===s?'selected':''}>${s}</option>`).join('')}
+      </select>
+      <div class="lbl2">What actually happened?</div>
+      <textarea class="note-in" placeholder="What played out, and did it match the thesis?" onchange="setField(${e.id},'outcome',this.value)">${esc(sc&&sc.outcome||'')}</textarea>
+      <div class="scorebtns">
+        <span class="sb right ${v==='right'?'on':''}" onclick="setScore(${e.id},'right')">✓ THESIS HELD</span>
+        <span class="sb partial ${v==='partial'?'on':''}" onclick="setScore(${e.id},'partial')">~ PARTLY</span>
+        <span class="sb wrong ${v==='wrong'?'on':''}" onclick="setScore(${e.id},'wrong')">✕ THESIS BROKE</span>
+        <span class="sb pending" onclick="setField(${e.id},'defer','${today()}');render()">↻ TOO EARLY — DEFER</span>
+      </div>`
+    :`${sc&&sc.outcome?`<div class="lbl2">Outcome</div><div class="txt">${esc(sc.outcome)}</div>`:''}
+      <div class="meta" style="margin-top:.5rem">${sc&&sc.sector?esc(sc.sector):'no sector'} · ${sc&&sc.conviction?esc(sc.conviction)+' conviction':'no conviction'} · scored ${esc(sc.scoredOn||'')}</div>`}
+  </div>`;
+}
+
+function render(){
+  const J=jload(), C=cload(), t=today();
+  const scored=J.filter(e=>C[e.id]&&C[e.id].verdict);
+  const due=J.filter(e=>{
+    const c=C[e.id];
+    if(c&&c.verdict) return false;
+    if(!e.review) return false;
+    if(c&&c.defer&&c.defer>=t) return false;
+    return e.review<=t;
+  });
+  const right=scored.filter(e=>C[e.id].verdict==='right').length;
+  const partial=scored.filter(e=>C[e.id].verdict==='partial').length;
+
+  document.getElementById('s-total').textContent=J.length||'0';
+  document.getElementById('s-scored').textContent=scored.length||'0';
+  document.getElementById('s-due').textContent=due.length||'0';
+  document.getElementById('s-hit').textContent=scored.length?Math.round((right+partial*0.5)/scored.length*100)+'%':'–';
+
+  const warn=document.getElementById('warn');
+  if(!J.length) warn.innerHTML='No journal entries yet. Log your first thesis in the <a href="/private/journal.html" style="color:var(--ge)">Decision Journal</a> — this page fills itself from there.';
+  else if(scored.length<10) warn.textContent=`Only ${scored.length} scored call${scored.length===1?'':'s'} so far — far too few to read anything into the hit rate. Keep logging; the number starts meaning something past roughly 20–30.`;
+  else warn.textContent='Partial credit counts as half a hit. Judge theses, not price moves.';
+
+  document.getElementById('dueList').innerHTML = due.length
+    ? due.map(e=>entryCard(e,C[e.id],true)).join('')
+    : `<div class="card-sm"><div class="empty">${J.length?'Nothing due for review. Entries appear here once their review date passes.':'Nothing to review yet.'}</div></div>`;
+
+  document.getElementById('histList').innerHTML = scored.length
+    ? scored.sort((a,b)=>(C[b.id].scoredOn||'').localeCompare(C[a.id].scoredOn||'')).map(e=>entryCard(e,C[e.id],false)).join('')
+    : '<div class="card-sm"><div class="empty">Nothing scored yet. Scored theses collect here as a permanent record.</div></div>';
+
+  drawCharts(scored,C);
+}
+
+function drawCharts(scored,C){
+  const bySec={}, byConv={High:[0,0],Medium:[0,0],Low:[0,0]};
+  scored.forEach(e=>{
+    const c=C[e.id], w=c.verdict==='right'?1:c.verdict==='partial'?0.5:0;
+    const s=c.sector||'Unscored';
+    (bySec[s]=bySec[s]||[0,0]);
+    bySec[s][0]+=w; bySec[s][1]++;
+    if(byConv[c.conviction]){byConv[c.conviction][0]+=w;byConv[c.conviction][1]++;}
+  });
+  const secs=Object.entries(bySec).sort((a,b)=>b[1][1]-a[1][1]);
+  const secShow=secs.length>0;
+  document.getElementById('chartSec').style.display=secShow?'block':'none';
+  if(secShow){
+    const labels=secs.map(([s,v])=>`${s} (${v[1]})`), data=secs.map(([,v])=>Math.round(v[0]/v[1]*100));
+    if(charts.sec) charts.sec.destroy();
+    charts.sec=new Chart(document.getElementById('secChart'),{type:'bar',
+      data:{labels,datasets:[{label:'Hit rate %',data,backgroundColor:'rgba(46,208,245,.45)',borderColor:'#2ed0f5',borderWidth:1,borderRadius:6}]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},title:{display:true,text:'HIT RATE BY SECTOR (SAMPLE SIZE IN BRACKETS)',color:'#6b7a99',font:{family:"'Space Mono', monospace",size:10}}},
+        scales:{x:{min:0,max:100,ticks:{color:'#6b7a99',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}},
+                y:{ticks:{color:'#6b7a99',font:{size:10}},grid:{display:false}}}}});
+  }
+  const convN=Object.values(byConv).reduce((a,v)=>a+v[1],0);
+  document.getElementById('convSec').style.display=convN?'block':'none';
+  if(convN){
+    if(charts.conv) charts.conv.destroy();
+    charts.conv=new Chart(document.getElementById('convChart'),{type:'bar',
+      data:{labels:['High','Medium','Low'].map(k=>`${k} (${byConv[k][1]})`),
+        datasets:[{label:'Hit rate %',data:['High','Medium','Low'].map(k=>byConv[k][1]?Math.round(byConv[k][0]/byConv[k][1]*100):0),
+        backgroundColor:['rgba(16,185,129,.45)','rgba(245,158,11,.45)','rgba(107,122,153,.45)'],
+        borderColor:['#10b981','#f59e0b','#6b7a99'],borderWidth:1,borderRadius:6}]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},title:{display:true,text:'HIT RATE BY CONVICTION — HIGH SHOULD BEAT LOW',color:'#6b7a99',font:{family:"'Space Mono', monospace",size:10}}},
+        scales:{y:{min:0,max:100,ticks:{color:'#6b7a99',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,.04)'}},
+                x:{ticks:{color:'#6b7a99',font:{size:10}},grid:{display:false}}}}});
+  }
+}
+
+function exportScores(){
+  const blob=new Blob([JSON.stringify({journal:jload(),calibration:cload()},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='fynaptix-track-record-'+today()+'.json';a.click();
+}
+function importScores(ev){
+  const f=ev.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);
+    if(d.calibration) csave(d.calibration);
+    if(Array.isArray(d.journal)) localStorage.setItem(JKEY,JSON.stringify(d.journal));
+    render();
+  }catch(e){alert('Invalid file')}};
+  r.readAsText(f);
+}
+render();
+</script>
+</body>
+</html>

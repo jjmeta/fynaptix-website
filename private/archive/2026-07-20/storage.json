@@ -1,0 +1,201 @@
+{
+  "sector": "storage",
+  "title": "Fynaptix · Energy Storage Research",
+  "heading": "Energy Storage Intelligence",
+  "subheading": "Grid-scale batteries, the storage software layer & next-gen chemistry",
+  "kicker": "ENERGY STORAGE & GRID // JUL 2026",
+  "generated": "Jul 20, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "24 GW",
+      "sub": "US 2026 PLANNED — RECORD",
+      "label": "Utility-scale battery additions planned (vs 15 GW record in 2025); EIA sees total US fleet surging from 44.6 GW to 67+ GW by Q1 2027",
+      "highlight": true
+    },
+    {
+      "value": "13.5 GWh",
+      "sub": "TESLA Q2 2026 — 2ND-BEST QTR",
+      "label": "Up 53% QoQ, 40% YoY; cumulative deployments top 132 GWh since 2016. Megapack 3 + Megablock volume production at Houston (50 GWh/yr) starts late 2026",
+      "highlight": false
+    },
+    {
+      "value": "$5.6B",
+      "sub": "RECORD BACKLOG",
+      "label": "Fluence backlog after YTD order intake ~2x YoY (~$2.0B); FY26 guidance reaffirmed at $3.2–3.6B revenue",
+      "highlight": false
+    },
+    {
+      "value": "Solid-state",
+      "sub": "HONDA JV, JUN 2026",
+      "label": "QuantumScape × Honda R&D joint research pact; lithium-ion still dominates on cost, commercial solid-state still years out",
+      "highlight": false
+    }
+  ],
+  "themes": [],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Scale / Revenue-Generating",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla (Energy)",
+          "angle": "Megapack: 13.5 GWh deployed Q2 2026 (record-adjacent, +53% QoQ); Megapack 3 + Megablock volume production at Houston Megafactory (50 GWh/yr) starts late 2026",
+          "watch for": "Q2 earnings Jul 22; energy segment margin contribution"
+        },
+        {
+          "ticker": "FLNC",
+          "company": "Fluence Energy",
+          "angle": "Global grid-scale leader (Siemens/AES JV origin); AI bidding software across ~50 markets is the moat; record $5.6B backlog",
+          "watch for": "FY26 guide $3.2–3.6B; hyperscaler MSAs; margin trajectory"
+        },
+        {
+          "ticker": "GEV",
+          "company": "GE Vernova",
+          "angle": "Grid equipment super-cycle beneficiary; Q1 orders $18.3B, backlog $163B (targeting $200B by 2027); Electrification booked $2.4B in data-center orders in one quarter",
+          "watch for": "Q2 earnings Jul 22; electrification backlog growth"
+        },
+        {
+          "ticker": "ENPH",
+          "company": "Enphase",
+          "angle": "Residential solar + battery systems",
+          "watch for": "US resi solar demand recovery"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "Next-Gen / Speculative",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "QS",
+          "company": "QuantumScape",
+          "angle": "Solid-state lithium-metal batteries (VW-backed); new multi-year Honda R&D joint research pact (Jun 2026)",
+          "watch for": "Q2 earnings Jul 22 (options price ~15% move); 2026 tech roadmap reveal; still pre-revenue"
+        },
+        {
+          "ticker": "EOSE",
+          "company": "Eos Energy",
+          "angle": "Zinc-based long-duration storage (LDES); record $807M backlog (Jun 30); Golden Dome defense deal for Z3 system",
+          "watch for": "Dilutive capital raises (rights offering + Hudson Bay Capital placement); H1 2026 revenue already exceeds all of 2025"
+        },
+        {
+          "ticker": "STEM",
+          "company": "Stem Inc",
+          "angle": "AI-driven storage optimization software",
+          "watch for": "Path to profitability; shares fell ~8% Jul 7 amid sector-wide weakness"
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [],
+  "bear_case": [
+    {
+      "title": "China dominates cells",
+      "description": "CATL (35%) and BYD (14%) control over half of global battery shipments; a 4-hour BESS can be quoted near $65/kWh in China vs $230–320/kWh in the US. Western integrators compete on software and services, not hardware cost."
+    },
+    {
+      "title": "Policy whiplash",
+      "description": "Section 301 tariffs now extend to grid-scale BESS; a House-passed bill would bar DHS from buying CATL-linked batteries starting Oct 2027. ~21 GWh of planned US cell capacity was already cancelled after the 2025 tariff shock."
+    },
+    {
+      "title": "Margin compression",
+      "description": "Falling battery prices grow volumes but squeeze integrator margins; software attach is the differentiator."
+    },
+    {
+      "title": "Solid-state timelines",
+      "description": "Honda's new QuantumScape JV is a vote of confidence, but commercial-scale solid-state production remains years out; lithium-ion's cost curve keeps moving the goalposts."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "JUL 22, 2026",
+      "title": "Tesla, GE Vernova & QuantumScape report Q2",
+      "description": "Three closely watched names report the same day — Tesla energy-segment margin, GEV electrification orders, and QS's roadmap update all in focus."
+    },
+    {
+      "date": "JUL 2026",
+      "title": "Tesla deploys 13.5 GWh in Q2",
+      "description": "Second-largest quarter ever, +53% QoQ; cumulative deployments top 132 GWh since 2016."
+    },
+    {
+      "date": "JUN 2026",
+      "title": "CATL launches sodium-ion BESS (TENER)",
+      "description": "A real step toward non-lithium grid chemistry, adding pressure on Western LFP-based cost structures."
+    },
+    {
+      "date": "JUN 2026",
+      "title": "Honda signs JV with QuantumScape",
+      "description": "Multi-year joint research agreement to advance QS's solid-state platform — a technical endorsement from a major automaker."
+    },
+    {
+      "date": "ONGOING",
+      "title": "Data-center co-located storage deals",
+      "description": "GreenPoint/Firmus (Australia) and Energy North's 16 GWh Project Ares show AI power demand increasingly pairing with batteries for grid stability."
+    },
+    {
+      "date": "JUL 2026",
+      "title": "Eos Energy's dilutive capital raise",
+      "description": "Rights offering plus $75M Hudson Bay Capital placement build a $375M equity base to unlock $1.5B+ of project capital; backlog hit a record $807M."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "GRID",
+      "name": "First Trust Clean Edge Smart Grid",
+      "summary": "Grid infrastructure & equipment"
+    },
+    {
+      "ticker": "BATT",
+      "name": "Amplify Lithium & Battery",
+      "summary": "Battery value chain"
+    },
+    {
+      "ticker": "LIT",
+      "name": "Global X Lithium & Battery Tech",
+      "summary": "Lithium miners to battery makers"
+    }
+  ],
+  "sources": [
+    {
+      "title": "EIA — Record 86 GW of 2026 capacity additions, storage detail",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=67205"
+    },
+    {
+      "title": "Energy-Storage.news — Tesla deploys 13.5 GWh in Q2",
+      "url": "https://www.ess-news.com/2026/07/02/tesla-deploys-13-5-gwh-of-energy-storage-in-q2/"
+    },
+    {
+      "title": "StocksToTrade — Fluence backlog & AI battery demand",
+      "url": "https://stockstotrade.com/news/fluence-energy-inc-flnc-news-2026_07_09/"
+    },
+    {
+      "title": "EnkiAI — CATL, tariffs & US BESS project cancellations",
+      "url": "https://enkiai.com/battery-storage/catl-bess-us-cancellations/"
+    },
+    {
+      "title": "DCD — Storage architecture for AI data centers",
+      "url": "https://www.datacenterdynamics.com/en/news/energy-vault-partners-with-peak-energy-to-develop-energy-storage-architecture-for-ai-data-centers/"
+    },
+    {
+      "title": "Motley Fool — Eos Energy backlog & capital raise",
+      "url": "https://www.fool.com/investing/2026/07/15/why-did-eos-energy-stock-jump-today/"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Jul 20, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+}

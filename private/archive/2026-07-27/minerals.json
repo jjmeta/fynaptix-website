@@ -1,0 +1,229 @@
+{
+  "sector": "minerals",
+  "title": "Fynaptix · Critical Minerals Research",
+  "heading": "Critical Minerals Intelligence",
+  "subheading": "Rare earths, lithium & the Western supply-chain onshoring trade",
+  "kicker": "CRITICAL MINERALS & RARE EARTHS // JUL 2026",
+  "generated": "Jul 27, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Mining/minerals names carry commodity-price, dilution, and geopolitical risk. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "$12B",
+      "sub": "PROJECT VAULT",
+      "label": "US government critical-minerals stockpile — a demand floor for domestic producers",
+      "highlight": true
+    },
+    {
+      "value": "$4.5B+",
+      "sub": "FEDERAL FUNDING SURGE (JUN–JUL 2026)",
+      "label": "$2.9B DoD/DoE/EXIM blitz plus DoC's $1.6B LOI/equity stake in USA Rare Earth",
+      "highlight": false
+    },
+    {
+      "value": "273.5",
+      "sub": "CHINA REE PRICE INDEX (JUL 16)",
+      "label": "Terbium oxide near $970/kg domestic China, +30% on the quarter",
+      "highlight": false
+    },
+    {
+      "value": "$900M",
+      "sub": "MP MATERIALS NEW CAPITAL",
+      "label": "Apple ($500M magnet offtake, shipments from 2027) + DoD ($400M convertible preferred, ~15% stake) deals",
+      "highlight": true
+    }
+  ],
+  "themes": [
+    {
+      "tag": "EXPORT CONTROLS",
+      "title": "Beijing weaponizing processing dominance",
+      "description": "China's Rare Earth Price Index hit 273.5 on Jul 16 (terbium oxide near $970/kg domestic, +30% on the quarter); the Oct-2025 US-China truce and tariff suspension run through Nov 10, 2026 — a key overhang for ex-China supply."
+    },
+    {
+      "tag": "ESCALATION",
+      "title": "China adds MP, USAR to entity list",
+      "description": "Beijing added 10 US entities — including MP Materials and USA Rare Earth — to its export-control list Jun 22, 2026, alongside a new violation-reporting mechanism effective Jul 1."
+    },
+    {
+      "tag": "ONSHORING",
+      "title": "Washington's playbook",
+      "description": "~$2.9B in direct federal funding across rare-earth/magnet projects in a five-week Jun 2026 blitz (DoD, DoE, EXIM), plus a separate $1.6B DoC LOI and ~10% equity stake in USA Rare Earth — flowing to finished inputs, not just ore."
+    }
+  ],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Established Producers",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "MP",
+          "company": "MP Materials",
+          "angle": "Only US rare-earth mine + processing (Mountain Pass); $500M Apple magnet offtake ($200M upfront, shipments from 2027) + $400M DoD convertible preferred (DoD now largest shareholder, ~15%)",
+          "watch for": "Stock flat-to-down in 2026 despite deals; -13.4% in June alone after China added MP to its export-control entity list Jun 22"
+        },
+        {
+          "ticker": "LYC.AX",
+          "company": "Lynas Rare Earths",
+          "angle": "Largest non-China rare-earth producer (Australia/Malaysia); pushing into magnet metals",
+          "watch for": "Jul 22 Q4 FY26 results: record revenue A$288.9M (+70% YoY), record ASP A$98.2/kg, cash A$1.21B — but shares fell despite the beat; new CEO Pol Le Roux (from Jul 1) inks A$50M JS Link tie-up for a Malaysia magnet plant"
+        },
+        {
+          "ticker": "ALB",
+          "company": "Albemarle",
+          "angle": "Major Western lithium producer",
+          "watch for": "China lithium carbonate futures hit a 5-month low (~136,800 yuan/t, ~$20.2k) on 2027 oversupply/restart fears; ALB pulled back to ~$115 from ~$121 a week earlier"
+        },
+        {
+          "ticker": "FCX",
+          "company": "Freeport-McMoRan",
+          "angle": "Copper — the electrification metal at scale",
+          "watch for": "Q2 beat: realized copper $6.17/lb (+41.5% YoY), adj. EPS $0.74, revenue $7.03B — but Grasberg (Indonesia) output fell 18% (copper) / 39% (gold)"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "Developers / Small-Cap — Speculative",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "USAR",
+          "company": "USA Rare Earth",
+          "angle": "US rare-earth mine-to-magnet aspirant; Texas mine + Oklahoma magnet plant; DoC $1.6B LOI + ~10% equity stake (Jan 2026, priced $17.17)",
+          "watch for": "$2.83B Serra Verde (Brazil, Pela Ema — only non-Asia mine producing all 4 magnetic REEs) merger amended Jul 16, tied to offtake terms; shareholder vote Aug 28; leadership transition announced Jul 20; on China's export-control entity list"
+        },
+        {
+          "ticker": "UUUU",
+          "company": "Energy Fuels",
+          "angle": "Uranium + rare-earth processing at White Mesa",
+          "watch for": "$725M DoD loan for separation/metallization plant (2028 target); pilot-scale terbium oxide (first US producer in decades, Mar 2026); mine-to-magnet buildout via ~$1.9B Vacuumschmelze deal + proposed Australian Strategic Materials acquisition"
+        },
+        {
+          "ticker": "LAC",
+          "company": "Lithium Americas",
+          "angle": "Thacker Pass lithium (US), GM-backed",
+          "watch for": "DoE $2.23B loan — $435M drawn, DoE holds 5% equity stake; shares pulled back sharply (~-28%) with the broader Lithium Triangle on oversupply fears"
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [],
+  "bear_case": [
+    {
+      "title": "Commodity cycles cut both ways",
+      "description": "Lithium's 2023–25 crash shows how fast oversupply can crush miners; China lithium carbonate just hit a fresh 5-month low on 2027 restart/glut fears."
+    },
+    {
+      "title": "China can flood the market",
+      "description": "Beijing has historically dumped supply to crush Western rare-earth economics; price floors help but don't cover everyone."
+    },
+    {
+      "title": "Juniors dilute",
+      "description": "Developers without cash flow fund construction via repeated equity raises; USAR/LAC-type names carry meaningful dilution risk."
+    },
+    {
+      "title": "Policy dependency",
+      "description": "The thesis leans on sustained government support; a policy shift or trade détente removes a key prop."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "JUL 22, 2026",
+      "title": "Lynas Q4 FY26: record revenue, shares fall anyway",
+      "description": "A$288.9M revenue (+70% YoY) and record A$98.2/kg ASP beat, but the stock declined on the print; new CEO Pol Le Roux signs A$50M JS Link deal for a Malaysia magnet plant."
+    },
+    {
+      "date": "JUL 16, 2026",
+      "title": "USA Rare Earth amends $2.83B Serra Verde merger",
+      "description": "Deal to acquire Brazil's Pela Ema mine (Nd, Pr, Dy, Tb at scale) now conditioned on the offtake agreement holding; shareholder vote set for Aug 28, 2026."
+    },
+    {
+      "date": "JUL 23-24, 2026",
+      "title": "Freeport-McMoRan Q2 beat on copper strength",
+      "description": "Adj. EPS $0.74 / revenue $7.03B on copper realized at $6.17/lb (+41.5% YoY); tempered by an 18% drop in Grasberg (Indonesia) copper output."
+    },
+    {
+      "date": "JUL 16, 2026",
+      "title": "China's rare-earth price index hits 273.5",
+      "description": "Terbium oxide near $970/kg domestic (+30% on the quarter) as heavy rare earths (terbium, holmium, erbium, gadolinium) climb."
+    },
+    {
+      "date": "JUN 22, 2026",
+      "title": "China adds MP, USAR to export-control list",
+      "description": "10 US entities added, alongside a new violation-reporting mechanism effective Jul 1 — watch for further retaliatory moves."
+    },
+    {
+      "date": "NOV 10, 2026",
+      "title": "US-China truce & tariff suspension expire",
+      "description": "Current general export licenses for rare earths/gallium/germanium/antimony/graphite run through this date — the sector's biggest swing factor if not extended."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "REMX",
+      "name": "VanEck Rare Earth & Strategic Metals",
+      "summary": "Rare-earth miners/processors globally; YTD +34.8%, 1-yr +175.5% — but oversold/pulling back in late July"
+    },
+    {
+      "ticker": "LIT",
+      "name": "Global X Lithium & Battery Tech",
+      "summary": "Lithium chain from miners to battery makers; ~$67.81, soft amid lithium-price weakness"
+    },
+    {
+      "ticker": "XME",
+      "name": "SPDR Metals & Mining",
+      "summary": "Broad US metals exposure; YTD +20.9%, 1-yr +108.4%"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Yahoo Finance — MP Materials' Apple and Pentagon deals reshape growth story",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/mp-materials-apple-pentagon-deals-120918538.html"
+    },
+    {
+      "title": "Motley Fool — Despite Apple partnership, MP Materials stock is down",
+      "url": "https://www.fool.com/investing/2026/05/23/despite-its-recent-partnership-with-apple-mp-mater/"
+    },
+    {
+      "title": "Discovery Alert — Lynas June-quarter earnings: a record result",
+      "url": "https://discoveryalert.com.au/lynas-rare-earths-june-quarter-earnings-rare-earth-supply/"
+    },
+    {
+      "title": "Kalkine — Lynas: record revenue fails to prevent share-price decline",
+      "url": "https://kalkine.com.au/news/general-news/lynas-rare-earths-limited-asx-lyc-record-revenue-fails-to-prevent-share-price-decline"
+    },
+    {
+      "title": "Rare Earth Exchanges — Rare earth prices climb as ex-China market braces for scarcity",
+      "url": "https://rareearthexchanges.com/news/rare-earth-prices-climb-in-china-as-the-ex-china-market-braces-for-scarcity/"
+    },
+    {
+      "title": "Morgan Lewis — Recent China export-control actions signal active enforcement",
+      "url": "https://www.morganlewis.com/pubs/2026/07/recent-china-export-control-actions-signal-active-enforcement-for-rare-earths-and-strategic-minerals"
+    },
+    {
+      "title": "MINING.COM — Lithium price sinks to five-month low as restarts stoke 2027 glut fears",
+      "url": "https://www.mining.com/lithium-price-sinks-to-five-month-low-as-restarts-stoke-2027-glut-fears/"
+    },
+    {
+      "title": "Benzinga — Copper boom keeps Freeport's profits flowing despite Grasberg challenges",
+      "url": "https://www.benzinga.com/markets/earnings/26/07/60651733/copper-boom-keeps-freeports-profits-flowing-despite-grasberg-challenges"
+    },
+    {
+      "title": "TipRanks — USA Rare Earth amends SVRE merger, updates financing",
+      "url": "https://www.tipranks.com/news/company-announcements/usa-rare-earth-amends-svre-merger-updates-financing"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+}

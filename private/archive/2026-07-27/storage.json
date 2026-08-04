@@ -1,0 +1,205 @@
+{
+  "sector": "storage",
+  "title": "Fynaptix · Energy Storage Research",
+  "heading": "Energy Storage Intelligence",
+  "subheading": "Grid-scale batteries, the storage software layer & next-gen chemistry",
+  "kicker": "ENERGY STORAGE & GRID // JUL 2026",
+  "generated": "Jul 27, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "24.3 GW",
+      "sub": "US 2026 PLANNED — RECORD",
+      "label": "Utility-scale battery additions planned (vs 15 GW record in 2025); EIA sees total US fleet surging to 64.9 GW by end of 2026, led by Texas (12.9 GW)",
+      "highlight": true
+    },
+    {
+      "value": "13.5 GWh",
+      "sub": "TESLA Q2 2026 — MARGIN HIT",
+      "label": "Deployments up 53% QoQ, cumulative 132+ GWh; but energy-segment margin fell to 20.4% from 39.5% on a $240M warranty charge and lapsed tariff benefit (Q2 earnings, Jul 22)",
+      "highlight": false
+    },
+    {
+      "value": "$176B",
+      "sub": "GE VERNOVA BACKLOG — Q2 BEAT",
+      "label": "Up $13B QoQ, on track for $200B by 2027; orders +88% YoY to $24.2B; Electrification backlog $41B (+69% YoY) on data-center demand",
+      "highlight": true
+    },
+    {
+      "value": "$5.6B",
+      "sub": "FLUENCE BACKLOG",
+      "label": "FY26 revenue guidance reaffirmed at $3.2–3.6B; next earnings (Q3) due Aug 5, 2026",
+      "highlight": false
+    }
+  ],
+  "themes": [],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Scale / Revenue-Generating",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla (Energy)",
+          "angle": "Megapack: 13.5 GWh deployed Q2 2026 (2nd-best qtr, +53% QoQ); NatPower deal for 25+ GWh across Europe (100 GWh target); Megapack 3 + Megablock volume production at Houston (50 GWh/yr) starts late 2026",
+          "watch for": "Energy-segment margin fell to 20.4% (from 39.5%) on $240M warranty charge + lapsed tariff benefit; margin recovery in Q3"
+        },
+        {
+          "ticker": "FLNC",
+          "company": "Fluence Energy",
+          "angle": "Global grid-scale leader (Siemens/AES JV origin); AI bidding software across ~50 markets is the moat; record $5.6B backlog",
+          "watch for": "Q3 earnings Aug 5; hyperscaler MSAs; margin trajectory"
+        },
+        {
+          "ticker": "GEV",
+          "company": "GE Vernova",
+          "angle": "Grid equipment super-cycle beneficiary; Q2 orders $24.2B (+88% YoY), total backlog $176B (targeting $200B by 2027); Electrification backlog $41B (+69% YoY) on $5B+ H1 data-center orders",
+          "watch for": "2026 revenue guide raised to $45.5–46.5B; FCF guide raised to $11.5–12.5B"
+        },
+        {
+          "ticker": "ENPH",
+          "company": "Enphase",
+          "angle": "Residential solar + battery systems",
+          "watch for": "US resi solar demand recovery"
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "Next-Gen / Speculative",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "QS",
+          "company": "QuantumScape",
+          "angle": "Solid-state lithium-metal batteries (VW-backed); multi-year Honda R&D pact plus amended VW/PowerCo milestones; Tesla co-founder JB Straubel joined Strategic Advisory Board (Jun 2026)",
+          "watch for": "Q2 loss $98.2M, liquidity $859M; aims to double cell output in H2 2026; still pre-revenue, FY26 EBITDA-loss guide $250–275M"
+        },
+        {
+          "ticker": "EOSE",
+          "company": "Eos Energy",
+          "angle": "Zinc-based long-duration storage (LDES); pre-announced record Q2 revenue $68–69M (~3x shipments), backlog $807M; Golden Dome defense deal for Z3 system",
+          "watch for": "Completed $37.7M rights offering (~$263M raised total) to fund Frontier Power USA + $1B+ project capital; stock down ~40% in a month on dilution"
+        },
+        {
+          "ticker": "STEM",
+          "company": "Stem Inc",
+          "angle": "AI-driven storage optimization software (PowerTrack); Q1 2026 marked 4th straight quarter of positive adjusted EBITDA, PowerTrack revenue +16% YoY",
+          "watch for": "Susquehanna cut PT to $7.50 from $10 (Jul 10); BMO reaffirmed Hold (Jul 17); won Smarter E 2026 award"
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [],
+  "bear_case": [
+    {
+      "title": "China dominates cells",
+      "description": "CATL (40.2%) and BYD (14.4%) hold over half of global EV/storage battery shipments through May 2026 (CATL installs +23% YoY); together they command ~64% of China's domestic market. Western integrators compete on software and services, not hardware cost."
+    },
+    {
+      "title": "Policy whiplash",
+      "description": "Section 301 duties on non-EV lithium-ion (grid BESS) cells jumped from 7.5% to 25% effective Jan 1, 2026, pushing the effective combined US import tariff on Chinese ESS batteries to ~58.4% (from 40.9%); new FEOC rules cap Chinese-sourced content at 45% of manufacturing cost for ITC eligibility."
+    },
+    {
+      "title": "Margin compression",
+      "description": "Tesla's own Q2 print is fresh evidence: energy-segment margin nearly halved QoQ (39.5% → 20.4%) on a warranty charge and a lapsed tariff benefit, plus falling industrial-storage ASPs. Software attach remains the differentiator for integrators."
+    },
+    {
+      "title": "Solid-state timelines",
+      "description": "QuantumScape's Honda pact and Straubel board addition are votes of confidence, but the company is still burning ~$65M/quarter with $859M liquidity that analysts say must last until \"late this decade\" before meaningful revenue arrives."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "JUL 22, 2026",
+      "title": "GE Vernova posts blowout Q2",
+      "description": "Orders +88% YoY to $24.2B; total backlog $176B (+$13B QoQ, on track for $200B by 2027); Electrification backlog $41B (+69% YoY); 2026 revenue guide raised to $45.5–46.5B."
+    },
+    {
+      "date": "JUL 22, 2026",
+      "title": "Tesla Q2: record revenue, energy margin hit",
+      "description": "$28.2B record revenue overall; energy-segment margin fell to 20.4% from 39.5% on a $240M warranty charge and a lapsed tariff benefit, despite 13.5 GWh deployed (+53% QoQ)."
+    },
+    {
+      "date": "JUL 22–23, 2026",
+      "title": "QuantumScape shares slide despite narrower loss",
+      "description": "Q2 net loss $98.2M on $859M liquidity; Honda partnership and amended VW/PowerCo milestones highlighted, but cell-output ramp and pre-revenue timeline keep investors cautious."
+    },
+    {
+      "date": "JUL 23, 2026",
+      "title": "Eos Energy completes rights offering",
+      "description": "Raised ~$263M total to fund Frontier Power USA and unlock $1B+ of project capital; pre-announced record Q2 revenue of $68–69M (~3x shipments) and backlog of $807M."
+    },
+    {
+      "date": "ONGOING",
+      "title": "Data-center co-located storage deals",
+      "description": "Energy North's 16 GWh Project Ares (Australia) and Firmus's 600 MW supply deal; BloombergNEF now tracks 4.9 GW of storage co-located with onsite generation at data centers globally."
+    },
+    {
+      "date": "JUL 2026",
+      "title": "Fluence ships first US-made LFP cells",
+      "description": "Domestic lithium-iron-phosphate production begins ahead of Q3 earnings (Aug 5), a step toward FEOC-compliant, tariff-insulated supply."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "GRID",
+      "name": "First Trust Clean Edge Smart Grid",
+      "summary": "Grid infrastructure & equipment"
+    },
+    {
+      "ticker": "BATT",
+      "name": "Amplify Lithium & Battery",
+      "summary": "Battery value chain"
+    },
+    {
+      "ticker": "LIT",
+      "name": "Global X Lithium & Battery Tech",
+      "summary": "Lithium miners to battery makers"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Utility Dive — EIA: US utility-scale storage to reach 64.9 GW by 2026",
+      "url": "https://www.utilitydive.com/news/us-utility-scale-energy-storage-to-double-reach-65-gw-by-2027-eia/750338/"
+    },
+    {
+      "title": "Energy-Storage.news — Tesla energy margin declines despite deployment rebound",
+      "url": "https://www.energy-storage.news/teslas-energy-division-gross-margin-declines-19-despite-battery-storage-deployment-rebound/"
+    },
+    {
+      "title": "BigGo Finance — GE Vernova Q2 2026 earnings call",
+      "url": "https://finance.biggo.com/quote/GEV/earnings-call/US_GEV_2026-07-22"
+    },
+    {
+      "title": "Investing.com — QuantumScape Q2 2026 earnings call transcript",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-quantumscape-falls-after-q2-2026-update-on-losses-93CH-4807147"
+    },
+    {
+      "title": "GlobeNewswire — Eos Energy rights offering results",
+      "url": "https://www.globenewswire.com/news-release/2026/07/23/3332149/0/en/Eos-Energy-Announces-Expiration-and-Results-of-Rights-Offering.html"
+    },
+    {
+      "title": "CnEVPost — CATL & BYD global battery market share, Jan–May 2026",
+      "url": "https://cnevpost.com/2026/07/03/global-ev-battery-market-share-jan-may-2026/"
+    },
+    {
+      "title": "Energy-Storage.news — US import tariffs raise BESS policy risk",
+      "url": "https://www.energy-storage.news/us-import-tariffs-increase-the-policy-risk-for-bess/"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+}

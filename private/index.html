@@ -45,6 +45,7 @@
   .tile.t-education .ico{background:rgba(16,185,129,.14)}
   .tile.t-strategy .ico{background:rgba(255,95,31,.14)}
   .tile.t-ark .ico{background:rgba(245,158,11,.14)}
+  .tile.t-track .ico{background:rgba(16,185,129,.14)}
   .tile.open{border-color:var(--gm);background:linear-gradient(135deg,rgba(255,95,31,.05),rgba(192,37,232,.07))}
   .tile.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge))}
 
@@ -124,6 +125,9 @@
       <a class="nav-item" href="/private/macro.html">Macro</a>
       <div class="sidebar-section" style="margin-top:.5rem">Education</div>
       <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item" href="/private/calibration.html">Calibration</a>
       <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
       <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
       <a class="nav-item" href="/private/journal.html">Decision Journal</a>
@@ -165,6 +169,7 @@
         <button class="tile t-markets" onclick="openDrawer('markets',this)"><span class="ico">📈</span><h3>Markets</h3><p>Live quotes, the catalyst calendar, IPO pipeline, ETF comparisons &amp; macro.</p><span class="count">5 TOOLS · 2 LIVE</span></button>
         <button class="tile t-ark" onclick="openDrawer('ark',this)"><span class="ico">🧭</span><h3>Fund Watch</h3><p>ARK Invest's thesis, funds, trades &amp; the full Big Ideas 2026 report.</p><span class="count">ARK INVEST · PDF INCLUDED</span></button>
         <button class="tile t-education" onclick="openDrawer('education',this)"><span class="ico">🎓</span><h3>Education</h3><p>Learn investing from first principles — stocks, ETFs &amp; crypto, honestly explained.</p><span class="count">INVESTING 101 GUIDE</span></button>
+        <button class="tile t-track" onclick="openDrawer('track',this)"><span class="ico">📈</span><h3>Track Record</h3><p>Every week archived, and an honest scoreboard of whether your calls were right.</p><span class="count">ARCHIVE · CALIBRATION</span></button>
         <button class="tile t-strategy" onclick="openDrawer('strategy',this)"><span class="ico">🧭</span><h3>Strategy</h3><p>Portfolio construction, your decision journal &amp; paper-trading practice.</p><span class="count">1 GUIDE · 2 PRIVATE TOOLS</span></button>
       </div>
 
@@ -205,6 +210,14 @@
           <a class="sector-card featured" href="/private/education.html"><span class="sc-tag">START HERE</span><h3>Investing 101</h3><p>First principles, how markets work, buying stocks step-by-step, ETFs explained, crypto with both eyes open, risk management &amp; the classic mistakes — one honest guide.</p></a>
           <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRACTICE</span><h3>Paper Portfolio</h3><p>Apply what you learn with zero-risk practice positions.</p></a>
           <a class="sector-card" href="/private/journal.html"><span class="sc-tag">DISCIPLINE</span><h3>Decision Journal</h3><p>The habit that separates investors from gamblers.</p></a>
+        </div>
+      </div>
+
+      <div id="drawer-track" class="drawer">
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/calibration.html"><span class="sc-tag">THE SCOREBOARD</span><h3>Calibration</h3><p>Surfaces theses whose review date has passed, asks you to score them honestly, then charts your hit rate by sector and by conviction. The only page that grades you.</p></a>
+          <a class="sector-card" href="/private/archive.html"><span class="sc-tag">EVERY WEEK KEPT</span><h3>Research Archive</h3><p>Browse past weeks, compare how the numbers moved, and check pipeline coverage.</p></a>
+          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">INPUT</span><h3>Decision Journal</h3><p>Where theses get written down — the raw material for calibration.</p></a>
         </div>
       </div>
 

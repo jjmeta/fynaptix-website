@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Research Archive</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  .chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem}
+  .ch{font-family:var(--fm);font-size:.62rem;letter-spacing:.06em;padding:.4rem .85rem;border-radius:99px;cursor:pointer;
+    background:var(--bg2);border:1px solid var(--border);color:var(--muted);user-select:none;transition:all .15s}
+  .ch:hover{color:var(--text)}
+  .ch.on{background:rgba(46,208,245,.12);border-color:rgba(46,208,245,.4);color:var(--ge)}
+  .ch.dis{opacity:.32;cursor:not-allowed}
+  .cov{width:100%;border-collapse:collapse;font-size:.72rem}
+  .cov th{background:var(--bg3);font-family:var(--fm);font-size:.55rem;letter-spacing:.08em;color:var(--muted);
+    text-transform:uppercase;padding:.45rem .3rem;text-align:center}
+  .cov th:first-child{text-align:left;padding-left:.7rem}
+  .cov td{padding:.4rem .3rem;text-align:center;border-top:1px solid var(--border)}
+  .cov td:first-child{text-align:left;padding-left:.7rem;font-family:var(--fm);font-size:.65rem;color:var(--text)}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%}
+  .dot.y{background:var(--green)}
+  .dot.n{background:var(--border);border:1px solid var(--subtle)}
+  .kpi-cmp{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  @media(max-width:700px){.kpi-cmp{grid-template-columns:1fr}}
+  .snapv{font-family:var(--fd);font-size:1.35rem;font-weight:700;color:var(--ge)}
+  .snapsub{font-family:var(--fm);font-size:.58rem;color:var(--muted);letter-spacing:.05em;margin:.15rem 0 .3rem}
+  .snaplbl{font-size:.72rem;color:var(--muted);line-height:1.45}
+  #status{font-size:.82rem;color:var(--muted);padding:1rem 0}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item active" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item" href="/private/calibration.html">Calibration</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">TRACK RECORD // RESEARCH ARCHIVE</div>
+        <h2>Research Archive</h2>
+        <p>Every week's research, preserved — so you can see what you believed and when</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div><span id="badge">Loading…</span></div>
+    </div>
+
+    <div class="disclaimer"><strong>Why this exists.</strong> The live dashboards are overwritten every Monday. This archive keeps each week's snapshot so theses can be compared over time and scored later. History before Aug 2026 was recovered from git — coverage gaps below are real pipeline misses, not missing data.</div>
+
+    <section>
+      <div class="kicker">01 // BROWSE</div>
+      <div class="sec-title">Pick a Week &amp; Sector</div>
+      <div class="sec-note">Week</div>
+      <div class="chips" id="weekChips"></div>
+      <div class="sec-note">Sector</div>
+      <div class="chips" id="sectorChips"></div>
+      <div id="status">Loading archive…</div>
+      <div id="snapshot"></div>
+    </section>
+
+    <section id="cmpSec" style="display:none">
+      <div class="kicker">02 // COMPARE</div>
+      <div class="sec-title">Same Sector, Different Week</div>
+      <div class="sec-note">Compare against</div>
+      <div class="chips" id="cmpChips"></div>
+      <div id="cmpOut"></div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // COVERAGE</div>
+      <div class="sec-title">Pipeline Health</div>
+      <div class="sec-note">Which sectors were successfully captured each week. Gaps mean a scheduled task failed to publish that week — worth watching.</div>
+      <div class="tbl-wrap"><table class="cov" id="covTable"></table></div>
+    </section>
+
+    <footer>
+      <div style="margin-top:.5rem">Snapshots are written each Monday by the research pipeline into <code>/private/archive/&lt;date&gt;/&lt;sector&gt;.json</code>. Nothing here is overwritten — the archive only grows.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script>
+const NAMES={ai:'AI & Compute',robotics:'Robotics',defense:'Defense Tech',nuclear:'Nuclear & SMRs',minerals:'Critical Minerals',space:'Space Economy',storage:'Energy Storage',biotech:'AI Biotech',quantum:'Quantum',overview:'Weekly Brief',ark:'ARK Invest'};
+const esc=s=>(s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate=d=>new Date(d+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+let IDX=null, curWeek=null, curSector=null, curData=null;
+
+fetch('/private/archive/index.json').then(r=>r.json()).then(d=>{
+  IDX=d; if(!IDX.weeks||!IDX.weeks.length){document.getElementById('status').textContent='Archive is empty — snapshots begin with the next Monday run.';return;}
+  IDX.weeks.sort((a,b)=>b.date.localeCompare(a.date));
+  document.getElementById('badge').textContent=IDX.weeks.length+' weeks archived';
+  renderWeeks(); renderCoverage();
+  selectWeek(IDX.weeks[0].date);
+}).catch(()=>{document.getElementById('status').textContent='Could not load the archive index.';});
+
+function renderWeeks(){
+  document.getElementById('weekChips').innerHTML=IDX.weeks.map(w=>
+    `<span class="ch" data-w="${w.date}" onclick="selectWeek('${w.date}')">${fmtDate(w.date)}</span>`).join('');
+}
+function selectWeek(date){
+  curWeek=date;
+  document.querySelectorAll('#weekChips .ch').forEach(c=>c.classList.toggle('on',c.dataset.w===date));
+  const wk=IDX.weeks.find(w=>w.date===date);
+  document.getElementById('sectorChips').innerHTML=Object.keys(NAMES).map(s=>{
+    const has=wk.sectors.includes(s);
+    return `<span class="ch ${has?'':'dis'}" data-s="${s}" ${has?`onclick="selectSector('${s}')"`:''}>${esc(NAMES[s])}</span>`;
+  }).join('');
+  const pick = wk.sectors.includes(curSector)?curSector:wk.sectors[0];
+  if(pick) selectSector(pick); else {document.getElementById('snapshot').innerHTML='';document.getElementById('status').textContent='No sectors captured this week.';}
+}
+function selectSector(s){
+  curSector=s;
+  document.querySelectorAll('#sectorChips .ch').forEach(c=>c.classList.toggle('on',c.dataset.s===s));
+  document.getElementById('status').textContent='Loading snapshot…';
+  fetch(`/private/archive/${curWeek}/${s}.json`).then(r=>r.json()).then(d=>{curData=d;renderSnap(d);renderCmpChips();})
+    .catch(()=>{document.getElementById('status').textContent='Snapshot not found.';});
+}
+function renderSnap(d){
+  document.getElementById('status').textContent='';
+  let h=`<div class="card-sm" style="margin-bottom:1rem"><div class="kicker">${esc(d.kicker||'')}</div>
+    <div style="font-family:var(--fd);font-weight:700;font-size:1.05rem;margin:.2rem 0 .2rem">${esc(d.heading||NAMES[curSector])}</div>
+    <div style="font-size:.8rem;color:var(--muted)">${esc(d.subheading||'')}</div></div>`;
+  if(d.kpis&&d.kpis.length){
+    h+='<div class="grid-4">'+d.kpis.map(k=>`<div class="card-sm${k.highlight?' hl':''}"><div class="snapv">${esc(k.value)}</div><div class="snapsub">${esc(k.sub)}</div><div class="snaplbl">${esc(k.label)}</div></div>`).join('')+'</div>';
+  }
+  if(d.catalysts&&d.catalysts.length){
+    h+='<div class="kicker" style="margin-top:1.2rem">CATALYSTS AS OF THIS WEEK</div><div class="timeline" style="margin-top:.5rem">'+
+      d.catalysts.map(c=>`<div class="tl"><div class="dt">${esc(c.date)}</div><div class="tt">${esc(c.title)}</div><div class="bd">${esc(c.description)}</div></div>`).join('')+'</div>';
+  }
+  if(d.bear_case&&d.bear_case.length){
+    h+='<div class="kicker" style="margin-top:.6rem">BEAR CASE AS OF THIS WEEK</div><div class="grid-cards" style="margin-top:.5rem">'+
+      d.bear_case.map(b=>`<div class="card-sm risk"><div class="t">${esc(b.title)}</div><div class="d">${esc(b.description)}</div></div>`).join('')+'</div>';
+  }
+  if(d.tiers&&d.tiers.length){
+    h+='<div class="kicker" style="margin-top:1.2rem">WATCHLIST AS OF THIS WEEK</div>';
+    d.tiers.forEach(t=>{
+      const cols=t.columns||[];
+      h+=`<div class="tier-hdr"><span class="pill pill-blue">${esc(t.tier)}</span><span class="th-label">${esc(t.label||'')}</span></div>`;
+      h+='<div class="tbl-wrap"><table><tr>'+cols.map(c=>`<th>${esc(c)}</th>`).join('')+'</tr>'+
+        (t.rows||[]).map(r=>'<tr>'+cols.map((c,i)=>{
+          const v=r[c.toLowerCase()]??Object.values(r)[i]??'';
+          return `<td${i===0?' class="tk"':''}>${esc(v)}</td>`;}).join('')+'</tr>').join('')+'</table></div>';
+    });
+  }
+  document.getElementById('snapshot').innerHTML=h;
+}
+function renderCmpChips(){
+  const others=IDX.weeks.filter(w=>w.date!==curWeek&&w.sectors.includes(curSector));
+  const sec=document.getElementById('cmpSec');
+  if(!others.length){sec.style.display='none';return;}
+  sec.style.display='block';
+  document.getElementById('cmpChips').innerHTML=others.map(w=>`<span class="ch" onclick="compare('${w.date}',this)">${fmtDate(w.date)}</span>`).join('');
+  document.getElementById('cmpOut').innerHTML='<div class="sec-note">Pick a week above to see how the headline numbers changed.</div>';
+}
+function compare(date,el){
+  document.querySelectorAll('#cmpChips .ch').forEach(c=>c.classList.remove('on')); el.classList.add('on');
+  fetch(`/private/archive/${date}/${curSector}.json`).then(r=>r.json()).then(o=>{
+    const A=curData.kpis||[], B=o.kpis||[], n=Math.max(A.length,B.length);
+    let h='<div class="kpi-cmp">';
+    for(let i=0;i<n;i++){
+      const a=A[i],b=B[i];
+      h+=`<div class="card-sm"><div class="snapsub">${fmtDate(curWeek)}</div><div class="snapv">${esc(a?a.value:'—')}</div><div class="snaplbl">${esc(a?a.label:'')}</div></div>`;
+      h+=`<div class="card-sm" style="opacity:.75"><div class="snapsub">${fmtDate(date)}</div><div class="snapv">${esc(b?b.value:'—')}</div><div class="snaplbl">${esc(b?b.label:'')}</div></div>`;
+    }
+    h+='</div><div class="sec-note" style="margin-top:.7rem">KPI slots aren\'t guaranteed to line up week to week — read the labels, not just the positions.</div>';
+    document.getElementById('cmpOut').innerHTML=h;
+  });
+}
+function renderCoverage(){
+  const secs=Object.keys(NAMES).filter(s=>IDX.weeks.some(w=>w.sectors.includes(s)));
+  const wks=[...IDX.weeks].reverse();
+  let h='<tr><th>Sector</th>'+wks.map(w=>`<th>${fmtDate(w.date).replace(/ \d{4}$/,'')}</th>`).join('')+'</tr>';
+  secs.forEach(s=>{
+    h+=`<tr><td>${esc(NAMES[s])}</td>`+wks.map(w=>`<td><span class="dot ${w.sectors.includes(s)?'y':'n'}"></span></td>`).join('')+'</tr>';
+  });
+  document.getElementById('covTable').innerHTML=h;
+}
+</script>
+</body>
+</html>
