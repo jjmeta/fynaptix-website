@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · ARK Invest Research</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  .idea{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;border-top:3px solid var(--gm)}
+  .idea .num{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;color:var(--subtle)}
+  .idea .big{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin:.15rem 0 .1rem;
+    background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .idea .t{font-family:var(--fd);font-weight:600;font-size:.9rem;margin-bottom:.3rem}
+  .idea .d{font-size:.78rem;color:var(--muted);line-height:1.5}
+  .pdf-box{background:linear-gradient(135deg,rgba(255,95,31,.07),rgba(192,37,232,.09));border:1px solid rgba(192,37,232,.3);
+    border-radius:16px;padding:1.4rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+  .pdf-ico{width:56px;height:56px;border-radius:12px;background:rgba(192,37,232,.15);display:flex;align-items:center;
+    justify-content:center;font-size:1.6rem;flex-shrink:0}
+  .pdf-cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.7rem}
+  .pdf-btn{font-family:var(--fd);font-weight:600;font-size:.82rem;padding:.55rem 1.1rem;border-radius:9px;text-decoration:none;
+    background:linear-gradient(90deg,var(--gs),var(--gm));color:#fff}
+  .pdf-btn.ghost{background:var(--bg2);border:1px solid var(--border);color:var(--text)}
+  .pdf-btn.ghost:hover{border-color:var(--gm)}
+  .pdf-frame{width:100%;height:640px;border:1px solid var(--border);border-radius:14px;background:var(--bg2)}
+  @media(max-width:600px){.pdf-frame{height:420px}}
+  .verdict{border-left:3px solid var(--ge)}
+  .verdict .t{font-family:var(--fd);font-weight:600;font-size:.88rem;color:var(--ge);margin-bottom:.25rem}
+  .verdict .d{font-size:.78rem;color:var(--muted);line-height:1.5}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item active" href="/private/ark.html">ARK Invest</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">FUND WATCH // ARK INVEST</div>
+        <h2>ARK Invest Intelligence</h2>
+        <p>Cathie Wood's disruptive-innovation thesis, the funds, the trades &amp; Big Ideas 2026</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Generated Aug 4, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This page summarizes ARK Investment Management's published research and public fund disclosures for research purposes — it is not affiliated with or endorsed by ARK, and not a recommendation to buy or sell anything. ARK's forecasts are explicitly long-horizon and have a mixed track record; treat their price targets as one house's model, not consensus. Do your own due diligence.</div>
+
+    <section>
+      <div class="kicker">01 // THE THESIS</div>
+      <div class="sec-title">What ARK Actually Believes</div>
+      <div class="grid-cards">
+        <div class="card-sm theme"><span class="tag">CORE IDEA</span><div class="t">Disruptive innovation is under-owned</div><div class="d">ARK's founding claim: traditional benchmarks are built around the past, so genuinely new platforms sit outside index weights until they're already huge. They run concentrated, high-conviction, actively-managed funds to own them early.</div></div>
+        <div class="card-sm theme"><span class="tag">FIVE PLATFORMS</span><div class="t">Everything maps to five technologies</div><div class="d">AI, Energy Storage, Robotics, Multiomic Sequencing, and Public Blockchains — and crucially, ARK argues these <em>converge</em>, each accelerating the others rather than growing in isolation.</div></div>
+        <div class="card-sm theme"><span class="tag">WRIGHT'S LAW</span><div class="t">Costs fall on a schedule</div><div class="d">ARK's analytical engine: for every cumulative doubling of units produced, cost falls a predictable percentage. They use it to project launch costs (-17% per doubling), battery, sequencing and inference costs — then size the market that cheapness unlocks.</div></div>
+        <div class="card-sm theme"><span class="tag">TIME HORIZON</span><div class="t">Five years, not five quarters</div><div class="d">Every number on this page is a 2030 projection. ARK explicitly accepts high short-term volatility in exchange for the long arc — which is exactly why their funds swing far harder than the index in both directions.</div></div>
+        <div class="card-sm theme"><span class="tag">THE 2026 CLAIM</span><div class="t">"The Great Acceleration"</div><div class="d">This year's framing: AI is the central dynamo igniting an inflection in <em>macroeconomic</em> growth, not just tech-sector growth. ARK forecasts innovation's share of global equity market cap rising toward ~35% growth-driven dominance by 2030.</div></div>
+        <div class="card-sm theme"><span class="tag">WHY IT MATTERS HERE</span><div class="t">It overlaps your hub almost exactly</div><div class="d">ARK's platforms map onto seven of your nine sectors. Reading their thesis is a useful stress-test: where do you agree, where are they too optimistic, and what are they seeing that your research isn't?</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // BIG IDEAS 2026</div>
+      <div class="sec-title">The Annual Report — Headline Forecasts</div>
+      <div class="sec-note">ARK's 10th annual flagship report, 111 pages, 13 themes. Every figure below is ARK's own 2030 projection — read them as one firm's models, not facts.</div>
+
+      <div class="pdf-box">
+        <div class="pdf-ico">📕</div>
+        <div style="flex:1;min-width:240px">
+          <div style="font-family:var(--fd);font-weight:700;font-size:1.05rem">ARK Big Ideas 2026</div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:.2rem">Full research report · 111 pages · ARK Investment Management LLC · For informational purposes only</div>
+          <div class="pdf-cta">
+            <a class="pdf-btn" href="/private/docs/ark-big-ideas-2026.pdf" target="_blank" rel="noopener">Open full PDF</a>
+            <a class="pdf-btn ghost" href="/private/docs/ark-big-ideas-2026.pdf" download>Download</a>
+            <a class="pdf-btn ghost" href="#reader">Read inline ↓</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-cards" style="margin-top:1.2rem">
+        <div class="idea"><div class="num">IDEA 01 · THE GREAT ACCELERATION</div><div class="big">~35%</div><div class="t">Innovation's share of global equity value</div><div class="d">ARK projects disruptive-innovation market cap compounding far faster than non-innovation equities through 2030, with AI as the central dynamo lifting real GDP growth itself.</div></div>
+        <div class="idea"><div class="num">IDEA 02 · AI INFRASTRUCTURE</div><div class="big">$1.4T</div><div class="t">Annual data-centre systems investment by 2030</div><div class="d">~$500B in 2025 (2.5× the 2012–23 average) tripling by 2030. Growth in data-centre systems accelerated from a 5% to a 29% CAGR post-ChatGPT; inference costs fell &gt;99% in a year.</div></div>
+        <div class="idea"><div class="num">IDEA 03 · AI CONSUMER OS</div><div class="big">$8T+</div><div class="t">Online consumption facilitated by AI agents in 2030</div><div class="d">Agents rising from ~2% of online spend to ~25%. AI search could go from 10% to 65% of global search traffic, and AI-mediated consumer revenue from ~$20B to ~$900B (~105% CAGR).</div></div>
+        <div class="idea"><div class="num">IDEA 04 · AI PRODUCTIVITY</div><div class="big">$13T</div><div class="t">Global software spend, rapid-adoption case</div><div class="d">From $1.43T today, growing 19–56% annually depending on adoption speed. Software-development inference costs fell 91% in eight months. ARK argues hours worked fall without long-term unemployment rising.</div></div>
+        <div class="idea"><div class="num">IDEA 05 · BITCOIN</div><div class="big">~$16T</div><div class="t">Bitcoin market cap in 2030, base case</div><div class="d">~63% CAGR from ~$2T, built bottom-up from TAM penetration: institutional allocation, digital gold (~40% of gold's $24.4T cap), EM safe haven, nation-state and corporate treasuries. US ETFs + public companies already hold ~12% of supply.</div></div>
+        <div class="idea"><div class="num">IDEA 06 · DIGITAL ASSETS</div><div class="big">$28T</div><div class="t">Total digital-asset market cap in 2030</div><div class="d">~61% CAGR, with bitcoin ~70% of it and smart-contract networks ~$6T. ARK argues most L1 value comes from monetary premium, not cash flows — &gt;90% of Ethereum's value on their maths.</div></div>
+        <div class="idea"><div class="num">IDEA 07 · TOKENIZED ASSETS</div><div class="big">$11T</div><div class="t">Tokenized real-world assets by 2030</div><div class="d">From ~$19B — a ~1.38% share of all financial assets. Post-GENIUS Act, stablecoin volumes hit a $3.5T trailing-30-day average in Dec 2025, 2.3× the major legacy card networks combined.</div></div>
+        <div class="idea"><div class="num">IDEA 08 · DEFI APPLICATIONS</div><div class="big">$800M+</div><div class="t">Hyperliquid revenue with &lt;15 employees</div><div class="d">ARK's evidence that value is shifting from networks to applications: crypto-native firms (Hyperliquid, Tether, Pump.fun) now top global revenue-per-employee rankings, ahead of Nvidia, Apple and Meta.</div></div>
+        <div class="idea"><div class="num">IDEA 09 · MULTIOMICS</div><div class="big">$1.2Q</div><div class="t">US "healthy lifespan" opportunity (quadrillion)</div><div class="d">A deliberately theoretical ceiling: eliminating disease deaths and age-related decline would add ~11.9 billion quality-adjusted life years at $100k each. Nearer-term: AI cuts drug time-to-market 2–3 years today, 4–5 years with emerging methods.</div></div>
+        <div class="idea"><div class="num">IDEA 10 · REUSABLE ROCKETS</div><div class="big">$160B</div><div class="t">Annual satellite-connectivity revenue at scale</div><div class="d">~15% of ARK's global communications revenue forecast. Launch costs fall ~17% per cumulative doubling of upmass; bandwidth costs ~44% per doubling of Gbps in orbit.</div></div>
+        <div class="idea"><div class="num">IDEA 11 · ROBOTICS</div><div class="big">$26T</div><div class="t">Combined robotics revenue opportunity</div><div class="d">~$13T household + ~$13T manufacturing. ARK's boldest call: compute scaling laws put Tesla Optimus at human-level task performance around 2028 — while conceding humanoids are exponentially harder than robotaxis.</div></div>
+        <div class="idea"><div class="num">IDEA 12 · DISTRIBUTED ENERGY</div><div class="big">~$10T</div><div class="t">Cumulative global power investment by 2030</div><div class="d">Roughly 2× current capex to meet AI-era demand, with stationary storage deployments scaling ~19×. ARK expects nuclear cost declines to resume alongside solar and batteries.</div></div>
+        <div class="idea"><div class="num">IDEA 13 · AUTONOMOUS VEHICLES</div><div class="big">$34T</div><div class="t">Robotaxi enterprise value in 2030</div><div class="d">The single largest number in the report — and the most concentrated: ARK gives autonomous <em>technology platforms</em> the majority of the economics. Primary stated risk: whether automakers other than Tesla can scale fleets.</div></div>
+        <div class="idea"><div class="num">IDEA 14 · AUTONOMOUS LOGISTICS</div><div class="big">$480B</div><div class="t">Autonomous delivery revenue in 2030</div><div class="d">$320B over-the-road trucking + $160B last-mile drone/robot. Autonomous electric trucking cuts cost per ton-mile from ~$0.07 to ~$0.03; app delivery fees from ~$15 to under $1.</div></div>
+      </div>
+    </section>
+
+    <section id="reader">
+      <div class="kicker">03 // READ IT HERE</div>
+      <div class="sec-title">Big Ideas 2026 — Inline Reader</div>
+      <div class="sec-note">Full 111-page report. If the viewer doesn't load on your device, use "Open full PDF" above.</div>
+      <iframe class="pdf-frame" src="/private/docs/ark-big-ideas-2026.pdf#view=FitH" title="ARK Big Ideas 2026"></iframe>
+    </section>
+
+    <section>
+      <div class="kicker">04 // THE FUNDS</div>
+      <div class="sec-title">ARK's ETF Lineup</div>
+      <div class="sec-note">~12 funds, roughly $13B combined AUM, average expense ratio ~0.76% — actively managed and concentrated, which is the opposite of the cheap index core described in <a href="/private/strategy.html" style="color:var(--ge)">Portfolio Strategy</a>.</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Ticker</th><th>Fund</th><th>Focus</th><th>Notes</th></tr>
+        <tr><td class="tk">ARKK</td><td>ARK Innovation</td><td>Flagship, cross-platform disruptive innovation</td><td>The headline fund and sentiment barometer for the whole thematic complex; up ~3% YTD as of mid-July vs the S&amp;P's ~10.7%</td></tr>
+        <tr><td class="tk">ARKQ</td><td>Autonomous Tech &amp; Robotics</td><td>Robotics, autonomy, energy storage, 3D printing</td><td>Closest overlap with your <a href="/private/robotics.html" style="color:var(--ge)">Robotics</a> dashboard</td></tr>
+        <tr><td class="tk">ARKW</td><td>Next Generation Internet</td><td>Cloud, AI software, fintech, digital assets</td><td>Holds crypto exposure alongside internet platforms</td></tr>
+        <tr><td class="tk">ARKG</td><td>Genomic Revolution</td><td>Multiomics, gene editing, AI-driven biotech</td><td>Maps to <a href="/private/biotech.html" style="color:var(--ge)">AI Biotech</a>; historically ARK's most punished fund in the rate cycle</td></tr>
+        <tr><td class="tk">ARKX</td><td>Space &amp; Defense Innovation</td><td>Orbital/suborbital aerospace, enabling tech, defense</td><td>Renamed toward defense; maps to <a href="/private/space.html" style="color:var(--ge)">Space</a> and <a href="/private/defense.html" style="color:var(--ge)">Defense Tech</a></td></tr>
+        <tr><td class="tk">ARKF</td><td>Fintech Innovation</td><td>Blockchain, digital wallets, payments</td><td>Recent filings show Coinbase, Amazon, MercadoLibre-type positions</td></tr>
+        <tr><td class="tk">PRNT / IZRL</td><td>3D Printing / Israel Innovative Tech</td><td>Index-tracking niche funds</td><td>Passive, unlike the flagship actively-managed range</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // WHAT THEY'RE BUYING</div>
+      <div class="sec-title">Recent Conviction &amp; Trades</div>
+      <div class="sec-note">ARK publishes daily trade files — unusually transparent for an active manager. Recent direction (late July 2026):</div>
+      <div class="grid-cards">
+        <div class="card-sm theme"><span class="tag">ACCUMULATING</span><div class="t">Space &amp; defense</div><div class="d">ARK's highest-conviction theme in recent weeks. Bought ~$15M of SpaceX (SPCX) ahead of its earnings debut — the post-IPO name your <a href="/private/space.html" style="color:var(--ge)">Space dashboard</a> tracks.</div></div>
+        <div class="card-sm theme"><span class="tag">ACCUMULATING</span><div class="t">AI infrastructure</div><div class="d">Fresh capital into AI infra including CoreWeave, plus Meta bought across ARKK/ARKF/ARKW on post-earnings weakness (~$14–23M).</div></div>
+        <div class="card-sm theme"><span class="tag">ACCUMULATING</span><div class="t">Autonomous &amp; eVTOL</div><div class="d">Added ~$5M of Archer Aviation (ACHR); continued Tesla buying — consistent with the $34T robotaxi thesis being the report's biggest number.</div></div>
+        <div class="card-sm theme"><span class="tag">TRIMMING</span><div class="t">Robinhood, Shopify, Iridium</div><div class="d">Sold ~$10.4M HOOD, trimmed Shopify, and pared satellite-comms exposure (~$1.9M IRDM) — notable given Rocket Lab's pending Iridium acquisition.</div></div>
+      </div>
+      <div class="sec-note" style="margin-top:.8rem">Track the raw daily files at <a href="https://ark-funds.com" target="_blank" rel="noopener" style="color:var(--ge)">ark-funds.com</a> or the community tracker <a href="https://cathiesark.com" target="_blank" rel="noopener" style="color:var(--ge)">cathiesark.com</a>.</div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // HOW TO READ ARK</div>
+      <div class="sec-title">Strengths, Blind Spots &amp; the Honest Scorecard</div>
+      <div class="grid-cards">
+        <div class="card-sm verdict"><div class="t">Where ARK is genuinely useful</div><div class="d">Their cost-curve work (Wright's Law) is rigorous and often directionally right — sequencing, battery and inference costs really did collapse. The Big Ideas report is one of the best free primary-source syntheses of frontier tech available, with ~6 pages of citations.</div></div>
+        <div class="card-sm risk"><div class="t">The track record is genuinely mixed</div><div class="d">ARKK's 2020 run and subsequent drawdown means many investors' actual dollar-weighted returns were poor even across periods when the fund's own returns looked acceptable. Being early and being wrong are hard to tell apart in real time.</div></div>
+        <div class="card-sm risk"><div class="t">Forecasts assume everything compounds</div><div class="d">The models chain optimistic assumptions: adoption × penetration × take rate × multiple. Each is defensible alone; multiplied together they produce headline numbers ($34T, $1.2 quadrillion) that need heavy discounting.</div></div>
+        <div class="card-sm risk"><div class="t">Concentration and reflexivity</div><div class="d">ARK funds are concentrated in illiquid mid-caps and sometimes own large percentages of a company's float — which can amplify moves in both directions during inflows and redemptions.</div></div>
+        <div class="card-sm verdict"><div class="t">The right way to use this page</div><div class="d">As a thesis-generator and counterpoint, not a shopping list. Where ARK's number and your sector dashboard disagree, that gap is the interesting research question — log it in your <a href="/private/journal.html" style="color:var(--ge)">Decision Journal</a>.</div></div>
+        <div class="card-sm verdict"><div class="t">Note the quantum caveat</div><div class="d">Worth flagging for your <a href="/private/quantum.html" style="color:var(--ge)">Quantum dashboard</a>: ARK explicitly says quantum computing is "unlikely to be disruptive for 20 to 40 years" — a striking dissent from the sector's current valuations.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">07 // ARK vs YOUR HUB</div>
+      <div class="sec-title">Where Their Thesis Meets Your Sectors</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>ARK theme</th><th>Your dashboard</th><th>Agreement / tension</th></tr>
+        <tr><td class="tk">AI Infrastructure</td><td><a href="/private/ai.html" style="color:var(--ge)">AI &amp; Compute</a></td><td>Both track the capex supercycle. ARK is more bullish on duration; your page carries the bubble-debate bear case ARK largely doesn't engage with</td></tr>
+        <tr><td class="tk">Robotics ($26T)</td><td><a href="/private/robotics.html" style="color:var(--ge)">Robotics</a></td><td>ARK's 2028 human-level-Optimus call is far ahead of the teleoperation-skeptic view on your page. Useful disagreement to watch</td></tr>
+        <tr><td class="tk">Reusable Rockets</td><td><a href="/private/space.html" style="color:var(--ge)">Space Economy</a></td><td>Strong overlap; ARK is actively buying SpaceX post-IPO</td></tr>
+        <tr><td class="tk">Distributed Energy</td><td><a href="/private/nuclear.html" style="color:var(--ge)">Nuclear</a> + <a href="/private/storage.html" style="color:var(--ge)">Storage</a></td><td>ARK's ~$10T power capex and ~19× storage scaling support both your dashboards' core theses</td></tr>
+        <tr><td class="tk">Multiomics</td><td><a href="/private/biotech.html" style="color:var(--ge)">AI Biotech</a></td><td>Same platform, different framing — ARK leads with longevity TAM, your page leads with clinical proof points</td></tr>
+        <tr><td class="tk">Bitcoin &amp; Digital Assets</td><td><a href="/private/strategy.html" style="color:var(--ge)">Portfolio Strategy</a></td><td>ARK's ~$16T base case is far above the 1–5% institutional allocation framing on your strategy page. Both can't be right</td></tr>
+        <tr><td class="tk">Quantum</td><td><a href="/private/quantum.html" style="color:var(--ge)">Quantum</a></td><td>Direct contradiction — ARK says 20–40 years away, the sector trades at 100–800× sales today</td></tr>
+      </table></div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES</div>
+      <div class="src-list">
+        <div><a href="/private/docs/ark-big-ideas-2026.pdf" target="_blank">ARK Big Ideas 2026 (full report, hosted here)</a></div>
+        <div><a href="https://www.ark-funds.com/funds/arkk" target="_blank" rel="noopener">ARK Funds — ARKK</a></div>
+        <div><a href="https://stockanalysis.com/etf/provider/ark/" target="_blank" rel="noopener">StockAnalysis — ARK ETF list</a></div>
+        <div><a href="https://cathiesark.com/ark-funds-combined/trades" target="_blank" rel="noopener">Cathie's ARK — combined daily trades</a></div>
+        <div><a href="https://seekingalpha.com/news/4623173-cathie-wood-loads-up-on-spacex-before-earnings-debut-buys-coreweave-tesla-trims-shopify" target="_blank" rel="noopener">Seeking Alpha — SpaceX, CoreWeave, Tesla buys</a></div>
+        <div><a href="https://www.benzinga.com/etfs/sector-etfs/26/07/60646376/cathie-wood-robinhood-hood-spacex-spcx-archer-ark-moonshot-innovation" target="_blank" rel="noopener">Benzinga — HOOD sold, SPCX/ACHR bought</a></div>
+      </div>
+      <div style="margin-top:.8rem">Big Ideas figures are ARK's own 2030 projections, quoted as of the report's Jan 2026 publication. Fund and trade data as of early Aug 2026. Refreshed weekly (Mondays). ARK Big Ideas 2026 © ARK Investment Management LLC, reproduced here for personal research use.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</body>
+</html>

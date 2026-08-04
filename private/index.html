@@ -43,6 +43,7 @@
   .tile.t-markets .ico{background:rgba(192,37,232,.14)}
   .tile.t-education .ico{background:rgba(16,185,129,.14)}
   .tile.t-strategy .ico{background:rgba(255,95,31,.14)}
+  .tile.t-ark .ico{background:rgba(245,158,11,.14)}
   .tile.open{border-color:var(--gm);background:linear-gradient(135deg,rgba(255,95,31,.05),rgba(192,37,232,.07))}
   .tile.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge))}
 
@@ -112,6 +113,8 @@
       <a class="nav-item" href="/private/storage.html">Energy Storage</a>
       <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
       <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
       <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
       <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
       <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
@@ -158,6 +161,7 @@
       <div class="tiles">
         <button class="tile t-research open" onclick="openDrawer('research',this)"><span class="ico">🔬</span><h3>Deep-Dive Research</h3><p>Nine emerging-tech sectors, each with tiered watchlists, bear cases &amp; catalysts.</p><span class="count">9 DASHBOARDS + WEEKLY BRIEF</span></button>
         <button class="tile t-markets" onclick="openDrawer('markets',this)"><span class="ico">📈</span><h3>Markets</h3><p>Live quotes, the catalyst calendar, IPO pipeline, ETF comparisons &amp; macro.</p><span class="count">5 TOOLS · 2 LIVE</span></button>
+        <button class="tile t-ark" onclick="openDrawer('ark',this)"><span class="ico">🧭</span><h3>Fund Watch</h3><p>ARK Invest's thesis, funds, trades &amp; the full Big Ideas 2026 report.</p><span class="count">ARK INVEST · PDF INCLUDED</span></button>
         <button class="tile t-education" onclick="openDrawer('education',this)"><span class="ico">🎓</span><h3>Education</h3><p>Learn investing from first principles — stocks, ETFs &amp; crypto, honestly explained.</p><span class="count">INVESTING 101 GUIDE</span></button>
         <button class="tile t-strategy" onclick="openDrawer('strategy',this)"><span class="ico">🧭</span><h3>Strategy</h3><p>Portfolio construction, your decision journal &amp; paper-trading practice.</p><span class="count">1 GUIDE · 2 PRIVATE TOOLS</span></button>
       </div>
@@ -184,6 +188,13 @@
           <a class="sector-card" href="/private/ipo.html"><span class="sc-tag">WEEKLY</span><h3>IPO Pipeline</h3><p>Private giants heading to public markets.</p></a>
           <a class="sector-card" href="/private/etfs.html"><span class="sc-tag">WEEKLY</span><h3>ETF Compare</h3><p>All thematic funds: fees, concentration, character.</p></a>
           <a class="sector-card" href="/private/macro.html"><span class="sc-tag">LIVE</span><h3>Macro Dashboard</h3><p>Rates, VIX, gold, bitcoin &amp; the dollar.</p></a>
+        </div>
+      </div>
+
+      <div id="drawer-ark" class="drawer">
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/ark.html"><span class="sc-tag">FUND WATCH</span><h3>ARK Invest</h3><p>Cathie Wood's disruptive-innovation thesis, the ETF lineup, what ARK is buying and selling, an honest scorecard — plus the full Big Ideas 2026 report to read or download.</p></a>
+          <a class="sector-card" href="/private/docs/ark-big-ideas-2026.pdf" target="_blank" rel="noopener"><span class="sc-tag">PDF · 111 PAGES</span><h3>Big Ideas 2026</h3><p>ARK's flagship annual research report, hosted here in full.</p></a>
         </div>
       </div>
 
