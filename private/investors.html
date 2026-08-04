@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Investor Voices</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  .spectrum{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.3rem 1rem}
+  .spec-bar{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--red),var(--amber),var(--muted),var(--ge),var(--green));margin:.3rem 0 .9rem}
+  .spec-ends{display:flex;justify-content:space-between;font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;color:var(--muted)}
+  .spec-row{display:grid;grid-template-columns:150px 1fr;gap:.7rem;align-items:center;padding:.42rem 0;border-top:1px solid var(--border)}
+  .spec-row:first-of-type{border-top:none}
+  .spec-name{font-family:var(--fd);font-weight:600;font-size:.82rem}
+  .spec-name small{display:block;font-family:var(--fm);font-size:.55rem;color:var(--muted);letter-spacing:.05em;font-weight:400}
+  .spec-track{position:relative;height:16px}
+  .spec-dot{position:absolute;top:3px;width:11px;height:11px;border-radius:50%;transform:translateX(-50%)}
+  @media(max-width:640px){.spec-row{grid-template-columns:110px 1fr}}
+  .quote{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gm);border-radius:12px;padding:1rem 1.15rem}
+  .quote.bull{border-left-color:var(--green)}
+  .quote.bear{border-left-color:var(--red)}
+  .quote.neutral{border-left-color:var(--muted)}
+  .q-hd{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;align-items:baseline}
+  .q-who{font-family:var(--fd);font-weight:700;font-size:.9rem}
+  .q-org{font-family:var(--fm);font-size:.58rem;color:var(--muted);letter-spacing:.05em}
+  .q-date{font-family:var(--fm);font-size:.58rem;color:var(--ge);letter-spacing:.06em;white-space:nowrap}
+  .q-text{font-size:.88rem;line-height:1.6;margin:.55rem 0 .45rem;color:var(--text)}
+  .q-text em{color:var(--text);font-style:italic}
+  .q-ctx{font-size:.76rem;color:var(--muted);line-height:1.5}
+  .q-src{font-family:var(--fm);font-size:.56rem;letter-spacing:.05em;margin-top:.5rem;display:inline-block}
+  .q-src a{color:var(--blue);text-decoration:none}
+  .stance{font-family:var(--fm);font-size:.53rem;letter-spacing:.08em;padding:.16rem .5rem;border-radius:5px}
+  .st-bull{background:rgba(16,185,129,.13);color:var(--green)}
+  .st-bear{background:rgba(239,68,68,.13);color:var(--red)}
+  .st-neu{background:rgba(255,255,255,.06);color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
+      <a class="nav-item active" href="/private/investors.html">Investor Voices</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item" href="/private/calibration.html">Calibration</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">FUND WATCH // INVESTOR VOICES</div>
+        <h2>Investor Voices</h2>
+        <p>What the sharpest investors in these sectors said this week — and where they disagree</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Week of Aug 4, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice — and explicitly not a list to copy.</strong> Everyone here has been badly wrong at some point, and several are directly contradicting each other right now. Quotes are summarized from public reporting and interviews; positions from public filings. The value is in the disagreement, not the authority.</div>
+
+    <section>
+      <div class="kicker">01 // THE SPECTRUM</div>
+      <div class="sec-title">Where They Stand on the AI Trade</div>
+      <div class="sec-note">One picture of how far apart serious, successful investors currently are on the same set of facts.</div>
+      <div class="spectrum">
+        <div class="spec-ends"><span>MAXIMUM BEAR</span><span>NEUTRAL / ABSTAINING</span><span>MAXIMUM BULL</span></div>
+        <div class="spec-bar"></div>
+        <div class="spec-row"><div class="spec-name">Michael Burry<small>SCION</small></div><div class="spec-track"><span class="spec-dot" style="left:5%;background:var(--red)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Bill Gurley<small>BENCHMARK</small></div><div class="spec-track"><span class="spec-dot" style="left:16%;background:var(--red)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Druckenmiller / Einhorn<small>DUQUESNE · GREENLIGHT</small></div><div class="spec-track"><span class="spec-dot" style="left:28%;background:var(--amber)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Warren Buffett / Greg Abel<small>BERKSHIRE</small></div><div class="spec-track"><span class="spec-dot" style="left:42%;background:var(--muted)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Tom Slater<small>BAILLIE GIFFORD</small></div><div class="spec-track"><span class="spec-dot" style="left:72%;background:var(--ge)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Philippe Laffont<small>COATUE</small></div><div class="spec-track"><span class="spec-dot" style="left:80%;background:var(--ge)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Cathie Wood<small>ARK INVEST</small></div><div class="spec-track"><span class="spec-dot" style="left:90%;background:var(--green)"></span></div></div>
+        <div class="spec-row"><div class="spec-name">Masayoshi Son<small>SOFTBANK</small></div><div class="spec-track"><span class="spec-dot" style="left:97%;background:var(--green)"></span></div></div>
+      </div>
+      <div class="sec-note" style="margin-top:.7rem">Positions are our reading of public statements and disclosed positioning, not a precise metric. The point is the spread: these people see the same data and reach opposite conclusions.</div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // THIS WEEK</div>
+      <div class="sec-title">What They're Saying</div>
+      <div class="sec-note">Recent public commentary and moves, most consequential first. Refreshed every Monday.</div>
+      <div class="grid-cards" style="grid-template-columns:1fr">
+
+        <div class="quote bear">
+          <div class="q-hd"><div><span class="q-who">Michael Burry</span> <span class="q-org">SCION ASSET MANAGEMENT</span> <span class="stance st-bear">BEAR</span></div><span class="q-date">MAY–AUG 2026</span></div>
+          <div class="q-text">"The market has jumped the shark."</div>
+          <div class="q-ctx">Burry has backed the rhetoric with capital: a leveraged short via January 2027 put options on the semiconductor ETF SOXX. He blames "fear of missing out, the greater fool theory, and public commitment bias," compares conditions to the final months of 1999–2000, and said of the Samsung/SK Hynix Korean chip hub announcement: "I see that as the beginning of the end." Relevant to your <a href="/private/ai.html" style="color:var(--ge)">AI &amp; Compute</a> bear case — though note Burry has called several crashes that didn't arrive on his timetable.</div>
+          <div class="q-src"><a href="https://finance.yahoo.com/markets/stocks/articles/big-short-legend-michael-burry-104500719.html" target="_blank" rel="noopener">Yahoo Finance ↗</a></div>
+        </div>
+
+        <div class="quote bull">
+          <div class="q-hd"><div><span class="q-who">Masayoshi Son</span> <span class="q-org">SOFTBANK</span> <span class="stance st-bull">MAXIMUM BULL</span></div><span class="q-date">JUN 2026</span></div>
+          <div class="q-text">Called AI bubble talk an <em>"insult"</em> — and delayed his retirement to keep going.</div>
+          <div class="q-ctx">The most aggressive positioning of anyone here: ~$41bn into OpenAI for roughly an 11% stake, the entire Nvidia holding sold for $5.8bn to fund it, ABB's robotics division bought for $5.375bn, Ampere for $6.5bn, plus Stargate with OpenAI and Oracle envisaging up to $500bn of infrastructure. He says SoftBank is "the first in the world to have robots manufacturing robots at scale" and is preparing to list a new AI/robotics vehicle, Roze, at a target ~$100bn. Note the direct link to your <a href="/private/robotics.html" style="color:var(--ge)">Robotics</a> page: SoftBank is the buyer of ABB's robotics arm.</div>
+          <div class="q-src"><a href="https://www.taipeitimes.com/News/biz/archives/2026/06/25/2003859680" target="_blank" rel="noopener">Taipei Times ↗</a> · <a href="https://www.outlookbusiness.com/deeptech/masayoshi-son-rejects-ai-bubble-fears-outlines-softbanks-plans-of-robots-manufacturing-robots" target="_blank" rel="noopener">Outlook Business ↗</a></div>
+        </div>
+
+        <div class="quote neutral">
+          <div class="q-hd"><div><span class="q-who">Warren Buffett / Greg Abel</span> <span class="q-org">BERKSHIRE HATHAWAY</span> <span class="stance st-neu">ABSTAINING</span></div><span class="q-date">2026 YTD</span></div>
+          <div class="q-text">Roughly <em>$397bn</em> in cash and T-bills — and a 14th consecutive quarter of net equity selling.</div>
+          <div class="q-ctx">The loudest statement on this page is made without words. Cash and T-bills now represent about 59% of Berkshire's cash-plus-equity portfolio, against a 30–35% historical norm, with Buffett citing difficulty finding large acquisitions at sensible prices. Greg Abel's first shareholder letter marks the leadership transition. Refusing to participate is itself a position — and the direct opposite of Son's.</div>
+          <div class="q-src"><a href="https://moatifi.com/blog/berkshire-hathaway-portfolio-2026-analysis" target="_blank" rel="noopener">Moatifi — Berkshire 2026 ↗</a> · <a href="https://13f.info/manager/0001067983-berkshire-hathaway-inc" target="_blank" rel="noopener">13F filings ↗</a></div>
+        </div>
+
+        <div class="quote bear">
+          <div class="q-hd"><div><span class="q-who">Bill Gurley</span> <span class="q-org">BENCHMARK</span> <span class="stance st-bear">BEAR</span></div><span class="q-date">MAR 2026</span></div>
+          <div class="q-text">"One day, I just think we trip and run out of money on those things."</div>
+          <div class="q-ctx">Gurley's concern is the financing structure rather than the technology — that AI capex is being funded faster than any revenue curve can support. It's the venture-side version of the capex-vs-revenue gap on your AI page, and carries weight because Gurley has spent decades funding exactly these companies.</div>
+          <div class="q-src"><a href="https://fortune.com/2026/03/17/is-ai-bubble-bill-gurley-run-out-of-money/" target="_blank" rel="noopener">Fortune ↗</a></div>
+        </div>
+
+        <div class="quote bull">
+          <div class="q-hd"><div><span class="q-who">Philippe Laffont</span> <span class="q-org">COATUE</span> <span class="stance st-bull">BULL</span></div><span class="q-date">MAY–2026</span></div>
+          <div class="q-text">Framed the moment as an <em>"Agentic Big Bang"</em> in Coatue's market report.</div>
+          <div class="q-ctx">Backed by positioning: TSMC around 6.56% of assets and increased ~6.9% in the quarter, with technology over 40% of the US long book. The fund is up ~24.5% this year on the AI rally, and has extended the thesis into power and infrastructure — the same convergence your <a href="/private/nuclear.html" style="color:var(--ge)">Nuclear</a> and <a href="/private/storage.html" style="color:var(--ge)">Storage</a> pages track.</div>
+          <div class="q-src"><a href="https://www.globaldatacenterhub.com/p/15-key-takeaways-from-philippe-laffonts" target="_blank" rel="noopener">Coatue update takeaways ↗</a> · <a href="https://www.gurufocus.com/news/8944043/coatue-hedge-fund-jumps-245-this-year-on-ai-rally" target="_blank" rel="noopener">GuruFocus ↗</a></div>
+        </div>
+
+        <div class="quote bull">
+          <div class="q-hd"><div><span class="q-who">Tom Slater</span> <span class="q-org">BAILLIE GIFFORD · SCOTTISH MORTGAGE</span> <span class="stance st-bull">BULL</span></div><span class="q-date">2026 ANNUAL RESULTS</span></div>
+          <div class="q-text">On SpaceX: <em>"a degree of concentration which is highly unusual for us."</em></div>
+          <div class="q-ctx">Candid framing of a position that grew past 19% of the trust as SpaceX reached ~$800bn — and drove NAV up 27.4% against the FTSE All-World's ~18%. Notable for being a bull acknowledging his own concentration risk out loud. Full detail on the <a href="/private/bailliegifford.html" style="color:var(--ge)">Baillie Gifford</a> page.</div>
+          <div class="q-src"><a href="https://quoteddata.com/2026/03/scottish-mortgage-wants-to-lift-its-private-equity-holdings-after-spacexs-surge/" target="_blank" rel="noopener">QuotedData ↗</a></div>
+        </div>
+
+        <div class="quote neutral">
+          <div class="q-hd"><div><span class="q-who">Tiger Global</span> <span class="q-org">CHASE COLEMAN</span> <span class="stance st-neu">CONCENTRATED BULL</span></div><span class="q-date">2026</span></div>
+          <div class="q-text">Down from 340 deals a year to a concentrated core of five AI-infrastructure names — TSMC first.</div>
+          <div class="q-ctx">A notable behavioural reversal: the firm most associated with 2021's spray-and-pray venture peak now argues the AI cycle rewards concentration over breadth. Both Tiger and Coatue independently landing on TSMC as the key holding is a signal worth noting against the Taiwan-risk caveat on your AI page.</div>
+          <div class="q-src"><a href="https://finance.biggo.com/news/4a72b69d-3ee9-4d2d-bb53-2187525da620" target="_blank" rel="noopener">BigGo Finance ↗</a></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // THE DISAGREEMENT</div>
+      <div class="sec-title">Where the Real Argument Is</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Question</th><th>Bull answer</th><th>Bear answer</th></tr>
+        <tr><td class="tk">Is AI capex funded sustainably?</td><td>Son: revenue and infrastructure both compound; scale is the moat</td><td>Gurley: "we trip and run out of money"; the financing outruns adoption</td></tr>
+        <tr><td class="tk">Are semis in a bubble?</td><td>Coatue/Tiger: TSMC is the essential chokepoint, worth owning heavily</td><td>Burry: short SOXX via Jan-2027 puts; BofA's bubble indicator at 0.91</td></tr>
+        <tr><td class="tk">What do you do with cash now?</td><td>Wood/Son: deploy into the platform shift before it's priced</td><td>Buffett: hold ~$397bn and wait for sensible prices</td></tr>
+        <tr><td class="tk">Does concentration help or kill?</td><td>Slater/Coleman: a few winners produce almost all returns</td><td>Every drawdown study: concentration is also how portfolios die</td></tr>
+      </table></div>
+      <div class="sec-note" style="margin-top:.7rem">If you can't state the strongest version of both columns, you don't understand the trade yet. That's the real use of this page.</div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // HOW TO USE THIS</div>
+      <div class="sec-title">Reading Famous Investors Without Getting Hurt</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">Survivorship bias is enormous</div><div class="d">You hear from the ones who were right. The equally confident managers who blew up don't get interviewed. Fame is evidence of a good run, not of a repeatable process.</div></div>
+        <div class="card-sm risk"><div class="t">Their constraints aren't yours</div><div class="d">Burry can hold puts that expire worthless; Berkshire can sit in cash for years; Son can lose $10bn and continue. Your timeline, tax position and tolerance are different — copying their positions without their balance sheet is how people get hurt.</div></div>
+        <div class="card-sm risk"><div class="t">13F filings lag by up to 45 days</div><div class="d">Anything sourced from filings shows long US equity positions only — no shorts, bonds, derivatives or overseas holdings — and may already have been sold. Treat it as archaeology, not a signal.</div></div>
+        <div class="card-sm theme"><span class="tag">BETTER USE</span><div class="t">Mine the reasoning, not the ticker</div><div class="d">The valuable part is <em>why</em> — Gurley's funding argument, Buffett's price discipline, Son's convergence thesis. Test those arguments against your own sector pages, then log where you land in the <a href="/private/journal.html" style="color:var(--ge)">Decision Journal</a>.</div></div>
+        <div class="card-sm theme"><span class="tag">BEST USE</span><div class="t">Find who disagrees with you</div><div class="d">If everyone on this page you find persuasive sits on the same side of the spectrum, that's a warning about your reading habits rather than a confirmation of your thesis.</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">SOURCES // THIS EDITION</div>
+      <div class="src-list">
+        <div><a href="https://finance.yahoo.com/markets/stocks/articles/big-short-legend-michael-burry-104500719.html" target="_blank" rel="noopener">Yahoo — Burry on 1999-2000 parallels</a></div>
+        <div><a href="https://www.thestreet.com/investing/big-short-investor-michael-burry-issues-blunt-4-word-warning-on-ai-stocks" target="_blank" rel="noopener">TheStreet — Burry's AI warning</a></div>
+        <div><a href="https://fortune.com/2026/03/17/is-ai-bubble-bill-gurley-run-out-of-money/" target="_blank" rel="noopener">Fortune — Bill Gurley on the reset</a></div>
+        <div><a href="https://www.taipeitimes.com/News/biz/archives/2026/06/25/2003859680" target="_blank" rel="noopener">Taipei Times — Son calls bubble talk an insult</a></div>
+        <div><a href="https://www.cnbc.com/2025/10/08/softbank-to-buy-abb-robotics-unit-for-5point4-billion-in-ai-push.html" target="_blank" rel="noopener">CNBC — SoftBank buys ABB robotics</a></div>
+        <div><a href="https://moatifi.com/blog/berkshire-hathaway-portfolio-2026-analysis" target="_blank" rel="noopener">Moatifi — Berkshire portfolio &amp; cash 2026</a></div>
+        <div><a href="https://www.globaldatacenterhub.com/p/15-key-takeaways-from-philippe-laffonts" target="_blank" rel="noopener">Coatue — Laffont public markets update</a></div>
+        <div><a href="https://finance.biggo.com/news/4a72b69d-3ee9-4d2d-bb53-2187525da620" target="_blank" rel="noopener">BigGo — Tiger Global's five core AI holdings</a></div>
+      </div>
+      <div style="margin-top:.8rem">Quotes are summarized or excerpted from public reporting and linked to source; positions from public filings and company statements as of Aug 4, 2026. Refreshed weekly (Mondays). Nobody on this page knows what happens next.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</body>
+</html>
