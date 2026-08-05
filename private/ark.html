@@ -140,6 +140,9 @@
         <div class="idea"><div class="num">IDEA 13 · AUTONOMOUS VEHICLES</div><div class="big">$34T</div><div class="t">Robotaxi enterprise value in 2030</div><div class="d">The single largest number in the report — and the most concentrated: ARK gives autonomous <em>technology platforms</em> the majority of the economics. Primary stated risk: whether automakers other than Tesla can scale fleets.</div></div>
         <div class="idea"><div class="num">IDEA 14 · AUTONOMOUS LOGISTICS</div><div class="big">$480B</div><div class="t">Autonomous delivery revenue in 2030</div><div class="d">$320B over-the-road trucking + $160B last-mile drone/robot. Autonomous electric trucking cuts cost per ton-mile from ~$0.07 to ~$0.03; app delivery fees from ~$15 to under $1.</div></div>
       </div>
+
+      <div class="card chart-lg" style="margin-top:1.2rem"><canvas id="ideasChart"></canvas></div>
+      <div class="chart-cap"><strong>All 14 forecasts, same scale.</strong> Log-scaled so a $160B call and a $34T call can share one chart. Two ideas are deliberately left off: "The Great Acceleration" (~35%) is a share of market cap, not a dollar figure, and Multiomics' $1.2 quadrillion "healthy lifespan" number is an explicitly theoretical ceiling ARK itself frames as illustrative, not a market-size forecast — plotting it alongside the others would visually imply a comparability that isn't there.</div>
     </section>
 
     <section id="reader">
@@ -154,6 +157,14 @@
       <div class="sec-title">ARK's ETF Lineup</div>
       <div class="card-sm risk" style="margin-bottom:1rem"><div class="t">UK access — read this before shopping for tickers</div><div class="d">The US-listed ARK ETFs below generally <strong>cannot be bought by UK retail investors</strong>: they aren't UCITS-compliant and don't publish a KID under PRIIPs. ARK acquired Rize ETF in 2023 and now runs UCITS versions listed in London — including one also ticker'd ARKK — available via Trading 212, Hargreaves Lansdown, Interactive Investor, IBKR and similar. The UCITS funds hold different portfolios and fee structures from their US namesakes, so check the ISIN, not just the ticker. For UK-accessible exposure to the private names, see <a href="/private/bailliegifford.html" style="color:var(--ge)">Baillie Gifford</a>.</div></div>
       <div class="sec-note">~12 funds, roughly $13B combined AUM, average expense ratio ~0.76% — actively managed and concentrated, which is the opposite of the cheap index core described in <a href="/private/strategy.html" style="color:var(--ge)">Portfolio Strategy</a>.</div>
+
+      <div class="grid-2" style="margin-bottom:1.2rem">
+        <div class="card chart-md"><canvas id="perfChart"></canvas></div>
+        <div class="card chart-md"><canvas id="aumChart"></canvas></div>
+      </div>
+      <div class="card chart-md" style="margin-bottom:.6rem"><canvas id="concChart"></canvas></div>
+      <div class="chart-cap" style="margin-bottom:1.2rem"><strong>Read the return chart against the concentration chart together.</strong> ARKG's 70% is the best 1-year number here, on a fund where the top 10 holdings are nearly 59% of assets — a handful of names did almost all of that work. ARKK sits closest to a diversified stance at 48% top-10 weight and still trailed the S&amp;P by ~19 points over the year. Figures as of Aug 4, 2026; source <a href="https://stockanalysis.com/etf/provider/ark/" target="_blank" rel="noopener" style="color:var(--ge)">StockAnalysis.com</a>.</div>
+
       <div class="tbl-wrap"><table>
         <tr><th>Ticker</th><th>Fund</th><th>Focus</th><th>Notes</th></tr>
         <tr><td class="tk">ARKK</td><td>ARK Innovation</td><td>Flagship, cross-platform disruptive innovation</td><td>The headline fund and sentiment barometer for the whole thematic complex; up ~3% YTD as of mid-July vs the S&amp;P's ~10.7%</td></tr>
@@ -176,6 +187,10 @@
         <div class="card-sm theme"><span class="tag">ACCUMULATING</span><div class="t">Autonomous &amp; eVTOL</div><div class="d">Added ~$5M of Archer Aviation (ACHR); continued Tesla buying — consistent with the $34T robotaxi thesis being the report's biggest number.</div></div>
         <div class="card-sm theme"><span class="tag">TRIMMING</span><div class="t">Robinhood, Shopify, Iridium</div><div class="d">Sold ~$10.4M HOOD, trimmed Shopify, and pared satellite-comms exposure (~$1.9M IRDM) — notable given Rocket Lab's pending Iridium acquisition.</div></div>
       </div>
+
+      <div class="card chart-md" style="margin-top:1.2rem"><canvas id="flowChart"></canvas></div>
+      <div class="chart-cap">Approximate net dollar flow per name from ARK's daily trade disclosures, late July–early Aug 2026. Shopify and CoreWeave moves were disclosed without a precise dollar figure and are omitted from the chart rather than estimated.</div>
+
       <div class="sec-note" style="margin-top:.8rem">Track the raw daily files at <a href="https://ark-funds.com" target="_blank" rel="noopener" style="color:var(--ge)">ark-funds.com</a> or the community tracker <a href="https://cathiesark.com" target="_blank" rel="noopener" style="color:var(--ge)">cathiesark.com</a>.</div>
     </section>
 
@@ -224,5 +239,159 @@
 
 <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script>
+(function(){
+  var MUTED='#6b7a99', BORDER='rgba(255,255,255,0.06)', TEXT='#e8edf8';
+  var GREEN='#10b981', RED='#ef4444', PURPLE='#c025e8', CYAN='#2ed0f5', ORANGE='#ff5f1f', BLUE='#3b82f6';
+  Chart.defaults.font.family = "'DM Sans',sans-serif";
+  Chart.defaults.color = MUTED;
+
+  function grad(ctx,area,c1,c2){
+    var g=ctx.createLinearGradient(0,area.top,0,area.bottom);
+    g.addColorStop(0,c1); g.addColorStop(1,c2); return g;
+  }
+
+  // 1-Year Total Return vs S&P 500
+  new Chart(document.getElementById('perfChart'), {
+    type:'bar',
+    data:{
+      labels:['ARKG','ARKQ','ARKX','S&P 500','ARKK','ARKW','ARKF'],
+      datasets:[{
+        label:'1-Year Total Return',
+        data:[69.89,25.43,23.64,25.44,6.61,-4.74,-25.92],
+        backgroundColor:function(c){
+          var v=c.raw; return v==null?MUTED:(c.label==='S&P 500'?BLUE:(v>=0?GREEN:RED));
+        },
+        borderRadius:4, borderSkipped:false
+      }]
+    },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+        title:{display:true,text:'Fund Performance vs S&P 500 (1-Year Total Return)',color:TEXT,font:{family:"'Outfit',sans-serif",size:13,weight:'700'},padding:{bottom:10}},
+        tooltip:{callbacks:{label:function(c){return c.raw.toFixed(2)+'%'}}}
+      },
+      scales:{
+        x:{ grid:{color:BORDER}, ticks:{callback:function(v){return v+'%'}} },
+        y:{ grid:{display:false} }
+      }
+    }
+  });
+
+  // Assets Under Management
+  new Chart(document.getElementById('aumChart'), {
+    type:'bar',
+    data:{
+      labels:['ARKK','ARKQ','ARKW','ARKG','ARKX','ARKF'],
+      datasets:[{
+        label:'AUM ($B)',
+        data:[5.75,1.85,1.64,1.62,0.76,0.72],
+        backgroundColor:function(c){
+          var ctx=c.chart.ctx, area=c.chart.chartArea;
+          if(!area) return PURPLE;
+          return grad(ctx,area,PURPLE,'#7a1899');
+        },
+        borderRadius:4, borderSkipped:false
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+        title:{display:true,text:'Assets Under Management ($B)',color:TEXT,font:{family:"'Outfit',sans-serif",size:13,weight:'700'},padding:{bottom:10}},
+        tooltip:{callbacks:{label:function(c){return '$'+c.raw.toFixed(2)+'B'}}}
+      },
+      scales:{
+        x:{ grid:{display:false} },
+        y:{ grid:{color:BORDER}, ticks:{callback:function(v){return '$'+v+'B'}} }
+      }
+    }
+  });
+
+  // Top-10 holdings concentration
+  new Chart(document.getElementById('concChart'), {
+    type:'bar',
+    data:{
+      labels:['ARKG','ARKF','ARKX','ARKQ','ARKW','ARKK'],
+      datasets:[{
+        label:'Top 10 holdings, % of assets',
+        data:[58.74,54.62,53.30,53.25,47.48,47.64],
+        backgroundColor:CYAN, borderRadius:4, borderSkipped:false
+      }]
+    },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+        title:{display:true,text:'Concentration — Top 10 Holdings as % of Fund Assets',color:TEXT,font:{family:"'Outfit',sans-serif",size:13,weight:'700'},padding:{bottom:10}},
+        tooltip:{callbacks:{label:function(c){return c.raw.toFixed(1)+'% of assets'}}}
+      },
+      scales:{
+        x:{ grid:{color:BORDER}, min:0, max:70, ticks:{callback:function(v){return v+'%'}} },
+        y:{ grid:{display:false} }
+      }
+    }
+  });
+
+  // Big Ideas 2026 — 2030 forecasts, log scale
+  new Chart(document.getElementById('ideasChart'), {
+    type:'bar',
+    data:{
+      labels:['Autonomous Vehicles','Digital Assets','Robotics','Bitcoin','AI Productivity','Tokenized Assets',
+        'Distributed Energy','AI Consumer OS','AI Infrastructure','Autonomous Logistics','Reusable Rockets','DeFi Applications'],
+      datasets:[{
+        label:'2030 forecast ($T)',
+        data:[34,28,26,16,13,11,10,8,1.4,0.48,0.16,0.0008],
+        backgroundColor:[ORANGE,PURPLE,ORANGE,'#f5b942',PURPLE,PURPLE,ORANGE,CYAN,CYAN,ORANGE,ORANGE,PURPLE],
+        borderRadius:4, borderSkipped:false
+      }]
+    },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+        title:{display:true,text:'Big Ideas 2026 — 2030 Forecasts by Theme (log scale, $ trillions)',color:TEXT,font:{family:"'Outfit',sans-serif",size:13,weight:'700'},padding:{bottom:10}},
+        tooltip:{callbacks:{label:function(c){
+          var v=c.raw;
+          if(v<0.01) return '$'+Math.round(v*1000)+'M';
+          if(v<1) return '$'+Math.round(v*1000)+'B';
+          return '$'+v+'T';
+        }}}
+      },
+      scales:{
+        x:{ type:'logarithmic', grid:{color:BORDER}, ticks:{ callback:function(v){
+              var l=Math.log10(v);
+              if(Math.abs(l-Math.round(l))>0.01) return null;
+              if(v<1) return '$'+Math.round(v*1000)+'B';
+              return '$'+v+'T';
+            }} },
+        y:{ grid:{display:false}, ticks:{font:{size:10}} }
+      }
+    }
+  });
+
+  // Recent trade flow
+  new Chart(document.getElementById('flowChart'), {
+    type:'bar',
+    data:{
+      labels:['SpaceX (SPCX)','Meta Platforms','Archer Aviation (ACHR)','Robinhood (HOOD)','Iridium (IRDM)'],
+      datasets:[{
+        label:'Approx. net $ flow (M)',
+        data:[15,18.5,5,-10.4,-1.9],
+        backgroundColor:function(c){ return c.raw>=0?GREEN:RED },
+        borderRadius:4, borderSkipped:false
+      }]
+    },
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false},
+        title:{display:true,text:'Recent Trade Flow — Accumulating vs Trimming ($M)',color:TEXT,font:{family:"'Outfit',sans-serif",size:13,weight:'700'},padding:{bottom:10}},
+        tooltip:{callbacks:{label:function(c){var v=c.raw;return (v>=0?'Bought ~$':'Sold ~$')+Math.abs(v)+'M'}}}
+      },
+      scales:{
+        x:{ grid:{color:BORDER}, ticks:{callback:function(v){return (v>=0?'+$':'-$')+Math.abs(v)+'M'}} },
+        y:{ grid:{display:false} }
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>
