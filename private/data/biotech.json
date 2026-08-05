@@ -285,5 +285,59 @@
       "url": "https://www.defenseworld.net/2026/07/28/eikon-therapeutics-inc-s-nasdaqeikn-lock-up-period-will-expire-on-august-4th.html"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "LLY",
+        "name": "Eli Lilly",
+        "stance": "core",
+        "weight": 32,
+        "note": "Cash flows from an actual blockbuster franchise fund the AI-discovery programmes. You are not paying for the AI — it comes free with the metabolic business.",
+        "change": null
+      },
+      {
+        "ticker": "NVS",
+        "name": "Novartis",
+        "stance": "core",
+        "weight": 26,
+        "note": "Deep AI partnerships across the pipeline, backed by pharma economics rather than a platform story.",
+        "change": null
+      },
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA",
+        "stance": "core",
+        "weight": 22,
+        "note": "BioNeMo makes it the compute layer for every AI-biotech platform on this page. Third appearance across your sleeves — the concentration is real.",
+        "change": null
+      },
+      {
+        "ticker": "SDGR",
+        "name": "Schrödinger",
+        "stance": "spec",
+        "weight": 9,
+        "note": "Software revenue provides a floor the other AI-native names do not have, but the co-founded pipeline is where the return has to come from.",
+        "change": null
+      },
+      {
+        "ticker": "RXRX",
+        "name": "Recursion",
+        "stance": "spec",
+        "weight": 7,
+        "note": "The largest proprietary biological dataset in the field and still no approved drug. The platform argument has been made for a decade.",
+        "change": null
+      },
+      {
+        "ticker": "RLAY",
+        "name": "Relay Therapeutics",
+        "stance": "spec",
+        "weight": 4,
+        "note": "Protein-motion platform with genuine science and binary clinical readouts. Size accordingly.",
+        "change": null
+      }
+    ]
+  }
 }

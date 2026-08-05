@@ -71,6 +71,13 @@
 
     <div class="disclaimer"><strong>Not financial advice.</strong> This brief synthesizes the eight sector dashboards for research purposes only — not a recommendation to buy or sell any security. Verify current prices and do your own due diligence before investing.</div>
 
+    <section id="stance-sec">
+      <div class="kicker">00 // POSITION BOARD</div>
+      <div class="sec-title">Every Name, Every Sector, One View</div>
+      <div class="sec-note">The single highest-level picture in the hub &mdash; each sector's research stance and sleeve weights, pulled live from the nine sector reports.</div>
+      <div id="stance-board"></div>
+    </section>
+
     <section>
       <div class="kicker">01 // SECTOR SCOREBOARD</div>
       <div class="sec-title">All Sectors at a Glance</div>
@@ -239,5 +246,6 @@
 </script>
 <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<script src="/private/stance.js"></script>
 </body>
 </html>

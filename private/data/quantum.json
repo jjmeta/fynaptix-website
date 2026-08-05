@@ -220,5 +220,67 @@
       "url": "https://www.nist.gov/news-events/news/2026/05/department-commerce-announces-letters-intent-9-companies-2-billion"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "IBM",
+        "name": "IBM",
+        "stance": "core",
+        "weight": 30,
+        "note": "The most advanced published roadmap attached to a profitable business, so the quantum programme costs you nothing to hold while it plays out.",
+        "change": null
+      },
+      {
+        "ticker": "GOOGL",
+        "name": "Alphabet",
+        "stance": "core",
+        "weight": 22,
+        "note": "Willow and the error-correction work are as good as anything in the field, funded by an ads business that does not care whether it works.",
+        "change": null
+      },
+      {
+        "ticker": "MSFT",
+        "name": "Microsoft",
+        "stance": "core",
+        "weight": 20,
+        "note": "Topological qubits are the highest-risk, highest-payoff approach — and are a rounding error on Microsoft's income statement.",
+        "change": null
+      },
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA",
+        "stance": "core",
+        "weight": 16,
+        "note": "CUDA-Q makes it the toolchain layer regardless of which qubit modality wins. Already your largest AI holding, so mind the concentration.",
+        "change": null
+      },
+      {
+        "ticker": "IONQ",
+        "name": "IonQ",
+        "stance": "spec",
+        "weight": 7,
+        "note": "The most commercially advanced pure-play, valued far ahead of revenue. Position sizing is the whole risk-management strategy here.",
+        "change": null
+      },
+      {
+        "ticker": "RGTI",
+        "name": "Rigetti",
+        "stance": "spec",
+        "weight": 3,
+        "note": "Superconducting pure-play with a persistent funding requirement and no path to profitability in view.",
+        "change": null
+      },
+      {
+        "ticker": "QBTS",
+        "name": "D-Wave",
+        "stance": "spec",
+        "weight": 2,
+        "note": "Annealing has real customers but is not the general-purpose quantum computing the valuation implies.",
+        "change": null
+      }
+    ]
+  }
 }

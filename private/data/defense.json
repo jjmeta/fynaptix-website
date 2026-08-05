@@ -233,5 +233,75 @@
       "url": "https://icds.ee/en/defence-spending-who-is-doing-what-july-2026/"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "RHM.DE",
+        "name": "Rheinmetall",
+        "stance": "core",
+        "weight": 24,
+        "note": "European rearmament is a budgeted, decade-long commitment rather than a sentiment trade, and Rheinmetall is the clearest instrument for it.",
+        "change": null
+      },
+      {
+        "ticker": "BA.L",
+        "name": "BAE Systems",
+        "stance": "core",
+        "weight": 22,
+        "note": "UK-listed, so no PRIIPs friction and no FX wrapper — by some distance the most practically accessible name in this sector for you.",
+        "change": null
+      },
+      {
+        "ticker": "LHX",
+        "name": "L3Harris",
+        "stance": "core",
+        "weight": 18,
+        "note": "Communications and space payloads position it across both this sleeve and Space, on prime-contractor economics rather than a story multiple.",
+        "change": null
+      },
+      {
+        "ticker": "PLTR",
+        "name": "Palantir",
+        "stance": "core",
+        "weight": 15,
+        "note": "The software layer of modern defence with real contracted revenue. Same caveat as on the AI page: the business is not the problem, the multiple is.",
+        "change": null
+      },
+      {
+        "ticker": "AVAV",
+        "name": "AeroVironment",
+        "stance": "spec",
+        "weight": 12,
+        "note": "~$1.1B funded backlog against a Pentagon FY27 request of ~$75B for unmanned and counter-drone. Also in Robotics — hold it once.",
+        "change": null
+      },
+      {
+        "ticker": "KTOS",
+        "name": "Kratos Defense",
+        "stance": "spec",
+        "weight": 9,
+        "note": "Valkyrie and CCA give genuine exposure to collaborative combat aircraft; +72% YTD means you are paying for the whole thesis up front.",
+        "change": null
+      },
+      {
+        "ticker": "RCAT",
+        "name": "Red Cat Holdings",
+        "stance": "avoid",
+        "weight": 0,
+        "note": "Small-cap drone exposure with persistent dilution and contract concentration that the revenue does not yet justify.",
+        "change": null
+      },
+      {
+        "ticker": "ONDS",
+        "name": "Ondas Holdings",
+        "stance": "avoid",
+        "weight": 0,
+        "note": "Sub-scale, cash-hungry, and dependent on programme wins that have repeatedly slipped.",
+        "change": null
+      }
+    ]
+  }
 }

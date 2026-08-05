@@ -232,5 +232,67 @@
       "url": "https://www.stocktitan.net/news/LEU/centrus-signs-contract-with-department-of-energy-for-900-million-o9qjv4bh86nr.html"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Jul 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "CEG",
+        "name": "Constellation Energy",
+        "stance": "core",
+        "weight": 26,
+        "note": "Owns the operating reactors the data centres actually need power from today. This is the AI-power trade without any SMR execution risk.",
+        "change": null
+      },
+      {
+        "ticker": "CCJ",
+        "name": "Cameco",
+        "stance": "core",
+        "weight": 22,
+        "note": "Fuel is the chokepoint whatever reactor design wins, and Western supply cannot be conjured quickly.",
+        "change": null
+      },
+      {
+        "ticker": "BWXT",
+        "name": "BWX Technologies",
+        "stance": "core",
+        "weight": 20,
+        "note": "Naval reactor work provides a profitable, contracted base underneath the SMR optionality — you get paid to wait.",
+        "change": null
+      },
+      {
+        "ticker": "GEV",
+        "name": "GE Vernova",
+        "stance": "core",
+        "weight": 14,
+        "note": "Grid and turbine exposure means it earns from the electricity buildout even if every SMR slips. Also appears in your Storage sleeve.",
+        "change": null
+      },
+      {
+        "ticker": "OKLO",
+        "name": "Oklo",
+        "stance": "spec",
+        "weight": 10,
+        "note": "The most credible pre-revenue SMR story with the strongest backing — and still pre-revenue. First power is the only milestone that matters.",
+        "change": null
+      },
+      {
+        "ticker": "LEU",
+        "name": "Centrus Energy",
+        "stance": "spec",
+        "weight": 8,
+        "note": "HALEU enrichment is a genuine bottleneck with US policy support, tied to a single facility and a single policy direction.",
+        "change": null
+      },
+      {
+        "ticker": "SMR",
+        "name": "NuScale Power",
+        "stance": "watch",
+        "weight": 0,
+        "note": "The only NRC-certified US design, but it has lost an anchor customer once already. A firm order book, not another approval, is what would move this.",
+        "change": null
+      }
+    ]
+  }
 }

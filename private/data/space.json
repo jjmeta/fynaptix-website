@@ -245,5 +245,59 @@
       "url": "https://finance.yahoo.com/markets/stocks/articles/ufo-rokt-arkx-space-etf-142720659.html"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "RKLB",
+        "name": "Rocket Lab",
+        "stance": "core",
+        "weight": 38,
+        "note": "The only listed launch company with a real cadence and a credible medium-lift path in Neutron. Everything else in this sector is either private or a payload play.",
+        "change": null
+      },
+      {
+        "ticker": "LHX",
+        "name": "L3Harris",
+        "stance": "core",
+        "weight": 28,
+        "note": "Space payloads and communications on prime-contractor economics — the way to own space without owning a pre-revenue story. Also in your Defense sleeve.",
+        "change": null
+      },
+      {
+        "ticker": "ASTS",
+        "name": "AST SpaceMobile",
+        "stance": "spec",
+        "weight": 18,
+        "note": "Direct-to-cell is the largest addressable prize in the sector and depends entirely on a constellation that is not yet built.",
+        "change": null
+      },
+      {
+        "ticker": "PL",
+        "name": "Planet Labs",
+        "stance": "spec",
+        "weight": 9,
+        "note": "Real recurring earth-observation revenue; the question has always been whether the data commands a defensible price.",
+        "change": null
+      },
+      {
+        "ticker": "RDW",
+        "name": "Redwire",
+        "stance": "spec",
+        "weight": 4,
+        "note": "Infrastructure and in-space manufacturing, sub-scale and acquisitive.",
+        "change": null
+      },
+      {
+        "ticker": "LUNR",
+        "name": "Intuitive Machines",
+        "stance": "spec",
+        "weight": 3,
+        "note": "Lunar programmes are milestone-funded and politically fragile; the news flow moves faster than the fundamentals.",
+        "change": null
+      }
+    ]
+  }
 }

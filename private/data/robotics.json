@@ -504,5 +504,163 @@
       "url": "https://www.mezzi.com/blog/botz-vs-robo-vs-irbo-vs-aiq-ai-automation-etf-diversified-robotics"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Jul 20, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Jul 20, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "SYM",
+        "name": "Symbotic",
+        "stance": "core",
+        "weight": 20,
+        "note": "~$22.7B backlog means the automation thesis is already generating cash rather than promising it in 2030.",
+        "change": null
+      },
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA",
+        "stance": "core",
+        "weight": 18,
+        "note": "Isaac GR00T and Jetson Thor make it the default robot brain — but it is also the largest name in your AI sleeve, so check total exposure before adding here.",
+        "change": null
+      },
+      {
+        "ticker": "ISRG",
+        "name": "Intuitive Surgical",
+        "stance": "core",
+        "weight": 18,
+        "note": "Dominant installed base, Q2 revenue +19% YoY. The -25% YTD de-rating is what makes it interesting; the growth was never in question.",
+        "change": null
+      },
+      {
+        "ticker": "CGNX",
+        "name": "Cognex",
+        "stance": "core",
+        "weight": 10,
+        "note": "Machine vision sells into every OEM regardless of which humanoid wins. EPS +112.5% and it is not priced as an AI name.",
+        "change": null
+      },
+      {
+        "ticker": "ROK",
+        "name": "Rockwell Automation",
+        "stance": "core",
+        "weight": 8,
+        "note": "The cleanest listed US factory-automation exposure, at a valuation that does not require humanoids to work.",
+        "change": null
+      },
+      {
+        "ticker": "TSLA",
+        "name": "Tesla",
+        "stance": "spec",
+        "weight": 8,
+        "note": "Optimus is the largest humanoid option available in public markets — attached to a car business carrying its own capex warning. You are not buying a robotics pure-play.",
+        "change": null
+      },
+      {
+        "ticker": "6324.T",
+        "name": "Harmonic Drive",
+        "stance": "spec",
+        "weight": 5,
+        "note": "Pure leverage to humanoid build rates via actuators and reducers. Small, illiquid and awkward to access from the UK.",
+        "change": null
+      },
+      {
+        "ticker": "AVAV",
+        "name": "AeroVironment",
+        "stance": "spec",
+        "weight": 5,
+        "note": "~$1.1B funded backlog. Overlaps directly with your Defense sleeve — own it in one place, not both.",
+        "change": null
+      },
+      {
+        "ticker": "KTOS",
+        "name": "Kratos Defense",
+        "stance": "spec",
+        "weight": 4,
+        "note": "+72% YTD on Valkyrie and CCA. The story is fully priced; the execution is not yet proven.",
+        "change": null
+      },
+      {
+        "ticker": "SERV",
+        "name": "Serve Robotics",
+        "stance": "spec",
+        "weight": 4,
+        "note": "Sidewalk delivery at real unit economics is unproven and the cash burn is continuous. Size it to go to zero.",
+        "change": null
+      },
+      {
+        "ticker": "DE",
+        "name": "Deere & Co",
+        "stance": "watch",
+        "weight": 0,
+        "note": "The autonomy kit is real and revenue-generating, but robotics is a rounding error next to the ag cycle you would actually be buying.",
+        "change": null
+      },
+      {
+        "ticker": "CAT",
+        "name": "Caterpillar",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Five-machine autonomous lineup announced — same problem as Deere: construction demand dominates the return.",
+        "change": null
+      },
+      {
+        "ticker": "6954.T",
+        "name": "Fanuc",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Limit-up on FY27 guidance and a buyback. The re-rating has happened; the FA demand recovery has not.",
+        "change": null
+      },
+      {
+        "ticker": "6861.T",
+        "name": "Keyence",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Exceptional margins and permanently expensive. Needs a genuine de-rating before the maths works.",
+        "change": null
+      },
+      {
+        "ticker": "ABB",
+        "name": "ABB Ltd",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Selling the robotics division to SoftBank for $5.375B — which removes most of the reason it was on this list.",
+        "change": null
+      },
+      {
+        "ticker": "MP",
+        "name": "MP Materials",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Magnet supply matters more than any single robot maker, but it sits in your Critical Minerals sleeve. Do not double-count it.",
+        "change": null
+      },
+      {
+        "ticker": "TER",
+        "name": "Teradyne",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Universal Robots is still small against semi test. This is a semiconductor-cycle bet wearing a robotics label.",
+        "change": null
+      },
+      {
+        "ticker": "PATH",
+        "name": "UiPath",
+        "stance": "avoid",
+        "weight": 0,
+        "note": "RPA is being disrupted by the same AI agents it claims to ride, and the robotics label is marketing rather than hardware.",
+        "change": null
+      },
+      {
+        "ticker": "OUST",
+        "name": "Ouster",
+        "stance": "avoid",
+        "weight": 0,
+        "note": "Lidar remains a commodity price war with no evidence of durable margin at any of the listed players.",
+        "change": null
+      }
+    ]
+  }
 }

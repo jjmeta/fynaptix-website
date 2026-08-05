@@ -209,5 +209,67 @@
       "url": "https://www.energy-storage.news/us-import-tariffs-increase-the-policy-risk-for-bess/"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "GEV",
+        "name": "GE Vernova",
+        "stance": "core",
+        "weight": 30,
+        "note": "Grid equipment is the actual bottleneck — storage does not matter if there is nothing to connect it to. Overlaps your Nuclear sleeve.",
+        "change": null
+      },
+      {
+        "ticker": "TSLA",
+        "name": "Tesla",
+        "stance": "core",
+        "weight": 26,
+        "note": "Megapack is the most profitable, fastest-growing part of Tesla and is priced as though it barely exists. You must accept the car business alongside it.",
+        "change": null
+      },
+      {
+        "ticker": "FLNC",
+        "name": "Fluence Energy",
+        "stance": "core",
+        "weight": 24,
+        "note": "The clearest listed grid-scale storage pure-play, with the margin pressure that comes from competing on hardware.",
+        "change": null
+      },
+      {
+        "ticker": "EOSE",
+        "name": "Eos Energy",
+        "stance": "spec",
+        "weight": 10,
+        "note": "Zinc-based chemistry sidesteps the lithium supply chain entirely — if it can manufacture at cost and at scale, which is unproven.",
+        "change": null
+      },
+      {
+        "ticker": "QS",
+        "name": "QuantumScape",
+        "stance": "spec",
+        "weight": 10,
+        "note": "Solid-state batteries would reset the whole sector. Fifteen years in, still no commercial cell.",
+        "change": null
+      },
+      {
+        "ticker": "ENPH",
+        "name": "Enphase",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Structurally impaired by US residential-solar policy changes. This is a different problem from the storage thesis and it has not been solved.",
+        "change": null
+      },
+      {
+        "ticker": "STEM",
+        "name": "Stem Inc",
+        "stance": "avoid",
+        "weight": 0,
+        "note": "Repeated restructurings and a software story that has not converted into durable revenue.",
+        "change": null
+      }
+    ]
+  }
 }

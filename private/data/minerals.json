@@ -245,5 +245,67 @@
       "url": "https://www.cnbc.com/2025/11/10/china-suspends-some-critical-mineral-export-curbs-to-the-us-as-trade-truce-takes-hold.html"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently."
+  "footnote": "Figures approximate, from public reporting as of Aug 3, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "Aug 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "MP",
+        "name": "MP Materials",
+        "stance": "core",
+        "weight": 30,
+        "note": "The only integrated US rare-earth producer, with a magnet business and explicit government support. Also appears in Robotics — hold it once.",
+        "change": null
+      },
+      {
+        "ticker": "FCX",
+        "name": "Freeport-McMoRan",
+        "stance": "core",
+        "weight": 26,
+        "note": "Copper is the least speculative way to own electrification: every grid, data centre, motor and battery needs it, and new supply takes a decade.",
+        "change": null
+      },
+      {
+        "ticker": "LYC.AX",
+        "name": "Lynas Rare Earths",
+        "stance": "core",
+        "weight": 22,
+        "note": "The largest rare-earth producer outside China, and the only one with proven separation capacity at scale.",
+        "change": null
+      },
+      {
+        "ticker": "UUUU",
+        "name": "Energy Fuels",
+        "stance": "spec",
+        "weight": 9,
+        "note": "Uranium plus rare-earth processing gives two shots at the same policy tailwind — both at small scale.",
+        "change": null
+      },
+      {
+        "ticker": "LAC",
+        "name": "Lithium Americas",
+        "stance": "spec",
+        "weight": 7,
+        "note": "Thacker Pass is a genuine tier-one asset dependent on a lithium price that has been brutal for two years.",
+        "change": null
+      },
+      {
+        "ticker": "USAR",
+        "name": "USA Rare Earth",
+        "stance": "spec",
+        "weight": 6,
+        "note": "Magnet manufacturing ambitions well ahead of the operating record.",
+        "change": null
+      },
+      {
+        "ticker": "ALB",
+        "name": "Albemarle",
+        "stance": "watch",
+        "weight": 0,
+        "note": "The quality asset base is not in doubt; the lithium price cycle is. Worth owning at the bottom, and the bottom is not obviously in.",
+        "change": null
+      }
+    ]
+  }
 }
