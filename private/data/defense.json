@@ -4,13 +4,13 @@
   "heading": "Defense Technology Intelligence",
   "subheading": "AI battlefield software, drones, autonomy & European rearmament",
   "kicker": "DEFENSE TECH & AUTONOMY // AUG 2026",
-  "generated": "Aug 10, 2026",
+  "generated": "Aug 17, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Defense names carry policy, program-concentration, and valuation risk. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
       "value": "~$2.89T",
       "sub": "2025 · GLOBAL MILITARY SPENDING (SIPRI)",
-      "label": "Europe's share hit ~$864B (+14% YoY); EU spend reached €392B (2.1% GDP) in 2025, with Germany's 2026 budget at €117.2B (→€162B/3.2% GDP by 2029) and France's at €68.5B (2.25% GDP), funding NATO's 5%-by-2035 pledge",
+      "label": "Europe & Canada added $90B+ in 2021-price terms in 2025 (~20% YoY, NATO update Jul 7); EU spend reached €392B (2.1% GDP), with Germany's 2026 budget at €117.2B (→€162B/3.2% GDP by 2029) and France's at €68.5B (2.25% GDP); 5 Allies now expected to hit the 3.5% core-defense guideline in 2026",
       "highlight": false
     },
     {
@@ -20,15 +20,15 @@
       "highlight": false
     },
     {
-      "value": "~$100B",
-      "sub": "ANDURIL VALUATION TALKS · STILL UNCLOSED AS OF AUG 10",
-      "label": "Talks continue for a new round at ~$100B — over 3x the $30.5B mark from a year ago; one floated structure ties a second, higher-priced raise to hitting financial benchmarks",
-      "highlight": false
-    },
-    {
       "value": "$54.6B",
       "sub": "PENTAGON FY27 · DAWG LINE ITEM",
       "label": "Defense Autonomous Warfare Group request, part of a ~$75B unmanned/counter-drone package; CCA Increment 1 production already awarded in June to Anduril & General Atomics — Kratos was not selected",
+      "highlight": false
+    },
+    {
+      "value": "Up to 100%",
+      "sub": "TRUMP DRONE TARIFFS · SIGNED AUG 13, EFFECTIVE ~3 WEEKS LATER",
+      "label": "Tariffs up to 100% on imported drones >25kg or with thermal imaging (25% on smaller drones/components; 15% for EU, Japan, Switzerland, Taiwan, South Korea, Liechtenstein) — a structural tailwind for domestic makers AVAV, RCAT, ONDS and KTOS, all four of which just posted strong Q2 prints",
       "highlight": true
     }
   ],
@@ -38,35 +38,30 @@
       "tier": "TIER 1",
       "label": "Established / Software & Primes",
       "note": "Tiered by maturity/risk — not a ranked buy list.",
-      "columns": [
-        "Ticker",
-        "Company",
-        "Angle",
-        "Watch for"
-      ],
+      "columns": ["Ticker", "Company", "Angle", "Watch for"],
       "rows": [
         {
           "ticker": "PLTR",
           "company": "Palantir",
-          "angle": "Q2 2026: revenue +93% YoY to $1.94B, EPS $0.41 (beat $0.33 est.), US commercial +149% YoY; FY26 guidance raised again to 82% revenue growth and $3.42B+ US commercial revenue. Stock rallied ~30% on the print to consolidate near $156",
-          "watch for": "Multiple already re-rated sharply higher post-earnings; whether US commercial momentum sustains without further guidance raises"
+          "angle": "Q2 2026 (Aug 3): revenue +93% YoY to $1.94B, EPS $0.41 (beat $0.33 est.), US commercial +149% YoY; FY26 guidance raised to $8.15-8.16B revenue (~82% growth). Stock has since eased to ~$174 (Aug 16) from a $207.52 52-week high",
+          "watch for": "Multiple still extreme even after the pullback; whether US commercial momentum sustains without further guidance raises"
         },
         {
           "ticker": "RHM.DE",
           "company": "Rheinmetall",
-          "angle": "Q2 core profit €562M (~2x YoY), revenue +70% to €3.3B, backlog above €80B; new MoU with Lockheed Martin (Aug 7) to build ATACMS missiles at Unterlüß, first revenue expected 2028. Stock ~€1,146 (Aug 8), well off its €2,008 52-week high",
-          "watch for": "Leonardo Iveco truck-unit talks now complicated by a Leonardo CEO change and rival bidders; ATACMS ramp timeline"
+          "angle": "Q2 core profit €562M (~2x YoY), revenue +70% to €3.3B, backlog above €80B; but cut FY26 revenue guidance (Aug 13) to €13.7-14.2B (from up to €14.5B) after a naval-programme setback, even as a new Danish Navy MASS decoy contract landed a day later. Stock ~€1,175 (Aug 14), still down ~24% YTD",
+          "watch for": "Naval-segment execution risk now visible despite the ATACMS MoU; Leonardo Iveco truck-unit talks also complicated by a Leonardo CEO change and rival bidders"
         },
         {
           "ticker": "LHX",
           "company": "L3Harris",
-          "angle": "Q2 2026: EPS $3.13 (beat $2.80 est.), revenue $5.88B (+8.4% YoY); record backlog $42.0B excludes ~$25B in pending Munitions Acceleration Council orders; FY26 guidance raised to $23.2-23.7B revenue, $11.80-12.00 EPS",
-          "watch for": "MAC order conversion; no fresh catalyst since the Jul 29 print"
+          "angle": "Q2 2026 (Jul 29): EPS $3.13 (beat), revenue $5.88B (+8.4% YoY), FY26 guidance raised to $23.2-23.7B revenue; record $42.0B backlog; new 7-year Lockheed framework for THAAD/PAC-3 solid rocket motors (~$12B revenue, $2B profit) and the Arsenal of Freedom GMLRS facility opened in August",
+          "watch for": "Missile-business IPO/spinoff pushed to 2027 at the earliest; Rocketdyne carve-out (space propulsion/power units to AE Industrial) leaves L3Harris a minority stake"
         },
         {
           "ticker": "BA.L",
           "company": "BAE Systems",
-          "angle": "H1 2026 results (Jul 30): sales +9% to £15.8B, EBIT +11% to £1.7B, EPS +13% to 38.9p; record £84B backlog after £16.4B of H1 orders; guidance upgraded; new £5.9B Dreadnought submarine contract",
+          "angle": "H1 2026 results (Jul 30): sales +9% to £15.8B, record £84B backlog; guidance upgraded; £5.9B Dreadnought submarine contract (Aug 4), plus £135M Royal Navy torpedo-maintenance deal and a $150M USS Boxer modernization award (Aug 12)",
           "watch for": "H2 guidance follow-through; European sales now 13% of group (+30% YoY)"
         }
       ]
@@ -75,36 +70,31 @@
       "tier": "TIER 2",
       "label": "High-Growth Autonomy Pure-Plays",
       "note": "Tiered by maturity/risk — not a ranked buy list.",
-      "columns": [
-        "Ticker",
-        "Company",
-        "Angle",
-        "Watch for"
-      ],
+      "columns": ["Ticker", "Company", "Angle", "Watch for"],
       "rows": [
         {
           "ticker": "AVAV",
           "company": "AeroVironment",
-          "angle": "New $400M US Army contract for the AI-assisted Locust counter-drone system (stock +25%, then +6.6% more to $159.18 on Aug 3); added ex-ManTech CFO Michael D. Ruppert to the board Aug 5",
-          "watch for": "Stock has already run hard on the news; multiple ongoing securities-fraud class actions remain unresolved"
+          "angle": "$400M Army Locust counter-drone contract drove the stock to ~$196 (Aug 11); picked up a Piper Sandler Buy (Aug 14) and a structural boost from the new drone-import tariffs, which favor domestic-built platforms",
+          "watch for": "Stock has run ~35% in two weeks; multiple ongoing securities-fraud class actions remain unresolved"
         },
         {
           "ticker": "KTOS",
           "company": "Kratos Defense",
-          "angle": "Q2 2026: revenue $458.8M (+30.5% YoY, beat ~$410M est.), adj. EPS $0.21 (beat ~$0.14-0.15 est.); FY26 guidance raised to $1.75-1.81B revenue, $173-176M adj. EBITDA",
-          "watch for": "Excluded from the June CCA Increment 1 production award (Anduril & General Atomics won); stock popped above $57 intraday then settled near $53, and Cantor cut its price target to $100 from $115 despite the beat"
+          "angle": "Q2 2026: revenue $458.8M (+30.5% YoY), FY26 guidance raised to $1.75-1.81B; since won an Army DEVCOM C5ISR Javelin Seeker development deal and a $156M DOE/NNSA counter-UAS IDIQ (Project Solar Shield), plus a completed $50M hypersonic payload facility. Stock rebounded ~30% in a week to the mid-$60s (avg. analyst target $105.62)",
+          "watch for": "Still excluded from the June CCA Increment 1 production award (Anduril & General Atomics); new wins are outside that program"
         },
         {
           "ticker": "RCAT",
           "company": "Red Cat Holdings",
-          "angle": "Q2 2026 revenue $20.19M, +520% YoY, gross margin improved sequentially and YoY; FY26 revenue guidance reaffirmed at $150-180M",
-          "watch for": "Net loss widened to $35.3M; dilution and cash burn remain the question growth hasn't answered"
+          "angle": "Q2 2026 revenue $20.19M (+527% YoY), gross margin improved to 16.1%; Teal Drones advanced to Gauntlet II of the Drone Dominance Program; stock +22% on the week on tariff-driven momentum",
+          "watch for": "Revenue missed consensus by ~11% and GAAP EPS missed (-$0.26 vs -$0.17 est.); dilution and cash burn remain unresolved"
         },
         {
           "ticker": "ONDS",
           "company": "Ondas Holdings",
-          "angle": "Continuing its shift from niche drone-software vendor to a broader defense-tech platform via its OAS system; stock -9% on the month but +6% in a day on fresh order news",
-          "watch for": "Still sub-scale; contract-to-revenue conversion timeline"
+          "angle": "Record Q2 2026 revenue $83.8M (+67% sequential, ~13x YoY); FY26 guidance raised to $525-550M; backlog up 65% to $757M pro forma after closing the Cyberhawk (Aug 10) and DZYNE acquisitions; new $50M+ Army lethal-systems order and an AFRL Long Range Grasshopper contract",
+          "watch for": "Scale has improved sharply, but margin and profitability visibility still unproven"
         }
       ]
     }
@@ -113,17 +103,17 @@
     {
       "name": "Anduril",
       "value": "~$100B VALUATION (STILL IN TALKS)",
-      "note": "Talks first reported Jul 24 remain unclosed as of Aug 10 — over 3x the $30.5B mark from just over a year ago and up from the $61B May 2026 Series H (Thrive Capital, a16z). One floated structure would commit investors now to a second, higher-priced raise within about a year if Anduril hits financial benchmarks. Also just picked up the June CCA Increment 1 production award alongside General Atomics."
+      "note": "Talks first reported Jul 24 remain unclosed a month later, as of Aug 17 — over 3x the $30.5B mark from just over a year ago and up from the $61B May 2026 round (Thrive Capital, a16z). One floated structure would commit investors now to a second, higher-priced raise within about a year if Anduril hits financial benchmarks. CEO has separately said it's \"bad to IPO in the middle of a hype cycle,\" delaying listing plans amid concerns defense-tech valuations are overheated."
     },
     {
       "name": "Shield AI",
       "value": "~$12.7B VALUATION",
-      "note": "Closed a $2B Series G (Mar 26, 2026) co-led by Advent International and JPMorgan's Security & Resiliency Initiative, plus $500M in non-dilutive preferred equity from Blackstone. Hivemind autonomy software; V-BAT drones."
+      "note": "No new financing news this period; still marked by the $2B Series G (Mar 26, 2026) co-led by Advent International and JPMorgan's Security & Resiliency Initiative, plus $500M in non-dilutive preferred equity from Blackstone. Hivemind autonomy software; V-BAT drones."
     },
     {
       "name": "Saronic",
       "value": "~$9.25B VALUATION",
-      "note": "$1.75B Series D led by Kleiner Perkins (with Advent, Bessemer, a16z, Franklin Templeton), more than double the $4B mark from Feb 2025. Plans to build 20+ autonomous surface vessels a year by 2027."
+      "note": "No new financing news this period; still marked by the $1.75B Series D led by Kleiner Perkins (with Advent, Bessemer, a16z, Franklin Templeton). Plans to build 20+ autonomous surface vessels a year by 2027."
     },
     {
       "name": "Helsing",
@@ -134,58 +124,58 @@
   "bear_case": [
     {
       "title": "Public-market valuations already stretched",
-      "description": "The US Aerospace & Defense industry trades around 32-33x trailing earnings (CSIMarket) — well above its historical range — while closed private defense-tech deals ran at a median ~18.9x EBITDA / 3.7x revenue through Q1 2026, the richest revenue multiple in four years. Even this week's strong prints (PLTR, KTOS, AVAV) came with sharp round-trips or price-target cuts, a sign public investors are pricing risk into the growth names even as headline multiples climb."
+      "description": "The US Aerospace & Defense industry trades around 32-33x trailing earnings (CSIMarket) — well above its historical range. Palantir has already eased from a $207.52 52-week high to ~$174 despite raised guidance, and even Anduril's own CEO has warned publicly against IPO'ing \"in the middle of a hype cycle\" — a notable caution signal from an insider riding the sector's biggest private markup."
     },
     {
       "title": "Capital outrunning production capacity",
       "description": "Defense tech VC funding topped $14.6B in barely five months of 2026, already a full-year record. Commentators have warned capital is moving faster than governments can convert new technology into recurring production orders — a mismatch that could leave late-stage private rounds overextended."
     },
     {
-      "title": "Budget politics",
-      "description": "FY27 requests aren't appropriations; NATO's 5%-of-GDP-by-2035 pledge is real money on paper (Germany to €162B/3.2% GDP by 2029, France to 2.25% GDP in 2026) but still depends on political follow-through year after year."
+      "title": "Budget and trade politics",
+      "description": "FY27 requests aren't appropriations; NATO's 5%-of-GDP-by-2035 pledge is real money on paper but still depends on political follow-through year after year. The new Aug 13 tariff proclamation (up to 100% on imported drones) also raises input-cost and retaliation risk for primes with global supply chains, even as it favors pure-play US drone makers."
     },
     {
-      "title": "Downselects hit even the story stocks",
-      "description": "Kratos' exclusion from the June CCA Increment 1 production award (Anduril and General Atomics won instead) is exactly the single-program dependency risk this page has flagged — a beat-and-raise Q2 wasn't enough to stop Cantor cutting its price target. Rheinmetall's Leonardo Iveco-truck deal, tidy-looking months ago, is now snagged by a Leonardo CEO change and rival bidders. AeroVironment separately still faces multiple securities-fraud class actions despite its Locust contract win."
+      "title": "Strong headline prints can still hide execution risk",
+      "description": "Rheinmetall's Q2 profit nearly doubled, yet the company cut FY26 revenue guidance days later on a naval-programme setback — proof that a strong topline doesn't guarantee a clean guide. Kratos remains excluded from the June CCA Increment 1 production award (Anduril and General Atomics won instead) despite this week's new contract wins. Red Cat's 527% revenue growth still came with a consensus miss and a widened net loss. AeroVironment separately still faces multiple unresolved securities-fraud class actions."
     }
   ],
   "catalysts": [
     {
-      "date": "AUG 7",
-      "title": "Rheinmetall signs ATACMS MoU with Lockheed Martin",
-      "description": "Missiles to be built at Rheinmetall's Unterlüß plant in Germany; first revenue expected 2028, adding a growth leg beyond artillery and vehicles."
+      "date": "AUG 14",
+      "title": "Trump signs proclamation imposing up to 100% tariffs on imported drones",
+      "description": "Tiered tariffs (100% on drones >25kg or with thermal imaging; 25% on smaller drones/components; 15% for EU, Japan, Switzerland, Taiwan, South Korea, Liechtenstein) take effect ~3 weeks after signing; drove a broad rally in AVAV, RCAT and ONDS."
     },
     {
-      "date": "AUG 5",
-      "title": "AeroVironment adds ex-ManTech CFO to board",
-      "description": "Michael D. Ruppert joins as Stephen F. Page retires; follows a $400M Army Locust counter-drone contract that drove the stock up over 30% across the week."
+      "date": "AUG 13",
+      "title": "Rheinmetall cuts FY26 revenue guidance after naval-programme setback",
+      "description": "Guidance trimmed to €13.7-14.2B from up to €14.5B despite a Q2 profit that nearly doubled; a Danish Navy MASS decoy contract landed the next day."
+    },
+    {
+      "date": "AUG 12",
+      "title": "Kratos wins Javelin Seeker and Solar Shield counter-UAS contracts",
+      "description": "Army DEVCOM C5ISR seeker-development deal plus a $156M DOE/NNSA counter-UAS IDIQ; stock rebounded ~30% in a week after the post-earnings pullback."
+    },
+    {
+      "date": "AUG 11",
+      "title": "AeroVironment extends rally to ~$196, picks up Piper Sandler Buy",
+      "description": "Stock has now run roughly 35% in two weeks on the Locust contract and the looming drone-tariff tailwind."
+    },
+    {
+      "date": "AUG 10",
+      "title": "Ondas posts record Q2, closes Cyberhawk acquisition",
+      "description": "Revenue $83.8M (~13x YoY); FY26 guidance raised to $525-550M; pro forma backlog up 65% to $757M."
     },
     {
       "date": "AUG 4",
-      "title": "Kratos beats and raises, but stock gives back gains",
-      "description": "Q2 revenue $458.8M (+30.5% YoY) and raised FY26 guidance; shares popped above $57 then settled near $53 as Cantor cut its price target to $100 from $115."
-    },
-    {
-      "date": "AUG 3",
-      "title": "Palantir Q2: revenue +93%, guidance raised again",
-      "description": "Stock rallied ~30% on the print to consolidate near $156; US commercial revenue +149% YoY, now over 81% of total revenue."
-    },
-    {
-      "date": "JUL 24",
-      "title": "Anduril still in talks at ~$100B valuation",
-      "description": "Discussions continue for a round more than 3x last year's mark; unclosed as of Aug 10, with one floated structure tying a second raise to performance benchmarks."
-    },
-    {
-      "date": "JUN 2026",
-      "title": "CCA Increment 1 production awarded to Anduril & General Atomics",
-      "description": "USAF selected the pair over Kratos for the first ~150 collaborative combat aircraft; deliveries expected before year-end from a new production line rated for 150 aircraft/year."
+      "title": "BAE Systems secures £5.9B Dreadnought submarine contract",
+      "description": "Part of an £8.4B funding package for Britain's Continuous At-Sea Deterrent; construction continues at Barrow-in-Furness on all four planned submarines."
     }
   ],
   "etfs": [
     {
       "ticker": "SHLD",
       "name": "Global X Defense Tech",
-      "summary": "+18.3% YTD in 2026, ~38% annualized since inception; tilted toward Palantir and peers — got a lift from this week's PLTR print"
+      "summary": "Tilted toward Palantir and autonomy pure-plays; the Aug 13-14 drone-tariff news and strong AVAV/KTOS/ONDS prints gave it a fresh lift after a choppier midyear stretch"
     },
     {
       "ticker": "ITA",
@@ -195,124 +185,124 @@
     {
       "ticker": "PPA",
       "name": "Invesco Aerospace & Defense",
-      "summary": "+11.9% YTD in 2026, ~19% annualized over 10 years; US-focused, adds commercial aerospace (Boeing, GE Aerospace, RTX)"
+      "summary": "~11% YTD in 2026, ~29% over the trailing year; US-focused, adds commercial aerospace (Boeing, GE Aerospace, RTX)"
     },
     {
       "ticker": "EUAD",
       "name": "Select STOXX Europe Defense",
-      "summary": "Roughly mid-single-digits YTD in 2026 after a ~70%+ 2025 run; European defense names have cooled from last year's pace even as budgets keep rising"
+      "summary": "European names have cooled from 2025's pace even as NATO reports Europe & Canada added $90B+ in defense spending last year (+~20% YoY); Rheinmetall's guidance cut is a reminder execution risk sits alongside the budget tailwind"
     }
   ],
   "sources": [
+    {
+      "title": "The White House — Fact sheet: tariffs on drones and components",
+      "url": "https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-bolsters-national-security-and-strengthens-u-s-supply-chains-by-imposing-tariffs-on-drones-and-their-parts-and-components/"
+    },
     {
       "title": "TechCrunch — Anduril in talks to raise at ~$100B valuation",
       "url": "https://techcrunch.com/2026/07/24/anduril-reportedly-in-talks-to-raise-funding-at-100b-valuation-more-than-3x-last-years-mark/"
     },
     {
-      "title": "CNBC — Palantir Q2 2026 earnings",
-      "url": "https://www.cnbc.com/2026/08/03/palantir-pltr-earnings-q2-2026.html"
+      "title": "ad-hoc-news — Rheinmetall steadies after outlook cut",
+      "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/rheinmetall-stock-steadies-after-outlook-cut-as-q2-surge-and-new-defence/69945192"
     },
     {
-      "title": "StockTitan — Kratos reports Q2 2026 results, raises guidance",
-      "url": "https://www.stocktitan.net/news/KTOS/kratos-reports-second-quarter-2026-financial-iz9i8yyotxfi.html"
+      "title": "ad-hoc-news — Rheinmetall's Danish MASS decoy deal",
+      "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/rheinmetall-stock-edges-higher-as-danish-mass-decoy-deal-underpins-q2/69950020"
     },
     {
-      "title": "Benzinga — Kratos posts double beat in Q2; Cantor cuts price target",
-      "url": "https://www.benzinga.com/markets/earnings/26/08/60933670/kratos-defense-posts-double-beat-in-q2-business-momentum-expected-to-accelerate"
+      "title": "Overt Defense — BAE Systems secures £5.9B Dreadnought contract",
+      "url": "https://www.overtdefense.com/2026/08/04/bae-systems-secures-5-9-billion-dreadnought-submarine-contract/"
     },
     {
-      "title": "Yahoo Finance — AeroVironment up 25% after $400M Army Locust contract",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/why-aerovironment-avav-25-0-141218604.html"
+      "title": "Simply Wall St — Kratos up 30.4% after outlook boost and Javelin Seeker win",
+      "url": "https://simplywall.st/stocks/us/capital-goods/nasdaq-ktos/kratos-defense-security-solutions/news/kratos-ktos-is-up-304-after-boosting-2026-outlook-and-winnin/amp"
     },
     {
-      "title": "Military Times — Rheinmetall on ramping up ATACMS output",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/07/rheinmetall-says-ramping-up-atacms-output-will-take-time-as-us-rebuilds-stocks/"
+      "title": "Ondas IR — Record Q2 2026 revenue of $83.8M, raised outlook",
+      "url": "https://ir.ondas.com/press-releases/detail/326/ondas-posts-record-q2-2026-revenue-of-83-8-million-on"
     },
     {
-      "title": "Sullivan & Cromwell — Saronic raises $1.75B Series D at $9.25B valuation",
-      "url": "https://www.sullcrom.com/About/News-and-Events/Highlights/2026/April/SC-Advises-Saronic-Raising-1-75-Billion-Series-D-Funding-9-25-Billion-Valuation"
+      "title": "Red Cat IR — Q2 2026 revenue growth of 527% YoY",
+      "url": "https://ir.redcatholdings.com/news-events/press-releases/detail/237/red-cat-reports-q2-2026-revenue-growth-of-527-yy-q2-gross-margins-increase-39-vs-q2-2025-gross-margins-increased-27-sequentially-from-q1-2026"
     },
     {
-      "title": "Tech Insider — Shield AI raises $2B Series G at $12.7B valuation",
-      "url": "https://tech-insider.org/shield-ai-2-billion-series-g-defense-ai-autonomous-warfare-2026/"
+      "title": "NATO — Defence investment update: record spending in Europe and Canada",
+      "url": "https://www.nato.int/en/news-and-events/articles/news/2026/07/07/defence-investment-update-record-spending-in-europe-and-canada"
     },
     {
-      "title": "Crunchbase — Defense startup funding hits all-time record",
-      "url": "https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/"
-    },
-    {
-      "title": "NATO — Defence investment and NATO's 5% commitment",
-      "url": "https://www.nato.int/en/what-we-do/introduction-to-nato/defence-expenditures-and-natos-5-commitment"
+      "title": "Benzinga — What's going on with the rise in AeroVironment stock",
+      "url": "https://www.benzinga.com/trading-ideas/movers/26/08/61213656/whats-going-on-with-the-rise-in-aerovironment-stock"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 10, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Aug 17, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "Aug 10, 2026",
+    "as_of": "Aug 17, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
         "ticker": "RHM.DE",
         "name": "Rheinmetall",
-        "stance": "core",
-        "weight": 32,
-        "note": "Record Q2 core profit and an €80B+ backlog were already known, but the new Lockheed ATACMS MoU (Aug 7, first revenue 2028) adds a second growth leg beyond artillery and vehicles. Directly accessible on most UK platforms via European exchange access, unlike the US-listed names here.",
-        "change": "up"
+        "stance": "watch",
+        "weight": 0,
+        "note": "The Aug 13 FY26 revenue guidance cut (to €13.7-14.2B, from up to €14.5B) after a naval-programme setback overshadows the strong Q2 profit and ATACMS MoU narrative; still directly accessible via European exchange access from the UK without a US wrapper, but conviction is lowered until the naval issue is resolved.",
+        "change": "down"
       },
       {
         "ticker": "BA.L",
         "name": "BAE Systems",
         "stance": "core",
-        "weight": 28,
-        "note": "Upgraded H1 guidance plus a new £5.9B Dreadnought contract; still the most practically accessible name in this sector for you — UK-listed, no PRIIPs friction, no FX wrapper.",
+        "weight": 35,
+        "note": "The £5.9B Dreadnought contract (Aug 4) plus a £135M torpedo-maintenance deal and a $150M USS Boxer award show broad-based order momentum on top of the H1 guidance upgrade; still the most straightforward name for you to hold — UK-listed, no wrapper needed.",
         "change": "up"
       },
       {
         "ticker": "LHX",
         "name": "L3Harris",
         "stance": "core",
-        "weight": 22,
-        "note": "No fresh catalyst this week, but record $42.0B backlog and already-raised FY26 guidance justify holding through the budget cycle on prime-contractor economics rather than a story multiple. Also sits in Space (payloads) — don't double-count. Needs a US wrapper.",
-        "change": null
+        "weight": 30,
+        "note": "Raised FY26 guidance plus a new ~$12B/$2B-profit 7-year Lockheed framework for THAAD/PAC-3 motors and the Arsenal of Freedom GMLRS facility opening add real backlog; the missile-business IPO/spinoff slipping to 2027 is a minor timing wrinkle, not a thesis breaker. Also sits in the Space sleeve via its payload work — don't double-count. Needs a US wrapper.",
+        "change": "up"
       },
       {
         "ticker": "PLTR",
         "name": "Palantir",
         "stance": "watch",
         "weight": 0,
-        "note": "Q2 revenue +93% YoY and FY26 guidance raised again — the business keeps beating — but the stock rallied ~30% on the print to ~$156, pushing an already extreme multiple further ahead of the fundamentals; waiting for a better entry. Also anchors the AI sleeve — don't double-count. Needs a US wrapper.",
-        "change": "down"
+        "note": "Stock has eased to ~$174 (Aug 16) from its $207.52 52-week high but still trades at an extreme multiple against mid-90s% growth; waiting for a more durable pullback rather than chasing. Also anchors the AI sleeve — don't double-count. Needs a US wrapper.",
+        "change": null
       },
       {
         "ticker": "AVAV",
         "name": "AeroVironment",
         "stance": "spec",
-        "weight": 18,
-        "note": "The $400M Locust counter-drone award and a new ex-ManTech CFO on the board reinforce the demand and governance thesis, but the stock is already up ~30% in a week on the news and the securities-fraud litigation remains unresolved, so this stays speculative-sized rather than core. Also in Robotics — don't double-count. Needs a US wrapper.",
-        "change": null
+        "weight": 20,
+        "note": "Stock extended its run to ~$196 (Aug 11) and picked up a Piper Sandler Buy plus a structural tailwind from the Aug 13 tariff proclamation on imported drones; kept speculative given how far/fast it's run (~35% in two weeks) and unresolved securities litigation. Also in the Robotics sleeve — don't double-count. Needs a US wrapper.",
+        "change": "up"
       },
       {
         "ticker": "KTOS",
         "name": "Kratos Defense",
-        "stance": "watch",
-        "weight": 0,
-        "note": "Q2 beat and raised guidance, but Kratos was left out of the June CCA Increment 1 production award (Anduril and General Atomics won instead) — the exact downselect risk this page has flagged — and Cantor cut its price target to $100 from $115 despite the beat. Non-CCA programs (hypersonics, targets) still look solid; waiting for the thesis to reset around what Kratos actually won, not what it didn't.",
-        "change": "down"
+        "stance": "spec",
+        "weight": 15,
+        "note": "New Javelin Seeker (Army DEVCOM C5ISR) and a $156M DOE/NNSA counter-UAS IDIQ (Solar Shield) show real revenue outside the CCA program it lost in June; stock rebounded ~30% in a week to the mid-$60s against a $105.62 average analyst target — enough to move this off pure watch into a small speculative position. Needs a US wrapper.",
+        "change": "up"
       },
       {
         "ticker": "RCAT",
         "name": "Red Cat Holdings",
         "stance": "avoid",
         "weight": 0,
-        "note": "Revenue +520% YoY but net loss widened to $35.3M; growth this fast without a credible path to profitability doesn't answer the dilution question.",
+        "note": "Q2 revenue +527% YoY but missed consensus by ~11% and GAAP EPS also missed; the tariff-driven share pop doesn't change that losses are still deep and dilution risk is unresolved.",
         "change": null
       },
       {
         "ticker": "ONDS",
         "name": "Ondas Holdings",
-        "stance": "avoid",
+        "stance": "watch",
         "weight": 0,
-        "note": "Order momentum continues but the platform is still sub-scale and cash-hungry relative to the story; wait for contracted revenue to catch up to the narrative.",
-        "change": null
+        "note": "Record Q2 revenue of $83.8M (~13x YoY) and FY26 guidance raised to $525-550M genuinely answer the prior sub-scale critique, but margin and profitability visibility aren't proven yet, so this moves up to watch rather than straight into a position.",
+        "change": "up"
       }
     ]
   }
