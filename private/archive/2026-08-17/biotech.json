@@ -1,0 +1,447 @@
+{
+ "sector": "biotech",
+ "title": "Fynaptix \u00b7 AI Biotech Research",
+ "heading": "AI Biotech Intelligence",
+ "subheading": "AI-native drug discovery, computational biology & longevity capital",
+ "kicker": "AI DRUG DISCOVERY & BIOTECH // AUG 2026",
+ "generated": "Aug 17, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Biotech carries binary clinical risk; AI-discovery names trade on catalysts, not revenue. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "$9.1B",
+   "sub": "H1 2026 \u00b7 68 DEALS",
+   "label": "Global biotech VC funding, strongest first half since 2022; ~76% from rounds over $100M, inflated in part by Isomorphic Labs' single $2.1B round",
+   "highlight": false
+  },
+  {
+   "value": "270-285K",
+   "sub": "GUARDANT SHIELD TESTS \u00b7 SCREENING GUIDANCE RAISED TO $218-230M",
+   "label": "FDA approved a higher-throughput, lower-COGS Shield workflow now live in production, and UnitedHealthcare's Shield coverage takes effect this month \u2014 the multiomics diagnostics layer keeps compounding while AI-native platforms swing on single catalysts",
+   "highlight": true
+  },
+  {
+   "value": "320",
+   "sub": "PATIENTS \u00b7 RENTOSERTIB PHASE III (JUL 7, 2026)",
+   "label": "Insilico's AI-discovered TNIK inhibitor remains the field's furthest clinical milestone; zero AI-discovered drugs have reached full FDA approval to date",
+   "highlight": false
+  },
+  {
+   "value": "$1.71B",
+   "sub": "ARKG AUM \u00b7 UP FROM ~$1.2B EARLY 2026",
+   "label": "Still ~81% below the ~$9B 2021 peak, but rebuilding as XBI/IBB/ARKG all post 45-77% trailing 1-yr total returns",
+   "highlight": false
+  }
+ ],
+ "themes": [
+  {
+   "tag": "PROTEOMICS SETBACK",
+   "title": "The least mature layer of the stack just got riskier",
+   "description": "Quantum-Si's Q2 revenue fell to $344K from $591K a year earlier, and the company delayed its Proteus commercial launch a full year to Q2 2027 while cutting headcount 20% to preserve cash. A useful counterweight to the tooling layer's otherwise strong quarter \u2014 hardware timelines slip just like clinical ones."
+  },
+  {
+   "tag": "TOOLING LAYER STRENGTH",
+   "title": "Guardant and 908 Devices both delivered real operating progress",
+   "description": "Guardant Health's FDA-approved higher-throughput Shield workflow is now live in production and UnitedHealthcare coverage begins this month, with screening revenue guidance raised to $218-230M. 908 Devices grew Q2 revenue 23% to $16.1M, improved its adjusted EBITDA loss by more than half, and raised FY26 guidance to $68-70M \u2014 both picks-and-shovels names executing regardless of which drug-discovery platform wins."
+  },
+  {
+   "tag": "ANALYST & INSIDER CONVICTION",
+   "title": "Third-party money is picking winners inside the AI-native tier",
+   "description": "H.C. Wainwright raised its Generate Biomedicines price target to $25 from $16 (Buy maintained) on Aug 6 despite a Q2 miss. Separately, ARK bought Schr\u00f6dinger twice this week (Aug 11 and Aug 13, combined ~$826K) while trimming its 10x Genomics position \u2014 a vote for the platform with a real second (software) business."
+  },
+  {
+   "tag": "GOVERNANCE VS. OVERHANG",
+   "title": "Eikon adds credibility but the stock overhang is unresolved",
+   "description": "Eikon Therapeutics appointed Merck's Johnny Bennett, Ph.D. \u2014 VP and Head of Discovery Chemistry at Merck Research Labs \u2014 to its Scientific Advisory Board on Aug 10. A genuine credibility add, but it doesn't offset the Aug 4 lock-up expiry or the two board resignations that preceded it; shares remain roughly 48% below the IPO price."
+  }
+ ],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Established / Hedged Exposure",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts \u2014 not revenue.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "LLY",
+     "company": "Eli Lilly",
+     "angle": "Isomorphic partner ($1.7B+ milestones) + $2.75B Insilico licensing deal; $1B, 5-yr NVIDIA co-innovation AI lab for R&D; owns Verve Therapeutics (acquired 2025) for in-vivo cardiovascular base editing",
+     "watch for": "Q2 (Aug 5): adj. EPS $8.38 vs $6.01 est., revenue $23.0B (+48%) on Mounjaro (+91%) and Zepbound; FY26 guidance raised to $85\u201387B. Verve is prioritizing the Heart-2 trial for VERVE-102, pushing gene editing from rare disease toward mainstream cardiovascular"
+    },
+    {
+     "ticker": "NVS",
+     "company": "Novartis",
+     "angle": "Isomorphic partnership renewed (~$1.2B+); new Chai Discovery antibody-design collab; $1.7B Relation Therapeutics target deal",
+     "watch for": "Q2 (Jul 21): sales +3% to $14.4B, FY26 guidance reaffirmed; Kisqali/Scemblix/Pluvicto momentum funds continued AI-partner spend without needing a platform win to justify it"
+    },
+    {
+     "ticker": "NVDA",
+     "company": "NVIDIA",
+     "angle": "BioNeMo/compute layer for computational biology; $1B AI co-innovation lab with Lilly announced January 2026",
+     "watch for": "Lilly co-innovation lab now ~7 months into build-out; watch for additional pharma platform partnerships as compute demand from AI-bio workloads grows"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "AI-Native Platforms \u2014 Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts \u2014 not revenue.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "RXRX",
+     "company": "Recursion",
+     "angle": "Millions of automated cell-imaging experiments feeding AI \"maps of biology\"; collabs with Roche, Bayer, Merck, Sanofi, Genentech",
+     "watch for": "Q2 (Aug 5): revenue fell to $7.67M from $19.22M (-60% YoY), net loss narrowed to $131.0M, cash opex guidance cut to under $375M; Genentech advanced the collaboration's first neuroscience target into joint early discovery, and REC-7735's IND cleared for a 2H26 Phase 1/2 ZINNIA trial start"
+    },
+    {
+     "ticker": "SDGR",
+     "company": "Schr\u00f6dinger",
+     "angle": "Physics-based + ML molecular simulation; software revenue cushions pipeline risk",
+     "watch for": "Q2 (Aug 5) beat: ACV +27% to $29.6M, swung to $6.0M net income from a $43.2M prior-year loss; launched Bunsen agentic AI co-scientist. ARK bought SDGR twice this week (Aug 11 ~$301K, Aug 13 ~$525K) while trimming 10x Genomics"
+    },
+    {
+     "ticker": "RLAY",
+     "company": "Relay Therapeutics",
+     "angle": "Motion-based protein modeling for precision oncology; zovegalisib advancing",
+     "watch for": "Q2 (Aug 6): net loss widened to $83.7M as R&D spend rose 20%; expanded its at-the-market equity facility from $250M to ~$463M the same day (Aug 6) \u2014 real dilution risk. Zovegalisib + atirmociclib Phase 3 targeted early 2027; $910.9M cash funds runway into 2029"
+    },
+    {
+     "ticker": "GENB",
+     "company": "Generate Biomedicines",
+     "angle": "Generative protein design \u2014 IPO'd Feb 27 2026 at $16/sh, $400M raised; separate $1B Novartis protein-design deal",
+     "watch for": "Q2 (Aug 6): loss widened to $67.3M (missed est.), but H.C. Wainwright raised its price target to $25 from $16 (Buy maintained) on Aug 6; GB-0895 Phase 3 asthma recruitment complete across all six global regions, Phase 1b COPD data still to come"
+    },
+    {
+     "ticker": "EIKN",
+     "company": "Eikon Therapeutics",
+     "angle": "Live-cell single-molecule tracking \u2014 upsized IPO Feb 4 2026 at $18/sh, $381M raised",
+     "watch for": "Added Merck's Johnny Bennett, Ph.D. (VP, Discovery Chemistry) to its Scientific Advisory Board Aug 10 \u2014 but that follows two board director resignations (effective Jul 31) and the Aug 4 lock-up expiry; shares remain ~48% below the $18 IPO offer"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "Isomorphic Labs",
+   "value": "$2.1B SERIES B (MAY 2026) \u00b7 ALPHABET",
+   "note": "AlphaFold 3 lineage; Thrive Capital-led round adds MGX, Temasek, CapitalG & UK Sovereign AI Fund alongside Alphabet/GV. ISM8969 cleared FDA for human trials Jan 28, 2026 \u2014 the oncology candidate CEO Demis Hassabis says will anchor Isomorphic's first clinical trials by year-end 2026, a year later than his original 2025 target."
+  },
+  {
+   "name": "Insilico Medicine",
+   "value": "$2.75B LILLY DEAL + $2.5B SK BIOPHARMA DEAL",
+   "note": "Formally initiated the Phase III GENESIS-IPF trial for rentosertib on Jul 7, 2026 \u2014 320 patients, 52 weeks, 47 centers across China; the Phase IIa data behind it (published in Nature Medicine) showed +98.4 mL forced vital capacity improvement at 12 weeks on the 60mg arm. Still the field's clearest clinical proof point; listed on HKEX (Dec 2025, $292M IPO)."
+  },
+  {
+   "name": "Xaira Therapeutics",
+   "value": "$1B+ LAUNCH \u2014 LARGEST EVER",
+   "note": "Launched X-Cell, its first virtual cell model (4.9B parameters, trained on the X-Atlas/Pisces dataset), in March 2026. Built out its clinical leadership Jul 6 \u2014 Ci Chu to Chief Discovery Officer, Bo Wang to Chief AI Scientist, plus a new SVP of Translational Science & Early Clinical Development \u2014 a tell that it's moving from platform-building toward actually running trials."
+  },
+  {
+   "name": "NewLimit",
+   "value": "$3.1B VALUATION \u00b7 $435M SERIES C",
+   "note": "Epigenetic reprogramming for longevity (Founders Fund, Lilly Ventures, Jun 2026); cites a prototype that reverses aging in human liver cells, targeting clinical entry as early as 2027. Retro Biosciences ($1.8B valuation, $3B+ raised) has an Alzheimer's Phase 1 trial (RTR242, autophagy-targeting) underway in Australia with early safety data expected around August \u2014 CEO Joe Betts-LaCroix says the trial is going well with no dose-limiting toxicities so far."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Biology still fails in the clinic",
+   "description": "Zero AI-discovered drugs have reached full FDA approval \u2014 rentosertib's Phase III initiation (Jul 7) is the field's furthest milestone, not a finish line. Recursion's Q2 revenue fell 60% YoY to $7.67M, missing estimates; management responded by cutting 2026 cash opex guidance to under $375M rather than promising a near-term revenue fix."
+  },
+  {
+   "title": "Catalyst-driven volatility",
+   "description": "These stocks trade on announcements; between catalysts they drift and dilute. Generate Biomedicines missed Q2 estimates and widened its loss, yet H.C. Wainwright raised its price target to $25 from $16 the same day. Eikon added a credible Merck scientific advisor on Aug 10, but that followed two board resignations and an Aug 4 lock-up expiry \u2014 shares sit ~48% below IPO with no clinical catalyst yet to offset the overhang."
+  },
+  {
+   "title": "Hardware and instrument risk isn't just a biology problem",
+   "description": "Quantum-Si's Aug 13 disclosure that Proteus won't launch until Q2 2027 \u2014 a full year late \u2014 alongside a 20% workforce cut, is a reminder that the proteomics layer's timelines slip just like clinical ones. Compare that to Abbott's ~$21B all-cash purchase of Exact Sciences: real test volumes and reimbursed CPT codes command real M&A premiums, while unproven instrument platforms carry genuine execution risk regardless of the underlying science."
+  },
+  {
+   "title": "Rate sensitivity",
+   "description": "Long-duration biotech cash flows are highly sensitive to rates; macro can swamp fundamentals regardless of platform progress. Relay Therapeutics' Aug 6 expansion of its at-the-market equity facility to ~$463M is a reminder that unprofitable platform names fund themselves by diluting shareholders when capital is available, not necessarily when it's cheap."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "AUG 13-14, 2026",
+   "title": "Quantum-Si (QSI) Q2 2026: Proteus delayed to Q2 2027, 20% workforce cut",
+   "description": "Revenue fell to $344K from $591K a year earlier; the company is adding an integrated instrument design cycle to reduce manufacturing risk. Same week, ARK bought more Schr\u00f6dinger (SDGR) and trimmed 10x Genomics across its funds."
+  },
+  {
+   "date": "AUG 11, 2026",
+   "title": "908 Devices (MASS) Q2 2026: 23% revenue growth, guidance raised",
+   "description": "Revenue of $16.1M (+23% YoY), adjusted EBITDA loss improved more than 50%, $101.5M cash with no debt; FY26 revenue outlook raised to $68-70M on a new $6M ProtectIR order."
+  },
+  {
+   "date": "AUG 10, 2026",
+   "title": "Eikon Therapeutics (EIKN) adds Merck's Johnny Bennett, Ph.D. to Scientific Advisory Board",
+   "description": "VP and Head of Discovery Chemistry at Merck Research Labs joins a board that already includes Nobel laureates Eric Betzig and Thomas Cech \u2014 a credibility add that doesn't resolve the recent lock-up/board-resignation overhang."
+  },
+  {
+   "date": "AUG 6, 2026",
+   "title": "Relay Therapeutics (RLAY) expands ATM offering to ~$463M; Generate Biomedicines (GENB) price target raised to $25",
+   "description": "Relay grew its at-the-market equity capacity from $250M to ~$463M the same day it reported a widened Q2 net loss. H.C. Wainwright raised its Generate Biomedicines target to $25 from $16 (Buy) despite a Q2 miss, citing Novartis's advancement of a platform-designed biologic into preclinical."
+  },
+  {
+   "date": "AUG 5, 2026",
+   "title": "Recursion (RXRX) Q2 2026: Genentech advances first neuroscience target; REC-7735 IND cleared",
+   "description": "Revenue missed by ~60% YoY, but Genentech moved the collaboration's first neuroscience target into joint early discovery, and REC-7735 (a PI3K\u03b1 H1047R inhibitor designed in 10 months) cleared IND for a Phase 1/2 ZINNIA trial start in 2H26."
+  },
+  {
+   "date": "AUG 4, 2026",
+   "title": "Guardant Health (GH): FDA approves higher-throughput Shield workflow; UnitedHealthcare coverage begins",
+   "description": "The lower-COGS Shield workflow went live in production for new samples in August; UnitedHealthcare's Shield coverage takes effect the same month. Screening revenue guidance raised to $218-230M on 270-285K expected tests."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "XBI",
+   "name": "SPDR S&P Biotech",
+   "summary": "Equal-weight biotech \u2014 broad sector beta, tilts toward smaller clinical-stage names. +76.6% trailing 1-yr total return; $10.66B AUM, 0.35% expense ratio, 156 holdings."
+  },
+  {
+   "ticker": "ARKG",
+   "name": "ARK Genomic Revolution",
+   "summary": "Active, concentrated genomics/AI-bio bets \u2014 highest single-name concentration risk of the three. +72.7% trailing 1-yr total return; $1.71B AUM, 0.75% expense ratio, 34 holdings."
+  },
+  {
+   "ticker": "IBB",
+   "name": "iShares Biotechnology",
+   "summary": "Market-cap-weighted, tilts large-cap \u2014 lower volatility. +45.0% trailing 1-yr total return; $9.92B AUM, 0.44% expense ratio, 251 holdings."
+  }
+ ],
+ "sources": [
+  {
+   "title": "Eli Lilly \u2014 Q2 2026 results, FY26 guidance raised to $85\u201387B",
+   "url": "https://investor.lilly.com/news-releases/news-release-details/lilly-reports-second-quarter-2026-financial-results-raises-full"
+  },
+  {
+   "title": "Novartis \u2014 Q2 2026 results, guidance reaffirmed",
+   "url": "https://www.novartis.com/news/media-releases/novartis-delivered-sales-growth-q2-and-further-advanced-pipeline-full-year-guidance-reaffirmed"
+  },
+  {
+   "title": "NVIDIA Newsroom \u2014 NVIDIA and Lilly Announce Co-Innovation AI Lab",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-and-lilly-announce-co-innovation-lab-to-reinvent-drug-discovery-in-the-age-of-ai"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Recursion (RXRX) Q2 2026: Genentech neuroscience target, REC-7735 IND clearance",
+   "url": "https://www.globenewswire.com/news-release/2026/08/05/3339126/0/en/recursion-reports-second-quarter-financial-results-genentech-options-first-neuroscience-target-into-early-discovery-program.html"
+  },
+  {
+   "title": "SahmCapital \u2014 Recursion (RXRX) up 7.3% after mixed Q2 results",
+   "url": "https://www.sahmcapital.com/news/content/recursion-pharmaceuticals-rxrx-is-up-73-after-mixed-q2-results-with-narrower-net-loss-2026-08-09"
+  },
+  {
+   "title": "GuruFocus \u2014 Schr\u00f6dinger (SDGR) Q2 2026: ACV +27%, Bunsen launch",
+   "url": "https://www.gurufocus.com/news/9009674/schrodinger-inc-sdgr-q2-2026-earnings-call-highlights-acv-surges-27-on-bunsen-launch-and-strong-drug-discovery-milestones"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Relay Therapeutics Q2 2026 results, corporate highlights",
+   "url": "https://www.globenewswire.com/news-release/2026/07/30/3336419/0/en/Relay-Therapeutics-to-Announce-Second-Quarter-2026-Financial-Results-and-Corporate-Highlights-on-August-6-2026.html"
+  },
+  {
+   "title": "TipRanks \u2014 Relay Therapeutics expands ATM equity offering agreement",
+   "url": "https://www.tipranks.com/news/company-announcements/relay-therapeutics-expands-atm-equity-offering-agreement"
+  },
+  {
+   "title": "Stocktitan \u2014 Generate Biomedicines (GENB) H.C. Wainwright price target raise",
+   "url": "https://finance.yahoo.com/quote/GENB/"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Eikon Therapeutics appoints Johnny Bennett, Ph.D. to Scientific Advisory Board",
+   "url": "https://www.globenewswire.com/news-release/2026/08/10/3341730/0/en/eikon-therapeutics-appoints-johnny-bennett-ph-d-to-its-scientific-advisory-board.html"
+  },
+  {
+   "title": "Insilico Medicine \u2014 Phase III GENESIS-IPF trial initiation for rentosertib",
+   "url": "https://insilico.com/news/xmjsn4l091-insilico-initiates-phase-iii-clinical-tr"
+  },
+  {
+   "title": "Galen Growth \u2014 Isomorphic Labs $2.1B Series B",
+   "url": "https://www.galengrowth.com/isomorphic-labs-2-1bn-series-b-ai-drug-discovery/"
+  },
+  {
+   "title": "Xaira Therapeutics \u2014 News & Content (leadership build-out)",
+   "url": "https://www.xaira.com/news-content"
+  },
+  {
+   "title": "Longevity.technology \u2014 Retro Biosciences $1.8B, Alzheimer's trial advancing",
+   "url": "https://longevity.technology/news/retro-bios-1-8b-moment-hopes-up-as-alzheimers-trial-advances/"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Illumina (ILMN) Q2 2026 results and outlook",
+   "url": "https://finance.yahoo.com/healthcare/articles/illumina-ilmn-rose-strong-clinical-145306882.html"
+  },
+  {
+   "title": "TipRanks \u2014 Illumina $300M senior notes offering (Aug 10)",
+   "url": "https://www.tipranks.com/news/company-announcements/illumina-announces-300-million-senior-notes-offering"
+  },
+  {
+   "title": "Motley Fool \u2014 Guardant Health (GH) Q2 2026 earnings call transcript",
+   "url": "https://www.fool.com/earnings/call-transcripts/2026/08/07/guardant-health-gh-q2-2026-earnings-call-transcript/"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Guardant Health (GH) Shield growth, FDA approval, UnitedHealthcare coverage",
+   "url": "https://finance.yahoo.com/healthcare/articles/guardant-health-gh-sees-48-123107538.html"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Quantum-Si (QSI) Q2 2026 results, Proteus development update",
+   "url": "https://www.globenewswire.com/news-release/2026/08/13/3344917/0/en/quantum-si-reports-second-quarter-2026-financial-results-and-provides-proteus-development-update.html"
+  },
+  {
+   "title": "StockTitan \u2014 908 Devices (MASS) Q2 2026: 23% revenue growth, guidance raised",
+   "url": "https://www.stocktitan.net/sec-filings/MASS/8-k-908-devices-inc-reports-material-event-01c57fce6c71.html"
+  },
+  {
+   "title": "Exact Sciences / Abbott \u2014 ~$21B acquisition (closed Mar 23, 2026)",
+   "url": "https://www.exactsciences.com/news-events/press-releases/abbott-to-acquire-exact-sciences-a-leader-in-large-and-fast-growing-cancer-screening-and-precision"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 XBI overview, AUM & performance",
+   "url": "https://stockanalysis.com/etf/xbi/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 IBB overview, AUM & performance",
+   "url": "https://stockanalysis.com/etf/ibb/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 ARKG overview, holdings & performance",
+   "url": "https://stockanalysis.com/etf/arkg/"
+  },
+  {
+   "title": "CGTLive \u2014 Verve Therapeutics second-gen cardiovascular CRISPR therapy, Heart-2 trial",
+   "url": "https://www.cgtlive.com/view/verve-moves-on-second-gen-cardiovascular-crispr-therapy-verve-102-adverse-events"
+  },
+  {
+   "title": "PubMed / Innovative Genomics Institute \u2014 Intellia in-vivo CRISPR gene editing, CRISPR clinical trials 2026 update",
+   "url": "https://innovativegenomics.org/news/crispr-clinical-trials-2026/"
+  },
+  {
+   "title": "Investing.com (Cathie's Ark) \u2014 ARK buys Intellia and Schr\u00f6dinger, sells 10x Genomics (Aug 11-13)",
+   "url": "https://cathiesark.com/arkg/trades"
+  },
+  {
+   "title": "BioPharma Dive / PharmaVoice \u2014 Biotech VC funding H1 2026: $9.1B, 68 deals",
+   "url": "https://www.biopharmadive.com/news/biotech-venture-capital-funding-2026-first-half/824881/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Aug 17, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Aug 17, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "LLY",
+    "name": "Eli Lilly",
+    "stance": "core",
+    "weight": 26,
+    "note": "Q2 revenue hit $23.0B (+48%) on Mounjaro and Zepbound, FY26 guidance raised to $85\u201387B; Verve Therapeutics (acquired 2025) is prioritizing the Heart-2 trial for VERVE-102, pushing in-vivo gene editing from rare disease toward mainstream cardiovascular \u2014 optionality stacked on top of cash flow that doesn't need it to work.",
+    "change": null
+   },
+   {
+    "ticker": "NVS",
+    "name": "Novartis",
+    "stance": "core",
+    "weight": 20,
+    "note": "Q2 sales +3% to $14.4B with guidance reaffirmed; deep AI partnerships across the pipeline (Isomorphic, Chai Discovery, Relation Therapeutics) are backed by pharma economics rather than a platform story.",
+    "change": null
+   },
+   {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "stance": "core",
+    "weight": 18,
+    "note": "BioNeMo and the Lilly co-innovation lab (~7 months into build-out) make it the compute layer for nearly every AI-biotech platform on this page. It also sits in your AI, Robotics and Quantum sleeves \u2014 don't double-count the exposure across sleeves.",
+    "change": null
+   },
+   {
+    "ticker": "ILMN",
+    "name": "Illumina",
+    "stance": "core",
+    "weight": 10,
+    "note": "Q2 revenue $1.16B (+9.5%) with FY26 outlook lifted to $4.60\u20134.64B; refinanced its September debt maturity with a new $300M notes offering (Aug 10) and syndicated credit facility (Aug 13) \u2014 routine balance-sheet management from the sequencing incumbent that monetizes every experiment regardless of which drug-discovery platform wins.",
+    "change": null
+   },
+   {
+    "ticker": "SDGR",
+    "name": "Schr\u00f6dinger",
+    "stance": "spec",
+    "weight": 10,
+    "note": "ARK bought SDGR twice this week (Aug 11 ~$301K, Aug 13 ~$525K) while trimming 10x Genomics \u2014 a vote of confidence alongside Q2's ACV +27% and the new Bunsen agentic co-scientist; still the AI-native name with a real second business (software revenue) to fall back on.",
+    "change": "up"
+   },
+   {
+    "ticker": "RXRX",
+    "name": "Recursion",
+    "stance": "spec",
+    "weight": 6,
+    "note": "Q2 revenue fell 60% YoY to $7.67M, but net loss narrowed to $131.0M and cash opex guidance was cut to under $375M for cost discipline, while Genentech advanced the first neuroscience target into joint early discovery \u2014 the platform is proving targets faster than it's proving revenue.",
+    "change": null
+   },
+   {
+    "ticker": "RLAY",
+    "name": "Relay Therapeutics",
+    "stance": "spec",
+    "weight": 4,
+    "note": "Net loss widened 20% in Q2 and the company expanded its at-the-market equity facility from $250M to ~$463M the same day (Aug 6) \u2014 real dilution risk layered on the existing binary bet, though $910.9M cash and a concrete Phase 3 timeline (early 2027) keep the science genuine.",
+    "change": null
+   },
+   {
+    "ticker": "GENB",
+    "name": "Generate Biomedicines",
+    "stance": "spec",
+    "weight": 4,
+    "note": "H.C. Wainwright raised its price target to $25 from $16 (Buy maintained) on Aug 6 despite a Q2 miss, and GB-0895's Phase 3 asthma recruitment is now complete across all six regions with Phase 1b COPD data still to come \u2014 third-party conviction is building faster than the loss is narrowing.",
+    "change": "up"
+   },
+   {
+    "ticker": "MASS",
+    "name": "908 Devices",
+    "stance": "spec",
+    "weight": 2,
+    "note": "Q2 revenue +23% to $16.1M, adjusted EBITDA loss improved more than 50% YoY, $101.5M cash with no debt, and FY26 guidance raised to $68-70M on a new $6M ProtectIR order \u2014 the strongest print of any tooling name this quarter, still sized small because it's a single-digit-million-revenue business.",
+    "change": "up"
+   },
+   {
+    "ticker": "TEM",
+    "name": "Tempus AI",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Rolled out a new multimodal foundation model (Aug 4) claiming diagnostic-grade cancer detection and broader biomarker prediction, and is now in patent litigation with Guardant Health testing whether AI-diagnostic patents are even valid \u2014 a genuinely strong data-network business still priced for continued perfection; wait for a better entry.",
+    "change": null
+   },
+   {
+    "ticker": "GH",
+    "name": "Guardant Health",
+    "stance": "watch",
+    "weight": 0,
+    "note": "FDA approved a higher-throughput, lower-COGS Shield workflow now live in production, and UnitedHealthcare's Shield coverage takes effect this month \u2014 real execution, but shares trade near a 52-week high after a ~200% trailing 1-year run, so price still leads the story here.",
+    "change": null
+   },
+   {
+    "ticker": "EIKN",
+    "name": "Eikon Therapeutics",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Added Merck's Johnny Bennett, Ph.D. to its Scientific Advisory Board Aug 10 \u2014 a credible addition \u2014 but it doesn't resolve the Aug 4 lock-up overhang or the two board resignations that preceded it, and shares remain ~48% below the $18 IPO price with no near-term clinical catalyst.",
+    "change": null
+   },
+   {
+    "ticker": "QSI",
+    "name": "Quantum-Si",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Q2 revenue fell to $344K from $591K a year earlier, and the company delayed its Proteus commercial launch a full year to Q2 2027 while cutting headcount 20% to preserve cash \u2014 the least mature layer of the multiomics stack just got materially riskier, not more proven; moved out of Speculative until the timeline stabilizes.",
+    "change": "down"
+   }
+  ]
+ }
+}

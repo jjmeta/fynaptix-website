@@ -1,0 +1,310 @@
+{
+ "sector": "nuclear",
+ "title": "Fynaptix \u00b7 Nuclear & SMR Research",
+ "heading": "Nuclear Energy Intelligence",
+ "subheading": "Small modular reactors, uranium & the AI power-demand trade",
+ "kicker": "NUCLEAR & SMRS // AUG 2026",
+ "generated": "Aug 17, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. SMR developers are pre-revenue with long regulatory timelines; verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "~$1T",
+   "sub": "CAPEX THROUGH 2029",
+   "label": "Expected US grid investment to match AI-driven electricity demand growth; hyperscalers hold 13+ nuclear deals totaling ~10 GW (Microsoft, Google, Amazon, Meta)",
+   "highlight": true
+  },
+  {
+   "value": "$86.48",
+   "sub": "URANIUM SPOT ($/LB)",
+   "label": "Still consolidating in the mid-$80s (Aug 8 read); long-term contract price hit $94/lb in late June, its highest since 2008 \u2014 term/spot gap remains wide",
+   "highlight": false
+  },
+  {
+   "value": "+20%",
+   "sub": "CEG ANNUALIZED EPS GROWTH GUIDE",
+   "label": "Constellation raised FY26 adjusted EPS guidance to $11.50-$12.50 (Aug 6) and now guides to 20% annualized growth through 2029, backed by 920 MW of new contracts incl. Walmart's first-ever nuclear PPA",
+   "highlight": false
+  },
+  {
+   "value": "0",
+   "sub": "OPERATING COMMERCIAL SMR PLANTS",
+   "label": "Clinch River's (GEV BWRX-300) mandatory NRC hearing convened Aug 13 in Oak Ridge; commissioners' construction-permit decision \u2014 which would be a first for a commercial SMR \u2014 is still pending",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Operating / Cash-Generating Exposure",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "CEG",
+     "company": "Constellation Energy",
+     "angle": "Largest US nuclear fleet operator (55 GW post-Calpine); direct data-center PPAs with Microsoft, Meta, Walmart",
+     "watch for": "Q2 (Aug 6): raised FY26 adjusted EPS guide to $11.50-$12.50 (from $11.00-$12.00), now guiding to 20% annualized growth through 2029; signed 920MW of new contracts (avg 18.5-yr) incl. Walmart's first-ever nuclear PPA (176MW); contracted clean baseload now ~30%; Argus trimmed PT to $325 from $350 (Aug 11) on softer ERCOT"
+    },
+    {
+     "ticker": "CCJ",
+     "company": "Cameco",
+     "angle": "Major Western uranium producer + Westinghouse stake",
+     "watch for": "Shares ~$99.00 Aug 16; Cigar Lake resumed production Jul 14 after an Orano McClean Lake mill disruption, 2026 outlook held at 17.5-18.0M lbs U3O8; Cameco's Cigar Lake stake rose to 57.418% after closing the TEPCO 5% acquisition"
+    },
+    {
+     "ticker": "BWXT",
+     "company": "BWX Technologies",
+     "angle": "Nuclear components, naval reactors, advanced reactor work",
+     "watch for": "Shares ~$170.35 (Aug 13); Q2 (Aug 3): 5th straight EPS beat, revenue +18% YoY to $901.6M, backlog +40% YoY; raised FY guidance to ~$3.8B revenue; selling medical business to Nordic Capital for ~$800M to sharpen nuclear focus"
+    },
+    {
+     "ticker": "GEV",
+     "company": "GE Vernova",
+     "angle": "Grid equipment + BWRX-300 SMR design via GE Hitachi Nuclear Energy",
+     "watch for": "Shares ~$1,061 (+1.2%); signed next-phase agreement with Blue Energy (Aug 13) advancing a 2.5GW gas-plus-nuclear project in Victoria, TX (2 gas turbines + up to 5 BWRX-300 SMRs) to engineering/licensing, FID targeted 2027; Clinch River mandatory NRC hearing also convened Aug 13, permit decision pending"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Pre-Revenue SMR Developers \u2014 Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "OKLO",
+     "company": "Oklo",
+     "angle": "Fast reactors using recycled waste; Sam Altman-backed; deals directly with AI/data-center customers",
+     "watch for": "Shares $44.43 Aug 16 (+14.8% Fri, +24.7% week, still -32.5% YTD, $8.25B mkt cap); Truist cut PT to $51 from $55 and Canaccord to $100 from $125 on cost-clarity/cash-burn concerns (H1 opex use $65.5M, FY26 guide $120-150M); raised $1.85B via stock sales in H1, shares out +15.3% to 186.0M"
+    },
+    {
+     "ticker": "SMR",
+     "company": "NuScale Power",
+     "angle": "Only SMR design with NRC formal approval; utility-focused; 6 GW TVA/ENTRA1 partnership",
+     "watch for": "Filed a new $750M at-the-market program (Aug 11) \u2014 up to ~82M more shares at illustrative $9.18; Fluor's monetization of its stake is now fully complete (~$2.43B realized since Sep 2025 vs $570M invested); shares ~$9.85 (Aug 13), still down ~32-41% YTD; ENTRA1/TVA 6GW pathway still non-binding"
+    },
+    {
+     "ticker": "LEU",
+     "company": "Centrus Energy",
+     "angle": "HALEU enrichment \u2014 fuel for advanced reactors",
+     "watch for": "Q2 (Aug 5): revenue $176.1M, GAAP net income $16.8M (profitable), signed a $900M HALEU enrichment award with DOE; backlog grew to $3.0B; signed large-scale HALEU/LEU supply pact with X-energy (deliveries from 2030)"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "TerraPower",
+   "value": "GATES-BACKED \u00b7 NATRIUM",
+   "note": "Kemmerer, WY Natrium reactor now under construction (broke ground Apr 23, 2026) after an NRC permit that was the first US approval of a commercial non-light-water reactor in 40+ years; targeting operation ~2031, part of Meta's ~6.6 GW nuclear commitment."
+  },
+  {
+   "name": "X-energy",
+   "value": "PUBLIC (XE) \u00b7 POST-IPO",
+   "note": "Xe-100 high-temp gas reactor; Amazon leading a $700M investment for up to 12 Xe-100 units. Q2 (Aug 13): revenue+grants +154% YoY to $54.6M but EPS -$0.15 missed -$0.09 est. as opex rose 156% to $164.6M; DOE increased its ARDP cost-share by up to $1B to $2.115B total; liquidity $1.9B, no debt."
+  },
+  {
+   "name": "Kairos Power",
+   "value": "GOOGLE-BACKED \u00b7 FLEET DEAL",
+   "note": "Google's first-ever corporate agreement to develop a US SMR fleet \u2014 up to 500 MW across 6-7 units; first commercial Hermes unit targeted for 2030, full fleet by 2035."
+  },
+  {
+   "name": "Commonwealth Fusion",
+   "value": "FUSION \u00b7 SPARC",
+   "note": "MIT spinout; raised another $1B on Jul 30, 2026 (~$4B total raised) from pension funds, sovereign wealth funds and strategic investors. SPARC demonstration machine in Devens, MA now reported ~80% complete, still targeting a net-energy-gain milestone."
+  },
+  {
+   "name": "Helion",
+   "value": "FUSION \u00b7 MICROSOFT PPA",
+   "note": "Altman-backed; closed a $465M Series G in June 2026 (~$1.5B total raised); Orion plant under construction to deliver 50 MW under its Microsoft PPA by 2029."
+  },
+  {
+   "name": "Holtec Nuclear",
+   "value": "IPO FILED (HNUC)",
+   "note": "Spent-fuel storage & decommissioning incumbent building SMR-300; S-1 filed Jul 10 for an estimated ~$2.0B Nasdaq IPO (JPM, Guggenheim, Goldman, Citi, BofA leading). Share count/price range still not set as of this edition."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "A mandatory hearing still isn't a permit",
+   "description": "Clinch River's Aug 13 NRC hearing \u2014 the furthest-along utility-scale SMR application in the country \u2014 is only the final procedural step before commissioners vote; no construction permit has actually issued yet. Zero advanced SMRs deliver commercial power anywhere. First-of-a-kind builds historically run over budget and schedule (see Vogtle)."
+  },
+  {
+   "title": "A founding backer's exit is now complete, and dilution is filling the gap",
+   "description": "Fluor's monetization of its NuScale stake finished in June 2026, realizing roughly $2.43B versus $570M invested \u2014 an early insider fully cashed out, not just \"signaled\" an exit. NuScale is now raising up to $750M more via a new ATM program (Aug 11), implying up to ~82M additional shares at an illustrative $9.18 \u2014 real dilution funding a still-non-binding 6GW pathway."
+  },
+  {
+   "title": "Regulatory clearance still isn't construction, and construction still isn't power",
+   "description": "TerraPower's Kemmerer permit was a genuine milestone \u2014 the first US approval of a commercial non-light-water reactor in 40+ years \u2014 yet the plant still won't generate power until roughly 2031. GEV/Blue Energy's 2.5GW Texas project won't reach a final investment decision until 2027, with SMR capacity not arriving until 2032. Multi-year gaps between permit and first power remain the norm across every design in this sector."
+  },
+  {
+   "title": "Burn rates are still outrunning the hype",
+   "description": "Oklo's own FY26 guide points to $120-150M of cash use even after Q2's cost-clarity concerns drove Truist and Canaccord to cut price targets; X-energy's Q2 opex rose 156% YoY against 154% revenue+grants growth, with EPS missing estimates. Uranium spot ($86.48/lb) remains well off >$100 highs seen earlier this year. Pre-revenue names are still deeply loss-making while trading on valuations that assume commercial success that hasn't happened yet."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "AUG 13, 2026",
+   "title": "Clinch River mandatory NRC hearing convenes in Oak Ridge",
+   "description": "NRC's mandatory uncontested hearing on TVA's Clinch River BWRX-300 construction permit was held as scheduled in Oak Ridge, TN, following NRC staff's June safety-evaluation recommendation. Commissioners' formal permit decision \u2014 which would be a first for a commercial SMR \u2014 is still pending."
+  },
+  {
+   "date": "AUG 13, 2026",
+   "title": "GE Vernova/Blue Energy advance 2.5GW Texas gas-plus-nuclear project",
+   "description": "Agreement moves the Victoria, TX project (two 7HA.02 gas turbines plus up to five BWRX-300 SMRs) into engineering, licensing and safety-analysis. ~1GW gas-fired power targeted for a data center in 2030, with 1.5GW of SMR capacity to follow from 2032; final investment decision targeted 2027."
+  },
+  {
+   "date": "AUG 13, 2026",
+   "title": "X-energy posts Q2: revenue+grants up 154%, but EPS misses",
+   "description": "Revenue and grant income rose to $54.6M as DOE ARDP engineering activity ramped, but operating expenses rose 156% to $164.6M and EPS of -$0.15 missed the -$0.09 estimate. DOE increased its ARDP cost-share commitment by up to $1B, bringing the total to $2.115B for the Dow project and TX-1 fuel facility."
+  },
+  {
+   "date": "AUG 11, 2026",
+   "title": "NuScale launches $750M ATM as Fluor's exit is confirmed complete",
+   "description": "NuScale filed a new at-the-market program for up to $750M of Class A shares (~82M shares at an illustrative $9.18). The raise follows confirmation that Fluor's monetization of its NuScale stake \u2014 flagged as in-progress last edition \u2014 fully wrapped in June, realizing ~$2.43B versus $570M invested."
+  },
+  {
+   "date": "AUG 10-11, 2026",
+   "title": "Analysts trim Oklo price targets on cost-clarity, cash-burn concerns",
+   "description": "Truist cut its target to $51 from $55 (Hold) and Canaccord to $100 from $125 (Buy) after Oklo's Q2 loss widened to $48.5M and H1 operating cash use hit $65.5M, with FY26 guidance pointing to $120-150M of cash use. Shares still rallied 24.7% for the week on the first-criticality milestone."
+  },
+  {
+   "date": "AUG 6, 2026",
+   "title": "Constellation raises guidance, signs Walmart's first nuclear PPA",
+   "description": "Q2 adjusted EPS of $2.55 beat estimates; FY26 guidance raised to $11.50-$12.50 with a 20% annualized growth target through 2029. Signed 920MW of new long-term contracts (avg 18.5-yr) including Walmart's first-ever nuclear PPA (176MW), funding a 30MW Dresden expansion."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "URA",
+   "name": "Global X Uranium",
+   "summary": "Uranium miners + fuel cycle \u00b7 ~$44.91, roughly flat on the week"
+  },
+  {
+   "ticker": "NLR",
+   "name": "VanEck Uranium & Nuclear",
+   "summary": "Utilities + miners + SMR developers blend \u00b7 ~$117.82, +4.04% YTD"
+  },
+  {
+   "ticker": "URNM",
+   "name": "Sprott Uranium Miners",
+   "summary": "Pure miner exposure, higher beta \u00b7 ~$54.56"
+  }
+ ],
+ "sources": [
+  {
+   "title": "POWER Magazine \u2014 Texas 2.5-GW gas-plus-nuclear project proceeds to engineering, licensing phase",
+   "url": "https://www.powermag.com/texas-2-5-gw-gas-plus-nuclear-project-proceeds-to-engineering-licensing-phase/"
+  },
+  {
+   "title": "Federal Register \u2014 TVA Clinch River Unit 1, notice of hearing (Aug 13, 2026)",
+   "url": "https://www.federalregister.gov/documents/2026/07/07/2026-13662/tennessee-valley-authority-clinch-river-nuclear-site-unit-1-notice-of-hearing"
+  },
+  {
+   "title": "X-energy Investor Relations \u2014 X-energy Reports Second Quarter 2026 Results",
+   "url": "https://investors.x-energy.com/news-releases/news-release-details/x-energy-reports-second-quarter-2026-results"
+  },
+  {
+   "title": "StockTitan \u2014 NuScale Power launches $750M ATM stock program",
+   "url": "https://www.stocktitan.net/sec-filings/SMR/424b5-nuscale-power-corp-prospectus-supplement-debt-securities-f481bec7e1d1.html"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Fluor has finished selling its NuScale Power stock",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/fluor-finished-selling-nuscale-power-152500820.html"
+  },
+  {
+   "title": "Defense World \u2014 Truist cuts Oklo price target to $51.00",
+   "url": "https://www.defenseworld.net/2026/08/11/oklo-nyseoklo-price-target-cut-to-51-00-by-analysts-at-truist-financial.html"
+  },
+  {
+   "title": "The Motley Fool \u2014 Constellation signs 920MW of new power deals, including a Walmart PPA",
+   "url": "https://www.fool.com/investing/2026/08/07/constellation-signed-920-megawatts-of-new-power-deals-including-a-walmart-ppa-heres-what-it-means-for-ceg-stock/"
+  },
+  {
+   "title": "StockTitan \u2014 Centrus Energy lands $900M HALEU deal, $4.5B backlog",
+   "url": "https://www.stocktitan.net/sec-filings/LEU/8-k-centrus-energy-corp-reports-material-event-bee777bfb8ee.html"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Aug 17, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Aug 17, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "CEG",
+    "name": "Constellation Energy",
+    "stance": "core",
+    "weight": 25,
+    "note": "Raised FY26 EPS guide to $11.50-$12.50 (from $11.00-$12.00) and now guides to 20% annualized growth through 2029; 920MW of new contracts incl. Walmart's first-ever nuclear PPA reinforce the thesis, though Argus trimmed its PT to $325 on softer ERCOT power prices.",
+    "change": null
+   },
+   {
+    "ticker": "CCJ",
+    "name": "Cameco",
+    "stance": "core",
+    "weight": 22,
+    "note": "Cigar Lake resumed production Jul 14 and Cameco's stake in it rose to 57.418% after the TEPCO acquisition closed; shares have pushed on to ~$99 as the fuel chokepoint keeps tightening \u2014 sizing upped on continued strength.",
+    "change": "up"
+   },
+   {
+    "ticker": "BWXT",
+    "name": "BWX Technologies",
+    "stance": "core",
+    "weight": 18,
+    "note": "Fifth straight EPS beat, backlog +40% YoY, and a raised ~$3.8B FY guide, plus the pending $800M medical-unit sale sharpening the nuclear-components focus \u2014 the contracted naval/government base keeps compounding while SMR optionality matures.",
+    "change": null
+   },
+   {
+    "ticker": "LEU",
+    "name": "Centrus Energy",
+    "stance": "core",
+    "weight": 15,
+    "note": "DOE's $900M HALEU enrichment award and a $3.0B backlog confirm last week's upgrade \u2014 this is a profitable, government-backed enrichment chokepoint, not just a policy bet.",
+    "change": null
+   },
+   {
+    "ticker": "GEV",
+    "name": "GE Vernova",
+    "stance": "core",
+    "weight": 12,
+    "note": "New Blue Energy agreement advances a 2.5GW Texas gas-plus-nuclear project to engineering/licensing (FID 2027) and Clinch River's Aug 13 hearing keeps BWRX-300 on track, but nuclear is still a small slice of GEV's revenue and the earliest SMR power is 2032. Also sits in the Energy Storage sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "OKLO",
+    "name": "Oklo",
+    "stance": "spec",
+    "weight": 8,
+    "note": "Groves' first-criticality milestone is real, but Truist and Canaccord cut price targets on cost-clarity concerns after H1 operating cash use hit $65.5M against a $120-150M FY26 burn guide \u2014 trimmed to reflect the funding gap, still speculative-only sizing.",
+    "change": "down"
+   },
+   {
+    "ticker": "SMR",
+    "name": "NuScale Power",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Fluor's monetization is now confirmed complete (~$2.43B realized) and NuScale is following with a new $750M ATM implying up to ~82M more shares \u2014 a founding backer's full exit plus fresh dilution is enough negative signal to move this out of Watch and into Avoid.",
+    "change": "down"
+   },
+   {
+    "ticker": "XE",
+    "name": "X-energy",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Q2 revenue+grants grew 154% YoY to $54.6M on rising DOE ARDP activity, but opex grew even faster (+156%) and EPS missed estimates \u2014 real execution, but the loss is still widening in dollar terms; staying on Watch pending a cleaner quarter.",
+    "change": null
+   }
+  ]
+ }
+}

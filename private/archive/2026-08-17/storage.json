@@ -1,0 +1,301 @@
+{
+ "sector": "storage",
+ "title": "Fynaptix \u00b7 Energy Storage Research",
+ "heading": "Energy Storage Intelligence",
+ "subheading": "Grid-scale batteries, the storage software layer & next-gen chemistry",
+ "kicker": "ENERGY STORAGE & GRID // AUG 2026",
+ "generated": "Aug 17, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "52 GW",
+   "sub": "US OPERATING BATTERY STORAGE \u2014 MID-2026",
+   "label": "Capacity grew 70%/yr on average over the past three years (EIA, Aug 12); fleet reached ~52 GW by June 2026 (+8.3 GW in H1) from 43.6 GW at end-2025, with 54 GW more planned through 2028; EIA still projects a record 24.3 GW of utility-scale additions this year",
+   "highlight": true
+  },
+  {
+   "value": "$6.4B",
+   "sub": "FLUENCE BACKLOG \u2014 SHARES STABILIZING",
+   "label": "Q3 FY26 backlog held at a record $6.4B, but $400M of project deliveries slipped into FY27 on contract-manufacturing delays; shares rose 3.6% Aug 11 to $13.10 as Citi upgraded to Buy ($24 PT) even as Morgan Stanley and RBC cut targets to $15",
+   "highlight": false
+  },
+  {
+   "value": "$5B+",
+   "sub": "GE VERNOVA DATA-CENTER ORDERS \u2014 YTD",
+   "label": "More than double all of 2025; new Joulent/Microsoft framework deal and a 2.5 GW hybrid gas + SMR plant with Blue Energy in Texas add to the pipeline; Q2 backlog $176B on track for $200B by 2027, orders +88% YoY to $24.2B",
+   "highlight": true
+  },
+  {
+   "value": "Megapack 3",
+   "sub": "TESLA HOUSTON \u2014 PRODUCTION LIVE",
+   "label": "Brookshire, TX Megafactory began Megapack 3 output in early August, just 16 months after groundbreaking; the new unit packs 5 MWh (+28% vs. Megapack 2 XL) and, paired with Megablock, lets Tesla deploy 1 GWh in 20 business days",
+   "highlight": true
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Scale / Revenue-Generating",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "TSLA",
+     "company": "Tesla (Energy)",
+     "angle": "Megapack 3 production began at the Brookshire, TX Megafactory in early August, 16 months after groundbreaking; new unit packs 5 MWh (+28% vs. Megapack 2 XL) and Megablock enables 1 GWh deployed in 20 business days; cumulative deployments top 132+ GWh",
+     "watch for": "Energy-segment margin fell to 20.4% (from 39.5%) on $240M warranty charge + lapsed tariff benefit; margin recovery and production ramp-up progress into Q3/Q4"
+    },
+    {
+     "ticker": "FLNC",
+     "company": "Fluence Energy",
+     "angle": "Global grid-scale leader; Q3 FY26 backlog held at a record $6.4B; shares rose 3.6% Aug 11 to $13.10 as Citi upgraded to Buy ($24 PT) \u2014 demand is not the problem",
+     "watch for": "$400M of project deliveries slipped into FY27 on contract-manufacturing delays; GAAP gross margin fell to 5.1% from 14.8%; Morgan Stanley and RBC cut targets to $15 even as Citi turned bullish \u2014 the margin path is the real debate now"
+    },
+    {
+     "ticker": "GEV",
+     "company": "GE Vernova",
+     "angle": "Grid equipment super-cycle beneficiary; Q2 orders $24.2B (+88% YoY), total backlog $176B (targeting $200B by 2027); new Joulent/Microsoft data-center power deal and a 2.5 GW hybrid gas + SMR plant with Blue Energy in Texas",
+     "watch for": "2026 revenue guide raised to $45.5\u201346.5B; FCF guide raised to $11.5\u201312.5B; turbine-slot scarcity through 2030"
+    },
+    {
+     "ticker": "ENPH",
+     "company": "Enphase",
+     "angle": "Residential solar + battery systems; launched a full home energy platform (solar+storage+backup+EV charging) in Italy Aug 13; shares +6.1% on expanded US AI-focused power-electronics manufacturing (IQ Solid-State Transformer)",
+     "watch for": "Q3 guide $290\u2013320M incl. ~$75M safe-harbor revenue; IQ Battery G5 (50% higher density, ~40% lower $/kWh) ships Q4; resi-solar policy remains a structural headwind behind the YoY revenue decline"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Next-Gen / Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "QS",
+     "company": "QuantumScape",
+     "angle": "Solid-state lithium-metal batteries (VW-backed); Eagle Line pilot production continues, with focus now on yield, uptime and cost; Honda R&D pact still holds, though no production license or volume commitment yet disclosed",
+     "watch for": "2026 adjusted EBITDA-loss guidance held at $250\u2013275M, capex guide lowered to $27\u201337M; shares down >50% YTD; still pre-revenue"
+    },
+    {
+     "ticker": "EOSE",
+     "company": "Eos Energy",
+     "angle": "Zinc-based long-duration storage (LDES); Q2 2026 GAAP revenue $68.8M (+351% YoY, though a slight miss), record $807M backlog; new \"Golden Dome\" defense contract deploys Z3 storage for missile-defense power, diversifying beyond utility customers",
+     "watch for": "EPS miss of -$1.20 vs. -$0.19 est.; gross margin still near -69%; $150M rights offering adds dilution risk; Stifel cut PT to $10 (from $12) but kept Buy; shares rallied ~34% (late-Jul $3.14 \u2192 Aug 11 ~$4.20) on the defense diversification story"
+    },
+    {
+     "ticker": "STEM",
+     "company": "Stem Inc",
+     "angle": "AI-driven storage optimization software (PowerTrack); Q2 2026 revenue $33.7M (down from $38.4M YoY, a miss), but adjusted EBITDA +63% YoY to $6.2M \u2014 a fifth straight positive quarter \u2014 on a record 55% non-GAAP gross margin",
+     "watch for": "Operating cash flow hit breakeven (+$22M YoY improvement); FY26 guidance reaffirmed; revenue still shrinking even as profitability metrics genuinely improve"
+    },
+    {
+     "ticker": "NRGV",
+     "company": "Energy Vault Holdings",
+     "angle": "Battery/gravity storage integrator; signed a 1.25 GW off-grid BESS + grid-forming power deal (Aug 10) for a hyperscale Texas data center, expected to generate ~$500\u2013600M of revenue across 2H26\u20132027",
+     "watch for": "New name to this page's watchlist; execution on a deal this size, and whether it repeats with other hyperscalers, is the thing to prove"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [],
+ "bear_case": [
+  {
+   "title": "China dominates cells",
+   "description": "In grid storage (ESS) specifically, CATL shipped 125.0 GWh in H1 2026 (+81% YoY) for a 27.1% overall share, with BYD fourth at 35.7 GWh (7.7% share); in EV batteries the two hold a combined 54.3% of global shipments. North America/Europe/other now account for 56% of ESS shipment destinations for the first time \u2014 geographic diversification is real, but manufacturing scale still sits overwhelmingly with Chinese cell makers."
+  },
+  {
+   "title": "Policy whiplash is already claiming casualties",
+   "description": "Section 301 duties on non-EV lithium-ion (grid BESS) cells jumped from 7.5% to 25% effective Jan 1, 2026, pushing the effective combined US import tariff on Chinese ESS batteries to ~58.4%; new FEOC rules cap Chinese-sourced content at 45% of manufacturing cost for ITC eligibility. Wood Mackenzie now projects the US utility-scale storage market could contract 11\u201329% in 2026 on this policy uncertainty, and integrator Powin's Chapter 11 liquidation (assets sold to FlexGen) is a concrete example of a tariff-driven casualty."
+  },
+  {
+   "title": "Margin compression",
+   "description": "Fluence's Q3 FY26 print is the freshest evidence: GAAP gross margin fell to 5.1% from 14.8% on contract-manufacturing delays, with $400M of deliveries now slipping into FY27 \u2014 on top of Tesla's own Q2 energy-segment margin nearly halving (39.5% \u2192 20.4%) and Eos Energy's gross margin still near -69%. Software attach (Stem's 55% non-GAAP gross margin) remains the differentiator; hardware stays under real pressure from Chinese cost structures."
+  },
+  {
+   "title": "Solid-state timelines",
+   "description": "QuantumScape's Eagle Line pilot is producing and the Honda pact holds, but there's still no production license or volume commitment; 2026 adjusted EBITDA-loss guidance remains $250\u2013275M and shares are down more than 50% YTD, underscoring how far off meaningful revenue still is."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "AUG 6\u20138, 2026",
+   "title": "Tesla begins Megapack 3 production in Brookshire, TX",
+   "description": "Just 16 months after groundbreaking; the new unit packs 5 MWh (+28% vs. Megapack 2 XL) and, paired with the Megablock design, lets Tesla deploy 1 GWh in 20 business days."
+  },
+  {
+   "date": "AUG 10, 2026",
+   "title": "Energy Vault signs 1.25 GW data-center BESS deal in Texas",
+   "description": "Off-grid battery storage, grid-forming power conversion and AI infrastructure control software for a hyperscale data-center developer; expected to generate ~$500\u2013600M of revenue across 2H26\u20132027."
+  },
+  {
+   "date": "AUG 11, 2026",
+   "title": "Fluence shares stabilize, Citi turns bullish",
+   "description": "Shares rose 3.6% to $13.10 as Citi upgraded to Buy ($24 PT) even as Morgan Stanley and RBC cut targets to $15 following the Aug 5 guidance cut and $400M FY27 delivery slip."
+  },
+  {
+   "date": "AUG 11, 2026",
+   "title": "Eos Energy rallies ~34% on Golden Dome defense contract",
+   "description": "Shares moved from ~$3.14 (late July) to ~$4.20 as a new missile-defense power contract for Z3 zinc storage diversified the customer base alongside a record $807M backlog; Stifel trimmed its PT to $10 (from $12) on rights-offering dilution but kept a Buy."
+  },
+  {
+   "date": "AUG 12, 2026",
+   "title": "Stem Q2 2026: fifth straight positive-EBITDA quarter",
+   "description": "Adjusted EBITDA +63% YoY to $6.2M on a record 55% non-GAAP gross margin; operating cash flow hit breakeven (+$22M YoY). Revenue $33.7M missed estimates and fell YoY, but FY26 guidance was reaffirmed."
+  },
+  {
+   "date": "AUG 12\u201313, 2026",
+   "title": "EIA: US battery storage capacity grew 70%/yr over 3 years",
+   "description": "Fleet reached ~52 GW by June 2026 (from 43.6 GW at end-2025); developers have another 54 GW planned through 2028. Separately, Wood Mackenzie warned the 2026 utility-scale market could still contract 11\u201329% on tariff/FEOC policy uncertainty."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "GRID",
+   "name": "First Trust Clean Edge Smart Grid",
+   "summary": "Grid infrastructure & equipment"
+  },
+  {
+   "ticker": "BATT",
+   "name": "Amplify Lithium & Battery",
+   "summary": "Battery value chain"
+  },
+  {
+   "ticker": "LIT",
+   "name": "Global X Lithium & Battery Tech",
+   "summary": "Lithium miners to battery makers"
+  }
+ ],
+ "sources": [
+  {
+   "title": "Electrek \u2014 Tesla starts Megapack 3 production in Brookshire, TX",
+   "url": "https://electrek.co/2026/08/06/tesla-megapack-3-production-starts-texas/"
+  },
+  {
+   "title": "Benzinga \u2014 Tesla's battery business and the new Texas Megapack 3 factory",
+   "url": "https://www.benzinga.com/markets/tech/26/08/60990358/teslas-battery-business-is-growing-faster-than-its-cars-and-a-new-texas-factory-for-megapack-3-just-went-live"
+  },
+  {
+   "title": "Energy-Storage.news \u2014 Energy Vault signs 1.25GW AI data-centre power deal in Texas",
+   "url": "https://www.energy-storage.news/energy-vault-signs-1-25gw-ai-data-centre-power-infrastructure-agreement-in-texas/"
+  },
+  {
+   "title": "Timothy Sykes \u2014 FLNC stock drops as Fluence slashes 2026 outlook",
+   "url": "https://www.timothysykes.com/news/fluence-energy-inc-flnc-news-2026_08_06/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Fluence Energy (FLNC) price & analyst targets",
+   "url": "https://stockanalysis.com/stocks/flnc/"
+  },
+  {
+   "title": "StocksToTrade \u2014 EOSE rallies on Golden Dome defense deal and backlog growth",
+   "url": "https://stockstotrade.com/news/eos-energy-enterprises-inc-eose-news-2026_08_11/"
+  },
+  {
+   "title": "StockTitan \u2014 Stem Q2 2026: adjusted EBITDA up 63% to $6.2M",
+   "url": "https://www.stocktitan.net/news/STEM/stem-announces-second-quarter-2026-jcsw6eyfxvcg.html"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Enphase brings full home energy platform to Italy",
+   "url": "https://www.globenewswire.com/news-release/2026/08/13/3344433/20176/en/enphase-energy-brings-its-full-home-energy-platform-to-italy-with-backup-three-phase-support-and-ev-charging.html"
+  },
+  {
+   "title": "EIA \u2014 Battery storage capacity averaged 70% growth over the last three years",
+   "url": "https://www.eia.gov/todayinenergy/detail.php?id=67925"
+  },
+  {
+   "title": "Energy-Storage.news \u2014 Wood Mackenzie: US grid-scale BESS market could shrink in 2026",
+   "url": "https://www.energy-storage.news/us-grid-scale-bess-market-could-shrink-by-almost-a-third-in-2026-wood-mackenzie-says/"
+  },
+  {
+   "title": "Energy-Storage.news \u2014 Powin Chapter 11 liquidation, assets acquired by FlexGen",
+   "url": "https://www.energy-storage.news/powin-files-for-chapter-11-bankruptcy-protection-and-spins-off-project-services-business/"
+  },
+  {
+   "title": "CnEVPost \u2014 Global ESS (grid storage) battery market share, H1 2026",
+   "url": "https://cnevpost.com/2026/08/04/global-ess-battery-market-share-h1-2026/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Aug 17, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Aug 17, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "GEV",
+    "name": "GE Vernova",
+    "stance": "core",
+    "weight": 44,
+    "note": "Backlog $176B en route to $200B by 2027, plus a new Blue Energy hybrid gas+SMR 2.5GW Texas plant and a Joulent/Microsoft data-center power deal, reinforce the grid-equipment bottleneck thesis \u2014 this is the physical scarcity trade, not a storage-cell trade. Overlaps your Nuclear sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "TSLA",
+    "name": "Tesla",
+    "stance": "core",
+    "weight": 36,
+    "note": "Megapack 3 began production at the Brookshire, TX Megafactory in early August \u2014 16 months from groundbreaking, 28% more energy per unit, and 1 GWh deployable in 20 business days via Megablock. The ramp thesis is now shipping product, not just a construction timeline. Overlaps your Robotics sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "FLNC",
+    "name": "Fluence Energy",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Shares stabilized (+3.6% Aug 11 to $13.10) and Citi upgraded to Buy ($24 PT) even as Morgan Stanley and RBC cut targets to $15 after the $400M FY27 delivery slip; still watching for the gross-margin path to actually recover before sizing a position.",
+    "change": null
+   },
+   {
+    "ticker": "EOSE",
+    "name": "Eos Energy",
+    "stance": "spec",
+    "weight": 12,
+    "note": "Q2 revenue $68.8M (+351% YoY) and a record $807M backlog were reinforced by a new Golden Dome defense contract diversifying Z3 zinc storage beyond utility customers, but a -$1.20 EPS miss and gross margin still near -69% (plus dilution from the $150M rights offering) keep this small and speculative.",
+    "change": "up"
+   },
+   {
+    "ticker": "QS",
+    "name": "QuantumScape",
+    "stance": "spec",
+    "weight": 8,
+    "note": "Eagle Line pilot output continues (yield/uptime/cost now the focus) and the Honda R&D pact holds, but there's still no production license, no volume commitment and no revenue \u2014 the long wait continues.",
+    "change": null
+   },
+   {
+    "ticker": "ENPH",
+    "name": "Enphase",
+    "stance": "watch",
+    "weight": 0,
+    "note": "A 6% pop on US AI-focused power-electronics manufacturing (IQ Solid-State Transformer) and a new Italy full-home launch are real product wins, but they don't fix the structural US residential-solar policy headwind behind the segment's revenue decline.",
+    "change": null
+   },
+   {
+    "ticker": "STEM",
+    "name": "Stem Inc",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Q2 marked a fifth straight quarter of positive adjusted EBITDA (+63% YoY to $6.2M), a record 55% non-GAAP gross margin and operating cash flow at breakeven \u2014 real profitability progress even as revenue keeps shrinking YoY; still not sized, but no longer a clear avoid.",
+    "change": "up"
+   },
+   {
+    "ticker": "NRGV",
+    "name": "Energy Vault Holdings",
+    "stance": "watch",
+    "weight": 0,
+    "note": "The 1.25GW Texas data-center BESS deal (~$500\u2013600M of expected 2H26\u20132027 revenue) is a legitimate proof point, but it's one deal from one developer \u2014 want to see it repeat before sizing a position.",
+    "change": "new"
+   }
+  ]
+ }
+}
