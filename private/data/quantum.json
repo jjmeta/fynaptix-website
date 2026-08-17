@@ -4,8 +4,8 @@
   "heading": "Quantum Computing Intelligence",
   "subheading": "Pure-plays, hedged giants & the road to commercial advantage",
   "kicker": "QUANTUM COMPUTING // AUG 2026",
-  "generated": "August 10, 2026",
-  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S ~57–483×) and are highly speculative — position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
+  "generated": "August 17, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S ~55–495×) and are highly speculative — position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
       "value": "$97B",
@@ -14,9 +14,9 @@
       "highlight": false
     },
     {
-      "value": "+287%",
-      "sub": "IONQ Q2 2026 YOY (ACTUAL)",
-      "label": "Revenue $80.1M, beat consensus; adj. EPS -$0.33 vs -$0.54 est.; FY26 guidance raised to $285M midpoint; closed $1.8B SkyWater Technology acquisition Aug 3",
+      "value": "+279%",
+      "sub": "QUANTINUUM Q2 2026 REVENUE (FIRST POST-IPO PRINT)",
+      "label": "Revenue ~$8M vs. ~$2M a year ago; GAAP net loss widened to $597M (largely IPO-related stock comp) against a $2.1B cash pile; FY26 revenue guidance set at $28–32M; new multi-year Oracle Cloud Infrastructure partnership puts Helios inside an Oracle AI data center (Aug 11)",
       "highlight": true
     },
     {
@@ -26,9 +26,9 @@
       "highlight": false
     },
     {
-      "value": "57–483×",
-      "sub": "P/S RATIOS (AUG 2026)",
-      "label": "IonQ (~57×) / Rigetti (~480×) / D-Wave (~483×) price-to-sales — the trio round-tripped a 30–39% July drawdown and rallied back near multi-week highs into and after mixed Q2 prints (IonQ beat; D-Wave/Rigetti softer)",
+      "value": "55–495×",
+      "sub": "P/S RATIOS (AUG 17, 2026)",
+      "label": "IonQ ~$46 (+5% on the week; consensus analyst target ~$69) / Rigetti ~$18.82 / D-Wave ~$21 — the trio is holding its early-August rally; Defiance Quantum ETF (QTUM) at $158.68, +39.6% YTD vs. the Nasdaq-100's ~16%",
       "highlight": false
     }
   ],
@@ -48,25 +48,25 @@
         {
           "ticker": "IBM",
           "company": "IBM",
-          "angle": "With U. Chicago & Algorithmiq, published the sector's first independently verified quantum advantage (Jul 30) — 70 logical qubits, 2,415 logical two-qubit ops, error rates 10x below physical, ~a year ahead of IBM's own schedule; also won $1B CHIPS quantum foundry award",
-          "watch for": "Kookaburra qLDPC rollout; Starling fault-tolerant target 2029; independent replication of the advantage claim"
+          "angle": "With U. Chicago & Algorithmiq, published the sector's first independently verified quantum advantage (Jul 30) — 70 logical qubits, 2,415 logical two-qubit ops, error rates 10x below physical, ~a year ahead of IBM's own schedule; also won $1B CHIPS quantum foundry award; this week confirmed its first named external 120-qubit Nighthawk QPU deployment (Yonsei University, live by Nov 2026, ~40% more capacity)",
+          "watch for": "Kookaburra qLDPC rollout; Starling fault-tolerant target 2029; independent replication of the advantage claim; pace of the Nighthawk fleet rollout"
         },
         {
           "ticker": "GOOGL",
           "company": "Alphabet",
-          "angle": "Willow: below-threshold error correction confirmed as grid scaled 3×3→5×5→7×7; new reinforcement-learning calibration framework now autonomously stabilizes logical qubits during continuous operation across distance-5/7 surface codes, cutting manual recalibration",
-          "watch for": "Gate-operation demos beyond memory preservation"
+          "angle": "Willow: below-threshold error correction confirmed as grid scaled 3×3→5×5→7×7; new reinforcement-learning calibration framework autonomously stabilizes logical qubits during continuous operation; this week opened Willow cloud access to the UK's National Quantum Computing Centre and deepened its NVIDIA CUDA-Q collaboration to simulate noise in next-gen chip designs",
+          "watch for": "Gate-operation demos beyond memory preservation; output from the UK NQCC access program"
         },
         {
           "ticker": "MSFT",
           "company": "Microsoft",
           "angle": "Topological qubit program + Azure Quantum; Quantinuum/Microsoft collab reports 800× logical-vs-physical qubit fidelity on System Model H2",
-          "watch for": "Majorana milestone reproducibility; Quantinuum's first post-IPO earnings (Aug 11) as a read-through on the partnership"
+          "watch for": "Majorana milestone reproducibility; Quantinuum's first post-IPO earnings (reported Aug 11: revenue $8M, +279% YoY, but a $597M GAAP loss) as an early, noisy read-through on the partnership"
         },
         {
           "ticker": "NVDA",
           "company": "NVIDIA",
-          "angle": "NVQLink (built on CUDA-Q) now publicly available via the cudaq-realtime API — a universal GPU–QPU interconnect adopted by 17 quantum hardware builders (incl. Rigetti, SEEQC, Silicon Quantum Computing) and 9 national/scientific labs, incl. Quantinuum's Helios and QuEra",
+          "angle": "NVQLink (built on CUDA-Q) now publicly available via the cudaq-realtime API — a universal GPU–QPU interconnect adopted by 17 quantum hardware builders (incl. Rigetti, SEEQC, Silicon Quantum Computing) and 9 national/scientific labs, incl. Quantinuum's Helios and QuEra; Google's deepened CUDA-Q noise-simulation work this week is another data point for the standardization thesis",
           "watch for": "NVQLink adoption at national labs; hybrid quantum-AI workloads"
         }
       ]
@@ -86,19 +86,19 @@
           "ticker": "IONQ",
           "company": "IonQ",
           "angle": "Trapped-ion leader; Q2 revenue $80.1M (+287% YoY), beat estimates; closed $1.8B SkyWater Technology acquisition (Aug 3) adding photonic-chip manufacturing; FY26 guidance raised to $285M midpoint; ~25% of Q2 revenue from multi-product customers",
-          "watch for": "Stock fell ~4% on the print before rallying to ~$44 by Aug 9; SkyWater integration; P/S ~57×"
+          "watch for": "Stock ~$46 (Aug 17), up ~5% on the week; analysts split post-earnings — Jefferies cut its target to $75 (from $85), Morgan Stanley raised to $49, Rosenblatt reiterated $100, consensus ~$69; SkyWater integration; P/S ~57×"
         },
         {
           "ticker": "RGTI",
           "company": "Rigetti",
           "angle": "Superconducting full-stack; Q2 revenue $5.1M (+183% YoY), gross margin improved to 43%; signed a $100M Dept. of Commerce funding LOI; expanded HPE/Pittsburgh Supercomputing Center hybrid quantum-classical partnership; $541M cash, no debt",
-          "watch for": "GAAP net loss widened to $52.6M; Wedbush Outperform, $40 PT vs. ~$17 stock; P/S ~480×"
+          "watch for": "GAAP net loss widened to $52.6M; Wedbush Outperform, $40 PT vs. ~$18.82 stock; P/S ~480×"
         },
         {
           "ticker": "QBTS",
           "company": "D-Wave",
           "angle": "Quantum annealing + gate-model; Q2 revenue $3.1M, flat YoY, missed on EPS (-$0.13 vs -$0.10 est.); H1 bookings $35.5M (+1,120% YoY), RPO $40.7M (+668% YoY); new Nasdaq Verafin financial-crime-detection deal (Aug 3, stock +11%); AT&T expanded its annealing deal Jul 27",
-          "watch for": "Adjusted EBITDA loss widened 85%; gap between bookings growth and recognized revenue; P/S ~483×"
+          "watch for": "Adjusted EBITDA loss widened 85%; gap between bookings growth and recognized revenue; stock ~$21 (Aug 17); P/S ~483×"
         }
       ]
     }
@@ -107,17 +107,17 @@
     {
       "name": "PsiQuantum",
       "value": "PHOTONIC · UTILITY-SCALE BET",
-      "note": "Reportedly closed a $1.5B round (May 2026) at a ~$10.5B valuation; broke ground on its Moreton Bay Central fault-tolerant facility in Australia; expanded its DARPA agreement to $125M (Jul 22) as one of only two firms in Stage C, the final validation stage of DARPA's Quantum Benchmarking Initiative. New leadership team (CEO Victor Peng, EVP Rob Soderbery, CIO Sriram Sitaraman) and a $250K South Chicago quantum-workforce investment (Aug 4)."
+      "note": "Reportedly closed a $1.5B round (May 2026) at a ~$10.5B valuation; broke ground on its Moreton Bay Central fault-tolerant facility in Australia; expanded its DARPA agreement to $125M (Jul 22) as one of only two firms in Stage C, the final validation stage of DARPA's Quantum Benchmarking Initiative. This week appointed Skype co-founder and Atomico founder Niklas Zennström to its board (Aug 11), succeeding Siraj Khaliq, following the new Peng/Soderbery/Sitaraman leadership team and a $250K South Chicago quantum-workforce investment."
     },
     {
       "name": "Quantinuum",
       "value": "IPO'D JUN 2026 · NASDAQ: QNT",
-      "note": "Honeywell-backed; upsized $1.68B IPO raise at $60/share (~$12.7B valuation); shares ~$58–59 (Aug 9), down ~24% over 30 days before a ~14% 7-day bounce. Helios system now runs on NVIDIA's NVQLink for real-time quantum error-correction decoding; Microsoft collab reports 800× logical-vs-physical qubit fidelity on System Model H2. First post-IPO earnings due Aug 11 (consensus: -$0.26 EPS, $7.8M revenue) — a real test of the Sol 2027 → Apollo 2029 → Lumos 2030s roadmap."
+      "note": "Honeywell-backed; upsized $1.68B IPO raise at $60/share (~$12.7B valuation). Reported its first post-IPO quarter Aug 11: revenue $8M (+279% YoY) but a GAAP net loss of $597M, largely IPO-related stock comp, against $2.1B cash; FY26 revenue guidance set at $28–32M. Same day, announced a multi-year Oracle partnership placing its Helios trapped-ion system (98 physical qubits, 48 logical qubits demonstrated, 99.921% two-qubit gate fidelity) inside an Oracle Cloud Infrastructure AI data center, plus a workforce MOU with the Singapore Institute of Technology. Shares remain choppy post-IPO as the market digests the burn rate against the roadmap (Sol 2027 → Apollo 2029 → Lumos 2030s)."
     },
     {
       "name": "QuEra",
       "value": "NEUTRAL ATOMS",
-      "note": "$230M+ raise backed by Google Quantum AI, SoftBank, NVentures; 96 verified logical qubits — industry-leading; now a NVIDIA CUDA-Q/NVQLink integration partner and a selected recipient of Japanese government quantum funding."
+      "note": "$230M+ raise backed by Google Quantum AI, SoftBank, NVentures; 96 verified logical qubits — industry-leading; NVIDIA CUDA-Q/NVQLink integration partner. New this week: a partnership with Zapata Quantum (Aug 12) to identify enterprise use cases and benchmark hybrid algorithms ahead of QuEra's targeted megaquop-class, fault-tolerant neutral-atom QPU on AWS by 2028."
     }
   ],
   "bear_case": [
@@ -127,7 +127,7 @@
     },
     {
       "title": "Valuations price in perfection",
-      "description": "Even after a 30–39% July drawdown, the pure-play trio rallied back toward multi-week highs into and after Q2 earnings (Aug 5–6) — despite D-Wave missing on revenue/EPS and Rigetti's GAAP loss widening to $52.6M. Only IonQ's print unambiguously supported the move; P/S multiples of ~57–483× still price in years of flawless execution."
+      "description": "Even after a 30–39% July drawdown, the pure-play trio rallied back toward multi-week highs into and after Q2 earnings (Aug 5–6) and has held those gains since — despite D-Wave missing on revenue/EPS and Rigetti's GAAP loss widening to $52.6M. P/S multiples of ~55–495× still price in years of flawless execution."
     },
     {
       "title": "Insiders aren't buying",
@@ -135,18 +135,28 @@
     },
     {
       "title": "Dilution as a business model",
-      "description": "Pure-plays fund R&D via repeated equity raises; share counts grow relentlessly. CHIPS Act awards to Rigetti, D-Wave and others are structured partly as government equity stakes — another layer of dilution on top."
+      "description": "Pure-plays fund R&D via repeated equity raises; share counts grow relentlessly. CHIPS Act awards to Rigetti, D-Wave and others are structured partly as government equity stakes — another layer of dilution on top. Quantinuum's own first post-IPO quarter posted a $597M GAAP net loss against $8M revenue — a reminder that a large IPO cushion buys time, not immunity from burn."
     },
     {
       "title": "Winner may not be listed",
-      "description": "IBM/Google/Microsoft or private Quantinuum/PsiQuantum could reach fault tolerance first, stranding pure-play premiums."
+      "description": "IBM/Google/Microsoft or private PsiQuantum could reach fault tolerance first, stranding pure-play premiums. Quantinuum is now listed (Nasdaq: QNT) but its economics remain closer to a pre-revenue R&D story than a commercial one."
     }
   ],
   "catalysts": [
     {
+      "date": "AUG 12, 2026",
+      "title": "QuEra partners with Zapata Quantum",
+      "description": "The pair will identify enterprise use cases and benchmark hybrid algorithms across materials design, optimization and chemistry, aligned to QuEra's targeted megaquop-class, fault-tolerant neutral-atom QPU on AWS by 2028."
+    },
+    {
       "date": "AUG 11, 2026",
-      "title": "Quantinuum's first post-IPO earnings",
-      "description": "Consensus expects -$0.26 EPS on $7.8M revenue; the first real test of commercial traction behind the Sol/Apollo/Lumos roadmap since the June IPO."
+      "title": "Quantinuum's first post-IPO earnings + Oracle deal",
+      "description": "Revenue grew to $8M (+279% YoY) but GAAP net loss widened to $597M against $2.1B cash; FY26 guidance set at $28–32M. Same day, Quantinuum and Oracle announced a multi-year partnership placing Helios inside an Oracle Cloud Infrastructure AI data center."
+    },
+    {
+      "date": "AUG 11, 2026",
+      "title": "PsiQuantum adds Zennström to its board",
+      "description": "Skype co-founder and Atomico founder Niklas Zennström joins PsiQuantum's board, succeeding Siraj Khaliq, as the private photonic-computing leader continues building out its leadership bench."
     },
     {
       "date": "AUG 7, 2026",
@@ -161,24 +171,14 @@
     {
       "date": "AUG 3, 2026",
       "title": "Trio rallies on deal news",
-      "description": "D-Wave +11% on a new Nasdaq Verafin financial-crime-detection partnership, IonQ +9% as its SkyWater acquisition closed, Rigetti +7% — the sector's sharpest one-day pop since the July sell-off."
-    },
-    {
-      "date": "JUL 30, 2026",
-      "title": "IBM publishes verified quantum advantage",
-      "description": "With U. Chicago and Algorithmiq, IBM demonstrates three separate quantum-advantage results, including a 70-logical-qubit computation with error rates 10x below physical — about a year ahead of IBM's own 2026 target, and the field's first result verified as beyond practical classical simulation."
-    },
-    {
-      "date": "JUL 27, 2026",
-      "title": "AT&T expands D-Wave quantum deal",
-      "description": "AT&T signs an agreement to broaden its use of D-Wave's annealing technology inside its agentic network-operations tooling; an early test cut a ~1-hour optimization workload to under 15 seconds. QBTS rose as much as 8.6% premarket, lifting IonQ and Rigetti with it."
+      "description": "D-Wave +11% on a new Nasdaq Verafin financial-crime-detection partnership, IonQ +9% as its SkyWater acquisition closed, Rigetti +7% — the sector's sharpest one-day pop since the July sell-off, and the gains have largely held into mid-August."
     }
   ],
   "etfs": [
     {
       "ticker": "QTUM",
       "name": "Defiance Quantum",
-      "summary": "Quantum + advanced computing basket — rebounded to ~$153.50 (Aug 8) from ~$141 (Jul 31) as the pure-play trio rallied into and past earnings; still below its 52-week high of $170, ~$5.5B+ AUM; the standard diversified route"
+      "summary": "Quantum + advanced computing basket — at $158.68 (Aug 17), up from ~$153.50 (Aug 8) and ~$141 (Jul 31) as the pure-play trio rallied into and past earnings and held the gains; +39.6% YTD vs. the Nasdaq-100's ~16%; still below its 52-week high of $170, ~$5.5B+ AUM; the standard diversified route"
     },
     {
       "ticker": "SMH",
@@ -208,25 +208,33 @@
       "url": "https://www.bloomberg.com/news/articles/2026-08-07/congress-eyes-boosting-quantum-funds-as-global-race-heats-up"
     },
     {
-      "title": "The Quantum Insider — PsiQuantum South Chicago workforce investment",
-      "url": "https://thequantuminsider.com/2026/08/03/psiquantum-south-chicago-training-education-quantum-workforce-development/"
+      "title": "The Quantum Insider — PsiQuantum appoints Niklas Zennström to board of directors",
+      "url": "https://thequantuminsider.com/2026/08/11/psiquantum-appoints-atomico-founder-niklas-zennstrom-board-directors/"
     },
     {
-      "title": "Simply Wall St — Quantinuum's Aug 11 earnings date and Apollo thesis",
-      "url": "https://simplywall.st/stocks/us/software/nasdaq-qnt/quantinuum/news/quantinuums-qnt-q2-date-is-set-but-what-really-anchors-the-a"
+      "title": "Quantinuum — Reports second quarter 2026 results",
+      "url": "https://ir.quantinuum.com/news-releases/news-release-details/quantinuum-reports-second-quarter-2026-results"
     },
     {
-      "title": "D-Wave — AT&T expands quantum computing deal",
-      "url": "https://www.dwavequantum.com/company/newsroom/press-release/at-t-signs-agreement-to-expand-use-of-d-wave-s-quantum-computing-technology/"
+      "title": "Quantinuum — Quantinuum and Oracle partner to bring Helios to Oracle Cloud Infrastructure",
+      "url": "https://www.quantinuum.com/press-releases/quantinuum-and-oracle-partner-to-accelerate-hybrid-quantum-compute-adoption-on-oracle-cloud-infrastructure"
+    },
+    {
+      "title": "The Quantum Insider — Zapata Quantum and QuEra partner on quantum application development",
+      "url": "https://thequantuminsider.com/2026/08/12/zapata-quantum-quera-quantum-application-development/"
+    },
+    {
+      "title": "Benzinga — IonQ stock soars after Q2 earnings beat, raised 2026 outlook, analyst takeaways",
+      "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/08/61005307/ionq-stock-soars-after-q2-earnings-beat-raised-2026-outlook-bullish-analyst-takeaways"
     },
     {
       "title": "NIST/Commerce Dept — $2B CHIPS quantum letters of intent",
       "url": "https://www.nist.gov/news-events/news/2026/05/department-commerce-announces-letters-intent-9-companies-2-billion"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 10, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Aug 17, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "Aug 10, 2026",
+    "as_of": "Aug 17, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
@@ -234,15 +242,15 @@
         "name": "IBM",
         "stance": "core",
         "weight": 31,
-        "note": "Delivered the sector's first independently verified quantum advantage this week — 70 logical qubits, IBM/U. Chicago/Algorithmiq, beating its own 2026 timeline by roughly a year — while the quantum program remains a rounding error on a profitable, dividend-paying business.",
-        "change": "up"
+        "note": "Last week's verified quantum-advantage claim stands unchallenged, and this week added a concrete commercial follow-through — a 120-qubit Nighthawk QPU deployment at Yonsei University live by November — while the quantum program stays a rounding error on a profitable, dividend-paying business.",
+        "change": null
       },
       {
         "ticker": "GOOGL",
         "name": "Alphabet",
         "stance": "core",
         "weight": 22,
-        "note": "Willow's error-correction lead is intact but produced no new milestone this week. Also your largest position in the AI sector sleeve — this is leverage to that same GOOGL stake, not incremental quantum-only exposure, so don't double-count the weight.",
+        "note": "Willow's lead got two supporting but non-inflection developments this week: cloud access opened to the UK's National Quantum Computing Centre, and a deepened NVIDIA CUDA-Q collaboration for chip-noise simulation. Also your largest AI-sleeve holding — don't double-count the weight.",
         "change": null
       },
       {
@@ -250,7 +258,7 @@
         "name": "Microsoft",
         "stance": "core",
         "weight": 20,
-        "note": "Topological-qubit optionality is unchanged this week ahead of Quantinuum's first post-IPO earnings (Aug 11), the next real read on the Microsoft partnership's commercial traction. Also held in the AI sleeve — avoid double-counting.",
+        "note": "Quantinuum's first post-IPO print (Aug 11) is the clearest read-through on this partnership yet, and it's mixed: revenue grew to $8M (+279% YoY) but the GAAP loss widened to $597M. Microsoft's own program is immaterial to its balance sheet regardless. Also held in the AI sleeve — avoid double-counting.",
         "change": null
       },
       {
@@ -258,7 +266,7 @@
         "name": "NVIDIA",
         "stance": "core",
         "weight": 16,
-        "note": "NVQLink is now the toolchain nearly every hardware builder (17 partners incl. Rigetti, SEEQC) standardizes on regardless of qubit modality. This is also your largest AI holding across two sector sleeves — size for that concentration, not just the quantum thesis.",
+        "note": "NVQLink's standardization thesis broadened again this week as Google leaned further into CUDA-Q for processor noise simulation, on top of 17 existing hardware partners. Also your largest AI holding across two sector sleeves — size for that concentration, not just the quantum thesis.",
         "change": null
       },
       {
@@ -266,15 +274,15 @@
         "name": "IonQ",
         "stance": "spec",
         "weight": 8,
-        "note": "Q2 revenue hit $80.1M (+287% YoY), beat estimates, and full-year guidance rose to $285M at the midpoint on the closed SkyWater fab acquisition — the clearest case among pure-plays that revenue is compounding faster than dilution.",
-        "change": "up"
+        "note": "No new operating catalyst this week; the stock kept recovering (~$46, +5% on the week) on last week's beat-and-raise, though analysts are split — Jefferies cut its target to $75 while Morgan Stanley raised its to $49. Still the clearest case among pure-plays that revenue is compounding faster than dilution.",
+        "change": null
       },
       {
         "ticker": "RGTI",
         "name": "Rigetti",
         "stance": "spec",
         "weight": 3,
-        "note": "Revenue grew 183% YoY to $5.1M but the GAAP loss widened to $52.6M against a $541M cash pile; a Wedbush $40 price target on a ~$17 stock is a bet on the HPE/Pittsburgh supercomputing tie-up paying off, not on today's numbers.",
+        "note": "No fresh catalyst this week; stock ~$18.82. Thesis unchanged from last week: a Wedbush $40 target is a bet on the HPE/Pittsburgh tie-up and the $100M Commerce LOI paying off, not on a quarter with a $52.6M GAAP loss.",
         "change": null
       },
       {
@@ -282,8 +290,16 @@
         "name": "D-Wave",
         "stance": "watch",
         "weight": 0,
-        "note": "Q2 revenue was flat YoY at $3.1M and missed on EPS despite bookings up over 1,120% in H1 — the gap between contracted backlog and recognized revenue is exactly the unresolved question that keeps this on Watch rather than held, even as the stock re-rated on the new Verafin deal.",
-        "change": "down"
+        "note": "Nothing this week resolves last week's open question — flat Q2 revenue against H1 bookings up 1,120% is still the gap keeping this off Core, even with the stock holding its post-Verafin gains around $21.",
+        "change": null
+      },
+      {
+        "ticker": "QNT",
+        "name": "Quantinuum",
+        "stance": "watch",
+        "weight": 0,
+        "note": "New to this list: Quantinuum is now a listed, buyable security (Nasdaq: QNT) with its first quarter of public financials. Revenue grew to $8M (+279% YoY) and Oracle just agreed to host Helios in an OCI data center, but a $597M GAAP net loss and FY26 guidance of only $28–32M revenue against a $12.7B IPO valuation is exactly the unresolved-price case for Watch, not Core.",
+        "change": "new"
       }
     ]
   }
