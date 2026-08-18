@@ -95,6 +95,31 @@
   #subMsg{font-size:.8rem;margin-top:.8rem;display:none}
   #subMsg.ok{color:var(--green);display:block}
   #subMsg.err{color:var(--red);display:block}
+
+  /* Trump tracker tile */
+  .tile.t-trump .ico{background:rgba(255,180,0,.14)}
+  .signal-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:.75rem}
+  .signal-card:last-child{margin-bottom:0}
+  .signal-meta{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:.45rem}
+  .signal-who{font-family:var(--fm);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:20px;background:rgba(255,180,0,.12);color:#ffb400}
+  .signal-platform{font-family:var(--fm);font-size:.6rem;color:var(--muted)}
+  .signal-date{font-family:var(--fm);font-size:.6rem;color:var(--muted);margin-left:auto}
+  .signal-text{font-size:.86rem;color:rgba(232,237,248,.85);line-height:1.6;margin-bottom:.5rem}
+  .signal-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.45rem}
+  .signal-tag{font-family:var(--fm);font-size:.58rem;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.06);color:var(--muted)}
+  .signal-tag.market{background:rgba(46,208,245,.1);color:var(--ge)}
+  .signal-tag.crypto{background:rgba(255,180,0,.1);color:#ffb400}
+  .signal-tag.energy{background:rgba(255,95,31,.1);color:var(--gs)}
+  .signal-tag.real-estate{background:rgba(192,37,232,.1);color:var(--gm)}
+  .signal-tag.policy{background:rgba(100,200,100,.1);color:#7ec87e}
+  .signal-impact{font-size:.78rem;font-style:italic;color:var(--muted);border-left:2px solid rgba(255,180,0,.3);padding-left:.7rem;margin-top:.4rem}
+  .trump-themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.7rem;margin-top:1rem}
+  .trump-theme{background:rgba(255,180,0,.04);border:1px solid rgba(255,180,0,.1);border-radius:10px;padding:.9rem 1rem;font-size:.8rem;color:rgba(232,237,248,.8);line-height:1.55}
+  .trump-empty{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem}
+  .trump-pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ffb400;box-shadow:0 0 0 0 rgba(255,180,0,.4);animation:pulse-gold 2s infinite;margin-right:.4rem}
+  @keyframes pulse-gold{0%{box-shadow:0 0 0 0 rgba(255,180,0,.4)}70%{box-shadow:0 0 0 7px rgba(255,180,0,0)}100%{box-shadow:0 0 0 0 rgba(255,180,0,0)}}
+  .trump-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+  .trump-generated{font-family:var(--fm);font-size:.62rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -175,6 +200,7 @@
         <button class="tile t-education" onclick="openDrawer('education',this)"><span class="ico">🎓</span><h3>Education</h3><p>Learn investing from first principles — stocks, ETFs &amp; crypto, honestly explained.</p><span class="count">INVESTING 101 GUIDE</span></button>
         <button class="tile t-track" onclick="openDrawer('track',this)"><span class="ico">📈</span><h3>Track Record</h3><p>Every week archived, and an honest scoreboard of whether your calls were right.</p><span class="count">ARCHIVE · CALIBRATION</span></button>
         <button class="tile t-strategy" onclick="openDrawer('strategy',this)"><span class="ico">🧭</span><h3>Strategy</h3><p>Portfolio construction, your decision journal &amp; paper-trading practice.</p><span class="count">1 GUIDE · 2 PRIVATE TOOLS</span></button>
+        <button class="tile t-trump" onclick="openDrawer('trump',this)"><span class="ico" style="font-size:1rem;letter-spacing:-.02em;font-family:var(--fd);font-weight:800;color:#ffb400">POL</span><h3>Political Alpha</h3><p>Trump family public statements &amp; disclosures tracked daily for market signals.</p><span class="count">DAILY UPDATE</span></button>
       </div>
 
       <div id="drawer-research" class="drawer open">
@@ -232,6 +258,30 @@
           <a class="sector-card featured" href="/private/strategy.html"><span class="sc-tag">EVERGREEN GUIDE</span><h3>Portfolio Strategy</h3><p>Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses — plus rebalancing discipline.</p></a>
           <a class="sector-card" href="/private/journal.html"><span class="sc-tag">PRIVATE</span><h3>Decision Journal</h3><p>Write the thesis before acting. Browser-only storage.</p></a>
           <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRIVATE</span><h3>Paper Portfolio</h3><p>Hypothetical positions with automatic P/L.</p></a>
+        </div>
+      </div>
+
+      <div id="drawer-trump" class="drawer">
+        <div class="trump-header">
+          <div>
+            <div class="kicker"><span class="trump-pulse"></span>POLITICAL ALPHA · DAILY</div>
+            <div class="sec-title" style="margin-bottom:0">Trump Family Investment Signals</div>
+          </div>
+          <span class="trump-generated" id="trump-generated">Loading…</span>
+        </div>
+        <div id="trump-signals">
+          <div class="trump-empty">Loading signals…</div>
+        </div>
+        <div style="margin-top:1.2rem">
+          <div class="kicker" style="margin-bottom:.6rem">STANDING THEMES TO WATCH</div>
+          <div class="trump-themes" id="trump-themes">
+            <div class="trump-theme"><strong>Crypto &amp; Digital Assets</strong><br/>World Liberty Financial, $TRUMP/$MELANIA memecoins, Bitcoin, pro-crypto regulation signals</div>
+            <div class="trump-theme"><strong>Energy Deregulation</strong><br/>Oil, gas, coal and nuclear policy — executive actions affecting energy sector valuations</div>
+            <div class="trump-theme"><strong>Tariffs &amp; Trade</strong><br/>Sector-specific tariff announcements, exemptions and escalations</div>
+            <div class="trump-theme"><strong>Kushner / Affinity Partners</strong><br/>Gulf sovereign wealth deals, Middle East real estate and private equity</div>
+            <div class="trump-theme"><strong>DJT Stock</strong><br/>Trump Media &amp; Technology — tracks political sentiment, not fundamentals</div>
+            <div class="trump-theme"><strong>Real Estate &amp; Hospitality</strong><br/>Trump Organization deals, crypto-backed property, golf and hospitality expansion</div>
+          </div>
         </div>
       </div>
     </section>
@@ -332,6 +382,30 @@ function filterNews(f, el){
 }
 fetch('/api/technews').then(r => r.json()).then(d => { newsItems = d.items || []; renderNews(); })
   .catch(() => { document.getElementById('newsStatus').textContent = 'Could not load headlines right now — visit techcrunch.com directly.'; });
+
+// Trump tracker
+fetch('/private/data/trump.json').then(r => r.json()).then(d => {
+  const gen = document.getElementById('trump-generated');
+  if(gen) gen.textContent = d.generated && d.generated !== 'Awaiting first update' ? 'Updated ' + d.generated : 'Awaiting first update';
+  const sc = document.getElementById('trump-signals');
+  if(!sc) return;
+  const signals = d.signals && d.signals.length > 0 ? d.signals : (d.history && d.history.length > 0 ? d.history.slice(0,5) : []);
+  if(!signals.length){ sc.innerHTML = '<div class="trump-empty">No signals yet — awaiting first daily pipeline run.</div>'; return; }
+  sc.innerHTML = signals.map(s => `
+    <div class="signal-card">
+      <div class="signal-meta">
+        <span class="signal-who">${s.who||''}</span>
+        <span class="signal-platform">${s.platform||''}</span>
+        <span class="signal-date">${s.date||''}</span>
+      </div>
+      <div class="signal-text">${s.text||''}</div>
+      ${s.tags&&s.tags.length?'<div class="signal-tags">'+s.tags.map(t=>`<span class="signal-tag ${t.type||''}">${t.label}</span>`).join('')+'</div>':''}
+      ${s.impact?`<div class="signal-impact">${s.impact}</div>`:''}
+    </div>`).join('');
+}).catch(()=>{
+  const sc = document.getElementById('trump-signals');
+  if(sc) sc.innerHTML = '<div class="trump-empty">Could not load signals.</div>';
+});
 </script>
 <script>
 document.querySelectorAll('.sub-chip').forEach(ch => ch.addEventListener('click', () => ch.classList.toggle('on')));
