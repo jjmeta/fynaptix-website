@@ -1,0 +1,32 @@
+{
+  "sector": "trump_investments",
+  "title": "Fynaptix · Trump Family Investment Tracker",
+  "heading": "Trump Family Investment Signals",
+  "subheading": "Public statements, social media posts, and disclosed positions from Donald Trump and family members — tracked daily for investment-relevant signals",
+  "generated": "Awaiting first update",
+  "disclaimer": "This page aggregates publicly available statements and disclosed financial information only. It is not financial advice. Always verify original sources before acting on any information.",
+  "signals": [],
+  "trump_media": [],
+  "djt_stock": {
+    "ticker": "DJT",
+    "note": "Trump Media & Technology Group — tracks closely with political sentiment",
+    "watch": "Policy announcements, Truth Social engagement, legal developments"
+  },
+  "family_members": [
+    {"name": "Donald Trump", "platforms": ["Truth Social", "Press conferences", "Official statements"], "focus": "Tariffs, crypto, energy, deregulation"},
+    {"name": "Ivanka Trump", "platforms": ["Instagram", "LinkedIn", "Public appearances"], "focus": "Real estate, fashion, tech investment"},
+    {"name": "Jared Kushner", "platforms": ["Affinity Partners announcements", "Press releases"], "focus": "Middle East real estate, private equity, AI"},
+    {"name": "Donald Trump Jr.", "platforms": ["X/Twitter", "Truth Social", "Podcasts"], "focus": "Energy, firearms, venture investments"},
+    {"name": "Eric Trump", "platforms": ["X/Twitter", "Trump Organization announcements"], "focus": "Real estate, golf, hospitality"}
+  ],
+  "key_themes": [
+    "Crypto & digital assets (Trump's stated pro-crypto stance, World Liberty Financial)",
+    "Energy deregulation (oil, gas, coal, nuclear)",
+    "Tariffs & trade policy (sector impacts)",
+    "Kushner's Affinity Partners (Gulf state investments)",
+    "Trump Media & Technology (DJT stock)",
+    "Real estate & hospitality (Trump Organization)",
+    "Memecoins ($TRUMP, $MELANIA)"
+  ],
+  "footnote": "Data sourced from public statements, SEC disclosures, Truth Social, X/Twitter, and verified news sources. Refreshed daily."
+}
