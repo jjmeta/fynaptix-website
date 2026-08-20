@@ -31,28 +31,35 @@
   .cta.ghost:hover{border-color:var(--gm)}
   .cta.ark{background:linear-gradient(90deg,#f59e0b,var(--gs));color:#fff}
 
-  /* Section tiles */
-  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.2rem 0 1.4rem}
-  .tile{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.2rem;cursor:pointer;
-    transition:border-color .2s,transform .15s;position:relative;overflow:hidden;font-family:var(--fb);text-align:left;width:100%;color:var(--text)}
-  .tile:hover{transform:translateY(-2px)}
-  .tile .ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.7rem}
-  .tile h3{font-family:var(--fd);font-weight:700;font-size:1.05rem;margin-bottom:.25rem}
-  .tile p{font-size:.75rem;color:var(--muted);line-height:1.45}
-  .tile .count{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:var(--subtle);margin-top:.6rem;display:block}
-  .tile.t-research .ico{background:rgba(46,208,245,.14)}
-  .tile.t-markets .ico{background:rgba(192,37,232,.14)}
-  .tile.t-education .ico{background:rgba(16,185,129,.14)}
-  .tile.t-strategy .ico{background:rgba(255,95,31,.14)}
-  .tile.t-ark .ico{background:rgba(245,158,11,.14)}
-  .tile.t-track .ico{background:rgba(16,185,129,.14)}
-  .tile.open{border-color:var(--gm);background:linear-gradient(135deg,rgba(255,95,31,.05),rgba(192,37,232,.07))}
-  .tile.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge))}
+  /* 4 Main Section Buttons */
+  .section-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:1.4rem 0 1rem}
+  .sec-btn{border-radius:20px;padding:1.8rem 1.6rem;cursor:pointer;transition:transform .2s,box-shadow .2s;
+    text-align:left;width:100%;color:#fff;font-family:var(--fb);border:none;position:relative;
+    overflow:hidden;min-height:158px;display:flex;flex-direction:column;-webkit-tap-highlight-color:transparent}
+  .sec-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+  .sec-btn.open{transform:translateY(-2px);box-shadow:0 0 0 3px rgba(255,255,255,.3),0 12px 40px rgba(0,0,0,.4)}
+  .sec-btn.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.45)}
+  .sb-badge{font-family:var(--fd);font-weight:800;font-size:1.05rem;line-height:1;margin-bottom:.75rem;
+    width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+  .sb-label{font-family:var(--fd);font-weight:800;font-size:1.4rem;line-height:1.1;margin-bottom:.35rem}
+  .sb-desc{font-size:.78rem;opacity:.88;line-height:1.5;flex:1}
+  .sb-meta{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;opacity:.68;margin-top:.85rem}
+  .sb-crypto{background:linear-gradient(135deg,#f7931a 0%,#f59e0b 45%,#ff6b00 100%)}
+  .sb-investing{background:linear-gradient(135deg,var(--ge) 0%,var(--gm) 100%)}
+  .sb-vcs{background:linear-gradient(135deg,#7c3aed 0%,var(--gm) 100%)}
+  .sb-political{background:linear-gradient(135deg,#ef4444 0%,var(--gs) 100%)}
 
   /* Drawer */
   .drawer{display:none;animation:fade .25s ease}
   .drawer.open{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Drawer sub-section labels */
+  .drawer-section{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;color:var(--muted);
+    margin:1.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+  .drawer-section:first-child{margin-top:0}
+
+  /* Sector cards */
   .sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem;
     text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s;display:block}
   .sector-card:hover{border-color:rgba(192,37,232,.35);transform:translateY(-2px)}
@@ -60,6 +67,49 @@
   .sector-card h3{font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .3rem}
   .sector-card p{font-size:.75rem;color:var(--muted);line-height:1.45}
   .sector-card.featured{background:linear-gradient(135deg,rgba(255,95,31,.08),rgba(192,37,232,.08));border-color:rgba(192,37,232,.3)}
+
+  /* Sidebar sub-sections */
+  .sidebar-sub{font-size:.58rem;font-family:var(--fm);letter-spacing:.1em;color:var(--subtle);
+    padding:.3rem .8rem .1rem 1.4rem;text-transform:uppercase;margin-top:.3rem;display:block}
+
+  /* Crypto live pulse row */
+  .crypto-pulse{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;margin-bottom:.2rem}
+  .pulse-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem}
+  .pulse-label{font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.35rem}
+  .pulse-value{font-family:var(--fd);font-weight:800;font-size:1.55rem;line-height:1}
+  .pulse-sub{font-family:var(--fm);font-size:.6rem;color:var(--muted);margin-top:.22rem}
+  .pulse-value.fear{color:#ef4444}
+  .pulse-value.fear-greed{color:#f59e0b}
+  .pulse-value.greed{color:#10b981}
+
+  /* Top performers */
+  .perf-row{display:flex;align-items:center;gap:.75rem;padding:.65rem .9rem;border-bottom:1px solid var(--border);transition:background .15s}
+  .perf-row:last-child{border-bottom:none}
+  .perf-row:hover{background:var(--bg3)}
+  .perf-rank{font-family:var(--fm);font-size:.65rem;color:var(--subtle);width:16px;text-align:right;flex-shrink:0}
+  .perf-icon{width:24px;height:24px;border-radius:50%;flex-shrink:0;background:var(--bg3)}
+  .perf-name{flex:1;min-width:0}
+  .perf-sym{font-family:var(--fd);font-weight:700;font-size:.88rem;display:block}
+  .perf-full{font-family:var(--fm);font-size:.6rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+  .perf-price{font-family:var(--fm);font-size:.82rem;color:var(--text);flex-shrink:0;min-width:80px;text-align:right}
+  .perf-pct{font-family:var(--fd);font-weight:700;font-size:.85rem;flex-shrink:0;min-width:62px;text-align:right}
+  .perf-pct.pos{color:#10b981}
+  .perf-pct.neg{color:#ef4444}
+  .crypto-loading{text-align:center;padding:1.6rem 1rem;color:var(--muted);font-size:.83rem}
+
+  /* Alpha investor cards */
+  .alpha-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem}
+  .alpha-name{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.22rem}
+  .alpha-focus{font-size:.75rem;color:var(--muted);line-height:1.45;margin-bottom:.55rem}
+  .alpha-status{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;color:var(--gs);
+    background:rgba(255,95,31,.08);border:1px solid rgba(255,95,31,.14);border-radius:6px;padding:.2rem .6rem;display:inline-block}
+
+  /* Coming soon placeholder */
+  .coming-soon{background:var(--bg2);border:1px dashed var(--border);border-radius:14px;padding:1.4rem 1.6rem;text-align:center}
+  .coming-soon .cs-title{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.3rem}
+  .coming-soon .cs-desc{font-size:.77rem;color:var(--muted);line-height:1.5}
+  .cs-badge{font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;padding:.22rem .65rem;border-radius:6px;
+    background:rgba(255,95,31,.08);border:1px solid rgba(255,95,31,.14);color:var(--gs);display:inline-block;margin-bottom:.55rem}
 
   /* News */
   .news-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-bottom:.9rem}
@@ -96,8 +146,7 @@
   #subMsg.ok{color:var(--green);display:block}
   #subMsg.err{color:var(--red);display:block}
 
-  /* Trump tracker tile */
-  .tile.t-trump .ico{background:rgba(255,180,0,.14)}
+  /* Political Alpha / Trump tracker */
   .signal-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:.75rem}
   .signal-card:last-child{margin-bottom:0}
   .signal-meta{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:.45rem}
@@ -126,10 +175,15 @@
 <div class="layout">
 
   <aside class="sidebar">
-    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <a class="sidebar-logo" href="/private/"><div class="logo-mark">∞</div>Fynaptix Research</a>
     <div style="flex:1;overflow-y:auto;padding:.5rem 0">
-      <div class="sidebar-section">Research</div>
-      <a class="nav-item active" href="/private/">Home</a>
+
+      <div class="sidebar-section">Crypto</div>
+      <a class="nav-item active" href="/private/">Hub Home</a>
+      <a class="nav-item" href="#" style="opacity:.45;pointer-events:none">Daily News (soon)</a>
+      <a class="nav-item" href="#" style="opacity:.45;pointer-events:none">Alpha Investors (soon)</a>
+
+      <div class="sidebar-section" style="margin-top:.5rem">Investing</div>
       <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
       <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
       <a class="nav-item" href="/private/robotics.html">Robotics</a>
@@ -140,27 +194,28 @@
       <a class="nav-item" href="/private/storage.html">Energy Storage</a>
       <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
       <a class="nav-item" href="/private/quantum.html">Quantum</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Political Alpha</div>
-      <a class="nav-item" href="/private/trump.html">Trump Family Tracker</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
-      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
-      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
-      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <span class="sidebar-sub">Markets</span>
       <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
       <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
       <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
       <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
       <a class="nav-item" href="/private/macro.html">Macro</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
-      <a class="nav-item" href="/private/education.html">Investing 101</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
-      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <span class="sidebar-sub">Track Record</span>
       <a class="nav-item" href="/private/calibration.html">Calibration</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <span class="sidebar-sub">Strategy &amp; Education</span>
       <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
       <a class="nav-item" href="/private/journal.html">Decision Journal</a>
       <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+
+      <div class="sidebar-section" style="margin-top:.5rem">VC Funds</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
+      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
+
+      <div class="sidebar-section" style="margin-top:.5rem">Political Alpha</div>
+      <a class="nav-item" href="/private/">Trump Family Tracker</a>
     </div>
     <div class="sidebar-footer">
       <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
@@ -171,12 +226,13 @@
 
     <div class="hero">
       <div class="kicker">FYNAPTIX INVESTMENT RESEARCH</div>
-      <h1>Emerging tech investing,<br/><span class="grad">researched every week.</span></h1>
-      <p>Nine sector dashboards, live markets, an investing school, and strategy tools — refreshed automatically every Monday by an AI research pipeline.</p>
+      <h1>Markets, deep dives &amp;<br/><span class="grad">alpha — every day.</span></h1>
+      <p>Crypto live prices, nine tech sector deep dives, VC fund watch, and political alpha — your personal research hub, refreshed daily by an AI pipeline.</p>
       <div class="hero-chips">
-        <span class="chip"><b>9</b>&nbsp;SECTORS</span>
+        <span class="chip"><b>LIVE</b>&nbsp;CRYPTO PRICES</span>
+        <span class="chip"><b>9</b>&nbsp;INVESTING SECTORS</span>
         <span class="chip"><b>WEEKLY</b>&nbsp;AUTO-REFRESH</span>
-        <span class="chip"><b>LIVE</b>&nbsp;QUOTES &amp; NEWS</span>
+        <span class="chip"><b>DAILY</b>&nbsp;POLITICAL ALPHA</span>
         <span class="chip"><b>60+</b>&nbsp;TRACKED TICKERS</span>
       </div>
       <div class="hero-cta">
@@ -192,20 +248,104 @@
 
     <section>
       <div class="kicker">EXPLORE</div>
-      <div class="sec-title">Pick a Section</div>
-      <div class="tiles">
-        <button class="tile t-research open" onclick="openDrawer('research',this)"><span class="ico">🔬</span><h3>Deep-Dive Research</h3><p>Nine emerging-tech sectors, each with tiered watchlists, bear cases &amp; catalysts.</p><span class="count">9 DASHBOARDS + WEEKLY BRIEF</span></button>
-        <button class="tile t-markets" onclick="openDrawer('markets',this)"><span class="ico">📈</span><h3>Markets</h3><p>Live quotes, the catalyst calendar, IPO pipeline, ETF comparisons &amp; macro.</p><span class="count">5 TOOLS · 2 LIVE</span></button>
-        <button class="tile t-ark" onclick="openDrawer('ark',this)"><span class="ico">🧭</span><h3>Fund Watch</h3><p>ARK Invest's thesis, funds, trades &amp; the full Big Ideas 2026 report.</p><span class="count">ARK INVEST · PDF INCLUDED</span></button>
-        <button class="tile t-education" onclick="openDrawer('education',this)"><span class="ico">🎓</span><h3>Education</h3><p>Learn investing from first principles — stocks, ETFs &amp; crypto, honestly explained.</p><span class="count">INVESTING 101 GUIDE</span></button>
-        <button class="tile t-track" onclick="openDrawer('track',this)"><span class="ico">📈</span><h3>Track Record</h3><p>Every week archived, and an honest scoreboard of whether your calls were right.</p><span class="count">ARCHIVE · CALIBRATION</span></button>
-        <button class="tile t-strategy" onclick="openDrawer('strategy',this)"><span class="ico">🧭</span><h3>Strategy</h3><p>Portfolio construction, your decision journal &amp; paper-trading practice.</p><span class="count">1 GUIDE · 2 PRIVATE TOOLS</span></button>
-        <button class="tile t-trump" onclick="openDrawer('trump',this)"><span class="ico" style="font-size:1rem;letter-spacing:-.02em;font-family:var(--fd);font-weight:800;color:#ffb400">POL</span><h3>Political Alpha</h3><p>Trump family public statements &amp; disclosures tracked daily for market signals.</p><span class="count">DAILY UPDATE</span></button>
+      <div class="sec-title">Choose Your Research Focus</div>
+
+      <div class="section-grid">
+        <button class="sec-btn sb-crypto" onclick="openDrawer('crypto',this)">
+          <div class="sb-badge">₿</div>
+          <div class="sb-label">Crypto</div>
+          <div class="sb-desc">Live prices, top performers today, and alpha investor narratives.</div>
+          <div class="sb-meta">LIVE PRICES · DAILY PIPELINE COMING</div>
+        </button>
+        <button class="sec-btn sb-investing open" onclick="openDrawer('investing',this)">
+          <div class="sb-badge">📊</div>
+          <div class="sb-label">Investing</div>
+          <div class="sb-desc">Nine sector deep dives, live markets, track record and portfolio strategy.</div>
+          <div class="sb-meta">9 SECTORS · WEEKLY BRIEF · 60+ TICKERS</div>
+        </button>
+        <button class="sec-btn sb-vcs" onclick="openDrawer('vcs',this)">
+          <div class="sb-badge">🏛</div>
+          <div class="sb-label">VC Funds</div>
+          <div class="sb-desc">ARK Invest, Baillie Gifford and institutional fund watch — what the big money is betting on.</div>
+          <div class="sb-meta">ARK · BAILLIE GIFFORD · FUND WATCH</div>
+        </button>
+        <button class="sec-btn sb-political" onclick="openDrawer('political',this)">
+          <div class="sb-badge" style="font-size:.7rem;letter-spacing:-.01em">POL</div>
+          <div class="sb-label">Political Alpha</div>
+          <div class="sb-desc">Trump family statements, social posts and investment signals tracked daily for market impact.</div>
+          <div class="sb-meta">DAILY UPDATE · TRUMP TRACKER</div>
+        </button>
       </div>
 
-      <div id="drawer-research" class="drawer open">
+      <!-- ── CRYPTO DRAWER ── -->
+      <div id="drawer-crypto" class="drawer">
+        <div class="drawer-section">MARKET PULSE · LIVE</div>
+        <div class="crypto-pulse">
+          <div class="pulse-card">
+            <div class="pulse-label">FEAR &amp; GREED</div>
+            <div class="pulse-value" id="fg-value">—</div>
+            <div class="pulse-sub" id="fg-label">Loading…</div>
+          </div>
+          <div class="pulse-card">
+            <div class="pulse-label">BTC DOMINANCE</div>
+            <div class="pulse-value" id="btc-dom">—</div>
+            <div class="pulse-sub">Bitcoin market share</div>
+          </div>
+          <div class="pulse-card">
+            <div class="pulse-label">TOTAL MARKET CAP</div>
+            <div class="pulse-value" id="total-mcap">—</div>
+            <div class="pulse-sub" id="mcap-change">24h change</div>
+          </div>
+        </div>
+        <div class="sec-note" style="margin-top:.4rem;margin-bottom:0">Live data from CoinGecko &amp; alternative.me — refreshed on page load.</div>
+
+        <div class="drawer-section">TOP PERFORMERS TODAY (24H)</div>
+        <div class="card" style="padding:.2rem 0">
+          <div id="crypto-performers"><div class="crypto-loading">Loading live prices from CoinGecko…</div></div>
+        </div>
+        <div class="sec-note" style="margin-top:.4rem">Top gainers from the top 250 coins by market cap. Prices from CoinGecko.</div>
+
+        <div class="drawer-section">ALPHA INVESTOR WATCH</div>
         <div class="grid-cards">
-          <a class="sector-card featured" href="/private/overview.html"><span class="sc-tag">★ WEEKLY BRIEF</span><h3>All Sectors at a Glance</h3><p>Scoreboard, live markets, themes, news, risk gauge &amp; the week ahead — every Monday.</p></a>
+          <div class="alpha-card">
+            <div class="alpha-name">a16z Crypto</div>
+            <div class="alpha-focus">Consumer crypto, gaming, DeFi infrastructure, stablecoins. Known for long-horizon protocol-level bets.</div>
+            <span class="alpha-status">WEEKLY PIPELINE COMING</span>
+          </div>
+          <div class="alpha-card">
+            <div class="alpha-name">Multicoin Capital</div>
+            <div class="alpha-focus">High-conviction macro crypto bets. Vocal on Solana ecosystem, DePIN and cross-chain infrastructure.</div>
+            <span class="alpha-status">WEEKLY PIPELINE COMING</span>
+          </div>
+          <div class="alpha-card">
+            <div class="alpha-name">Paradigm</div>
+            <div class="alpha-focus">Deep DeFi protocol research. Technical-first, often publishes pre-investment research. Strong on derivatives and MEV.</div>
+            <span class="alpha-status">WEEKLY PIPELINE COMING</span>
+          </div>
+          <div class="alpha-card">
+            <div class="alpha-name">Pantera Capital</div>
+            <div class="alpha-focus">One of the oldest crypto VCs. Macro Bitcoin thesis, blockchain infrastructure, emerging market use-cases.</div>
+            <span class="alpha-status">WEEKLY PIPELINE COMING</span>
+          </div>
+        </div>
+
+        <div class="drawer-section">DAILY CRYPTO NEWS</div>
+        <div class="coming-soon">
+          <div class="cs-badge">PIPELINE COMING</div>
+          <div class="cs-title">Daily Crypto News Feed</div>
+          <div class="cs-desc">Will pull from CoinDesk, The Block, and Decrypt — top headlines refreshed daily by the AI research pipeline.</div>
+        </div>
+      </div>
+
+      <!-- ── INVESTING DRAWER ── -->
+      <div id="drawer-investing" class="drawer open">
+        <div class="drawer-section">WEEKLY BRIEF</div>
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/overview.html"><span class="sc-tag">★ THIS WEEK</span><h3>All Sectors at a Glance</h3><p>Scoreboard, live markets, themes, news, risk gauge &amp; the week ahead — every Monday.</p></a>
+        </div>
+
+        <div class="drawer-section">SECTOR DEEP DIVES</div>
+        <div class="grid-cards">
           <a class="sector-card" href="/private/ai.html"><span class="sc-tag">THE SUPERCYCLE</span><h3>AI &amp; Compute</h3><p>Hyperscaler capex, silicon stack &amp; the bubble debate.</p></a>
           <a class="sector-card" href="/private/robotics.html"><span class="sc-tag">PHYSICAL AI</span><h3>Robotics</h3><p>Humanoids, warehouse automation &amp; components.</p></a>
           <a class="sector-card" href="/private/defense.html"><span class="sc-tag">AUTONOMY</span><h3>Defense Tech</h3><p>AI battlefield software, drones &amp; rearmament.</p></a>
@@ -216,9 +356,8 @@
           <a class="sector-card" href="/private/biotech.html"><span class="sc-tag">COMPUTATIONAL BIO</span><h3>AI Biotech</h3><p>AI drug discovery &amp; longevity capital.</p></a>
           <a class="sector-card" href="/private/quantum.html"><span class="sc-tag">DEEP TECH</span><h3>Quantum</h3><p>Pure-plays, giants &amp; the road to advantage.</p></a>
         </div>
-      </div>
 
-      <div id="drawer-markets" class="drawer">
+        <div class="drawer-section">MARKETS</div>
         <div class="grid-cards">
           <a class="sector-card" href="/private/watchlist.html"><span class="sc-tag">LIVE</span><h3>Live Watchlist</h3><p>Real-time quotes for every tracked ticker, by sector.</p></a>
           <a class="sector-card" href="/private/calendar.html"><span class="sc-tag">WEEKLY</span><h3>Catalyst Calendar</h3><p>Every dated event in one ordered view.</p></a>
@@ -226,42 +365,41 @@
           <a class="sector-card" href="/private/etfs.html"><span class="sc-tag">WEEKLY</span><h3>ETF Compare</h3><p>All thematic funds: fees, concentration, character.</p></a>
           <a class="sector-card" href="/private/macro.html"><span class="sc-tag">LIVE</span><h3>Macro Dashboard</h3><p>Rates, VIX, gold, bitcoin &amp; the dollar.</p></a>
         </div>
+
+        <div class="drawer-section">TRACK RECORD</div>
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/calibration.html"><span class="sc-tag">THE SCOREBOARD</span><h3>Calibration</h3><p>Surfaces theses whose review date has passed, asks you to score them honestly, then charts your hit rate by sector and conviction.</p></a>
+          <a class="sector-card" href="/private/archive.html"><span class="sc-tag">EVERY WEEK KEPT</span><h3>Research Archive</h3><p>Browse past weeks, compare how the numbers moved.</p></a>
+          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">INPUT</span><h3>Decision Journal</h3><p>Where theses get written down — raw material for calibration.</p></a>
+        </div>
+
+        <div class="drawer-section">STRATEGY &amp; EDUCATION</div>
+        <div class="grid-cards">
+          <a class="sector-card featured" href="/private/strategy.html"><span class="sc-tag">EVERGREEN GUIDE</span><h3>Portfolio Strategy</h3><p>Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses.</p></a>
+          <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRACTICE</span><h3>Paper Portfolio</h3><p>Hypothetical positions with automatic P/L.</p></a>
+          <a class="sector-card" href="/private/education.html"><span class="sc-tag">START HERE</span><h3>Investing 101</h3><p>First principles — stocks, ETFs &amp; crypto, honestly explained.</p></a>
+        </div>
       </div>
 
-      <div id="drawer-ark" class="drawer">
+      <!-- ── VC FUNDS DRAWER ── -->
+      <div id="drawer-vcs" class="drawer">
+        <div class="drawer-section">FUND WATCH</div>
         <div class="grid-cards">
-          <a class="sector-card featured" href="/private/ark.html"><span class="sc-tag">FUND WATCH</span><h3>ARK Invest</h3><p>Cathie Wood's disruptive-innovation thesis, the ETF lineup, what ARK is buying and selling, an honest scorecard — plus the full Big Ideas 2026 report to read or download.</p></a>
+          <a class="sector-card featured" href="/private/ark.html"><span class="sc-tag">FUND WATCH</span><h3>ARK Invest</h3><p>Cathie Wood's disruptive-innovation thesis, ETF lineup, what ARK is buying and selling — plus the full Big Ideas 2026 report.</p></a>
           <a class="sector-card" href="/private/docs/ark-big-ideas-2026.pdf" target="_blank" rel="noopener"><span class="sc-tag">PDF · 111 PAGES</span><h3>Big Ideas 2026</h3><p>ARK's flagship annual research report, hosted here in full.</p></a>
           <a class="sector-card" href="/private/bailliegifford.html"><span class="sc-tag">UK-LISTED</span><h3>Baillie Gifford</h3><p>Scottish Mortgage — the accessible route to SpaceX, Anthropic, Databricks &amp; Stripe.</p></a>
           <a class="sector-card" href="/private/investors.html"><span class="sc-tag">WEEKLY</span><h3>Investor Voices</h3><p>What the sharpest investors said this week — bulls, bears, and where they clash.</p></a>
         </div>
-      </div>
-
-      <div id="drawer-education" class="drawer">
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/education.html"><span class="sc-tag">START HERE</span><h3>Investing 101</h3><p>First principles, how markets work, buying stocks step-by-step, ETFs explained, crypto with both eyes open, risk management &amp; the classic mistakes — one honest guide.</p></a>
-          <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRACTICE</span><h3>Paper Portfolio</h3><p>Apply what you learn with zero-risk practice positions.</p></a>
-          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">DISCIPLINE</span><h3>Decision Journal</h3><p>The habit that separates investors from gamblers.</p></a>
+        <div class="drawer-section">YOUR VC WATCHLIST</div>
+        <div class="coming-soon">
+          <div class="cs-badge">COMING SOON</div>
+          <div class="cs-title">Add Your VC Funds</div>
+          <div class="cs-desc">Define which VC funds and institutional investors you want tracked here — theses, portfolio moves, LP letters, notable investments. Tell Claude which funds and content you want.</div>
         </div>
       </div>
 
-      <div id="drawer-track" class="drawer">
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/calibration.html"><span class="sc-tag">THE SCOREBOARD</span><h3>Calibration</h3><p>Surfaces theses whose review date has passed, asks you to score them honestly, then charts your hit rate by sector and by conviction. The only page that grades you.</p></a>
-          <a class="sector-card" href="/private/archive.html"><span class="sc-tag">EVERY WEEK KEPT</span><h3>Research Archive</h3><p>Browse past weeks, compare how the numbers moved, and check pipeline coverage.</p></a>
-          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">INPUT</span><h3>Decision Journal</h3><p>Where theses get written down — the raw material for calibration.</p></a>
-        </div>
-      </div>
-
-      <div id="drawer-strategy" class="drawer">
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/strategy.html"><span class="sc-tag">EVERGREEN GUIDE</span><h3>Portfolio Strategy</h3><p>Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses — plus rebalancing discipline.</p></a>
-          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">PRIVATE</span><h3>Decision Journal</h3><p>Write the thesis before acting. Browser-only storage.</p></a>
-          <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRIVATE</span><h3>Paper Portfolio</h3><p>Hypothetical positions with automatic P/L.</p></a>
-        </div>
-      </div>
-
-      <div id="drawer-trump" class="drawer">
+      <!-- ── POLITICAL ALPHA DRAWER ── -->
+      <div id="drawer-political" class="drawer">
         <div class="trump-header">
           <div>
             <div class="kicker"><span class="trump-pulse"></span>POLITICAL ALPHA · DAILY</div>
@@ -274,7 +412,7 @@
         </div>
         <div style="margin-top:1.2rem">
           <div class="kicker" style="margin-bottom:.6rem">STANDING THEMES TO WATCH</div>
-          <div class="trump-themes" id="trump-themes">
+          <div class="trump-themes">
             <div class="trump-theme"><strong>Crypto &amp; Digital Assets</strong><br/>World Liberty Financial, $TRUMP/$MELANIA memecoins, Bitcoin, pro-crypto regulation signals</div>
             <div class="trump-theme"><strong>Energy Deregulation</strong><br/>Oil, gas, coal and nuclear policy — executive actions affecting energy sector valuations</div>
             <div class="trump-theme"><strong>Tariffs &amp; Trade</strong><br/>Sector-specific tariff announcements, exemptions and escalations</div>
@@ -343,14 +481,15 @@
 // Section drawers
 function openDrawer(name, el){
   document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
-  document.querySelectorAll('.tile').forEach(t => t.classList.remove('open'));
+  document.querySelectorAll('.sec-btn').forEach(t => t.classList.remove('open'));
   document.getElementById('drawer-' + name).classList.add('open');
   el.classList.add('open');
+  if(name === 'crypto' && !window._cryptoLoaded){ loadCryptoData(); window._cryptoLoaded = true; }
 }
 
 // Tech news feed
 let newsItems = [], newsFilter = 'All';
-const decode = (s) => new DOMParser().parseFromString(s, 'text/html').documentElement.textContent || '';
+const decode = s => new DOMParser().parseFromString(s, 'text/html').documentElement.textContent || '';
 function ago(d){
   const m = Math.floor((Date.now() - new Date(d).getTime()) / 60000);
   if(isNaN(m)) return '';
@@ -359,29 +498,26 @@ function ago(d){
   return Math.floor(m/1440) + 'd ago';
 }
 function renderNews(){
-  const list = document.getElementById('newsList');
-  const status = document.getElementById('newsStatus');
-  const shown = newsItems.filter(i => newsFilter === 'All' || i.tag === newsFilter).slice(0, 10);
-  if(!shown.length){ status.style.display = 'block'; status.textContent = 'No headlines in this category right now.'; list.innerHTML = ''; return; }
-  status.style.display = 'none';
-  list.innerHTML = '';
+  const list = document.getElementById('newsList'), status = document.getElementById('newsStatus');
+  const shown = newsItems.filter(i => newsFilter === 'All' || i.tag === newsFilter).slice(0,10);
+  if(!shown.length){ status.style.display='block'; status.textContent='No headlines in this category right now.'; list.innerHTML=''; return; }
+  status.style.display='none'; list.innerHTML='';
   shown.forEach(i => {
     const a = document.createElement('a');
-    a.className = 'news-item'; a.href = i.link; a.target = '_blank'; a.rel = 'noopener';
-    const tag = document.createElement('span'); tag.className = 'news-tag ' + i.tag; tag.textContent = i.tag.toUpperCase();
-    const t = document.createElement('span'); t.className = 'nt'; t.textContent = decode(i.title);
-    const m = document.createElement('span'); m.className = 'nm'; m.textContent = ago(i.date);
-    a.append(tag, t, m); list.appendChild(a);
+    a.className='news-item'; a.href=i.link; a.target='_blank'; a.rel='noopener';
+    const tag = document.createElement('span'); tag.className='news-tag '+i.tag; tag.textContent=i.tag.toUpperCase();
+    const t = document.createElement('span'); t.className='nt'; t.textContent=decode(i.title);
+    const m = document.createElement('span'); m.className='nm'; m.textContent=ago(i.date);
+    a.append(tag,t,m); list.appendChild(a);
   });
 }
-function filterNews(f, el){
-  newsFilter = f;
+function filterNews(f,el){
+  newsFilter=f;
   document.querySelectorAll('.nf').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  renderNews();
+  el.classList.add('active'); renderNews();
 }
-fetch('/api/technews').then(r => r.json()).then(d => { newsItems = d.items || []; renderNews(); })
-  .catch(() => { document.getElementById('newsStatus').textContent = 'Could not load headlines right now — visit techcrunch.com directly.'; });
+fetch('/api/technews').then(r => r.json()).then(d => { newsItems=d.items||[]; renderNews(); })
+  .catch(() => { document.getElementById('newsStatus').textContent='Could not load headlines right now — visit techcrunch.com directly.'; });
 
 // Trump tracker
 fetch('/private/data/trump.json').then(r => r.json()).then(d => {
@@ -389,8 +525,8 @@ fetch('/private/data/trump.json').then(r => r.json()).then(d => {
   if(gen) gen.textContent = d.generated && d.generated !== 'Awaiting first update' ? 'Updated ' + d.generated : 'Awaiting first update';
   const sc = document.getElementById('trump-signals');
   if(!sc) return;
-  const signals = d.signals && d.signals.length > 0 ? d.signals : (d.history && d.history.length > 0 ? d.history.slice(0,5) : []);
-  if(!signals.length){ sc.innerHTML = '<div class="trump-empty">No signals yet — awaiting first daily pipeline run.</div>'; return; }
+  const signals = d.signals&&d.signals.length ? d.signals : (d.history&&d.history.length ? d.history.slice(0,5) : []);
+  if(!signals.length){ sc.innerHTML='<div class="trump-empty">No signals yet — awaiting first daily pipeline run.</div>'; return; }
   sc.innerHTML = signals.map(s => `
     <div class="signal-card">
       <div class="signal-meta">
@@ -402,29 +538,86 @@ fetch('/private/data/trump.json').then(r => r.json()).then(d => {
       ${s.tags&&s.tags.length?'<div class="signal-tags">'+s.tags.map(t=>`<span class="signal-tag ${t.type||''}">${t.label}</span>`).join('')+'</div>':''}
       ${s.impact?`<div class="signal-impact">${s.impact}</div>`:''}
     </div>`).join('');
-}).catch(()=>{
+}).catch(() => {
   const sc = document.getElementById('trump-signals');
-  if(sc) sc.innerHTML = '<div class="trump-empty">Could not load signals.</div>';
+  if(sc) sc.innerHTML='<div class="trump-empty">Could not load signals.</div>';
 });
+
+// Crypto live data
+async function loadCryptoData(){
+  // Fear & Greed
+  try {
+    const fg = await fetch('https://api.alternative.me/fng/?limit=1').then(r => r.json());
+    if(fg&&fg.data&&fg.data[0]){
+      const v = parseInt(fg.data[0].value);
+      const el = document.getElementById('fg-value');
+      el.textContent = v;
+      document.getElementById('fg-label').textContent = fg.data[0].value_classification;
+      el.className = 'pulse-value ' + (v<25?'fear':v<50?'fear-greed':'greed');
+    }
+  } catch(e){}
+  // Global market data
+  try {
+    const g = await fetch('https://api.coingecko.com/api/v3/global').then(r => r.json());
+    if(g&&g.data){
+      const btc = g.data.market_cap_percentage&&g.data.market_cap_percentage.btc;
+      if(btc) document.getElementById('btc-dom').textContent = btc.toFixed(1)+'%';
+      const cap = g.data.total_market_cap&&g.data.total_market_cap.usd;
+      if(cap) document.getElementById('total-mcap').textContent = '$'+(cap>=1e12?(cap/1e12).toFixed(2)+'T':(cap/1e9).toFixed(0)+'B');
+      const chg = g.data.market_cap_change_percentage_24h_usd;
+      if(chg!=null){
+        const el = document.getElementById('mcap-change');
+        el.textContent = (chg>0?'+':'')+chg.toFixed(2)+'% (24h)';
+        el.style.color = chg>0?'#10b981':'#ef4444';
+      }
+    }
+  } catch(e){}
+  // Top performers
+  try {
+    const coins = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h').then(r => r.json());
+    if(Array.isArray(coins)&&coins.length){
+      const sorted = [...coins].sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0));
+      renderPerformers(sorted.slice(0,10));
+    }
+  } catch(e){
+    document.getElementById('crypto-performers').innerHTML='<div class="crypto-loading">Could not load live prices — CoinGecko may be rate-limited. Refresh to retry.</div>';
+  }
+}
+function renderPerformers(coins){
+  document.getElementById('crypto-performers').innerHTML = coins.map((c,i) => {
+    const pct = c.price_change_percentage_24h||0;
+    const p = c.current_price;
+    const price = p>=1000?'$'+p.toLocaleString('en-US',{maximumFractionDigits:0}):
+                  p>=1?'$'+p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):
+                  '$'+p.toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:6});
+    return `<div class="perf-row">
+      <span class="perf-rank">${i+1}</span>
+      <img class="perf-icon" src="${c.image||''}" alt="${c.symbol||''}" width="24" height="24" loading="lazy" onerror="this.style.display='none'"/>
+      <div class="perf-name"><span class="perf-sym">${(c.symbol||'').toUpperCase()}</span><span class="perf-full">${c.name||''}</span></div>
+      <span class="perf-price">${price}</span>
+      <span class="perf-pct ${pct>=0?'pos':'neg'}">${pct>=0?'+':''}${pct.toFixed(2)}%</span>
+    </div>`;
+  }).join('');
+}
 </script>
 <script>
-document.querySelectorAll('.sub-chip').forEach(ch => ch.addEventListener('click', () => ch.classList.toggle('on')));
+document.querySelectorAll('.sub-chip').forEach(ch => ch.addEventListener('click',()=>ch.classList.toggle('on')));
 function subscribe(){
-  const email = document.getElementById('subEmail').value.trim();
-  const lists = [...document.querySelectorAll('.sub-chip.on')].map(c => c.dataset.list.replace(/&amp;/g,'&'));
-  const msg = document.getElementById('subMsg'), btn = document.getElementById('subBtn');
-  msg.className = '';
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.className='err'; msg.textContent='Please enter a valid email address.'; return; }
-  if(!lists.length){ msg.className='err'; msg.textContent='Pick at least one newsletter.'; return; }
-  btn.disabled = true; btn.textContent = 'Subscribing…';
-  fetch('/api/subscribe', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email, lists }) })
-    .then(r => r.json().then(d => ({ ok: r.ok, d })))
-    .then(({ok, d}) => {
-      if(ok){ msg.className='ok'; msg.textContent='Subscribed to: ' + d.subscribed.join(', ') + '. First email arrives after next Monday\'s research run.'; document.getElementById('subEmail').value=''; }
-      else { msg.className='err'; msg.textContent = d.error || 'Something went wrong — try again later.'; }
+  const email=document.getElementById('subEmail').value.trim();
+  const lists=[...document.querySelectorAll('.sub-chip.on')].map(c=>c.dataset.list.replace(/&amp;/g,'&'));
+  const msg=document.getElementById('subMsg'),btn=document.getElementById('subBtn');
+  msg.className='';
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.className='err';msg.textContent='Please enter a valid email address.';return;}
+  if(!lists.length){msg.className='err';msg.textContent='Pick at least one newsletter.';return;}
+  btn.disabled=true;btn.textContent='Subscribing…';
+  fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,lists})})
+    .then(r=>r.json().then(d=>({ok:r.ok,d})))
+    .then(({ok,d})=>{
+      if(ok){msg.className='ok';msg.textContent='Subscribed to: '+d.subscribed.join(', ')+'. First email arrives after next Monday\'s research run.';document.getElementById('subEmail').value='';}
+      else{msg.className='err';msg.textContent=d.error||'Something went wrong — try again later.';}
     })
-    .catch(() => { msg.className='err'; msg.textContent='Network error — try again later.'; })
-    .finally(() => { btn.disabled = false; btn.textContent = 'Subscribe'; });
+    .catch(()=>{msg.className='err';msg.textContent='Network error — try again later.';})
+    .finally(()=>{btn.disabled=false;btn.textContent='Subscribe';});
 }
 </script>
 </body>
