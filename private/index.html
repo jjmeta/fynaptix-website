@@ -34,6 +34,8 @@
   .sb-investing{background:linear-gradient(90deg,var(--gs),var(--gm))}
   .sb-vcs{background:linear-gradient(90deg,#7c3aed,var(--gm))}
   .sb-political{background:linear-gradient(90deg,#ef4444,var(--gs))}
+  .sb-brief{background:linear-gradient(90deg,var(--gm),var(--ge))}
+  .sb-news{background:linear-gradient(90deg,#0ea5e9,var(--ge))}
 
   /* Pulse strip */
   .pulse-strip{display:flex;gap:.6rem;overflow-x:auto;padding:.15rem 0 .85rem;margin:.2rem 0 .4rem;scrollbar-width:none}
@@ -245,6 +247,8 @@
         <button class="sec-btn sb-investing open" onclick="openDrawer('investing',this)">Investing</button>
         <button class="sec-btn sb-vcs" onclick="openDrawer('vcs',this)">VC Funds</button>
         <button class="sec-btn sb-political" onclick="openDrawer('political',this)">Political Alpha</button>
+        <button class="sec-btn sb-brief" onclick="openDrawer('brief',this)">★ Weekly Brief</button>
+        <button class="sec-btn sb-news" onclick="openDrawer('news',this)">Daily News</button>
       </div>
 
       <!-- ── TODAY AT A GLANCE ── -->
@@ -442,6 +446,49 @@
             <div class="trump-theme"><strong>Real Estate &amp; Hospitality</strong><br/>Trump Organization deals, crypto-backed property, golf and hospitality expansion</div>
           </div>
         </div>
+      </div>
+
+      <div id="drawer-brief" class="drawer">
+        <div class="kicker">★ WEEKLY BRIEF</div>
+        <div class="sec-title" style="margin-bottom:.35rem">This Week's Research Brief</div>
+        <div class="sec-note" style="margin-bottom:1rem">Cross-sector synthesis published every Monday — AI, defense, space, biotech, crypto and VC intelligence in one read.</div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem">
+          <a class="sector-card" style="--accent:var(--gm);min-height:auto;padding:1rem 1.2rem" href="/private/overview.html">
+            <span class="sc-tag">THIS WEEK</span>
+            <h3 style="margin-bottom:.2rem">Weekly Research Brief</h3>
+            <p>Open the full cross-sector brief — market signals, sector moves, VC activity and key narratives for the week.</p>
+          </a>
+          <a class="sector-card" style="--accent:var(--ge);min-height:auto;padding:1rem 1.2rem" href="/private/archive.html">
+            <span class="sc-tag">ARCHIVE</span>
+            <h3 style="margin-bottom:.2rem">Past Briefs</h3>
+            <p>Browse previous weekly briefs and track how narratives have evolved over time.</p>
+          </a>
+        </div>
+        <div class="sec-note">Refreshes Mondays. Covers all 9 sectors plus crypto, VC and macro. Also available by email — see the Subscribe section below.</div>
+      </div>
+
+      <div id="drawer-news" class="drawer">
+        <div class="kicker">DAILY NEWS</div>
+        <div class="sec-title" style="margin-bottom:.35rem">Today's Market Intelligence</div>
+        <div class="sec-note" style="margin-bottom:1rem">Curated daily signals across markets, macro, crypto and tech — pulled from the research pipeline each morning.</div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem">
+          <a class="sector-card" style="--accent:#0ea5e9;min-height:auto;padding:1rem 1.2rem" href="/private/macro.html">
+            <span class="sc-tag">MACRO</span>
+            <h3 style="margin-bottom:.2rem">Macro Dashboard</h3>
+            <p>Rates, VIX, gold, oil and key economic data — live macro signals in one view.</p>
+          </a>
+          <a class="sector-card" style="--accent:var(--ge);min-height:auto;padding:1rem 1.2rem" href="/private/watchlist.html">
+            <span class="sc-tag">EQUITIES</span>
+            <h3 style="margin-bottom:.2rem">Live Watchlist</h3>
+            <p>60+ tickers across your sector themes — live prices, 52-week ranges and signals.</p>
+          </a>
+          <a class="sector-card" style="--accent:#f59e0b;min-height:auto;padding:1rem 1.2rem" href="/private/calendar.html">
+            <span class="sc-tag">CALENDAR</span>
+            <h3 style="margin-bottom:.2rem">Catalyst Calendar</h3>
+            <p>Earnings, FDA dates, launch windows, FOMC meetings and sector events.</p>
+          </a>
+        </div>
+        <div class="sec-note">A curated daily news pipeline (pulling from sector sources each morning) is coming soon — it will populate here automatically.</div>
       </div>
     </section>
 
