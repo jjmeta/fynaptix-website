@@ -72,6 +72,8 @@
   .sb-political.open{background:linear-gradient(135deg,rgba(239,68,68,.88),rgba(255,95,31,.8));box-shadow:0 2px 14px rgba(239,68,68,.28)}
   .sb-brief.open{background:linear-gradient(135deg,rgba(192,37,232,.88),rgba(46,208,245,.8));box-shadow:0 2px 14px rgba(192,37,232,.28)}
   .sb-news.open{background:linear-gradient(135deg,rgba(14,165,233,.88),rgba(46,208,245,.8));box-shadow:0 2px 14px rgba(14,165,233,.28)}
+  .sb-macro.open{background:linear-gradient(135deg,rgba(16,185,129,.88),rgba(46,208,245,.8));box-shadow:0 2px 14px rgba(16,185,129,.28)}
+  .sb-ipo.open{background:linear-gradient(135deg,rgba(255,95,31,.88),rgba(245,158,11,.82));box-shadow:0 2px 14px rgba(255,95,31,.28)}
 
   /* Market overview hidden by default; shown only for Crypto */
   .mkt-overview{display:none}
@@ -356,6 +358,8 @@
         <button class="sec-btn sb-political" onclick="openDrawer('political',this)">Political Alpha</button>
         <button class="sec-btn sb-brief" onclick="openDrawer('brief',this)">★ Weekly Brief</button>
         <button class="sec-btn sb-news" onclick="openDrawer('news',this)">Daily News</button>
+        <button class="sec-btn sb-macro" onclick="openDrawer('macro',this)">Macro</button>
+        <button class="sec-btn sb-ipo" onclick="openDrawer('ipo',this)">IPO Pipeline</button>
       </div>
 
       <!-- ── MARKET OVERVIEW (crypto drawer only) ── -->
@@ -701,6 +705,64 @@
           </a>
         </div>
         <div class="sec-note">A curated daily news pipeline (pulling from sector sources each morning) is coming soon — it will populate here automatically.</div>
+      </div>
+
+      <!-- ── MACRO DRAWER ── -->
+      <div id="drawer-macro" class="drawer">
+        <a class="tr-featured" href="/private/macro.html" style="border-color:rgba(16,185,129,.25);background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(46,208,245,.05))">
+          <div class="tr-feat-body">
+            <div class="tr-feat-kicker" style="-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,#10b981,#2ed0f5)">MACRO CONTEXT // THE BACKDROP</div>
+            <div class="tr-feat-title">Macro Dashboard</div>
+            <div class="tr-feat-desc">The big-picture backdrop for every investment thesis — live rates, volatility, gold, oil and currency signals interpreted weekly by the AI research pipeline.</div>
+          </div>
+          <div class="tr-feat-icon" style="color:#10b981">◈</div>
+        </a>
+        <div class="mkt-strip">
+          <a class="mkt-row" href="/private/macro.html#live">
+            <span class="mkt-badge live">LIVE</span>
+            <div class="mkt-info"><div class="mkt-name">The Big Five</div><div class="mkt-desc">BTC, VIX, Gold, 10Y Treasury yield &amp; the US Dollar Index — the five indicators that frame everything else</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/macro.html#context">
+            <span class="mkt-badge weekly">WEEKLY</span>
+            <div class="mkt-info"><div class="mkt-name">Reading the Backdrop</div><div class="mkt-desc">Why each macro signal matters for your sector themes — rising rates vs growth stocks, DXY vs commodities</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/macro.html#commentary">
+            <span class="mkt-badge weekly">WEEKLY</span>
+            <div class="mkt-info"><div class="mkt-name">This Week's Commentary</div><div class="mkt-desc">AI-generated interpretation of the current macro setup and what it signals for the sectors you're watching</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── IPO PIPELINE DRAWER ── -->
+      <div id="drawer-ipo" class="drawer">
+        <a class="tr-featured" href="/private/ipo.html" style="border-color:rgba(255,95,31,.25);background:linear-gradient(135deg,rgba(255,95,31,.07),rgba(245,158,11,.05))">
+          <div class="tr-feat-body">
+            <div class="tr-feat-kicker" style="-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,var(--gs),var(--amber))">IPO PIPELINE // EMERGING TECH</div>
+            <div class="tr-feat-title">IPO &amp; Listing Pipeline</div>
+            <div class="tr-feat-desc">Private giants moving toward public markets — filed listings, credible candidates, and recently completed IPOs tracked weekly against your sector themes.</div>
+          </div>
+          <div class="tr-feat-icon" style="color:var(--gs)">◐</div>
+        </a>
+        <div class="mkt-strip">
+          <a class="mkt-row" href="/private/ipo.html#in-motion">
+            <span class="mkt-badge live">ACTIVE</span>
+            <div class="mkt-info"><div class="mkt-name">In Motion</div><div class="mkt-desc">Companies that have filed, received approval, or officially announced a listing — live timelines and valuations</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/ipo.html#watch">
+            <span class="mkt-badge weekly">WATCH</span>
+            <div class="mkt-info"><div class="mkt-name">Credible Candidates</div><div class="mkt-desc">No confirmed filing yet, but strong signals — analyst chatter, insider comments, funding timelines pointing to a listing</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/ipo.html#completed">
+            <span class="mkt-badge weekly">WEEKLY</span>
+            <div class="mkt-info"><div class="mkt-name">Recently Completed</div><div class="mkt-desc">Now trading — early performance vs IPO price and what it signals for sector sentiment</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
