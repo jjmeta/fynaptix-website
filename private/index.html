@@ -284,7 +284,7 @@
 
       <div class="sidebar-section">Crypto</div>
       <a class="nav-item active" href="/private/">Hub Home</a>
-      <a class="nav-item" href="#" style="opacity:.45;pointer-events:none">Daily News (soon)</a>
+      <a class="nav-item" href="/private/news.html">Daily Intelligence</a>
       <a class="nav-item" href="#" style="opacity:.45;pointer-events:none">Alpha Investors (soon)</a>
 
       <div class="sidebar-section" style="margin-top:.5rem">Investing</div>
@@ -684,27 +684,40 @@
       </div>
 
       <div id="drawer-news" class="drawer">
-        <div class="kicker">DAILY NEWS</div>
-        <div class="sec-title" style="margin-bottom:.35rem">Today's Market Intelligence</div>
-        <div class="sec-note" style="margin-bottom:1rem">Curated daily signals across markets, macro, crypto and tech — pulled from the research pipeline each morning.</div>
-        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem">
-          <a class="sector-card" style="--accent:#0ea5e9;min-height:auto;padding:1rem 1.2rem" href="/private/macro.html">
-            <span class="sc-tag">MACRO</span>
-            <h3 style="margin-bottom:.2rem">Macro Dashboard</h3>
-            <p>Rates, VIX, gold, oil and key economic data — live macro signals in one view.</p>
+        <a class="tr-featured" href="/private/news.html" style="border-color:rgba(14,165,233,.25);background:linear-gradient(135deg,rgba(14,165,233,.07),rgba(46,208,245,.05))">
+          <div class="tr-feat-body">
+            <div class="tr-feat-kicker" style="-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,#0ea5e9,var(--ge))">DAILY INTELLIGENCE // AUG 21, 2026</div>
+            <div class="tr-feat-title">Daily Market Intelligence</div>
+            <div class="tr-feat-desc">Cross-sector signals across AI, crypto, defense, markets and emerging tech — NVIDIA earnings in 5 days, Jackson Hole in 6, Unitree now trading on STAR Market.</div>
+          </div>
+          <div class="tr-feat-icon" style="color:#0ea5e9">◉</div>
+        </a>
+        <div class="mkt-strip">
+          <a class="mkt-row" href="/private/news.html">
+            <span class="mkt-badge live">TODAY</span>
+            <div class="mkt-info">
+              <div class="mkt-name">Markets &amp; Macro</div>
+              <div class="mkt-desc">S&amp;P near record · VIX ~14.5 · BTC mid-$60s · Gold ~$4,400 · FOMC minutes showed more dissent than expected</div>
+            </div>
+            <span class="mkt-arrow">→</span>
           </a>
-          <a class="sector-card" style="--accent:var(--ge);min-height:auto;padding:1rem 1.2rem" href="/private/watchlist.html">
-            <span class="sc-tag">EQUITIES</span>
-            <h3 style="margin-bottom:.2rem">Live Watchlist</h3>
-            <p>60+ tickers across your sector themes — live prices, 52-week ranges and signals.</p>
+          <a class="mkt-row" href="/private/news.html">
+            <span class="mkt-badge live">TODAY</span>
+            <div class="mkt-info">
+              <div class="mkt-name">Sector Headlines</div>
+              <div class="mkt-desc">Drone tariffs taking effect (AVAV, KTOS) · MP Materials +23.5% · SpaceX stabilising above IPO price · Unitree first-week trading</div>
+            </div>
+            <span class="mkt-arrow">→</span>
           </a>
-          <a class="sector-card" style="--accent:#f59e0b;min-height:auto;padding:1rem 1.2rem" href="/private/calendar.html">
-            <span class="sc-tag">CALENDAR</span>
-            <h3 style="margin-bottom:.2rem">Catalyst Calendar</h3>
-            <p>Earnings, FDA dates, launch windows, FOMC meetings and sector events.</p>
+          <a class="mkt-row" href="/private/news.html">
+            <span class="mkt-badge weekly">THIS WEEK</span>
+            <div class="mkt-info">
+              <div class="mkt-name">Upcoming Catalysts</div>
+              <div class="mkt-desc">NVIDIA earnings Aug 26 · Jackson Hole Aug 27–29 · USA Rare Earth Serra Verde vote Aug 28</div>
+            </div>
+            <span class="mkt-arrow">→</span>
           </a>
         </div>
-        <div class="sec-note">A curated daily news pipeline (pulling from sector sources each morning) is coming soon — it will populate here automatically.</div>
       </div>
 
       <!-- ── MACRO DRAWER ── -->

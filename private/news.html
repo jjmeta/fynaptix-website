@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Daily Intelligence</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  .news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.7rem;margin-top:.5rem}
+  .news-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.4rem}
+  .news-item:hover{border-color:rgba(255,255,255,.13);background:var(--bg3)}
+  .news-tag{font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.1em;padding:.18rem .55rem;border-radius:5px;display:inline-block;width:fit-content}
+  .tag-ai{background:rgba(46,208,245,.1);color:var(--ge);border:1px solid rgba(46,208,245,.18)}
+  .tag-crypto{background:rgba(247,147,26,.1);color:#f7931a;border:1px solid rgba(247,147,26,.18)}
+  .tag-defense{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.18)}
+  .tag-nuclear{background:rgba(255,215,0,.1);color:#ffd700;border:1px solid rgba(255,215,0,.18)}
+  .tag-markets{background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.18)}
+  .tag-robotics{background:rgba(139,92,246,.1);color:#8b5cf6;border:1px solid rgba(139,92,246,.18)}
+  .tag-space{background:rgba(192,37,232,.1);color:var(--gm);border:1px solid rgba(192,37,232,.18)}
+  .tag-minerals{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.18)}
+  .tag-biotech{background:rgba(236,72,153,.1);color:#ec4899;border:1px solid rgba(236,72,153,.18)}
+  .tag-macro{background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.18)}
+  .news-headline{font-family:var(--fd);font-weight:700;font-size:.92rem;line-height:1.35}
+  .news-body{font-size:.76rem;color:var(--muted);line-height:1.55}
+  .news-time{font-family:var(--fm);font-size:.55rem;color:var(--subtle);letter-spacing:.06em}
+  .pulse-row{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0 1rem}
+  .pulse-chip{font-family:var(--fm);font-size:.62rem;padding:.28rem .72rem;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--muted);white-space:nowrap}
+  .pulse-chip span{font-weight:700}
+  .pulse-chip.up span{color:#10b981}
+  .pulse-chip.dn span{color:#ef4444}
+  .cat-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;color:var(--subtle);text-transform:uppercase;margin:1.2rem 0 .4rem;padding-left:.1rem}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item active" href="/private/news.html">Daily Intelligence</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
+      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item" href="/private/calibration.html">Calibration</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">DAILY INTELLIGENCE // AUG 21, 2026</div>
+        <h2>Daily Market Intelligence</h2>
+        <p>Cross-sector signals across AI, crypto, defense, markets and emerging tech — curated each morning</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Thu Aug 21, 2026 · Refreshes daily ~7am</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> This daily digest is research context only — headlines and market moves change quickly. Always verify current data before acting.</div>
+
+    <section>
+      <div class="kicker">01 // MARKETS NOW</div>
+      <div class="sec-title">Live Market Pulse</div>
+      <div class="card" style="padding:.5rem">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+              {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
+              {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+              {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+              {"proName":"TVC:GOLD","title":"Gold"},
+              {"proName":"TVC:US10Y","title":"10Y Yield"},
+              {"proName":"CAPITALCOM:VIX","title":"VIX"},
+              {"proName":"TVC:DXY","title":"DXY"},
+              {"proName":"NASDAQ:NVDA","title":"NVIDIA"},
+              {"proName":"NASDAQ:PLTR","title":"Palantir"},
+              {"proName":"NYSE:RKLB","title":"Rocket Lab"},
+              {"proName":"NYSE:MP","title":"MP Materials"}
+            ],
+            "showSymbolLogo": true, "isTransparent": true, "displayMode": "adaptive",
+            "colorTheme": "dark", "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;margin-top:1rem">
+        <div class="card" style="padding:.5rem">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+            {
+              "colorTheme": "dark", "dateRange": "1D", "showChart": true, "locale": "en",
+              "width": "100%", "height": 400, "isTransparent": true, "showSymbolLogo": true,
+              "plotLineColorGrowing": "rgba(46,208,245,1)", "plotLineColorFalling": "rgba(239,68,68,1)",
+              "gridLineColor": "rgba(255,255,255,0.04)", "scaleFontColor": "rgba(107,122,153,1)",
+              "belowLineFillColorGrowing": "rgba(46,208,245,0.08)", "belowLineFillColorFalling": "rgba(239,68,68,0.08)",
+              "symbolActiveColor": "rgba(192,37,232,0.12)",
+              "tabs": [
+                {"title":"US Indices","symbols":[
+                  {"s":"FOREXCOM:SPXUSD","d":"S&P 500"},
+                  {"s":"FOREXCOM:NSXUSD","d":"Nasdaq 100"},
+                  {"s":"FOREXCOM:DJI","d":"Dow Jones"},
+                  {"s":"CAPITALCOM:RTY","d":"Russell 2000"}
+                ]},
+                {"title":"Crypto","symbols":[
+                  {"s":"BITSTAMP:BTCUSD","d":"Bitcoin"},
+                  {"s":"BITSTAMP:ETHUSD","d":"Ethereum"},
+                  {"s":"CRYPTOCAP:TOTAL","d":"Total Crypto Mkt Cap"},
+                  {"s":"CRYPTOCAP:BTC.D","d":"BTC Dominance %"}
+                ]},
+                {"title":"Commodities","symbols":[
+                  {"s":"TVC:GOLD","d":"Gold"},
+                  {"s":"TVC:USOIL","d":"WTI Crude Oil"},
+                  {"s":"CAPITALCOM:COPPER","d":"Copper"},
+                  {"s":"TVC:DXY","d":"Dollar Index"}
+                ]}
+              ]
+            }
+            </script>
+          </div>
+        </div>
+        <div class="card" style="padding:.5rem">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+            {
+              "colorTheme": "dark", "dateRange": "1D", "exchange": "US", "showChart": true,
+              "locale": "en", "width": "100%", "height": 400, "isTransparent": true,
+              "plotLineColorGrowing": "rgba(46,208,245,1)", "plotLineColorFalling": "rgba(239,68,68,1)",
+              "gridLineColor": "rgba(255,255,255,0.04)", "scaleFontColor": "rgba(107,122,153,1)",
+              "belowLineFillColorGrowing": "rgba(46,208,245,0.08)", "belowLineFillColorFalling": "rgba(239,68,68,0.08)"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // TODAY'S STORIES</div>
+      <div class="sec-title">Top Signals Across Sectors</div>
+
+      <div class="cat-label">AI &amp; Compute</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <span class="news-tag tag-ai">AI &amp; COMPUTE</span>
+          <div class="news-headline">NVIDIA earnings now 5 days out — Street models $93–95B vs $91B guide</div>
+          <div class="news-body">The Aug 26 print is the defining event of the next fortnight. Consensus is well above NVIDIA's own guidance of $91.0B ±2%, implying the Street expects another guidance-beat. The read-across to the ~$725–800B 2026 hyperscaler capex figure makes this more than a single-stock event — it's a sector referendum.</div>
+          <div class="news-time">AUG 21 · UPCOMING</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-ai">AI &amp; COMPUTE</span>
+          <div class="news-headline">Anthropic reportedly targeting October IPO near $2T — up from May's $965B mark</div>
+          <div class="news-body">Q2 revenue more than doubled to $10.9B with the company's first-ever operating profit, giving backers confidence to push the target valuation sharply higher. The confidential S-1 was filed June 1. A fall window now looks credible if markets hold.</div>
+          <div class="news-time">AUG 14 · IPO WATCH</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-ai">AI &amp; COMPUTE</span>
+          <div class="news-headline">Palantir eases to ~$174 from $207 high — still at extreme multiples after eight straight beats</div>
+          <div class="news-body">The stock is off its post-Q2 peak but the thesis hasn't changed. FY26 guidance raised to $8.16B on the Q2 print. The spread between Palantir's fundamentals and its valuation remains the most polarising call in the sector.</div>
+          <div class="news-time">AUG 21 · PRICE ACTION</div>
+        </div>
+      </div>
+
+      <div class="cat-label">Macro &amp; Markets</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <span class="news-tag tag-macro">MACRO</span>
+          <div class="news-headline">FOMC minutes (Aug 19) revealed dissent closer than expected — Jackson Hole in 6 days</div>
+          <div class="news-body">Minutes from the July meeting showed several members argued for a 25bp hike before the hold carried. Chair Warsh's Aug 27–29 Jackson Hole framing is now the key event shaping September's decision. Futures remain split on a hold vs. cut.</div>
+          <div class="news-time">AUG 19 · FOMC</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-macro">MACRO</span>
+          <div class="news-headline">Retail earnings confirm resilient but selective consumer — Walmart strongest of the week</div>
+          <div class="news-body">Home Depot, Target, Lowe's and Walmart all reported this week. Walmart's comp sales and guidance were the standout; Target and Lowe's both pointed to a two-speed consumer splitting between essentials and discretionary. No sign of a hard landing.</div>
+          <div class="news-time">AUG 18–20 · EARNINGS</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-markets">MARKETS</span>
+          <div class="news-headline">Reddit joins the S&P 500 — index inclusion demand now in the rearview</div>
+          <div class="news-body">Reddit was added to the S&P 500 on Aug 18 as announced. The forced buying from passive index funds has now cleared. Price action going forward reflects fundamentals and sentiment rather than index mechanics.</div>
+          <div class="news-time">AUG 18 · INDEX</div>
+        </div>
+      </div>
+
+      <div class="cat-label">Crypto</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <span class="news-tag tag-crypto">CRYPTO</span>
+          <div class="news-headline">BTC holding mid-$60s — still well below 2026 highs despite firm equity risk appetite</div>
+          <div class="news-body">The divergence between a near-record S&P 500 and a Bitcoin stuck 25–30% below its 2026 peak is notable. It typically resolves one of two ways: crypto catches up to equities, or equities catch down. Watch BTC as a liquidity thermometer heading into Jackson Hole.</div>
+          <div class="news-time">AUG 21 · PRICE ACTION</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-crypto">CRYPTO</span>
+          <div class="news-headline">Crypto market cap stable; Fear &amp; Greed index in "Greed" zone</div>
+          <div class="news-body">Total crypto market cap is holding near recent levels. The Fear &amp; Greed Index has remained in the Greed zone for several consecutive sessions, which historically precedes either a consolidation or a sentiment-driven pullback — not a crash signal, but worth monitoring.</div>
+          <div class="news-time">AUG 21 · SENTIMENT</div>
+        </div>
+      </div>
+
+      <div class="cat-label">Defense &amp; Geopolitics</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <span class="news-tag tag-defense">DEFENSE</span>
+          <div class="news-headline">Drone tariffs (up to 100%) now taking effect — AVAV, KTOS, RCAT structural beneficiaries</div>
+          <div class="news-body">Trump's Aug 13 proclamation imposing tiered tariffs kicks in this week. 100% on drones over 25kg or with thermal imaging; 25% on smaller units; 15% for NATO/allied suppliers. AeroVironment, Kratos, Red Cat and Ondas all rallied sharply on the announcement and remain the clearest domestic plays.</div>
+          <div class="news-time">AUG 21 · POLICY</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-defense">DEFENSE</span>
+          <div class="news-headline">Anduril ~$100B round still unclosed one month after talks first surfaced</div>
+          <div class="news-body">Reported July 24, the round — which would value Anduril at more than 3× its prior mark — has not yet closed as of today. One floated structure commits investors to a second, higher-priced raise if Anduril hits financial benchmarks. CEO Brian Schimpf has separately warned against IPO'ing "in the middle of a hype cycle."</div>
+          <div class="news-time">AUG 21 · PRIVATE MARKETS</div>
+        </div>
+      </div>
+
+      <div class="cat-label">Robotics &amp; IPO Watch</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <span class="news-tag tag-robotics">ROBOTICS</span>
+          <div class="news-headline">Unitree completes first week of trading on Shanghai's STAR Market (688836)</div>
+          <div class="news-body">China's first listed humanoid pure-play debuted after a retail tranche oversubscribed more than 8,000× — a STAR Market record. First-week price action and volume are the early read on whether the humanoid theme can hold up against China's crowded field of 150+ startups targeting the same market.</div>
+          <div class="news-time">AUG 17–21 · IPO</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-space">SPACE</span>
+          <div class="news-headline">SpaceX near $140 — stabilising above IPO price for the first time in weeks</div>
+          <div class="news-body">SpaceX closed above its $135 IPO price on Aug 10 and has traded near $140 this week. Still ~38% below the $225 post-IPO high. Further lockup tranches remain ahead through December; Musk's ~6.4B shares stay locked until June 2027. The stabilisation after weeks of decline is the positive signal to watch.</div>
+          <div class="news-time">AUG 21 · PRICE ACTION</div>
+        </div>
+      </div>
+
+      <div class="cat-label">Nuclear &amp; Critical Minerals</div>
+      <div class="news-grid">
+        <div class="news-item">
+          <span class="news-tag tag-nuclear">NUCLEAR</span>
+          <div class="news-headline">TVA Clinch River NRC mandatory hearing underway — furthest-along utility SMR application in the US</div>
+          <div class="news-body">The hearing convened Aug 13. Commissioners' construction-permit vote is still pending. NuScale filed a new $750M ATM program the same week Fluor confirmed completion of its ~$2.43B stake monetization. The sector is bifurcating between proven reactor operators (Constellation, Cameco) and pre-revenue developers with heavy dilution risk.</div>
+          <div class="news-time">AUG 13–21 · REGULATORY</div>
+        </div>
+        <div class="news-item">
+          <span class="news-tag tag-minerals">MINERALS</span>
+          <div class="news-headline">MP Materials +23.5% last week on gadolinium deal and Project Swarm</div>
+          <div class="news-body">A 9-figure supply agreement with an unnamed US aerospace/defense customer for gadolinium — a rare earth used in nuclear reactors and MRI machines — combined with MP's new Project Swarm demand-pre-selling program for magnets drove one of the sector's sharpest weekly moves. Copper meanwhile hit $6.77/lb on Comex.</div>
+          <div class="news-time">AUG 11–17 · SECTOR MOVE</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // THE WEEK AHEAD</div>
+      <div class="sec-title">Remaining Catalysts This Week &amp; Next</div>
+      <div class="timeline">
+        <div class="tl"><div class="dt">AUG 22 · FRI</div><div class="tt">Options expiration — watch sector dispersion into the close</div><div class="bd">Monthly OPEX tends to amplify moves in high-open-interest names. With NVDA earnings next week, expect elevated options activity in the chip and AI space.</div></div>
+        <div class="tl"><div class="dt">AUG 26 · TUE</div><div class="tt">NVIDIA Q2 FY27 earnings — the sector's biggest remaining event</div><div class="bd">Guided to $91.0B ±2%; Street models $93–95B. Any guidance miss would test the entire 2026 hyperscaler capex thesis. A beat and raise is the base case but not guaranteed.</div></div>
+        <div class="tl"><div class="dt">AUG 27–29 · WED–FRI</div><div class="tt">Fed Jackson Hole symposium — Chair Warsh sets September's tone</div><div class="bd">The most important macro event of the month. FOMC minutes this week showed more dissent than expected; Warsh's framing of the inflation vs. growth tradeoff shapes whether September brings a hold, cut, or hike.</div></div>
+        <div class="tl"><div class="dt">AUG 28 · THU</div><div class="tt">USA Rare Earth Serra Verde shareholder vote</div><div class="bd">Management called this the final closing condition on the ~$2.8B acquisition. A yes vote clears the path to a US-controlled Brazilian rare earth supply chain serving the defence and EV sectors.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // LIVE SCREENER</div>
+      <div class="sec-title">US Market Movers — Today</div>
+      <div class="card" style="padding:.5rem">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+          {
+            "width": "100%", "height": 450, "defaultColumn": "performance", "defaultScreen": "most_capitalized",
+            "market": "america", "showToolbar": true, "colorTheme": "dark", "isTransparent": true, "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-top:.5rem">Daily digest compiled each morning by the research pipeline from sector dashboards, market data and public sources. All figures and moves are approximate as of the publication date — always verify before acting. Refreshes Monday–Friday.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</body>
+</html>
