@@ -14,6 +14,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/private/research.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
   /* Hero */
   .hero{padding:2.2rem 0 1.6rem}
@@ -175,6 +176,23 @@
   @keyframes pulse-gold{0%{box-shadow:0 0 0 0 rgba(255,180,0,.4)}70%{box-shadow:0 0 0 7px rgba(255,180,0,0)}100%{box-shadow:0 0 0 0 rgba(255,180,0,0)}}
   .trump-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
   .trump-generated{font-family:var(--fm);font-size:.62rem;color:var(--muted)}
+
+  /* ── Market Overview Charts ── */
+  .mkt-overview{margin:.5rem 0 1.4rem}
+  .mkt-stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:.7rem;margin-bottom:.75rem}
+  .mkt-stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.15rem 1.2rem;position:relative}
+  .mkt-stat-card.mkt-link{text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s;cursor:pointer;display:block}
+  .mkt-stat-card.mkt-link:hover{border-color:var(--gm);transform:translateY(-2px)}
+  .msc-label{font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;color:var(--muted);margin-bottom:.3rem}
+  .msc-price{font-family:var(--fd);font-weight:800;font-size:1.45rem;line-height:1.05}
+  .msc-chg{font-family:var(--fm);font-size:.64rem;margin-top:.14rem}
+  .mkt-charts-row{display:grid;grid-template-columns:3fr 2fr;gap:.75rem;margin-bottom:.75rem}
+  @media(max-width:700px){.mkt-charts-row{grid-template-columns:1fr}}
+  .mkt-chart-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem}
+  .mct-label{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.15rem}
+  .mct-title{font-family:var(--fd);font-weight:700;font-size:.88rem;margin-bottom:.65rem}
+  .mkt-eq-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  @media(max-width:500px){.mkt-eq-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -251,39 +269,59 @@
         <button class="sec-btn sb-news" onclick="openDrawer('news',this)">Daily News</button>
       </div>
 
-      <!-- ── TODAY AT A GLANCE ── -->
-      <div class="pulse-strip">
-        <div class="pulse-tile">
-          <div class="pt-label">BTC</div>
-          <div class="pt-value" id="pt-btc">—</div>
-          <div class="pt-sub" id="pt-btc-chg">loading…</div>
+      <!-- ── MARKET OVERVIEW ── -->
+      <div class="mkt-overview">
+        <div class="mkt-stat-row">
+          <div class="mkt-stat-card" style="border-top:3px solid #f7931a">
+            <div class="msc-label">BITCOIN</div>
+            <div class="msc-price" id="msc-btc-price">—</div>
+            <div class="msc-chg" id="msc-btc-chg">loading…</div>
+            <canvas id="btcSparkline" style="margin-top:.6rem;display:block;width:100%;height:42px"></canvas>
+          </div>
+          <div class="mkt-stat-card" style="border-top:3px solid #627EEA">
+            <div class="msc-label">ETHEREUM</div>
+            <div class="msc-price" id="msc-eth-price">—</div>
+            <div class="msc-chg" id="msc-eth-chg">loading…</div>
+            <canvas id="ethSparkline" style="margin-top:.6rem;display:block;width:100%;height:42px"></canvas>
+          </div>
+          <div class="mkt-stat-card" style="border-top:3px solid var(--gm)">
+            <div class="msc-label">CRYPTO MARKET CAP</div>
+            <div class="msc-price" id="msc-mcap">—</div>
+            <div class="msc-chg" id="msc-mcap-chg">24h change</div>
+          </div>
+          <div class="mkt-stat-card">
+            <div class="msc-label">FEAR &amp; GREED</div>
+            <canvas id="fgGauge" style="display:block;width:100%;height:64px;margin:.05rem 0 0"></canvas>
+            <div style="text-align:center;margin-top:-.2rem">
+              <div class="msc-price" id="msc-fg-val" style="font-size:1.55rem">—</div>
+              <div class="msc-chg" id="msc-fg-label" style="text-align:center">loading…</div>
+            </div>
+          </div>
         </div>
-        <div class="pulse-tile">
-          <div class="pt-label">ETH</div>
-          <div class="pt-value" id="pt-eth">—</div>
-          <div class="pt-sub" id="pt-eth-chg">loading…</div>
+        <div class="mkt-charts-row">
+          <div class="mkt-chart-card">
+            <div class="mct-label">BITCOIN</div>
+            <div class="mct-title">7-Day Price</div>
+            <div style="position:relative;height:165px"><canvas id="btcLineChart"></canvas></div>
+          </div>
+          <div class="mkt-chart-card">
+            <div class="mct-label">CRYPTO</div>
+            <div class="mct-title">Top Gainers Today</div>
+            <div style="position:relative;height:165px"><canvas id="gainersBarChart"></canvas></div>
+          </div>
         </div>
-        <div class="pulse-tile">
-          <div class="pt-label">FEAR &amp; GREED</div>
-          <div class="pt-value" id="pt-fg">—</div>
-          <div class="pt-sub" id="pt-fg-label">loading…</div>
-          <div class="fg-bar"><div class="fg-fill" id="pt-fg-fill" style="width:0%"></div></div>
+        <div class="mkt-eq-row">
+          <a class="mkt-stat-card mkt-link" href="/private/macro.html">
+            <div class="msc-label">MACRO DASHBOARD</div>
+            <div style="font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .18rem">Rates · VIX · Gold · Oil</div>
+            <div style="font-size:.7rem;color:var(--ge)">Open macro dashboard →</div>
+          </a>
+          <a class="mkt-stat-card mkt-link" href="/private/watchlist.html">
+            <div class="msc-label">EQUITIES WATCHLIST</div>
+            <div style="font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .18rem">60+ tickers, live prices</div>
+            <div style="font-size:.7rem;color:var(--ge)">Open live watchlist →</div>
+          </a>
         </div>
-        <div class="pulse-tile">
-          <div class="pt-label">CRYPTO MARKET CAP</div>
-          <div class="pt-value" id="pt-mcap">—</div>
-          <div class="pt-sub" id="pt-mcap-chg">24h change</div>
-        </div>
-        <a class="pulse-tile pt-link" href="/private/macro.html">
-          <div class="pt-label">MACRO</div>
-          <div class="pt-value" style="font-size:.82rem;margin-top:.1rem">Rates · VIX · Gold</div>
-          <div class="pt-sub">→ Macro Dashboard</div>
-        </a>
-        <a class="pulse-tile pt-link" href="/private/watchlist.html">
-          <div class="pt-label">EQUITIES</div>
-          <div class="pt-value" style="font-size:.82rem;margin-top:.1rem">60+ tickers live</div>
-          <div class="pt-sub">→ Live Watchlist</div>
-        </a>
       </div>
 
       <!-- ── CRYPTO DRAWER ── -->
@@ -304,6 +342,16 @@
             <div class="pulse-label">TOTAL MARKET CAP</div>
             <div class="pulse-value" id="total-mcap">—</div>
             <div class="pulse-sub" id="mcap-change">24h change</div>
+          </div>
+          <div class="pulse-card">
+            <div class="pulse-label">BITCOIN</div>
+            <div class="pulse-value" id="drawer-btc-price">—</div>
+            <div class="pulse-sub" id="drawer-btc-chg">loading…</div>
+          </div>
+          <div class="pulse-card">
+            <div class="pulse-label">ETHEREUM</div>
+            <div class="pulse-value" id="drawer-eth-price">—</div>
+            <div class="pulse-sub" id="drawer-eth-chg">loading…</div>
           </div>
         </div>
         <div class="sec-note" style="margin-top:.4rem;margin-bottom:0">Live data from CoinGecko &amp; alternative.me — refreshed on page load.</div>
@@ -610,64 +658,163 @@ fetch('/private/data/trump.json').then(r => r.json()).then(d => {
   if(sc) sc.innerHTML='<div class="trump-empty">Could not load signals.</div>';
 });
 
-// ── Live data loading ──
-// Runs on page load: populates pulse strip + crypto drawer
-async function loadPulseData(){
-  const fmtPrice = (p) => p>=1000?'$'+p.toLocaleString('en-US',{maximumFractionDigits:0}):
-                           p>=1?'$'+p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):
-                           '$'+p.toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:6});
-  const fmtPct  = (n) => (n>=0?'+':'')+n.toFixed(2)+'%';
-  const pctCls  = (n) => n>=0?'pt-pos':'pt-neg';
+// ── Market overview chart instances ──
+let _btcChart=null, _gainersChart=null;
 
-  // Fear & Greed → pulse strip + crypto drawer
+function drawSparkline(id, prices, color){
+  const c=document.getElementById(id); if(!c||!prices.length) return;
+  const dpr=window.devicePixelRatio||1;
+  const w=c.parentElement.clientWidth||180, h=44;
+  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
+  c.style.width=w+'px'; c.style.height=h+'px';
+  const ctx=c.getContext('2d'); ctx.scale(dpr,dpr);
+  const mn=Math.min(...prices), mx=Math.max(...prices), rng=mx-mn||1;
+  const px=(p,i)=>i/(prices.length-1)*w, py=(p)=>h-((p-mn)/rng*(h-6))-3;
+  const grad=ctx.createLinearGradient(0,0,0,h);
+  grad.addColorStop(0,color+'55'); grad.addColorStop(1,color+'00');
+  ctx.beginPath();
+  prices.forEach((p,i)=>i===0?ctx.moveTo(px(p,i),py(p)):ctx.lineTo(px(p,i),py(p)));
+  ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
+  ctx.fillStyle=grad; ctx.fill();
+  ctx.beginPath();
+  prices.forEach((p,i)=>i===0?ctx.moveTo(px(p,i),py(p)):ctx.lineTo(px(p,i),py(p)));
+  ctx.strokeStyle=color; ctx.lineWidth=1.8; ctx.lineJoin='round'; ctx.stroke();
+}
+
+function drawFGGauge(id, value){
+  const c=document.getElementById(id); if(!c) return;
+  const dpr=window.devicePixelRatio||1;
+  const w=c.parentElement.clientWidth||180, h=66;
+  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
+  c.style.width=w+'px'; c.style.height=h+'px';
+  const ctx=c.getContext('2d'); ctx.scale(dpr,dpr);
+  const cx=w/2, cy=h-6, r=Math.min(cx*.84,(cy)*.92);
+  ctx.beginPath(); ctx.arc(cx,cy,r,Math.PI,0,true);
+  ctx.lineWidth=11; ctx.strokeStyle='rgba(255,255,255,.07)'; ctx.lineCap='round'; ctx.stroke();
+  const grad=ctx.createLinearGradient(cx-r,0,cx+r,0);
+  grad.addColorStop(0,'#ef4444'); grad.addColorStop(.48,'#f59e0b'); grad.addColorStop(1,'#10b981');
+  const nAngle=Math.PI*(1-value/100);
+  ctx.beginPath(); ctx.arc(cx,cy,r,Math.PI,nAngle,true);
+  ctx.lineWidth=11; ctx.strokeStyle=grad; ctx.lineCap='round'; ctx.stroke();
+  const nx=cx+r*.7*Math.cos(nAngle), ny=cy-r*.7*Math.sin(nAngle);
+  ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(nx,ny);
+  ctx.strokeStyle='rgba(255,255,255,.88)'; ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx,cy,5,0,Math.PI*2);
+  ctx.fillStyle='rgba(255,255,255,.9)'; ctx.fill();
+}
+
+function drawBTCLineChart(prices){
+  const canvas=document.getElementById('btcLineChart'); if(!canvas||!prices.length) return;
+  const step=2, pts=prices.filter((_,i)=>i%step===0);
+  const labels=pts.map((_,i)=>{const h=(pts.length-1-i)*step; return h===0?'Now':h%24===0?`-${h/24}d`:null;});
+  const mn=Math.min(...pts)*.9995, mx=Math.max(...pts)*1.0005;
+  const isUp=pts[pts.length-1]>=pts[0], lc=isUp?'#10b981':'#ef4444';
+  if(_btcChart){_btcChart.destroy();_btcChart=null;}
+  _btcChart=new Chart(canvas,{
+    type:'line',
+    data:{labels,datasets:[{data:pts,borderColor:lc,borderWidth:2,pointRadius:0,tension:.35,fill:true,
+      backgroundColor:(ctx)=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,ctx.chart.height);
+        g.addColorStop(0,lc+'55');g.addColorStop(1,lc+'00');return g;}}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>'$'+Math.round(c.raw).toLocaleString('en-US')}}},
+      scales:{
+        x:{grid:{display:false},ticks:{color:'#6b7a99',font:{size:10},maxRotation:0,
+          callback:(_,i)=>labels[i]||null}},
+        y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#6b7a99',font:{size:10},
+          callback:(v)=>'$'+Math.round(v/1000)+'k'},min:mn,max:mx}}}});
+}
+
+function drawGainersChart(coins){
+  const canvas=document.getElementById('gainersBarChart'); if(!canvas||!coins.length) return;
+  const labels=coins.map(c=>(c.symbol||'').toUpperCase());
+  const data=coins.map(c=>+(c.price_change_percentage_24h||0).toFixed(2));
+  if(_gainersChart){_gainersChart.destroy();_gainersChart=null;}
+  _gainersChart=new Chart(canvas,{
+    type:'bar',
+    data:{labels,datasets:[{data,indexAxis:'y',
+      backgroundColor:data.map(v=>v>=0?'rgba(16,185,129,.45)':'rgba(239,68,68,.45)'),
+      borderColor:data.map(v=>v>=0?'#10b981':'#ef4444'),
+      borderWidth:1,borderRadius:4,borderSkipped:false}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>(c.raw>=0?'+':'')+c.raw+'%'}}},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#6b7a99',font:{size:10},callback:(v)=>v+'%'}},
+        y:{grid:{display:false},ticks:{color:'#e8edf8',font:{size:10,weight:'700'}}}}}});
+}
+
+// ── Live data loading ──
+async function loadPulseData(){
+  const fmtPrice=(p)=>p>=1000?'$'+p.toLocaleString('en-US',{maximumFractionDigits:0}):
+                        p>=1?'$'+p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):
+                        '$'+p.toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:6});
+  const fmtPct=(n)=>(n>=0?'+':'')+n.toFixed(2)+'%';
+  const pos='#10b981', neg='#ef4444';
+
+  // 1. Fear & Greed
   try {
-    const fg = await fetch('https://api.alternative.me/fng/?limit=1').then(r=>r.json());
+    const fg=await fetch('https://api.alternative.me/fng/?limit=1').then(r=>r.json());
     if(fg?.data?.[0]){
       const v=parseInt(fg.data[0].value), lbl=fg.data[0].value_classification;
-      const cls = v<25?'fear':v<50?'fear-greed':'greed';
-      setText('pt-fg', v); setText('pt-fg-label', lbl);
-      const fill=document.getElementById('pt-fg-fill'); if(fill) fill.style.width=v+'%';
-      // crypto drawer
+      const cls=v<25?'fear':v<50?'fear-greed':'greed';
+      setText('msc-fg-val',v); setText('msc-fg-label',lbl);
+      const ve=document.getElementById('msc-fg-val');
+      if(ve) ve.style.color=v<25?neg:v<50?'#f59e0b':pos;
+      drawFGGauge('fgGauge',v);
       const dEl=document.getElementById('fg-value');
-      if(dEl){dEl.textContent=v; dEl.className='pulse-value '+cls;}
-      setText('fg-label', lbl);
+      if(dEl){dEl.textContent=v;dEl.className='pulse-value '+cls;}
+      setText('fg-label',lbl);
     }
   } catch(e){}
 
-  // CoinGecko global → pulse strip + crypto drawer
+  // 2. CoinGecko global
   try {
-    const g = await fetch('https://api.coingecko.com/api/v3/global').then(r=>r.json());
+    const g=await fetch('https://api.coingecko.com/api/v3/global').then(r=>r.json());
     if(g?.data){
-      const cap=g.data.total_market_cap?.usd;
-      const chg=g.data.market_cap_change_percentage_24h_usd;
+      const cap=g.data.total_market_cap?.usd, chg=g.data.market_cap_change_percentage_24h_usd;
       const btcDom=g.data.market_cap_percentage?.btc;
       const capStr=cap?(cap>=1e12?'$'+(cap/1e12).toFixed(2)+'T':'$'+(cap/1e9).toFixed(0)+'B'):null;
-      if(capStr){ setText('pt-mcap',capStr); setText('total-mcap',capStr); }
+      if(capStr){setText('msc-mcap',capStr);setText('total-mcap',capStr);}
       if(chg!=null){
-        const sub=document.getElementById('pt-mcap-chg');
-        if(sub){sub.textContent=fmtPct(chg)+' (24h)';sub.className='pt-sub '+(chg>=0?'pt-pos':'pt-neg');}
+        const el=document.getElementById('msc-mcap-chg');
+        if(el){el.textContent=fmtPct(chg)+' (24h)';el.style.color=chg>=0?pos:neg;}
         const dEl=document.getElementById('mcap-change');
-        if(dEl){dEl.textContent=fmtPct(chg)+' (24h)';dEl.style.color=chg>=0?'#10b981':'#ef4444';}
+        if(dEl){dEl.textContent=fmtPct(chg)+' (24h)';dEl.style.color=chg>=0?pos:neg;}
       }
-      if(btcDom) setText('btc-dom', btcDom.toFixed(1)+'%');
+      if(btcDom) setText('btc-dom',btcDom.toFixed(1)+'%');
     }
   } catch(e){}
 
-  // BTC + ETH prices → pulse strip
+  // 3. BTC + ETH with sparkline
   try {
-    const coins = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum&order=market_cap_desc&per_page=2&page=1&sparkline=false&price_change_percentage=24h').then(r=>r.json());
-    const set = (id,pId,subId,coin) => {
-      setText(id, fmtPrice(coin.current_price));
-      const el=document.getElementById(subId);
-      if(el){el.textContent=fmtPct(coin.price_change_percentage_24h||0);el.className='pt-sub '+pctCls(coin.price_change_percentage_24h||0);}
-    };
-    const btc=coins.find(c=>c.id==='bitcoin'); if(btc) set('pt-btc','','pt-btc-chg',btc);
-    const eth=coins.find(c=>c.id==='ethereum'); if(eth) set('pt-eth','','pt-eth-chg',eth);
+    const coins=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum&order=market_cap_desc&per_page=2&page=1&sparkline=true&price_change_percentage=24h').then(r=>r.json());
+    const btc=coins.find(c=>c.id==='bitcoin'), eth=coins.find(c=>c.id==='ethereum');
+    if(btc){
+      setText('msc-btc-price',fmtPrice(btc.current_price));
+      const chg=btc.price_change_percentage_24h||0;
+      const el=document.getElementById('msc-btc-chg');
+      if(el){el.textContent=fmtPct(chg);el.style.color=chg>=0?pos:neg;}
+      const sp=btc.sparkline_in_7d?.price;
+      if(sp){drawSparkline('btcSparkline',sp,chg>=0?pos:neg);drawBTCLineChart(sp);}
+      setText('drawer-btc-price',fmtPrice(btc.current_price));
+      const dc=document.getElementById('drawer-btc-chg');
+      if(dc){dc.textContent=fmtPct(chg);dc.style.color=chg>=0?pos:neg;}
+    }
+    if(eth){
+      setText('msc-eth-price',fmtPrice(eth.current_price));
+      const chg=eth.price_change_percentage_24h||0;
+      const el=document.getElementById('msc-eth-chg');
+      if(el){el.textContent=fmtPct(chg);el.style.color=chg>=0?pos:neg;}
+      const sp=eth.sparkline_in_7d?.price;
+      if(sp) drawSparkline('ethSparkline',sp,chg>=0?pos:neg);
+      setText('drawer-eth-price',fmtPrice(eth.current_price));
+      const dc=document.getElementById('drawer-eth-chg');
+      if(dc){dc.textContent=fmtPct(chg);dc.style.color=chg>=0?pos:neg;}
+    }
   } catch(e){}
 
-  // Top performers → crypto drawer (top 250 by mkt cap, sorted by 24h gain)
+  // 4. Top performers
   try {
-    const coins = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h').then(r=>r.json());
+    const coins=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h').then(r=>r.json());
     if(Array.isArray(coins)&&coins.length){
       const sorted=[...coins].sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0));
       const el=document.getElementById('crypto-performers');
@@ -681,6 +828,7 @@ async function loadPulseData(){
           <span class="perf-pct ${pct>=0?'pos':'neg'}">${fmtPct(pct)}</span>
         </div>`;
       }).join('');
+      drawGainersChart(sorted.slice(0,8));
     }
   } catch(e){
     const el=document.getElementById('crypto-performers');
