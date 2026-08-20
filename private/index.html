@@ -20,34 +20,20 @@
   .hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.15;margin-bottom:.5rem}
   .hero h1 .grad{background:linear-gradient(90deg,var(--gs),var(--gm),var(--ge));-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p{color:var(--muted);font-size:.95rem;max-width:640px}
-  .hero-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
-  .chip{font-family:var(--fm);font-size:.62rem;letter-spacing:.08em;color:var(--muted);background:var(--bg2);
-    border:1px solid var(--border);border-radius:99px;padding:.35rem .8rem}
-  .chip b{color:var(--ge);font-weight:700}
-  .hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}
   .cta{font-family:var(--fd);font-weight:600;font-size:.85rem;padding:.6rem 1.2rem;border-radius:10px;text-decoration:none}
-  .cta.primary{background:linear-gradient(90deg,var(--gs),var(--gm));color:#fff}
-  .cta.ghost{background:var(--bg2);border:1px solid var(--border);color:var(--text)}
-  .cta.ghost:hover{border-color:var(--gm)}
-  .cta.ark{background:linear-gradient(90deg,#f59e0b,var(--gs));color:#fff}
 
-  /* 4 Main Section Buttons */
-  .section-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin:1.4rem 0 1rem}
-  .sec-btn{border-radius:20px;padding:1.8rem 1.6rem;cursor:pointer;transition:transform .2s,box-shadow .2s;
-    text-align:left;width:100%;color:#fff;font-family:var(--fb);border:none;position:relative;
-    overflow:hidden;min-height:158px;display:flex;flex-direction:column;-webkit-tap-highlight-color:transparent}
-  .sec-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.4)}
-  .sec-btn.open{transform:translateY(-2px);box-shadow:0 0 0 3px rgba(255,255,255,.3),0 12px 40px rgba(0,0,0,.4)}
-  .sec-btn.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.45)}
-  .sb-badge{font-family:var(--fd);font-weight:800;font-size:1.05rem;line-height:1;margin-bottom:.75rem;
-    width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
-  .sb-label{font-family:var(--fd);font-weight:800;font-size:1.4rem;line-height:1.1;margin-bottom:.35rem}
-  .sb-desc{font-size:.78rem;opacity:.88;line-height:1.5;flex:1}
-  .sb-meta{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;opacity:.68;margin-top:.85rem}
-  .sb-crypto{background:linear-gradient(135deg,#f7931a 0%,#f59e0b 45%,#ff6b00 100%)}
-  .sb-investing{background:linear-gradient(135deg,var(--ge) 0%,var(--gm) 100%)}
-  .sb-vcs{background:linear-gradient(135deg,#7c3aed 0%,var(--gm) 100%)}
-  .sb-political{background:linear-gradient(135deg,#ef4444 0%,var(--gs) 100%)}
+  /* Section Buttons */
+  .sec-nav{display:flex;gap:.65rem;flex-wrap:wrap;margin:1.3rem 0 1rem}
+  .sec-btn{font-family:var(--fd);font-weight:700;font-size:.92rem;padding:.72rem 1.45rem;border-radius:12px;
+    border:none;cursor:pointer;color:#fff;transition:transform .15s,box-shadow .15s;position:relative;
+    overflow:hidden;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+  .sec-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  .sec-btn.open{box-shadow:0 0 0 2px rgba(255,255,255,.35),0 6px 20px rgba(0,0,0,.35);transform:translateY(-1px)}
+  .sec-btn.open::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.5)}
+  .sb-crypto{background:linear-gradient(90deg,#f7931a,#f59e0b)}
+  .sb-investing{background:linear-gradient(90deg,var(--gs),var(--gm))}
+  .sb-vcs{background:linear-gradient(90deg,#7c3aed,var(--gm))}
+  .sb-political{background:linear-gradient(90deg,#ef4444,var(--gs))}
 
   /* Drawer */
   .drawer{display:none;animation:fade .25s ease}
@@ -227,21 +213,7 @@
     <div class="hero">
       <div class="kicker">FYNAPTIX INVESTMENT RESEARCH</div>
       <h1>Markets, deep dives &amp;<br/><span class="grad">alpha — every day.</span></h1>
-      <p>Crypto live prices, nine tech sector deep dives, VC fund watch, and political alpha — your personal research hub, refreshed daily by an AI pipeline.</p>
-      <div class="hero-chips">
-        <span class="chip"><b>LIVE</b>&nbsp;CRYPTO PRICES</span>
-        <span class="chip"><b>9</b>&nbsp;INVESTING SECTORS</span>
-        <span class="chip"><b>WEEKLY</b>&nbsp;AUTO-REFRESH</span>
-        <span class="chip"><b>DAILY</b>&nbsp;POLITICAL ALPHA</span>
-        <span class="chip"><b>60+</b>&nbsp;TRACKED TICKERS</span>
-      </div>
-      <div class="hero-cta">
-        <a class="cta primary" href="/private/overview.html">★ This Week's Brief</a>
-        <a class="cta ark" href="/private/ark.html">◆ ARK Invest</a>
-        <a class="cta ghost" href="/private/watchlist.html">Live Watchlist</a>
-        <a class="cta ghost" href="/private/education.html">Learn to Invest</a>
-        <a class="cta ghost" href="#subscribe">✉ Subscribe</a>
-      </div>
+      <p>Crypto, equities, VC funds and political alpha — your personal research hub, refreshed daily by an AI pipeline.</p>
     </div>
 
     <div class="disclaimer"><strong>Not financial advice.</strong> Everything here organizes public information for research and education — not recommendations to buy or sell any security. Do your own due diligence.</div>
@@ -250,31 +222,11 @@
       <div class="kicker">EXPLORE</div>
       <div class="sec-title">Choose Your Research Focus</div>
 
-      <div class="section-grid">
-        <button class="sec-btn sb-crypto" onclick="openDrawer('crypto',this)">
-          <div class="sb-badge">₿</div>
-          <div class="sb-label">Crypto</div>
-          <div class="sb-desc">Live prices, top performers today, and alpha investor narratives.</div>
-          <div class="sb-meta">LIVE PRICES · DAILY PIPELINE COMING</div>
-        </button>
-        <button class="sec-btn sb-investing open" onclick="openDrawer('investing',this)">
-          <div class="sb-badge">📊</div>
-          <div class="sb-label">Investing</div>
-          <div class="sb-desc">Nine sector deep dives, live markets, track record and portfolio strategy.</div>
-          <div class="sb-meta">9 SECTORS · WEEKLY BRIEF · 60+ TICKERS</div>
-        </button>
-        <button class="sec-btn sb-vcs" onclick="openDrawer('vcs',this)">
-          <div class="sb-badge">🏛</div>
-          <div class="sb-label">VC Funds</div>
-          <div class="sb-desc">ARK Invest, Baillie Gifford and institutional fund watch — what the big money is betting on.</div>
-          <div class="sb-meta">ARK · BAILLIE GIFFORD · FUND WATCH</div>
-        </button>
-        <button class="sec-btn sb-political" onclick="openDrawer('political',this)">
-          <div class="sb-badge" style="font-size:.7rem;letter-spacing:-.01em">POL</div>
-          <div class="sb-label">Political Alpha</div>
-          <div class="sb-desc">Trump family statements, social posts and investment signals tracked daily for market impact.</div>
-          <div class="sb-meta">DAILY UPDATE · TRUMP TRACKER</div>
-        </button>
+      <div class="sec-nav">
+        <button class="sec-btn sb-crypto" onclick="openDrawer('crypto',this)">₿ Crypto</button>
+        <button class="sec-btn sb-investing open" onclick="openDrawer('investing',this)">Investing</button>
+        <button class="sec-btn sb-vcs" onclick="openDrawer('vcs',this)">VC Funds</button>
+        <button class="sec-btn sb-political" onclick="openDrawer('political',this)">Political Alpha</button>
       </div>
 
       <!-- ── CRYPTO DRAWER ── -->
