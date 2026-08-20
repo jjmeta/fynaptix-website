@@ -76,6 +76,58 @@
   /* Market overview hidden by default; shown only for Crypto */
   .mkt-overview{display:none}
 
+  /* ── MARKETS strip ── */
+  .mkt-strip{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  .mkt-row{display:flex;align-items:center;gap:1rem;padding:.82rem 1.1rem;text-decoration:none;
+    color:var(--text);border-bottom:1px solid var(--border);transition:background .15s}
+  .mkt-row:last-child{border-bottom:none}
+  .mkt-row:hover{background:var(--bg3)}
+  .mkt-badge{font-family:var(--fm);font-size:.52rem;letter-spacing:.1em;padding:.22rem .6rem;border-radius:6px;flex-shrink:0;font-weight:700}
+  .mkt-badge.live{background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.18);display:flex;align-items:center;gap:.3rem}
+  .mkt-badge.live::before{content:"";width:5px;height:5px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0}
+  .mkt-badge.weekly{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.07)}
+  .mkt-info{flex:1;min-width:0}
+  .mkt-name{font-family:var(--fd);font-weight:700;font-size:.9rem;margin-bottom:.1rem}
+  .mkt-desc{font-size:.73rem;color:var(--muted)}
+  .mkt-arrow{font-family:var(--fm);font-size:.82rem;color:var(--subtle);flex-shrink:0;transition:color .15s,transform .15s}
+  .mkt-row:hover .mkt-arrow{color:var(--ge);transform:translateX(3px)}
+
+  /* ── TRACK RECORD ── */
+  .tr-featured{display:flex;align-items:center;gap:1.4rem;background:linear-gradient(135deg,rgba(255,95,31,.07),rgba(192,37,232,.08));
+    border:1px solid rgba(192,37,232,.22);border-radius:14px;padding:1.3rem 1.5rem;text-decoration:none;color:var(--text);
+    transition:border-color .18s,transform .12s;margin-bottom:.7rem}
+  .tr-featured:hover{border-color:rgba(192,37,232,.4);transform:translateY(-2px)}
+  .tr-feat-body{flex:1}
+  .tr-feat-kicker{font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;
+    background:linear-gradient(90deg,var(--gs),var(--gm));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:.28rem}
+  .tr-feat-title{font-family:var(--fd);font-weight:800;font-size:1.25rem;margin-bottom:.3rem}
+  .tr-feat-desc{font-size:.78rem;color:var(--muted);line-height:1.55;max-width:480px}
+  .tr-feat-icon{font-size:2.6rem;flex-shrink:0;opacity:.65}
+  .tr-pair{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+  @media(max-width:580px){.tr-pair{grid-template-columns:1fr}}
+  .tr-item{display:flex;align-items:center;gap:.9rem;background:var(--bg2);border:1px solid var(--border);
+    border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:var(--text);transition:border-color .15s,background .15s}
+  .tr-item:hover{background:var(--bg3);border-color:rgba(255,255,255,.12)}
+  .tr-item-icon{font-size:1.4rem;flex-shrink:0;opacity:.6}
+  .tr-item-body{flex:1}
+  .tr-item-tag{font-family:var(--fm);font-size:.53rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.14rem}
+  .tr-item-title{font-family:var(--fd);font-weight:700;font-size:.9rem;margin-bottom:.1rem}
+  .tr-item-desc{font-size:.72rem;color:var(--muted)}
+
+  /* ── STRATEGY & EDUCATION chapter rows ── */
+  .chapter-list{display:flex;flex-direction:column;gap:.5rem}
+  .chapter-row{display:flex;align-items:center;gap:1.1rem;background:var(--bg2);border:1px solid var(--border);
+    border-radius:14px;padding:1.1rem 1.3rem;text-decoration:none;color:var(--text);transition:border-color .15s,transform .12s}
+  .chapter-row:hover{border-color:rgba(255,255,255,.13);transform:translateX(4px)}
+  .chapter-num{font-family:var(--fd);font-weight:800;font-size:2.4rem;color:rgba(255,255,255,.07);
+    flex-shrink:0;width:52px;text-align:right;line-height:1;letter-spacing:-.04em;user-select:none}
+  .chapter-body{flex:1;min-width:0}
+  .chapter-tag{font-family:var(--fm);font-size:.53rem;letter-spacing:.12em;color:var(--muted);margin-bottom:.18rem}
+  .chapter-title{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.14rem}
+  .chapter-desc{font-size:.74rem;color:var(--muted);line-height:1.45}
+  .chapter-arrow{font-family:var(--fd);font-size:1.1rem;color:var(--subtle);flex-shrink:0;transition:color .15s,transform .15s}
+  .chapter-row:hover .chapter-arrow{color:var(--ge);transform:translateX(4px)}
+
   /* Drawer */
   .drawer{display:none;animation:fade .25s ease}
   .drawer.open{display:block}
@@ -462,26 +514,91 @@
         </div>
 
         <div class="drawer-section">MARKETS</div>
-        <div class="grid-cards">
-          <a class="sector-card" style="--accent:#2ed0f5" href="/private/watchlist.html"><span class="sc-tag">LIVE</span><h3>Live Watchlist</h3><p>Real-time quotes for every tracked ticker, by sector.</p></a>
-          <a class="sector-card" style="--accent:#c025e8" href="/private/calendar.html"><span class="sc-tag">WEEKLY</span><h3>Catalyst Calendar</h3><p>Every dated event in one ordered view.</p></a>
-          <a class="sector-card" style="--accent:#ff5f1f" href="/private/ipo.html"><span class="sc-tag">WEEKLY</span><h3>IPO Pipeline</h3><p>Private giants heading to public markets.</p></a>
-          <a class="sector-card" style="--accent:#f59e0b" href="/private/etfs.html"><span class="sc-tag">WEEKLY</span><h3>ETF Compare</h3><p>All thematic funds: fees, concentration, character.</p></a>
-          <a class="sector-card" style="--accent:#10b981" href="/private/macro.html"><span class="sc-tag">LIVE</span><h3>Macro Dashboard</h3><p>Rates, VIX, gold, bitcoin &amp; the dollar.</p></a>
+        <div class="mkt-strip">
+          <a class="mkt-row" href="/private/watchlist.html">
+            <span class="mkt-badge live">LIVE</span>
+            <div class="mkt-info"><div class="mkt-name">Live Watchlist</div><div class="mkt-desc">Real-time quotes for every tracked ticker, organised by sector</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/macro.html">
+            <span class="mkt-badge live">LIVE</span>
+            <div class="mkt-info"><div class="mkt-name">Macro Dashboard</div><div class="mkt-desc">Rates, VIX, gold, bitcoin &amp; the dollar — the big picture in one view</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/calendar.html">
+            <span class="mkt-badge weekly">WEEKLY</span>
+            <div class="mkt-info"><div class="mkt-name">Catalyst Calendar</div><div class="mkt-desc">Every earnings release, Fed decision, and macro event in one ordered view</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/ipo.html">
+            <span class="mkt-badge weekly">WEEKLY</span>
+            <div class="mkt-info"><div class="mkt-name">IPO Pipeline</div><div class="mkt-desc">Private giants heading to public markets — valuations, timelines, watchlist impact</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
+          <a class="mkt-row" href="/private/etfs.html">
+            <span class="mkt-badge weekly">WEEKLY</span>
+            <div class="mkt-info"><div class="mkt-name">ETF Compare</div><div class="mkt-desc">All thematic funds side by side — fees, concentration, and character</div></div>
+            <span class="mkt-arrow">→</span>
+          </a>
         </div>
 
         <div class="drawer-section">TRACK RECORD</div>
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/calibration.html"><span class="sc-tag">THE SCOREBOARD</span><h3>Calibration</h3><p>Surfaces theses whose review date has passed, asks you to score them honestly, then charts your hit rate by sector and conviction.</p></a>
-          <a class="sector-card" href="/private/archive.html"><span class="sc-tag">EVERY WEEK KEPT</span><h3>Research Archive</h3><p>Browse past weeks, compare how the numbers moved.</p></a>
-          <a class="sector-card" href="/private/journal.html"><span class="sc-tag">INPUT</span><h3>Decision Journal</h3><p>Where theses get written down — raw material for calibration.</p></a>
+        <a class="tr-featured" href="/private/calibration.html">
+          <div class="tr-feat-body">
+            <div class="tr-feat-kicker">THE SCOREBOARD</div>
+            <div class="tr-feat-title">Calibration</div>
+            <div class="tr-feat-desc">Surfaces theses whose review date has passed, asks you to score them honestly, then charts your hit rate by sector and conviction level.</div>
+          </div>
+          <div class="tr-feat-icon">◎</div>
+        </a>
+        <div class="tr-pair">
+          <a class="tr-item" href="/private/archive.html">
+            <div class="tr-item-icon">▤</div>
+            <div class="tr-item-body">
+              <div class="tr-item-tag">EVERY WEEK KEPT</div>
+              <div class="tr-item-title">Research Archive</div>
+              <div class="tr-item-desc">Browse past weeks, compare how the numbers moved</div>
+            </div>
+          </a>
+          <a class="tr-item" href="/private/journal.html">
+            <div class="tr-item-icon">✦</div>
+            <div class="tr-item-body">
+              <div class="tr-item-tag">INPUT</div>
+              <div class="tr-item-title">Decision Journal</div>
+              <div class="tr-item-desc">Where theses get written down — raw material for calibration</div>
+            </div>
+          </a>
         </div>
 
         <div class="drawer-section">STRATEGY &amp; EDUCATION</div>
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/strategy.html"><span class="sc-tag">EVERGREEN GUIDE</span><h3>Portfolio Strategy</h3><p>Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses.</p></a>
-          <a class="sector-card" href="/private/paper.html"><span class="sc-tag">PRACTICE</span><h3>Paper Portfolio</h3><p>Hypothetical positions with automatic P/L.</p></a>
-          <a class="sector-card" href="/private/education.html"><span class="sc-tag">START HERE</span><h3>Investing 101</h3><p>First principles — stocks, ETFs &amp; crypto, honestly explained.</p></a>
+        <div class="chapter-list">
+          <a class="chapter-row" href="/private/strategy.html">
+            <div class="chapter-num">01</div>
+            <div class="chapter-body">
+              <div class="chapter-tag">EVERGREEN GUIDE</div>
+              <div class="chapter-title">Portfolio Strategy</div>
+              <div class="chapter-desc">Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses</div>
+            </div>
+            <span class="chapter-arrow">→</span>
+          </a>
+          <a class="chapter-row" href="/private/paper.html">
+            <div class="chapter-num">02</div>
+            <div class="chapter-body">
+              <div class="chapter-tag">PRACTICE</div>
+              <div class="chapter-title">Paper Portfolio</div>
+              <div class="chapter-desc">Hypothetical positions tracked with automatic P&amp;L — test your thesis before committing capital</div>
+            </div>
+            <span class="chapter-arrow">→</span>
+          </a>
+          <a class="chapter-row" href="/private/education.html">
+            <div class="chapter-num">03</div>
+            <div class="chapter-body">
+              <div class="chapter-tag">START HERE</div>
+              <div class="chapter-title">Investing 101</div>
+              <div class="chapter-desc">First principles — stocks, ETFs &amp; crypto honestly explained, no jargon</div>
+            </div>
+            <span class="chapter-arrow">→</span>
+          </a>
         </div>
       </div>
 
