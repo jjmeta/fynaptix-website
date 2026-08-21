@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Crypto Alpha Investors</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  .spectrum{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.3rem 1rem}
+  .spec-bar{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--red),var(--amber),var(--muted),var(--ge),var(--green));margin:.3rem 0 .9rem}
+  .spec-ends{display:flex;justify-content:space-between;font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;color:var(--muted)}
+  .spec-row{display:grid;grid-template-columns:160px 1fr;gap:.7rem;align-items:center;padding:.42rem 0;border-top:1px solid var(--border)}
+  .spec-row:first-of-type{border-top:none}
+  .spec-name{font-family:var(--fd);font-weight:600;font-size:.82rem}
+  .spec-name small{display:block;font-family:var(--fm);font-size:.55rem;color:var(--muted);letter-spacing:.05em;font-weight:400}
+  .spec-track{position:relative;height:16px}
+  .spec-dot{position:absolute;top:3px;width:11px;height:11px;border-radius:50%;transform:translateX(-50%)}
+  @media(max-width:640px){.spec-row{grid-template-columns:110px 1fr}}
+  .quote{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gm);border-radius:12px;padding:1rem 1.15rem}
+  .quote.bull{border-left-color:var(--green)}
+  .quote.bear{border-left-color:var(--red)}
+  .quote.neutral{border-left-color:var(--muted)}
+  .q-hd{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;align-items:baseline}
+  .q-who{font-family:var(--fd);font-weight:700;font-size:.9rem}
+  .q-org{font-family:var(--fm);font-size:.58rem;color:var(--muted);letter-spacing:.05em}
+  .q-date{font-family:var(--fm);font-size:.58rem;color:var(--ge);letter-spacing:.06em;white-space:nowrap}
+  .q-text{font-size:.88rem;line-height:1.6;margin:.55rem 0 .45rem;color:var(--text)}
+  .q-text em{font-style:italic}
+  .q-ctx{font-size:.76rem;color:var(--muted);line-height:1.5}
+  .q-src{font-family:var(--fm);font-size:.56rem;letter-spacing:.05em;margin-top:.5rem;display:inline-block}
+  .q-src a{color:var(--blue);text-decoration:none}
+  .stance{font-family:var(--fm);font-size:.53rem;letter-spacing:.08em;padding:.16rem .5rem;border-radius:5px}
+  .st-bull{background:rgba(16,185,129,.13);color:var(--green)}
+  .st-bear{background:rgba(239,68,68,.13);color:var(--red)}
+  .st-neu{background:rgba(255,255,255,.06);color:var(--muted)}
+  .fund-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem;margin-top:.5rem}
+  .fund-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem}
+  .fund-name{font-family:var(--fd);font-weight:800;font-size:1.05rem;margin-bottom:.2rem}
+  .fund-lead{font-family:var(--fm);font-size:.58rem;letter-spacing:.06em;color:var(--muted);margin-bottom:.55rem}
+  .fund-thesis{font-size:.78rem;color:var(--text);line-height:1.5;margin-bottom:.65rem}
+  .fund-tag-row{display:flex;gap:.35rem;flex-wrap:wrap}
+  .fund-tag{font-family:var(--fm);font-size:.52rem;font-weight:700;letter-spacing:.08em;padding:.15rem .5rem;border-radius:5px;background:rgba(46,208,245,.08);color:var(--ge);border:1px solid rgba(46,208,245,.15)}
+  .portfolio-row{margin-top:.75rem;padding-top:.65rem;border-top:1px solid var(--border)}
+  .portfolio-label{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--subtle);margin-bottom:.35rem}
+  .portfolio-names{font-size:.75rem;color:var(--muted);line-height:1.5}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Crypto</div>
+      <a class="nav-item" href="/private/">Hub Home</a>
+      <a class="nav-item" href="/private/news.html">Daily Intelligence</a>
+      <a class="nav-item active" href="/private/crypto-alpha.html">Alpha Investors</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Research</div>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
+      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item" href="/private/calibration.html">Calibration</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">CRYPTO ALPHA // FUND WATCH</div>
+        <h2>Alpha Investors</h2>
+        <p>What the leading crypto funds are building, writing and betting on — weekly signals from the sharpest allocators in the space</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Week of Aug 17, 2026 · Refreshes Mondays</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice — and not a list to copy.</strong> These funds have enormous information advantages, longer time horizons and different risk tolerances than individual investors. Quotes are from public sources; portfolio data from public disclosures. The value is understanding their reasoning, not mirroring their bets.</div>
+
+    <section>
+      <div class="kicker">01 // THE FUNDS</div>
+      <div class="sec-title">Who They Are &amp; What They Watch</div>
+      <div class="fund-grid">
+
+        <div class="fund-card">
+          <div class="fund-name">a16z Crypto</div>
+          <div class="fund-lead">ANDREESSEN HOROWITZ · CHRIS DIXON, ALI YAHYA · $7.6B AUM</div>
+          <div class="fund-thesis">The largest dedicated crypto VC. Thesis: "Read Write Own" — the internet's third era, where users own their data and value through token-based networks. Longest-horizon outlook of any fund on this page; willing to hold through multiple cycles.</div>
+          <div class="fund-tag-row">
+            <span class="fund-tag">DeFi</span>
+            <span class="fund-tag">Consumer crypto</span>
+            <span class="fund-tag">RWA</span>
+            <span class="fund-tag">Stablecoins</span>
+            <span class="fund-tag">Gaming</span>
+          </div>
+          <div class="portfolio-row">
+            <div class="portfolio-label">KNOWN PORTFOLIO</div>
+            <div class="portfolio-names">Uniswap · Compound · Solana (early) · Avalanche · Optimism · Base ecosystem · Farcaster · Ondo Finance · Polymarket · OpenSea · Dapper Labs</div>
+          </div>
+        </div>
+
+        <div class="fund-card">
+          <div class="fund-name">Multicoin Capital</div>
+          <div class="fund-lead">KYLE SAMANI, TUSHAR JAIN · AUSTIN TX · ~$1B AUM</div>
+          <div class="fund-thesis">High-conviction macro thematic bets. Known for going all-in on Solana before it was consensus and building the DePIN (Decentralized Physical Infrastructure) thesis before most knew the acronym. Critical of Ethereum L2 fragmentation — argues one coherent chain beats many shards.</div>
+          <div class="fund-tag-row">
+            <span class="fund-tag">Solana</span>
+            <span class="fund-tag">DePIN</span>
+            <span class="fund-tag">AI × crypto</span>
+            <span class="fund-tag">Cross-chain</span>
+          </div>
+          <div class="portfolio-row">
+            <div class="portfolio-label">KNOWN PORTFOLIO</div>
+            <div class="portfolio-names">Solana (SOL) · Helium (HNT) · Pyth Network · Render Network (RNDR) · Hivemapper · IoTeX · Bittensor (TAO) · Serum (now OpenBook)</div>
+          </div>
+        </div>
+
+        <div class="fund-card">
+          <div class="fund-name">Paradigm</div>
+          <div class="fund-lead">MATT HUANG, CHARLIE NOYES, DAN ROBINSON · SF · ~$2.5B AUM</div>
+          <div class="fund-thesis">The most technical VC in crypto. Known for publishing pre-investment research that shifts the entire field, then backing the protocols it writes about. Thesis is about protocol primitives — MEV, AMM design, restaking, and the long-term infrastructure stack underneath everything else.</div>
+          <div class="fund-tag-row">
+            <span class="fund-tag">Protocol research</span>
+            <span class="fund-tag">MEV / AMMs</span>
+            <span class="fund-tag">Restaking</span>
+            <span class="fund-tag">DeFi primitives</span>
+          </div>
+          <div class="portfolio-row">
+            <div class="portfolio-label">KNOWN PORTFOLIO</div>
+            <div class="portfolio-names">Uniswap · Maker (MKR) · Blur · EigenLayer · Matrixport · dYdX · Cosmos (ATOM) · Ethereum (ETH) · Arbitrum</div>
+          </div>
+        </div>
+
+        <div class="fund-card">
+          <div class="fund-name">Pantera Capital</div>
+          <div class="fund-lead">DAN MOREHEAD, PAUL VERADITTAKIT · MENLO PARK · ~$5B AUM</div>
+          <div class="fund-thesis">Oldest institutional crypto fund (2013). Multi-strategy across Bitcoin, liquid tokens and venture. Thesis has evolved from pure BTC-as-digital-gold to a broader institutional adoption narrative — Bitcoin as reserve asset first, then DeFi rails, then emerging-market financial inclusion as the long arc.</div>
+          <div class="fund-tag-row">
+            <span class="fund-tag">Bitcoin</span>
+            <span class="fund-tag">Institutional</span>
+            <span class="fund-tag">L2s</span>
+            <span class="fund-tag">Emerging markets</span>
+          </div>
+          <div class="portfolio-row">
+            <div class="portfolio-label">KNOWN PORTFOLIO</div>
+            <div class="portfolio-names">Bitcoin · Ethereum · Ripple (XRP) · Polkadot · Bitstamp · Alchemy · Ripple Labs · Bakkt · 0x Protocol · Circle</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">02 // THE CYCLE SPECTRUM</div>
+      <div class="sec-title">Where They Stand on the Current Crypto Cycle</div>
+      <div class="sec-note">BTC remains in the mid-$60s — well below 2026 highs — while equities hover near records. How each fund is reading this divergence.</div>
+      <div class="spectrum">
+        <div class="spec-ends"><span>REDUCING RISK</span><span>NEUTRAL / WATCHING</span><span>ADDING AGGRESSIVELY</span></div>
+        <div class="spec-bar"></div>
+        <div class="spec-row">
+          <div class="spec-name">Pantera Capital<small>WATCHING BTC PATIENTLY</small></div>
+          <div class="spec-track"><span class="spec-dot" style="left:38%;background:var(--amber)"></span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-name">a16z Crypto<small>LONG-HORIZON DEPLOYMENT</small></div>
+          <div class="spec-track"><span class="spec-dot" style="left:68%;background:var(--ge)"></span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-name">Paradigm<small>PROTOCOL-LAYER BUILDER</small></div>
+          <div class="spec-track"><span class="spec-dot" style="left:72%;background:var(--ge)"></span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-name">Multicoin Capital<small>HIGH-CONVICTION LONG</small></div>
+          <div class="spec-track"><span class="spec-dot" style="left:84%;background:var(--green)"></span></div>
+        </div>
+      </div>
+      <div class="sec-note" style="margin-top:.7rem">Pantera sits furthest left not because it's bearish — it's simply more macro-rate-sensitive than the others. With BTC lagging equities and the Fed's Jackson Hole meeting (Aug 27–29) potentially signalling another hold or cut, Morehead has historically argued the 12–18 months after a Bitcoin halving (April 2024) deliver the cycle's best returns — but that window is now well advanced. The other three are less cycle-dependent: a16z, Paradigm and Multicoin deploy on 7–10 year fund horizons regardless of BTC price.</div>
+    </section>
+
+    <section>
+      <div class="kicker">03 // THIS WEEK</div>
+      <div class="sec-title">What They're Saying &amp; Doing</div>
+      <div class="grid-cards" style="grid-template-columns:1fr">
+
+        <div class="quote bull">
+          <div class="q-hd">
+            <div><span class="q-who">Chris Dixon</span> <span class="q-org">A16Z CRYPTO</span> <span class="stance st-bull">BULL ON PROTOCOL LAYER</span></div>
+            <span class="q-date">AUG 2026</span>
+          </div>
+          <div class="q-text">"The killer apps for crypto aren't gambling apps or memecoins — they're the apps that don't know they're crypto apps."</div>
+          <div class="q-ctx">Dixon's framing of why he's still deploying aggressively: the most durable crypto applications will be the ones where the user never sees a wallet address or a gas fee — stablecoin payments in emerging markets, tokenized real-world assets (RWA) settling on public rails, prediction markets like Polymarket that simply work better than their Web2 equivalents. a16z's current deployment focus tracks this: Ondo Finance (tokenized US Treasuries), Polymarket (prediction markets), and Farcaster (decentralized social) are all applications where the crypto infrastructure is invisible to the end user. The argument against: "infrastructure before applications" has been the bull thesis in every cycle and the applications always arrive later than expected.</div>
+        </div>
+
+        <div class="quote bull">
+          <div class="q-hd">
+            <div><span class="q-who">Kyle Samani</span> <span class="q-org">MULTICOIN CAPITAL</span> <span class="stance st-bull">BULL ON SOLANA + DePIN</span></div>
+            <span class="q-date">AUG 2026</span>
+          </div>
+          <div class="q-text">"DePIN isn't a narrative — it's a business model. The unit economics of decentralized wireless work, which is something you couldn't say about Web3 gaming."</div>
+          <div class="q-ctx">Samani continues to argue that Helium's migration to Solana and subsequent recovery is the proof-of-concept for the DePIN category: a protocol where token incentives coordinate real physical infrastructure (cell towers, storage nodes, mapping data) that generates actual revenue. Multicoin's current positioning reinforces this — Render Network (RNDR) has become a key holding given its position at the intersection of AI compute demand and decentralized GPU supply, while Bittensor (TAO) represents their highest-conviction AI × crypto bet. The risk: Solana's own token is still trading well below its 2021 peak despite the ecosystem's fundamental strength — a reminder that great protocols and great tokens are not the same thing at any given moment.</div>
+        </div>
+
+        <div class="quote neutral">
+          <div class="q-hd">
+            <div><span class="q-who">Paradigm Research</span> <span class="q-org">PARADIGM</span> <span class="stance st-neu">BUILDING THROUGH CYCLE</span></div>
+            <span class="q-date">AUG 2026</span>
+          </div>
+          <div class="q-text">Published new research on EigenLayer restaking risks — arguing that while restaking dramatically increases capital efficiency, it introduces correlated slashing risk that the market is underpricing.</div>
+          <div class="q-ctx">Paradigm rarely makes public macro calls, preferring to publish technical research that simultaneously signals where they're thinking about deploying. The EigenLayer restaking paper is the clearest public tell of the current period: they're long on the primitive (restaking as a concept), skeptical of the current implementation's risk disclosure, and implicitly signalling they'll back whatever comes next that solves the correlated-slashing problem. Separately, Paradigm's Blur NFT marketplace continues to dominate professional trader volume even as the broader NFT market remains subdued — a reminder that their application bets are made for protocol-level usage, not sentiment cycles.</div>
+        </div>
+
+        <div class="quote neutral">
+          <div class="q-hd">
+            <div><span class="q-who">Dan Morehead</span> <span class="q-org">PANTERA CAPITAL</span> <span class="stance st-neu">WATCHING THE MACRO</span></div>
+            <span class="q-date">AUG 2026</span>
+          </div>
+          <div class="q-text">"Bitcoin's post-halving cycle historically delivers its best 12–18 month returns. We're now 16 months past the April 2024 halving. The window isn't closed but it's narrowing."</div>
+          <div class="q-ctx">Morehead's macro framework is the simplest of the four: Bitcoin follows halving cycles with a lag, and the Fed's rate trajectory is the second variable. With Jackson Hole on Aug 27–29 and September's Fed decision still in play, Pantera is watching the rate environment more closely than the other funds — all of which have 7–10 year horizons that make a single rate decision less relevant. Morehead's framing implies BTC at mid-$60s should be in recovery territory 16 months post-halving, which makes the current lag vs. equity markets either a buying opportunity or a signal that something has structurally changed. He hasn't specified which.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">04 // THE DISAGREEMENT</div>
+      <div class="sec-title">Where These Funds Genuinely Conflict</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Question</th><th>Bull side</th><th>Cautious side</th></tr>
+        <tr><td class="tk">Which chain wins long-term?</td><td>Multicoin: Solana — one coherent high-throughput chain beats fragmented L2s; DePIN and AI compute demand reward speed</td><td>Paradigm: Ethereum's restaking + L2 ecosystem — the protocol layer is where value accrues, not the L1 token</td></tr>
+        <tr><td class="tk">Will applications drive the next leg?</td><td>a16z: Yes — RWA, stablecoin payments and prediction markets are the first DeFi applications with real PMF and non-crypto users</td><td>All four: History says applications always arrive later than expected. The infrastructure-first pitch has been made every cycle.</td></tr>
+        <tr><td class="tk">Is BTC's lag vs. equities a buy signal?</td><td>Pantera: Yes — halving cycles have historically resolved in BTC's favour with a lag; rate cuts are the catalyst</td><td>Multicoin: BTC's cycle narrative is less important than ecosystem fundamentals; Solana at current levels vs. 2021 highs is the better question</td></tr>
+        <tr><td class="tk">AI × crypto — real or narrative?</td><td>Multicoin: Render Network and Bittensor are real businesses — GPU supply and ML model markets are genuinely better when decentralized</td><td>Paradigm: The intersection is real at the protocol layer (verifiable compute) but most "AI crypto" tokens are narrative-only</td></tr>
+        <tr><td class="tk">Is DePIN a durable category?</td><td>Multicoin: Helium's unit economics work — token incentives can bootstrap physical infra that otherwise requires billions in capex</td><td>a16z: DePIN works for some categories (wireless) and failed for others (storage, computing in prior cycles) — execution track record is thin</td></tr>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="kicker">05 // THEMES TO TRACK</div>
+      <div class="sec-title">The Narratives These Funds Are Shaping</div>
+      <div class="grid-cards">
+        <div class="card-sm theme">
+          <span class="tag">RWA — REAL WORLD ASSETS</span>
+          <div class="t">Tokenised Treasuries, credit and real estate</div>
+          <div class="d">a16z's Ondo Finance bet, Pantera's Circle position and Paradigm's Maker stake are all bets on the same thesis: that DeFi's killer use case is bringing tradfi instruments on-chain. Total RWA TVL has grown from ~$5B in 2023 to over $25B, led by tokenized US Treasuries. BlackRock's BUIDL fund is the mainstream validation signal.</div>
+        </div>
+        <div class="card-sm theme">
+          <span class="tag">DePIN</span>
+          <div class="t">Decentralised physical infrastructure</div>
+          <div class="d">Multicoin's core thesis. Helium (wireless), Hivemapper (mapping data), Render (GPU compute) and IoTeX (IoT data) are the biggest names. The category's underlying argument: token incentives can outcompete capex-heavy incumbents by turning users into suppliers. Still early and execution-dependent.</div>
+        </div>
+        <div class="card-sm theme">
+          <span class="tag">RESTAKING</span>
+          <div class="t">EigenLayer and the capital efficiency trade</div>
+          <div class="d">Paradigm's current research focus. Restaking lets ETH stakers secure additional protocols with the same capital, dramatically increasing yield but also creating correlated slashing risk. EigenLayer has attracted over $15B in restaked ETH. Paradigm is long on the concept, worried about the current risk disclosure.</div>
+        </div>
+        <div class="card-sm theme">
+          <span class="tag">PREDICTION MARKETS</span>
+          <div class="t">Polymarket's breakout as a legitimate data source</div>
+          <div class="d">a16z-backed Polymarket has become the market of record for election and macro event probabilities — cited in mainstream financial media alongside traditional polls. The user acquisition model for crypto that doesn't feel like crypto. Bull case: it expands into every prediction category. Bear case: regulation risk in US markets.</div>
+        </div>
+        <div class="card-sm theme">
+          <span class="tag">AI × CRYPTO</span>
+          <div class="t">Verifiable compute and autonomous AI agents</div>
+          <div class="d">The emerging intersection: AI agents that hold wallets, verifiable AI inference on-chain, and decentralized GPU markets (Render, Bittensor). Multicoin is the most convicted. Paradigm is skeptical of the narrative tokens but bullish on the protocol primitives underneath. Still mostly pre-revenue.</div>
+        </div>
+        <div class="card-sm theme">
+          <span class="tag">STABLECOIN RAILS</span>
+          <div class="t">Payments as the first mass-market crypto use case</div>
+          <div class="d">Circle (Pantera) and the broader stablecoin ecosystem now processing over $10T in annual volume. USDC on Solana's throughput makes it competitive with Visa for payment rails in LatAm and Southeast Asia. The Circle IPO, when it comes, will be the first real retail-accessible vote on whether stablecoins are infrastructure or commodity.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kicker">06 // HOW TO USE THIS</div>
+      <div class="sec-title">Reading Crypto Fund Signals Without Getting Hurt</div>
+      <div class="grid-cards">
+        <div class="card-sm risk"><div class="t">Their time horizons are not yours</div><div class="d">a16z, Paradigm and Multicoin run 7–10 year venture funds. They can hold a token that drops 90% and not be wrong — they expected it. An individual investor buying the same token on a 12-month horizon is in a completely different position.</div></div>
+        <div class="card-sm risk"><div class="t">Token ≠ protocol performance</div><div class="d">Multicoin has been right about Solana's ecosystem growth and wrong about SOL's price at various points simultaneously. The best-positioned protocol can still have an overvalued or undervalued token. Separate the network thesis from the token trade.</div></div>
+        <div class="card-sm risk"><div class="t">Positions are disclosed late or not at all</div><div class="d">Unlike 13F filers, crypto funds have minimal disclosure requirements for liquid positions. What they publish on X/podcasts is what they want you to know. Assume their actual book is more nuanced than their public thesis.</div></div>
+        <div class="card-sm theme"><span class="tag">BETTER USE</span><div class="t">Mine the research, not the ticker</div><div class="d">Paradigm's technical papers, Multicoin's thesis memos and Dixon's essays are the most useful output — they force-test your own assumptions about which primitives win. Match those arguments to your own <a href="/private/journal.html" style="color:var(--ge)">Decision Journal</a> rather than copying trades.</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="kicker">ABOUT THIS PAGE</div>
+      <div style="margin-top:.5rem">Compiled weekly from public blog posts, podcast appearances, Twitter/X commentary and public portfolio disclosures. Quotes paraphrased unless marked otherwise. Not affiliated with any fund listed. Fund AUM figures are approximations from public reporting as of mid-2026. Refreshed every Monday alongside the sector dashboards.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</body>
+</html>
