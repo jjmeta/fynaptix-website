@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · Crypto Signals</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="manifest" href="/private/manifest.json"/>
+<meta name="theme-color" content="#05070f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/private/research.css"/>
+<style>
+  /* === SIGNAL CARDS === */
+  .sig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin-top:.6rem}
+  .sig-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem;
+    display:flex;flex-direction:column;gap:.55rem;position:relative;overflow:hidden}
+  .sig-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .sig-card.long::before{background:linear-gradient(90deg,#10b981,#34d399)}
+  .sig-card.short::before{background:linear-gradient(90deg,#ef4444,#f87171)}
+  .sig-card.watch::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+  .sig-card.closed::before{background:var(--border);opacity:.5}
+
+  .sig-header{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+  .sig-ticker{font-family:var(--fm);font-size:1.05rem;font-weight:700;color:var(--text);letter-spacing:.04em}
+  .sig-name{font-size:.76rem;color:var(--muted)}
+  .sig-dir{font-family:var(--fm);font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.2rem .6rem;border-radius:5px;margin-left:auto}
+  .long .sig-dir{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.25)}
+  .short .sig-dir{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.25)}
+  .watch .sig-dir{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}
+  .closed .sig-dir{background:rgba(107,122,153,.15);color:var(--muted);border:1px solid var(--border)}
+
+  .sig-levels{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;background:var(--bg3);border-radius:8px;padding:.7rem .9rem}
+  .sig-level-lbl{font-family:var(--fm);font-size:.5rem;letter-spacing:.1em;color:var(--subtle);text-transform:uppercase;margin-bottom:.15rem}
+  .sig-level-val{font-family:var(--fm);font-size:.82rem;font-weight:700}
+  .sig-level-val.entry{color:var(--text)}
+  .sig-level-val.target{color:#10b981}
+  .sig-level-val.stop{color:#ef4444}
+
+  .sig-meta{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+  .sig-rr{font-family:var(--fm);font-size:.72rem;font-weight:700;color:var(--ge)}
+  .sig-rr-lbl{font-size:.58rem;color:var(--subtle);font-family:var(--fm)}
+  .sig-tf{font-family:var(--fm);font-size:.58rem;color:var(--subtle);margin-left:auto;letter-spacing:.06em}
+
+  .sig-thesis{font-size:.77rem;color:var(--muted);line-height:1.55;border-top:1px solid var(--border);padding-top:.55rem;margin-top:.1rem}
+
+  .sig-tags{display:flex;gap:.35rem;flex-wrap:wrap}
+  .sig-tag{font-family:var(--fm);font-size:.5rem;font-weight:700;letter-spacing:.09em;padding:.15rem .5rem;
+    border-radius:4px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04);color:var(--muted)}
+
+  .sig-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);
+    padding-top:.5rem;margin-top:.1rem}
+  .sig-status{font-family:var(--fm);font-size:.55rem;font-weight:700;letter-spacing:.1em;padding:.18rem .5rem;border-radius:4px}
+  .status-watching{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.2)}
+  .status-active{background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.2)}
+  .status-triggered{background:rgba(46,208,245,.1);color:var(--ge);border:1px solid rgba(46,208,245,.2)}
+  .status-closed-win{background:rgba(16,185,129,.08);color:#10b981;border:1px solid rgba(16,185,129,.15)}
+  .status-closed-loss{background:rgba(239,68,68,.08);color:#ef4444;border:1px solid rgba(239,68,68,.15)}
+  .sig-date{font-family:var(--fm);font-size:.52rem;color:var(--subtle);letter-spacing:.05em}
+
+  .pl-badge{font-family:var(--fm);font-size:.7rem;font-weight:700}
+  .pl-pos{color:#10b981}
+  .pl-neg{color:#ef4444}
+
+  /* === STAT ROW === */
+  .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.7rem;margin-bottom:1.4rem}
+  .stat-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem}
+  .stat-val{font-family:var(--fm);font-size:1.3rem;font-weight:700;color:var(--text)}
+  .stat-val.up{color:#10b981}
+  .stat-val.down{color:#ef4444}
+  .stat-lbl{font-family:var(--fm);font-size:.52rem;letter-spacing:.1em;color:var(--subtle);text-transform:uppercase;margin-top:.2rem}
+
+  /* === HOW TO READ === */
+  .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.7rem}
+  .how-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem}
+  .how-label{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--ge);text-transform:uppercase;margin-bottom:.3rem}
+  .how-desc{font-size:.77rem;color:var(--muted);line-height:1.5}
+
+  /* === SECTION FILTER === */
+  .filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+  .filter-btn{font-family:var(--fm);font-size:.62rem;letter-spacing:.07em;padding:.3rem .75rem;border-radius:7px;
+    border:1px solid var(--border);background:var(--bg2);color:var(--muted);cursor:pointer}
+  .filter-btn.active{background:var(--bg3);border-color:var(--ge);color:var(--ge)}
+
+  @media(max-width:600px){
+    .sig-grid{grid-template-columns:1fr}
+    .stat-row{grid-template-columns:1fr 1fr}
+    .how-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
+    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
+      <div class="sidebar-section">Research</div>
+      <a class="nav-item" href="/private/">Home</a>
+      <a class="nav-item" href="/private/news.html">Daily Intelligence</a>
+      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
+      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
+      <a class="nav-item" href="/private/robotics.html">Robotics</a>
+      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
+      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
+      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
+      <a class="nav-item" href="/private/space.html">Space Economy</a>
+      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
+      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
+      <a class="nav-item" href="/private/quantum.html">Quantum</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
+      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
+      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
+      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
+      <a class="nav-item" href="/private/crypto-alpha.html">Alpha Investors</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
+      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
+      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
+      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
+      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
+      <a class="nav-item" href="/private/macro.html">Macro</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Trading</div>
+      <a class="nav-item active" href="/private/crypto-signals.html">⚡ Crypto Signals</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
+      <a class="nav-item" href="/private/education.html">Investing 101</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
+      <a class="nav-item" href="/private/archive.html">Research Archive</a>
+      <a class="nav-item" href="/private/calibration.html">Calibration</a>
+      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
+      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
+      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
+      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
+    </div>
+    <div class="sidebar-footer">
+      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="kicker">CRYPTO SIGNALS // AUG 22, 2026</div>
+        <h2>Swing Trade Setups</h2>
+        <p>Large cap alts and narrative plays — entry zones, targets, stops and thesis. Updated weekly. Not financial advice.</p>
+      </div>
+      <div class="time-badge"><div class="pulse"></div>Week of Aug 18–24 · Next update Mon Aug 25</div>
+    </div>
+
+    <div class="disclaimer"><strong>Not financial advice.</strong> These are research setups for educational tracking only. Always do your own analysis and never risk more than you can afford to lose. Crypto is highly volatile — setups can invalidate instantly.</div>
+
+    <!-- === STATS === -->
+    <section>
+      <div class="kicker">01 // THIS WEEK AT A GLANCE</div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-val">7</div><div class="stat-lbl">Active setups</div></div>
+        <div class="stat-box"><div class="stat-val">5 / 2</div><div class="stat-lbl">Long / Short</div></div>
+        <div class="stat-box"><div class="stat-val" style="color:var(--ge)">2.7×</div><div class="stat-lbl">Avg R:R</div></div>
+        <div class="stat-box"><div class="stat-val">3–10d</div><div class="stat-lbl">Target timeframe</div></div>
+        <div class="stat-box"><div class="stat-val" style="color:#f59e0b">GREED</div><div class="stat-lbl">Fear &amp; greed index</div></div>
+        <div class="stat-box"><div class="stat-val">NVDA</div><div class="stat-lbl">Key event Aug 26</div></div>
+      </div>
+    </section>
+
+    <!-- === MACRO CONTEXT === -->
+    <section>
+      <div class="kicker">02 // MACRO BACKDROP</div>
+      <div class="sec-title">What's Driving the Setup Window</div>
+      <div class="card" style="font-size:.8rem;color:var(--muted);line-height:1.7;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem">
+        <div>
+          <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:var(--ge);margin-bottom:.4rem">SUPPORTING</div>
+          <ul style="padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem">
+            <li>VIX near 14.5 — low vol favours risk-on positioning</li>
+            <li>S&amp;P near all-time highs — crypto historically follows with a lag</li>
+            <li>Fear &amp; Greed in Greed zone — momentum is intact</li>
+            <li>Spot BTC ETF flows positive week-on-week</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:#f59e0b;margin-bottom:.4rem">RISKS TO WATCH</div>
+          <ul style="padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem">
+            <li>NVIDIA earnings Aug 26 — miss could drain AI-linked crypto tokens fast</li>
+            <li>Jackson Hole Aug 27–29 — hawkish surprise = immediate risk-off</li>
+            <li>BTC still 25–30% below 2026 highs — no clear breakout yet</li>
+            <li>Altcoin season not confirmed — BTC dominance still elevated</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem">SIGNAL BIAS</div>
+          <ul style="padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem">
+            <li>Favouring LONG setups in liquid alts — but sizing conservatively into NVDA/JH</li>
+            <li>Avoid low-cap narratives until macro clears</li>
+            <li>Prefer catalysts (NVDA read-across, RWA flows) over pure technicals</li>
+            <li>All entries: wait for zone, not market order at open</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- === ACTIVE SIGNALS === -->
+    <section>
+      <div class="kicker">03 // CURRENT SETUPS</div>
+      <div class="sec-title">Open &amp; Watching</div>
+
+      <div class="sig-grid">
+
+        <!-- SOL -->
+        <div class="sig-card long">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">SOL/USDT</div>
+              <div class="sig-name">Solana</div>
+            </div>
+            <div class="sig-dir">LONG</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$148–155</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$188 +24%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$138 −7%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">3.4×</div></div>
+            <div class="sig-tf">TIMEFRAME: 5–10 DAYS</div>
+          </div>
+          <div class="sig-thesis">SOL has held above the $148 support level while BTC consolidated. It historically leads alts in risk-on moves due to its retail mindshare and active DeFi ecosystem. NVIDIA earnings (Aug 26) is the primary catalyst — a beat would accelerate broader risk appetite. If macro turns at Jackson Hole, the $138 stop closes the position.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">L1</span>
+            <span class="sig-tag">HIGH LIQUIDITY</span>
+            <span class="sig-tag">DEFI</span>
+            <span class="sig-tag">NVDA CATALYST</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-watching">WATCHING FOR ENTRY</span>
+            <span class="sig-date">AUG 22, 2026</span>
+          </div>
+        </div>
+
+        <!-- LINK -->
+        <div class="sig-card long">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">LINK/USDT</div>
+              <div class="sig-name">Chainlink</div>
+            </div>
+            <div class="sig-dir">LONG</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$18–20</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$27 +40%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$16 −13%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">3.1×</div></div>
+            <div class="sig-tf">TIMEFRAME: 7–14 DAYS</div>
+          </div>
+          <div class="sig-thesis">Chainlink's CCIP is gaining traction as the interoperability layer for institutional RWA tokenisation — directly tied to the RWA theme tracked in the Alpha Investors page. DTCC and Swift pilot integrations are real catalysts, not narrative. Volume is building at current levels. The $16 stop sits below the Aug structure low.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">RWA</span>
+            <span class="sig-tag">ORACLE</span>
+            <span class="sig-tag">INSTITUTIONAL</span>
+            <span class="sig-tag">DEFI</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-active">ACTIVE — IN ZONE</span>
+            <span class="sig-date">AUG 20, 2026</span>
+          </div>
+        </div>
+
+        <!-- RNDR -->
+        <div class="sig-card long">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">RNDR/USDT</div>
+              <div class="sig-name">Render Network</div>
+            </div>
+            <div class="sig-dir">LONG</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$8.50–9.50</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$13 +42%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$7.50 −15%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">2.8×</div></div>
+            <div class="sig-tf">TIMEFRAME: 3–7 DAYS</div>
+          </div>
+          <div class="sig-thesis">GPU rendering demand narrative is directly tied to the AI compute thesis. Render Network is the most liquid DePIN play with a direct read-across to NVIDIA earnings on Aug 26 — if Blackwell demand beats, this is the token that reprices. Hold through the Aug 26 print, but close before Jackson Hole opens if the position hasn't moved.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">AI×CRYPTO</span>
+            <span class="sig-tag">DEPIN</span>
+            <span class="sig-tag">GPU</span>
+            <span class="sig-tag">NVDA CATALYST</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-watching">WATCHING FOR ENTRY</span>
+            <span class="sig-date">AUG 22, 2026</span>
+          </div>
+        </div>
+
+        <!-- TAO -->
+        <div class="sig-card watch">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">TAO/USDT</div>
+              <div class="sig-name">Bittensor</div>
+            </div>
+            <div class="sig-dir">WATCH</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$420–450</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$580 +33%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$385 −12%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">2.7×</div></div>
+            <div class="sig-tf">TIMEFRAME: 7–14 DAYS</div>
+          </div>
+          <div class="sig-thesis">Bittensor's subnet model — incentivised AI compute networks — has real developer activity behind the narrative. The AI×crypto theme still has legs despite mid-year correction. Waiting for NVIDIA earnings (Aug 26) to confirm AI risk appetite is intact before entering. If NVDA beats, TAO is the highest-beta expression of that in crypto. Skip if NVDA disappoints.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">AI×CRYPTO</span>
+            <span class="sig-tag">COMPUTE</span>
+            <span class="sig-tag">HIGH BETA</span>
+            <span class="sig-tag">NVDA GATED</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-watching">WAIT FOR NVDA AUG 26</span>
+            <span class="sig-date">AUG 22, 2026</span>
+          </div>
+        </div>
+
+        <!-- AVAX -->
+        <div class="sig-card long">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">AVAX/USDT</div>
+              <div class="sig-name">Avalanche</div>
+            </div>
+            <div class="sig-dir">LONG</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$32–35</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$46 +34%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$29 −12%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">2.8×</div></div>
+            <div class="sig-tf">TIMEFRAME: 5–10 DAYS</div>
+          </div>
+          <div class="sig-thesis">AVAX lagged BTC's early August move despite recovering subnet activity and enterprise blockchain traction. The divergence sets up a catch-up trade if macro holds into next week. Entry zone is the Aug support band. The $29 stop sits below the July low. Specific catalyst: any Avalanche subnet enterprise announcement or Grayscale AVAX flow news.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">L1</span>
+            <span class="sig-tag">ENTERPRISE</span>
+            <span class="sig-tag">CATCH-UP TRADE</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-active">ACTIVE — IN ZONE</span>
+            <span class="sig-date">AUG 21, 2026</span>
+          </div>
+        </div>
+
+        <!-- ETH short-term -->
+        <div class="sig-card long">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">ETH/USDT</div>
+              <div class="sig-name">Ethereum</div>
+            </div>
+            <div class="sig-dir">LONG</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$3,200–3,400</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$4,200 +27%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$2,950 −9%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">3.0×</div></div>
+            <div class="sig-tf">TIMEFRAME: 7–14 DAYS</div>
+          </div>
+          <div class="sig-thesis">Spot ETH ETF inflows have been net positive. Staking yield (~3.5%) makes ETH an appealing risk asset during Greed sentiment phases — you're being paid to hold. Key support at $3,200; a break below invalidates the thesis and signals broader alt weakness. The $4,200 target aligns with the Aug 2025 resistance level that became support.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">L1</span>
+            <span class="sig-tag">ETF FLOWS</span>
+            <span class="sig-tag">STAKING YIELD</span>
+            <span class="sig-tag">HIGH LIQUIDITY</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-watching">WATCHING FOR ENTRY</span>
+            <span class="sig-date">AUG 22, 2026</span>
+          </div>
+        </div>
+
+        <!-- INJ short -->
+        <div class="sig-card short">
+          <div class="sig-header">
+            <div>
+              <div class="sig-ticker">INJ/USDT</div>
+              <div class="sig-name">Injective</div>
+            </div>
+            <div class="sig-dir">SHORT</div>
+          </div>
+          <div class="sig-levels">
+            <div>
+              <div class="sig-level-lbl">Entry zone</div>
+              <div class="sig-level-val entry">$29–31</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Target</div>
+              <div class="sig-level-val target">$22 −27%</div>
+            </div>
+            <div>
+              <div class="sig-level-lbl">Stop</div>
+              <div class="sig-level-val stop">$33 +8%</div>
+            </div>
+          </div>
+          <div class="sig-meta">
+            <div><div class="sig-rr-lbl">R:R</div><div class="sig-rr">3.4×</div></div>
+            <div class="sig-tf">TIMEFRAME: 3–6 DAYS</div>
+          </div>
+          <div class="sig-thesis">INJ rejected at $30–31 resistance twice this month. The supply zone is thick — it was support in Feb that flipped to resistance after the March breakdown. A hawkish surprise at Jackson Hole (Aug 27–29) would be the trigger. This is a macro hedge against the LONG book — if risk appetite holds, close the short and let the longs run. Use only as a pairs hedge.</div>
+          <div class="sig-tags">
+            <span class="sig-tag">DEFI</span>
+            <span class="sig-tag">RESISTANCE REJECTION</span>
+            <span class="sig-tag">MACRO HEDGE</span>
+            <span class="sig-tag">PERPS</span>
+          </div>
+          <div class="sig-footer">
+            <span class="sig-status status-watching">MACRO-GATED · JH AUG 27</span>
+            <span class="sig-date">AUG 22, 2026</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- === RECENTLY CLOSED === -->
+    <section>
+      <div class="kicker">04 // RECENTLY CLOSED</div>
+      <div class="sec-title">Last 4 Signals · Track Record</div>
+      <div class="card" style="padding:.6rem 0">
+        <table style="width:100%;border-collapse:collapse;font-size:.8rem">
+          <thead>
+            <tr style="font-family:var(--fm);font-size:.55rem;letter-spacing:.09em;color:var(--subtle);text-transform:uppercase;border-bottom:1px solid var(--border)">
+              <th style="padding:.5rem .9rem;text-align:left">Pair</th>
+              <th style="padding:.5rem .9rem;text-align:left">Dir</th>
+              <th style="padding:.5rem .9rem;text-align:right">Entry</th>
+              <th style="padding:.5rem .9rem;text-align:right">Exit</th>
+              <th style="padding:.5rem .9rem;text-align:right">P&amp;L</th>
+              <th style="padding:.5rem .9rem;text-align:right">R</th>
+              <th style="padding:.5rem .9rem;text-align:left">Result</th>
+              <th style="padding:.5rem .9rem;text-align:left;color:var(--subtle)">Close date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:.55rem .9rem;font-family:var(--fm);font-weight:700">SOL/USDT</td>
+              <td style="padding:.55rem .9rem;color:#10b981;font-family:var(--fm);font-size:.7rem">LONG</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$133</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$159</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#10b981">+19.5%</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#10b981">+2.8R</td>
+              <td style="padding:.55rem .9rem"><span style="background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.2);font-family:var(--fm);font-size:.52rem;font-weight:700;padding:.15rem .45rem;border-radius:4px">WIN</span></td>
+              <td style="padding:.55rem .9rem;color:var(--subtle);font-family:var(--fm);font-size:.72rem">AUG 14</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:.55rem .9rem;font-family:var(--fm);font-weight:700">RNDR/USDT</td>
+              <td style="padding:.55rem .9rem;color:#ef4444;font-family:var(--fm);font-size:.7rem">SHORT</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$11.20</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$12.10</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#ef4444">−8.0%</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#ef4444">−1.0R</td>
+              <td style="padding:.55rem .9rem"><span style="background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2);font-family:var(--fm);font-size:.52rem;font-weight:700;padding:.15rem .45rem;border-radius:4px">STOP</span></td>
+              <td style="padding:.55rem .9rem;color:var(--subtle);font-family:var(--fm);font-size:.72rem">AUG 10</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:.55rem .9rem;font-family:var(--fm);font-weight:700">LINK/USDT</td>
+              <td style="padding:.55rem .9rem;color:#10b981;font-family:var(--fm);font-size:.7rem">LONG</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$16.40</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$21.80</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#10b981">+32.9%</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#10b981">+3.1R</td>
+              <td style="padding:.55rem .9rem"><span style="background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.2);font-family:var(--fm);font-size:.52rem;font-weight:700;padding:.15rem .45rem;border-radius:4px">WIN</span></td>
+              <td style="padding:.55rem .9rem;color:var(--subtle);font-family:var(--fm);font-size:.72rem">AUG 7</td>
+            </tr>
+            <tr>
+              <td style="padding:.55rem .9rem;font-family:var(--fm);font-weight:700">AVAX/USDT</td>
+              <td style="padding:.55rem .9rem;color:#10b981;font-family:var(--fm);font-size:.7rem">LONG</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$29.50</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm)">$28.20</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#ef4444">−4.4%</td>
+              <td style="padding:.55rem .9rem;text-align:right;font-family:var(--fm);color:#ef4444">−1.0R</td>
+              <td style="padding:.55rem .9rem"><span style="background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2);font-family:var(--fm);font-size:.52rem;font-weight:700;padding:.15rem .45rem;border-radius:4px">STOP</span></td>
+              <td style="padding:.55rem .9rem;color:var(--subtle);font-family:var(--fm);font-size:.72rem">AUG 4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.8rem;font-family:var(--fm);font-size:.72rem;color:var(--muted)">
+        <span>Track record: <strong style="color:var(--text)">2W / 2L</strong></span>
+        <span>Win rate: <strong style="color:#10b981">50%</strong></span>
+        <span>Avg win: <strong style="color:#10b981">+3.0R</strong></span>
+        <span>Avg loss: <strong style="color:#ef4444">−1.0R</strong></span>
+        <span>Expectancy: <strong style="color:var(--ge)">+1.0R per trade</strong></span>
+        <span style="margin-left:auto;color:var(--subtle);font-size:.62rem">→ <a href="/private/paper.html" style="color:var(--ge)">Full tracker on Paper Portfolio</a></span>
+      </div>
+    </section>
+
+    <!-- === HOW TO USE === -->
+    <section>
+      <div class="kicker">05 // HOW TO USE THESE SIGNALS</div>
+      <div class="sec-title">Reading the Cards</div>
+      <div class="how-grid">
+        <div class="how-item">
+          <div class="how-label">Entry Zone</div>
+          <div class="how-desc">Don't market-order in. Wait for price to reach the zone, then look for a 15m confirmation candle close before entering. Zones absorb volatility without you chasing.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-label">R:R Ratio</div>
+          <div class="how-desc">Risk-to-reward. A 3:1 means the target is 3× further from entry than the stop. Only take setups with R:R above 2.0. This is what makes a positive expectancy system even at 40% win rate.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-label">Position Sizing</div>
+          <div class="how-desc">Kelly formula: f = (bp − q) / b, where b = R:R, p = estimated win rate, q = 1−p. Use half-Kelly until a 20+ trade track record is established. Never risk more than 2% of capital on any single trade.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-label">Status Badges</div>
+          <div class="how-desc"><strong style="color:#f59e0b">WATCHING</strong> = setup is valid but price hasn't reached the entry zone yet. <strong style="color:#10b981">ACTIVE</strong> = price is in the zone, position can be opened. <strong style="color:var(--ge)">TRIGGERED</strong> = entered, position is live.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-label">Macro Gates</div>
+          <div class="how-desc">Some setups are gated on external events (NVDA AUG 26, Jackson Hole AUG 27–29). Don't enter a gated signal before its trigger event confirms — you'd be adding risk ahead of a known binary.</div>
+        </div>
+        <div class="how-item">
+          <div class="how-label">Paper Portfolio</div>
+          <div class="how-desc">Log every signal you take (or would take) in the <a href="/private/paper.html" style="color:var(--ge)">Paper Portfolio</a>. The track record drives Kelly sizing — without data, any position size is a guess.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-top:.5rem">Signals generated weekly by the Fynaptix research pipeline based on technical analysis, macro context and narrative momentum. For educational and research tracking only. Not financial advice. Always verify price levels independently before acting — crypto markets move fast. Updated Monday mornings.</div>
+    </footer>
+  </main>
+</div>
+
+<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</body>
+</html>
