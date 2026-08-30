@@ -4,7 +4,7 @@
   "heading": "Nuclear Energy Intelligence",
   "subheading": "Small modular reactors, uranium & the AI power-demand trade",
   "kicker": "NUCLEAR & SMRS // AUG 2026",
-  "generated": "Aug 24, 2026",
+  "generated": "Aug 31, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. SMR developers are pre-revenue with long regulatory timelines; verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
@@ -14,21 +14,21 @@
       "highlight": true
     },
     {
-      "value": "$88.87",
+      "value": "$89.50",
       "sub": "URANIUM SPOT ($/LB)",
-      "label": "Ticked up from $86.48 a week ago (Aug 23 read); long-term contract price still anchored near $94/lb, its highest since 2008 — term/spot gap remains wide",
+      "label": "TradeTech's U3O8 indicator rose $1.75 this week to a 6-month high; Kazatomprom's TQZ sulphuric-acid plant delays add fresh supply tightness on top of the Cigar Lake recovery; long-term contract price still anchored near $94/lb",
       "highlight": false
     },
     {
-      "value": "$102.51",
-      "sub": "CCJ SHARE PRICE (+7.2% AUG 21)",
-      "label": "Truist lifted its price target to $130 from $129 as Cigar Lake returned to full production and Cameco's stake in the mine rose to 57.418% after the TEPCO acquisition closed",
+      "value": "$107.88",
+      "sub": "CCJ SHARE PRICE (+24% TRAILING MONTH)",
+      "label": "Zacks upgraded Cameco to Rank #2 (Buy); Truist's $130 target holds as physical tightening (Kazatomprom cuts, Cigar Lake/TEPCO stake) keeps confirming in the tape",
       "highlight": false
     },
     {
       "value": "0",
       "sub": "OPERATING COMMERCIAL SMR PLANTS",
-      "label": "NRC's mandatory Clinch River hearing wrapped Aug 13 in Oak Ridge; the public comment window stays open through Aug 27 with commissioners' construction-permit decision — which would be a first for a commercial SMR — still pending",
+      "label": "NRC's Clinch River public-comment window closed Aug 27; commissioners' construction-permit decision — which would be a first for a commercial SMR — remains pending. Oklo's DOE-authorized Groves reactor (Aug 25) is a non-power test unit, a different category from a licensed commercial SMR",
       "highlight": false
     }
   ],
@@ -44,25 +44,25 @@
           "ticker": "CEG",
           "company": "Constellation Energy",
           "angle": "Largest US nuclear fleet operator (55 GW post-Calpine); direct data-center PPAs with Microsoft, Meta, Walmart",
-          "watch for": "Shares ~$273 (Aug 22); board elevated CEO Joe Dominguez to Chairman effective Aug 4; agreed to sell a Texas gas plant to LS Power for $860M to sharpen the nuclear/PPA focus; FY26 adjusted EPS guide holds at $11.50-$12.50 (20% annualized growth through 2029)"
+          "watch for": "Shares ~$284 (Aug 28); Q2 (Aug 6) EPS beat with guidance raised to $11.50-$12.50 from $11.00-$12.00 on ~920MW of new 18.5-year-average nuclear agreements incl. Walmart; Bernstein reiterated Outperform, $296 PT (Aug 19); Crane restart and NY life-extensions continue advancing"
         },
         {
           "ticker": "CCJ",
           "company": "Cameco",
           "angle": "Major Western uranium producer + Westinghouse stake",
-          "watch for": "Shares jumped 7.2% to $102.51 (Aug 21); Truist raised its PT to $130 from $129 (Aug 12); Cigar Lake back at full production since Jul 14, Cameco's stake now 57.418% post-TEPCO deal; 2026 outlook held at 17.5-18.0M lbs U3O8"
+          "watch for": "Shares ~$107.88, +24% trailing month, Zacks upgraded to Rank #2 (Buy); Truist's $130 PT holds; Kazatomprom's TQZ sulphuric-acid delays add a fresh tightening angle on top of the Cigar Lake/TEPCO-stake story"
         },
         {
           "ticker": "BWXT",
           "company": "BWX Technologies",
           "angle": "Nuclear components, naval reactors, advanced reactor work",
-          "watch for": "Shares ~$156.44 (-3.6% Aug 20); named Suzanne Maddux SVP Operations (Aug 20); accelerating NNSA centrifuge-technology work toward a possible domestic enrichment buildout; FY26 revenue guide raised to ~$3.8B; medical-business sale to Nordic Capital (~$800M) still pending"
+          "watch for": "Shares $153.12 (-1.75% Aug 28); selected Aug 26 for the US Army's Janus program to deploy a 20MW BWXT Advanced Nuclear Reactor (BANR) at Fort Campbell, KY (construction late 2028, ops early 2030s) — a new microreactor customer beyond NNSA/naval work; FY26 revenue guide still ~$3.8B; Nordic Capital medical-business sale pending"
         },
         {
           "ticker": "GEV",
           "company": "GE Vernova",
           "angle": "Grid equipment + BWRX-300 SMR design via GE Hitachi Nuclear Energy",
-          "watch for": "Shares volatile (~$987-$1,082 range, -3.5% Aug 20); Q2 orders +88% YoY to a record $24.2B, backlog now $176B, but adjusted EPS of $2.47 missed the $3.04 estimate; raised FY26 revenue guide to $45.5-46.5B; Blue Energy Texas project (2.5GW, FID 2027) and the Clinch River hearing keep BWRX-300 optionality alive"
+          "watch for": "Shares drifted to ~$953-980 (Aug 27-28), still soft since the Q2 EPS miss (adjusted $2.47 vs $3.04 est.) even as backlog hit a record $176B (+88% YoY orders); BWRX-300 pipeline keeps expanding (Southeast Asia MoU, Poland's OSGE, AFRY deployment deal) but earnings conversion remains the open question"
         }
       ]
     },
@@ -76,19 +76,19 @@
           "ticker": "OKLO",
           "company": "Oklo",
           "angle": "Fast reactors using recycled waste; Sam Altman-backed; deals directly with AI/data-center customers",
-          "watch for": "Shares $42.19 (Aug 22), down further from $44.43 a week ago; Q2 (Aug 7): revenue just $1.21M, net loss widened to $48.5M, FY26 cash-use guide raised to $120-150M (from $80-100M); Groves reactor reached first criticality less than a year after groundbreaking; $3.0B cash/marketable securities; Truist ($51) and Canaccord ($100) targets still well below the ~$80 consensus"
+          "watch for": "DOE authorized the Groves Isotope Test Reactor to load fuel, begin testing and operate (Aug 25) — a real regulatory/technical milestone that sent shares up 8.59% that day; Groves is a non-power test reactor, not a revenue-generating commercial unit. Shares since traded ~$58-60 (Aug 30), still down ~38% YTD; Truist ($51) and Texas Capital (cut to $89 from $93) targets bracket the current tape; FY26 cash-use guide remains $120-150M"
         },
         {
           "ticker": "SMR",
           "company": "NuScale Power",
           "angle": "Only SMR design with NRC formal approval; utility-focused; 6-8 GW TVA/ENTRA1 partnership under discussion",
-          "watch for": "Shares ~$8.58-9.19 (Aug 20-21), near 52-week lows; Citi cut its PT to $6.50 (Sell) and Texas Capital to $12 (Buy) after Q2 revenue collapsed to $75K from $8M a year ago; CEO calls TVA/ENTRA1 6-8GW talks 'extremely encouraging' but the pathway remains entirely non-binding; the new $750M ATM (Aug 11) still overhangs the float"
+          "watch for": "Shares ~$9.17 (Aug 26); RBC cut its PT to $10 from $14 and Citi to $6.50 from $7.50 after Q2 revenue of just $75K; management calls the year-old TVA/ENTRA1 6GW framework 'extremely encouraging,' but Aug 28 coverage flags that NuScale wouldn't own the reactors in that structure — the revenue-capture question is still unresolved even as the headline GW figure gets repeated"
         },
         {
           "ticker": "LEU",
           "company": "Centrus Energy",
           "angle": "HALEU enrichment — fuel for advanced reactors",
-          "watch for": "Shares $176-187 range (Aug 20-22), down sharply from a 52-week high of $464.25; Q1 net income fell 63.2% YoY on rising Piketon expansion costs and UBS cut its PT to $170 from $195; selected Geiger Brothers as construction contractor for the Piketon centrifuge expansion; DOE HALEU backlog still $3.0B"
+          "watch for": "Shares recovered to ~$194.78 (Aug 28) from the $176-187 range; signed a definitive LEU/HALEU supply agreement with X-energy (early Aug) including X-energy prepayments as non-dilutive capital for the Piketon expansion — a second HALEU offtake after Oklo, though the Q1 cost-overrun concerns behind UBS's target cut haven't yet been resolved"
         }
       ]
     }
@@ -102,7 +102,7 @@
     {
       "name": "X-energy",
       "value": "PUBLIC (XE) · POST-IPO",
-      "note": "Xe-100 high-temp gas reactor; Amazon leading a $700M investment for up to 12 Xe-100 units. Q2 (Aug 13): revenue+grants +154% YoY to $54.6M but EPS -$0.15 missed -$0.09 est. DOE has since confirmed an additional $1B in ARDP cost-share for the Long Mott project (total $2.115B); shares jumped over 13% on the news. Liquidity $1.9B, no debt."
+      "note": "Xe-100 high-temp gas reactor; Amazon leading a $700M investment for up to 12 Xe-100 units. Q2 (Aug 13): revenue+grants +154% YoY to $54.6M but EPS -$0.15 missed -$0.09 est. DOE has confirmed an additional $1B in ARDP cost-share for Long Mott (total $2.115B); shares jumped over 13% on the news. Signed a definitive LEU/HALEU supply and prepayment agreement with Centrus (early Aug) to help secure fuel for its initial Xe-100 units. Liquidity $1.9B, no debt."
     },
     {
       "name": "Kairos Power",
@@ -112,171 +112,171 @@
     {
       "name": "Commonwealth Fusion",
       "value": "FUSION · SPARC",
-      "note": "MIT spinout; raised another $1B on Jul 30, 2026 (~$4B total raised) from pension funds, sovereign wealth funds and strategic investors. SPARC demonstration machine in Devens, MA now targeting first operation/net-energy-gain milestone around late 2026 or early 2027."
+      "note": "MIT spinout; raised another $1B on Jul 30, 2026 (~$4B total raised) from pension funds, sovereign wealth funds and strategic investors — ENI and Google are among the few backers who allowed their names to be disclosed. SPARC demonstration machine in Devens, MA now targeting first operation/net-energy-gain milestone around late 2026 or early 2027."
     },
     {
       "name": "Helion",
       "value": "FUSION · MICROSOFT PPA",
-      "note": "Altman-backed; Polaris prototype demonstrated measurable deuterium-tritium fusion at a 150M°C plasma temperature (announced Aug 20) — the first private fusion device in its class to clear that threshold. Closed a $465M Series G in June 2026 valuing the company at $15.5B; Orion plant under construction to deliver 50MW under its Microsoft PPA by 2029."
+      "note": "Altman-backed; Polaris prototype demonstrated measurable deuterium-tritium fusion at a 150M°C plasma temperature (announced Aug 20) — the first private fusion device in its class to clear that threshold. Closed a $465M Series G in June 2026 valuing the company at $15.5B; Orion plant under construction to deliver 50 MW under its Microsoft PPA by 2029."
     },
     {
       "name": "Holtec Nuclear",
       "value": "IPO FILED (HNUC)",
-      "note": "Spent-fuel storage & decommissioning incumbent building SMR-300; continuing to amend its registration statement (latest DRS/A filed in August) for an estimated ~$2.0B Nasdaq IPO (JPM, Guggenheim, Goldman, Citi, BofA leading). Share count and price range still not set as of Aug 23."
+      "note": "Spent-fuel storage & decommissioning incumbent building SMR-300; progressed from a DRS/A to a public S-1/A filing (Aug) for an estimated ~$2.0B Nasdaq IPO (JPM, Guggenheim, Goldman, Citi, BofA leading). Share count/price range still not set as of Aug 28."
     }
   ],
   "bear_case": [
     {
-      "title": "A mandatory hearing still isn't a permit",
-      "description": "The NRC's Aug 13 Clinch River hearing was only the final procedural step before commissioners vote — the public comment window stays open through Aug 27, and no construction permit has actually issued. Zero advanced SMRs deliver commercial power anywhere in the world; first-of-a-kind builds historically run over budget and schedule."
+      "title": "A DOE test-reactor win isn't a commercial SMR",
+      "description": "Oklo's Aug 25 authorization to load fuel and operate the Groves Isotope Test Reactor is a genuine technical milestone, but Groves is a non-power test unit, not a revenue-generating plant — shares are still down ~38% YTD and FY26 cash-use guidance keeps climbing ($120-150M). Zero advanced SMRs deliver commercial power anywhere in the world."
     },
     {
-      "title": "The flagship SMR name is drawing more Sell calls, not fewer",
-      "description": "Citi initiated NuScale coverage at Sell with a $6.50 price target and Texas Capital cut to $12 after Q2 revenue collapsed to $75K from $8M a year ago — even as CEO John Hopkins calls the TVA/ENTRA1 6-8GW talks 'extremely encouraging.' A still-non-binding mega-deal is being used to offset genuinely bearish sell-side math, and a fresh $750M ATM keeps diluting the float underneath it."
+      "title": "NuScale's own numbers keep getting cut even as the headline GW figure grows",
+      "description": "RBC cut its price target to $10 from $14 and Citi to $6.50 from $7.50 after Q2 revenue collapsed to $75K, and Aug 28 coverage points out NuScale wouldn't actually own the reactors in the TVA/ENTRA1 structure driving the stock's narrative — a large non-binding GW number is being used to offset genuinely bearish sell-side math."
     },
     {
-      "title": "A record backlog didn't save GE Vernova from an earnings miss",
-      "description": "GEV's Q2 orders jumped 88% YoY to a record $176B backlog, yet adjusted EPS of $2.47 missed the $3.04 estimate and shares fell 3.5% on Aug 20. Backlog size is not the same as near-term earnings conversion — a caution for any nuclear-adjacent industrial story being valued on order momentum alone."
+      "title": "Record backlogs and fresh supply deals still aren't showing up in earnings",
+      "description": "GE Vernova's Q2 adjusted EPS of $2.47 missed the $3.04 estimate despite an 88% YoY jump in orders to a record $176B backlog, and Cameco's own late-July print missed profit expectations even as spot uranium hit a six-month high. Order books and price momentum keep outrunning current-quarter earnings across the sector."
     },
     {
-      "title": "Even 'de-risked' balance sheets aren't immune to cost overruns",
-      "description": "Centrus's Q1 net income fell 63.2% YoY on rising Piketon expansion costs, UBS cut its price target to $170 from $195, and shares have fallen from a $464 high to the $176-187 range despite a growing $3.0B HALEU backlog. Meanwhile Oklo's FY26 cash-use guide keeps climbing ($120-150M, up from $80-100M) even after a real first-criticality milestone — profitable-sounding contracts and technical wins don't automatically translate into controlled costs."
+      "title": "Cost overruns don't disappear just because a new customer signs up",
+      "description": "Centrus's fresh LEU/HALEU supply deal with X-energy is a genuine second offtake win, but it doesn't resolve the Piketon cost overruns that drove Q1 net income down 63.2% YoY and pushed UBS's target to $170 from $195 — a new prepayment provides fresh capital, it doesn't retroactively fix a construction-cost problem."
     }
   ],
   "catalysts": [
     {
-      "date": "AUG 20-21, 2026",
-      "title": "NuScale Q2 draws fresh Sell/cut ratings as TVA/ENTRA1 talks turn 'extremely encouraging'",
-      "description": "Citi cut its price target to $6.50 (Sell) and Texas Capital to $12 (Buy) after Q2 revenue collapsed to $75K from $8M a year ago. CEO John Hopkins called the tenor of TVA's public comments on a possible 6-8GW ENTRA1 deployment 'extremely encouraging,' but the pathway remains non-binding. Shares traded near 52-week lows in the high-$8 to low-$9 range."
+      "date": "AUG 25, 2026",
+      "title": "DOE authorizes Oklo's Groves Isotope Test Reactor, shares jump 8.59%",
+      "description": "The Department of Energy authorized Oklo to load fuel, begin testing and operate the privately financed Groves Isotope Test Reactor under the DOE Reactor Pilot Program — a real regulatory milestone, though Groves is a non-power test unit rather than a commercial power plant. Shares jumped 8.59% on the news even as the stock remains down ~38% YTD."
     },
     {
-      "date": "AUG 20, 2026",
-      "title": "Helion's Polaris hits 150M°C, demonstrates measurable D-T fusion",
-      "description": "Helion's seventh-generation Polaris prototype became the first private fusion device in its class to demonstrate measurable deuterium-tritium fusion at a plasma temperature of roughly 150 million degrees Celsius, a real technical step toward its 2028 Microsoft PPA target."
+      "date": "AUG 26, 2026",
+      "title": "BWXT wins US Army's Janus microreactor program at Fort Campbell",
+      "description": "BWXT was selected to deploy its 20MW BWXT Advanced Nuclear Reactor (BANR) at Fort Campbell, Kentucky, under the Army's Janus program, with construction targeted for late 2028 and operations in the early 2030s — a new government microreactor customer beyond its existing NNSA and naval-reactor work."
     },
     {
-      "date": "AUG 21, 2026",
-      "title": "Cameco jumps 7.2% to $102.51 as Truist lifts price target to $130",
-      "description": "The move followed continued confirmation that Cigar Lake is back at full production (resumed Jul 14) and that Cameco's ownership stake in the mine has risen to 57.418% after closing the TEPCO acquisition — physical tightening keeps showing up in the shares."
+      "date": "AUG 26, 2026",
+      "title": "RBC and Citi cut NuScale targets to $10 and $6.50 as Q2 revenue craters to $75K",
+      "description": "RBC lowered its price target to $10 from $14 (Sector Perform) and Citi cut to $6.50 from $7.50 (Sell) after Q2 revenue fell to $75,000 from $8M a year ago. Aug 28 coverage separately notes NuScale wouldn't own the reactors in the year-old TVA/ENTRA1 6GW framework its stock narrative leans on."
     },
     {
-      "date": "AUG 14, 2026",
-      "title": "TerraPower signs Hyundai as builder for up to 8 Natrium reactors, adds Korea term sheet",
-      "description": "During a Seoul visit, TerraPower selected Hyundai Engineering & Construction as EPC contractor for up to eight future Natrium reactors with completion, price and performance guarantees, and signed a term sheet with SK Innovation to pursue Korea's first commercial Natrium plant. The trip also marked the formal construction start of Kemmerer Unit 1."
+      "date": "AUG 19, 2026",
+      "title": "Bernstein reiterates Constellation Outperform, $296 target",
+      "description": "Bernstein SocGen reaffirmed its Outperform rating and $296 price target on Constellation Energy, following the Aug 6 guidance raise to $11.50-$12.50 adjusted EPS on the back of ~920MW of new long-term nuclear agreements averaging 18.5 years, including Walmart."
     },
     {
-      "date": "AUG 13-20, 2026",
-      "title": "GE Vernova posts record $176B backlog but misses on EPS",
-      "description": "Q2 orders rose 88% YoY to $24.2B, pushing backlog to a record $176B, and full-year revenue guidance was raised to $45.5-46.5B. But adjusted EPS of $2.47 missed the $3.04 estimate and shares fell as much as 3.5% (Aug 20) on profit-taking despite the Blue Energy Texas nuclear-plus-gas project advancing to engineering and licensing."
+      "date": "AUG 6, 2026",
+      "title": "Centrus signs definitive LEU/HALEU supply deal with X-energy",
+      "description": "Centrus and X-energy signed a definitive agreement for LEU and HALEU enrichment services to support X-energy's initial Xe-100 SMRs and TRISO-X fuel deployments, with X-energy prepayments providing Centrus non-dilutive capital for its Piketon expansion — the second HALEU offtake after Oklo."
     },
     {
-      "date": "AUG 13, 2026",
-      "title": "Clinch River mandatory NRC hearing convenes; comment window extends to Aug 27",
-      "description": "NRC's mandatory uncontested hearing on TVA's Clinch River BWRX-300 construction permit was held in Oak Ridge, TN, following NRC staff's June safety-evaluation recommendation. Commissioners' formal permit decision — which would be a first for a commercial SMR — remains pending, with public comments accepted through Aug 27."
+      "date": "AUG 25, 2026",
+      "title": "Uranium spot hits 6-month high as Kazatomprom supply delays bite",
+      "description": "TradeTech's U3O8 spot price indicator rose $1.75/lb to $89.50, its highest level in six months, as fresh operational delays at Kazatomprom's TQZ sulphuric-acid plant compound supply concerns already in play from the Cigar Lake recovery and 2026 output cuts."
     }
   ],
   "etfs": [
     {
       "ticker": "URA",
       "name": "Global X Uranium",
-      "summary": "Uranium miners + fuel cycle · ~$43.84, roughly flat on the month after a mid-August pullback (+15% over the trailing month)"
+      "summary": "Uranium miners + fuel cycle · ~$48.37, extending its rebound from ~$43.84 last week as the sector rally broadens"
     },
     {
       "ticker": "NLR",
       "name": "VanEck Uranium & Nuclear",
-      "summary": "Utilities + miners + SMR developers blend · ~$119.94, +4.71%"
+      "summary": "Utilities + miners + SMR developers blend · roughly flat near $120 this week after a strong prior-week gain"
     },
     {
       "ticker": "URNM",
       "name": "Sprott Uranium Miners",
-      "summary": "Pure miner exposure, higher beta · ~$58.19, +7.66%"
+      "summary": "Pure miner exposure, higher beta · ~$61.05, up from $58.19 last week"
     }
   ],
   "sources": [
     {
-      "title": "Gurufocus — Cameco Corp (CCJ) Shares Surge 7.2%",
-      "url": "https://www.gurufocus.com/news/9048146/cameco-corp-ccj-shares-surge-72-what-gf-score-of-87-tells-investors"
+      "title": "StocksToTrade — OKLO Stock Jumps As DOE Clears Groves Test Reactor",
+      "url": "https://stockstotrade.com/news/oklo-inc-oklo-news-2026_08_25/"
     },
     {
-      "title": "The Stock Observer — Weekly Investment Analysts' Ratings Updates for Cameco (CCJ)",
-      "url": "https://www.thestockobserver.com/2026/08/13/weekly-investment-analysts-ratings-updates-for-cameco-ccj.html"
+      "title": "The Motley Fool — NuScale Wouldn't Own a Reactor in the Deal Driving Its Stock",
+      "url": "https://www.fool.com/investing/2026/08/28/nuscale-wouldn-t-own-a-reactor-in-the-deal-driving-its-stock/"
     },
     {
-      "title": "Gurufocus — BWX Technologies Inc (BWXT) Shares Fall 3.6%",
-      "url": "https://www.gurufocus.com/news/9046411/bwx-technologies-inc-bwxt-shares-fall-36-gf-value-says-still-overvalued"
+      "title": "Timothy Sykes — SMR Stock Slides As Analysts Slash NuScale Power Targets",
+      "url": "https://www.timothysykes.com/news/nuscale-power-corporation-smr-news-2026_08_26/"
     },
     {
-      "title": "Investing.com — GE Vernova Q2 2026 Earnings Call Transcript: Results Miss EPS, Stock Slips",
-      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-ge-vernova-q2-2026-results-miss-eps-stock-slips-93CH-4805923"
+      "title": "PR Newswire — Centrus Energy Signs LEU and HALEU Supply Agreement with X-energy",
+      "url": "https://www.prnewswire.com/news-releases/centrus-energy-signs-leu-and-haleu-supply-agreement-with-x-energy-302844906.html"
     },
     {
-      "title": "MarketBeat — Citigroup Issues Pessimistic Forecast for NuScale Power (SMR) Stock Price",
-      "url": "https://www.marketbeat.com/instant-alerts/citigroup-issues-pessimistic-forecast-for-nuscale-power-nysesmr-stock-price-2026-08-06/"
+      "title": "ad-hoc-news.de — BWXT Stock Inches Higher as Army Microreactor Win Supports 2026 Earnings Outlook",
+      "url": "https://www.ad-hoc-news.de/boerse/news/nebenwerte/bwxt-stock-inches-higher-as-army-microreactor-win-supports-2026-earnings/70021105"
     },
     {
-      "title": "PR Newswire — TerraPower Accelerates Natrium Reactor Deployment Following Landmark Meetings with Korean Leaders",
-      "url": "https://www.prnewswire.com/news-releases/terrapower-accelerates-natrium-reactor-deployment-following-landmark-meetings-with-korean-leaders-302851765.html"
+      "title": "Investing.com — Bernstein Reiterates Constellation Energy Stock Rating on Nuclear Demand",
+      "url": "https://www.investing.com/news/analyst-ratings/bernstein-reiterates-constellation-energy-stock-rating-on-nuclear-demand-93CH-4867536"
     },
     {
-      "title": "POWER Magazine — Helion Announces Fusion Milestone, Moves Closer to Commercial Deployment",
-      "url": "https://www.powermag.com/helion-announces-fusion-milestone-moves-closer-to-commercial-deployment/"
+      "title": "FNArena — Uranium Week: Price Momentum, Results & BHP",
+      "url": "https://fnarena.com/index.php/2026/08/25/uranium-week-price-momentum-results-bhp/"
     },
     {
-      "title": "ANS Nuclear Newswire — X-energy, TerraPower Share Updates on Advanced Reactor Projects",
-      "url": "https://www.ans.org/news/2026-08-17/article-8297/xenergy-terrapower-share-updates-on-advanced-reactor-projects/"
+      "title": "TechCrunch — Fusion Power Darling Commonwealth Fusion Systems Raises Another $1B",
+      "url": "https://techcrunch.com/2026/07/30/fusion-power-darling-commonwealth-fusion-systems-raises-another-1b/"
     },
     {
-      "title": "StockStory — Centrus Energy (LEU) Stock Trades Down, Here Is Why",
-      "url": "https://stockstory.org/us/stocks/nyse/leu/news/why-up-down/centrus-energy-leu-stock-trades-down-here-is-why"
+      "title": "NucNet — X-energy and Centrus Sign Agreement for LEU and HALEU Nuclear Fuel Services",
+      "url": "https://www.nucnet.org/news/x-energy-and-centrus-sign-agreement-for-leu-and-haleu-nuclear-fuel-services-8-4-2026"
     },
     {
-      "title": "Federal Register — TVA Clinch River Nuclear Site, Unit 1, Notice of Hearing",
-      "url": "https://www.federalregister.gov/documents/2026/07/07/2026-13662/tennessee-valley-authority-clinch-river-nuclear-site-unit-1-notice-of-hearing"
+      "title": "Renaissance Capital — Nuclear Plant Equipment Provider Holtec Nuclear Files for an Estimated $2.0B IPO",
+      "url": "https://www.renaissancecapital.com/IPO-Center/News/120417/Nuclear-plant-equipment-provider-Holtec-Nuclear-files-for-an-estimated-$2.0"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 24, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Aug 31, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "Aug 24, 2026",
+    "as_of": "Aug 31, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
         "ticker": "CEG",
         "name": "Constellation Energy",
         "stance": "core",
-        "weight": 26,
-        "note": "CEO Joe Dominguez became Chairman effective Aug 4 as the board consolidates around the nuclear growth story, and the $860M sale of a Texas gas plant to LS Power sharpens the pure-play nuclear/PPA focus even as FY26 EPS guidance holds steady at $11.50-$12.50.",
-        "change": null
+        "weight": 30,
+        "note": "Raised FY26 adjusted EPS guidance to $11.50-$12.50 on ~920MW of new 18.5-year-average nuclear PPAs including Walmart, and Bernstein reiterated Outperform with a $296 target (Aug 19) — sizing increased as the direct-PPA thesis keeps converting into guidance raises rather than just headlines.",
+        "change": "up"
       },
       {
         "ticker": "CCJ",
         "name": "Cameco",
         "stance": "core",
-        "weight": 29,
-        "note": "Shares jumped 7.2% to $102.51 (Aug 21) and Truist lifted its PT to $130 as Cigar Lake stays at full production and Cameco's stake there reaches 57.418% post-TEPCO — sizing increased as the physical-tightening thesis keeps confirming itself in the tape.",
-        "change": null
+        "weight": 35,
+        "note": "Shares are +24% over the trailing month and Zacks upgraded to Rank #2 (Buy) as Kazatomprom's TQZ sulphuric-acid plant delays add a fresh supply-tightening angle on top of the Cigar Lake/TEPCO-stake story — the largest weight in the sleeve reflects the physical-tightening thesis confirming itself repeatedly in both spot price and equity performance.",
+        "change": "up"
       },
       {
         "ticker": "BWXT",
         "name": "BWX Technologies",
         "stance": "core",
-        "weight": 23,
-        "note": "Raised FY26 revenue guide to ~$3.8B on a fifth straight EPS beat and 40% backlog growth, and is accelerating NNSA centrifuge work that could position it for a broader domestic enrichment buildout — sizing increased on the combination of near-term execution and long-dated optionality.",
-        "change": null
+        "weight": 27,
+        "note": "Won the US Army's Janus microreactor program (Aug 26) on top of a 40% YoY backlog gain and a raised ~$3.8B FY26 revenue guide — a genuinely new government customer diversifies the order book beyond NNSA/naval work, so sizing increased.",
+        "change": "up"
       },
       {
         "ticker": "GEV",
         "name": "GE Vernova",
-        "stance": "core",
-        "weight": 14,
-        "note": "Q2 orders jumped 88% YoY to a record $176B backlog, but adjusted EPS of $2.47 missed the $3.04 estimate and shares fell 3.5% (Aug 20) — the BWRX-300/Blue Energy Texas project and Clinch River hearing keep the nuclear optionality intact, but it's still a small, lumpy slice of GEV's business. Also sits in the Energy Storage sleeve — don't double-count.",
-        "change": null
+        "stance": "watch",
+        "weight": 0,
+        "note": "Q2 adjusted EPS of $2.47 missed the $3.04 estimate for a second straight quarter even as orders jumped 88% YoY to a record $176B backlog, and shares have kept drifting lower (~$953-980) with no near-term nuclear-specific catalyst — moved out of Core to Watch until earnings conversion catches up with the backlog. Also sits in the Energy Storage sleeve — don't double-count.",
+        "change": "down"
       },
       {
         "ticker": "OKLO",
         "name": "Oklo",
         "stance": "spec",
         "weight": 8,
-        "note": "First criticality at the Groves reactor is a genuine technical milestone, but shares fell further to ~$42 (from $44 last week) as FY26 cash-use guidance climbed again to $120-150M and Truist/Canaccord targets stayed well below consensus — spec-only sizing unchanged.",
+        "note": "DOE's Aug 25 authorization to fuel and operate the Groves test reactor is a real technical milestone, but Groves is a non-power test unit and FY26 cash-use guidance keeps climbing ($120-150M) — spec-only sizing unchanged; a licence to test is not a delivered commercial reactor.",
         "change": null
       },
       {
@@ -284,15 +284,15 @@
         "name": "Centrus Energy",
         "stance": "watch",
         "weight": 0,
-        "note": "Q1 net income fell 63.2% YoY on rising Piketon expansion costs and UBS cut its PT to $170 from $195; shares have now fallen from a $464 high to the $176-187 range even as the DOE HALEU backlog keeps growing — moved out of Core and into Watch until the cost overruns are demonstrably contained.",
-        "change": "down"
+        "note": "The definitive LEU/HALEU supply deal with X-energy (early Aug) is a genuine second offtake win and shares have recovered to ~$195 from the $176-187 range, but the Piketon cost overruns behind Q1's 63.2% YoY income decline and UBS's target cut haven't yet been demonstrably resolved — staying on Watch.",
+        "change": null
       },
       {
         "ticker": "SMR",
         "name": "NuScale Power",
         "stance": "avoid",
         "weight": 0,
-        "note": "Citi initiated at Sell with a $6.50 target and Texas Capital cut to $12 after Q2 revenue collapsed to $75K from $8M a year ago; the TVA/ENTRA1 6-8GW talk is real but entirely non-binding, and a fresh $750M ATM keeps diluting the float underneath a stock near 52-week lows.",
+        "note": "RBC and Citi both cut price targets again (to $10 and $6.50) after Q2 revenue fell to $75K, and Aug 28 coverage flags that NuScale wouldn't own the reactors in the TVA/ENTRA1 structure its stock narrative depends on — the bear case keeps getting reinforced, not resolved.",
         "change": null
       },
       {
@@ -300,7 +300,7 @@
         "name": "X-energy",
         "stance": "watch",
         "weight": 0,
-        "note": "DOE confirmed an additional $1B in Long Mott cost-share funding and shares jumped over 13%, but Q2 opex still grew faster (+156%) than revenue+grants (+154%) — real government backing, still pre-profitability; staying on Watch.",
+        "note": "The new Centrus LEU/HALEU supply deal secures fuel for its initial Xe-100 units and DOE's extra $1B Long Mott funding is real government backing, but Q2 opex still grew faster than revenue+grants — staying on Watch pending a cleaner path to profitability.",
         "change": null
       }
     ]
