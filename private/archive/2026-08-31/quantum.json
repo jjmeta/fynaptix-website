@@ -1,0 +1,316 @@
+{
+ "sector": "quantum",
+ "title": "Fynaptix \u00b7 Quantum Computing Research",
+ "heading": "Quantum Computing Intelligence",
+ "subheading": "Pure-plays, hedged giants & the road to commercial advantage",
+ "kicker": "QUANTUM COMPUTING // AUG 2026",
+ "generated": "August 31, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S ~63\u2013509\u00d7) and are highly speculative \u2014 position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "$97B",
+   "sub": "BY 2035 (PROJECTED)",
+   "label": "Quantum technologies market projection",
+   "highlight": false
+  },
+  {
+   "value": "-5 to -8%",
+   "sub": "FRI. AUG 28 SECTOR REVERSAL",
+   "label": "IonQ -7.7%, Rigetti -5.2%, D-Wave -5.1% in a single session as the pure-play trio fully unwound the Aug 21 rebound; Treasury yields kept punishing unprofitable long-duration names (30-year hit a 19-year high, 10-year ~4.68%), compounded by D-Wave's Aug 26 CFO-retirement announcement (-8-9% that day). Pasqal's Nasdaq debut (Aug 28) was the sector's lone bright spot, nearly doubling to close at $19.11",
+   "highlight": true
+  },
+  {
+   "value": "$290M",
+   "sub": "NSF QUANTUM INSTITUTE FUNDING (AUG 25)",
+   "label": "NSF awarded $290M+ across eight university-led Quantum Leap Institutes (Harvard, Yale, Princeton, UC Berkeley, Chicago, Colorado, Illinois, Maryland) spanning fault tolerance, error correction, networking, sensing and simulation; alongside Treasury's new Quantum-Readiness Task Force for post-quantum crypto migration in finance, and the House's proposed 68% defense-quantum R&D boost still pending in the NDAA",
+   "highlight": false
+  },
+  {
+   "value": "63\u2013509\u00d7",
+   "sub": "P/S RATIOS (AUG 28, 2026 CLOSE)",
+   "label": "IonQ ~$39.20 ($15.6B mkt cap / $246.5M TTM revenue) / Rigetti ~$15.59 ($5.2B / $13.4M TTM) / D-Wave ~$16.99 ($6.3B / $12.4M TTM) \u2014 all three erased the prior week's bounce; Defiance Quantum ETF (QTUM) at $148.23, down from $150.47 a week earlier as the sector's risk-off tone persisted",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Hedged Giants \u2014 Quantum as an Option",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Most quantum systems remain in R&D; true commercial systems are likely years away.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "IBM",
+     "company": "IBM",
+     "angle": "Completed its acquisition of HRL Laboratories (Aug 26), adding silicon-spin qubits, quantum sensing, materials, cryogenics, packaging and interconnect expertise to the Starling/Blue Jay roadmap (financial terms undisclosed; Boeing and GM, HRL's former owners, continue collaborating on applications). Follows last month's independently verified quantum-advantage claim (Jul 30) and the Aug 19 modular-cryostat milestone \u2014 a fast, deliberate cadence of concrete steps toward Quantum Starling (2029)",
+     "watch for": "Integration of HRL's silicon-spin work into the superconducting roadmap; Kookaburra qLDPC rollout; independent replication of the advantage claim; pace of the Nighthawk fleet rollout"
+    },
+    {
+     "ticker": "GOOGL",
+     "company": "Alphabet",
+     "angle": "Willow: below-threshold error correction confirmed as grid scaled 3\u00d73\u21925\u00d75\u21927\u00d77; no incremental hardware or research catalyst in the past two weeks beyond the UK NQCC cloud-access opening and deepened NVIDIA CUDA-Q collaboration (both early-to-mid August)",
+     "watch for": "Gate-operation demos beyond memory preservation; output from the UK NQCC access program; any response to IBM's verified-advantage claim"
+    },
+    {
+     "ticker": "MSFT",
+     "company": "Microsoft",
+     "angle": "Topological qubit program + Azure Quantum; Quantinuum/Microsoft collab reports 800\u00d7 logical-vs-physical qubit fidelity on System Model H2. Quiet week for Microsoft's own program",
+     "watch for": "Majorana milestone reproducibility (independent critiques of the topological-qubit claim persist); Quantinuum's financials as a read-through on the partnership"
+    },
+    {
+     "ticker": "NVDA",
+     "company": "NVIDIA",
+     "angle": "NVQLink (built on CUDA-Q, announced Aug 17) \u2014 a universal GPU\u2013QPU interconnect adopted by 17 quantum hardware builders and 9 national/scientific labs; no new hardware partners added in two weeks. CEO Jensen Huang continues to frame AI and quantum as complementary rather than competing",
+     "watch for": "NVQLink adoption at national labs; hybrid quantum-AI workloads; new builder/lab additions"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Pure-Plays \u2014 Highly Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Most quantum systems remain in R&D; true commercial systems are likely years away.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "IONQ",
+     "company": "IonQ",
+     "angle": "Trapped-ion leader; Q2 revenue $80.1M (+287% YoY); FY26 guidance $280\u2013290M. Added two new board members Aug 25 (finance expert Dr. Eric Ball; former SkyWater Technology chairman and Samsung North America CEO Timothy Baxter). Demonstrated a real-time quantum error-correction decoding pipeline running on a single Apple M4 Max CPU (Aug 27), handling MegaQuOp-scale workloads for up to 408 logical qubits and over 1M T gates",
+     "watch for": "Stock $39.20 (Aug 28, -7.68%) \u2014 fully round-tripped the Aug 21 rebound as the broader quantum rally reversed on no company-specific news; consensus target $67.68 (Strong Buy, 13 analysts); P/S ~63\u00d7, actually the cheapest of the pure-play trio on this metric now"
+    },
+    {
+     "ticker": "RGTI",
+     "company": "Rigetti",
+     "angle": "Superconducting full-stack; Q2 revenue $5.1M (+183% YoY); $541M cash, no debt. No fresh company news this week beyond the Aug 19 COO/Systems Delivery reorganization",
+     "watch for": "Stock $15.59 (Aug 28, -5.17%), tracking the sector-wide reversal; consensus target $28.81 (Buy); P/S ~390\u00d7; execution on the new Systems Delivery organization"
+    },
+    {
+     "ticker": "QBTS",
+     "company": "D-Wave",
+     "angle": "Quantum annealing + gate-model; Q2 revenue $3.1M, flat YoY; H1 bookings $35.5M (+1,120% YoY). CFO John Markovich announced his retirement Aug 25, effective Sept 2 (not related to any accounting or business dispute); SVP of Finance Greg Golkov, a 25-year finance veteran at the company since 2023, becomes acting CFO",
+     "watch for": "Stock $16.99 (Aug 28, -5.08%) after an 8-9% drop on the CFO news Aug 26; BMO's Outperform ($35 PT) stands; the CFO transition lands squarely on D-Wave's central bull-case question \u2014 converting a 1,120% bookings surge into recognized revenue; TTM revenue still just $12.4M; P/S ~509\u00d7"
+    },
+    {
+     "ticker": "PSQL",
+     "company": "Pasqal",
+     "angle": "French neutral-atom quantum computer builder chaired by Nobel laureate Alain Aspect; completed its SPAC merger with Bleichroeder Acquisition Corp. II and began trading on Nasdaq Aug 28 with ~$360M cash and a ~$2.6B pro forma market cap; customers include Saudi Aramco and LG Electronics",
+     "watch for": "Shares nearly doubled on debut, closing at $19.11 (+95.2% vs. the $9.79 SPAC reference price); reported valuation implies roughly 100\u00d7 revenue with no independent public financials yet \u2014 the first reporting quarter as a listed company will be the real test"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "PsiQuantum",
+   "value": "PHOTONIC \u00b7 UTILITY-SCALE BET",
+   "note": "Reportedly closed a $1.5B round (May 2026) at a ~$10.5B valuation; broke ground on its Moreton Bay Central fault-tolerant facility in Australia; expanded its DARPA agreement to $125M as one of only two firms in Stage C, the final validation stage of DARPA's Quantum Benchmarking Initiative. Appointed Skype co-founder and Atomico founder Niklas Zennstr\u00f6m to its board (mid-Aug), succeeding Siraj Khaliq. Quiet week for company-specific news."
+  },
+  {
+   "name": "Quantinuum",
+   "value": "IPO'D JUN 2026 \u00b7 NASDAQ: QNT",
+   "note": "Honeywell-backed; upsized $1.68B IPO raise at $60/share (~$12.7B valuation). Reported its first post-IPO quarter Aug 11: revenue $8M (+279% YoY) but a GAAP net loss of $597M, largely IPO-related stock comp, against $2.1B cash; FY26 revenue guidance set at $28\u201332M. Multi-year Oracle partnership placing its Helios trapped-ion system inside an Oracle Cloud Infrastructure AI data center, plus a $1.5M Albuquerque R&D expansion (Aug 20). Quiet week for new headlines; shares remain choppy post-IPO as the market digests burn rate against the Sol 2027 \u2192 Apollo 2029 \u2192 Lumos 2030s roadmap."
+  },
+  {
+   "name": "QuEra",
+   "value": "NEUTRAL ATOMS",
+   "note": "$230M+ raise backed by Google Quantum AI, SoftBank, NVentures; 96 verified logical qubits \u2014 industry-leading; NVIDIA CUDA-Q/NVQLink integration partner. Outlined a gigaquop-class fault-tolerant roadmap targeting 2028\u20132029 (1,000+ logical qubits, 20,000+ physical qubits). No new company-specific headlines this week; note that fellow neutral-atom builder Pasqal just went public via SPAC (Aug 28) \u2014 a possible signal for QuEra's own eventual listing path."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Years from commercial advantage",
+   "description": "Most systems remain R&D-phase; revenue today is mostly government contracts and research access, not commercial workloads."
+  },
+  {
+   "title": "Valuations price in perfection \u2014 and swing hard on macro, not fundamentals",
+   "description": "The Aug 21 rebound (+7-11.5%) was fully erased by Aug 28 (IonQ -7.7%, Rigetti -5.2%, D-Wave -5.1% in a single session), driven again by rising Treasury yields (the 30-year hit a 19-year high; the 10-year sat near 4.68%) rather than company news. P/S multiples of ~63\u2013509\u00d7 still price in years of flawless execution, and that kind of round-trip on macro noise alone is a feature of the trade, not a bug."
+  },
+  {
+   "title": "Insiders aren't buying \u2014 and leadership churn adds a new wrinkle",
+   "description": "Insiders at IonQ, Rigetti and D-Wave have collectively sold a net of roughly $863M in stock over the trailing three years, versus minimal insider buying \u2014 a persistent gap between executive selling and executive conviction. D-Wave's longtime CFO John Markovich announced his retirement Aug 25 (effective Sept 2); the company says it's unrelated to any business or reporting dispute, but the timing lands right as the bookings-to-revenue conversion story becomes the central question for the stock."
+  },
+  {
+   "title": "Dilution as a business model",
+   "description": "Pure-plays fund R&D via repeated equity raises; share counts grow relentlessly. CHIPS Act awards to Rigetti, D-Wave and others are structured partly as government equity stakes \u2014 another layer of dilution on top. Quantinuum's own first post-IPO quarter posted a $597M GAAP net loss against $8M revenue, and newly listed Pasqal's ~100\u00d7 revenue multiple on debut suggests the market is still pricing new entrants on story, not statements."
+  },
+  {
+   "title": "Winner may not be listed",
+   "description": "IBM/Google/Microsoft or private PsiQuantum could reach fault tolerance first, stranding pure-play premiums. IBM's HRL Laboratories acquisition (Aug 26) is another reminder that the hedged giants can simply buy capability rather than build or bet on it \u2014 a structural advantage the pure-plays don't have."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "AUG 28, 2026",
+   "title": "Pasqal debuts on Nasdaq, shares nearly double",
+   "description": "The French neutral-atom quantum builder completed its SPAC merger with Bleichroeder Acquisition Corp. II, listing under PSQL/PSQLW with ~$360M cash and a ~$2.6B pro forma valuation. Shares closed the day at $19.11, up 95.2% from the $9.79 SPAC reference price."
+  },
+  {
+   "date": "AUG 26, 2026",
+   "title": "IBM completes HRL Laboratories acquisition",
+   "description": "Adds silicon-spin qubits, quantum sensing, materials, cryogenics, and packaging/interconnect expertise to IBM's quantum hardware roadmap. Financial terms undisclosed; Boeing and GM, HRL's former owners, remain collaborators."
+  },
+  {
+   "date": "AUG 25, 2026",
+   "title": "NSF invests $290M+ in eight quantum research institutes",
+   "description": "University-led Quantum Leap Institutes at Harvard, Yale, Princeton, UC Berkeley, Chicago, Colorado, Illinois and Maryland split roughly $28-37M each over five years, covering fault tolerance, error correction, networking, sensing and simulation."
+  },
+  {
+   "date": "AUG 25, 2026",
+   "title": "D-Wave CFO John Markovich to retire Sept. 2",
+   "description": "SVP of Finance Greg Golkov, with the company since 2023 and 25+ years of finance experience, steps in as acting CFO. Stock fell roughly 8-9% on the news, erasing about $679M in market cap, though the company says the move is unrelated to any business or reporting dispute."
+  },
+  {
+   "date": "AUG 25, 2026",
+   "title": "Treasury launches Quantum-Readiness Task Force",
+   "description": "New task force will guide the financial sector's migration to post-quantum cryptography, treating the transition as core to US economic security as future quantum systems threaten to break current encryption standards."
+  },
+  {
+   "date": "AUG 27, 2026",
+   "title": "IonQ demos real-time QEC decoding on a laptop-class CPU",
+   "description": "A decoding pipeline running on a single Apple M4 Max handled MegaQuOp-scale workloads for up to 408 logical qubits and over 1 million T gates \u2014 a sign that error-correction decoding may not require exotic classical infrastructure to scale."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "QTUM",
+   "name": "Defiance Quantum",
+   "summary": "Quantum + advanced computing basket \u2014 at $148.23 (Aug 28), down from $150.47 the prior week as the sector's risk-off tone persisted through the week; well below its 52-week high of $170, ~$5.5B+ AUM; the standard diversified route"
+  },
+  {
+   "ticker": "SMH",
+   "name": "VanEck Semiconductor",
+   "summary": "Indirect: the compute substrate quantum must beat (and currently rides)"
+  }
+ ],
+ "sources": [
+  {
+   "title": "The Quantum Insider \u2014 Pasqal shares nearly double in Nasdaq debut",
+   "url": "https://thequantuminsider.com/2026/08/29/pasqal-shares-nearly-double-in-nasdaq-debut/"
+  },
+  {
+   "title": "IBM Newsroom \u2014 IBM completes acquisition of HRL Laboratories",
+   "url": "https://newsroom.ibm.com/2026-08-26-ibm-completes-acquisition-of-hrl-laboratories-to-accelerate-the-future-of-quantum"
+  },
+  {
+   "title": "NSF \u2014 Eight NSF research institutes to propel US quantum science with $290M investment",
+   "url": "https://www.nsf.gov/news/eight-nsf-research-institutes-propel-us-quantum-science-290m"
+  },
+  {
+   "title": "Business Wire \u2014 D-Wave Quantum announces the resignation of Chief Financial Officer",
+   "url": "https://www.businesswire.com/news/home/20260825137467/en/D-Wave-Quantum-Announces-the-Resignation-of-Chief-Financial-Officer/"
+  },
+  {
+   "title": "HPCwire \u2014 US Treasury Dept. announces Quantum-Readiness Task Force",
+   "url": "https://www.hpcwire.com/off-the-wire/u-s-treasury-dept-announces-quantum-readiness-task-force/"
+  },
+  {
+   "title": "TipRanks \u2014 IonQ adds board firepower as it pushes to scale quantum manufacturing",
+   "url": "https://www.tipranks.com/news/ionq-ionq-adds-board-firepower-as-it-pushes-to-scale-quantum-manufacturing"
+  },
+  {
+   "title": "Yahoo Finance \u2014 IonQ, Rigetti, D-Wave, and Quantum Computing Inc. all fall as the quantum rally reverses",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/ionq-rigetti-d-wave-quantum-183030435.html"
+  },
+  {
+   "title": "The Motley Fool \u2014 Quantum computing stocks: IonQ, Rigetti, D-Wave flash an $863 million warning",
+   "url": "https://www.fool.com/investing/2026/08/24/quantum-computing-stocks-ionq-863-million-warning/"
+  },
+  {
+   "title": "The Quantum Insider \u2014 Pasqal completes SPAC merger with $360 million in cash",
+   "url": "https://thequantuminsider.com/2026/08/28/pasqal-completes-spac-merger-with-360-million-in-cash/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 IONQ, RGTI, QBTS, QTUM prices & statistics (Aug 28 close)",
+   "url": "https://stockanalysis.com/stocks/ionq/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Aug 28, 2026 close. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Aug 31, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "IBM",
+    "name": "IBM",
+    "stance": "core",
+    "weight": 33,
+    "note": "Third concrete milestone in a month: verified quantum advantage (Jul 30), modular cryostats (Aug 19), and now a completed HRL Laboratories acquisition (Aug 26) adding silicon-spin qubits and sensing capability. Nudged up a notch on the pace of execution; quantum remains a rounding error on a profitable, dividend-paying business.",
+    "change": null
+   },
+   {
+    "ticker": "GOOGL",
+    "name": "Alphabet",
+    "stance": "core",
+    "weight": 22,
+    "note": "Second straight quiet week for Willow-specific news; the below-threshold error-correction claim stands unchallenged but unadvanced. Also your largest AI-sleeve holding \u2014 size the sector weight with that overlap in mind, don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "MSFT",
+    "name": "Microsoft",
+    "stance": "core",
+    "weight": 20,
+    "note": "Quiet week for Microsoft's own quantum program; the clearest read-through remains Quantinuum's Aug 11 print ($8M revenue, $597M GAAP loss). Microsoft's own exposure is immaterial to its financials either way. Also held in the AI sleeve \u2014 avoid double-counting.",
+    "change": null
+   },
+   {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "stance": "core",
+    "weight": 14,
+    "note": "No new NVQLink hardware partners in two weeks; trimmed slightly to fund the IBM increase given the quiet stretch. Also your largest cross-sector AI holding \u2014 size for that concentration, not just the quantum optionality.",
+    "change": null
+   },
+   {
+    "ticker": "IONQ",
+    "name": "IonQ",
+    "stance": "spec",
+    "weight": 7,
+    "note": "Fundamentals kept improving this week (two credible new board members, a real QEC-decoding demo on commodity hardware) even as the stock round-tripped the Aug 21 rebound and got cheaper in relative terms (P/S fell to ~63x, now the lowest of the pure-play trio). Held steady rather than chased the dip.",
+    "change": null
+   },
+   {
+    "ticker": "RGTI",
+    "name": "Rigetti",
+    "stance": "spec",
+    "weight": 2,
+    "note": "No fresh operating news this week; stock fell in line with the sector-wide reversal. TTM revenue still $13.4M against a $5.2B market cap (P/S ~390x). Held at minimum size, no new catalyst to justify more.",
+    "change": null
+   },
+   {
+    "ticker": "QBTS",
+    "name": "D-Wave",
+    "stance": "spec",
+    "weight": 2,
+    "note": "The Aug 25 CFO retirement is a genuine incremental risk \u2014 it lands right as converting the 1,120% bookings surge into recognized revenue becomes the whole thesis, and a new acting CFO now owns that transition. Held at minimum size rather than trimmed further, since the company frames it as routine succession, not a red flag.",
+    "change": null
+   },
+   {
+    "ticker": "QNT",
+    "name": "Quantinuum",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Quiet week for new headlines. FY26 guidance of $28-32M revenue against a $12.7B IPO valuation remains the open question keeping this in Watch, not Core.",
+    "change": null
+   },
+   {
+    "ticker": "PSQL",
+    "name": "Pasqal",
+    "stance": "watch",
+    "weight": 0,
+    "note": "New to the list after its Aug 28 Nasdaq debut via SPAC merger, where shares nearly doubled to $19.11 on a reported ~100x revenue multiple with no independent public financials yet. Straight to Watch, not Spec, until there's at least one reporting quarter to evaluate.",
+    "change": "new"
+   }
+  ]
+ }
+}
