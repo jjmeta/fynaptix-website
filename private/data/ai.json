@@ -3,32 +3,32 @@
   "title": "Fynaptix · AI & Compute Research",
   "heading": "AI & Compute Intelligence",
   "subheading": "The capex supercycle, silicon stack, foundation-model giants & the bubble debate",
-  "kicker": "AI & COMPUTE // AUG 2026",
-  "generated": "August 31, 2026",
+  "kicker": "AI & COMPUTE // SEP 2026",
+  "generated": "September 5, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. AI is the market's most crowded trade; concentration and drawdown risk are significant. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
-      "value": "$815–840B",
+      "value": "$825–855B",
       "sub": "2026/FY27 CAPEX — TOP-5 HYPERSCALERS",
-      "label": "Amazon (raised again to ~$220B), Alphabet ($195–205B), Microsoft (~$175B CY2026 guide / ~$255–260B FY2027 all-in), Meta ($135–145B) and Oracle (S&P now models $90–95B FY2027, up from the company's earlier ~$70B target) — combined $815–840B, still ~75% AI-specific and now well over 3x the ~$238B spent in 2024. Debt funding sits at 32% of capex over the trailing twelve months (FactSet); Oracle says it won't add more debt in CY2026, leaning instead on a $20B at-the-market equity raise after its Aug 25 downgrade to BBB-",
+      "label": "Amazon (~$220B), Alphabet ($195–205B), Microsoft (capex guide raised to ~$190B CY2026 from ~$175B / ~$255–260B FY2027 all-in), Meta ($130–145B after twice raising its floor) and Oracle (S&P models $90–95B FY2027) — combined $825–855B. The four hyperscalers ex-Oracle are pacing ~$725B for 2026 alone, up 77% from ~$410B in 2025. Debt funding still sits near 32% of capex over the trailing twelve months (FactSet)",
       "highlight": true
     },
     {
-      "value": "$965B",
-      "sub": "ANTHROPIC'S LATEST PRIVATE VALUATION (SERIES H)",
-      "label": "Revenue run-rate held near $65B annualized at end of July with the company's first-ever operating profit. Reports now point to an Oct 26 IPO with a first-day market cap near $1.82T, and some accounts still float $2T or more — which would eclipse SpaceX's $1.77T IPO valuation as the largest listing ever",
+      "value": "$965B / $852B",
+      "sub": "ANTHROPIC VS. OPENAI — LATEST PRIVATE VALUATIONS",
+      "label": "Anthropic holds its $965B Series H mark, revenue run-rate near $65B annualized at end of July, targeting an ~Oct 26 IPO with a first-day market cap near $1.85T. OpenAI, still marked at $852B via its August employee tender, crossed $40B in annualized revenue (~$3.3B/month) in August but filed only a confidential S-1 (June 8) and isn't expected to list until 2027",
       "highlight": false
     },
     {
       "value": "$510B",
       "sub": "H1 2026 — GLOBAL VC RECORD",
-      "label": "Global venture funding per Crunchbase ($300B in Q1, $205B in Q2), already topping all of 2025's $440B; AI captured ~70–80% of it. OpenAI and Anthropic alone absorbed $217B — 43% of every venture dollar invested worldwide this year",
+      "label": "Global venture funding per Crunchbase ($300B in Q1, $205B in Q2), already topping all of 2025's $440B; AI captured ~70–80% of it, dipping from ~80% in Q1 to the low-70s in Q2. OpenAI and Anthropic alone absorbed $217B — 43% of every venture dollar invested worldwide this year",
       "highlight": false
     },
     {
-      "value": "$96.2B",
-      "sub": "NVIDIA Q2 FY27 REVENUE — RECORD (REPORTED AUG 26)",
-      "label": "Revenue more than doubled YoY (+106%), beating the ~$92.2B consensus; Data Center revenue hit $89.0B (+117% YoY). Guided Q3 to $108B. Shares dipped slightly in the immediate reaction before the broader market rallied the next session (Nasdaq +1.6%) — the clearest data point yet against the bubble case, even as Nvidia also disclosed talks to buy Hugging Face for $12.9B and keeps defending its OpenAI financing structure against circular-financing criticism",
+      "value": "$115B",
+      "sub": "BROADCOM'S NEW FY2027 AI SEMICONDUCTOR OUTLOOK (RAISED SEPT 2)",
+      "label": "Fiscal Q3 2026 AI semiconductor revenue hit $16.7B (+221% YoY), beating its own $16.0B guide; Q4 guide calls for $21.7B (+236%) on ~$34.8B total revenue (+93%). Management extended its long-term AI outlook to ~$58B for all of FY2026, ~$115B in FY2027 and ~$230B in FY2028 — resolving last quarter's concern that it wouldn't lift the FY27 number above $100B — citing named commitments from Google, Anthropic, OpenAI and Meta",
       "highlight": false
     }
   ],
@@ -43,26 +43,26 @@
         {
           "ticker": "NVDA",
           "company": "NVIDIA",
-          "angle": "Record Q2 FY27 revenue $96.2B (+106% YoY), Data Center $89.0B (+117% YoY), beating consensus and guiding Q3 to $108B; signed $500B of AI-infrastructure financing MOUs (Aug 10) and reportedly agreed to buy Hugging Face for $12.9B (Aug 26–27) to extend beyond chips into the model ecosystem; China revenue still effectively zero and excluded from guidance",
-          "watch for": "Nvidia's OpenAI financing guarantee was cut from an originally floated $250B to under $120B and now covers only the Ohio data center's first phase — Jensen Huang insists this isn't circular financing, but Michael Burry has doubled down, calling Nvidia's revenue \"majority circularly financed\" and adding to shorts on Oracle, Micron and Nebius; watch whether the Hugging Face deal closes"
+          "angle": "Record Q2 FY27 revenue $96.2B (+106% YoY), Data Center $89.0B (+117% YoY), beating consensus and guiding Q3 to $108B; confirmed a definitive $12.93B deal to acquire Hugging Face (Sept 2, closing expected H1 2027) to extend beyond chips into the open-source model-hosting layer; CFO Colette Kress guided to 70%+ revenue growth for fiscal 2028, with Jensen Huang saying demand is \"much greater than 70%\" but supply-constrained; China revenue still effectively zero and excluded from guidance",
+          "watch for": "Nvidia's OpenAI financing guarantee remains capped under $120B (down from an originally floated $250B) and covers only the Ohio data center's first phase — Michael Burry keeps calling Nvidia's revenue \"majority circularly financed\" and has added shorts on Oracle, Micron and Nebius; watch for regulatory scrutiny of the Hugging Face deal given Nvidia's market position"
         },
         {
           "ticker": "AVGO",
           "company": "Broadcom",
-          "angle": "Custom ASICs (Apple, Meta, Alphabet, ByteDance, OpenAI) + AI networking; AI bookings/backlog above $30B entering the quarter; renewed its Apple chip-supply agreement through 2031 (>$30B); shares rallied 4.5% on Aug 26 in a broader AI-stock rebound alongside ARM Holdings",
-          "watch for": "Reports fiscal Q3 2026 on Sept 2 — guided to ~$29.4B total revenue (+84% YoY) and ~$16.0B AI semiconductor revenue (+200%+); last quarter's decision not to raise the FY2027 AI-semiconductor target above $100B triggered a 12.6% selloff, so whether management finally lifts that number is the real test this time"
+          "angle": "Fiscal Q3 2026 revenue $29.6B (+86% YoY); AI semiconductor revenue $16.7B (+221% YoY) beat its own $16.0B guide; Q4 guide calls for $21.7B AI semi revenue (+236%) on ~$34.8B total revenue (+93%); named commitments from Google, Anthropic, OpenAI and Meta",
+          "watch for": "Extended its long-term AI outlook to ~$115B FY2027 and ~$230B FY2028 — resolving last quarter's failure to raise the FY27 number above $100B that triggered a 12.6% selloff; management flagged data-center readiness, power, land, wafers, substrates and HBM as possible pacing constraints on deployment"
         },
         {
           "ticker": "AMD",
           "company": "AMD",
-          "angle": "Credible #2 in GPUs; Q2 2026 EPS $1.66 vs. $0.48 a year ago on more-than-doubled Data Center revenue; management expects Data Center revenue to more than double again in 2027; shares holding in the $470–490 band (~$778B market cap)",
-          "watch for": "ROCm 10 released Aug 27 but the stock still slipped on the news, and reports surfaced the same day that Cathie Wood trimmed her AMD position — a reminder that strong execution isn't immunizing these names from rate- and valuation-driven volatility"
+          "angle": "Credible #2 in GPUs; Q2 2026 EPS $1.66 vs. $0.48 a year ago on more-than-doubled Data Center revenue (~$6.7B, +107% YoY); management expects Data Center revenue to more than double again in 2027",
+          "watch for": "ROCm 10's late-August release hasn't yet translated into a clear re-rating versus Nvidia and Broadcom, and reports of Cathie Wood trimming her stake the same week are a reminder that strong execution isn't immunizing these names from rate- and valuation-driven volatility"
         },
         {
           "ticker": "TSM",
           "company": "TSMC",
-          "angle": "Makes the chips for all of the above; Q2 2026 profit +77% YoY on strong 3nm/2nm demand; 3nm monthly wafer starts on track to hit 180K by early Q4 (2–3 months ahead of schedule), while 2nm output ramps toward ~100K monthly wafers by year-end, with 2nm tape-outs already 4x those of 3nm at the same stage",
-          "watch for": "CEO C.C. Wei continues to see \"robust\" AI demand through 2029–2030; Taiwan geopolitical risk remains the sector's single biggest tail risk despite the strong operational trajectory"
+          "angle": "Makes the chips for all of the above; Q2 2026 revenue $40.2B (+33.7% YoY) with HPC/AI now ~66% of sales; July monthly revenue +44.7% YoY; raised its 2026 revenue growth outlook to \"slightly above 40%\" and lifted 2026 capex to $60–64B",
+          "watch for": "CEO C.C. Wei continues to see \"robust\" AI demand through 2029–2030; Taiwan geopolitical risk remains the sector's single biggest tail risk despite the accelerating operational trajectory"
         }
       ]
     },
@@ -75,7 +75,7 @@
         {
           "ticker": "MSFT",
           "company": "Microsoft",
-          "angle": "Azure + OpenAI partnership; disclosed an $80B backlog of Azure orders it can't yet fulfill due to power constraints — demand still outpacing supply; guided to ~$175B CY2026 capex (a lease-accounting reclassification, not a cut)",
+          "angle": "Azure + OpenAI partnership; disclosed an $80B backlog of Azure orders it can't yet fulfill due to power constraints — demand still outpacing supply; capex guide moved up to ~$190B for CY2026 (from ~$175B)",
           "watch for": "FY2027 all-in capex (including leased capacity) still estimated near $255–260B; whether the market keeps rewarding capex once that bigger number is actually on the table, not just guided"
         },
         {
@@ -100,7 +100,7 @@
           "ticker": "ORCL",
           "company": "Oracle",
           "angle": "Neocloud at scale; AI backlog $638B, driven largely by a $300B OpenAI compute deal; FY2026 capex came in at $55.7B, but S&P now models $90–95B for FY2027",
-          "watch for": "S&P downgraded Oracle's credit to BBB- (one notch above junk) on Aug 25, with Moody's holding a negative outlook; FY26 free cash flow was already -$23.7B and S&P sees the deficit widening to ~$42B in FY27; Oracle says it won't add more debt in CY2026, leaning on a $20B equity raise instead; a fresh round of layoffs is planned ahead of the Sept 1 start of fiscal Q2, even as the stock — down 58% from its 12-month high — rallied 4.5%+ in an Aug 26 AI-wide rebound"
+          "watch for": "S&P downgraded Oracle's credit to BBB- (one notch above junk) on Aug 25, with Moody's holding a negative outlook; FY26 free cash flow was already -$23.7B and S&P sees the deficit widening to ~$42B in FY27; Oracle says it won't add more debt in CY2026, leaning on a $20B equity raise instead; a fresh round of layoffs took effect with the Sept 1 start of fiscal Q2, even as the stock — down 58% from its 12-month high — rallied 4.5%+ in an Aug 26 AI-wide rebound"
         }
       ]
     },
@@ -119,13 +119,13 @@
         {
           "ticker": "PATH",
           "company": "UiPath",
-          "angle": "Automation software navigating the agentic-AI transition",
-          "watch for": "Whether AI agents are tailwind or replacement"
+          "angle": "Automation software navigating the agentic-AI transition; Q2 CY2026 revenue $410.3M (+13.4% YoY) beat the $397.9M estimate; raised full-year revenue guide to ~$1.79B at the midpoint",
+          "watch for": "Growth (~13%) is a fraction of Palantir's (~93%) or the chip names' triple-digit pace — the open question is whether AI agents end up a tailwind or a replacement for RPA-style automation"
         },
         {
           "ticker": "SPCX",
           "company": "SpaceX",
-          "angle": "Combined with xAI in a Feb 2026 all-stock merger (SpaceX ~$1T + xAI ~$250B); IPO'd Jun 12 at $135, still the largest IPO ever; xAI shipped Grok 4.6 on Aug 12, matching GPT-5.6 Sol Max on independent benchmarks at the same price as Grok 4.5",
+          "angle": "Combined with xAI in a Feb 2026 all-stock merger (SpaceX ~$1T + xAI ~$250B); IPO'd Jun 12 at $135, still the largest IPO ever; xAI shipped Grok 4.6 on Aug 12, matching GPT-5.6 Sol Max on independent benchmarks at the same price as Grok 4.5; Musk said SpaceX will launch its first orbital AI data center using Nvidia technology in Q4 2027, targeting \"significant scale\" by 2028",
           "watch for": "xAI capex more than doubled to $15.8B in Q2 (2x Q1, above the $13.09B Street estimate) even as Alphabet agreed to pay SpaceX $920M/month from Oct 2026–Jun 2029 for access to ~110,000 Nvidia GPUs — a real new revenue stream that partly offsets the burn. Morgan Stanley has floated pricing the AI business at effectively zero"
         },
         {
@@ -141,12 +141,12 @@
     {
       "name": "Anthropic",
       "value": "~$965B VAL (SERIES H) · IPO ~OCT 26",
-      "note": "Revenue run-rate held near $65B annualized at end of July with the company's first operating profit. Reports now point to an Oct 26 IPO with a first-day market cap near $1.82T, and some accounts still float $2T or more — which would eclipse SpaceX's $1.77T IPO valuation as the largest listing ever."
+      "note": "Revenue run-rate held near $65B annualized at end of July with the company's first operating profit. Reports point to an Oct 26 IPO with a first-day market cap near $1.85T — which would eclipse SpaceX's $1.77T IPO valuation as the largest listing ever."
     },
     {
       "name": "OpenAI",
       "value": "~$852B VAL · IPO TARGETING 2027",
-      "note": "Still marked at $852B via the Aug 10 employee tender offer. CFO Sarah Friar told an all-hands in August the company \"will become a public company in 2027,\" with some estimates pointing to a listing valuation near $1.06T. ~$20B 2025 revenue against a projected ~$14B 2026 loss."
+      "note": "Still marked at $852B via the Aug 10 employee tender offer, unchanged this edition. Crossed $40B in annualized revenue (~$3.3B/month) in August, up from ~$20B a year earlier, while a confidential S-1 filed June 8 keeps 2027 as the earliest realistic IPO window; CFO Sarah Friar has reiterated that target."
     },
     {
       "name": "Mistral",
@@ -162,11 +162,11 @@
   "bear_case": [
     {
       "title": "The revenue gap",
-      "description": "Sequoia's own framework for the revenue needed to justify AI capex has risen from $200B (late 2023) to roughly $600B today; actual AI-attributable revenue is estimated at just $50–150B annually (Exponential View pegs the broader generative-AI run rate near $175B) — a 4–13x gap that keeps widening as the top-5 hyperscaler 2026/FY27 capex total climbs to $815–840B. The BIS's June 2026 annual report names an AI-capex bust as one of its top three risks to global financial stability."
+      "description": "The industry has now committed an estimated $3–4T to AI infrastructure against an annualized return requirement of roughly $600–800B in new profit (up from Sequoia's original $200B framework in late 2023), while actual AI-attributable revenue runs an estimated $50–150B a year — a gap that keeps widening as the top-5 hyperscaler 2026/FY27 capex total climbs to $825–855B. For context, cloud computing's capex-to-revenue ratio at the same point in its adoption curve (2011) was roughly 2.4:1, far below today's multiple. The BIS's June 2026 annual report still names an AI-capex bust as one of its top three risks to global financial stability."
     },
     {
       "title": "Rates are the transmission mechanism — but strength can still win the argument",
-      "description": "The Aug 18 rate-driven selloff (30-year Treasury at 5.32%, SOXX -4.96%, CoreWeave -12%) argued a debt-funded buildout is now exposed to financing-cost risk, not just AI-demand risk. But NVIDIA's Aug 26 beat-and-raise ($96.2B revenue, $108B Q3 guide) helped the Nasdaq rally 1.6% the next session, and commentary has already started citing names like Microsoft, TSMC and Cisco as evidence the bubble narrative is losing its best argument — a reminder the debate can swing hard in either direction week to week."
+      "description": "The 30-year Treasury has held near 19-year highs (~5.25–5.29% through early September) as AI-linked debt issuance adds to bond-supply pressure, and stocks have chopped session to session on the news (S&P 500 +0.46% one day, -0.4% the next in the first week of September). But Broadcom's Sept 2 beat-and-raise and Dell/HPE's Sept 3 jump on AI-server demand kept the fundamental-demand side of the argument intact — a reminder the debate can swing hard in either direction week to week."
     },
     {
       "title": "Off-balance-sheet obligations turning concrete",
@@ -174,7 +174,7 @@
     },
     {
       "title": "Circular financing",
-      "description": "Nvidia's proposed OpenAI financing backstop was cut from an originally floated $250B to under $120B and now covers only the first phase of an Ohio data center — a sign the market's pushback on \"vendor financing its own customers\" is affecting deal structure. Jensen Huang insists the arrangement isn't circular financing, but Michael Burry has escalated, calling Nvidia's revenue \"majority circularly financed\" and adding shorts on Oracle, Micron and Nebius plus March 2027 puts on the semiconductor ETF. Nvidia's own reported $12.9B pursuit of Hugging Face (Aug 26) extends the web one layer further, from chips into the model-hosting layer its customers depend on."
+      "description": "Nvidia's proposed OpenAI financing backstop remains capped under $120B and covers only the first phase of an Ohio data center — a sign the market's pushback on \"vendor financing its own customers\" is affecting deal structure. Michael Burry has escalated, calling Nvidia's revenue \"majority circularly financed\" and adding shorts on Oracle, Micron and Nebius plus March 2027 puts on the semiconductor ETF. Separately, analysts have tallied more than $800B in criss-crossing investment and purchase commitments across the broader AI supply chain, a pattern CNBC's Jim Cramer publicly compared to dot-com-era financing on July 27. Nvidia's own newly confirmed $12.93B Hugging Face acquisition (Sept 2) extends the web one layer further, from chips into the open-source model-hosting layer its customers depend on."
     },
     {
       "title": "Depreciation clock",
@@ -182,149 +182,144 @@
     },
     {
       "title": "Layoffs while capex soars",
-      "description": "Oracle is planning another round of job cuts ahead of the Sept 1 start of its fiscal Q2 — on top of the ~21,000 already cut — even as S&P now models $90–95B of FY2027 capex funded substantially by a fresh equity raise. Microsoft cut roughly 4,800 more in July. Tech-sector layoffs remain near a 20-year high. The juxtaposition — record infrastructure spend, shrinking headcount, and disclosures like Meta's own AI systems breaching internal test environments — keeps fueling the argument that AI economics lean on cost-cutting elsewhere in the business, not on AI revenue itself."
+      "description": "Oracle's latest round of job cuts took effect with the Sept 1 start of its fiscal Q2 — on top of the ~21,000 already cut — even as S&P now models $90–95B of FY2027 capex funded substantially by a fresh equity raise. Microsoft cut roughly 4,800 more in July. Tech-sector layoffs remain near a 20-year high. The juxtaposition — record infrastructure spend, shrinking headcount, and disclosures like Meta's own AI systems breaching internal test environments — keeps fueling the argument that AI economics lean on cost-cutting elsewhere in the business, not on AI revenue itself."
     },
     {
       "title": "Concentration everywhere",
-      "description": "AI is simultaneously the market's largest index weight, VC's largest allocation (OpenAI and Anthropic alone took 43% of a record $510B global H1 2026 venture total), and this hub's connective thread — a drawdown would hit robotics, nuclear, storage and quantum sentiment at once, as the Aug 18 rate-driven selloff already demonstrated across chip names. Counterpoint: infrastructure vendors keep posting record quarters (NVIDIA's actual $96.2B Q2 FY27 print, TSMC's 2nm ramp running ahead of schedule) — some strategists call the bear case premature given actual demand signals."
+      "description": "AI is simultaneously the market's largest index weight, VC's largest allocation (OpenAI and Anthropic alone took 43% of a record $510B global H1 2026 venture total), and this hub's connective thread — a drawdown would hit robotics, nuclear, storage and quantum sentiment at once. Commentary this week has flagged unusually high concentration among megacap AI names as a risk that could fuel an outsized drop if institutions start trimming winners. Counterpoint: infrastructure vendors keep posting record quarters (Broadcom's Sept 2 beat-and-raise, Dell/HPE's Sept 3 jump on AI-server demand) — some strategists call the bear case premature given actual demand signals."
     }
   ],
   "catalysts": [
-    {
-      "date": "AUG 17, 2026",
-      "title": "Nvidia backs a scaled-down $105B OpenAI financing guarantee",
-      "description": "Nvidia's backstop for an Ohio data center was cut from an originally floated $250B to under $120B and now covers only the project's first phase, as the company works to blunt criticism that it is financing its own customer's demand."
-    },
-    {
-      "date": "AUG 18, 2026",
-      "title": "Rate-driven selloff hits AI infrastructure names",
-      "description": "The 30-year Treasury's rise to 5.32% triggered a nearly 5% single-day drop in the semiconductor index and a 12% plunge in CoreWeave, as investors rotated out of debt-heavy AI infrastructure stocks."
-    },
-    {
-      "date": "AUG 25, 2026",
-      "title": "Oracle's credit downgraded to BBB- as shares hit a 52-week low",
-      "description": "S&P cut Oracle's rating to one notch above junk on mounting AI-capex debt concerns; Oracle says it won't issue more debt in 2026, leaning on a $20B equity raise instead."
-    },
     {
       "date": "AUG 26, 2026",
       "title": "NVIDIA posts a record $96.2B quarter and guides higher",
       "description": "Revenue more than doubled YoY, Data Center revenue hit $89.0B (+117%), and the $108B Q3 guide beat expectations, helping the Nasdaq rally 1.6% the next session."
     },
     {
-      "date": "AUG 26–27, 2026",
-      "title": "Nvidia reportedly agrees to buy Hugging Face for $12.9B",
-      "description": "The unconfirmed deal would extend Nvidia's reach from chips into the open-source model-hosting layer millions of developers use daily."
+      "date": "SEPT 2, 2026",
+      "title": "Broadcom beats and raises: AI semi revenue $16.7B, long-term outlook lifted to $115B FY27 / $230B FY28",
+      "description": "Fiscal Q3 AI semiconductor revenue rose 221% YoY, beating Broadcom's own $16.0B guide; management extended its outlook well past the $100B FY27 level whose absence triggered a 12.6% selloff last quarter, citing named commitments from Google, Anthropic, OpenAI and Meta."
     },
     {
-      "date": "UPCOMING",
-      "title": "Broadcom reports fiscal Q3 2026 on Sept 2",
-      "description": "Guided to ~$29.4B revenue (+84% YoY) and ~$16.0B AI semiconductor revenue (+200%+); last quarter's failure to raise the FY2027 AI-semi target above $100B triggered a 12.6% selloff, so a fresh raise is the number to watch."
+      "date": "SEPT 2–3, 2026",
+      "title": "Nvidia confirms definitive $12.93B deal to acquire Hugging Face",
+      "description": "The agreement — $11.9B to shareholders plus $1B in retention equity — is expected to close in the first half of 2027 and extends Nvidia's reach from chips into the open-source model-hosting layer used by over 18 million developers."
+    },
+    {
+      "date": "SEPT 3, 2026",
+      "title": "Dell +9.4%, HPE +5.5% on raised AI server revenue forecasts",
+      "description": "Both hardware makers rallied premarket after lifting guidance on AI server demand, broadening the \"AI capex is real\" signal beyond the chipmakers themselves."
+    },
+    {
+      "date": "SEPT 1–4, 2026",
+      "title": "30-year Treasury holds near 19-year highs; markets chop day to day",
+      "description": "The long bond sat around 5.25–5.29% as AI-linked debt issuance added to bond-supply pressure; the S&P 500 and Nasdaq swung between gains and losses through the week, with commentary flagging megacap AI concentration as a risk if institutions start trimming winners."
     }
   ],
   "etfs": [
     {
       "ticker": "SMH",
       "name": "VanEck Semiconductor",
-      "summary": "The silicon layer: NVDA/TSM/AVGO-heavy. +83% YTD (1-yr +158%) — still the best performer of the three, though it took a direct hit in the Aug 18 rate-driven selloff and remains the most volatile of the group (~17–18% annualized)"
+      "summary": "The silicon layer: NVDA/TSM/AVGO-heavy. +52.9% YTD (1-yr +92.8%) as of early September — still the best performer of the three, and still the most volatile of the group given its direct exposure to rate-driven swings in chip names"
     },
     {
       "ticker": "AIQ",
       "name": "Global X Artificial Intelligence & Tech",
-      "summary": "Broad AI beneficiaries across the stack. +20% YTD — still trailing SMH by a wide margin"
+      "summary": "Broad AI beneficiaries across the stack. +20.2% YTD (1-yr +39.7%) — still trailing SMH by a wide margin"
     },
     {
       "ticker": "QQQ",
       "name": "Invesco Nasdaq-100",
-      "summary": "The de-facto AI mega-cap index. +20.7% YTD — cheapest exposure (0.18% fee vs. SMH's 0.35%) and lowest volatility, but the most concentration overlap with everything else you own"
+      "summary": "The de-facto AI mega-cap index. +15.7% YTD (1-yr +26.0%) — cheapest exposure (0.18% fee vs. SMH's 0.35%) and lowest volatility, but the most concentration overlap with everything else you own"
     }
   ],
   "sources": [
-    { "title": "NVIDIA Newsroom — Financial Results for Second Quarter Fiscal 2027", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027" },
-    { "title": "CNBC — Nvidia agrees to buy Hugging Face for $12.9 billion, report says", "url": "https://www.cnbc.com/2026/08/27/nvidia-hugging-face-acquisition.html" },
-    { "title": "CNBC — Nvidia backing $105 billion in financing for OpenAI data center in Ohio", "url": "https://www.cnbc.com/2026/08/17/nvidia-financing-open-ai-data-center-ohio.html" },
-    { "title": "Benzinga — Michael Burry points to Nvidia's $105B OpenAI guarantee as circular-financing red flag", "url": "https://www.benzinga.com/markets/earnings/26/08/61486426/michael-burry-points-to-nvidias-105b-openai-guarantee-as-circular-financing-red-flag-whistling-past-the-graveyard" },
-    { "title": "Benzinga — Michael Burry doubles down on Oracle, Micron, Nebius shorts", "url": "https://www.benzinga.com/markets/prediction-markets/26/08/61210492/michael-burry-ai-shorts-oracle-micron-nebius" },
-    { "title": "Yahoo Finance — Oracle hits a fresh 52-week low and has its credit cut toward junk", "url": "https://finance.yahoo.com/markets/stocks/articles/oracle-just-hit-fresh-52-170700819.html" },
-    { "title": "Quartz — Oracle planning new round of layoffs in August 2026", "url": "https://qz.com/oracle-layoffs-august-ai-debt-081226" },
-    { "title": "The Motley Fool — Palantir lost an $875 million contract. Is the stock still a buy?", "url": "https://www.fool.com/investing/2026/08/25/palantir-lost-an-875-million-contract-is-the-stock/" },
-    { "title": "24/7 Wall St — Palantir stock could be in for a big September", "url": "https://247wallst.com/investing/2026/08/26/palantir-stock-could-be-in-for-a-big-september-heres-why/" },
-    { "title": "TrendForce — TSMC 3nm monthly wafer starts to hit 180K by early 4Q26", "url": "https://www.trendforce.com/news/2026/08/03/news-tsmc-3nm-monthly-wafer-starts-to-hit-180k-by-early-4q26-on-strong-demand-2-3-months-ahead-of-expectations" },
-    { "title": "TechNode — TSMC's 2nm monthly capacity to reach 100,000 wafers", "url": "https://technode.com/2026/08/05/tsmcs-2nm-monthly-capacity-to-reach-100000-wafers/" },
-    { "title": "ad-hoc-news — AMD stock trades around $476 as Q2 2026 AI revenue surge anchors rich valuation", "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/amd-stock-trades-around-476-as-q2-2026-ai-revenue-surge-anchors-rich/70016272" },
-    { "title": "Tickeron — Broadcom (AVGO) earnings preview: AI demand surge puts $16 billion target in focus", "url": "https://tickeron.com/earnings/AVGO/" },
+    { "title": "NVIDIA Blog — NVIDIA to Acquire Hugging Face", "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/" },
+    { "title": "TechCrunch — Nvidia confirms it will buy Hugging Face for $12.9 billion", "url": "https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/" },
+    { "title": "CNBC — Broadcom (AVGO) Q3 earnings report 2026", "url": "https://www.cnbc.com/2026/09/02/broadcom-avgo-q3-earnings-report-2026.html" },
+    { "title": "Seeking Alpha — Broadcom forecasts $58B fiscal 2026 AI revenue and outlines $115B in 2027, $230B in 2028", "url": "https://seekingalpha.com/news/4639799-broadcom-forecasts-58b-fiscal-2026-ai-revenue-and-outlines-115b-in-2027-230b-in-2028" },
+    { "title": "Yahoo Finance — Tech stocks today: Dell, HPE jump on AI server demand", "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-apple-ceo-steps-down-nvidia-mag-7-145623375.html" },
+    { "title": "CNBC — Stock market news for Sept. 2, 2026", "url": "https://www.cnbc.com/2026/09/01/stock-market-today-live-updates.html" },
+    { "title": "Trading Economics — United States 30 Year Bond Yield", "url": "https://tradingeconomics.com/united-states/30-year-bond-yield" },
+    { "title": "Value Add VC — OpenAI Revenue 2026: $40B ARR as Anthropic Hits $65B", "url": "https://valueaddvc.com/blog/openai-revenue-2026-20b-arr-4b-month-path-to-profitability" },
+    { "title": "Yahoo Finance — Anthropic revenue run rate hits $65 billion ahead of IPO", "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-revenue-run-rate-hits-111710007.html" },
+    { "title": "Forbes — OpenAI vs. Anthropic IPO: how they compare and what we know (September 2026)", "url": "https://www.forbes.com/sites/investor-hub/article/openai-vs-anthropic-ipo-comparison/" },
+    { "title": "CNBC — TSMC's sales surge 45% amid buoyant AI demand", "url": "https://www.cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html" },
+    { "title": "Yahoo Finance — UiPath (NYSE:PATH) Q2 CY2026 sales top estimates", "url": "https://finance.yahoo.com/markets/stocks/articles/uipath-nyse-path-q2-cy2026-204113775.html" },
     { "title": "Crunchbase News — Global startup investment hits record $510B in H1 2026", "url": "https://news.crunchbase.com/venture/global-startup-exits-ipo-ma-soar-ai-q2-h1-2026/" },
-    { "title": "FutureSearch — Anthropic and OpenAI IPO dates and valuations: forecasts and odds", "url": "https://futuresearch.ai/anthropic-openai-ipo-dates-valuations/" },
-    { "title": "Forbes — OpenAI vs. Anthropic IPO: how they compare and what we know (August 2026)", "url": "https://www.forbes.com/sites/investor-hub/article/openai-vs-anthropic-ipo-comparison/" },
-    { "title": "CNBC — Stock market news for Aug. 27, 2026", "url": "https://www.cnbc.com/2026/08/26/stock-market-today-live-updates.html" },
-    { "title": "ETF.com — SMH vs. SOXX, SPY vs. IVV: the most compared ETFs of 2026", "url": "https://www.etf.com/sections/news/smh-vs-soxx-spy-vs-ivv-most-compared-etfs-2026" }
+    { "title": "PortfoliosLab — SMH vs. QQQ performance comparison", "url": "https://portfolioslab.com/tools/stock-comparison/SMH/QQQ" },
+    { "title": "PortfoliosLab — AIQ vs. SMH performance comparison", "url": "https://portfolioslab.com/tools/stock-comparison/AIQ/SMH" },
+    { "title": "arXiv — Boom, Bubble, or Buildout? A Multi-Method Evaluation of Whether AI Is in an Ongoing Financial Bubble", "url": "https://arxiv.org/html/2606.01575v1" },
+    { "title": "CNBC — Jim Cramer warns AI's circular financing frenzy echoes the dot-com bubble", "url": "https://www.cnbc.com/2026/07/27/jim-cramer-warns-ai-circular-financing-echoes-dot-com-bubble.html" },
+    { "title": "The Motley Fool — If the September Effect hits AI stocks this year", "url": "https://www.fool.com/investing/2026/09/01/if-the-september-effect-hits-artificial-intelligen/" }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 31, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Sep 5, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "August 31, 2026",
+    "as_of": "September 5, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
         "ticker": "NVDA",
         "name": "NVIDIA",
         "stance": "core",
-        "weight": 20,
-        "note": "Actual Q2 FY27 print beat and raised — $96.2B revenue (+106% YoY), Data Center $89.0B (+117%), $108B Q3 guide — real external revenue growth that's hard to dismiss even as Michael Burry escalates his \"majority circularly financed\" charge and the OpenAI financing guarantee gets scaled back. Also sits in this hub's Quantum, Robotics and AI Biotech sleeves — don't double-count sizing.",
-        "change": "up"
+        "weight": 18,
+        "note": "Confirmed the $12.93B Hugging Face acquisition (Sept 2, closing H1 2027) and CFO Kress guided to 70%+ FY2028 revenue growth with Jensen Huang calling demand 'much greater than 70%' — fundamentals keep improving, but trimming two points to fund Broadcom's and Microsoft's fresher, more concrete beats this week, and because a second straight acquisition adds real integration and regulatory-scrutiny risk on top of Michael Burry's escalating 'majority circularly financed' rhetoric. Also sits in this hub's Quantum, Robotics and AI Biotech sleeves — don't double-count sizing.",
+        "change": null
       },
       {
         "ticker": "TSM",
         "name": "TSMC",
         "stance": "core",
         "weight": 15,
-        "note": "2nm ramp is running ahead of schedule — monthly wafer starts tracking toward ~100K by year-end with tape-outs already 4x 3nm's pace at the same stage — extending the runway with the least circular-financing exposure of any name on this page. Taiwan geopolitical risk remains the single largest tail risk in the entire hub.",
+        "note": "Raised its own 2026 revenue growth outlook to 'slightly above 40%' and lifted 2026 capex to $60–64B — a second straight upward revision with the least circular-financing exposure of any name on this page. Taiwan geopolitical risk remains the single largest tail risk in the entire hub.",
         "change": "up"
       },
       {
         "ticker": "GOOGL",
         "name": "Alphabet",
         "stance": "core",
-        "weight": 16,
-        "note": "Still the only genuinely full-stack position — TPUs, Gemini, Waymo (now expanding robotaxis across all of coastal California). Capex guide has held steady at $195–205B for two straight editions rather than escalating further, a rare sign of discipline in this group. Also appears in the Quantum sleeve — don't double-count.",
-        "change": "up"
+        "weight": 15,
+        "note": "No new company-specific catalyst this edition — the $195–205B capex guide has now held steady for two straight editions, still the most disciplined hyperscaler on that metric. Trimming one point purely to make room for Broadcom's and Microsoft's more concrete news this week, not because the thesis weakened. Also appears in the Quantum sleeve — don't double-count.",
+        "change": null
       },
       {
         "ticker": "MSFT",
         "name": "Microsoft",
         "stance": "core",
-        "weight": 13,
-        "note": "Azure's $80B unfulfilled order backlog (power-constrained, not demand-constrained) remains the standout bull signal, unchanged this week. FY2027 all-in spend is still estimated near $255–260B once leased capacity is counted. Also in the Quantum sleeve — don't double-count.",
-        "change": null
+        "weight": 14,
+        "note": "Capex guide moved up to ~$190B for CY2026 (from ~$175B) on top of the still-unfulfilled $80B Azure order backlog — a real, disclosed increase in spending commitment this time, not just a lease-accounting reclassification. FY2027 all-in spend (with leased capacity) still points near $255–260B. Also in the Quantum sleeve — don't double-count.",
+        "change": "up"
       },
       {
         "ticker": "AMZN",
         "name": "Amazon",
         "stance": "core",
         "weight": 15,
-        "note": "Capex guide raised again this week to ~$220B (from ~$200B) with no sign the market minds — AWS's 37% growth (fastest in 18 quarters) keeps giving Amazon the clearest capex-payback story of the group. Sizing up to reflect that combination of raised spend and unbroken investor confidence.",
-        "change": "up"
+        "note": "No fresh Amazon-specific catalyst this edition; last week's raise to ~$220B capex and 37% AWS growth remain the most recent data points and the clearest capex-payback story of the group. Weight unchanged.",
+        "change": null
       },
       {
         "ticker": "AVGO",
         "name": "Broadcom",
         "stance": "core",
-        "weight": 12,
-        "note": "AI bookings/backlog above $30B and shares rallied 4.5% into the Sept 2 print, but last quarter's failure to raise the FY2027 AI-semi target above $100B triggered a 12.6% selloff — an unresolved question that makes this week's earnings a real test rather than a formality.",
-        "change": null
+        "weight": 14,
+        "note": "Fiscal Q3 AI semiconductor revenue hit $16.7B (+221% YoY), beating its own $16.0B guide, and management extended its long-term outlook to ~$115B FY2027 and ~$230B FY2028 — directly resolving last quarter's failure to raise the FY27 number above $100B that had triggered a 12.6% selloff. Named commitments from Google, Anthropic, OpenAI and Meta add real customer specificity.",
+        "change": "up"
       },
       {
         "ticker": "PLTR",
         "name": "Palantir",
         "stance": "watch",
         "weight": 0,
-        "note": "Moving off Core this week: shares are up over 40% in a single month on top of an already-stretched multiple, and while the Army contract win is real, a lost French DGSI contract shows the growth story isn't purely one-directional. Good business — the price now assumes flawless execution indefinitely, which is a Watch, not a Core, situation.",
-        "change": "down"
+        "note": "No new company-specific news this edition; shares remain up over 40% in the past month on an already-stretched multiple following the Aug 4 beat-and-raise. Good business, but the price still assumes flawless execution indefinitely — staying on Watch rather than Core.",
+        "change": null
       },
       {
         "ticker": "AMD",
         "name": "AMD",
         "stance": "spec",
         "weight": 9,
-        "note": "Strong Q2 print (EPS $1.66 vs $0.48 a year ago) but the stock slipped on its own ROCm 10 launch and Cathie Wood reportedly trimmed her stake the same day — the kind of whipsaw that belongs in speculative sizing, not core.",
+        "note": "No new catalyst since the late-August ROCm 10 launch and the reported Cathie Wood trim; Q2 fundamentals (EPS $1.66 vs $0.48) remain strong, but the stock's whipsaw reaction to its own product news keeps this speculative-sized rather than core.",
         "change": null
       },
       {
@@ -332,7 +327,7 @@
         "name": "Meta",
         "stance": "watch",
         "weight": 0,
-        "note": "CFO Susan Li's \"highly dynamic\" 2026 capital planning still means no fixed capex ceiling, and the CoreWeave capacity expansion to $21B adds more off-books-style spend on top of an already capex-skeptical market reaction — no new evidence this week to move off Watch.",
+        "note": "No new Meta-specific catalyst this edition; CFO Susan Li's 'highly dynamic' capital planning and the $21B CoreWeave capacity deal already priced in last week's Watch call, and nothing this week resolves the open-ended-spending question.",
         "change": null
       },
       {
@@ -340,23 +335,23 @@
         "name": "Oracle",
         "stance": "avoid",
         "weight": 0,
-        "note": "The Aug 25 downgrade to BBB- (one notch above junk), a widening FY27 free-cash-flow deficit projected near $42B, and yet another round of layoffs planned before Sept 1 all confirm rather than change last week's Avoid — the backlog story keeps getting more expensive to sustain.",
+        "note": "The Aug 25 downgrade to BBB- and the planned layoffs took effect with the Sept 1 start of fiscal Q2, confirming rather than changing the Avoid call — a widening FY27 free-cash-flow deficit (S&P models ~$42B) funded substantially by equity dilution.",
         "change": null
       },
       {
         "ticker": "PATH",
         "name": "UiPath",
-        "stance": "avoid",
+        "stance": "watch",
         "weight": 0,
-        "note": "Nothing this week changes the core problem: being disrupted by the agent wave it markets itself as part of.",
-        "change": null
+        "note": "Q2 CY2026 revenue of $410.3M (+13.4% YoY) beat the $397.9M estimate and management raised full-year guidance to ~$1.79B at the midpoint — moving off Avoid to Watch since the agentic-disruption thesis hasn't shown up in the numbers yet, though growth is still a fraction of AI-native peers'.",
+        "change": "up"
       },
       {
         "ticker": "SPCX",
         "name": "SpaceX",
         "stance": "watch",
         "weight": 0,
-        "note": "Grok 4.6's launch keeps xAI competitive on capability, but the capex burn (Q2 more than doubled to $15.8B) still outruns confirmed new revenue like the Alphabet GPU deal. Not enough clarity yet to move off Watch.",
+        "note": "Musk said SpaceX will launch its first orbital AI data center using Nvidia technology in Q4 2027, aiming for 'significant scale' by 2028 — interesting long-dated optionality, but xAI's capex burn (more than doubled to $15.8B in Q2) still outruns confirmed new revenue like the Alphabet GPU deal. Staying on Watch.",
         "change": null
       }
     ]
