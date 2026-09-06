@@ -3,32 +3,32 @@
   "title": "Fynaptix · Energy Storage Research",
   "heading": "Energy Storage Intelligence",
   "subheading": "Grid-scale batteries, the storage software layer & next-gen chemistry",
-  "kicker": "ENERGY STORAGE & GRID // AUG 2026",
-  "generated": "Aug 31, 2026",
+  "kicker": "ENERGY STORAGE & GRID // SEP 2026",
+  "generated": "Sep 5, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
-      "value": "52 GW",
-      "sub": "US BATTERY STORAGE — CAPACITY GROWING ~70%/YEAR",
-      "label": "EIA's latest tally puts operating capacity at nearly 52 GW after 8.3 GW went online in H1 2026, with three-year growth running ~70% annually; the agency still projects a jump to 64.9 GW by year-end (from 44.6 GW) as another 14 GW arrives in H2 on top of a record 24 GW of planned 2026 additions",
+      "value": "52 GW → 64.9 GW",
+      "sub": "US BATTERY STORAGE — EIA SEES NEARLY 65 GW BY YEAR-END",
+      "label": "EIA's latest tally has operating capacity at nearly 52 GW after 8.3 GW came online in H1 2026, with the agency still projecting 64.9 GW by year-end as another 14 GW arrives in H2 — a further 26 GW is planned for 2027 and 14 GW for 2028, extending the sector's ~70%/year three-year growth run",
       "highlight": true
     },
     {
       "value": "158 GW / 459 GWh",
       "sub": "BLOOMBERGNEF 2026 GLOBAL STORAGE FORECAST",
-      "label": "BNEF now sees 158GW/459GWh of energy storage deployed worldwide in 2026; China supplied roughly 70% of the 18GWh of large-scale BESS that came online globally in July alone, underscoring how concentrated the build-out still is",
+      "label": "BNEF still sees 158GW/459GWh of energy storage deployed worldwide in 2026; China supplied roughly 70% of the 18GWh of large-scale BESS that came online globally in July, underscoring how concentrated the build-out remains",
       "highlight": false
     },
     {
-      "value": "$956",
-      "sub": "GE VERNOVA SHARE PRICE — +46% YTD, NEAR RECORD HIGHS",
-      "label": "GEV closed near $956 in late August (+46.4% YTD, ~$254.8B market cap) after Quinbrook selected it for Stage 3 of the Supernode BESS project in Queensland and it launched new SF6-free switchgear at CIGRE Paris — the AI-data-center order backlog keeps compounding, but so does the multiple",
+      "value": "$176B",
+      "sub": "GE VERNOVA BACKLOG — UP 37% YEAR OVER YEAR",
+      "label": "GEV's backlog stood at $176B as of Q2, up 37% YoY on AI-data-center and grid-electrification demand, with 2026 guidance now calling for at least 125GW of gas equipment under contract by year-end; shares trade near $946–959 (+37.5% YTD, ~$252B market cap) even after an Aug 27 CFO transition",
       "highlight": true
     },
     {
-      "value": "10–15%",
-      "sub": "EOS ENERGY TARGETS CONVERSION-COST CUT",
-      "label": "Eos announced Aug 27 it will consolidate battery manufacturing at its Thorn Hill, PA plant, targeting a 10–15% conversion-cost reduction starting in 2027 — a credible fix, but one that doesn't arrive before a Q2 net loss that widened to $275.7M and open securities-law investigations",
+      "value": "+19%",
+      "sub": "EOS ENERGY SURGES ON GOOGLE DATA-CENTER STORAGE DEAL",
+      "label": "Eos jumped roughly 19% on Sept 2 after MN8 Energy, Google and Eos unveiled a $350M West Virginia project pairing 86MW of solar with 70MW/280MWh of lithium-ion and 10MW/100MWh of Eos zinc-based (Z3) storage — Google's first use of Eos technology, though storage revenue doesn't begin until 2029–2030",
       "highlight": false
     }
   ],
@@ -49,20 +49,20 @@
         {
           "ticker": "FLNC",
           "company": "Fluence Energy",
-          "angle": "Global grid-scale leader; Q3 FY26 order intake nearly tripled YoY to a record $1.44B and backlog grew to $6.4B, but revenue of $650M landed ~$90M below expectations on production delays at two new contract-manufacturing facilities, prompting a FY26 guidance cut to $2.9–3.1B (from $3.2–3.6B)",
-          "watch for": "Analyst sentiment stays split: UBS upgraded to Neutral ($12, from $9) even as GLJ downgraded to Hold ($12.89, from $26) and Citi trimmed its own target to $20 from $24 (still Buy) — shares are down ~51% YTD while the execution debate, not the demand debate, drives the stock"
+          "angle": "Global grid-scale leader; Q3 FY26 order intake nearly tripled YoY to a record $1.44B and backlog grew to $6.4B, but roughly $400M of Q3 project deliveries slipped into fiscal 2027 after production issues at a new international contract manufacturer, prompting a FY26 revenue guidance cut to $2.9–3.1B (from $3.2–3.6B)",
+          "watch for": "Barclays downgraded shares to Underweight on Sept 3 with a $10 price target; the stock fell ~3.9% to $10.36, extending a slide of more than 50% YTD — the demand story (record backlog) keeps losing the argument to the execution story"
         },
         {
           "ticker": "GEV",
           "company": "GE Vernova",
-          "angle": "Grid equipment super-cycle beneficiary; Quinbrook selected GEV Aug 24 for Stage 3 of the Supernode BESS project in Queensland, Australia, and the company used CIGRE Paris (Aug 23–28) to launch a new 170kV SF6-free gas-insulated switchgear, marking 10 years of its g³ decarbonization tech",
-          "watch for": "Shares closed near $956 (+46.4% YTD, ~$254.8B market cap) — valuation now embeds much of the AI-power-demand story; backlog trajectory toward $200B by 2027 remains the key data point to track"
+          "angle": "Grid equipment super-cycle beneficiary; backlog reached $176B in Q2, up 37% YoY on AI-data-center and grid-electrification demand, and the company raised 2026 guidance toward at least 125GW of gas equipment under contract by year-end",
+          "watch for": "Shares near $946–959 (+37.5% YTD, ~$252B market cap) price in much of the AI-power story; an Aug 27 CFO transition adds a leadership-succession variable alongside the backlog trajectory toward $200B"
         },
         {
           "ticker": "ENPH",
           "company": "Enphase",
-          "angle": "Pushing past hardware: the agentic AI Assistant shipped inside the Enphase App (Aug 20), the integrated solar/storage/backup/EV platform expanded into Italy, and Dutch homeowner outreach ramped ahead of the country's net-metering phase-out (Aug 25), alongside the IQ Battery C80 commercial pre-orders",
-          "watch for": "Sell-side split: Evercore ISI raised its target to $41 from $37 (Aug 17), while Bernstein initiated/held at Hold (Aug 21) — the residential-solar policy headwind remains the real swing factor, not the product cadence"
+          "angle": "Pushing past hardware: the agentic AI Assistant remains live inside the Enphase App, IQ Battery C80 commercial pre-orders continue, and Enphase Care — the premium support subscription — passed 7,500 US enrollments (announced Sept 1)",
+          "watch for": "Sell-side consensus has settled at Hold (19 analysts, as of Sept 2) with shares trading $34.82–$36.21 — the residential-solar policy headwind (net-metering phase-outs abroad, US policy uncertainty) remains the dominant swing factor, not product cadence"
         }
       ]
     },
@@ -76,25 +76,25 @@
           "ticker": "QS",
           "company": "QuantumScape",
           "angle": "Solid-state lithium-metal batteries (VW-backed); Cobra-process QSE-5 cells continue shipping to Volkswagen Group and were demonstrated on the Ducati V21L race bike; the Honda R&D/manufacturing partnership and the Eagle Line pilot keep running toward a scaled-manufacturing blueprint",
-          "watch for": "Truist cut its price target to $6 from $8 (Hold) this week; the Street's median target near $7.50 masks a wide $2.50–$10 dispersion, and there's still no production license, no volume commitment, and no revenue"
+          "watch for": "No fresh catalysts since the July Q2 print and June Honda agreement; Truist's price target still sits at $6 (cut from $8) and the Street's median near $7.50 masks a wide $2.50–$10 dispersion, with still no production license, no volume commitment, and no revenue"
         },
         {
           "ticker": "EOSE",
           "company": "Eos Energy",
-          "angle": "Zinc-based long-duration storage (LDES); announced Aug 27 it will consolidate battery manufacturing at its Thorn Hill, PA plant (commercial production began there in June), targeting a 10–15% conversion-cost cut starting in 2027",
-          "watch for": "The consolidation is a genuine cost lever but doesn't touch the underlying overhang: a Q2 net loss that widened to $275.7M, FY26 revenue guidance tightened to $300–350M, and securities-law investigations opened Aug 20 remain unresolved; TD Cowen and Roth both hold $4 price targets"
+          "angle": "Zinc-based long-duration storage (LDES); Sept 2 news of a $350M multi-technology project with Google and MN8 Energy in West Virginia (86MW solar, 70MW/280MWh Li-ion, 10MW/100MWh Eos Z3) marks Google's first use of Eos tech and the state's first commercial LDES deployment — shares jumped ~19% on the news",
+          "watch for": "Storage revenue doesn't start until 2029–2030, so this validates the technology and lengthens the logo list without changing near-term financials; the Q2 net loss that widened to $275.7M and the securities-law investigations opened Aug 20 remain unresolved, and the Thorn Hill manufacturing consolidation's 10–15% conversion-cost cut still doesn't arrive until 2027"
         },
         {
           "ticker": "STEM",
           "company": "Stem Inc",
           "angle": "AI-driven storage optimization software (PowerTrack); Q2 2026 (reported Aug 12) EPS of -$1.58 beat the -$1.99 estimate, and FY26 revenue guidance was reaffirmed at $140–190M",
-          "watch for": "Roth Capital cut its target to $6.75 from $11 on Aug 17 despite the EPS beat, since the reaffirmed guide sits below the $158M Street consensus at the midpoint — cost control is working, top-line conviction still isn't there"
+          "watch for": "No fresh catalysts this week; Roth Capital's Aug 17 cut to $6.75 from $11 still stands since the reaffirmed guide sits below the $158M Street consensus at the midpoint — cost control is working, top-line conviction still isn't there"
         },
         {
           "ticker": "NRGV",
           "company": "Energy Vault Holdings",
           "angle": "Battery/gravity storage integrator; the 1.25 GW off-grid BESS + grid-forming power deal for a hyperscale Texas data center (~$500–600M of expected 2H26–2027 revenue) remains the headline proof point",
-          "watch for": "Still facing direct competition for data-center BESS deals after Cummins' Aug 18 announcement of what it calls its largest-ever BESS deployment for an undisclosed US data center — the co-located storage niche keeps getting crowded by larger, better-capitalized players"
+          "watch for": "Still facing direct competition for data-center BESS deals after Cummins' Aug 18 announcement of its largest-ever BESS deployment for an undisclosed US data center — the co-located storage niche keeps getting crowded by larger, better-capitalized players"
         }
       ]
     }
@@ -102,172 +102,162 @@
   "private_watchlist": [],
   "bear_case": [
     {
-      "title": "China dominates cells — and is now adding a new cost lever",
-      "description": "CATL shipped 125GWh of storage cells in H1 2026 (27.1% of the global market) while BYD took the integrator crown from Tesla with 60GWh shipped in 2025 versus Tesla's 46.7GWh; the two are now underbidding each other abroad — BYD won an 11.275GWh Masdar (UAE) storage deal that was initially expected to go to CATL. CATL confirmed Aug 20 that its Naxtra sodium-ion cells will hit cost parity with LFP by end-2026, with first China deliveries of its TENER Sodium grid system starting September — a fresh cost-curve threat layered on top of existing scale dominance."
+      "title": "China dominates cells — and keeps adding cost levers",
+      "description": "China's domestic power-battery installations hit 76.5GWh in June alone (+31.5% YoY), with CATL holding 42.7% share and BYD 18.5%; both are now exporting that scale advantage abroad — BYD's 11.275GWh Masdar (Abu Dhabi) storage win and a new CATL-Alfen supply deal bringing 5GWh of sodium-ion batteries to Europe show the pattern spreading beyond home turf. CATL's Naxtra sodium-ion cells remain on track for cost parity with LFP by year-end, with first China deliveries of the TENER Sodium grid system beginning this month — a cost-curve threat layered on top of existing scale dominance."
     },
     {
-      "title": "Policy whiplash is already claiming casualties",
-      "description": "Wood Mackenzie's projected 11% contraction in the US utility-scale storage market in 2026 (with a further 8% decline in 2027) as FEOC content restrictions and Section 301 tariffs bottleneck compliant equipment still frames the risk, even as EIA's own numbers show capacity still climbing — nearly 52GW online, a record 24GW of 2026 additions planned, and a path to 64.9GW by year-end. Over $32B of US clean-energy storage projects were already canceled or downsized in 2025, and integrator Powin's Chapter 11 liquidation remains the clearest casualty to date; 2027's planned adds (26GW) look more like deceleration than the quadrupling bulls expect by 2031."
+      "title": "Tariffs and policy add a second axis of pressure",
+      "description": "Section 301 tariffs on Chinese-origin battery energy storage systems rose to 25% on January 1, 2026, pushing the combined tariff burden on Chinese batteries and BESS to roughly 55%, while FEOC content thresholds now disqualify projects leaning too heavily on restricted foreign entities — starting at 55% in 2026 and tightening to 75% after 2029. Wood Mackenzie still projects an 11% contraction in the US utility-scale storage market in 2026 (and a further 8% decline in 2027) even as EIA data shows capacity still climbing toward 64.9GW by year-end — compliance costs are rising regardless of which growth trajectory proves right."
     },
     {
       "title": "Margin compression",
-      "description": "Fluence's Q3 revenue landed ~$90M below expectations on contract-manufacturer ramp delays, forcing a $400M cut (at the midpoint) to FY26 guidance even as backlog hit a record $6.4B — demand isn't the constraint, delivery is. Eos Energy's Aug 27 Thorn Hill consolidation targets a 10–15% conversion-cost cut, but not until 2027, and doesn't touch the Q2 net loss that widened to $275.7M or the open securities-law investigations. Stem beat on EPS but still had its price target cut on a soft revenue guide — margin discipline and top-line growth keep trading off against each other across the sector."
+      "description": "Barclays downgraded Fluence to Underweight on Sept 3 with a $10 price target, and shares fell to roughly $10.36 — a fresh sign that the ~$400M of Q3 deliveries pushed into fiscal 2027 on contract-manufacturer delays is a durable concern, not a one-quarter blip, even against a record $6.4B backlog. Eos Energy's Sept 2 Google/MN8 partnership is a genuine technology and logo win, but it generates no storage revenue until 2029–2030 and does nothing for the Q2 net loss that widened to $275.7M or the open securities-law investigations — the sector keeps proving it can win orders faster than it can convert them to margin."
     },
     {
       "title": "Solid-state timelines",
-      "description": "QuantumScape's Cobra-process cells keep shipping to Volkswagen and appeared on the Ducati V21L, and Honda has now signed on for solid-state R&D and manufacturing collaboration, but Truist cut its price target to $6 from $8 this week and the Street's targets range from $2.50 to $10 — a sign of genuine disagreement about whether QuantumScape (or peers like Factorial Energy) can mass-produce solid-state cells at all against Chinese-dominated manufacturing scale. Still no production license, no volume commitment, and no revenue."
+      "description": "QuantumScape has gone quiet since its July Q2 print and June Honda R&D agreement — no September catalysts have emerged, and Truist's $6 price target (cut from $8 in August) still stands against a Street range of $2.50–$10. The absence of news is itself a data point: with no production license, no volume commitment, and no revenue, the gap between demonstrated lab performance and mass-manufacturable solid-state cells sits exactly where it was a month ago."
     }
   ],
   "catalysts": [
     {
-      "date": "AUG 17, 2026",
-      "title": "Roth Capital cuts Stem price target to $6.75 from $11",
-      "description": "Comes despite Stem's Aug 12 EPS beat (-$1.58 vs. -$1.99 est.); the reaffirmed FY26 revenue guide of $140–190M sits below the $158M Street consensus at the midpoint."
-    },
-    {
-      "date": "AUG 20, 2026",
-      "title": "CATL confirms sodium-ion cost parity with LFP by end-2026",
-      "description": "Naxtra sodium-ion cells are on track to match LFP costs, with first China customer deliveries of the TENER Sodium grid system beginning in September — a new axis of Chinese cost-curve pressure on Western cell makers."
-    },
-    {
-      "date": "AUG 21, 2026",
-      "title": "Enphase receives a Hold rating from Bernstein",
-      "description": "Comes days after Evercore ISI raised its own target to $41 from $37 (Aug 17) — a split sell-side view even as Enphase pushes into agentic AI and commercial storage."
-    },
-    {
-      "date": "AUG 24, 2026",
-      "title": "Quinbrook selects GE Vernova for Stage 3 of the Supernode BESS project (Queensland, Australia)",
-      "description": "Adds to a backlog trajectory that already includes H1 AI data-center orders more than double all of 2025; shares held near $956, +46.4% YTD."
-    },
-    {
-      "date": "AUG 26, 2026",
-      "title": "GE Vernova launches 170kV SF6-free switchgear at CIGRE Paris",
-      "description": "Marks 10 years of the company's g³ technology and expands its GRiDEA grid-decarbonization portfolio as utilities look to connect new data-center and industrial loads."
-    },
-    {
       "date": "AUG 27, 2026",
-      "title": "Eos Energy to consolidate battery manufacturing at its Thorn Hill, PA facility",
-      "description": "Expected to cut conversion costs 10–15% starting in 2027; comes three weeks after the company's Q2 net loss widened to $275.7M and securities-law investigations opened."
+      "title": "GE Vernova announces a CFO transition as part of a broader leadership succession plan",
+      "description": "Comes as backlog stands at $176B (+37% YoY) on AI-data-center and grid demand; the market has so far treated the change as routine, with shares holding near $950."
+    },
+    {
+      "date": "SEP 1, 2026",
+      "title": "CATL enters September on schedule for first sodium-ion storage deliveries in China",
+      "description": "Naxtra/TENER Sodium grid-system deliveries confirm the year-end LFP cost-parity target is on track, adding a fresh cost-curve threat for Western cell makers."
+    },
+    {
+      "date": "SEP 2, 2026",
+      "title": "Eos Energy surges ~19% on $350M Google/MN8 West Virginia clean-energy project",
+      "description": "First commercial long-duration storage deployment in the state and Google's first use of Eos Z3 zinc technology, though storage revenue doesn't begin until 2029–2030."
+    },
+    {
+      "date": "SEP 3, 2026",
+      "title": "Barclays downgrades Fluence Energy to Underweight, cuts price target to $10",
+      "description": "Shares fell ~3.9% to $10.36; the call cites roughly $400M of Q3 deliveries slipping into fiscal 2027 on contract-manufacturer delays."
     }
   ],
   "etfs": [
     {
       "ticker": "GRID",
       "name": "First Trust Clean Edge Smart Grid",
-      "summary": "Grid infrastructure & equipment; closed near $179 on Aug 30, off its $199.99 52-week high but well above its $139.18 low — demand for grid buildout stays intact even as individual names gap around on earnings"
+      "summary": "Grid infrastructure & equipment; trading near $179 in a tight $177.89–$179.68 band in early September — demand for grid buildout stays intact even as individual names gap around on earnings"
     },
     {
       "ticker": "BATT",
       "name": "Amplify Lithium & Battery",
-      "summary": "Battery value chain; up ~3.6% in late August, extending 2026's storage-hardware re-rating"
+      "summary": "Battery value chain; continuing 2026's storage-hardware re-rating into September, though Fluence's Sept 3 downgrade is a reminder that single-name volatility still drives short-term moves in the fund"
     },
     {
       "ticker": "LIT",
       "name": "Global X Lithium & Battery Tech",
-      "summary": "Lithium miners to battery makers; up ~2.7% in late August, continuing to track BATT closely"
+      "summary": "Lithium miners to battery makers; posted a 56.4% trailing-twelve-month total return per recent fund data, continuing to track BATT closely"
     }
   ],
   "sources": [
     {
-      "title": "The Motley Fool — Fluence Energy (FLNC) Q3 2026 earnings call transcript",
-      "url": "https://www.fool.com/earnings/call-transcripts/2026/08/12/fluence-energy-flnc-q3-2026-earnings-call-transcript/"
+      "title": "Yahoo Finance — Fluence Energy (FLNC) stock trades down after Barclays downgrade",
+      "url": "https://finance.yahoo.com/news/fluence-energy-flnc-stock-trades-204718860.html"
     },
     {
-      "title": "Investing.com — Fluence Q3 FY2026 slides: record orders offset by execution woes",
-      "url": "https://www.investing.com/news/company-news/fluence-q3-fy2026-slides-record-orders-offset-by-execution-woes-93CH-4843302"
+      "title": "Yahoo Finance — GE Vernova holds a $176 billion backlog, yet Wall Street is selling",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ge-vernova-holds-176-billion-203000527.html"
     },
     {
-      "title": "Energy-Storage.news — Tesla reports record energy storage deployments and profit",
-      "url": "https://www.energy-storage.news/tesla-reports-record-energy-storage-deployments-and-profit-ahead-of-vote-on-musks-monster-pay-proposal/"
+      "title": "SEC — GE Vernova Q2 2026 Form 8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001996810/000199681026000147/gev2q2026form8-k.pdf"
     },
     {
-      "title": "Electrek — A 500 MWh Tesla Megapack battery just went live in Texas",
-      "url": "https://electrek.co/2026/08/06/tesla-megapack-power-orsted-big-new-texas-grid-battery/"
+      "title": "GCN — EIA sees US utility-scale battery storage nearly hitting 65 GW by end of 2026",
+      "url": "https://gcn.com/eia-sees-utility-scale-battery-storage/21071"
     },
     {
-      "title": "Ad Hoc News — GE Vernova stock extends 2026 rally as AI-driven backlog and UK grid deal support outlook",
-      "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/ge-vernova-stock-extends-2026-rally-as-ai-driven-backlog-and-uk-grid-deal/70010571"
+      "title": "EIA — Battery storage capacity averaged 70% growth over the last three years",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=67925"
     },
     {
-      "title": "GE Vernova — Marks 10 years of SF6-free innovation with launch of new 170kV switchgear",
-      "url": "https://www.gevernova.com/news/press-releases/ge-vernova-marks-10-years-sf6-free-innovation-launch-new-170-kv-gas-insulated"
-    },
-    {
-      "title": "GlobeNewswire — Enphase Energy helps Dutch homeowners act before net metering ends",
-      "url": "https://www.globenewswire.com/news-release/2026/08/25/3350397/20176/en/enphase-energy-helps-dutch-homeowners-act-before-net-metering-ends-with-expanded-events-and-new-financing-access.html"
-    },
-    {
-      "title": "GlobeNewswire — Eos Energy Enterprises to consolidate battery manufacturing at Thorn Hill",
-      "url": "https://www.globenewswire.com/news-release/2026/08/27/3352097/0/en/eos-energy-enterprises-to-consolidate-battery-manufacturing-at-thorn-hill-location.html"
-    },
-    {
-      "title": "Eos Energy Enterprises — Q2 2026 financial results and tightened revenue guidance",
-      "url": "https://investors.eose.com/news-releases/news-release-details/eos-energy-enterprises-reports-second-quarter-2026-financial"
-    },
-    {
-      "title": "TipRanks — QuantumScape price target lowered to $6 from $8 at Truist",
-      "url": "https://www.tipranks.com/news/the-fly/quantumscape-price-target-lowered-to-6-from-8-at-truist"
+      "title": "CarNewsChina — CATL to deliver first sodium-ion storage systems in September as material costs halve",
+      "url": "https://carnewschina.com/2026/06/05/catl-to-deliver-first-sodium-ion-storage-systems-in-september-as-material-costs-halve/"
     },
     {
       "title": "South China Morning Post — CATL, BYD battle for supremacy in Middle East energy-storage market",
       "url": "https://www.scmp.com/business/climate-and-energy/article/3362085/catl-byd-battle-supremacy-middle-east-energy-storage-market"
     },
     {
-      "title": "Energy-Storage.news — BloombergNEF forecasts 158GW of global energy storage deployments in 2026",
-      "url": "https://www.energy-storage.news/bloombergnef-forecasts-158gw-of-global-energy-storage-deployments-in-2026/"
+      "title": "Data Center Dynamics — Energy Vault signs 1.25GW power supply deal with Texas data center developer",
+      "url": "https://www.datacenterdynamics.com/en/news/energy-vault-signs-125gw-power-supply-deal-with-texas-data-center-developer/"
     },
     {
-      "title": "pv magazine USA — US battery storage capacity grows 70% annually over the past three years",
-      "url": "https://pv-magazine-usa.com/2026/08/12/u-s-battery-storage-capacity-grows-70-annually-over-the-past-three-years/"
+      "title": "Business Wire — Cummins selected to supply battery energy storage systems for large US data center project",
+      "url": "https://www.businesswire.com/news/home/20260818513062/en/Cummins-selected-to-supply-battery-energy-storage-systems-for-large-U.S.-data-center-project"
     },
     {
-      "title": "Cummins — Selected to supply battery energy storage systems for large US data center project",
-      "url": "https://www.cummins.com/en-na/news/releases/2026/08/18/cummins-selected-supply-battery-energy-storage-systems-large-us-data"
+      "title": "GlobeNewswire — MN8 Energy, Google, and Eos Energy Enterprises bring advanced clean energy solutions to West Virginia",
+      "url": "https://www.globenewswire.com/news-release/2026/09/02/3355060/0/en/mn8-energy-google-and-eos-energy-enterprises-bring-advanced-clean-energy-solutions-to-west-virginia.html"
+    },
+    {
+      "title": "ESG News — Google backs $350M West Virginia clean energy project",
+      "url": "https://esgnews.com/google-backs-350m-west-virginia-clean-energy-project/"
+    },
+    {
+      "title": "GlobeNewswire — Enphase Energy surpasses 7,500 Enphase Care enrollments",
+      "url": "https://www.globenewswire.com/news-release/2026/09/01/3354083/20176/en/enphase-energy-surpasses-7-500-enphase-care-enrollments-in-the-united-states-expanding-long-term-support-for-homeowners.html"
+    },
+    {
+      "title": "Morgan Lewis — Tariffs and trade risk in energy storage projects: 2026 outlook",
+      "url": "https://www.morganlewis.com/pubs/2026/03/tariffs-and-trade-risk-in-energy-storage-projects-2026-and-beyond"
+    },
+    {
+      "title": "Anza — FEOC compliance: understanding new restrictions for solar and energy storage procurement",
+      "url": "https://www.anzarenewables.com/blog/feoc-compliance-understanding-new-restrictions-for-solar-and-energy-storage-procurement/"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Aug 31, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Sep 5, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "Aug 31, 2026",
+    "as_of": "Sep 5, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
-      {
-        "ticker": "GEV",
-        "name": "GE Vernova",
-        "stance": "core",
-        "weight": 48,
-        "note": "Quinbrook's Aug 24 pick of GEV for Stage 3 of the Queensland Supernode BESS project and the Aug 26 CIGRE Paris switchgear launch keep the backlog thesis compounding, but shares near $956 (+46.4% YTD) are stretched further from already-record levels, so the weight comes down slightly on valuation discipline rather than a change in the business. Overlaps your Nuclear sleeve — don't double-count.",
-        "change": "down"
-      },
       {
         "ticker": "TSLA",
         "name": "Tesla",
         "stance": "core",
         "weight": 46,
-        "note": "Fresh Q2 detail clarifies the margin picture that worried last week's edition: energy-segment gross margin actually held at 31.4% on $1.07B of gross profit, well above company-wide levels, while deployments hit 13.5GWh (+41% YoY, second-best quarter ever) and a 500MWh Ørsted Megapack went live in Texas — the thesis is working better than the headline margin number previously suggested. Overlaps your Robotics sleeve — don't double-count.",
-        "change": "up"
+        "note": "Thesis unchanged this week: energy-segment gross margin held at 31.4% on $1.07B of gross profit in Q2, deployments hit 13.5GWh (+41% YoY), and the Houston Megafactory remains on track for its Megapack 3/Megablock ramp into late 2026. Overlaps your Robotics sleeve — don't double-count.",
+        "change": null
+      },
+      {
+        "ticker": "GEV",
+        "name": "GE Vernova",
+        "stance": "core",
+        "weight": 43,
+        "note": "Backlog hit $176B (+37% YoY) and 2026 gas-equipment guidance was raised, but the Aug 27 CFO transition adds a leadership-succession variable on top of an already-stretched valuation (+37.5% YTD, ~$252B market cap) — trimming the weight on price discipline, not on the business. Overlaps your Nuclear sleeve — don't double-count.",
+        "change": "down"
       },
       {
         "ticker": "QS",
         "name": "QuantumScape",
         "stance": "spec",
         "weight": 6,
-        "note": "Cobra-process cells keep shipping to Volkswagen and the Honda R&D partnership adds a second OEM validation, but Truist cut its target to $6 from $8 this week and Street targets span $2.50–$10 — genuine disagreement, still zero revenue and no production license, so the size stays small.",
+        "note": "No fresh catalysts since the July Q2 print and June Honda agreement; Truist's $6 target and a $2.50–$10 Street range reflect genuine disagreement, and there's still zero revenue and no production license, so the size stays small.",
         "change": null
+      },
+      {
+        "ticker": "EOSE",
+        "name": "Eos Energy",
+        "stance": "spec",
+        "weight": 5,
+        "note": "The Sept 2 Google/MN8 West Virginia deal is real technology validation — Google's first use of Eos Z3 and the state's first commercial LDES project — enough to justify a small speculative position, but storage revenue doesn't start until 2029–2030 and the Q2 net loss ($275.7M) plus open securities-law investigations mean this stays small until those resolve.",
+        "change": "up"
       },
       {
         "ticker": "FLNC",
         "name": "Fluence Energy",
         "stance": "watch",
         "weight": 0,
-        "note": "Record $1.44B order intake and a $6.4B backlog confirm demand isn't the issue, but a ~$90M revenue miss on contract-manufacturer delays forced a $400M guidance cut and shares are down ~51% YTD — waiting for delivery execution to catch up to demand before sizing a position.",
-        "change": null
-      },
-      {
-        "ticker": "EOSE",
-        "name": "Eos Energy",
-        "stance": "avoid",
-        "weight": 0,
-        "note": "The Aug 27 Thorn Hill manufacturing consolidation (targeting a 10–15% conversion-cost cut) is a credible operational fix, but it doesn't arrive until 2027 and does nothing to resolve the Q2 net loss widening to $275.7M or the securities-law investigations opened Aug 20 — the research still doesn't support owning this here.",
+        "note": "Barclays' Sept 3 Underweight downgrade and $10 target, with shares now near $10.36, confirm the market is pricing the execution problem (roughly $400M of Q3 deliveries slipping to FY27) over the record $6.4B backlog — waiting for delivery proof before sizing a position.",
         "change": null
       },
       {
@@ -275,7 +265,7 @@
         "name": "Enphase",
         "stance": "watch",
         "weight": 0,
-        "note": "Real product progress — an agentic AI Assistant, Italian expansion, IQ Battery C80 commercial pre-orders — but the sell side is split (Evercore up to $41, Bernstein at Hold) and the residential-solar policy headwind is still the dominant variable, not the product cadence.",
+        "note": "Sell-side has settled at Hold (19 analysts) and the residential-solar policy headwind — not the agentic-AI or Enphase Care product cadence — remains the dominant variable; no new evidence this week to change that read.",
         "change": null
       },
       {
@@ -283,7 +273,7 @@
         "name": "Stem Inc",
         "stance": "watch",
         "weight": 0,
-        "note": "Q2 EPS beat (-$1.58 vs. -$1.99 est.) shows cost discipline is working, but Roth still cut its target to $6.75 from $11 because the reaffirmed FY26 revenue guide sits below Street consensus — profitability progress without top-line conviction isn't enough to size a position yet.",
+        "note": "No fresh catalysts this week; Roth's prior cut to $6.75 from $11 still stands because the reaffirmed FY26 revenue guide sits below Street consensus — cost discipline without top-line conviction isn't enough to size a position yet.",
         "change": null
       },
       {
@@ -291,7 +281,7 @@
         "name": "Energy Vault Holdings",
         "stance": "watch",
         "weight": 0,
-        "note": "The 1.25GW Texas data-center BESS deal remains a legitimate proof point, but Cummins' largest-ever BESS deployment announcement shows this niche is getting crowded fast by much larger, better-capitalized competitors — no new evidence this week to change that read.",
+        "note": "The 1.25GW Texas data-center BESS deal remains a legitimate proof point, but Cummins' largest-ever BESS deployment shows this niche keeps getting crowded by much larger, better-capitalized competitors — no new evidence this week to change that read.",
         "change": null
       }
     ]
