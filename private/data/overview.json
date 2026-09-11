@@ -3,153 +3,158 @@
   "title": "Fynaptix · Weekly Brief",
   "heading": "Emerging Tech Weekly Brief",
   "subheading": "Cross-sector overview: momentum, news, themes & the week ahead",
-  "kicker": "WEEKLY BRIEF // ALL SECTORS // AUG 2026",
-  "week_of": "August 17, 2026",
+  "kicker": "WEEKLY BRIEF // ALL SECTORS // SEP 2026",
+  "week_of": "September 7, 2026",
   "disclaimer": "Not financial advice. This brief synthesizes the eight sector dashboards for research purposes only — not a recommendation to buy or sell any security. Verify current prices and do your own due diligence before investing.",
   "sector_scoreboard": [
     {
       "sector": "AI & Compute",
       "sector_url": "/private/ai.html",
-      "momentum": "SELECTIVE",
-      "story": "Palantir closed near a record $179 after an eighth straight quarterly beat and a raised FY26 guide to $8.16B, the same week AMD posted record Data Center revenue (+107% YoY) and still fell over 8%; Oracle was downgraded to Avoid after a further round of planned layoffs and an FY26 cash outflow that ran $23.7B ahead of what the company generated",
-      "fundamentals_check": "Anthropic backers reportedly eye an October IPO near a $2T valuation, up from May's $965B mark, as Q2 revenue more than doubled to $10.9B with the company's first operating profit; NVIDIA's Aug 26 print (guided to $91.0B, Street modeling $93–95B) is the next real test of the ~$725–800B 2026 capex figure"
+      "momentum": "MIXED",
+      "story": "NVIDIA's record $96.2B Q2 FY27 print (+106% YoY) and Broadcom's raised $115B FY27 AI-semiconductor outlook keep validating the buildout, and Alphabet's stance weight was nudged up on Waymo's Sept 1 expansion into Denver, San Diego and Tampa (14 cities, 4,000+ vehicles, 500K+ weekly rides) — real revenue-adjacent proof rather than a platform story",
+      "fundamentals_check": "Oracle's credit was cut to BBB- on -$23.7B of FY26 free cash flow and Michael Burry escalated his circular-financing shorts on NVIDIA, Oracle, Micron and Nebius; the ~$3-4T committed to AI infrastructure against an estimated $50-150B/year of actual AI revenue remains the sector's central tension"
     },
     {
       "sector": "Robotics",
       "sector_url": "/private/robotics.html",
       "momentum": "BIFURCATED",
-      "story": "Unitree begins trading on Shanghai's STAR Market this week after a record 8,000x-oversubscribed retail tranche, the same week Symbotic converted its record $6.4B backlog into $55M of GAAP net income and Fanuc kept recovering from its Aug 3 guidance shock (now 9-buy/1-sell)",
-      "fundamentals_check": "New Trump-administration drone tariffs (up to 100%) lifted AVAV and KTOS on a structural tailwind, while Ouster's diversifying traffic-sensing contract moved it off Avoid — growth stories with actual contracts behind them keep getting rewarded"
+      "story": "Unitree's post-IPO slump deepened to roughly 50% off its Aug 19 peak — and a new FCC ban on foreign-made humanoid/quadruped imports now closes off the US market entirely — the same week Symbotic reached GAAP profitability on $721M revenue (+22% YoY, backlog $22.5-22.7B) and MP Materials rallied on reports Chinese rare-earth producers are pausing US shipments",
+      "fundamentals_check": "MP Materials and Symbotic were both raised this week on converting backlogs (a 127% NdPr sales surge and record backlog respectively) in the same stretch Unitree was cut — the split between humanoid hype and industrial execution keeps widening"
     },
     {
       "sector": "Defense Tech",
       "sector_url": "/private/defense.html",
       "momentum": "CONSTRUCTIVE",
-      "story": "Trump signed tariffs of up to 100% on imported drones (Aug 13), a structural tailwind for AVAV, RCAT, ONDS and KTOS that all posted strong Q2 prints; BAE Systems landed a £5.9B Dreadnought submarine contract the same week Rheinmetall cut FY26 revenue guidance despite nearly doubling Q2 profit",
-      "fundamentals_check": "Palantir has eased to ~$174 from its $207.52 high but still trades at an extreme multiple; Anduril's ~$100B round remains unclosed a month after talks first surfaced, and its own CEO has warned against IPO'ing \"in the middle of a hype cycle\""
+      "story": "Section 232 drone tariffs (up to 100%) are now in effect and the Army's TITAN program moved to production with a $192M order split between Palantir ($127M) and Anduril ($65M), the same week Red Cat's 527% YoY revenue growth and closed Apium Swarm Robotics acquisition earned it an upgrade",
+      "fundamentals_check": "AeroVironment's own stance was cut despite winning the US military's first-ever directed-energy production contract ($464.8M, Sept 2) — the SCAR/BADGER stop-work goodwill impairment outweighed the new award; Michael Burry's renewed Palantir short (arguing its ~$432B cap could eventually fall below $100B) is the sector's loudest bear case"
     },
     {
       "sector": "Nuclear & SMRs",
       "sector_url": "/private/nuclear.html",
-      "momentum": "EXECUTION-TESTED",
-      "story": "TVA's Clinch River mandatory NRC hearing convened Aug 13 — the furthest-along utility-scale SMR application in the country, though commissioners' construction-permit vote is still pending — the same week NuScale filed a new $750M ATM program right after Fluor's stake monetization was confirmed complete (~$2.43B realized)",
-      "fundamentals_check": "Constellation raised FY26 EPS guidance and signed Walmart's first-ever nuclear PPA; Oklo's price targets were trimmed by Truist and Canaccord on cost-clarity and cash-burn concerns even after its first-criticality rally"
+      "momentum": "BIFURCATED",
+      "story": "Constellation's Q2 EPS rose 34% YoY to $2.55 on 920MW of new PPAs including a 176MW Walmart deal, and X-energy was upgraded after joining NVIDIA, AWS and Idaho National Laboratory on \"Project Prometheus\" to apply AI to reactor licensing",
+      "fundamentals_check": "Oklo was cut on a fresh ~$140M ATM stock sale filed Sept 3 stacked on continued insider selling, and NuScale's Q2 revenue collapsed to $75,000 from $8.1M a year earlier — zero SMRs deliver commercial power anywhere in the world yet"
     },
     {
       "sector": "Critical Minerals",
       "sector_url": "/private/minerals.html",
       "momentum": "CROSSCURRENTS",
-      "story": "MP Materials rallied 23.5% for the week on Project Swarm's magnet demand pre-selling and a new 9-figure gadolinium deal with an unnamed US aerospace/defense customer, while copper hit a fresh Comex record of $6.77/lb as Washington's tariff decision remains overdue by more than a month",
-      "fundamentals_check": "USA Rare Earth's Q2 revenue missed by 27% and shares fell ~9% after hours, even as management called the Aug 28 Serra Verde vote its final closing condition; lithium is showing its first concrete signs of turning, but Citi still cut Albemarle's price target the same week it beat estimates"
+      "story": "MP Materials' stance weight was raised (funded by moving Albemarle to Watch) even as shares digest a pullback from their August peak, while Freeport cut FY2026 copper guidance to 3.1B lbs on a Grasberg ramp-up delay",
+      "fundamentals_check": "Albemarle moved to Watch after Chile workers voted 97.49% to strike, and Lynas confirmed it held takeover talks that ultimately didn't proceed — removing an M&A catalyst just as its CEO search stretches past five months"
     },
     {
       "sector": "Space Economy",
       "sector_url": "/private/space.html",
-      "momentum": "STABILIZING",
-      "story": "SpaceX closed above its $135 IPO price for the first time in weeks and traded near $140 by Aug 16, still ~38% below its post-IPO high, as Rocket Lab posted record Q2 revenue ($234.1M, +62% YoY) and a record $2.36B backlog even as Neutron's maiden flight now risks slipping into 2027",
-      "fundamentals_check": "Redwire's second straight record quarter (revenue +89.6% YoY, shares +36% since reporting) confirms last edition's Core upgrade; Rocket Lab's Iridium acquisition cleared its HSR antitrust waiting period with $3.6B of bridge financing secured"
+      "momentum": "MIXED",
+      "story": "Redwire and AST SpaceMobile were both upgraded this week — Redwire on a steady $542M backlog and 27.8% gross margin, AST SpaceMobile on advancing carrier deals with Vodafone, Orange, Telefónica and Deutsche Telekom — while Starship Flight 14 (first orbital attempt, first tower-catch try) is now firmly dated for Sept 15",
+      "fundamentals_check": "Rocket Lab was cut again as Neutron's debut looks more likely to slip into 2027 after January's tank-rupture, with shares (~$64, down ~58% YTD) sitting below the $67.50 Iridium collar floor despite record Q2 revenue and backlog"
     },
     {
       "sector": "Energy Storage",
       "sector_url": "/private/storage.html",
-      "momentum": "FUNDAMENTALS-STRONG",
-      "story": "Tesla began Megapack 3 production at its Brookshire, TX Megafactory just 16 months after groundbreaking, while GE Vernova's orders jumped 88% YoY to $24.2B and Fluence's shares stabilized (Citi upgrade to Buy) even after $400M of deliveries slipped into FY27",
-      "fundamentals_check": "US battery storage capacity hit 52 GW by mid-2026, growing 70%/year over the past three years (EIA); Eos Energy rallied ~34% on a new Golden Dome defense contract diversifying its zinc-storage customer base beyond utilities"
+      "momentum": "MIXED",
+      "story": "Energy Vault (NRGV) was added to the sleeve this week after FY2026 guidance was raised to $270-310M on a 1.25GW Texas hyperscale deal and its backlog value per GWh rose 52% to roughly $2B, funded by trimming Tesla and GE Vernova on stretched valuations rather than weaker conviction",
+      "fundamentals_check": "Tesla's energy segment held a 31.4% gross margin on $1.07B of gross profit with deployments up 41% YoY, and GE Vernova's backlog held at $176B (+37% YoY) with a new CFO now named — the underlying fundamentals stay intact even as sizing gets trimmed"
     },
     {
       "sector": "AI Biotech",
       "sector_url": "/private/biotech.html",
       "momentum": "MIXED",
-      "story": "Eli Lilly's Q2 revenue hit $23.0B (+48%) on Mounjaro and Zepbound with FY26 guidance raised to $85–87B, the same week Guardant Health's FDA-approved higher-throughput Shield workflow went live in production and UnitedHealthcare coverage began",
-      "fundamentals_check": "Quantum-Si delayed its Proteus commercial launch a full year to Q2 2027 and cut headcount 20% — a reminder hardware timelines slip just like clinical ones; zero AI-discovered drugs have reached full FDA approval, with Insilico's rentosertib Phase III still the field's furthest milestone"
+      "story": "Eli Lilly closed its 13th acquisition of 2026 (up to $2.875B for Merida Biosciences) and VERVE-102's Heart-2 data (up to 62% LDL-C reduction from one infusion, FDA fast-track) kept the core case intact, while 908 Devices (MASS) was upgraded after Stifel raised its target to $12 on a Q2 beat",
+      "fundamentals_check": "Zero AI-discovered drugs have reached full FDA approval to date, and Guardant Health remains under a $245.2M patent judgment on appeal — a reminder the platform thesis is still ahead of the regulatory reality"
     },
     {
       "sector": "Quantum",
       "sector_url": "/private/quantum.html",
       "momentum": "EXTREME SPECULATION",
-      "story": "Quantinuum posted its first post-IPO quarter (revenue $8M, +279% YoY, but a $597M GAAP net loss) and announced a multi-year Oracle Cloud Infrastructure partnership the same day, while a House defense bill proposed lifting military quantum R&D 68% to ~$567M as China's own push nears $10B",
-      "fundamentals_check": "IonQ, Rigetti and D-Wave are holding their early-August rally into a second week; P/S multiples remain 55–495× even as insiders keep selling far more than they buy"
+      "story": "IBM's Nighthawk r2 (120 qubits, Sept 3) hit 100,000+ circuits/sec — 25x its prior Heron system — and NVIDIA's stance was raised on two partner-validated demos with IonQ/qBraid and Quantinuum, the same week D-Wave's securities-litigation investigation widened to at least four law firms following a CFO transition",
+      "fundamentals_check": "QBTS and PSQL were both downgraded this week — QBTS on a Q2 revenue miss ($3.08M vs. a $4.03-4.08M estimate) and PSQL on trading below its own SPAC reference price five days after debut — while IonQ, Rigetti and D-Wave still carry P/S multiples of 64-497x"
     }
   ],
   "cross_cutting_themes": [
     {
-      "tag": "TARIFF SHOCK",
-      "title": "Washington reshapes the drone trade overnight",
-      "description": "Trump's Aug 13 proclamation imposing up to 100% tariffs on imported drones lifted AVAV, RCAT, KTOS and ONDS simultaneously across both the Defense and Robotics dashboards — a reminder that a single policy signature can move more names at once than an entire earnings season."
+      "tag": "MACRO SHOCK OVERRIDES EVERYTHING",
+      "title": "Iran escalation resets the backdrop",
+      "description": "Reignited conflict and a Strait of Hormuz-driven oil spike pushed equities into a fourth straight losing session, sent the VIX from ~14.5 to 18.05 (+9.67%) and turned today's August CPI print and the Sept 15-16 FOMC meeting into the biggest swing factor for every rate-sensitive name on this hub — quantum, humanoids and pre-revenue SMRs first and hardest."
     },
     {
-      "tag": "DOWNGRADES CLUSTER AROUND CASH",
-      "title": "This week's cuts share a common thread",
-      "description": "Oracle (to Avoid), NuScale (to Avoid), Rheinmetall (to Watch), Oklo (trimmed) and Quantum-Si (to Avoid) were all cut this week — not on bad news exactly, but on cash burn, dilution or a founding backer's exit outrunning the growth story. This week's upgrades (Palantir, BAE Systems, L3Harris, Cameco, Energy Fuels) all cite a durable, converting backlog instead."
+      "tag": "UPGRADES CONVERT BACKLOGS",
+      "title": "This week's raises share one thread",
+      "description": "Alphabet (AI), MP Materials and Symbotic (Robotics), Red Cat and X-energy (Defense/Nuclear), Redwire, AST SpaceMobile (Space), Energy Vault (Storage), 908 Devices (Biotech) and NVIDIA plus IonQ (Quantum) were all raised this week — every one on a converting backlog, a signed offtake, or a partner-validated data point rather than a story alone."
     },
     {
-      "tag": "IPO WAVE, SECOND ACT",
-      "title": "The class of 2026 keeps reporting its first real quarters",
-      "description": "Quantinuum ($8M revenue, $597M loss), Anthropic (reportedly eyeing an October listing near $2T) and Unitree (trading begins this week after 8,000x oversubscription) show three different stages of the same story — going public doesn't resolve the burn-versus-growth debate, it just puts it on a quarterly clock."
+      "tag": "DOWNGRADES SHARE A DILUTION THREAD",
+      "title": "Financing and execution risk, not scandal",
+      "description": "Unitree (Robotics), AeroVironment (Defense), Oklo (Nuclear), Albemarle (Minerals), Rocket Lab (Space) and QBTS/PSQL (Quantum) were all cut this week — most tied to a fresh dilutive raise, a goodwill impairment, a delayed milestone or a post-debut price break rather than any single scandal."
     },
     {
-      "tag": "GOVERNMENT AS PRICE-SETTER",
-      "title": "Washington keeps setting the terms",
-      "description": "Drone tariffs, the Clinch River NRC hearing, a proposed 68% boost to military quantum R&D, and DOE's $900M HALEU award to Centrus all landed the same week — federal decisions are increasingly the swing factor across nuclear, defense, robotics and quantum at once."
+      "tag": "GOVERNMENT AS PRICE-SETTER, AGAIN",
+      "title": "Washington and Beijing keep setting the terms",
+      "description": "The FCC's new ban on foreign-made humanoid/quadruped imports, Section 232 drone tariffs now in effect, the Army's $192M TITAN production award to Palantir and Anduril, and China's quiet pause on some US rare-earth shipments are all federal or state decisions doing more to move prices this week than any single earnings report."
     },
     {
-      "tag": "QUIET MACRO, LOUD MICRO",
-      "title": "A calm tape is masking real single-name dispersion",
-      "description": "The VIX sits near 2026 lows (~14.5) and the S&P is hovering close to record highs heading into next week's FOMC minutes and the Aug 27–29 Jackson Hole symposium, but underneath it MP Materials (+23.5%), AeroVironment (+~35% in two weeks) and the $1T shed by chip stocks in late July show the calm index-level read isn't the same as calm underneath."
+      "tag": "IPO CLASS OF 2026 KEEPS DIVERGING",
+      "title": "The same bucket holds the year's best and worst outcomes",
+      "description": "Anthropic's IPO target has reportedly doubled again toward ~$2T for an October listing on a ~$65B revenue run-rate, while Pasqal has already fallen below its $9.79 SPAC reference price five days after its Aug 28 debut and Unitree remains roughly 50% off its own post-listing peak — the same \"class of 2026\" containing both outcomes at once."
     }
   ],
   "news_of_the_week": [
     {
-      "date": "AUG 13, 2026",
-      "title": "Trump signs tariffs of up to 100% on imported drones",
-      "description": "Tiered rates (100% on drones >25kg or with thermal imaging; 25% smaller; 15% for EU/Japan/Taiwan/etc.) take effect ~3 weeks after signing, lifting AVAV, RCAT, ONDS and KTOS the same week all four posted strong Q2 results."
+      "date": "SEP 8-11, 2026",
+      "title": "Iran conflict reignites, oil spikes, equities post a 4-day losing streak",
+      "description": "Renewed Strait of Hormuz tanker disruption pushed oil sharply higher and dragged the S&P 500 and Nasdaq to roughly -1.6% week-to-date into today's August CPI report — the last major data point before the Sept 15-16 FOMC meeting, where futures have swung toward meaningful hike risk rather than the cut path priced earlier this year."
     },
     {
-      "date": "AUG 17-21, 2026",
-      "title": "Unitree begins trading on Shanghai's STAR Market",
-      "description": "Retail tranche oversubscribed more than 8,000x, a STAR Market record, after pricing at a $9.04B valuation — China's first listed humanoid pure-play."
+      "date": "SEP 2, 2026",
+      "title": "NVIDIA confirms $12.93B Hugging Face acquisition",
+      "description": "Lands the same week Alphabet's Waymo expanded into Denver, San Diego and Tampa (14 cities, 4,000+ vehicles) — concrete monetization evidence even as Oracle's credit was cut to BBB- and Michael Burry's circular-financing short thesis widened to Micron and Nebius."
     },
     {
-      "date": "AUG 11, 2026",
-      "title": "Quantinuum posts its first post-IPO earnings and a new Oracle deal",
-      "description": "Revenue grew to $8M (+279% YoY) but GAAP net loss widened to $597M; the same day, Quantinuum and Oracle announced a multi-year partnership placing Helios inside an Oracle Cloud Infrastructure AI data center."
+      "date": "EARLY SEP 2026",
+      "title": "FCC bans foreign-made humanoid/quadruped robot imports",
+      "description": "Closes off the US market entirely for names like Unitree, compounding a post-IPO slump now near 50% off the Aug 19 peak and reopening the humanoid bubble debate just as Symbotic reaches GAAP profitability on a $721M quarter."
     },
     {
-      "date": "AUG 14, 2026",
-      "title": "Anthropic backers reportedly eye a $2T October IPO",
-      "description": "Up from the $965B Series H close in May, as Q2 revenue more than doubled to $10.9B with the company's first-ever operating profit."
+      "date": "SEP 1-2, 2026",
+      "title": "Army's TITAN program moves to production",
+      "description": "A $192M order splits between Palantir ($127M) and Anduril ($65M) the same week AeroVironment lands the US military's first-ever directed-energy production contract ($464.8M) — even as AVAV's own stance gets cut on a goodwill impairment tied to the SCAR/BADGER stop-work."
     },
     {
-      "date": "AUG 13, 2026",
-      "title": "MP Materials confirms a secret gadolinium deal and Project Swarm",
-      "description": "A 9-figure supply deal with an unnamed US aerospace/defense customer, plus a magnet-demand pre-sale program, extended the stock's post-Q2 rally to 23.5% for the week."
+      "date": "SEP 3, 2026",
+      "title": "IBM ships Nighthawk r2, its most powerful QPU yet",
+      "description": "120 qubits, 218 tunable couplers and 100,000+ circuits/sec — 25x the throughput of the prior Heron system — landing ahead of IBM's own 2026 roadmap milestone and framing manufacturing, not physics, as quantum's remaining bottleneck."
     }
   ],
   "week_ahead": [
     {
-      "date": "AUG 19",
-      "title": "FOMC minutes; Target & Lowe's earnings",
-      "description": "Offers the fullest picture yet of how close dissenting officials came to pushing for a hike, setting the tone ahead of the Aug 27-29 Jackson Hole symposium."
+      "date": "SEP 11",
+      "title": "August CPI report",
+      "description": "The last major inflation data point before the Fed's meeting — a hot print driven by oil's Iran-escalation spike would make a September hike much harder for the Fed to avoid."
     },
     {
-      "date": "AUG 18-20",
-      "title": "Retail earnings wave: Home Depot, Target, Lowe's, Walmart",
-      "description": "The clearest read yet on US consumer health heading into September's Fed decision; Reddit also joins the S&P 500 on Aug 18."
+      "date": "SEP 15-16",
+      "title": "FOMC meeting & rate decision",
+      "description": "Futures have swung toward meaningful hike risk after this week's oil-driven inflation scare — the single biggest swing factor for every rate-sensitive name on this hub."
     },
     {
-      "date": "AUG 26",
-      "title": "NVIDIA Q2 FY27 earnings",
-      "description": "Guided to $91.0B ±2%, but Street models $93-95B — the first big demand test since the sector's late-July retreat."
+      "date": "SEP 15",
+      "title": "Starship Flight 14",
+      "description": "SpaceX's first orbital attempt with a tower-catch try, per FCC filing — the clearest read yet on Starship's cadence after prior slips."
     },
     {
-      "date": "AUG 27-29",
-      "title": "Fed Jackson Hole symposium",
-      "description": "Chair Warsh's framing of the rate debate, with futures still pricing meaningful odds of a September hold."
+      "date": "SEP 16",
+      "title": "Relay Therapeutics at Morgan Stanley Healthcare Conference",
+      "description": "One of several biotech investor-conference appearances this stretch, alongside Recursion (Morgan Stanley) and Quantum-Si (H.C. Wainwright) on Sept 15."
     },
     {
-      "date": "AUG 28",
-      "title": "USA Rare Earth shareholder vote & Energy Fuels ASM implementation",
-      "description": "Both the ~$2.8B Serra Verde deal and the ASM acquisition reach their final steps the same day."
+      "date": "SEP 18",
+      "title": "Palantir heavy options expiration",
+      "description": "A volatility event to watch given the stock's already-stretched multiple and Michael Burry's renewed short thesis."
+    },
+    {
+      "date": "SEP 24",
+      "title": "Xi Jinping's Washington visit",
+      "description": "Rare-earth export access is squarely on the agenda — the biggest swing factor for the minerals sector given China's quiet pause on some US shipments."
     }
   ],
   "risk_gauge": [
@@ -192,189 +197,149 @@
   ],
   "stance_changes": [
     {
-      "ticker": "PLTR",
-      "name": "Palantir",
+      "ticker": "GOOGL",
+      "name": "Alphabet",
       "sector": "AI & Compute",
-      "from": "Speculative",
-      "to": "Core",
-      "why": "Eighth straight quarterly beat and a raised FY26 guide to $8.16B show the growth thesis is proven across multiple quarters, not just one print."
+      "from": "Core",
+      "to": "Core (weight raised)",
+      "why": "Waymo's Sept 1 expansion into Denver, San Diego and Tampa (14 cities, 4,000+ vehicles, 500K+ weekly rides) is concrete, revenue-adjacent proof rather than a platform story."
     },
     {
-      "ticker": "ORCL",
-      "name": "Oracle",
-      "sector": "AI & Compute",
-      "from": "Watch",
-      "to": "Avoid",
-      "why": "A further round of planned layoffs, an FY26 cash outflow $23.7B ahead of generation, and $43B of new debt make the backlog story more expensive to sustain."
-    },
-    {
-      "ticker": "OUST",
-      "name": "Ouster",
+      "ticker": "MP",
+      "name": "MP Materials",
       "sector": "Robotics",
-      "from": "Avoid",
-      "to": "Watch",
-      "why": "Q2 revenue accelerated 56% YoY to $55M and a new Econolite/Utah DOT contract show real, diversifying demand beyond automotive lidar."
+      "from": "Core",
+      "to": "Core (weight raised)",
+      "why": "Q2 revenue beat by 13% on a 127% surge in NdPr sales and shares rallied on reports Chinese producers are pausing US rare-earth shipments."
     },
     {
-      "ticker": "RHM.DE",
-      "name": "Rheinmetall",
-      "sector": "Defense Tech",
-      "from": "Core",
-      "to": "Watch",
-      "why": "The Aug 13 FY26 revenue guidance cut after a naval-programme setback overshadows the strong Q2 profit and ATACMS MoU narrative."
+      "ticker": "SYM",
+      "name": "Symbotic",
+      "sector": "Robotics",
+      "from": "Speculative",
+      "to": "Speculative (weight raised)",
+      "why": "Reached GAAP profitability this quarter on $721M revenue (+22% YoY) with backlog growing to ~$22.5-22.7B."
     },
     {
-      "ticker": "BA.L",
-      "name": "BAE Systems",
-      "sector": "Defense Tech",
-      "from": "Core",
-      "to": "Core",
-      "why": "The £5.9B Dreadnought contract plus a £135M torpedo-maintenance deal and a $150M USS Boxer award show broad-based order momentum; weight increased."
+      "ticker": "UNITREE",
+      "name": "Unitree",
+      "sector": "Robotics",
+      "from": "Speculative",
+      "to": "Avoid",
+      "why": "Down ~50% from its Aug 19 peak for a second straight week, and the FCC's new ban on foreign-made humanoid/quadruped imports now closes off the US market entirely."
     },
     {
-      "ticker": "LHX",
-      "name": "L3Harris",
+      "ticker": "RCAT",
+      "name": "Red Cat Holdings",
       "sector": "Defense Tech",
-      "from": "Core",
-      "to": "Core",
-      "why": "Raised FY26 guidance plus a new ~$12B/$2B-profit 7-year Lockheed framework for THAAD/PAC-3 motors add real backlog; weight increased."
+      "from": "Watch",
+      "to": "Speculative",
+      "why": "527% YoY revenue growth to $20.2M, $325M of cash, and this week's Blue Ops/Havoc maritime-autonomy tie-up plus the closed Apium Swarm Robotics acquisition."
     },
     {
       "ticker": "AVAV",
       "name": "AeroVironment",
       "sector": "Defense Tech",
-      "from": "Speculative",
-      "to": "Speculative",
-      "why": "Stock extended its run to ~$196 and picked up a Piper Sandler Buy plus a structural tailwind from the Aug 13 tariff proclamation; weight increased."
-    },
-    {
-      "ticker": "KTOS",
-      "name": "Kratos Defense",
-      "sector": "Defense Tech",
-      "from": "Watch",
-      "to": "Speculative",
-      "why": "New Javelin Seeker and a $156M DOE/NNSA counter-UAS IDIQ show real revenue outside the CCA program it lost in June."
-    },
-    {
-      "ticker": "ONDS",
-      "name": "Ondas Holdings",
-      "sector": "Defense Tech",
-      "from": "Avoid",
-      "to": "Watch",
-      "why": "Record Q2 revenue of $83.8M (~13x YoY) and FY26 guidance raised to $525-550M genuinely answer the prior sub-scale critique."
-    },
-    {
-      "ticker": "CCJ",
-      "name": "Cameco",
-      "sector": "Nuclear & SMRs",
       "from": "Core",
-      "to": "Core",
-      "why": "Cigar Lake resumed production and Cameco's stake rose to 57.418% after the TEPCO acquisition closed; sizing upped on continued strength."
+      "to": "Watch",
+      "why": "The Sept 2 $464.8M laser contract is real diversification, but it can't offset the SCAR/BADGER stop-work-driven goodwill impairment and resulting restatement risk."
     },
     {
       "ticker": "OKLO",
       "name": "Oklo",
       "sector": "Nuclear & SMRs",
       "from": "Speculative",
-      "to": "Speculative",
-      "why": "Truist and Canaccord cut price targets on cost-clarity concerns after H1 operating cash use hit $65.5M; trimmed to reflect the funding gap."
+      "to": "Speculative (weight cut)",
+      "why": "A Sept 3 prospectus supplement for a fresh ~$140M ATM stock sale, plus continued insider selling, stacks financing dilution risk on top of an unresolved PJM/FERC interconnection dispute."
     },
     {
-      "ticker": "SMR",
-      "name": "NuScale Power",
+      "ticker": "XE",
+      "name": "X-energy",
       "sector": "Nuclear & SMRs",
-      "from": "Watch",
-      "to": "Avoid",
-      "why": "Fluor's monetization is now confirmed complete (~$2.43B realized) and NuScale followed with a new $750M ATM implying up to ~82M more shares."
-    },
-    {
-      "ticker": "USAR",
-      "name": "USA Rare Earth",
-      "sector": "Critical Minerals",
       "from": "Speculative",
-      "to": "Speculative",
-      "why": "Q2 revenue missed by 27% and shares fell ~9% after hours — a real operating miss; trimmed for the miss."
+      "to": "Speculative (weight raised)",
+      "why": "Joining Idaho National Laboratory, NVIDIA and AWS in \"Project Prometheus\" to apply AI to reactor licensing widens its contingent pipeline."
     },
     {
-      "ticker": "UUUU",
-      "name": "Energy Fuels",
+      "ticker": "ALB",
+      "name": "Albemarle",
       "sector": "Critical Minerals",
-      "from": "Speculative",
-      "to": "Speculative",
-      "why": "ASM shareholders approved the acquisition 98%+ on Aug 12, a genuine de-risking of one of two simultaneous deals; sized up."
+      "from": "Core",
+      "to": "Watch",
+      "why": "Chile workers voted 97.49% to strike, with a walkout threatening a slice of production just as the lithium turn was gaining credibility."
     },
     {
-      "ticker": "LHX",
-      "name": "L3Harris",
+      "ticker": "RKLB",
+      "name": "Rocket Lab",
+      "sector": "Space Economy",
+      "from": "Core (higher weight)",
+      "to": "Core (weight cut)",
+      "why": "Neutron's maiden flight now looks more likely to slip into 2027 after a January tank-rupture, with shares below the $67.50 Iridium collar floor despite record Q2 revenue and backlog."
+    },
+    {
+      "ticker": "RDW",
+      "name": "Redwire",
       "sector": "Space Economy",
       "from": "Core",
-      "to": "Core",
-      "why": "Raised FY26 guidance, backlog climbed to $42B, and the Rocketdyne divestiture sharpens the remaining portfolio; weight moves up."
+      "to": "Core (weight raised)",
+      "why": "Shares have held steady near $10.53 with no negative news this week, backed by a $542M backlog and 27.8% gross margin."
     },
     {
-      "ticker": "EOSE",
-      "name": "Eos Energy",
-      "sector": "Energy Storage",
+      "ticker": "ASTS",
+      "name": "AST SpaceMobile",
+      "sector": "Space Economy",
       "from": "Speculative",
-      "to": "Speculative",
-      "why": "New Golden Dome defense contract diversifies Z3 zinc storage beyond utility customers on top of a record $807M backlog."
-    },
-    {
-      "ticker": "STEM",
-      "name": "Stem Inc",
-      "sector": "Energy Storage",
-      "from": "Avoid",
-      "to": "Watch",
-      "why": "Fifth straight quarter of positive adjusted EBITDA, a record 55% non-GAAP gross margin, and operating cash flow at breakeven."
+      "to": "Speculative (weight raised)",
+      "why": "Carrier-integration work with Vodafone, Orange, Telefónica and Deutsche Telekom keeps advancing and the stock is holding its recent gains."
     },
     {
       "ticker": "NRGV",
       "name": "Energy Vault Holdings",
       "sector": "Energy Storage",
-      "from": "Not covered",
-      "to": "Watch",
-      "why": "New to the watchlist: a 1.25GW Texas data-center BESS deal worth ~$500-600M of expected 2H26-2027 revenue is a legitimate proof point."
-    },
-    {
-      "ticker": "SDGR",
-      "name": "Schrödinger",
-      "sector": "AI Biotech",
-      "from": "Speculative",
-      "to": "Speculative",
-      "why": "ARK bought SDGR twice this week while trimming 10x Genomics — a vote of confidence alongside Q2's ACV +27% and the new Bunsen co-scientist."
-    },
-    {
-      "ticker": "GENB",
-      "name": "Generate Biomedicines",
-      "sector": "AI Biotech",
-      "from": "Speculative",
-      "to": "Speculative",
-      "why": "H.C. Wainwright raised its price target to $25 from $16 despite a Q2 miss, and Phase 3 asthma recruitment is now complete across all six regions."
+      "from": "Not held",
+      "to": "Speculative (new position)",
+      "why": "FY2026 revenue guidance was raised to $270-310M on a 1.25GW Texas hyperscale deal, with backlog value per GWh up 52% to roughly $2B."
     },
     {
       "ticker": "MASS",
       "name": "908 Devices",
       "sector": "AI Biotech",
       "from": "Speculative",
-      "to": "Speculative",
-      "why": "Q2 revenue +23% to $16.1M, adjusted EBITDA loss improved more than 50%, and FY26 guidance raised on a new $6M ProtectIR order."
+      "to": "Speculative (weight raised)",
+      "why": "Stifel raised its price target to $12 (from $10, Buy) after a Q2 beat (revenue +23% YoY to $16.1M), even with a wider-than-expected adjusted loss."
     },
     {
-      "ticker": "QSI",
-      "name": "Quantum-Si",
-      "sector": "AI Biotech",
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "sector": "Quantum",
+      "from": "Core",
+      "to": "Core (weight raised)",
+      "why": "Two partner-validated demos landed this week: the IonQ/NVIDIA/qBraid paper showing a 54% cut in logical error rates, and a Quantinuum demo."
+    },
+    {
+      "ticker": "IONQ",
+      "name": "IonQ",
+      "sector": "Quantum",
+      "from": "Speculative",
+      "to": "Speculative (weight raised)",
+      "why": "Guidance held at $280-290M FY26 revenue, SkyWater integration on track for 256-qubit customer systems in Q1-Q2 2027, and two new partner demos this week."
+    },
+    {
+      "ticker": "QBTS",
+      "name": "D-Wave",
+      "sector": "Quantum",
       "from": "Speculative",
       "to": "Avoid",
-      "why": "Q2 revenue fell to $344K from $591K a year earlier, and Proteus's commercial launch was delayed a full year to Q2 2027 with a 20% headcount cut."
+      "why": "Downgraded out of the sleeve: Q2 revenue of $3.08M missed the $4.03-4.08M estimate, and the CFO transition became effective Sept 2 alongside a widening securities-litigation probe."
     },
     {
-      "ticker": "QNT",
-      "name": "Quantinuum",
+      "ticker": "PSQL",
+      "name": "Pasqal",
       "sector": "Quantum",
-      "from": "Not covered",
-      "to": "Watch",
-      "why": "New to this list: now a listed, buyable security with its first quarter of public financials — $8M revenue but a $597M GAAP net loss against a $12.7B IPO valuation."
+      "from": "Watch",
+      "to": "Avoid",
+      "why": "Shares have fallen from the $19.11 debut-day close (Aug 28) to $8.12 (Sept 5) — below the original $9.79 SPAC reference price five days after debut."
     }
   ],
-  "footnote": "Synthesized weekly from the nine sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Aug 17, 2026 — always confirm independently."
+  "footnote": "Synthesized weekly from the nine sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Sep 11, 2026 — always confirm independently."
 }
