@@ -1,0 +1,744 @@
+{
+ "sector": "robotics",
+ "title": "Fynaptix \u00b7 Robotics Research",
+ "heading": "Robotics Sector Intelligence",
+ "subheading": "Deep-research edition \u00b7 trends, tiers, catalysts & risks",
+ "kicker": "ROBOTICS INVESTING // SEP 2026",
+ "generated": "Sep 21, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 it is not a personalized recommendation to buy or sell any security. Robotics and humanoid names are volatile and many trade at premium valuations; private company valuations are illustrative and not directly investable. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "$38B",
+   "sub": "+34% YOY \u2014 FASTEST IN A DECADE",
+   "label": "Global robotics market, 2026",
+   "highlight": false
+  },
+  {
+   "value": "~$56B",
+   "sub": "ROBOTICS VC FUNDING, 2026 (DEALROOM) \u2014 ROUGHLY DOUBLE 2025'S FULL-YEAR RECORD; PITCHBOOK'S NARROWER TALLY STILL PUT Q2 2026 ALONE AT $18.6B ACROSS 450 DEALS",
+   "label": "Global robotics startup funding, 2026 YTD",
+   "highlight": false
+  },
+  {
+   "value": "~$30.3B",
+   "sub": "DOWN ~54% FROM ITS $66B INTRADAY PEAK \u2014 ROUGHLY STABLE OVER THE PAST WEEK EVEN AFTER THE SEP 15 G1+ LAUNCH, WITH THE FCC IMPORT BAN AND CHINA'S OWN NDRC BUBBLE WARNING STILL WEIGHING",
+   "label": "Unitree market cap, current (post-debut slump)",
+   "highlight": false
+  },
+  {
+   "value": "$1.5B",
+   "sub": "AEROVIRONMENT'S RECORD BACKLOG (+37% YOY, 1.4X BOOK-TO-BILL) \u2014 SHARES HAVE CLIMBED TO ~$160 BY SEP 20, UP ~14% FROM THE POST-EARNINGS LOW, AS THE MARKET CATCHES UP TO THE SEP 9 BEAT",
+   "label": "AeroVironment backlog \u2014 defense-robotics tailwind, stock now catching up",
+   "highlight": true
+  }
+ ],
+ "themes": [
+  {
+   "tag": "HUMANOID",
+   "title": "General-purpose humanoids",
+   "description": "Tesla is still routing every Optimus unit to its own factories and internal \"Optimus Academy,\" not customers, with first enterprise sales targeted late 2026 and consumer availability pushed to end of 2027. The real near-term test is a promised public reveal of Optimus performing genuine, unscripted factory work, expected late September/October \u2014 the milestone that would finally settle the autonomous-vs-teleoperated debate. Figure AI's Nscale compute deal (up to 100,000 NVIDIA Vera Rubin GPUs, $3.5B initial commitment) stands from last week. Unitree launched its upgraded G1+ (six major updates) on Sep 15, but the product news hasn't moved its still-battered stock."
+  },
+  {
+   "tag": "WAREHOUSE",
+   "title": "Warehouse & logistics automation",
+   "description": "Symbotic shares have stabilized in the low-$40s (~$41.93, Sep 19) but the sell-side keeps cutting: Needham lowered its target to $60 from $75 on Sep 15, the second reduction in two weeks after Barclays' Sep 8 cut to $38. Consensus is now Hold, with an average target of $62.09 across 11 analysts \u2014 sentiment still lagging the underlying GAAP-profitable, $721M-revenue business."
+  },
+  {
+   "tag": "SURGICAL",
+   "title": "Surgical robotics",
+   "description": "Intuitive Surgical jumped to $383.54 (Sep 17, from $353.24) on EU approval of da Vinci SP for gynecologic surgery, though shares remain down ~34% YTD \u2014 on pace for the weakest year since 2008 \u2014 against a $508.68 average target. The competitive backdrop got sharper this week too: J&J's Ottava, FDA de novo-authorized in July for 10 general surgery procedures, got a high-profile CNBC feature (Sep 11) framing its table-integrated four-arm design \u2014 30-50% smaller footprint than cart-based systems \u2014 as a genuine challenge to da Vinci's two-decade soft-tissue monopoly. Medtronic's Hugo (FDA-cleared for urologic procedures) also unveiled a new AI compute platform built for the operating room the same week as Ottava's clearance."
+  },
+  {
+   "tag": "DEFENSE",
+   "title": "Defense autonomy & drones",
+   "description": "AeroVironment shares have climbed to roughly $160 by Sep 20 \u2014 up about 14% off the post-earnings low of $140.80 \u2014 as the market gradually catches up to the Sep 9 beat, record $1.5B backlog and expanding margins. Kratos is increasingly framed as a laser-weapons rival to AeroVironment, posting 30.5% YoY Q2 revenue growth on top of its own $2.08B backlog. The contracts-vs-stock-price disconnect that defined this sub-sector in early September is finally starting to close, at least for AVAV."
+  },
+  {
+   "tag": "AG + CONSTRUCTION",
+   "title": "Field robotics",
+   "description": "No major new developments this week beyond the already-known Caterpillar/FieldAI physical-AI partnership (formalized Sep 5) and Deere's ongoing autonomous-mower rollout. Both remain diversified industrials where robotics is a small slice of the overall investment case."
+  },
+  {
+   "tag": "JAPAN FA",
+   "title": "Japanese factory automation",
+   "description": "Fanuc has bounced modestly to \u00a55,852 (Sep 19) from \u00a55,735 the prior week, but remains well off its \u00a57,334 average target even with an intact 8-buy/1-sell consensus rating \u2014 a bounce, not yet a recovery. Keyence and Yaskawa saw no fresh company-specific news this week."
+  },
+  {
+   "tag": "COMPONENTS",
+   "title": "Supply chain & components",
+   "description": "Vishay Precision Group is this week's standout: its analyst price target nearly doubled to $77 from $39 after a formal vendor nomination letter from an unnamed humanoid robotics developer \u2014 a concrete signal rather than narrative. Shares have actually pulled back about 11% over the past month to $60.49, widening the gap between price and the new target. Harmonic Drive is little changed near \u00a55,790. Cognex raised its through-cycle adjusted EBITDA target to 25-31%, aiming for a 25% run-rate exiting 2026."
+  },
+  {
+   "tag": "AI COMPUTE",
+   "title": "The robot \"brain\"",
+   "description": "NVIDIA pushed the stack further this week with the open Isaac GR00T N1.6 vision-language-action model and the Newton Physics Engine now built into Isaac Lab, plus a new Blackwell-architecture Jetson T4000 module delivering roughly 4x the energy efficiency of its predecessor. Agility Robotics, Boston Dynamics, Disney Research, Figure AI, Franka Robotics, Hexagon and Skild AI are all building on the platform. NVDA shares trade near $219 (Sep 17, ~$5.3T market cap) against a $328.66 consensus target."
+  },
+  {
+   "tag": "CHINA",
+   "title": "China scaling & listing",
+   "description": "Unitree's market cap has roughly stabilized near $30.3B \u2014 still down ~54% from its Aug 19 peak \u2014 even after the Sep 15 G1+ launch. Chatham House now pegs that reduced cap at roughly 125x 2025 revenue, underscoring how far valuations still have to normalize. The FCC's foreign-humanoid import ban remains in force, and it's set to be tested directly: Xi Jinping's planned Sep 24 state visit to meet President Trump puts the policy in the spotlight, with Beijing having called it damaging to bilateral relations."
+  }
+ ],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Established / Profitable Exposure",
+   "note": "Diversified, revenue-generating businesses with robotics as a growth driver.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Robotics angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "NVDA",
+     "company": "NVIDIA",
+     "robotics angle": "Compute/AI backbone of nearly all robotics stacks; released the open Isaac GR00T N1.6 VLA model and Newton Physics Engine in Isaac Lab, plus a new Blackwell-based Jetson T4000 module (~4x efficiency gain)",
+     "watch for": "Shares near $219 (Sep 17, ~$5.3T market cap) vs. a $328.66 consensus target (Strong Buy); Agility Robotics, Boston Dynamics, Figure AI and Skild AI are all building on the stack \u2014 but robotics remains a small slice of a data-center-dominated story"
+    },
+    {
+     "ticker": "ISRG",
+     "company": "Intuitive Surgical",
+     "robotics angle": "EU approval of da Vinci SP for gynecologic surgery (~Sep 17) lifted shares to $383.54; reaffirmed 13.5-15.5% FY procedure-growth guidance at the Wells Fargo Healthcare Conference (Sep 9)",
+     "watch for": "Still down ~34% YTD, on pace for its weakest year since 2008, despite a $508.68 average target; J&J's Ottava getting a high-profile CNBC feature (Sep 11) as a genuine da Vinci challenger sharpens the competitive question"
+    },
+    {
+     "ticker": "JNJ",
+     "company": "Johnson & Johnson",
+     "robotics angle": "Ottava surgical robot \u2014 FDA de novo authorized in July for 10 general surgery procedures; table-integrated four-arm design takes 30-50% less space than cart-based systems like da Vinci",
+     "watch for": "Still pre-commercial rollout against da Vinci's 11,710-system installed base; robotics is a rounding error inside a $450B+ diversified healthcare conglomerate \u2014 tracked for the competitive dynamic, not for JNJ's own exposure"
+    },
+    {
+     "ticker": "MDT",
+     "company": "Medtronic",
+     "robotics angle": "Hugo surgical robot \u2014 FDA-cleared for urologic procedures (Dec 2025); unveiled a new AI compute platform built specifically for the operating room the same week as Ottava's clearance",
+     "watch for": "Adoption pace in a soft-tissue market now crowded by three real competitors (da Vinci, Ottava, Hugo) rather than Intuitive's long-standing near-monopoly"
+    },
+    {
+     "ticker": "DE",
+     "company": "Deere & Co",
+     "robotics angle": "~24.5% share of autonomous field robotics; autonomous mowers rolling out with vision-AI, RTK-GPS and 360\u00b0 perception",
+     "watch for": "Ag equipment cycle; $150B+ claimed incremental TAM"
+    },
+    {
+     "ticker": "CAT",
+     "company": "Caterpillar",
+     "robotics angle": "FieldAI partnership (formalized Sep 5) combines Caterpillar's jobsite data/engineering with FieldAI's robot-agnostic foundation models plus NVIDIA compute and Omniverse digital-twin tooling",
+     "watch for": "No new catalyst this week; construction capex cycle and adoption pace outside mining remain the swing factors"
+    },
+    {
+     "ticker": "ROK",
+     "company": "Rockwell Automation",
+     "robotics angle": "Factory automation hardware/software; joined Anthropic's Project Glasswing (Sep 15) to advance AI-enabled cyber defense for industrial infrastructure",
+     "watch for": "~$200B announced US factory buildouts (CHIPS/IRA) still the core demand driver; shares traded $415-423 (Sep 15)"
+    },
+    {
+     "ticker": "TER",
+     "company": "Teradyne",
+     "robotics angle": "Universal Robots (cobots) + MiR (AMRs); unveiled the Gen 7 cobot platform (PolyScope X OS) at IMTS Chicago on Sep 14, on top of the robotics segment's first-ever $100M quarter (+33% YoY)",
+     "watch for": "New Wixom, Michigan hub opening 2026 to manufacture Universal Robots cobots; watch for a pullback after such a strong product and stock run"
+    },
+    {
+     "ticker": "6954.T",
+     "company": "Fanuc",
+     "robotics angle": "World-leading industrial robots + CNC; Q1 net profit +35% YoY to \u00a550.98B",
+     "watch for": "Shares have bounced modestly to \u00a55,852 (Sep 19) from \u00a55,735 the prior week \u2014 still well off the \u00a57,334 average target despite an intact 8-buy/1-sell rating; next earnings Oct 22"
+    },
+    {
+     "ticker": "6861.T",
+     "company": "Keyence",
+     "robotics angle": "Machine vision/sensors; the standout Japanese FA name, trading near record highs",
+     "watch for": "No fresh company-specific news this week; valuation remains the key swing factor"
+    },
+    {
+     "ticker": "6506.T",
+     "company": "Yaskawa Electric",
+     "robotics angle": "Motion control + robots; no fresh company-specific news this week",
+     "watch for": "Wisconsin campus opens FY2026; next earnings Oct 9"
+    },
+    {
+     "ticker": "ABB",
+     "company": "ABB Ltd",
+     "robotics angle": "Divesting Robotics division to SoftBank ($5.375B EV, ~$2.4B pre-tax book gain for ABB) \u2014 no longer a spin-off/listing",
+     "watch for": "Still awaiting regulatory clearance, closing targeted mid-to-late 2026; Robotics president Sami Atiya set to leave ABB by year-end 2026"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "High-Growth Pure-Play Automation",
+   "note": "Direct robotics revenue exposure; higher growth, higher valuation risk.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Robotics angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "SYM",
+     "company": "Symbotic",
+     "robotics angle": "AI warehouse automation; Q3 FY26 revenue $721M (+22% YoY), GAAP-profitable with backlog near $22.5-22.7B",
+     "watch for": "Needham cut its target to $60 from $75 (Sep 15), the second cut in two weeks after Barclays' Sep 8 move to $38; consensus now Hold ($62.09, 11 analysts) even as shares stabilize in the low-$40s"
+    },
+    {
+     "ticker": "TSLA",
+     "company": "Tesla",
+     "robotics angle": "Optimus Gen3; still zero units routed to customers \u2014 all production feeds Tesla's own \"Optimus Academy\"",
+     "watch for": "A promised public reveal of genuine, unscripted factory work is expected late September/October \u2014 the milestone that would settle the autonomous-vs-teleoperated debate; first enterprise sales targeted late 2026, consumer end of 2027"
+    },
+    {
+     "ticker": "AVAV",
+     "company": "AeroVironment",
+     "robotics angle": "Switchblade + Puma military drones; Q1 FY27 beat (Sep 9) \u2014 revenue $480.5M vs. $459.9M est., EPS $0.59 vs. $0.30 est. \u2014 with a record $1.5B backlog (+37% YoY) and margins expanding to 40% from 36%",
+     "watch for": "Shares have climbed to ~$160 by Sep 20, up ~14% from the post-earnings low of $140.80 \u2014 the market finally catching up to the beat and backlog story"
+    },
+    {
+     "ticker": "KTOS",
+     "company": "Kratos Defense",
+     "robotics angle": "XQ-58 Valkyrie low-cost combat drone plus a growing laser-weapons business increasingly framed as an AeroVironment rival; Q2 revenue +30.5% YoY",
+     "watch for": "Carrying a $2.08B backlog off its Sep 1 satcom-gateway award; no fresh catalyst this specific week"
+    },
+    {
+     "ticker": "PATH",
+     "company": "UiPath",
+     "robotics angle": "Software/RPA automation adjacent to physical robotics",
+     "watch for": "Competition from AI agents"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 3",
+   "label": "Components & Supply Chain \u2014 \"Picks and Shovels\"",
+   "note": "Sells into every robot OEM \u2014 leveraged to overall build rates rather than any single winner.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Robotics angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "6324.T",
+     "company": "Harmonic Drive Systems",
+     "robotics angle": "Dominant in precision strain-wave reducers \u2014 a key humanoid actuator bottleneck; shares little changed near \u00a55,790",
+     "watch for": "Still 7-buy/1-sell with an average \u00a57,731 target; needs the humanoid actuator order book to convert more consistently"
+    },
+    {
+     "ticker": "RRX",
+     "company": "Regal Rexnord",
+     "robotics angle": "Motors/motion control; integrated cobot transfer-unit solution with FANUC combining Thomson, Boston Gear, Huco and Kollmorgen brands",
+     "watch for": "JPMorgan's ~$200M pipeline across humanoids, cobots, surgical remains the thesis; no fresh update this week"
+    },
+    {
+     "ticker": "CGNX",
+     "company": "Cognex",
+     "robotics angle": "Machine vision for factory + logistics robots; raised its through-cycle adjusted EBITDA target to 25-31%, aiming for a 25% run-rate exiting 2026",
+     "watch for": "Still digesting the earlier HSBC downgrade to Hold (PT cut to $65 from $94); the improved guidance is a real positive but not yet a full re-rating"
+    },
+    {
+     "ticker": "AMBA",
+     "company": "Ambarella",
+     "robotics angle": "Edge-AI vision processors for robots/autonomy",
+     "watch for": "Design wins in robotics platforms"
+    },
+    {
+     "ticker": "MP",
+     "company": "MP Materials",
+     "robotics angle": "Rare-earth magnets \u2014 critical for robot actuators/motors; \"Project Swarm\" capacity reservations continue to build ahead of the $1.3B Northlake, TX facility",
+     "watch for": "Shares holding the low-$50s; still GAAP-loss-making as magnet-ramp costs bite; no new catalyst this specific week"
+    },
+    {
+     "ticker": "VPG",
+     "company": "Vishay Precision Group",
+     "robotics angle": "Strain gauges, load cells & sensing systems used in humanoid actuators; analyst target nearly doubled to $77 from $39 after a formal vendor nomination letter from an unnamed humanoid robotics developer",
+     "watch for": "Shares have actually pulled back ~11% over the past month to $60.49 despite the target hike \u2014 widening gap between price and target; still real customer-concentration risk"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 4",
+   "label": "Small-Cap / Newly Listed / Speculative",
+   "note": "Early-stage pure-plays. Higher upside potential, materially higher risk.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Robotics angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "SERV",
+     "company": "Serve Robotics",
+     "robotics angle": "Autonomous sidewalk delivery robots; Q2 2026 revenue $3.2M (+404% YoY), daily active robots up 395% to 792",
+     "watch for": "No fresh catalyst this week after last month's guidance cut to $9-10M for FY26 (from $26M); revenue growth still isn't outrunning the downward guidance revisions"
+    },
+    {
+     "ticker": "AGLT*",
+     "company": "Agility Robotics",
+     "robotics angle": "Digit humanoid \u2014 SPAC merger with Churchill Capital Corp XI (~$2.5B implied valuation); Digit v5 has secured $300M+ in multi-year orders across sites incl. Schaeffler, GXO, Toyota Canada",
+     "watch for": "Still pending Churchill shareholder approval and regulatory clearance; completion still expected later in 2026, would list as Nasdaq: AGLT"
+    },
+    {
+     "ticker": "UNITREE",
+     "company": "Unitree",
+     "robotics angle": "Low-cost humanoids/quadrupeds; launched the upgraded G1+ (six major updates) on Sep 15; trading on Shanghai's STAR Market (ticker 688836)",
+     "watch for": "Market cap roughly stabilized near $30.3B \u2014 still down ~54% from the $66B peak \u2014 even after the G1+ launch; Chatham House pegs the cap at ~125x 2025 revenue; FCC import ban and China's own NDRC bubble warning both remain in force"
+    },
+    {
+     "ticker": "OUST",
+     "company": "Ouster",
+     "robotics angle": "Lidar sensing for robots/autonomy; up roughly 130% YTD",
+     "watch for": "Vishay Precision Group has clearly overtaken it as the top-performing supply-chain name this year; no fresh catalyst this week"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "Figure AI",
+   "value": "~$39B VAL \u00b7 ~$2B RAISED",
+   "note": "Most-funded pure-play humanoid. Nscale partnership (Sep 3) for up to 100,000 NVIDIA Vera Rubin GPUs and an initial $3.5B compute commitment stands from last week. Third-party estimates put 2025 shipments around just 150 robots \u2014 implying annual revenue in the low tens of millions against the $39B valuation."
+  },
+  {
+   "name": "Anduril",
+   "value": "~$61B VAL PRIMARY \u00b7 ~$100B SECONDARY (REPORTED)",
+   "note": "Valuation doubled to $61B in a May 2026 raise (Thrive, a16z) from $30.5B a year earlier; still reportedly in talks for a new primary round near $100B, with secondary-market prices said to already imply that mark. 2025 revenue doubled to $2.2B, 2026E ~$4.3B; won a $20B, 10-yr Army enterprise contract (Mar 2026)."
+  },
+  {
+   "name": "Apptronik",
+   "value": "~$5.5B VAL \u00b7 $935M+ SERIES A",
+   "note": "Feb 2026 extension ($520M): B Capital, Google, Mercedes-Benz, John Deere, QIA. Apollo 2 humanoid unveiled alongside a new \"Robot Park\" data-collection facility in Austin; served as the demo platform for DeepMind's newest vision-language-action model."
+  },
+  {
+   "name": "Skild AI",
+   "value": "~$14-15B VAL \u00b7 $1.4B SERIES C",
+   "note": "Launched its S1 general-purpose robot foundation model this month \u2014 designed to learn new tasks from a single video demonstration via in-context learning, rather than extensive reprogramming. Jan 2026 round led by SoftBank w/ NVIDIA's NVentures, Bezos Expeditions."
+  },
+  {
+   "name": "Physical Intelligence",
+   "value": "~$11B+ VAL (in talks)",
+   "note": "Still in talks for a new ~$1B round at a valuation north of $11B \u2014 nearly double the $5.6B mark from its Series B (Nov 2025, led by CapitalG); no confirmed close as of this week."
+  },
+  {
+   "name": "1X Technologies",
+   "value": "NEO SHIPPING 2026 \u00b7 TARGETING 100K UNITS/YR BY 2027",
+   "note": "Full-scale NEO production underway at new Hayward, CA factory (58k sq ft, 200+ staff), now with a stated target of 100,000 units/year by 2027; $20K early-access price."
+  },
+  {
+   "name": "NEURA Robotics",
+   "value": "~$7B VAL \u00b7 UP TO $1.4B SERIES C",
+   "note": "Confirmed Series C of up to $1.4B backed by Tether, Qualcomm, Amazon and NVIDIA \u2014 one of Europe's best-funded humanoid startups. Its 4NE-1 humanoid has been shown performing household chores like ironing and moving boxes."
+  },
+  {
+   "name": "Boston Dynamics",
+   "value": "$3.3B \u00b7 NOW 100% HYUNDAI-OWNED",
+   "note": "Hyundai paid SoftBank $325M (Jul 16) for its final ~10% stake, taking full ownership at an implied $3.3B valuation \u2014 a fraction of headline humanoid marks like Figure's $39B. Atlas fleets shipping to Hyundai RMAC and Google DeepMind; Hyundai targets 2028 factory use at 30,000 units/year. Public exposure only via Hyundai (KRX: 005380)."
+  },
+  {
+   "name": "Agibot / LimX Dynamics",
+   "value": "AGIBOT ~$2.8\u20136.4B (VARIES BY SOURCE) \u00b7 LIMX ~$2.2B",
+   "note": "LimX closed a $200M pre-IPO round ($2.2B / RMB 15B valuation) and is preparing a Hong Kong listing; Agibot continues scaling shipments. Chinese humanoid startups are increasingly racing toward IPOs, partly to reopen funding channels narrowed by US investment curbs and the FCC's import ban."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Unitree's valuation still looks stretched even after halving",
+   "description": "Market cap has roughly stabilized near $30.3B \u2014 still down ~54% from the $66B intraday peak \u2014 even after the Sep 15 G1+ launch. Chatham House now pegs that reduced cap at roughly 125x 2025 revenue. One Korean-market estimate put the erosion at 48 trillion won (~$34B) in just three weeks. China's own National Development and Reform Commission has separately warned of a domestic robotics bubble, specifically flagging startups producing near-identical machines."
+  },
+  {
+   "title": "The market is still pricing out Optimus's near-term case",
+   "description": "Polymarket odds of a commercial Tesla Optimus launch by end-2026 remain near ~9%, down from ~33% a month earlier. The promised public reveal of genuine, unscripted factory work \u2014 expected late September/October \u2014 is the real test; until it lands, the timeline skepticism priced into the prediction market stands."
+  },
+  {
+   "title": "Humanoid funding still outruns humanoid revenue",
+   "description": "Roughly $56B has flowed into robotics companies in 2026 \u2014 nearly double the prior year's full-year record. Figure AI's $39B valuation looks particularly exposed: third-party estimates put its 2025 shipments at only around 150 robots, implying annual revenue in the low tens of millions at best. Most of the venture-funded humanoid field still doesn't have revenue that comes close to justifying its price tag."
+  },
+  {
+   "title": "Demos \u2260 autonomy",
+   "description": "If a humanoid demo isn't explicitly labeled autonomous, assume teleoperation. Tesla's own pending \"unscripted factory work\" reveal is precisely the test of this distinction \u2014 dexterity, inference speed, reliability and cost still confine most real deployments to structured factory/warehouse tasks."
+  },
+  {
+   "title": "Crowding & shakeout risk",
+   "description": "150+ companies chasing humanoids, with Agibot alone claiming 15,000 cumulative units shipped; a reshuffling of startups is widely expected. Robotics pioneer Rodney Brooks argues much of the investment will be wasted."
+  },
+  {
+   "title": "Sentiment can eventually catch up to fundamentals \u2014 in both directions",
+   "description": "AeroVironment's stock has climbed ~14% off its post-earnings low over the past two weeks as the market finally credits the Sep 9 beat and record backlog. Symbotic shows the opposite pattern: still GAAP-profitable with $721M in quarterly revenue, yet Needham cut its target again on Sep 15 \u2014 the second cut in two weeks. The same disconnect between fundamentals and price can resolve either way, and investors shouldn't assume which direction it breaks for any given name."
+  },
+  {
+   "title": "Revenue is elsewhere",
+   "description": "Industrial, logistics, and surgical robots generate proven revenue today; humanoids largely don't yet. The surgical sub-sector is a useful reminder: da Vinci, Ottava and Hugo are all fighting over real procedure volume and real dollars, not speculative future demand."
+  },
+  {
+   "title": "China price war",
+   "description": "150+ Chinese humanoid startups, now including BYD, are competing on price and scale even as Unitree's own stock struggles to hold its valuation and Beijing's planners flag the same crowding risk. Xi Jinping's planned Sep 24 US visit is a catalyst to watch for any softening \u2014 or escalation \u2014 of the FCC's import ban given China's roughly 85% share of global humanoid shipments."
+  },
+  {
+   "title": "\"Late-stage bubble\" warnings keep stacking up",
+   "description": "A September 14 Fortune piece described \"crazy days\" and \"silly season\" in markets amid talk of a late-stage AI bubble finally popping, with robotics and space repeatedly flagged as key risk areas. KB Securities has likened 2026's robotics/space enthusiasm to the final stage of the dot-com bubble; Ray Dalio has separately compared the broader AI bubble to 1929 and 2000 valuation extremes."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "SEP 20, 2026",
+   "title": "AeroVironment shares close the gap with their own earnings beat",
+   "description": "Shares have climbed to roughly $160 \u2014 up ~14% from the post-earnings low of $140.80 \u2014 as the market catches up to the Sep 9 beat, record $1.5B backlog and expanding margins."
+  },
+  {
+   "date": "SEP 17, 2026",
+   "title": "Intuitive Surgical gains on EU da Vinci SP approval",
+   "description": "EU approval of da Vinci SP for gynecologic surgery lifted shares to $383.54, though the stock remains down ~34% YTD \u2014 on pace for its weakest year since 2008."
+  },
+  {
+   "date": "SEP 15, 2026",
+   "title": "Vishay Precision Group's target nearly doubles on a vendor nomination letter",
+   "description": "Analyst price target raised to $77 from $39 after a formal vendor nomination letter from an unnamed humanoid robotics developer \u2014 even as shares pulled back ~11% over the past month."
+  },
+  {
+   "date": "SEP 15, 2026",
+   "title": "Needham cuts Symbotic's target again",
+   "description": "Price target lowered to $60 from $75 \u2014 the second cut in two weeks after Barclays' Sep 8 move to $38 \u2014 despite the company's GAAP-profitable, $721M-revenue quarter."
+  },
+  {
+   "date": "SEP 15, 2026",
+   "title": "Universal Robots unveils Gen 7 cobot platform at IMTS",
+   "description": "Teradyne's Universal Robots launched its seventh-generation platform (PolyScope X OS) at IMTS Chicago, on top of the robotics segment's first-ever $100M quarter."
+  },
+  {
+   "date": "SEP 15, 2026",
+   "title": "Unitree launches G1+ humanoid upgrade",
+   "description": "Six major upgrades to the G1 platform, but the news hasn't moved a stock still down ~54% from its Aug 19 peak."
+  },
+  {
+   "date": "SEP 11, 2026",
+   "title": "J&J's Ottava gets a high-profile competitive profile",
+   "description": "CNBC feature framed Ottava's table-integrated, four-arm design \u2014 FDA de novo authorized in July for 10 general surgery procedures \u2014 as a genuine challenge to da Vinci's two-decade soft-tissue monopoly."
+  },
+  {
+   "date": "UPCOMING \u2014 SEP 24, 2026",
+   "title": "Xi Jinping's planned US visit puts the FCC humanoid-import ban back in the spotlight",
+   "description": "Beijing has called the ban damaging to bilateral relations; the meeting with President Trump is a catalyst to watch for any softening or escalation, given China's ~85% share of global humanoid shipments."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "ARTY",
+   "name": "iShares Future AI & Tech ETF (formerly IRBO)",
+   "summary": "Renamed from iShares Robotics & AI (IRBO); top holdings now CoreWeave, Marvell and TSMC confirm the mandate has shifted toward broader AI infrastructure rather than pure robotics; lowest expense ratio in the category at 0.47%"
+  },
+  {
+   "ticker": "KOID",
+   "name": "KraneShares Humanoid Robotics",
+   "summary": "~+56% trailing 12-month return since its Jun 2025 launch \u00b7 50 holdings across \"brain/body/integrators\" \u00b7 first humanoid-specific ETF"
+  },
+  {
+   "ticker": "ROBO",
+   "name": "ROBO Global Robotics & Automation",
+   "summary": "~+37% trailing 12-month return \u00b7 broad, equal-weight basket giving balanced small/mid-cap industrial exposure rather than a humanoid-heavy bet"
+  },
+  {
+   "ticker": "BOTZ",
+   "name": "Global X Robotics & AI",
+   "summary": "~+14-16% trailing 12-month return, still lagging ROBO/KOID/ARTY; concentrated 50-name book with top holdings Keyence, Fanuc and ABB gives it heavy Japan/Switzerland currency and industrial-cycle exposure"
+  }
+ ],
+ "sources": [
+  {
+   "title": "Bloomberg \u2014 Unitree plunges 50% from peak in fast reversal after huge debut pop",
+   "url": "https://www.bloomberg.com/news/articles/2026-09-02/unitree-plunges-50-from-peak-in-fast-reversal-after-huge-debut-pop"
+  },
+  {
+   "title": "Chatham House \u2014 Is China's humanoid robot industry a bubble?",
+   "url": "https://www.chathamhouse.org/2026/09/chinas-humanoid-robot-industry-bubble"
+  },
+  {
+   "title": "Digital Today \u2014 48 trillion won wiped out in three weeks as bubble warnings flash for Unitree",
+   "url": "https://www.digitaltoday.co.kr/en/view/102744/48-trillion-won-wiped-out-in-three-weeks-warning-lights-for-bubble-in-china-humanoid-robot-play-unitree"
+  },
+  {
+   "title": "Longbridge \u2014 Unitree (688836.SH) stock price, quote & news",
+   "url": "https://longbridge.com/quote/688836.SH"
+  },
+  {
+   "title": "PBS News \u2014 U.S. bans foreign-made humanoid robots, targeting China over national security",
+   "url": "https://www.pbs.org/newshour/world/u-s-bans-foreign-made-humanoid-robots-targeting-china-over-national-security"
+  },
+  {
+   "title": "CNBC \u2014 China threatens retaliation against U.S. humanoid robot ban ahead of Trump visit",
+   "url": "https://www.cnbc.com/2026/07/30/china-us-robot-humanoid-ban-trump-visit.html"
+  },
+  {
+   "title": "Wikipedia \u2014 2026 state visit by Donald Trump to China",
+   "url": "https://en.wikipedia.org/wiki/2026_state_visit_by_Donald_Trump_to_China"
+  },
+  {
+   "title": "NextBigFuture \u2014 Optimus confirmed: 15,000 bots this year",
+   "url": "https://www.nextbigfuture.com/2026/09/optimus-confirmed-15000-bots-this-year-tesla-to-3000.html"
+  },
+  {
+   "title": "Blog.mean.ceo \u2014 Optimus News, September 2026",
+   "url": "https://blog.mean.ceo/optimus-news-september-2026/"
+  },
+  {
+   "title": "ad-hoc-news \u2014 Intuitive Surgical stock gains on expanded da Vinci SP use",
+   "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/intuitive-surgical-stock-gains-on-expanded-da-vinci-sp-use-and-strong-q2/70098992"
+  },
+  {
+   "title": "MarketBeat \u2014 Intuitive Surgical (ISRG) analyst ratings and price target",
+   "url": "https://www.marketbeat.com/stocks/NASDAQ/ISRG/"
+  },
+  {
+   "title": "CNBC \u2014 Meet Ottava, J&J's surgical robot leading the healthcare giant into a lucrative new market",
+   "url": "https://www.cnbc.com/2026/09/11/meet-ottava-jjs-surgical-robot-leading-the-healthcare-giant-into-a-lucrative-new-market.html"
+  },
+  {
+   "title": "MedTech Dive \u2014 What J&J's Ottava robot brings to the surgical table",
+   "url": "https://www.medtechdive.com/news/what-jjs-ottava-robot-brings-to-the-surgical-table/826536/"
+  },
+  {
+   "title": "TechTimes \u2014 J&J Ottava FDA clearance breaks da Vinci's two-decade soft-tissue monopoly",
+   "url": "https://www.techtimes.com/articles/321555/20260725/jj-ottava-fda-clearance-breaks-da-vincis-two-decade-soft-tissue-monopoly.htm"
+  },
+  {
+   "title": "Investing.com \u2014 Symbotic (SYM) analyst price target history",
+   "url": "https://www.investing.com/equities/symbotic-inc"
+  },
+  {
+   "title": "MarketBeat \u2014 Symbotic (SYM) stock price & analysis",
+   "url": "https://www.marketbeat.com/stocks/NASDAQ/SYM/"
+  },
+  {
+   "title": "Yahoo Finance \u2014 AeroVironment and Kratos stocks trade down, what you need to know",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/aerovironment-kratos-stocks-trade-down-032014219.html"
+  },
+  {
+   "title": "TradingView \u2014 AeroVironment vs. Kratos Defense: which drone defense stock is better?",
+   "url": "https://www.tradingview.com/news/zacks:2495fd3d1094b:0-aerovironment-vs-kratos-defense-which-drone-defense-stock-is-better/"
+  },
+  {
+   "title": "Manufacturing Dive \u2014 Nvidia and ABB Robotics advance partnerships, Standard Bots raises $200M",
+   "url": "https://www.manufacturingdive.com/news/automate-2026-preview-chicago-standard-bots-nvidia-abb-robotics/823271/"
+  },
+  {
+   "title": "The Robot Report \u2014 Teradyne Robotics leaning into U.S. manufacturing reboot",
+   "url": "https://www.therobotreport.com/teradyne-robotics-leaning-into-u-s-manufacturing-reboot/"
+  },
+  {
+   "title": "NVIDIA Newsroom \u2014 NVIDIA and global robotics leaders take physical AI to the real world",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world"
+  },
+  {
+   "title": "NVIDIA Newsroom \u2014 NVIDIA accelerates robotics research and development with new open models and simulation libraries",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-accelerates-robotics-research-and-development-with-new-open-models-and-simulation-libraries"
+  },
+  {
+   "title": "stockanalysis.com \u2014 NVIDIA (NVDA) stock price & overview",
+   "url": "https://stockanalysis.com/stocks/nvda/"
+  },
+  {
+   "title": "247wallst.com \u2014 Vishay Precision (VPG) became a winner from industrial recovery and the humanoid robotics boom",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/vishay-precision-vpg-became-winner-130351712.html"
+  },
+  {
+   "title": "stockanalysis.com \u2014 Vishay Precision Group (VPG) stock price & overview",
+   "url": "https://stockanalysis.com/stocks/vpg/"
+  },
+  {
+   "title": "Zacks \u2014 Can AI initiatives & improving margins drive Cognex shares in 2026",
+   "url": "https://www.zacks.com/stock/news/2880400/can-ai-initiatives-&-improving-margins-drive-cognex-shares-in-2026"
+  },
+  {
+   "title": "Investing.com \u2014 Harmonic Drive Systems Inc (6324.T) stock price",
+   "url": "https://www.investing.com/equities/harmonic-drive-systems-inc"
+  },
+  {
+   "title": "Investing.com \u2014 Fanuc Corp (6954.T) stock price and analyst targets",
+   "url": "https://www.investing.com/equities/fanuc-corp."
+  },
+  {
+   "title": "Skild AI \u2014 Skild AI plans real-world deployment of its S1 general-purpose robot brain by 2027",
+   "url": "https://technical.ly/entrepreneurship/skild-ai-plans-2027-robot-brain-deployment/"
+  },
+  {
+   "title": "Sacra \u2014 Figure AI valuation, funding & news",
+   "url": "https://sacra.com/c/figure-ai/"
+  },
+  {
+   "title": "Futurism \u2014 Investors warn that humanoid robots are the next financial bubble",
+   "url": "https://futurism.com/future-society/humanoid-robot-financial-bubble"
+  },
+  {
+   "title": "Fortune \u2014 'Crazy days' and 'silly season' in the stock market raise the prospect of a 'late-stage' AI bubble finally popping",
+   "url": "https://fortune.com/2026/09/14/is-ai-stock-market-bubble-federal-reserve-interest-rates/"
+  },
+  {
+   "title": "U.S. News \u2014 5 best robotics ETFs to buy in 2026",
+   "url": "https://money.usnews.com/investing/articles/best-robotics-etfs-to-buy"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Global X Robotics & AI ETF (BOTZ) stock price, news, quote & history",
+   "url": "https://finance.yahoo.com/quote/BOTZ/"
+  },
+  {
+   "title": "GlobeNewswire \u2014 General purpose humanoid robotics market report now available",
+   "url": "https://www.globenewswire.com/news-release/2026/09/17/3363760/28124/en/general-purpose-humanoid-robotics-market-report-now-available-profiles-tesla-unitree-figure-ai-boston-dynamics-apptronik-22-other-key-players.html"
+  },
+  {
+   "title": "Robotics Center of Silicon Valley \u2014 State of Robotics 2026 Report",
+   "url": "https://www.roboticscenter.ai/state-of-robotics-2026"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Sep 21, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Sep 21, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "stance": "core",
+    "weight": 28,
+    "note": "Released Isaac GR00T N1.6 and the Newton Physics Engine in Isaac Lab, plus a new Blackwell-based Jetson T4000 module (4x efficiency) \u2014 Agility Robotics, Boston Dynamics, Figure AI and Skild AI are all building on the stack. Shares near $219 (Sep 17, ~$5.3T market cap) with a $328.66 consensus target. Also anchors your AI, Quantum and Biotech sleeves \u2014 don't triple-count the exposure.",
+    "change": null
+   },
+   {
+    "ticker": "ROK",
+    "name": "Rockwell Automation",
+    "stance": "core",
+    "weight": 16,
+    "note": "No single fresh robotics catalyst this week, but the $200B+ reshoring buildout thesis is intact and the Sep 15 Anthropic Project Glasswing tie-up adds an AI-security angle on top of the core automation business \u2014 still the cleanest diversified factory-automation exposure.",
+    "change": null
+   },
+   {
+    "ticker": "TER",
+    "name": "Teradyne",
+    "stance": "core",
+    "weight": 16,
+    "note": "Universal Robots unveiled its Gen 7 cobot platform (PolyScope X OS) at IMTS Chicago on Sep 14 \u2014 a real product cycle on top of the robotics segment's first-ever $100M quarter, not just a bet on backlog.",
+    "change": null
+   },
+   {
+    "ticker": "MP",
+    "name": "MP Materials",
+    "stance": "core",
+    "weight": 14,
+    "note": "'Project Swarm' magnet-capacity reservations continue building ahead of the $1.3B Northlake, TX facility; shares have held the low-$50s. No new catalyst this specific week, so weight is unchanged \u2014 also counts against your Critical Minerals sleeve.",
+    "change": null
+   },
+   {
+    "ticker": "AVAV",
+    "name": "AeroVironment",
+    "stance": "core",
+    "weight": 10,
+    "note": "Shares have climbed to ~$160 by Sep 20, up ~14% from the post-earnings low \u2014 the market catching up to the Sep 9 beat (record $1.5B backlog, expanding margins) rather than a new catalyst. Also counts against your Defense sleeve.",
+    "change": null
+   },
+   {
+    "ticker": "SYM",
+    "name": "Symbotic",
+    "stance": "spec",
+    "weight": 5,
+    "note": "Needham cut its target again to $60 from $75 (Sep 15), the second cut in two weeks after Barclays' Sep 8 move to $38 \u2014 consensus is now Hold ($62.09, 11 analysts). Kept small while sell-side sentiment keeps deteriorating despite GAAP profitability.",
+    "change": null
+   },
+   {
+    "ticker": "VPG",
+    "name": "Vishay Precision Group",
+    "stance": "spec",
+    "weight": 5,
+    "note": "Analyst target nearly doubled to $77 from $39 after a formal vendor nomination letter from an unnamed humanoid robotics developer \u2014 a concrete signal, not just narrative. Shares have actually pulled back ~11% over the past month to $60.49, widening the gap. Weight increased on the strength of the nomination letter, funded by trimming Kratos.",
+    "change": "up"
+   },
+   {
+    "ticker": "KTOS",
+    "name": "Kratos Defense",
+    "stance": "spec",
+    "weight": 3,
+    "note": "Increasingly framed as a laser-weapons rival to AeroVironment (Q2 revenue +30.5% YoY) with its own $2.08B backlog, but no fresh catalyst this specific week \u2014 weight trimmed slightly to fund VPG's stronger signal, not a downgrade in the thesis. Also sits in your Defense sleeve.",
+    "change": null
+   },
+   {
+    "ticker": "6324.T",
+    "name": "Harmonic Drive",
+    "stance": "spec",
+    "weight": 3,
+    "note": "Shares little changed near \u00a55,790 against a \u00a57,731 average target (7-buy/1-sell) \u2014 still needs the humanoid actuator order book to convert more consistently before adding back.",
+    "change": null
+   },
+   {
+    "ticker": "ISRG",
+    "name": "Intuitive Surgical",
+    "stance": "watch",
+    "weight": 0,
+    "note": "EU approval for da Vinci SP in gynecologic surgery pushed shares up to $383.54, but J&J's Ottava got a high-profile CNBC feature this week (Sep 11) calling it a genuine challenge to da Vinci's two-decade soft-tissue monopoly. Still down ~34% YTD; the competitive question just got more concrete, so still Watch rather than Core.",
+    "change": null
+   },
+   {
+    "ticker": "CGNX",
+    "name": "Cognex",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Raised its through-cycle adjusted EBITDA target to 25-31%, aiming for a 25% run-rate exiting 2026 \u2014 a real positive \u2014 but still digesting the earlier HSBC downgrade to Hold; one good guidance update isn't yet enough to move off the sidelines.",
+    "change": null
+   },
+   {
+    "ticker": "CAT",
+    "name": "Caterpillar",
+    "stance": "watch",
+    "weight": 0,
+    "note": "No new catalyst this specific week beyond the already-known FieldAI partnership; robotics remains a rounding error next to the construction-cycle exposure you'd actually be buying.",
+    "change": null
+   },
+   {
+    "ticker": "6954.T",
+    "name": "Fanuc",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Shares have bounced modestly to \u00a55,852 (Sep 19) from \u00a55,735, but remain well off the \u00a57,334 average target despite an intact 8-buy/1-sell rating \u2014 a bounce, not a recovery.",
+    "change": null
+   },
+   {
+    "ticker": "ABB",
+    "name": "ABB Ltd",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Still awaiting regulatory clearance on the SoftBank robotics sale with no new update this week; little left here to hold for ahead of a mid-to-late-2026 close.",
+    "change": null
+   },
+   {
+    "ticker": "SERV",
+    "name": "Serve Robotics",
+    "stance": "watch",
+    "weight": 0,
+    "note": "No fresh catalyst this week after last month's guidance cut to $9-10M for FY26; revenue growth still isn't outrunning the downward guidance revisions.",
+    "change": null
+   },
+   {
+    "ticker": "JNJ",
+    "name": "Johnson & Johnson",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Ottava's FDA de novo authorization (10 general surgery procedures, granted Jul 22) got a fresh CNBC profile this week (Sep 11) describing a table-integrated design that takes 30-50% less space than cart-based systems like da Vinci \u2014 a real competitive signal for surgical robotics. But robotics is a rounding error inside a $450B+ diversified healthcare conglomerate; added to track the Ottava-vs-da Vinci dynamic, not for JNJ's own exposure.",
+    "change": "new"
+   },
+   {
+    "ticker": "TSLA",
+    "name": "Tesla",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "No commercial Optimus units shipped; Polymarket's ~9% odds of a launch by end-2026 are unchanged. The next real test is the promised public reveal of unscripted factory work, expected late September/October \u2014 until that lands, still Avoid.",
+    "change": null
+   },
+   {
+    "ticker": "UNITREE",
+    "name": "Unitree",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Market cap has roughly stabilized near $30.3B (down ~54% from the $66B peak) even after the Sep 15 G1+ launch \u2014 a product update hasn't moved the stock. Chatham House pegs the current cap at ~125x 2025 revenue; the FCC ban and China's own NDRC bubble warning both remain firmly in place.",
+    "change": null
+   }
+  ]
+ }
+}

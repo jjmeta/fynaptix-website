@@ -1,0 +1,325 @@
+{
+ "sector": "storage",
+ "title": "Fynaptix \u00b7 Energy Storage Research",
+ "heading": "Energy Storage Intelligence",
+ "subheading": "Grid-scale batteries, the storage software layer & next-gen chemistry",
+ "kicker": "ENERGY STORAGE & GRID // SEP 2026",
+ "generated": "Sep 21, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "52 GW \u2192 64.9 GW",
+   "sub": "US BATTERY STORAGE \u2014 EIA STILL SEES NEARLY 65 GW BY YEAR-END",
+   "label": "EIA's mid-2026 count has operating capacity near 52 GW after 8.3 GW came online in H1, with 64.9 GW still targeted by year-end as developers plan a record 24 GW of utility-scale additions in 2026 \u2014 up from 15 GW in 2025 \u2014 with another 89 GW pipelined for 2027",
+   "highlight": true
+  },
+  {
+   "value": "$2.4B / -$200M",
+   "sub": "FLUENCE SLASHES FY26 GUIDANCE, DISCLOSES SEC PROBE",
+   "label": "Fluence cut FY26 revenue guidance to ~$2.4B (from ~$3.0B) and adjusted EBITDA to a ~$200M loss (from a ~$10M loss) on Sept 16, citing Houston contract-manufacturing delays; shares fell 15.4% to $7.66 the next day and the company disclosed an SEC investigation into revenue recognition and internal controls",
+   "highlight": true
+  },
+  {
+   "value": "$176B \u2192 $200B?",
+   "sub": "GE VERNOVA BACKLOG STEADY, CEO SEES $200B EARLY 2027",
+   "label": "Backlog held at $176B through Q2 (+37% YoY); CEO Scott Strazik said Sept 16 that Q3 order strength gives him confidence backlog could cross $200B very early in 2027 \u2014 even as shares, near $925 on Sept 17, are down more than 14% over the past month on broader sector rotation",
+   "highlight": false
+  },
+  {
+   "value": "$4.08 / $87M",
+   "sub": "EOS ENERGY: DOE LOAN ADVANCE FUNDS THORN HILL RAMP",
+   "label": "Eos received an $87M advance on its DOE loan for the Thorn Hill plant's second production line (toward 2GWh, then 4GWh), while shares climbed from $3.04 to $4.08 over two weeks as the formalized 10MW/100MWh Z3 deal with Google/MN8 in West Virginia kept sentiment constructive; Roth Capital lifted its target to $4.50 (Neutral)",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Scale / Revenue-Generating",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "TSLA",
+     "company": "Tesla (Energy)",
+     "angle": "Megablock (four 5MWh Megapack 3 units bundled into a 20MWh unit) remains the flagship product; the Brookshire, TX Megafactory (50GWh/yr capacity) stays on track for Megapack 3/Megablock production starting H2 2026, which would lift Tesla's combined Megafactory capacity to roughly 130\u2013133GWh/yr across Nevada, Lathrop and Houston",
+     "watch for": "No fresh company-specific catalysts this week \u2014 Q2's 31.4% energy-segment gross margin (on $1.07B gross profit) remains the benchmark; the October Q3 print is the next real test of both the margin and the Houston ramp"
+    },
+    {
+     "ticker": "FLNC",
+     "company": "Fluence Energy",
+     "angle": "Global grid-scale leader with a still-large backlog, but FY26 guidance was slashed on Sept 16: revenue cut to ~$2.4B (from ~$3.0B) and adjusted EBITDA to a ~$200M loss (from ~$10M loss), with roughly 80% of the $600M revenue cut tied to Houston contract-manufacturing delays (~$450M in slipped production, ~$65M in late-delivery penalties)",
+     "watch for": "Shares fell 15.4% to $7.66 on Sept 17 (~$1.8B market cap, down from a $33.51 52-week high) and Fluence disclosed an SEC investigation into its revenue recognition and internal controls; at least five law firms (Kirby McInerney, Block & Leviton, Levi & Korsinsky, SBS Law, Frank R. Cruz) have opened securities-fraud investigations on behalf of shareholders \u2014 no lawsuit filed yet"
+    },
+    {
+     "ticker": "GEV",
+     "company": "GE Vernova",
+     "angle": "Grid equipment super-cycle beneficiary; backlog held at $176B in Q2 (+37% YoY), and CEO Scott Strazik said Sept 16 that strong Q3 order intake gives him confidence the backlog could cross $200B very early in 2027",
+     "watch for": "Shares closed near $925 on Sept 17, down more than 14% over the past month despite the backlog commentary \u2014 a sector-wide derating so far rather than a company-specific issue; the October Q3 print is the next hard data point"
+    },
+    {
+     "ticker": "ENPH",
+     "company": "Enphase",
+     "angle": "Pushing past hardware with the Global IQ Bidirectional EV Charging Platform (targeting Q4 2026 volume production) and IQ Battery C80 commercial pre-orders, while Enphase Care enrollments keep climbing",
+     "watch for": "Shares fell 3.8% to $34.64 on Sept 18 as a Fed rate hike pressured residential-solar financing demand sector-wide (First Solar, Sunrun also fell) \u2014 still up ~7% YTD; Hold consensus holds (19 analysts, ~$45 average target) with Northland Securities among the Buy holdouts"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Next-Gen / Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "QS",
+     "company": "QuantumScape",
+     "angle": "Solid-state lithium-metal batteries (VW-backed); Cobra-process cells continue shipping for B1 customer sampling ahead of targeted 2026 road testing, and the PowerCo licensing deal still targets a 2027 commercial launch",
+     "watch for": "Shares remain down roughly 51% YTD with no fresh company catalysts this month; recent CTO share sales added a mildly negative signal, and CATL/BYD's 2027 solid-state trial-production targets keep the competitive clock running against QuantumScape's still-nonexistent production license and revenue"
+    },
+    {
+     "ticker": "EOSE",
+     "company": "Eos Energy",
+     "angle": "Zinc-based long-duration storage (LDES); the Google/MN8 West Virginia deal firmed up to a 10MW/100MWh Z3 contract, and an $87M DOE loan advance is funding the Thorn Hill plant's second production line toward 2GWh (then 4GWh) capacity",
+     "watch for": "Shares climbed from $3.04 to $4.08 over two weeks and Roth Capital lifted its target to $4.50 (still Neutral); storage revenue on this deal still doesn't start until 2028\u20132030, per-share losses remain wide, and the securities-law investigations opened in August remain unresolved"
+    },
+    {
+     "ticker": "STEM",
+     "company": "Stem Inc",
+     "angle": "AI-driven storage optimization software (PowerTrack); Q2's -$1.58 EPS beat the -$1.92 estimate, marking a fifth straight quarter of positive adjusted EBITDA and record non-GAAP gross margin",
+     "watch for": "Shares trade near $4.72, just above the $4.44 52-week low, despite the guidance reaffirmation \u2014 Hold consensus and a $7.50 price target are unchanged, and the market keeps pricing top-line softness harder than the cost discipline offsets; next earnings Oct 29"
+    },
+    {
+     "ticker": "NRGV",
+     "company": "Energy Vault Holdings",
+     "angle": "Battery/gravity storage integrator; closed financing on 275MW of Rolls-Royce MTU generation capacity in early September, and the Sardinia Digital Vault Sulcis project keeps advancing toward 2028\u20132030 milestones under its Italian strategic-interest designation",
+     "watch for": "Shares rose 5.2% on Sept 18 on continued AI-power-deal momentum, but the business still runs deeply unprofitable (~-40% EBIT margin, ~-$40M quarterly free cash flow) and faces the same data-center BESS competition from larger, better-capitalized players like Cummins"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [],
+ "bear_case": [
+  {
+   "title": "China dominates cells \u2014 and domestic rivalry is compressing terms further",
+   "description": "CATL still holds the global No.1 BESS shipment position for H1 2026 (storage now 19.23% of its revenue), and just locked in a 10-year, up-to-200GWh supply deal with Beijing HyperStrong running through 2028 \u2014 deepening its grip on the value chain. BYD and Sungrow's earlier win of the Masdar deal already showed domestic rivalry compresses terms on its own; combined, CATL and BYD now account for 62.43% of battery installations, the highest concentration in recent months."
+  },
+  {
+   "title": "Tariffs keep rising, and FEOC/FERC rules add layers of cost and complexity",
+   "description": "Section 301 duties on Chinese-origin ESS batteries jumped from 40.9% in 2025 to 58.4% in 2026, and FEOC content thresholds (55% domestic in 2026, rising to 75% after 2029) still risk disqualifying projects from the ITC. Layered on top, the FERC-directed PJM co-location rule rewrite remains mid-implementation in 2026 \u2014 transmission cost allocation under the new framework directly affects grid-services revenue for data-center-adjacent storage names like NRGV and Cummins' customers."
+  },
+  {
+   "title": "Fluence's crisis is now weighing on how the market reads the whole hardware/software stack",
+   "description": "Fluence cut FY26 revenue guidance by $600M and swung its EBITDA outlook from a $10M loss to a $200M loss, disclosed an SEC investigation into revenue recognition and internal controls, and saw shares fall 15.4% in a single session \u2014 on top of three sell-side downgrades already in place from early September. At least five law firms have since opened shareholder investigations. Stem's slide to a fresh 52-week low despite positive adjusted EBITDA suggests the market is now discounting execution risk across the software/optimization layer too, not just Fluence's hardware integration."
+  },
+  {
+   "title": "Solid-state timelines keep slipping while China's catches up",
+   "description": "QuantumScape shares are down roughly 51% YTD with no fresh catalysts this month, and recent CTO share sales add a mildly negative signal; the PowerCo licensing deal still targets only a 2027 commercial launch with no production license or revenue yet. CATL and BYD are both still publicly targeting 2027 solid-state trial production, meaning the assumed Western first-mover advantage in solid-state keeps eroding rather than firming up."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "SEP 9, 2026",
+   "title": "DIMAAG-AI and Toshiba partner on AI data-center storage using lithium-titanate cells",
+   "description": "The collaboration pairs Toshiba's SCiB lithium-titanate technology with DIMAAG's immersion-cooled architecture, targeting continuous 10C charge/discharge and 10+ year service life for load smoothing and backup power at AI data centers."
+  },
+  {
+   "date": "SEP 14\u201315, 2026",
+   "title": "Fluence restructures leadership, names AES veteran Bernerd Da Santos as EVP/COO",
+   "description": "The board appointment came just two days ahead of the FY26 guidance cut, positioning an operations-focused executive to address the Houston manufacturing delays."
+  },
+  {
+   "date": "SEP 16, 2026",
+   "title": "Fluence slashes FY26 guidance and discloses SEC investigation",
+   "description": "Revenue guidance cut to ~$2.4B from ~$3.0B and adjusted EBITDA to a ~$200M loss from a ~$10M loss, largely on Houston contract-manufacturing delays; the company also disclosed an SEC probe into revenue recognition and internal controls."
+  },
+  {
+   "date": "SEP 16, 2026",
+   "title": "GE Vernova CEO says backlog could hit $200B \"very early\" in 2027",
+   "description": "Scott Strazik pointed to strong Q3 order intake as the basis for the call, even as shares have pulled back more than 14% over the past month on broader sector rotation."
+  },
+  {
+   "date": "SEP 17, 2026",
+   "title": "Fluence shares fall 15.4% as securities-fraud investigations open",
+   "description": "Shares dropped from $9.05 to $7.66; at least five law firms (Kirby McInerney, Block & Leviton, Levi & Korsinsky, SBS Law, Frank R. Cruz) launched investigations on behalf of shareholders."
+  },
+  {
+   "date": "SEP 18, 2026",
+   "title": "Enphase and the solar/storage complex drop on a Fed rate hike; Energy Vault bucks the trend",
+   "description": "Enphase fell 3.8% to $34.64 alongside First Solar and Sunrun as higher rates pressured residential-solar financing demand \u2014 a sector-wide move, not company-specific; Energy Vault rose 5.2% on continued AI-power-deal momentum."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "GRID",
+   "name": "First Trust Clean Edge Smart Grid",
+   "summary": "Grid infrastructure & equipment; trading in a $176\u2013178 range as of Sept 19, essentially flat on the week even as individual names (Fluence, GE Vernova) moved sharply on earnings and guidance news"
+  },
+  {
+   "ticker": "BATT",
+   "name": "Amplify Lithium & Battery",
+   "summary": "Battery value chain; trading near $13.96, within its $9.67\u2013$18.08 52-week range \u2014 Fluence's guidance cut is a reminder that single-name volatility still swings the fund even as the broader storage-hardware buildout continues"
+  },
+  {
+   "ticker": "LIT",
+   "name": "Global X Lithium & Battery Tech",
+   "summary": "Lithium miners to battery makers; last printed near $74.18 (Sept 5) within a $48.70\u2013$91.98 52-week range, continuing to track the broader battery/EV complex more than pure grid-storage names"
+  }
+ ],
+ "sources": [
+  {
+   "title": "Energy-Storage.News \u2014 Fluence cuts 2026 revenue & EBITDA guidance as US production delays bite",
+   "url": "https://www.energy-storage.news/fluence-cuts-2026-revenue-ebitda-guidance-as-us-production-delays-bite/"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Fluence Energy Announces Revised Guidance for Fiscal Year 2026",
+   "url": "https://www.globenewswire.com/news-release/2026/09/16/3363545/0/en/fluence-energy-announces-revised-guidance-for-fiscal-year-2026-management-to-host-conference-call-at-5pm-eastern-time-today.html"
+  },
+  {
+   "title": "StockTitan \u2014 Fluence Energy Cuts FY2026 Revenue Guidance to About $2.4B",
+   "url": "https://www.stocktitan.net/news/FLNC/fluence-energy-announces-revised-guidance-for-fiscal-year-2026-ihscre93hdp0.html"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Fluence Energy, Inc. Investigation: Kirby McInerney LLP Notice",
+   "url": "https://www.globenewswire.com/news-release/2026/09/18/3364920/937/en/fluence-energy-inc-investigation-flnc-securities-investors-encouraged-to-contact-kirby-mcinerney-llp-about-their-rights.html"
+  },
+  {
+   "title": "Pluang \u2014 Fluence Energy faces SEC probe and cuts 2026 EBITDA guidance",
+   "url": "https://pluang.com/en/news-feed/penyelidikan-fluence-energy-notice-lewi-korsinsky"
+  },
+  {
+   "title": "24/7 Wall St \u2014 GE Vernova Climbs 5% as CEO Sees Backlog Hitting $200B Early",
+   "url": "https://247wallst.com/investing/2026/09/16/ge-vernova-climbs-5-as-ceo-sees-backlog-hitting-200b-early-eaton-and-quanta-services-edge-higher/"
+  },
+  {
+   "title": "The Motley Fool \u2014 GE Vernova Holds a $176 Billion Backlog, Yet Wall Street Is Selling",
+   "url": "https://www.fool.com/investing/2026/08/07/ge-vernova-holds-an-176-billion-backlog/"
+  },
+  {
+   "title": "StocksToTrade \u2014 EOSE Stock Rises As Google Data Center Deal Energizes Outlook",
+   "url": "https://stockstotrade.com/news/eos-energy-enterprises-inc-eose-news-2026_09_15/"
+  },
+  {
+   "title": "Canary Media \u2014 Tesla just launched the Megablock, a big, easy-to-deploy grid battery",
+   "url": "https://www.canarymedia.com/articles/batteries/tesla-just-launched-the-megablock-a-big-easy-to-deploy-grid-battery"
+  },
+  {
+   "title": "GCN \u2014 EIA sees US utility-scale battery storage nearly hitting 65 GW by end of 2026",
+   "url": "https://gcn.com/eia-sees-utility-scale-battery-storage/21071"
+  },
+  {
+   "title": "Energiesmedia \u2014 U.S. utility-scale battery storage capacity reaches 52 GW in mid-2026",
+   "url": "https://energiesmedia.com/us-battery-storage-capacity-2026-energy/"
+  },
+  {
+   "title": "ESS-News \u2014 New US battery capacity in 2026: 24.3 GW of new battery storage to come online",
+   "url": "https://www.ess-news.com/2026/02/26/new-us-battery-capacity-in-2026-24-3-gw-of-new-battery-storage-to-come-online/"
+  },
+  {
+   "title": "Energy-Storage.News \u2014 Energy storage generates nearly 20% of CATL's revenues in first half of 2026",
+   "url": "https://www.energy-storage.news/energy-storage-generates-nearly-20-of-catls-revenues-in-first-half-of-2026/"
+  },
+  {
+   "title": "South China Morning Post \u2014 CATL, BYD battle for supremacy in Middle East energy-storage market",
+   "url": "https://www.scmp.com/business/climate-and-energy/article/3362085/catl-byd-battle-supremacy-middle-east-energy-storage-market"
+  },
+  {
+   "title": "Battery-Tech Network \u2014 U.S. Raises Section 301 Duties on Chinese ESS Batteries",
+   "url": "https://battery-tech.net/battery-markets-news/u-s-raises-section-301-duties-on-chinese-ess-batteries/"
+  },
+  {
+   "title": "StocksToTrade \u2014 NRGV Stock Gains As AI Power Deals And Targets Climb",
+   "url": "https://stockstotrade.com/news/energy-vault-holdings-inc-nrgv-news-2026_09_18/"
+  },
+  {
+   "title": "24/7 Wall St \u2014 Enphase Energy Drops 5% as Solar Selling Resumes",
+   "url": "https://247wallst.com/investing/2026/09/18/enphase-energy-drops-5-as-solar-selling-resumes-first-solar-and-sunrun-fall-4/"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Can B1 Shipments Push QuantumScape Closer to 2026 Road Testing?",
+   "url": "https://finance.yahoo.com/news/b1-shipments-push-quantumscape-closer-141900242.html"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Sep 21, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Sep 21, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "TSLA",
+    "name": "Tesla",
+    "stance": "core",
+    "weight": 45,
+    "note": "Thesis unchanged: no fresh catalysts this week, but the Brookshire Megafactory stays on track and the October Q3 print is the next real test of the 31.4% energy-segment margin. Overlaps your Robotics sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "GEV",
+    "name": "GE Vernova",
+    "stance": "core",
+    "weight": 38,
+    "note": "Backlog held at $176B (+37% YoY) and the CEO now sees $200B very early in 2027 on strong Q3 order intake, yet shares are down more than 14% over the past month \u2014 a sector-wide derating that looks disconnected from the backlog trajectory so far. Overlaps your Nuclear sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "EOSE",
+    "name": "Eos Energy",
+    "stance": "spec",
+    "weight": 7,
+    "note": "Raised a point, funded by trimming NRGV below: the Google/MN8 deal firmed up to a specific 10MW/100MWh contract and an $87M DOE loan advance is now funding the Thorn Hill second line \u2014 real de-risking events, not just sentiment, even though storage revenue on this deal still doesn't start until 2028\u20132030 and the securities-law investigations remain open.",
+    "change": "up"
+   },
+   {
+    "ticker": "QS",
+    "name": "QuantumScape",
+    "stance": "spec",
+    "weight": 6,
+    "note": "No fresh catalysts since the July Q2 print, shares are down ~51% YTD, and recent CTO share sales are a mildly negative signal; CATL/BYD's 2027 solid-state trial-production targets keep the competitive clock running against QuantumScape's still-zero revenue and no production license, so the size stays small.",
+    "change": null
+   },
+   {
+    "ticker": "NRGV",
+    "name": "Energy Vault Holdings",
+    "stance": "spec",
+    "weight": 4,
+    "note": "Trimmed a point to fund the EOSE increase above \u2014 not a read on weaker fundamentals; the 275MW Rolls-Royce financing close and Sardinia progress are genuine positives, but the data-center BESS niche keeps getting more crowded by larger, better-capitalized players like Cummins, and the milestones remain 2028\u20132030 dated.",
+    "change": null
+   },
+   {
+    "ticker": "FLNC",
+    "name": "Fluence Energy",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Stays avoid, and the case just got stronger: a $600M FY26 revenue cut, an EBITDA swing from a $10M loss to a $200M loss, a disclosed SEC investigation into revenue recognition and internal controls, a 15.4% one-day share drop, and at least five law-firm shareholder investigations \u2014 this is no longer a margin story, it's a controls-and-credibility story.",
+    "change": null
+   },
+   {
+    "ticker": "ENPH",
+    "name": "Enphase",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Shares fell 3.8% on Sept 18 alongside the broader solar complex as a Fed rate hike pressured residential financing demand \u2014 a macro move, not company-specific, and the Hold consensus ($45 average target) is unchanged, so the thesis stays exactly where it was: fine business, wrong price until the policy overhang clears.",
+    "change": null
+   },
+   {
+    "ticker": "STEM",
+    "name": "Stem Inc",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Trading just above its 52-week low even after a fifth straight quarter of positive adjusted EBITDA \u2014 the market keeps pricing top-line softness harder than the cost discipline offsets, and nothing this week changed that calculus; next earnings Oct 29 is the next real test.",
+    "change": null
+   }
+  ]
+ }
+}

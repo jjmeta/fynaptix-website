@@ -1,0 +1,316 @@
+{
+ "sector": "quantum",
+ "title": "Fynaptix \u00b7 Quantum Computing Research",
+ "heading": "Quantum Computing Intelligence",
+ "subheading": "Pure-plays, hedged giants & the road to commercial advantage",
+ "kicker": "QUANTUM COMPUTING // SEP 2026",
+ "generated": "September 21, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S ~64\u2013514\u00d7) and are highly speculative \u2014 position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "$97B",
+   "sub": "BY 2035 (PROJECTED)",
+   "label": "Quantum technologies market projection",
+   "highlight": false
+  },
+  {
+   "value": "+1.8% to +10.7%",
+   "sub": "BROAD RALLY (SEP 12\u201318)",
+   "label": "Every major name moved higher this week: IonQ rebounded 6.5% to $39.13 (Sep 17), Rigetti rose 5.4% to $16.10, D-Wave added 1.8% to $17.11, and Quantinuum led the group, up 10.7% to $54.50 (Sep 18) on its continuing error-correction and CHIPS momentum. The Defiance Quantum ETF (QTUM) was the outlier, slipping 3.2% to $142.74 on broader tech-sector rotation even as single names rallied",
+   "highlight": true
+  },
+  {
+   "value": "$1.4B",
+   "sub": "SEPTEMBER CHIPS ACT QUANTUM TOTAL",
+   "label": "IBM's Anderon subsidiary finalized a $1B CHIPS and Science Act award (Sep 16) \u2014 the largest single quantum award to date \u2014 to scale its 300mm pure-play quantum wafer foundry in Albany, NY, with IBM matching another $1B in cash, IP, assets and workforce. That's on top of the $400M in $100M-each awards to D-Wave, Rigetti, Quantinuum and PsiQuantum finalized the prior week, bringing September's total federal quantum CHIPS commitment to roughly $1.4B",
+   "highlight": false
+  },
+  {
+   "value": "64\u2013514\u00d7",
+   "sub": "P/S RATIOS (SEP 17\u201318, 2026)",
+   "label": "IonQ $39.13 (~$15.85B mkt cap / ~$246.5M TTM revenue, P/S ~64\u00d7) / Rigetti $16.10 (~$5.38B / ~$13.4M TTM, P/S ~401\u00d7) / D-Wave $17.11 (~$6.38B / ~$12.4M TTM, P/S ~514\u00d7); Quantinuum (QNT) $54.50 (Sep 18, ~$14.3B mkt cap) against just $28-32M in FY26 revenue guidance; Defiance Quantum ETF (QTUM) at $142.74 (Sep 15), still well below its 52-week high of $170",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Hedged Giants \u2014 Quantum as an Option",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Most quantum systems remain in R&D; true commercial systems are likely years away.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "IBM",
+     "company": "IBM",
+     "angle": "The single biggest quantum-specific catalyst of the month: Anderon, IBM's quantum-foundry subsidiary, finalized a $1B CHIPS and Science Act award (Sep 16) \u2014 converting a May letter of intent into a definitive agreement \u2014 to expand its 300mm pure-play quantum wafer foundry in Albany, NY, matched by another $1B in IBM cash, IP, assets and workforce. First quantum wafers are already running through the facility, supporting superconducting qubit arrays and readout signal-chain components",
+     "watch for": "Yield and qualification ramp at the Albany 300mm line; Anderon's planned extension into other quantum modalities beyond superconducting; how this $2B combined commitment nets against IBM's broader $10B quantum commercialization pledge"
+    },
+    {
+     "ticker": "GOOGL",
+     "company": "Alphabet",
+     "angle": "Another comparatively quiet week for Willow-specific hardware milestones; the UK's National Quantum Computing Centre access program continues to move forward, with researchers now able to submit proposals to design and run experiments on Google's 105-qubit Willow chip in search of practical applications",
+     "watch for": "Concrete results from the first UK NQCC access-program experiments; any hardware advance beyond memory preservation; specifics on Google Quantum AI's reported neutral-atom exploration; any competitive response to IBM's Anderon foundry news or NVIDIA's CUDA-Q Logical launch"
+    },
+    {
+     "ticker": "MSFT",
+     "company": "Microsoft",
+     "angle": "A quieter week directly for Microsoft, but its Quantinuum partnership kept compounding: Quantinuum shares rose another 10.7% to $54.50 (Sep 18) as the market continues digesting last week's Helix error-correction validation and CHIPS award, with Quantinuum set to appear at Quantum World Congress 2026 (Sep 23-25)",
+     "watch for": "Any fresh Quantinuum scaling results ahead of Quantum World Congress; commercial deals stemming from the Saudi Aramco MOU; Majorana milestone reproducibility on Microsoft's own topological-qubit program"
+    },
+    {
+     "ticker": "NVDA",
+     "company": "NVIDIA",
+     "angle": "NVIDIA's most active week in the sector in over a month: expanded the open-source CUDA-Q platform with a new \"CUDA-Q Logical\" orchestration layer for fault-tolerant computing (Sep 14) \u2014 Fermilab used it to cut fault-tolerant architecture development from five months to three weeks, a 7x speedup, and Sandia's QUOPS benchmark is now built in; separately, NVIDIA's NVQLink ran its first end-to-end program across live qubits, GPUs and CPUs with Quantum Machines (Sep 13), and NVentures (NVIDIA's venture arm) was reported participating in fresh funding alongside QuEra's neutral-atom program",
+     "watch for": "Adoption of CUDA-Q Logical by additional national labs and hardware partners; further NVQLink integrations beyond Quantum Machines; confirmation and terms of the QuEra investment"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Pure-Plays \u2014 Highly Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Most quantum systems remain in R&D; true commercial systems are likely years away.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "IONQ",
+     "company": "IonQ",
+     "angle": "A strong bounce-back week on substance rather than guidance: IonQ and Synopsys demonstrated quantum-accelerated gains in large-scale computer-aided engineering workflows, cutting execution time up to 14.6% (Sep 17) and taking 1st place Best Paper at IEEE Quantum Week 2026 \u2014 one of four Best Paper awards IonQ collected there. Separately, an ORNL/IonQ/NVIDIA/UT Knoxville collaboration introduced DQAOA-GPT (Sep 16), a generative-AI framework that synthesizes quantum optimization circuits in a constant 28 seconds",
+     "watch for": "Stock recovered 6.5% to $39.13 (Sep 17) after the prior week's post-Investor-Day slide; consensus target still ~$69.25 (Strong Buy); P/S ~64\u00d7, still the cheapest of the pure-play trio; delivery progress on the Superion 256 platform ordered at Investor Day"
+    },
+    {
+     "ticker": "RGTI",
+     "company": "Rigetti",
+     "angle": "DARPA's Quantum Benchmarking Initiative Stage B roster is now confirmed: eleven companies advanced (Atom Computing, Diraq, IBM, IonQ, Nord Quantique, Photonic, Quantinuum, Quantum Motion, QuEra, Silicon Quantum Computing, Xanadu) \u2014 Rigetti is not among them, formalizing the exclusion flagged in prior weeks. Q2 revenue of $5.1M (+185% YoY) and last week's $100M CHIPS award remain the more constructive data points",
+     "watch for": "Stock $16.10 (Sep 18, +5.4% on the week, mostly riding the broader sector rally rather than company-specific news); consensus target ~$28.81 (Buy); P/S ~401\u00d7; whether Rigetti can still enter QBI Stage B via separate negotiation, as DARPA has left open for some Stage A participants"
+    },
+    {
+     "ticker": "QBTS",
+     "company": "D-Wave",
+     "angle": "A genuinely mixed week: real commercial validation, as D-Wave's technology now powers a second production application at NTT DOCOMO in Japan, cutting peak location-registration signals 65.3% and paging signals 7.0%, and BMO Capital initiated coverage at Outperform with a $35 target citing first-mover edge and its dual-technology (annealing plus gate-model) strategy. But Q2 revenue of $3.08M missed the $4.03-4.08M consensus by roughly 24-25%, triggering a fresh round of legal scrutiny on top of the securities-litigation investigation that already spans four law firms",
+     "watch for": "Stock $17.11 (Sep 18, +1.8% on the week); consensus target ~$35.24 (Strong Buy) despite the overhangs; P/S ~514\u00d7, still the richest multiple in the sector; D-Wave's dual-rail gate-model architecture update and platinum-sponsor showcase at Quantum World Congress 2026 (Sep 23-25)"
+    },
+    {
+     "ticker": "PSQL",
+     "company": "Pasqal",
+     "angle": "French neutral-atom quantum computer builder chaired by Nobel laureate Alain Aspect; completed its SPAC merger with Bleichroeder Acquisition Corp. II and began trading on Nasdaq Aug 28 with ~$360M cash; customers include Saudi Aramco and LG Electronics",
+     "watch for": "Shares roughly flat at $7.94 (Sep 17) versus $7.92 the prior week, still well below the $19.11 debut-day close (Aug 28) and the original $9.79 SPAC reference price, on still no new company-specific news; first reporting quarter as a listed company still pending"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "PsiQuantum",
+   "value": "PHOTONIC \u00b7 UTILITY-SCALE BET",
+   "note": "Reportedly closed a $1.5B round (May 2026) at a ~$10.5B valuation; broke ground on its Moreton Bay Central fault-tolerant facility in Australia. A quieter week following last week's Brookhaven National Laboratory partnership and its own $100M CHIPS Act award: PsiQuantum presented tutorials, research talks and panels on fault-tolerant quantum computing and its Construct PsiQDK software platform at IEEE Quantum Week 2026 in Toronto, continuing to build the DARPA/AFRL/GlobalFoundries manufacturing ecosystem around its photonic approach."
+  },
+  {
+   "name": "Quantinuum",
+   "value": "IPO'D JUN 2026 \u00b7 NASDAQ: QNT",
+   "note": "Honeywell-backed; upsized $1.68B IPO raise at $60/share. Shares extended last week's rally, rising another 10.7% to $54.50 ($12.9B \u2192 ~$14.3B mkt cap, Sep 18) as the market continues to reward its validated Helix error-correction architecture and $100M CHIPS Act award. Quantinuum is now a confirmed Stage B participant in DARPA's Quantum Benchmarking Initiative and is set to appear at Quantum World Congress 2026 (Sep 23-25). FY26 revenue guidance remains just $28-32M against that valuation \u2014 a widening gap even as the technical story strengthens."
+  },
+  {
+   "name": "QuEra",
+   "value": "NEUTRAL ATOMS",
+   "note": "$230M+ raise backed by Google Quantum AI, SoftBank, NVentures; 96 verified logical qubits (Nature) \u2014 industry-leading; confirmed as one of eleven companies advancing to DARPA QBI Stage B. New this week: NVIDIA's venture arm (NVentures) was reported participating in fresh funding alongside QuEra as part of a broader NVIDIA push across multiple quantum hardware approaches. QuEra reiterated its roadmap toward a third-generation machine (~100 logical qubits, ~10,000 physical qubits) and a future system exceeding 20,000 physical qubits aimed at a billion logical operations."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Years from commercial advantage",
+   "description": "Most systems remain R&D-phase; revenue today is mostly government contracts, research access and early pilot deployments rather than broad commercial workloads. D-Wave's own Q2 revenue of just $3.08M \u2014 a 24-25% miss versus consensus \u2014 is a reminder that even companies with real production wins (like the NTT DOCOMO deployment) are still working off a tiny base."
+  },
+  {
+   "title": "A rally doesn't erase execution risk",
+   "description": "Every major pure-play and private-market name rose this week on a wave of CHIPS Act and NVIDIA-platform news, but D-Wave's stock still climbed despite a 24-25% revenue miss and widening securities-litigation scrutiny, and Rigetti's DARPA QBI exclusion was formally confirmed the same week its shares rose 5.4% on sector sentiment alone. Sector-wide enthusiasm can paper over company-specific problems for a while, not indefinitely."
+  },
+  {
+   "title": "Insiders aren't buying \u2014 and the number keeps growing",
+   "description": "Insiders at IonQ, Rigetti and D-Wave have now sold a net of roughly $988M in stock over the trailing five years (up from the ~$863M/three-year figure cited a month ago), with virtually no offsetting insider buying even as fresh government CHIPS equity stakes pile a new class of shareholder on top of an already dilution-heavy funding model."
+  },
+  {
+   "title": "Dilution as a business model",
+   "description": "Pure-plays continue to fund R&D via repeated equity raises and government equity stakes; share counts grow relentlessly. Quantinuum's post-IPO financials show an even wider gap between $28-32M FY26 guidance and its now ~$14.3B market cap after this week's 10.7% rally, and Pasqal remains stuck near $7.94 \u2014 still roughly 60% below its debut-day close three weeks in \u2014 a reminder that new entrants are still priced on story, not statements."
+  },
+  {
+   "title": "Winner may not be listed \u2014 or may be a giant's subsidiary",
+   "description": "IBM's Anderon just landed the largest quantum CHIPS award to date ($1B, matched by another $1B from IBM) for a wafer foundry that is neither a pure-play stock nor a venture-backed startup \u2014 it's a wholly-owned IBM subsidiary. Combined with PsiQuantum's and QuEra's continued private-market progress, this week reinforced that a meaningful share of the technology roadmap sits outside anything an investor can buy directly as a pure-play."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "SEP 21, 2026",
+   "title": "FIPS 140-2 sunset takes effect",
+   "description": "NIST's Cryptographic Module Validation Program moved all remaining FIPS 140-2 validated certificates to the Historical list; only FIPS 140-3 validated implementations are now accepted for new federal procurement, a concrete step in the post-quantum cryptography migration mandated by June's executive order."
+  },
+  {
+   "date": "SEP 18, 2026",
+   "title": "D-Wave's Q2 revenue miss draws fresh legal scrutiny",
+   "description": "Q2 revenue of $3.08M missed consensus of $4.03-4.08M by roughly 24-25%, adding to the securities-litigation investigation that already spans four law firms, even as BMO Capital initiated coverage at Outperform the same week."
+  },
+  {
+   "date": "SEP 17, 2026",
+   "title": "IonQ and Synopsys win Best Paper at IEEE Quantum Week",
+   "description": "Their joint demonstration of quantum-accelerated computer-aided engineering workflows cut execution time up to 14.6% and took 1st place Best Paper \u2014 one of four such awards IonQ collected at the conference."
+  },
+  {
+   "date": "SEP 16, 2026",
+   "title": "IBM's Anderon finalizes $1B CHIPS Act quantum foundry award",
+   "description": "The largest single quantum CHIPS award to date, funding expansion of Anderon's 300mm pure-play quantum wafer foundry in Albany, NY, matched by another $1B in IBM cash, IP, assets and workforce."
+  },
+  {
+   "date": "SEP 14, 2026",
+   "title": "NVIDIA launches CUDA-Q Logical for fault-tolerant computing",
+   "description": "The new orchestration layer let Fermilab cut fault-tolerant architecture development from five months to three weeks (a 7x speedup) and now incorporates Sandia's QUOPS benchmark for utility-scale readiness."
+  },
+  {
+   "date": "SEP 13, 2026",
+   "title": "NVIDIA NVQLink runs first end-to-end quantum-GPU program",
+   "description": "Quantum Machines used NVQLink to route quantum and classical tasks across live qubits, GPUs and CPUs in a single program, exchanging measurements and control decisions in microseconds \u2014 the real-time responsiveness needed for quantum error correction."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "QTUM",
+   "name": "Defiance Quantum",
+   "summary": "Quantum + advanced computing basket \u2014 at $142.74 (Sep 15, -3.2% on the week even as most single names rallied), well below its 52-week high of $170; ~$5.5B+ AUM; the standard diversified route"
+  },
+  {
+   "ticker": "SMH",
+   "name": "VanEck Semiconductor",
+   "summary": "Indirect: the compute substrate quantum must beat (and currently rides)"
+  }
+ ],
+ "sources": [
+  {
+   "title": "IBM Newsroom \u2014 Anderon, an IBM Company, Finalizes Agreement with the U.S. Department of Commerce for a $1 Billion CHIPS Award",
+   "url": "https://newsroom.ibm.com/2026-09-16-anderon,-an-ibm-company,-finalizes-agreement-with-the-u-s-department-of-commerce-for-a-1-billion-chips-award-to-accelerate-r-d-for-u-s-based-pure-play-quantum-foundry"
+  },
+  {
+   "title": "NVIDIA Newsroom \u2014 NVIDIA Expands Open Source CUDA-Q Platform for Fault-Tolerant Quantum Computing",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-expands-open-source-cuda-q-platform-for-fault-tolerant-quantum-computing"
+  },
+  {
+   "title": "The Quantum Insider \u2014 Quantum Machines Makes Quantum Computers Easier to Program With NVIDIA CUDA-Q and NVQLink",
+   "url": "https://thequantuminsider.com/2026/09/13/quantum-machines-makes-quantum-computers-easier-to-program-with-nvidia-cuda-q-and-nvqlink/"
+  },
+  {
+   "title": "IonQ Newsroom \u2014 IEEE Quantum Week Best Paper Awards, Synopsys CAE Demonstration & DQAOA-GPT",
+   "url": "https://www.ionq.com/news"
+  },
+  {
+   "title": "StocksToTrade \u2014 QBTS Stock Slides As Earnings Miss Triggers Legal Scrutiny",
+   "url": "https://stockstotrade.com/news/d-wave-quantum-inc-qbts-news-2026_09_18/"
+  },
+  {
+   "title": "Timothy Sykes \u2014 QBTS Stock Climbs As U.S. Backs D-Wave Quantum Bet (NTT DOCOMO, BMO Capital coverage)",
+   "url": "https://www.timothysykes.com/news/d-wave-quantum-inc-qbts-news-2026_09_17/"
+  },
+  {
+   "title": "DARPA \u2014 Quantum Benchmarking Initiative Stage B Selection",
+   "url": "https://www.darpa.mil/research/programs/quantum-benchmarking-initiative/stage-b-selection"
+  },
+  {
+   "title": "Federal News Network \u2014 The White House Just Changed the Quantum Game",
+   "url": "https://federalnewsnetwork.com/commentary/2026/09/the-white-house-just-changed-the-quantum-game-heres-what-it-means-for-national-security/"
+  },
+  {
+   "title": "The Motley Fool \u2014 Quantum Computing Stocks Have Put Wall Street on Notice With an $863-988 Million Insider-Selling Warning",
+   "url": "https://www.fool.com/investing/2026/08/24/quantum-computing-stocks-ionq-863-million-warning/"
+  },
+  {
+   "title": "The Quantum Insider \u2014 Anderon Finalizes $1 Billion CHIPS Award for Quantum Wafer Manufacturing",
+   "url": "https://thequantuminsider.com/2026/09/16/anderon-1-billion-chips-award-quantum-wafer-manufacturing/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Sep 17-18, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "September 21, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "IBM",
+    "name": "IBM",
+    "stance": "core",
+    "weight": 34,
+    "note": "The single biggest quantum catalyst of the month: Anderon finalized a $1B CHIPS Act award (Sep 16) for its Albany 300mm quantum wafer foundry, matched by another $1B from IBM itself. Nudged up on the scale and specificity of that commitment; still a rounding error on a profitable, dividend-paying business.",
+    "change": "up"
+   },
+   {
+    "ticker": "GOOGL",
+    "name": "Alphabet",
+    "stance": "core",
+    "weight": 17,
+    "note": "A fifth straight quiet week for Willow-specific hardware milestones; the UK NQCC access program is progressing but has yet to produce a concrete result. Trimmed to fund this week's stronger NVIDIA and IonQ catalysts; also your largest AI-sleeve holding, so size this weight with that overlap in mind.",
+    "change": "down"
+   },
+   {
+    "ticker": "MSFT",
+    "name": "Microsoft",
+    "stance": "core",
+    "weight": 21,
+    "note": "No new Microsoft-specific catalyst this week, but its Quantinuum partnership keeps compounding as QNT shares rose another 10.7% to $54.50 on continuing Helix/CHIPS momentum. Held steady pending fresh news around Quantum World Congress (Sep 23-25); also held in the AI sleeve \u2014 avoid double-counting.",
+    "change": null
+   },
+   {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "stance": "core",
+    "weight": 15,
+    "note": "NVIDIA's most active week in the sector in over a month: the new CUDA-Q Logical layer gave Fermilab a 7x development speedup, NVQLink ran its first live end-to-end quantum-GPU program with Quantum Machines (Sep 13), and NVentures reportedly joined QuEra's funding. Bumped up on the breadth of concrete, company-specific progress; also your largest cross-sector AI holding, so size for that concentration too.",
+    "change": "up"
+   },
+   {
+    "ticker": "IONQ",
+    "name": "IonQ",
+    "stance": "spec",
+    "weight": 10,
+    "note": "Recovered 6.5% to $39.13 on substance rather than guidance: a Best Paper win with Synopsys on quantum-accelerated CAE (14.6% faster execution) and the ORNL/NVIDIA DQAOA-GPT circuit-synthesis framework. Nudged up on the pivot from guidance-driven hype to peer-reviewed technical validation; still the cheapest pure-play on P/S (~64\u00d7).",
+    "change": "up"
+   },
+   {
+    "ticker": "RGTI",
+    "name": "Rigetti",
+    "stance": "spec",
+    "weight": 2,
+    "note": "DARPA formally confirmed Rigetti is not among the eleven companies in QBI Stage B, closing off a key optionality thesis flagged as pending in prior weeks. This week's 5.4% share gain rode broad sector sentiment, not company-specific news, so weight is trimmed toward the minimum while the CHIPS award and Purdue partnership keep this a Speculative rather than a Watch/Avoid.",
+    "change": "down"
+   },
+   {
+    "ticker": "QNT",
+    "name": "Quantinuum",
+    "stance": "spec",
+    "weight": 1,
+    "note": "Shares are up 10.7% on top of last week's rally to a ~$14.3B market cap, while FY26 revenue guidance is unchanged at $28-32M \u2014 the valuation gap is widening faster than the (genuinely real) technical progress justifies. Trimmed toward the minimum: price has outrun fundamentals even though the underlying Helix/CHIPS story is intact. Also note the Aramco relationship overlaps with Microsoft's own AI-sleeve exposure.",
+    "change": "down"
+   },
+   {
+    "ticker": "QBTS",
+    "name": "D-Wave",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "A real commercial win \u2014 a second production deployment at NTT DOCOMO cutting signaling load double digits \u2014 and a fresh BMO Capital Outperform rating are genuine positives. But a Q2 revenue miss of 24-25% versus consensus, on top of the CFO transition and a securities-litigation investigation now spanning four law firms, means the open questions that justified Avoid last week are still open.",
+    "change": null
+   },
+   {
+    "ticker": "PSQL",
+    "name": "Pasqal",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Essentially flat at $7.94 versus $7.92 last week, still nearly 60% below its Aug 28 debut-day close with zero new company-specific news and no independent public financials yet. Nothing this week changes the case against holding it.",
+    "change": null
+   }
+  ]
+ }
+}
