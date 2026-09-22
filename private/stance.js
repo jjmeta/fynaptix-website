@@ -89,11 +89,12 @@
       if (!rows.length) return '';
       var body = rows.map(function (p) {
         var w = +p.weight || 0;
+        var barWidth = w ? (w / maxW * 100) : 100;
+        var barBg = w ? ('linear-gradient(90deg,' + g.color + '55,' + g.color + 'cc)') : (g.color + '26');
         return '<div class="st-row">' +
           '<div class="st-tk" style="color:' + g.color + '">' + esc(p.ticker) + '</div>' +
           '<div class="st-barcell"><div class="st-track">' +
-          '<div class="st-bar" style="width:' + (w / maxW * 100) + '%;background:linear-gradient(90deg,' +
-          g.color + '55,' + g.color + 'cc)"></div>' +
+          '<div class="st-bar" style="width:' + barWidth + '%;background:' + barBg + '"></div>' +
           '<div class="st-nm">' + esc(p.name || '') + flag(p.change) + '</div>' +
           '</div></div>' +
           '<div class="st-pct" style="color:' + (w ? g.color : 'var(--subtle)') + '">' +
