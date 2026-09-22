@@ -55,10 +55,10 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-hero-h1 .accent-word{color:var(--accent)}
 .lp-hero-sub{margin:0;max-width:520px;font-size:19px;line-height:1.55;color:var(--grey-500)}
 .lp-hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.btn-ink{background:var(--ink);color:var(--white);padding:16px 26px;font-size:15px;font-weight:600;border:1px solid var(--ink)}
-.btn-ink:hover{background:var(--grey-600);color:var(--white)}
-.btn-text{padding:16px 22px;font-size:15px;font-weight:600;color:var(--grey-500)}
-.btn-text:hover{color:var(--ink)}
+.landing a.btn-ink{background:var(--ink);color:var(--white);padding:16px 26px;font-size:15px;font-weight:600;border:1px solid var(--ink)}
+.landing a.btn-ink:hover{background:var(--grey-600);color:var(--white)}
+.landing a.btn-text{padding:16px 22px;font-size:15px;font-weight:600;color:var(--grey-500)}
+.landing a.btn-text:hover{color:var(--ink)}
 
 /* ─── TICKER ─── */
 .lp-ticker{display:flex;overflow:hidden;border-bottom:1px solid var(--hairline);background:var(--surface)}
