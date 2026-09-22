@@ -25,7 +25,7 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-brand{display:flex;align-items:center;gap:12px}
 .lp-brand-logo{height:26px;width:auto;overflow:visible}
 .lp-brand-name{font-size:20px;font-weight:700;letter-spacing:-.03em}
-.lp-brand-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;color:var(--grey-300)}
+.lp-brand-tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;color:var(--grey-300)}
 .lp-nav{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:500}
 .lp-nav-subscribe{border:1px solid var(--ink);padding:9px 16px}
 .lp-burger{display:none;flex-direction:column;justify-content:space-between;width:22px;height:16px;background:none;border:none;cursor:pointer;padding:0}
