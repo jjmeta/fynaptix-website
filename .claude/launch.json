@@ -4,7 +4,7 @@
     {
       "name": "fynaptix-site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8788", "--directory", "/Users/jeremymoran/Documents/AI/Fynaptix/Website/fynaptix-claude-enterprise"],
+      "runtimeArgs": ["-m", "http.server", "8788", "--directory", "/Users/jeremymoran/fynaptix-web"],
       "port": 8788
     }
   ]
