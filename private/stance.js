@@ -7,13 +7,13 @@
 */
 (function () {
   var GROUPS = [
-    { key: 'core',  name: 'CORE',        color: '#10b981', chip: 'st-c-core',
+    { key: 'core',  name: 'CORE',        color: '#0f7a52', chip: 'st-c-core',
       desc: 'Highest conviction — proven revenue, defensible position, thesis already working' },
-    { key: 'watch', name: 'WATCH',       color: '#3b82f6', chip: 'st-c-watch',
+    { key: 'watch', name: 'WATCH',       color: '#1d4ed8', chip: 'st-c-watch',
       desc: 'Good business, wrong price or unresolved question — waiting for a better entry or more evidence' },
-    { key: 'spec',  name: 'SPECULATIVE', color: '#f59e0b', chip: 'st-c-spec',
+    { key: 'spec',  name: 'SPECULATIVE', color: '#a15c00', chip: 'st-c-spec',
       desc: 'Real optionality, real chance of zero — small size only, sized to be survivable' },
-    { key: 'avoid', name: 'AVOID',       color: '#ef4444', chip: 'st-c-avoid',
+    { key: 'avoid', name: 'AVOID',       color: '#c1272d', chip: 'st-c-avoid',
       desc: 'Covered for completeness, but the research does not support owning it here' }
   ];
   var BY_KEY = {};
@@ -56,7 +56,7 @@
       return a + (p.stance === 'core' ? (+p.weight || 0) : 0);
     }, 0);
     return '<div class="st-donut"><svg width="' + size + '" height="' + size + '">' +
-      '<circle cx="' + R + '" cy="' + R + '" r="' + r + '" fill="none" stroke="#111a2e" stroke-width="' + sw + '"></circle>' +
+      '<circle cx="' + R + '" cy="' + R + '" r="' + r + '" fill="none" stroke="#ececef" stroke-width="' + sw + '"></circle>' +
       segs + '</svg><div class="st-dcenter"><div class="v">' + Math.round(coreW) +
       '%</div><div class="l">IN CORE</div></div></div>';
   }
@@ -168,8 +168,8 @@
       var moved = every.filter(function (e) { return e.c === 'up' || e.c === 'down' || e.c === 'new'; });
 
       var lead = core.map(function (e) {
-        return '<div class="st-lead"><span class="k" style="color:#10b981">' + esc(e.t) + '</span>' +
-          '<span class="b"><i style="width:' + (e.w / maxC * 100) + '%;background:linear-gradient(90deg,#10b98155,#10b981cc)"></i></span>' +
+        return '<div class="st-lead"><span class="k" style="color:#0f7a52">' + esc(e.t) + '</span>' +
+          '<span class="b"><i style="width:' + (e.w / maxC * 100) + '%;background:linear-gradient(90deg,#0f7a5255,#0f7a52cc)"></i></span>' +
           '<span class="p">' + e.w + '%</span></div>' +
           '<div style="font-size:.66rem;color:var(--subtle);padding:0 0 .35rem 58px;margin-top:-.2rem">' +
           esc(e.n) + ' · ' + e.sec + '</div>';
@@ -200,8 +200,8 @@
           (moved.length ? ' <strong style="color:var(--ge)">' + moved.length +
             ' stance change' + (moved.length === 1 ? '' : 's') + ' this week.</strong>' : '') +
           '</div>' +
-          '<div class="st-group"><div class="st-ghdr"><span class="st-dot" style="background:#10b981"></span>' +
-          '<span class="st-gname" style="color:#10b981">HIGHEST CONVICTION, ALL SECTORS</span>' +
+          '<div class="st-group"><div class="st-ghdr"><span class="st-dot" style="background:#0f7a52"></span>' +
+          '<span class="st-gname" style="color:#0f7a52">HIGHEST CONVICTION, ALL SECTORS</span>' +
           '<span class="st-gdesc">Core names by sleeve weight</span></div>' + lead + '</div>' +
         '</div>' +
         '<div style="height:1rem"></div><div class="st-board">' + cards + '</div>';
