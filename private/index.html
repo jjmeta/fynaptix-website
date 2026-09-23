@@ -3,1162 +3,494 @@
 <head>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Fynaptix · Investment Research</title>
-<meta name="robots" content="noindex,nofollow"/>
-<link rel="manifest" href="/private/manifest.json"/>
-<meta name="theme-color" content="#ffffff"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/private/research.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-<style>
-  /* ── Hub Hero ── */
-  .hub-hero{position:relative;padding:2.6rem 0 2rem;overflow:hidden}
-  .hub-hero-rules{position:absolute;inset:-2.6rem -2rem auto -2rem;height:calc(100% + 5.2rem);
-    background-image:linear-gradient(var(--bg3) 1px,transparent 1px);background-size:100% 46px;
-    -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 78%,transparent);
-    mask-image:linear-gradient(180deg,transparent,#000 12%,#000 78%,transparent);z-index:0;pointer-events:none}
-  .hub-hero-canvas{position:absolute;top:-70px;right:-60px;width:460px;height:420px;z-index:0;pointer-events:none}
-  @media(max-width:900px){.hub-hero-canvas{width:320px;height:300px;top:-40px;right:-60px;opacity:.7}}
-  .hub-hero-inner{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;position:relative;z-index:1}
-  @media(max-width:640px){
-    .hub-hero-inner{grid-template-columns:1fr;text-align:center}
-    .hub-logo-stage{justify-content:center}
-    .hub-orbit-wrap{width:120px;height:120px}
-    .hub-logo-img{width:72px}
-    .hub-orbit-1{inset:4px}
-    .hub-orbit-2{inset:16px}
-    .hub-eyebrow{margin-left:auto;margin-right:auto}
-    .hub-hero p{margin-left:auto;margin-right:auto}
-    .hub-hero{padding:1.6rem 0 1.2rem}
-    .hub-hero-canvas{width:220px;height:220px;top:-20px;right:-50px;opacity:.55}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fynaptix · Research Hub</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link rel="manifest" href="/private/manifest.json"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;color:#0b0b0c;font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  @keyframes fx-pulse{0%,100%{opacity:.3}50%{opacity:1}}
+  .hub{display:flex;align-items:stretch;min-height:100vh}
+  .sb{width:252px;flex:0 0 252px;border-right:1px solid #ececef;padding:24px 0 32px;display:flex;flex-direction:column;gap:26px;position:sticky;top:0;align-self:flex-start;max-height:100vh;overflow-y:auto;background:#fff;transition:transform .25s}
+  .sb-logo{display:flex;align-items:center;gap:10px;padding:0 22px}
+  .sb-logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .sb-logo-name{font-size:15px;font-weight:700;letter-spacing:-.02em}
+  .sb-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .sb-group{display:flex;flex-direction:column;gap:3px;padding:0 12px}
+  .sb-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#a1a1aa;padding:6px 10px}
+  .sb-link{font-size:14px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;transition:background .12s}
+  .sb-link:hover,.sb-link.active{background:#fafafa}
+  .sb-link.active{font-weight:500}
+  .sb-dot{width:5px;height:5px;border-radius:50%;background:#ff5a1f;flex-shrink:0}
+  .sb-footer{margin:auto 22px 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#a1a1aa;padding-top:18px}
+  .main{flex:1;min-width:0;display:flex;flex-direction:column}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 36px;border-bottom:1px solid #ececef;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:5}
+  .topbar-live{display:flex;align-items:center;gap:10px;flex:0 1 auto;min-width:0;overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#52525b}
+  .topbar-dot{width:6px;height:6px;border-radius:50%;background:#ff5a1f;animation:fx-pulse 2.4s ease-in-out infinite;flex-shrink:0}
+  .topbar-right{display:flex;align-items:center;gap:10px;flex:1 1 auto;justify-content:flex-end}
+  .topbar-search{flex:1;min-width:0;max-width:300px;border:1px solid #e4e4e7;padding:10px 14px;font-size:13px;font-family:Archivo,sans-serif;outline:none;background:#fff}
+  .topbar-search:focus{border-color:#ff5a1f}
+  .topbar-cta{background:#0b0b0c;color:#fff;padding:11px 18px;font-size:13px;font-weight:600;white-space:nowrap;transition:background .15s}
+  .topbar-cta:hover{background:#27272a}
+  .mkt-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-bottom:1px solid #ececef}
+  .mkt-cell{padding:18px 20px;display:flex;flex-direction:column;gap:7px;border-right:1px solid #ececef}
+  .mkt-cell:last-child{border-right:none}
+  .mkt-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .mkt-val{font-size:22px;font-weight:600;letter-spacing:-.03em}
+  .mkt-chg{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#71717a}
+  .mkt-chg.pos{color:#ff5a1f}
+  .data-grid{padding:34px 36px;border-bottom:1px solid #ececef;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:44px}
+  .data-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .data-dot{width:8px;height:8px;background:#ff5a1f;flex-shrink:0;display:inline-block}
+  .data-title{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;color:#52525b}
+  .mom-row{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px;align-items:center;gap:12px;margin-bottom:9px}
+  .mom-name{font-size:13px;color:#52525b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mom-track{height:10px;background:#f4f4f5}
+  .mom-bar{height:100%}
+  .mom-val{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right}
+  .mom-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a1a1aa;margin-top:8px}
+  .macro-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:12px}
+  .macro-card{background:#fff;border:1px solid #ececef;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+  .mc-hd{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+  .mc-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .mc-val{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#52525b}
+  .mc-val.hi{color:#ff5a1f}
+  .mc-desc{font-size:13px;color:#52525b}
+  .hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));border-bottom:1px solid #ececef}
+  .hero-main{padding:44px 36px;display:flex;flex-direction:column;gap:18px;border-right:1px solid #ececef;position:relative;overflow:hidden;transition:background .15s}
+  .hero-main:hover{background:#fafafa}
+  .hero-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:#ff5a1f}
+  .hero-kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#ff5a1f}
+  .hero-hl{font-size:clamp(26px,3.5vw,46px);font-weight:700;letter-spacing:-.042em;line-height:1.03;max-width:620px}
+  .hero-sub{font-size:16px;line-height:1.6;color:#52525b;max-width:560px}
+  .hero-cta{font-size:14px;font-weight:600;margin-top:6px}
+  .hero-links{display:flex;flex-direction:column}
+  .hero-link{padding:26px 30px;border-bottom:1px solid #ececef;display:flex;flex-direction:column;gap:7px;transition:background .15s}
+  .hero-link:last-child{border-bottom:none;flex:1}
+  .hero-link:hover{background:#fafafa}
+  .hl-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .hl-title{font-size:19px;font-weight:600;letter-spacing:-.02em}
+  .hl-desc{font-size:14px;color:#52525b;line-height:1.5}
+  .sg-header{padding:40px 36px 18px;display:flex;align-items:baseline;justify-content:space-between}
+  .sg-note{font-size:13px;color:#a1a1aa}
+  .sg{padding:0 36px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .sc{background:#fff;border:1px solid #ececef;padding:24px;display:flex;flex-direction:column;gap:9px;min-height:158px;transition:background .15s}
+  .sc:hover{background:#fafafa}
+  .sc-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .sc-name{font-size:23px;font-weight:600;letter-spacing:-.03em}
+  .sc-desc{font-size:14px;line-height:1.5;color:#52525b}
+  .sc-footer{margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#71717a}
+  .sc-footer.hot{color:#ff5a1f}
+  .bot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));border-top:1px solid #ececef}
+  .bot-cell{padding:38px 36px;display:flex;flex-direction:column;gap:20px;border-right:1px solid #ececef}
+  .bot-cell:last-child{border-right:none}
+  .bot-head{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;color:#52525b}
+  .mv-row{display:grid;grid-template-columns:52px minmax(0,1fr) 84px 74px;align-items:center;gap:10px;padding:13px 0;border-top:1px solid #ececef}
+  .mv-ticker{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500}
+  .mv-name{font-size:15px}
+  .mv-price{font-size:15px;text-align:right;font-family:'IBM Plex Mono',monospace}
+  .mv-chg{font-size:15px;text-align:right;font-family:'IBM Plex Mono',monospace;color:#71717a}
+  .mv-chg.pos{color:#ff5a1f}
+  .mv-hdr{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#a1a1aa}
+  .mv-last{border-bottom:1px solid #ececef}
+  .tr-bars{display:flex;align-items:flex-end;gap:14px;height:112px;border-bottom:1px solid #d4d4d8}
+  .tr-bar{flex:1;max-width:26px;margin:0 auto;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+  .tr-bar-gap{background:#f4f4f5}
+  .tr-bar-fill{background:#ff5a1f}
+  .tr-bar-dim{background:#d4d4d8}
+  .tr-ql{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#a1a1aa;margin-top:8px}
+  .tr-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+  .tr-stat{background:#fff;border:1px solid #ececef;padding:20px;display:flex;flex-direction:column;gap:6px}
+  .tr-stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .tr-stat-val{font-size:30px;font-weight:600;letter-spacing:-.03em}
+  .tr-stat-val.acc{color:#ff5a1f}
+  .tr-stat-sub{font-size:12px;color:#71717a}
+  .tr-links{display:flex;flex-direction:column;gap:12px}
+  .tr-link{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid #ececef;transition:border-color .15s}
+  .tr-link:hover{border-color:#0b0b0c}
+  .tr-link-body{display:flex;flex-direction:column;gap:3px}
+  .tr-link-title{font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .tr-link-desc{font-size:13px;color:#52525b}
+  .tr-link-arrow{font-family:'IBM Plex Mono',monospace;font-size:11px}
+  .funds{padding:38px 36px;border-top:1px solid #ececef;display:flex;flex-direction:column;gap:18px}
+  .funds-hd{display:flex;align-items:baseline;justify-content:space-between}
+  .funds-bar{display:flex;height:22px;width:100%;overflow:hidden}
+  .funds-legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#52525b}
+  .fl-item{display:flex;align-items:center;gap:7px}
+  .fl-dot{width:8px;height:8px;flex-shrink:0}
+  .funds-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a1a1aa}
+  .fund-chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{border:1px solid #ececef;padding:11px 16px;font-size:14px;font-weight:500;transition:border-color .15s}
+  .chip:hover{border-color:#0b0b0c}
+  .chip.primary{border-color:#0b0b0c}
+  .hub-footer{padding:24px 36px 40px;border-top:1px solid #ececef;display:flex;justify-content:space-between;gap:30px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a1a1aa}
+  @media(max-width:768px){
+    .sb{position:fixed;top:0;left:0;z-index:200;height:100vh;transform:translateX(-100%);width:252px}
+    .sb.open{transform:translateX(0)}
+    .main{width:100vw}
+    .topbar{padding:12px 16px}
+    .topbar-search{display:none}
+    .topbar-cta{padding:9px 12px;font-size:12px}
+    .data-grid{padding:20px 16px;gap:24px}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-main{border-right:none;padding:28px 20px}
+    .hero-link{padding:20px}
+    .sg{padding:0 16px 24px}
+    .sg-header{padding:24px 16px 12px}
+    .bot-grid{grid-template-columns:1fr}
+    .bot-cell{border-right:none;padding:28px 20px}
+    .funds{padding:24px 20px}
+    .hub-footer{flex-direction:column;gap:12px;padding:20px}
+    .menu-btn{display:flex!important}
+    .overlay{display:none}
   }
-
-  /* Logo orbit stage */
-  .hub-logo-stage{flex-shrink:0;display:flex;align-items:center;justify-content:center}
-  .hub-orbit-wrap{position:relative;width:180px;height:180px;display:flex;align-items:center;justify-content:center}
-  .hub-orbit{position:absolute;border-radius:50%;border:1px solid transparent}
-  .hub-orbit-1{inset:8px;border-color:rgba(11,11,12,.1);animation:hubSpin 20s linear infinite}
-  .hub-orbit-2{inset:26px;border-color:rgba(11,11,12,.06);animation:hubSpin 14s linear infinite reverse}
-  .hub-orbit-1::before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);
-    top:-3px;left:50%;transform:translateX(-50%)}
-  .hub-orbit-2::after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:var(--subtle);
-    bottom:-2px;right:28%}
-  @keyframes hubSpin{to{transform:rotate(360deg)}}
-  .hub-logo-img{width:108px;height:auto;position:relative;z-index:2;overflow:visible;display:block;animation:hubFloat 7s ease-in-out infinite}
-  @keyframes hubFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-
-  /* Hero text */
-  .hub-eyebrow{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:24px;
-    border:1px solid rgba(255,90,31,.3);background:rgba(255,90,31,.06);
-    font-family:var(--fm);font-size:.56rem;font-weight:700;letter-spacing:.13em;color:var(--accent-dark);margin-bottom:.85rem}
-  .hub-ey-dot{width:5px;height:5px;border-radius:50%;background:var(--ge);flex-shrink:0;animation:eyeDot 2.4s ease-in-out infinite}
-  @keyframes eyeDot{0%,100%{opacity:1}50%{opacity:.3}}
-  .hub-hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.12;margin-bottom:.55rem}
-  .hub-hero h1 .grad{color:var(--accent)}
-  .hub-hero p{color:var(--muted);font-size:.9rem;max-width:500px;line-height:1.65}
-
-  /* Sidebar logo */
-  .sidebar-logo-img{width:38px;height:auto;flex-shrink:0;overflow:visible;display:block}
-  .sidebar-logo-text{font-family:var(--fd);font-weight:700;font-size:.9rem}
-
-  /* ── Section Navigation (redesigned) ── */
-  .sec-nav{display:flex;gap:.3rem;flex-wrap:wrap;margin:1.3rem 0 1rem;
-    background:var(--bg2);border:1px solid var(--border);
-    border-radius:0;padding:.35rem;width:fit-content;max-width:100%}
-  .sec-btn{font-family:var(--fd);font-weight:600;font-size:.82rem;padding:.58rem 1.25rem;border-radius:0;
-    border:none;cursor:pointer;color:var(--muted);transition:background .15s,color .15s;position:relative;
-    overflow:hidden;white-space:nowrap;-webkit-tap-highlight-color:transparent;background:transparent}
-  .sec-btn:hover{color:var(--text);background:var(--bg3)}
-  @media(max-width:600px){
-    .sec-nav{width:100%;border-radius:0;padding:.25rem;flex-wrap:nowrap;overflow-x:auto;
-      scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .sec-nav::-webkit-scrollbar{display:none}
-    .sec-btn{font-size:.72rem;padding:.4rem .82rem;flex-shrink:0}
-  }
-  .sec-btn.open{color:#fff;font-weight:700;background:var(--text)}
-
-  /* Market overview hidden by default; shown only for Crypto */
-  .mkt-overview{display:none}
-
-  /* ── MARKETS strip ── */
-  .mkt-strip{background:var(--bg2);border:1px solid var(--border);border-radius:0;overflow:hidden}
-  .mkt-row{display:flex;align-items:center;gap:1rem;padding:.82rem 1.1rem;text-decoration:none;
-    color:var(--text);border-bottom:1px solid var(--border);transition:background .15s}
-  .mkt-row:last-child{border-bottom:none}
-  .mkt-row:hover{background:var(--bg3)}
-  .mkt-badge{font-family:var(--fm);font-size:.52rem;letter-spacing:.1em;padding:.22rem .6rem;border-radius:0;flex-shrink:0;font-weight:700}
-  .mkt-badge.live{background:rgba(16,185,129,.1);color:#0f7a52;border:1px solid rgba(16,185,129,.25);display:flex;align-items:center;gap:.3rem}
-  .mkt-badge.live::before{content:"";width:5px;height:5px;border-radius:50%;background:#0f7a52;animation:pulse 2.4s ease-in-out infinite;flex-shrink:0}
-  .mkt-badge.weekly{background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
-  .mkt-info{flex:1;min-width:0}
-  .mkt-name{font-family:var(--fd);font-weight:700;font-size:.9rem;margin-bottom:.1rem}
-  .mkt-desc{font-size:.73rem;color:var(--muted)}
-  .mkt-arrow{font-family:var(--fm);font-size:.82rem;color:var(--subtle);flex-shrink:0;transition:color .15s,transform .15s}
-  .mkt-row:hover .mkt-arrow{color:var(--accent);transform:translateX(3px)}
-
-  /* ── TRACK RECORD ── */
-  .tr-featured{display:flex;align-items:center;gap:1.4rem;background:rgba(255,90,31,.05);
-    border:1px solid rgba(255,90,31,.25);border-radius:0;padding:1.3rem 1.5rem;text-decoration:none;color:var(--text);
-    transition:border-color .18s,transform .12s;margin-bottom:.7rem}
-  .tr-featured:hover{border-color:rgba(255,90,31,.45);transform:translateY(-2px)}
-  @media(max-width:600px){
-    .tr-featured{padding:1rem 1.1rem;gap:.6rem}
-    .tr-feat-icon{display:none}
-    .tr-feat-title{font-size:1.05rem}
-    .tr-feat-desc{font-size:.76rem}
-  }
-  .tr-feat-body{flex:1}
-  .tr-feat-kicker{font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;color:var(--accent-dark);margin-bottom:.28rem}
-  .tr-feat-title{font-family:var(--fd);font-weight:800;font-size:1.25rem;margin-bottom:.3rem}
-  .tr-feat-desc{font-size:.78rem;color:var(--muted);line-height:1.55;max-width:480px}
-  .tr-feat-icon{font-size:2.6rem;flex-shrink:0;opacity:.65}
-  .tr-pair{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
-  @media(max-width:580px){.tr-pair{grid-template-columns:1fr}}
-  .tr-item{display:flex;align-items:center;gap:.9rem;background:var(--bg2);border:1px solid var(--border);
-    border-radius:0;padding:.9rem 1.1rem;text-decoration:none;color:var(--text);transition:border-color .15s,background .15s}
-  .tr-item:hover{background:var(--bg3);border-color:var(--text)}
-  .tr-item-icon{font-size:1.4rem;flex-shrink:0;opacity:.6}
-  .tr-item-body{flex:1}
-  .tr-item-tag{font-family:var(--fm);font-size:.53rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.14rem}
-  .tr-item-title{font-family:var(--fd);font-weight:700;font-size:.9rem;margin-bottom:.1rem}
-  .tr-item-desc{font-size:.72rem;color:var(--muted)}
-
-  /* ── STRATEGY & EDUCATION chapter rows ── */
-  .chapter-list{display:flex;flex-direction:column;gap:.5rem}
-  .chapter-row{display:flex;align-items:center;gap:1.1rem;background:var(--bg2);border:1px solid var(--border);
-    border-radius:0;padding:1.1rem 1.3rem;text-decoration:none;color:var(--text);transition:border-color .15s,transform .12s}
-  .chapter-row:hover{border-color:var(--text);transform:translateX(4px)}
-  .chapter-num{font-family:var(--fd);font-weight:800;font-size:2.4rem;color:rgba(11,11,12,.06);
-    flex-shrink:0;width:52px;text-align:right;line-height:1;letter-spacing:-.04em;user-select:none}
-  .chapter-body{flex:1;min-width:0}
-  .chapter-tag{font-family:var(--fm);font-size:.53rem;letter-spacing:.12em;color:var(--muted);margin-bottom:.18rem}
-  .chapter-title{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.14rem}
-  .chapter-desc{font-size:.74rem;color:var(--muted);line-height:1.45}
-  .chapter-arrow{font-family:var(--fd);font-size:1.1rem;color:var(--subtle);flex-shrink:0;transition:color .15s,transform .15s}
-  .chapter-row:hover .chapter-arrow{color:var(--accent);transform:translateX(4px)}
-
-  /* Drawer */
-  .drawer{display:none;animation:fade .25s ease}
-  .drawer.open{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-  /* Drawer sub-section labels */
-  .drawer-section{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;color:var(--muted);
-    margin:1.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
-  .drawer-section:first-child{margin-top:0}
-
-  /* Sector cards */
-  .sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1.2rem 1.3rem;
-    text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s;display:block;
-    position:relative;overflow:hidden}
-  .sector-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);opacity:.85}
-  .sector-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-  .sector-card .sc-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;color:var(--accent-dark)}
-  .sector-card h3{font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .3rem}
-  .sector-card p{font-size:.75rem;color:var(--muted);line-height:1.45}
-  .sector-card.featured{background:rgba(255,90,31,.05);border-color:rgba(255,90,31,.3)}
-  .sector-card.featured::before{background:var(--accent);opacity:1}
-
-  /* Sidebar sub-sections */
-  .sidebar-sub{font-size:.58rem;font-family:var(--fm);letter-spacing:.1em;color:var(--subtle);
-    padding:.3rem .8rem .1rem 1.4rem;text-transform:uppercase;margin-top:.3rem;display:block}
-
-  /* Crypto live pulse row */
-  .crypto-pulse{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;margin-bottom:.2rem}
-  .pulse-card{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1rem 1.1rem}
-  .pulse-label{font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.35rem}
-  .pulse-value{font-family:var(--fd);font-weight:800;font-size:1.55rem;line-height:1}
-  .pulse-sub{font-family:var(--fm);font-size:.6rem;color:var(--muted);margin-top:.22rem}
-  .pulse-value.fear{color:#c1272d}
-  .pulse-value.fear-greed{color:#a15c00}
-  .pulse-value.greed{color:#0f7a52}
-
-  /* Top performers */
-  .perf-row{display:flex;align-items:center;gap:.75rem;padding:.65rem .9rem;border-bottom:1px solid var(--border);transition:background .15s}
-  .perf-row:last-child{border-bottom:none}
-  .perf-row:hover{background:var(--bg3)}
-  .perf-rank{font-family:var(--fm);font-size:.65rem;color:var(--subtle);width:16px;text-align:right;flex-shrink:0}
-  .perf-icon{width:24px;height:24px;border-radius:50%;flex-shrink:0;background:var(--bg3)}
-  .perf-name{flex:1;min-width:0}
-  .perf-sym{font-family:var(--fd);font-weight:700;font-size:.88rem;display:block}
-  .perf-full{font-family:var(--fm);font-size:.6rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
-  .perf-price{font-family:var(--fm);font-size:.82rem;color:var(--text);flex-shrink:0;min-width:80px;text-align:right}
-  .perf-pct{font-family:var(--fd);font-weight:700;font-size:.85rem;flex-shrink:0;min-width:62px;text-align:right}
-  .perf-pct.pos{color:#0f7a52}
-  .perf-pct.neg{color:#c1272d}
-  .crypto-loading{text-align:center;padding:1.6rem 1rem;color:var(--muted);font-size:.83rem}
-
-  /* Alpha investor cards */
-  .alpha-card{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1.1rem 1.3rem}
-  .alpha-name{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.22rem}
-  .alpha-focus{font-size:.75rem;color:var(--muted);line-height:1.45;margin-bottom:.55rem}
-  .alpha-status{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;color:var(--accent-dark);
-    background:rgba(255,90,31,.08);border:1px solid rgba(255,90,31,.2);border-radius:0;padding:.2rem .6rem;display:inline-block}
-
-  /* Coming soon placeholder */
-  .coming-soon{background:var(--bg2);border:1px dashed var(--border);border-radius:0;padding:1.4rem 1.6rem;text-align:center}
-  .coming-soon .cs-title{font-family:var(--fd);font-weight:700;font-size:.95rem;margin-bottom:.3rem}
-  .coming-soon .cs-desc{font-size:.77rem;color:var(--muted);line-height:1.5}
-  .cs-badge{font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;padding:.22rem .65rem;border-radius:0;
-    background:rgba(255,90,31,.08);border:1px solid rgba(255,90,31,.2);color:var(--accent-dark);display:inline-block;margin-bottom:.55rem}
-
-  /* News */
-  .news-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-bottom:.9rem}
-  .news-filters{display:flex;gap:.4rem}
-  .nf{font-family:var(--fm);font-size:.62rem;letter-spacing:.08em;padding:.3rem .8rem;border-radius:99px;cursor:pointer;
-    background:var(--bg2);border:1px solid var(--border);color:var(--muted)}
-  .nf.active{background:rgba(255,90,31,.1);border-color:rgba(255,90,31,.35);color:var(--text)}
-  .news-item{display:flex;align-items:flex-start;gap:.9rem;padding:.8rem 1rem;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
-  .news-item:last-child{border-bottom:none}
-  .news-item:hover{background:var(--bg3)}
-  .news-item .nt{font-size:.86rem;color:var(--text);line-height:1.4;flex:1}
-  .news-item .nm{font-family:var(--fm);font-size:.58rem;color:var(--muted);white-space:nowrap;padding-top:.15rem;text-align:right}
-  .news-tag{font-family:var(--fm);font-size:.55rem;letter-spacing:.08em;padding:.15rem .5rem;border-radius:0;white-space:nowrap;margin-top:.1rem}
-  .news-tag.AI{background:rgba(255,90,31,.1);color:var(--accent-dark)}
-  .news-tag.Robotics{background:var(--bg3);color:var(--muted)}
-  .news-tag.Tech{background:var(--bg3);color:var(--muted)}
-  #newsStatus{font-size:.78rem;color:var(--muted);padding:1rem}
-
-  /* Subscribe */
-  .sub-box{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1.6rem}
-  .sub-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
-  .sub-row input{flex:1;min-width:220px;background:var(--bg);border:1px solid var(--border);border-radius:0;
-    color:var(--text);font-family:var(--fb);font-size:.9rem;padding:.7rem .9rem;outline:none}
-  .sub-row input:focus{border-color:var(--accent)}
-  .sub-btn{background:var(--accent);border:1px solid var(--accent);border-radius:0;color:#fff;
-    font-family:var(--fd);font-weight:700;font-size:.9rem;padding:.7rem 1.6rem;cursor:pointer}
-  .sub-btn:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
-  .sub-btn:disabled{opacity:.6;cursor:wait}
-  .sub-lists{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:1rem}
-  .sub-chip{font-family:var(--fm);font-size:.6rem;letter-spacing:.06em;padding:.4rem .8rem;border-radius:99px;cursor:pointer;
-    background:var(--bg2);border:1px solid var(--border);color:var(--muted);user-select:none}
-  .sub-chip.on{background:rgba(255,90,31,.1);border-color:rgba(255,90,31,.4);color:var(--accent-dark)}
-  #subMsg{font-size:.8rem;margin-top:.8rem;display:none}
-  #subMsg.ok{color:#0f7a52;display:block}
-  #subMsg.err{color:#c1272d;display:block}
-
-  /* Political Alpha / Trump tracker */
-  .signal-card{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1.1rem 1.3rem;margin-bottom:.75rem}
-  .signal-card:last-child{margin-bottom:0}
-  .signal-meta{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:.45rem}
-  .signal-who{font-family:var(--fm);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:20px;background:rgba(255,90,31,.1);color:var(--accent-dark)}
-  .signal-platform{font-family:var(--fm);font-size:.6rem;color:var(--muted)}
-  .signal-date{font-family:var(--fm);font-size:.6rem;color:var(--muted);margin-left:auto}
-  .signal-text{font-size:.86rem;color:var(--text);line-height:1.6;margin-bottom:.5rem}
-  .signal-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.45rem}
-  .signal-tag{font-family:var(--fm);font-size:.58rem;padding:2px 7px;border-radius:0;background:var(--bg3);color:var(--muted)}
-  .signal-tag.market{background:rgba(255,90,31,.1);color:var(--accent-dark)}
-  .signal-tag.crypto{background:rgba(255,90,31,.1);color:var(--accent-dark)}
-  .signal-tag.energy{background:rgba(255,90,31,.1);color:var(--accent-dark)}
-  .signal-tag.real-estate{background:var(--bg3);color:var(--muted)}
-  .signal-tag.policy{background:rgba(16,185,129,.1);color:#0f7a52}
-  .signal-impact{font-size:.78rem;font-style:italic;color:var(--muted);border-left:2px solid rgba(255,90,31,.3);padding-left:.7rem;margin-top:.4rem}
-  .trump-themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.7rem;margin-top:1rem}
-  .trump-theme{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:.9rem 1rem;font-size:.8rem;color:var(--muted);line-height:1.55}
-  .trump-empty{text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem}
-  .trump-pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite;margin-right:.4rem}
-  .trump-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
-  .trump-generated{font-family:var(--fm);font-size:.62rem;color:var(--muted)}
-
-  /* ── Market Overview Charts ── */
-  .mkt-overview{margin:.5rem 0 1.4rem}
-  .mkt-stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:.7rem;margin-bottom:.75rem}
-  .mkt-stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1.15rem 1.2rem;position:relative}
-  .mkt-stat-card.mkt-link{text-decoration:none;color:var(--text);transition:border-color .2s,transform .15s;cursor:pointer;display:block}
-  .mkt-stat-card.mkt-link:hover{border-color:var(--accent);transform:translateY(-2px)}
-  .msc-label{font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;color:var(--muted);margin-bottom:.3rem}
-  .msc-price{font-family:var(--fd);font-weight:800;font-size:1.45rem;line-height:1.05}
-  .msc-chg{font-family:var(--fm);font-size:.64rem;margin-top:.14rem}
-  .mkt-charts-row{display:grid;grid-template-columns:3fr 2fr;gap:.75rem;margin-bottom:.75rem}
-  @media(max-width:700px){.mkt-charts-row{grid-template-columns:1fr}}
-  .mkt-chart-card{background:var(--bg2);border:1px solid var(--border);border-radius:0;padding:1.1rem 1.2rem}
-  .mct-label{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.15rem}
-  .mct-title{font-family:var(--fd);font-weight:700;font-size:.88rem;margin-bottom:.65rem}
-  .mkt-eq-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-  @media(max-width:500px){.mkt-eq-row{grid-template-columns:1fr}}
-</style>
+  .menu-btn{display:none;position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:#0b0b0c;color:#fff;border:none;font-size:18px;cursor:pointer;z-index:300;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+  </style>
 </head>
 <body>
-<div class="layout">
+<div class="hub">
 
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="/private/">
-      <svg class="sidebar-logo-img" viewBox="0 0 40 24" role="img" aria-label="Fynaptix">
+  <aside class="sb" id="sb">
+    <a href="/private/" class="sb-logo">
+      <svg viewBox="0 0 40 24" role="img" aria-label="Fynaptix" style="height:22px;width:auto;display:block;overflow:visible">
         <circle cx="13" cy="12" r="9.2" fill="none" stroke="#71717a" stroke-width="2.6"/>
         <circle cx="27" cy="12" r="9.2" fill="none" stroke="#a1a1aa" stroke-width="2.6"/>
       </svg>
-      <span class="sidebar-logo-text">Research Hub</span>
+      <span class="sb-logo-text">
+        <span class="sb-logo-name">FYNAPTIX</span>
+        <span class="sb-logo-sub">RESEARCH HUB</span>
+      </span>
     </a>
-    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
-
-      <div class="sidebar-section">Crypto</div>
-      <a class="nav-item active" href="/private/">Hub Home</a>
-      <a class="nav-item" href="/private/news.html">Daily Intelligence</a>
-      <a class="nav-item" href="/private/crypto-alpha.html">Alpha Investors</a>
-
-      <div class="sidebar-section" style="margin-top:.5rem">Investing</div>
-      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
-      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
-      <a class="nav-item" href="/private/robotics.html">Robotics</a>
-      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
-      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
-      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
-      <a class="nav-item" href="/private/space.html">Space Economy</a>
-      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
-      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
-      <a class="nav-item" href="/private/quantum.html">Quantum</a>
-      <span class="sidebar-sub">Markets</span>
-      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
-      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
-      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
-      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
-      <a class="nav-item" href="/private/macro.html">Macro</a>
-      <span class="sidebar-sub">Track Record</span>
-      <a class="nav-item" href="/private/calibration.html">Calibration</a>
-      <a class="nav-item" href="/private/archive.html">Research Archive</a>
-      <span class="sidebar-sub">Trading</span>
-      <a class="nav-item" href="/private/crypto-signals.html">⚡ Crypto Signals</a>
-      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
-      <span class="sidebar-sub">Strategy &amp; Education</span>
-      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
-      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
-      <a class="nav-item" href="/private/education.html">Investing 101</a>
-
-      <div class="sidebar-section" style="margin-top:.5rem">VC Funds</div>
-      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
-      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
-      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
-
-      <div class="sidebar-section" style="margin-top:.5rem">Political Alpha</div>
-      <a class="nav-item" href="/private/">Trump Family Tracker</a>
+    <div class="sb-group">
+      <span class="sb-label">THIS WEEK</span>
+      <a href="/private/overview.html" class="sb-link active"><span>Weekly Brief</span><span class="sb-dot"></span></a>
+      <a href="/private/news.html" class="sb-link">Daily Intelligence</a>
+      <a href="/private/calendar.html" class="sb-link">Catalyst Calendar</a>
     </div>
-    <div class="sidebar-footer">
-      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+    <div class="sb-group">
+      <span class="sb-label">SECTORS</span>
+      <a href="/private/ai.html" class="sb-link">AI &amp; Compute</a>
+      <a href="/private/robotics.html" class="sb-link">Robotics</a>
+      <a href="/private/defense.html" class="sb-link">Defense Tech</a>
+      <a href="/private/nuclear.html" class="sb-link">Nuclear &amp; SMRs</a>
+      <a href="/private/minerals.html" class="sb-link">Critical Minerals</a>
+      <a href="/private/space.html" class="sb-link">Space Economy</a>
+      <a href="/private/storage.html" class="sb-link">Energy Storage</a>
+      <a href="/private/biotech.html" class="sb-link">AI Biotech</a>
+      <a href="/private/quantum.html" class="sb-link">Quantum</a>
     </div>
+    <div class="sb-group">
+      <span class="sb-label">MARKETS</span>
+      <a href="/private/watchlist.html" class="sb-link">Live Watchlist</a>
+      <a href="/private/macro.html" class="sb-link">Macro Dashboard</a>
+      <a href="/private/ipo.html" class="sb-link">IPO Pipeline</a>
+      <a href="/private/etfs.html" class="sb-link">ETF Compare</a>
+    </div>
+    <div class="sb-group">
+      <span class="sb-label">CRYPTO</span>
+      <a href="/private/crypto-alpha.html" class="sb-link">Alpha Investors</a>
+      <a href="/private/crypto-signals.html" class="sb-link">Crypto Signals</a>
+    </div>
+    <div class="sb-group">
+      <span class="sb-label">TRACK RECORD</span>
+      <a href="/private/calibration.html" class="sb-link">Calibration</a>
+      <a href="/private/journal.html" class="sb-link">Decision Journal</a>
+      <a href="/private/paper.html" class="sb-link">Paper Portfolio</a>
+      <a href="/private/archive.html" class="sb-link">Research Archive</a>
+    </div>
+    <div class="sb-group">
+      <span class="sb-label">FUNDS &amp; VOICES</span>
+      <a href="/private/ark.html" class="sb-link">ARK Invest</a>
+      <a href="/private/bailliegifford.html" class="sb-link">Baillie Gifford</a>
+      <a href="/private/investors.html" class="sb-link">Investor Voices</a>
+    </div>
+    <a href="/" class="sb-footer">← PUBLIC SITE</a>
   </aside>
 
-  <main class="main">
+  <div id="overlay" onclick="closeSb()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:100"></div>
 
-    <div class="hub-hero">
-      <div class="hub-hero-rules" aria-hidden="true"></div>
-      <canvas id="hub-hero-canvas" class="hub-hero-canvas" aria-hidden="true"></canvas>
-      <div class="hub-hero-inner">
-        <div class="hub-logo-stage">
-          <div class="hub-orbit-wrap">
-            <div class="hub-orbit hub-orbit-1"></div>
-            <div class="hub-orbit hub-orbit-2"></div>
-            <svg class="hub-logo-img" viewBox="0 0 40 24" role="img" aria-label="Fynaptix">
-              <circle cx="13" cy="12" r="9.2" fill="none" stroke="#71717a" stroke-width="2.6"/>
-              <circle cx="27" cy="12" r="9.2" fill="none" stroke="#a1a1aa" stroke-width="2.6"/>
-            </svg>
-          </div>
-        </div>
-        <div>
-          <div class="hub-eyebrow"><span class="hub-ey-dot"></span>FYNAPTIX INVESTMENT RESEARCH</div>
-          <h1>Markets, deep dives &amp;<br/><span class="grad">alpha — every day.</span></h1>
-          <p>Crypto, equities, VC funds and political alpha — your personal research hub, refreshed daily by an AI pipeline.</p>
+  <div class="main">
+
+    <div class="topbar">
+      <div class="topbar-live">
+        <span class="topbar-dot"></span>
+        <span id="ts">LIVE · RESEARCH HUB</span>
+      </div>
+      <div class="topbar-right">
+        <input class="topbar-search" placeholder="Search theses, tickers, sectors…"/>
+        <a href="/private/overview.html" class="topbar-cta">This week's brief</a>
+      </div>
+    </div>
+
+    <div class="mkt-strip">
+      <div class="mkt-cell">
+        <span class="mkt-label">BITCOIN</span>
+        <span class="mkt-val" id="btc-p">—</span>
+        <span class="mkt-chg" id="btc-c">loading…</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%;height:26px;display:block;margin-top:4px">
+          <polyline points="0,20 15,17 30,21 45,13 60,16 75,9 90,12 105,6 120,3" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+      <div class="mkt-cell">
+        <span class="mkt-label">ETHEREUM</span>
+        <span class="mkt-val" id="eth-p">—</span>
+        <span class="mkt-chg" id="eth-c">loading…</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%;height:26px;display:block;margin-top:4px">
+          <polyline points="0,15 15,18 30,13 45,17 60,12 75,15 90,10 105,13 120,9" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+      <div class="mkt-cell">
+        <span class="mkt-label">S&amp;P 500</span>
+        <span class="mkt-val">5,738</span>
+        <span class="mkt-chg">NEAR RECORD</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%;height:26px;display:block;margin-top:4px">
+          <polyline points="0,19 15,16 30,18 45,12 60,14 75,10 90,11 105,7 120,5" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+      <div class="mkt-cell">
+        <span class="mkt-label">NASDAQ</span>
+        <span class="mkt-val">18,210</span>
+        <span class="mkt-chg">+0.4%</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%;height:26px;display:block;margin-top:4px">
+          <polyline points="0,17 15,20 30,15 45,18 60,11 75,14 90,9 105,11 120,8" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+      <div class="mkt-cell">
+        <span class="mkt-label">VIX</span>
+        <span class="mkt-val">16.2</span>
+        <span class="mkt-chg">CALM</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%;height:26px;display:block;margin-top:4px">
+          <polyline points="0,8 15,11 30,7 45,13 60,10 75,16 90,14 105,19 120,21" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+      <div class="mkt-cell">
+        <span class="mkt-label">FEAR &amp; GREED</span>
+        <span class="mkt-val" id="fg-v">—</span>
+        <div style="display:flex;gap:2px;align-items:flex-end;height:14px;margin-top:4px">
+          <div style="flex:1;height:40%;background:#ececef"></div>
+          <div style="flex:1;height:55%;background:#ececef"></div>
+          <div style="flex:1;height:70%;background:#e4e4e7"></div>
+          <div style="flex:1;height:85%;background:#d4d4d8"></div>
+          <div style="flex:1;height:100%;background:#ff5a1f"></div>
         </div>
       </div>
     </div>
 
-    <div class="disclaimer"><strong>Not financial advice.</strong> Everything here organizes public information for research and education — not recommendations to buy or sell any security. Do your own due diligence.</div>
-
-    <section>
-      <div class="kicker">EXPLORE</div>
-      <div class="sec-title">Choose Your Research Focus</div>
-
-      <div class="sec-nav">
-        <button class="sec-btn sb-crypto" onclick="openDrawer('crypto',this)">₿ Crypto</button>
-        <button class="sec-btn sb-investing open" onclick="openDrawer('investing',this)">Investing</button>
-        <button class="sec-btn sb-vcs" onclick="openDrawer('vcs',this)">VC Funds</button>
-        <button class="sec-btn sb-political" onclick="openDrawer('political',this)">Political Alpha</button>
-        <button class="sec-btn sb-brief" onclick="openDrawer('brief',this)">★ Weekly Brief</button>
-        <button class="sec-btn sb-news" onclick="openDrawer('news',this)">Daily News</button>
-        <button class="sec-btn sb-macro" onclick="openDrawer('macro',this)">Macro</button>
-        <button class="sec-btn sb-ipo" onclick="openDrawer('ipo',this)">IPO Pipeline</button>
+    <div class="data-grid">
+      <div>
+        <div class="data-head"><span class="data-dot"></span><span class="data-title">SECTOR MOMENTUM · 4 WEEKS</span></div>
+        <div id="mom-rows"></div>
+        <p class="mom-note">ORANGE = TOP QUARTILE · EQUAL-WEIGHT BASKET PER SECTOR</p>
       </div>
-
-      <!-- ── MARKET OVERVIEW (crypto drawer only) ── -->
-      <div class="mkt-overview" id="mkt-overview">
-        <div class="mkt-stat-row">
-          <div class="mkt-stat-card" style="border-top:3px solid #f7931a">
-            <div class="msc-label">BITCOIN</div>
-            <div class="msc-price" id="msc-btc-price">—</div>
-            <div class="msc-chg" id="msc-btc-chg">loading…</div>
-            <canvas id="btcSparkline" style="margin-top:.6rem;display:block;width:100%;height:42px"></canvas>
+      <div>
+        <div class="data-head"><span class="data-dot"></span><span class="data-title">MACRO · 6 MONTHS</span></div>
+        <div class="macro-cards">
+          <div class="macro-card">
+            <div class="mc-hd"><span class="mc-lbl">BITCOIN</span><span class="mc-val hi" id="btc-6m">—</span></div>
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%;height:92px;display:block">
+              <polygon points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10 300,90 0,90" fill="#ff5a1f" opacity="0.1"/>
+              <polyline points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10" fill="none" stroke="#ff5a1f" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <span class="mc-desc">Front-running the liquidity turn</span>
           </div>
-          <div class="mkt-stat-card" style="border-top:3px solid #627EEA">
-            <div class="msc-label">ETHEREUM</div>
-            <div class="msc-price" id="msc-eth-price">—</div>
-            <div class="msc-chg" id="msc-eth-chg">loading…</div>
-            <canvas id="ethSparkline" style="margin-top:.6rem;display:block;width:100%;height:42px"></canvas>
+          <div class="macro-card">
+            <div class="mc-hd"><span class="mc-lbl">S&amp;P 500</span><span class="mc-val">+14.2%</span></div>
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%;height:92px;display:block">
+              <polygon points="0,62 25,58 50,60 75,50 100,53 125,46 150,49 175,41 200,44 225,36 250,33 275,27 300,20 300,90 0,90" fill="#0b0b0c" opacity="0.06"/>
+              <polyline points="0,62 25,58 50,60 75,50 100,53 125,46 150,49 175,41 200,44 225,36 250,33 275,27 300,20" fill="none" stroke="#27272a" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <span class="mc-desc">Near record, dispersion doing the work</span>
           </div>
-          <div class="mkt-stat-card" style="border-top:3px solid var(--gm)">
-            <div class="msc-label">CRYPTO MARKET CAP</div>
-            <div class="msc-price" id="msc-mcap">—</div>
-            <div class="msc-chg" id="msc-mcap-chg">24h change</div>
-          </div>
-          <div class="mkt-stat-card">
-            <div class="msc-label">FEAR &amp; GREED</div>
-            <canvas id="fgGauge" style="display:block;width:100%;height:64px;margin:.05rem 0 0"></canvas>
-            <div style="text-align:center;margin-top:-.2rem">
-              <div class="msc-price" id="msc-fg-val" style="font-size:1.55rem">—</div>
-              <div class="msc-chg" id="msc-fg-label" style="text-align:center">loading…</div>
-            </div>
-          </div>
-          <div class="mkt-stat-card" style="border-top:3px solid #10b981">
-            <div class="msc-label">S&amp;P 500</div>
-            <div class="msc-price" id="msc-spx-price">—</div>
-            <div class="msc-chg" id="msc-spx-chg">loading…</div>
-          </div>
-          <div class="mkt-stat-card" style="border-top:3px solid #3b82f6">
-            <div class="msc-label">NASDAQ</div>
-            <div class="msc-price" id="msc-ndx-price">—</div>
-            <div class="msc-chg" id="msc-ndx-chg">loading…</div>
+          <div class="macro-card">
+            <div class="mc-hd"><span class="mc-lbl">US 10Y</span><span class="mc-val">4.18%</span></div>
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%;height:92px;display:block">
+              <polygon points="0,30 25,34 50,28 75,38 100,35 125,44 150,40 175,50 200,46 225,54 250,50 275,58 300,55 300,90 0,90" fill="#0b0b0c" opacity="0.06"/>
+              <polyline points="0,30 25,34 50,28 75,38 100,35 125,44 150,40 175,50 200,46 225,54 250,50 275,58 300,55" fill="none" stroke="#a1a1aa" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <span class="mc-desc">Easing — long duration gets its bid back</span>
           </div>
         </div>
-        <div class="mkt-charts-row">
-          <div class="mkt-chart-card">
-            <div class="mct-label">BITCOIN</div>
-            <div class="mct-title">7-Day Price</div>
-            <div style="position:relative;height:165px"><canvas id="btcLineChart"></canvas></div>
-          </div>
-          <div class="mkt-chart-card">
-            <div class="mct-label">CRYPTO</div>
-            <div class="mct-title">Top Gainers Today</div>
-            <div style="position:relative;height:165px"><canvas id="gainersBarChart"></canvas></div>
-          </div>
-        </div>
-        <div class="mkt-eq-row">
-          <a class="mkt-stat-card mkt-link" href="/private/macro.html">
-            <div class="msc-label">MACRO DASHBOARD</div>
-            <div style="font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .18rem">Rates · VIX · Gold · Oil</div>
-            <div style="font-size:.7rem;color:var(--ge)">Open macro dashboard →</div>
-          </a>
-          <a class="mkt-stat-card mkt-link" href="/private/watchlist.html">
-            <div class="msc-label">EQUITIES WATCHLIST</div>
-            <div style="font-family:var(--fd);font-weight:700;font-size:.95rem;margin:.2rem 0 .18rem">60+ tickers, live prices</div>
-            <div style="font-size:.7rem;color:var(--ge)">Open live watchlist →</div>
-          </a>
-        </div>
+        <a href="/private/macro.html" style="font-size:14px;font-weight:600;">Open the macro dashboard →</a>
       </div>
+    </div>
 
-      <!-- ── CRYPTO DRAWER ── -->
-      <div id="drawer-crypto" class="drawer">
-        <div class="drawer-section">MARKET PULSE · LIVE</div>
-        <div class="crypto-pulse">
-          <div class="pulse-card">
-            <div class="pulse-label">FEAR &amp; GREED</div>
-            <div class="pulse-value" id="fg-value">—</div>
-            <div class="pulse-sub" id="fg-label">Loading…</div>
-          </div>
-          <div class="pulse-card">
-            <div class="pulse-label">BTC DOMINANCE</div>
-            <div class="pulse-value" id="btc-dom">—</div>
-            <div class="pulse-sub">Bitcoin market share</div>
-          </div>
-          <div class="pulse-card">
-            <div class="pulse-label">TOTAL MARKET CAP</div>
-            <div class="pulse-value" id="total-mcap">—</div>
-            <div class="pulse-sub" id="mcap-change">24h change</div>
-          </div>
-          <div class="pulse-card">
-            <div class="pulse-label">BITCOIN</div>
-            <div class="pulse-value" id="drawer-btc-price">—</div>
-            <div class="pulse-sub" id="drawer-btc-chg">loading…</div>
-          </div>
-          <div class="pulse-card">
-            <div class="pulse-label">ETHEREUM</div>
-            <div class="pulse-value" id="drawer-eth-price">—</div>
-            <div class="pulse-sub" id="drawer-eth-chg">loading…</div>
-          </div>
-        </div>
-        <div class="sec-note" style="margin-top:.4rem;margin-bottom:0">Live data from CoinGecko &amp; alternative.me — refreshed on page load.</div>
-
-        <div class="drawer-section">TOP PERFORMERS TODAY (24H)</div>
-        <div class="card" style="padding:.2rem 0">
-          <div id="crypto-performers"><div class="crypto-loading">Loading live prices from CoinGecko…</div></div>
-        </div>
-        <div class="sec-note" style="margin-top:.4rem">Top gainers from the top 250 coins by market cap. Prices from CoinGecko.</div>
-
-        <div class="drawer-section">ALPHA INVESTOR WATCH</div>
-        <div class="grid-cards">
-          <a class="alpha-card" href="/private/crypto-alpha.html" style="text-decoration:none;color:inherit;display:block">
-            <div class="alpha-name">a16z Crypto</div>
-            <div class="alpha-focus">Deploying on RWA, prediction markets (Polymarket) and decentralised social (Farcaster). Thesis: apps that don't feel like crypto apps.</div>
-            <span class="alpha-status">BULL · PROTOCOL LAYER</span>
-          </a>
-          <a class="alpha-card" href="/private/crypto-alpha.html" style="text-decoration:none;color:inherit;display:block">
-            <div class="alpha-name">Multicoin Capital</div>
-            <div class="alpha-focus">High-conviction on Solana, Render Network and Bittensor. Argues DePIN unit economics work and AI × crypto is real, not narrative.</div>
-            <span class="alpha-status">BULL · SOLANA + DePIN</span>
-          </a>
-          <a class="alpha-card" href="/private/crypto-alpha.html" style="text-decoration:none;color:inherit;display:block">
-            <div class="alpha-name">Paradigm</div>
-            <div class="alpha-focus">Published EigenLayer restaking risk research this week. Long on restaking as a primitive; cautious on correlated slashing risks being underpriced.</div>
-            <span class="alpha-status">BUILDING · PROTOCOL RISK</span>
-          </a>
-          <a class="alpha-card" href="/private/crypto-alpha.html" style="text-decoration:none;color:inherit;display:block">
-            <div class="alpha-name">Pantera Capital</div>
-            <div class="alpha-focus">Watching BTC's post-halving cycle (16 months in). Rate path into Jackson Hole is the key variable. Historically the next 6 months matter most.</div>
-            <span class="alpha-status">NEUTRAL · MACRO-WATCHING</span>
-          </a>
-        </div>
-
-        <div class="drawer-section">DAILY CRYPTO NEWS</div>
-        <div class="coming-soon">
-          <div class="cs-badge">PIPELINE COMING</div>
-          <div class="cs-title">Daily Crypto News Feed</div>
-          <div class="cs-desc">Will pull from CoinDesk, The Block, and Decrypt — top headlines refreshed daily by the AI research pipeline.</div>
-        </div>
-      </div>
-
-      <!-- ── INVESTING DRAWER ── -->
-      <div id="drawer-investing" class="drawer open">
-        <div class="drawer-section">WEEKLY BRIEF</div>
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/overview.html"><span class="sc-tag">★ THIS WEEK</span><h3>All Sectors at a Glance</h3><p>Scoreboard, live markets, themes, news, risk gauge &amp; the week ahead — every Monday.</p></a>
-        </div>
-
-        <div class="drawer-section">SECTOR DEEP DIVES</div>
-        <div class="grid-cards">
-          <a class="sector-card" style="--accent:#2ed0f5" href="/private/ai.html"><span class="sc-tag">THE SUPERCYCLE</span><h3>AI &amp; Compute</h3><p>Hyperscaler capex, silicon stack &amp; the bubble debate.</p></a>
-          <a class="sector-card" style="--accent:#c025e8" href="/private/robotics.html"><span class="sc-tag">PHYSICAL AI</span><h3>Robotics</h3><p>Humanoids, warehouse automation &amp; components.</p></a>
-          <a class="sector-card" style="--accent:#ef4444" href="/private/defense.html"><span class="sc-tag">AUTONOMY</span><h3>Defense Tech</h3><p>AI battlefield software, drones &amp; rearmament.</p></a>
-          <a class="sector-card" style="--accent:#f59e0b" href="/private/nuclear.html"><span class="sc-tag">AI POWER TRADE</span><h3>Nuclear &amp; SMRs</h3><p>Reactors, uranium &amp; data-center demand.</p></a>
-          <a class="sector-card" style="--accent:#10b981" href="/private/minerals.html"><span class="sc-tag">SOVEREIGNTY</span><h3>Critical Minerals</h3><p>Rare earths, lithium &amp; onshoring.</p></a>
-          <a class="sector-card" style="--accent:#3b82f6" href="/private/space.html"><span class="sc-tag">FRONTIER</span><h3>Space Economy</h3><p>Launch &amp; satellites post-SpaceX IPO.</p></a>
-          <a class="sector-card" style="--accent:#eab308" href="/private/storage.html"><span class="sc-tag">GRID</span><h3>Energy Storage</h3><p>Grid batteries &amp; next-gen chemistry.</p></a>
-          <a class="sector-card" style="--accent:#ec4899" href="/private/biotech.html"><span class="sc-tag">COMPUTATIONAL BIO</span><h3>AI Biotech</h3><p>AI drug discovery &amp; longevity capital.</p></a>
-          <a class="sector-card" style="--accent:#8b5cf6" href="/private/quantum.html"><span class="sc-tag">DEEP TECH</span><h3>Quantum</h3><p>Pure-plays, giants &amp; the road to advantage.</p></a>
-        </div>
-
-        <div class="drawer-section">MARKETS</div>
-        <div class="mkt-strip">
-          <a class="mkt-row" href="/private/watchlist.html">
-            <span class="mkt-badge live">LIVE</span>
-            <div class="mkt-info"><div class="mkt-name">Live Watchlist</div><div class="mkt-desc">Real-time quotes for every tracked ticker, organised by sector</div></div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/macro.html">
-            <span class="mkt-badge live">LIVE</span>
-            <div class="mkt-info"><div class="mkt-name">Macro Dashboard</div><div class="mkt-desc">Rates, VIX, gold, bitcoin &amp; the dollar — the big picture in one view</div></div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/calendar.html">
-            <span class="mkt-badge weekly">WEEKLY</span>
-            <div class="mkt-info"><div class="mkt-name">Catalyst Calendar</div><div class="mkt-desc">Every earnings release, Fed decision, and macro event in one ordered view</div></div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/ipo.html">
-            <span class="mkt-badge weekly">WEEKLY</span>
-            <div class="mkt-info"><div class="mkt-name">IPO Pipeline</div><div class="mkt-desc">Private giants heading to public markets — valuations, timelines, watchlist impact</div></div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/etfs.html">
-            <span class="mkt-badge weekly">WEEKLY</span>
-            <div class="mkt-info"><div class="mkt-name">ETF Compare</div><div class="mkt-desc">All thematic funds side by side — fees, concentration, and character</div></div>
-            <span class="mkt-arrow">→</span>
-          </a>
-        </div>
-
-        <div class="drawer-section">TRACK RECORD</div>
-        <a class="tr-featured" href="/private/calibration.html">
-          <div class="tr-feat-body">
-            <div class="tr-feat-kicker">THE SCOREBOARD</div>
-            <div class="tr-feat-title">Calibration</div>
-            <div class="tr-feat-desc">Surfaces theses whose review date has passed, asks you to score them honestly, then charts your hit rate by sector and conviction level.</div>
-          </div>
-          <div class="tr-feat-icon">◎</div>
+    <div class="hero-grid">
+      <a href="/private/overview.html" class="hero-main">
+        <div class="hero-bar"></div>
+        <span class="hero-kicker">★ WEEKLY BRIEF</span>
+        <span class="hero-hl">Compute capex is now a power story. Minerals are next.</span>
+        <span class="hero-sub">All nine sectors at a glance — scoreboard, live markets, themes, risk gauge and the week ahead.</span>
+        <span class="hero-cta">Read the full brief →</span>
+      </a>
+      <div class="hero-links">
+        <a href="/private/news.html" class="hero-link">
+          <span class="hl-label">DAILY INTELLIGENCE · TODAY</span>
+          <span class="hl-title">Cross-sector signals across AI, crypto, defense &amp; emerging tech.</span>
+          <span class="hl-desc">Markets, sector moves, and what's moving today.</span>
         </a>
-        <div class="tr-pair">
-          <a class="tr-item" href="/private/archive.html">
-            <div class="tr-item-icon">▤</div>
-            <div class="tr-item-body">
-              <div class="tr-item-tag">EVERY WEEK KEPT</div>
-              <div class="tr-item-title">Research Archive</div>
-              <div class="tr-item-desc">Browse past weeks, compare how the numbers moved</div>
-            </div>
-          </a>
-          <a class="tr-item" href="/private/journal.html">
-            <div class="tr-item-icon">✦</div>
-            <div class="tr-item-body">
-              <div class="tr-item-tag">INPUT</div>
-              <div class="tr-item-title">Decision Journal</div>
-              <div class="tr-item-desc">Where theses get written down — raw material for calibration</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="drawer-section">STRATEGY &amp; EDUCATION</div>
-        <div class="chapter-list">
-          <a class="chapter-row" href="/private/strategy.html">
-            <div class="chapter-num">01</div>
-            <div class="chapter-body">
-              <div class="chapter-tag">EVERGREEN GUIDE</div>
-              <div class="chapter-title">Portfolio Strategy</div>
-              <div class="chapter-desc">Diversification frameworks across shares, real estate, gold, bitcoin, cash &amp; businesses</div>
-            </div>
-            <span class="chapter-arrow">→</span>
-          </a>
-          <a class="chapter-row" href="/private/paper.html">
-            <div class="chapter-num">02</div>
-            <div class="chapter-body">
-              <div class="chapter-tag">PRACTICE</div>
-              <div class="chapter-title">Paper Portfolio</div>
-              <div class="chapter-desc">Hypothetical positions tracked with automatic P&amp;L — test your thesis before committing capital</div>
-            </div>
-            <span class="chapter-arrow">→</span>
-          </a>
-          <a class="chapter-row" href="/private/education.html">
-            <div class="chapter-num">03</div>
-            <div class="chapter-body">
-              <div class="chapter-tag">START HERE</div>
-              <div class="chapter-title">Investing 101</div>
-              <div class="chapter-desc">First principles — stocks, ETFs &amp; crypto honestly explained, no jargon</div>
-            </div>
-            <span class="chapter-arrow">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- ── VC FUNDS DRAWER ── -->
-      <div id="drawer-vcs" class="drawer">
-        <div class="drawer-section">PUBLIC MARKET FUNDS</div>
-        <div class="grid-cards">
-          <a class="sector-card featured" href="/private/ark.html"><span class="sc-tag">INNOVATION ETFS</span><h3>ARK Invest</h3><p>Cathie Wood's disruptive-innovation thesis, ETF lineup, what ARK is buying and selling — plus the full Big Ideas 2026 report.</p></a>
-          <a class="sector-card" style="--accent:#3b82f6" href="/private/bailliegifford.html"><span class="sc-tag">UK-LISTED</span><h3>Baillie Gifford</h3><p>Scottish Mortgage — the accessible route to SpaceX, Anthropic, Databricks &amp; Stripe.</p></a>
-        </div>
-
-        <div class="drawer-section">TIER 1 VENTURE</div>
-        <div class="grid-cards">
-          <a class="sector-card" style="--accent:#2ed0f5" href="/private/a16z.html"><span class="sc-tag">SOFTWARE IS EATING THE WORLD</span><h3>Andreessen Horowitz</h3><p>a16z — enterprise software, crypto, bio, defense. One of the most influential thesis-drivers in tech.</p></a>
-          <a class="sector-card" style="--accent:#10b981" href="/private/sequoia.html"><span class="sc-tag">THE FOUNDERS VC</span><h3>Sequoia Capital</h3><p>Apple, Google, Stripe, Airbnb. The benchmark every other fund measures against.</p></a>
-          <a class="sector-card" style="--accent:#f59e0b" href="/private/foundersfund.html"><span class="sc-tag">PETER THIEL</span><h3>Founders Fund</h3><p>SpaceX, Palantir, Anduril. Counter-consensus bets on hard science and defense tech.</p></a>
-          <a class="sector-card" style="--accent:#c025e8" href="/private/lightspeed.html"><span class="sc-tag">ENTERPRISE &amp; CONSUMER</span><h3>Lightspeed</h3><p>Snapchat, Affirm, Epic Games. Global fund with strong enterprise and consumer bets.</p></a>
-          <a class="sector-card" style="--accent:#ec4899" href="/private/thrive.html"><span class="sc-tag">JOSH KUSHNER</span><h3>Thrive Capital</h3><p>OpenAI, Stripe, Instagram. Concentrated bets on consumer and fintech at scale.</p></a>
-          <a class="sector-card" style="--accent:#ff5f1f" href="/private/generalcatalyst.html"><span class="sc-tag">ENTERPRISE &amp; HEALTH</span><h3>General Catalyst</h3><p>Stripe, Airbnb, Snap, HubSpot. Broad platform with a growing health and climate focus.</p></a>
-        </div>
-
-        <div class="drawer-section">DEEP TECH &amp; DEFENSE</div>
-        <div class="grid-cards">
-          <a class="sector-card" style="--accent:#ef4444" href="/private/shieldcapital.html"><span class="sc-tag">NATIONAL SECURITY</span><h3>Shield Capital</h3><p>Defense-first VC. AI, autonomy, cyber and space — technologies that keep the US ahead.</p></a>
-          <a class="sector-card" style="--accent:#8b5cf6" href="/private/dcvc.html"><span class="sc-tag">DEEP TECH</span><h3>DCVC</h3><p>Data Collective — AI, robotics, agriculture, biotech and defense with a rigorous technical lens.</p></a>
-          <a class="sector-card" style="--accent:#3b82f6" href="/private/8vc.html"><span class="sc-tag">OPERATORS WITH CAPITAL</span><h3>8VC</h3><p>Joe Lonsdale's firm. Defense, AI, healthcare and logistics — practitioner-led investing.</p></a>
-          <a class="sector-card" style="--accent:#10b981" href="/private/eclipse.html"><span class="sc-tag">HARD TECH</span><h3>Eclipse</h3><p>Manufacturing, supply chain and industrial AI. Betting on the physical world catching up to software.</p></a>
-        </div>
-
-        <div class="drawer-section">INTELLIGENCE &amp; VOICES</div>
-        <div class="grid-cards">
-          <a class="sector-card" style="--accent:#f59e0b" href="/private/investors.html"><span class="sc-tag">WEEKLY</span><h3>Investor Voices</h3><p>What the sharpest investors said this week — bulls, bears, and where they clash.</p></a>
-          <a class="sector-card" href="/private/docs/ark-big-ideas-2026.pdf" target="_blank" rel="noopener"><span class="sc-tag">PDF · 111 PAGES</span><h3>ARK Big Ideas 2026</h3><p>ARK's flagship annual research report — full document hosted here.</p></a>
-        </div>
-      </div>
-
-      <!-- ── POLITICAL ALPHA DRAWER ── -->
-      <div id="drawer-political" class="drawer">
-        <div class="trump-header">
-          <div>
-            <div class="kicker"><span class="trump-pulse"></span>POLITICAL ALPHA · DAILY</div>
-            <div class="sec-title" style="margin-bottom:0">Trump Family Investment Signals</div>
-          </div>
-          <span class="trump-generated" id="trump-generated">Loading…</span>
-        </div>
-        <div id="trump-signals">
-          <div class="trump-empty">Loading signals…</div>
-        </div>
-        <div style="margin-top:1.2rem">
-          <div class="kicker" style="margin-bottom:.6rem">STANDING THEMES TO WATCH</div>
-          <div class="trump-themes">
-            <div class="trump-theme"><strong>Crypto &amp; Digital Assets</strong><br/>World Liberty Financial, $TRUMP/$MELANIA memecoins, Bitcoin, pro-crypto regulation signals</div>
-            <div class="trump-theme"><strong>Energy Deregulation</strong><br/>Oil, gas, coal and nuclear policy — executive actions affecting energy sector valuations</div>
-            <div class="trump-theme"><strong>Tariffs &amp; Trade</strong><br/>Sector-specific tariff announcements, exemptions and escalations</div>
-            <div class="trump-theme"><strong>Kushner / Affinity Partners</strong><br/>Gulf sovereign wealth deals, Middle East real estate and private equity</div>
-            <div class="trump-theme"><strong>DJT Stock</strong><br/>Trump Media &amp; Technology — tracks political sentiment, not fundamentals</div>
-            <div class="trump-theme"><strong>Real Estate &amp; Hospitality</strong><br/>Trump Organization deals, crypto-backed property, golf and hospitality expansion</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="drawer-brief" class="drawer">
-        <div class="kicker">★ WEEKLY BRIEF</div>
-        <div class="sec-title" style="margin-bottom:.35rem">This Week's Research Brief</div>
-        <div class="sec-note" style="margin-bottom:1rem">Cross-sector synthesis published every Monday — AI, defense, space, biotech, crypto and VC intelligence in one read.</div>
-        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem">
-          <a class="sector-card" style="--accent:var(--gm);min-height:auto;padding:1rem 1.2rem" href="/private/overview.html">
-            <span class="sc-tag">THIS WEEK</span>
-            <h3 style="margin-bottom:.2rem">Weekly Research Brief</h3>
-            <p>Open the full cross-sector brief — market signals, sector moves, VC activity and key narratives for the week.</p>
-          </a>
-          <a class="sector-card" style="--accent:var(--ge);min-height:auto;padding:1rem 1.2rem" href="/private/archive.html">
-            <span class="sc-tag">ARCHIVE</span>
-            <h3 style="margin-bottom:.2rem">Past Briefs</h3>
-            <p>Browse previous weekly briefs and track how narratives have evolved over time.</p>
-          </a>
-        </div>
-        <div class="sec-note">Refreshes Mondays. Covers all 9 sectors plus crypto, VC and macro. Also available by email — see the Subscribe section below.</div>
-      </div>
-
-      <div id="drawer-news" class="drawer">
-        <a class="tr-featured" href="/private/news.html" style="border-color:rgba(14,165,233,.25);background:linear-gradient(135deg,rgba(14,165,233,.07),rgba(46,208,245,.05))">
-          <div class="tr-feat-body">
-            <div class="tr-feat-kicker" style="-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,#0ea5e9,var(--ge))">DAILY INTELLIGENCE // AUG 21, 2026</div>
-            <div class="tr-feat-title">Daily Market Intelligence</div>
-            <div class="tr-feat-desc">Cross-sector signals across AI, crypto, defense, markets and emerging tech — NVIDIA earnings in 5 days, Jackson Hole in 6, Unitree now trading on STAR Market.</div>
-          </div>
-          <div class="tr-feat-icon" style="color:#0ea5e9">◉</div>
+        <a href="/private/calendar.html" class="hero-link">
+          <span class="hl-label">NEXT CATALYSTS</span>
+          <span class="hl-title">Earnings, Fed decisions &amp; sector catalysts.</span>
+          <span class="hl-desc">Everything on the clock in one ordered view.</span>
         </a>
-        <div class="mkt-strip">
-          <a class="mkt-row" href="/private/news.html">
-            <span class="mkt-badge live">TODAY</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Markets &amp; Macro</div>
-              <div class="mkt-desc">S&amp;P near record · VIX ~14.5 · BTC mid-$60s · Gold ~$4,400 · FOMC minutes showed more dissent than expected</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/news.html">
-            <span class="mkt-badge live">TODAY</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Sector Headlines</div>
-              <div class="mkt-desc">Drone tariffs taking effect (AVAV, KTOS) · MP Materials +23.5% · SpaceX stabilising above IPO price · Unitree first-week trading</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/news.html">
-            <span class="mkt-badge weekly">THIS WEEK</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Upcoming Catalysts</div>
-              <div class="mkt-desc">NVIDIA earnings Aug 26 · Jackson Hole Aug 27–29 · USA Rare Earth Serra Verde vote Aug 28</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- ── MACRO DRAWER ── -->
-      <div id="drawer-macro" class="drawer">
-        <a class="tr-featured" href="/private/macro.html" style="border-color:rgba(16,185,129,.25);background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(46,208,245,.05))">
-          <div class="tr-feat-body">
-            <div class="tr-feat-kicker" style="-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,#10b981,#2ed0f5)">MACRO CONTEXT // THE BACKDROP</div>
-            <div class="tr-feat-title">Macro Dashboard</div>
-            <div class="tr-feat-desc">Rates, risk appetite &amp; hedges — the weather behind every sector dashboard. Live TradingView charts, commentary refreshed every Monday.</div>
-          </div>
-          <div class="tr-feat-icon" style="color:#10b981">◈</div>
+        <a href="/private/calibration.html" class="hero-link">
+          <span class="hl-label">CALIBRATION</span>
+          <span class="hl-title">Theses due review this week.</span>
+          <span class="hl-desc">Score them honestly — hit rate updates by sector and conviction.</span>
         </a>
-        <div class="mkt-strip">
-          <a class="mkt-row" href="/private/macro.html">
-            <span class="mkt-badge live">LIVE</span>
-            <div class="mkt-info">
-              <div class="mkt-name">The Big Five <span style="color:var(--muted);font-weight:400">· 6 live charts</span></div>
-              <div class="mkt-desc">S&amp;P 500 · US 10Y yield · Gold · Bitcoin · Dollar Index (DXY) · VIX — streaming via TradingView, 6-month view</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/macro.html">
-            <span class="mkt-badge weekly">WEEKLY</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Reading the Backdrop</div>
-              <div class="mkt-desc">Rates compress long-duration growth · VIX spikes drain speculative sectors · Gold confirms hedges · BTC front-runs liquidity · DXY moves minerals &amp; overseas earnings</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/macro.html">
-            <span class="mkt-badge weekly">WEEKLY</span>
-            <div class="mkt-info">
-              <div class="mkt-name">This Week's Commentary</div>
-              <div class="mkt-desc">VIX near 14.5 · S&amp;P near record · Gold ~$4,400 · 10Y stable · single-name dispersion doing the real work this week</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-        </div>
       </div>
+    </div>
 
-      <!-- ── IPO PIPELINE DRAWER ── -->
-      <div id="drawer-ipo" class="drawer">
-        <a class="tr-featured" href="/private/ipo.html" style="border-color:rgba(255,95,31,.25);background:linear-gradient(135deg,rgba(255,95,31,.07),rgba(245,158,11,.05))">
-          <div class="tr-feat-body">
-            <div class="tr-feat-kicker" style="-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,var(--gs),#f59e0b)">IPO PIPELINE // EMERGING TECH</div>
-            <div class="tr-feat-title">IPO &amp; Listing Pipeline</div>
-            <div class="tr-feat-desc">Anthropic, OpenAI, Anduril, SpaceX — the names that define the emerging-tech complex, tracked from private filing through debut. Updated every Monday.</div>
-          </div>
-          <div class="tr-feat-icon" style="color:var(--gs)">◐</div>
-        </a>
-        <div class="mkt-strip">
-          <a class="mkt-row" href="/private/ipo.html">
-            <span class="mkt-badge live">ACTIVE</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Filed, Approved or Announced <span style="color:var(--muted);font-weight:400">· 7 names</span></div>
-              <div class="mkt-desc">Anthropic (~$2T target) · OpenAI (~$852B) · Holtec Nuclear · Agility Robotics SPAC · LimX Dynamics · Agibot · European defense wave</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/ipo.html">
-            <span class="mkt-badge weekly">WATCH</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Credible Candidates <span style="color:var(--muted);font-weight:400">· 5 names</span></div>
-              <div class="mkt-desc">Anduril (~$100B in talks) · Figure AI (~$39B) · Blue Origin · 1X Technologies · Helsing (~$18B)</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-          <a class="mkt-row" href="/private/ipo.html">
-            <span class="mkt-badge weekly">TRADING</span>
-            <div class="mkt-info">
-              <div class="mkt-name">Recently Completed <span style="color:var(--muted);font-weight:400">· 6 names</span></div>
-              <div class="mkt-desc">Unitree (Aug 2026) · SpaceX (Jun 2026, ~$1.75T) · Quantinuum · X-energy · Generate Biomedicines · Eikon Therapeutics</div>
-            </div>
-            <span class="mkt-arrow">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <div class="sg-header">
+      <div class="bot-head"><span class="data-dot"></span>SECTOR DASHBOARDS</div>
+      <span class="sg-note">Refreshed Monday mornings</span>
+    </div>
+    <div class="sg">
+      <a href="/private/ai.html" class="sc"><span class="sc-tag">01 · SUPERCYCLE</span><span class="sc-name">AI &amp; Compute</span><span class="sc-desc">Hyperscaler capex, silicon stack, the bubble debate.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,21 15,18 30,20 45,14 60,16 75,11 90,13 105,8 120,6" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/robotics.html" class="sc"><span class="sc-tag">02 · PHYSICAL AI</span><span class="sc-name">Robotics</span><span class="sc-desc">Humanoids, warehouse automation, components.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,18 15,21 30,16 45,19 60,14 75,17 90,12 105,14 120,10" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/defense.html" class="sc"><span class="sc-tag">03 · AUTONOMY</span><span class="sc-name">Defense Tech</span><span class="sc-desc">Battlefield software, drones, rearmament.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,22 15,20 30,21 45,15 60,17 75,10 90,12 105,7 120,4" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/nuclear.html" class="sc"><span class="sc-tag">04 · AI POWER</span><span class="sc-name">Nuclear &amp; SMRs</span><span class="sc-desc">Reactors, uranium, data-center demand.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,24 15,21 30,22 45,16 60,13 75,15 90,9 105,6 120,3" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/minerals.html" class="sc"><span class="sc-tag">05 · SOVEREIGNTY</span><span class="sc-name">Critical Minerals</span><span class="sc-desc">Rare earths, lithium, onshoring.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,25 15,23 30,24 45,20 60,21 75,16 90,17 105,9 120,2" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer hot">UPDATED MON</span></a>
+      <a href="/private/space.html" class="sc"><span class="sc-tag">06 · FRONTIER</span><span class="sc-name">Space Economy</span><span class="sc-desc">Launch and satellites post-SpaceX IPO.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,19 15,17 30,20 45,15 60,18 75,13 90,15 105,12 120,11" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/storage.html" class="sc"><span class="sc-tag">07 · GRID</span><span class="sc-name">Energy Storage</span><span class="sc-desc">Grid batteries, next-gen chemistry.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,16 15,18 30,15 45,19 60,16 75,18 90,15 105,17 120,15" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/biotech.html" class="sc"><span class="sc-tag">08 · COMP BIO</span><span class="sc-name">AI Biotech</span><span class="sc-desc">Drug discovery models, longevity capital.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,12 15,14 30,11 45,15 60,14 75,18 90,16 105,20 120,22" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/quantum.html" class="sc"><span class="sc-tag">09 · DEEP TECH</span><span class="sc-name">Quantum</span><span class="sc-desc">Pure-plays, giants, the road to advantage.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,20 15,22 30,18 45,21 60,17 75,19 90,15 105,17 120,14" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+    </div>
 
-    <section>
-      <div class="news-head">
+    <div class="bot-grid">
+      <div class="bot-cell">
+        <div class="bot-head"><span class="data-dot"></span>TOP MOVERS · 24H</div>
         <div>
-          <div class="kicker">TECH NEWS // TECHCRUNCH</div>
-          <div class="sec-title" style="margin-bottom:0">Latest Tech Headlines</div>
+          <div class="mv-row mv-hdr"><span></span><span>NAME</span><span style="text-align:right">PRICE</span><span style="text-align:right">24H</span></div>
+          <div class="mv-row"><span class="mv-ticker">MP</span><span class="mv-name">MP Materials</span><span class="mv-price">$58.20</span><span class="mv-chg pos">+23.5%</span></div>
+          <div class="mv-row"><span class="mv-ticker">AVAV</span><span class="mv-name">AeroVironment</span><span class="mv-price">$214.40</span><span class="mv-chg pos">+6.1%</span></div>
+          <div class="mv-row"><span class="mv-ticker">PLTR</span><span class="mv-name">Palantir</span><span class="mv-price">$89.14</span><span class="mv-chg pos">+3.8%</span></div>
+          <div class="mv-row mv-last"><span class="mv-ticker">KTOS</span><span class="mv-name">Kratos Defense</span><span class="mv-price">$41.95</span><span class="mv-chg">−1.2%</span></div>
         </div>
-        <div class="news-filters">
-          <button class="nf active" onclick="filterNews('All',this)">ALL</button>
-          <button class="nf" onclick="filterNews('AI',this)">AI</button>
-          <button class="nf" onclick="filterNews('Robotics',this)">ROBOTICS</button>
+        <a href="/private/watchlist.html" style="font-size:14px;font-weight:600;">Open the live watchlist →</a>
+      </div>
+      <div class="bot-cell">
+        <div class="bot-head"><span class="data-dot"></span>TRACK RECORD</div>
+        <div>
+          <div class="tr-bars">
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:15%"></div><div class="tr-bar-fill" style="height:52%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:22%"></div><div class="tr-bar-fill" style="height:44%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:12%"></div><div class="tr-bar-fill" style="height:61%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:18%"></div><div class="tr-bar-fill" style="height:58%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:10%"></div><div class="tr-bar-fill" style="height:70%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:16%"></div><div class="tr-bar-fill" style="height:64%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:9%"></div><div class="tr-bar-fill" style="height:76%"></div></div>
+            <div class="tr-bar"><div class="tr-bar-gap" style="height:40%"></div><div class="tr-bar-dim" style="height:31%"></div></div>
+          </div>
+          <div class="tr-ql"><span>Q1 25</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1 26</span><span>Q2</span><span>Q3</span><span>OPEN</span></div>
+        </div>
+        <div class="tr-stats">
+          <div class="tr-stat"><span class="tr-stat-lbl">HIT RATE</span><span class="tr-stat-val">64%</span><span class="tr-stat-sub">44 scored theses</span></div>
+          <div class="tr-stat"><span class="tr-stat-lbl">BEST SECTOR</span><span class="tr-stat-val">78%</span><span class="tr-stat-sub">Nuclear &amp; SMRs</span></div>
+          <div class="tr-stat"><span class="tr-stat-lbl">DUE REVIEW</span><span class="tr-stat-val acc">04</span><span class="tr-stat-sub">Score them today</span></div>
+        </div>
+        <div class="tr-links">
+          <a href="/private/journal.html" class="tr-link"><span class="tr-link-body"><span class="tr-link-title">Decision Journal</span><span class="tr-link-desc">Where theses get written down</span></span><span class="tr-link-arrow">→</span></a>
+          <a href="/private/archive.html" class="tr-link"><span class="tr-link-body"><span class="tr-link-title">Research Archive</span><span class="tr-link-desc">Every week kept — compare how numbers moved</span></span><span class="tr-link-arrow">→</span></a>
+          <a href="/private/paper.html" class="tr-link"><span class="tr-link-body"><span class="tr-link-title">Paper Portfolio</span><span class="tr-link-desc">Hypothetical positions with automatic P&amp;L</span></span><span class="tr-link-arrow">→</span></a>
         </div>
       </div>
-      <div class="card" style="padding:.3rem 0">
-        <div id="newsList"></div>
-        <div id="newsStatus">Loading latest headlines…</div>
-      </div>
-      <div class="sec-note" style="margin-top:.6rem">Pulled live from TechCrunch's AI, robotics and main feeds (refreshed ~every 15 minutes). Headlines link to techcrunch.com.</div>
-    </section>
+    </div>
 
-    <section id="subscribe">
-      <div class="kicker">NEWSLETTERS</div>
-      <div class="sec-title">Get the Research in Your Inbox</div>
-      <div class="sub-box">
-        <p style="font-size:.88rem;color:var(--muted);max-width:640px;line-height:1.55">Every Monday the research pipeline publishes here — subscribe and it lands in your mailbox too. Pick the Weekly Brief for the full cross-sector picture, and any individual sectors you want as dedicated deep-dive emails.</p>
-        <div class="sub-lists" id="subLists">
-          <span class="sub-chip on" data-list="Weekly Brief">★ WEEKLY BRIEF</span>
-          <span class="sub-chip" data-list="AI &amp; Compute">AI &amp; COMPUTE</span>
-          <span class="sub-chip" data-list="Robotics">ROBOTICS</span>
-          <span class="sub-chip" data-list="Defense Tech">DEFENSE</span>
-          <span class="sub-chip" data-list="Nuclear &amp; SMRs">NUCLEAR</span>
-          <span class="sub-chip" data-list="Critical Minerals">MINERALS</span>
-          <span class="sub-chip" data-list="Space Economy">SPACE</span>
-          <span class="sub-chip" data-list="Energy Storage">STORAGE</span>
-          <span class="sub-chip" data-list="AI Biotech">BIOTECH</span>
-          <span class="sub-chip" data-list="Quantum">QUANTUM</span>
-        </div>
-        <div class="sub-row">
-          <input type="email" id="subEmail" placeholder="you@example.com" autocomplete="email"/>
-          <button class="sub-btn" id="subBtn" onclick="subscribe()">Subscribe</button>
-        </div>
-        <div id="subMsg"></div>
-        <p style="font-family:var(--fm);font-size:.58rem;letter-spacing:.05em;color:var(--subtle);margin-top:.9rem">FREE · UNSUBSCRIBE ANYTIME (LINK IN EVERY EMAIL) · RESEARCH &amp; EDUCATION, NEVER FINANCIAL ADVICE</p>
+    <div class="funds">
+      <div class="funds-hd">
+        <div class="bot-head"><span class="data-dot"></span>FUNDS &amp; CAPITAL FLOWS</div>
+        <a href="/private/investors.html" style="font-size:13px;color:#52525b;">All investor voices →</a>
       </div>
-    </section>
+      <div style="display:flex;flex-direction:column;gap:12px;padding-bottom:6px">
+        <div class="funds-bar">
+          <div style="width:34%;background:#ff5a1f"></div><div style="width:18%;background:#27272a"></div>
+          <div style="width:14%;background:#52525b"></div><div style="width:12%;background:#71717a"></div>
+          <div style="width:9%;background:#a1a1aa"></div><div style="width:7%;background:#d4d4d8"></div>
+          <div style="width:6%;background:#f4f4f5;outline:1px solid #e4e4e7"></div>
+        </div>
+        <div class="funds-legend">
+          <span class="fl-item"><span class="fl-dot" style="background:#ff5a1f"></span>AI &amp; COMPUTE 34%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#27272a"></span>DEFENSE 18%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#52525b"></span>NUCLEAR 14%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#71717a"></span>ROBOTICS 12%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#a1a1aa"></span>MINERALS 9%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#d4d4d8"></span>SPACE 7%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#f4f4f5;border:1px solid #e4e4e7"></span>OTHER 6%</span>
+        </div>
+        <span class="funds-note">DISCLOSED DEPLOYMENT MIX ACROSS TRACKED FUNDS · LAST 12 WEEKS</span>
+      </div>
+      <div class="fund-chips">
+        <a href="/private/ark.html" class="chip">ARK Invest</a>
+        <a href="/private/bailliegifford.html" class="chip">Baillie Gifford</a>
+        <a href="/private/a16z.html" class="chip">a16z</a>
+        <a href="/private/sequoia.html" class="chip">Sequoia</a>
+        <a href="/private/foundersfund.html" class="chip">Founders Fund</a>
+        <a href="/private/thrive.html" class="chip">Thrive Capital</a>
+        <a href="/private/shieldcapital.html" class="chip">Shield Capital</a>
+        <a href="/private/dcvc.html" class="chip">DCVC</a>
+        <a href="/private/8vc.html" class="chip">8VC</a>
+        <a href="/private/eclipse.html" class="chip">Eclipse</a>
+        <a href="/private/ipo.html" class="chip primary">IPO pipeline →</a>
+      </div>
+    </div>
 
-    <footer>
-      <div style="margin-top:.5rem">Sector dashboards refresh Monday mornings; the Weekly Brief synthesizes them at midday; markets and news sections are live. Figures approximate — confirm independently before acting.</div>
-    </footer>
-  </main>
+    <div class="hub-footer">
+      <span>© 2026 FYNAPTIX · PERSONAL RESEARCH HUB</span>
+      <span style="max-width:620px;text-align:right;line-height:1.7">NOT FINANCIAL ADVICE. EVERYTHING HERE ORGANISES PUBLIC INFORMATION FOR RESEARCH AND EDUCATION. DO YOUR OWN DUE DILIGENCE.</span>
+    </div>
+
+  </div>
 </div>
 
-<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+<button class="menu-btn" onclick="openSb()">☰</button>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('/private/sw.js')</script>
 <script>
-// Section drawers
-function openDrawer(name, el){
-  document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
-  document.querySelectorAll('.sec-btn').forEach(t => t.classList.remove('open'));
-  document.getElementById('drawer-' + name).classList.add('open');
-  el.classList.add('open');
-  const mo = document.getElementById('mkt-overview');
-  if(mo) mo.style.display = name === 'crypto' ? '' : 'none';
-}
+function openSb(){document.getElementById('sb').classList.add('open');document.getElementById('overlay').style.display='block'}
+function closeSb(){document.getElementById('sb').classList.remove('open');document.getElementById('overlay').style.display='none'}
+document.getElementById('sb').addEventListener('click',function(e){if(window.innerWidth<=768&&e.target.tagName==='A')closeSb()});
 
-// Tech news feed
-let newsItems = [], newsFilter = 'All';
-const decode = s => new DOMParser().parseFromString(s, 'text/html').documentElement.textContent || '';
-function ago(d){
-  const m = Math.floor((Date.now() - new Date(d).getTime()) / 60000);
-  if(isNaN(m)) return '';
-  if(m < 60) return m + 'm ago';
-  if(m < 1440) return Math.floor(m/60) + 'h ago';
-  return Math.floor(m/1440) + 'd ago';
-}
-function renderNews(){
-  const list = document.getElementById('newsList'), status = document.getElementById('newsStatus');
-  const shown = newsItems.filter(i => newsFilter === 'All' || i.tag === newsFilter).slice(0,10);
-  if(!shown.length){ status.style.display='block'; status.textContent='No headlines in this category right now.'; list.innerHTML=''; return; }
-  status.style.display='none'; list.innerHTML='';
-  shown.forEach(i => {
-    const a = document.createElement('a');
-    a.className='news-item'; a.href=i.link; a.target='_blank'; a.rel='noopener';
-    const tag = document.createElement('span'); tag.className='news-tag '+i.tag; tag.textContent=i.tag.toUpperCase();
-    const t = document.createElement('span'); t.className='nt'; t.textContent=decode(i.title);
-    const m = document.createElement('span'); m.className='nm'; m.textContent=ago(i.date);
-    a.append(tag,t,m); list.appendChild(a);
-  });
-}
-function filterNews(f,el){
-  newsFilter=f;
-  document.querySelectorAll('.nf').forEach(b => b.classList.remove('active'));
-  el.classList.add('active'); renderNews();
-}
-fetch('/api/technews').then(r => r.json()).then(d => { newsItems=d.items||[]; renderNews(); })
-  .catch(() => { document.getElementById('newsStatus').textContent='Could not load headlines right now — visit techcrunch.com directly.'; });
+(function tick(){
+  const n=new Date(),D=['SUN','MON','TUE','WED','THU','FRI','SAT'],M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const h=String(n.getHours()).padStart(2,'0'),m=String(n.getMinutes()).padStart(2,'0');
+  const el=document.getElementById('ts');
+  if(el)el.textContent=`LIVE · ${D[n.getDay()]} ${n.getDate()} ${M[n.getMonth()]} ${n.getFullYear()} · ${h}:${m}`;
+  setTimeout(tick,60000);
+})();
 
-// Trump tracker
-fetch('/private/data/trump.json').then(r => r.json()).then(d => {
-  const gen = document.getElementById('trump-generated');
-  if(gen) gen.textContent = d.generated && d.generated !== 'Awaiting first update' ? 'Updated ' + d.generated : 'Awaiting first update';
-  const sc = document.getElementById('trump-signals');
-  if(!sc) return;
-  const signals = d.signals&&d.signals.length ? d.signals : (d.history&&d.history.length ? d.history.slice(0,5) : []);
-  if(!signals.length){ sc.innerHTML='<div class="trump-empty">No signals yet — awaiting first daily pipeline run.</div>'; return; }
-  sc.innerHTML = signals.map(s => `
-    <div class="signal-card">
-      <div class="signal-meta">
-        <span class="signal-who">${s.who||''}</span>
-        <span class="signal-platform">${s.platform||''}</span>
-        <span class="signal-date">${s.date||''}</span>
-      </div>
-      <div class="signal-text">${s.text||''}</div>
-      ${s.tags&&s.tags.length?'<div class="signal-tags">'+s.tags.map(t=>`<span class="signal-tag ${t.type||''}">${t.label}</span>`).join('')+'</div>':''}
-      ${s.impact?`<div class="signal-impact">${s.impact}</div>`:''}
-    </div>`).join('');
-}).catch(() => {
-  const sc = document.getElementById('trump-signals');
-  if(sc) sc.innerHTML='<div class="trump-empty">Could not load signals.</div>';
-});
+const $=id=>document.getElementById(id);
+const fP=n=>n>=1000?'$'+n.toLocaleString(undefined,{maximumFractionDigits:0}):'$'+n.toFixed(2);
+const fC=n=>(n>=0?'+':'')+n.toFixed(1)+'%';
 
-// ── Market overview chart instances ──
-let _btcChart=null, _gainersChart=null;
+fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true')
+  .then(r=>r.json()).then(d=>{
+    const b=d.bitcoin,e=d.ethereum;
+    if(b){$('btc-p').textContent=fP(b.usd);const c=$('btc-c');c.textContent=fC(b.usd_24h_change)+' 24H';c.className='mkt-chg'+(b.usd_24h_change>=0?' pos':'');}
+    if(e){$('eth-p').textContent=fP(e.usd);const c=$('eth-c');c.textContent=fC(e.usd_24h_change)+' 24H';c.className='mkt-chg'+(e.usd_24h_change>=0?' pos':'');}
+  }).catch(()=>{});
 
-function drawSparkline(id, prices, color){
-  const c=document.getElementById(id); if(!c||!prices.length) return;
-  const dpr=window.devicePixelRatio||1;
-  const w=c.parentElement.clientWidth||180, h=44;
-  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
-  c.style.width=w+'px'; c.style.height=h+'px';
-  const ctx=c.getContext('2d'); ctx.scale(dpr,dpr);
-  const mn=Math.min(...prices), mx=Math.max(...prices), rng=mx-mn||1;
-  const px=(p,i)=>i/(prices.length-1)*w, py=(p)=>h-((p-mn)/rng*(h-6))-3;
-  const grad=ctx.createLinearGradient(0,0,0,h);
-  grad.addColorStop(0,color+'55'); grad.addColorStop(1,color+'00');
-  ctx.beginPath();
-  prices.forEach((p,i)=>i===0?ctx.moveTo(px(p,i),py(p)):ctx.lineTo(px(p,i),py(p)));
-  ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
-  ctx.fillStyle=grad; ctx.fill();
-  ctx.beginPath();
-  prices.forEach((p,i)=>i===0?ctx.moveTo(px(p,i),py(p)):ctx.lineTo(px(p,i),py(p)));
-  ctx.strokeStyle=color; ctx.lineWidth=1.8; ctx.lineJoin='round'; ctx.stroke();
-}
+fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=180&interval=weekly')
+  .then(r=>r.json()).then(d=>{
+    if(d.prices&&d.prices.length>=2){const f=d.prices[0][1],l=d.prices[d.prices.length-1][1],p=((l-f)/f*100);const el=$('btc-6m');if(el)el.textContent=(p>=0?'+':'')+p.toFixed(1)+'%';}
+  }).catch(()=>{});
 
-function drawFGGauge(id, value){
-  const c=document.getElementById(id); if(!c) return;
-  const dpr=window.devicePixelRatio||1;
-  const w=c.parentElement.clientWidth||180, h=66;
-  c.width=Math.round(w*dpr); c.height=Math.round(h*dpr);
-  c.style.width=w+'px'; c.style.height=h+'px';
-  const ctx=c.getContext('2d'); ctx.scale(dpr,dpr);
-  const cx=w/2, cy=h-6, r=Math.min(cx*.84,(cy)*.92);
-  ctx.beginPath(); ctx.arc(cx,cy,r,Math.PI,0,true);
-  ctx.lineWidth=11; ctx.strokeStyle='rgba(11,11,12,.08)'; ctx.lineCap='round'; ctx.stroke();
-  const grad=ctx.createLinearGradient(cx-r,0,cx+r,0);
-  grad.addColorStop(0,'#c1272d'); grad.addColorStop(.48,'#a15c00'); grad.addColorStop(1,'#0f7a52');
-  const nAngle=Math.PI*(1-value/100);
-  ctx.beginPath(); ctx.arc(cx,cy,r,Math.PI,nAngle,true);
-  ctx.lineWidth=11; ctx.strokeStyle=grad; ctx.lineCap='round'; ctx.stroke();
-  const nx=cx+r*.7*Math.cos(nAngle), ny=cy-r*.7*Math.sin(nAngle);
-  ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(nx,ny);
-  ctx.strokeStyle='rgba(11,11,12,.85)'; ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.stroke();
-  ctx.beginPath(); ctx.arc(cx,cy,5,0,Math.PI*2);
-  ctx.fillStyle='rgba(11,11,12,.9)'; ctx.fill();
-}
+fetch('https://api.alternative.me/fng/').then(r=>r.json()).then(d=>{
+  const v=parseInt(d.data[0].value);if($('fg-v'))$('fg-v').textContent=v;
+}).catch(()=>{});
 
-function drawBTCLineChart(prices){
-  const canvas=document.getElementById('btcLineChart'); if(!canvas||!prices.length) return;
-  const step=2, pts=prices.filter((_,i)=>i%step===0);
-  const labels=pts.map((_,i)=>{const h=(pts.length-1-i)*step; return h===0?'Now':h%24===0?`-${h/24}d`:null;});
-  const mn=Math.min(...pts)*.9995, mx=Math.max(...pts)*1.0005;
-  const isUp=pts[pts.length-1]>=pts[0], lc=isUp?'#0f7a52':'#c1272d';
-  if(_btcChart){_btcChart.destroy();_btcChart=null;}
-  _btcChart=new Chart(canvas,{
-    type:'line',
-    data:{labels,datasets:[{data:pts,borderColor:lc,borderWidth:2,pointRadius:0,tension:.35,fill:true,
-      backgroundColor:(ctx)=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,ctx.chart.height);
-        g.addColorStop(0,lc+'55');g.addColorStop(1,lc+'00');return g;}}]},
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>'$'+Math.round(c.raw).toLocaleString('en-US')}}},
-      scales:{
-        x:{grid:{display:false},ticks:{color:'#6b7a99',font:{size:10},maxRotation:0,
-          callback:(_,i)=>labels[i]||null}},
-        y:{grid:{color:'rgba(11,11,12,.06)'},ticks:{color:'#6b7a99',font:{size:10},
-          callback:(v)=>'$'+Math.round(v/1000)+'k'},min:mn,max:mx}}}});
-}
-
-function drawGainersChart(coins){
-  const canvas=document.getElementById('gainersBarChart'); if(!canvas||!coins.length) return;
-  const labels=coins.map(c=>(c.symbol||'').toUpperCase());
-  const data=coins.map(c=>+(c.price_change_percentage_24h||0).toFixed(2));
-  if(_gainersChart){_gainersChart.destroy();_gainersChart=null;}
-  _gainersChart=new Chart(canvas,{
-    type:'bar',
-    data:{labels,datasets:[{data,indexAxis:'y',
-      backgroundColor:data.map(v=>v>=0?'rgba(15,122,82,.35)':'rgba(193,39,45,.35)'),
-      borderColor:data.map(v=>v>=0?'#0f7a52':'#c1272d'),
-      borderWidth:1,borderRadius:0,borderSkipped:false}]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>(c.raw>=0?'+':'')+c.raw+'%'}}},
-      scales:{
-        x:{grid:{color:'rgba(11,11,12,.06)'},ticks:{color:'#6b7a99',font:{size:10},callback:(v)=>v+'%'}},
-        y:{grid:{display:false},ticks:{color:'#0b0b0c',font:{size:10,weight:'700'}}}}}});
-}
-
-// ── Live data loading ──
-async function loadPulseData(){
-  const fmtPrice=(p)=>p>=1000?'$'+p.toLocaleString('en-US',{maximumFractionDigits:0}):
-                        p>=1?'$'+p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):
-                        '$'+p.toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:6});
-  const fmtPct=(n)=>(n>=0?'+':'')+n.toFixed(2)+'%';
-  const pos='#0f7a52', neg='#c1272d';
-
-  // 1. Fear & Greed
-  try {
-    const fg=await fetch('https://api.alternative.me/fng/?limit=1').then(r=>r.json());
-    if(fg?.data?.[0]){
-      const v=parseInt(fg.data[0].value), lbl=fg.data[0].value_classification;
-      const cls=v<25?'fear':v<50?'fear-greed':'greed';
-      setText('msc-fg-val',v); setText('msc-fg-label',lbl);
-      const ve=document.getElementById('msc-fg-val');
-      if(ve) ve.style.color=v<25?neg:v<50?'#a15c00':pos;
-      drawFGGauge('fgGauge',v);
-      const dEl=document.getElementById('fg-value');
-      if(dEl){dEl.textContent=v;dEl.className='pulse-value '+cls;}
-      setText('fg-label',lbl);
-    }
-  } catch(e){}
-
-  // 2. CoinGecko global
-  try {
-    const g=await fetch('https://api.coingecko.com/api/v3/global').then(r=>r.json());
-    if(g?.data){
-      const cap=g.data.total_market_cap?.usd, chg=g.data.market_cap_change_percentage_24h_usd;
-      const btcDom=g.data.market_cap_percentage?.btc;
-      const capStr=cap?(cap>=1e12?'$'+(cap/1e12).toFixed(2)+'T':'$'+(cap/1e9).toFixed(0)+'B'):null;
-      if(capStr){setText('msc-mcap',capStr);setText('total-mcap',capStr);}
-      if(chg!=null){
-        const el=document.getElementById('msc-mcap-chg');
-        if(el){el.textContent=fmtPct(chg)+' (24h)';el.style.color=chg>=0?pos:neg;}
-        const dEl=document.getElementById('mcap-change');
-        if(dEl){dEl.textContent=fmtPct(chg)+' (24h)';dEl.style.color=chg>=0?pos:neg;}
-      }
-      if(btcDom) setText('btc-dom',btcDom.toFixed(1)+'%');
-    }
-  } catch(e){}
-
-  // 3. BTC + ETH with sparkline
-  try {
-    const coins=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum&order=market_cap_desc&per_page=2&page=1&sparkline=true&price_change_percentage=24h').then(r=>r.json());
-    const btc=coins.find(c=>c.id==='bitcoin'), eth=coins.find(c=>c.id==='ethereum');
-    if(btc){
-      setText('msc-btc-price',fmtPrice(btc.current_price));
-      const chg=btc.price_change_percentage_24h||0;
-      const el=document.getElementById('msc-btc-chg');
-      if(el){el.textContent=fmtPct(chg);el.style.color=chg>=0?pos:neg;}
-      const sp=btc.sparkline_in_7d?.price;
-      if(sp){drawSparkline('btcSparkline',sp,chg>=0?pos:neg);drawBTCLineChart(sp);}
-      setText('drawer-btc-price',fmtPrice(btc.current_price));
-      const dc=document.getElementById('drawer-btc-chg');
-      if(dc){dc.textContent=fmtPct(chg);dc.style.color=chg>=0?pos:neg;}
-    }
-    if(eth){
-      setText('msc-eth-price',fmtPrice(eth.current_price));
-      const chg=eth.price_change_percentage_24h||0;
-      const el=document.getElementById('msc-eth-chg');
-      if(el){el.textContent=fmtPct(chg);el.style.color=chg>=0?pos:neg;}
-      const sp=eth.sparkline_in_7d?.price;
-      if(sp) drawSparkline('ethSparkline',sp,chg>=0?pos:neg);
-      setText('drawer-eth-price',fmtPrice(eth.current_price));
-      const dc=document.getElementById('drawer-eth-chg');
-      if(dc){dc.textContent=fmtPct(chg);dc.style.color=chg>=0?pos:neg;}
-    }
-  } catch(e){}
-
-  // 4. S&P 500 and NASDAQ via Yahoo Finance
-  try {
-    const [spxRes,ndxRes]=await Promise.all([
-      fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1d&range=2d').then(r=>r.json()),
-      fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EIXIC?interval=1d&range=2d').then(r=>r.json())
-    ]);
-    const parseMeta=(res,priceId,chgId)=>{
-      const m=res?.chart?.result?.[0]?.meta; if(!m) return;
-      const price=m.regularMarketPrice, prev=m.chartPreviousClose;
-      if(!price||!prev) return;
-      const chg=(price-prev)/prev*100;
-      setText(priceId, price.toLocaleString('en-US',{maximumFractionDigits:0}));
-      const el=document.getElementById(chgId);
-      if(el){el.textContent=fmtPct(chg);el.style.color=chg>=0?pos:neg;}
-    };
-    parseMeta(spxRes,'msc-spx-price','msc-spx-chg');
-    parseMeta(ndxRes,'msc-ndx-price','msc-ndx-chg');
-  } catch(e){
-    setText('msc-spx-price','→ Watchlist'); setText('msc-ndx-price','→ Macro');
-  }
-
-  // 5. Top performers
-  try {
-    const coins=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h').then(r=>r.json());
-    if(Array.isArray(coins)&&coins.length){
-      const sorted=[...coins].sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0));
-      const el=document.getElementById('crypto-performers');
-      if(el) el.innerHTML=sorted.slice(0,10).map((c,i)=>{
-        const pct=c.price_change_percentage_24h||0;
-        return `<div class="perf-row">
-          <span class="perf-rank">${i+1}</span>
-          <img class="perf-icon" src="${c.image||''}" alt="${c.symbol||''}" width="24" height="24" loading="lazy" onerror="this.style.display='none'"/>
-          <div class="perf-name"><span class="perf-sym">${(c.symbol||'').toUpperCase()}</span><span class="perf-full">${c.name||''}</span></div>
-          <span class="perf-price">${fmtPrice(c.current_price)}</span>
-          <span class="perf-pct ${pct>=0?'pos':'neg'}">${fmtPct(pct)}</span>
-        </div>`;
-      }).join('');
-      drawGainersChart(sorted.slice(0,8));
-    }
-  } catch(e){
-    const el=document.getElementById('crypto-performers');
-    if(el) el.innerHTML='<div class="crypto-loading">Could not load live prices — CoinGecko may be rate-limited. Refresh to retry.</div>';
-  }
-}
-function setText(id,val){const el=document.getElementById(id);if(el)el.textContent=val;}
-window.addEventListener('load', loadPulseData);
+const sectors=[
+  {n:'Critical Minerals',p:28.4,w:100,top:true},{n:'Nuclear & SMRs',p:21.0,w:74,top:true},
+  {n:'Defense Tech',p:16.5,w:58,top:true},{n:'AI & Compute',p:12.4,w:44},
+  {n:'Robotics',p:9.3,w:33},{n:'Space Economy',p:6.8,w:24},
+  {n:'Quantum',p:4.1,w:15},{n:'Energy Storage',p:2.4,w:9},{n:'AI Biotech',p:-1.6,w:5}
+];
+const mr=$('mom-rows');
+if(mr)mr.innerHTML=sectors.map(s=>`<div class="mom-row"><span class="mom-name">${s.n}</span><div class="mom-track"><div class="mom-bar" style="width:${s.w}%;background:${s.top?'#ff5a1f':'#52525b'}"></div></div><span class="mom-val">${s.p>=0?'+':''}${s.p}%</span></div>`).join('');
 </script>
-<script>
-document.querySelectorAll('.sub-chip').forEach(ch => ch.addEventListener('click',()=>ch.classList.toggle('on')));
-function subscribe(){
-  const email=document.getElementById('subEmail').value.trim();
-  const lists=[...document.querySelectorAll('.sub-chip.on')].map(c=>c.dataset.list.replace(/&amp;/g,'&'));
-  const msg=document.getElementById('subMsg'),btn=document.getElementById('subBtn');
-  msg.className='';
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.className='err';msg.textContent='Please enter a valid email address.';return;}
-  if(!lists.length){msg.className='err';msg.textContent='Pick at least one newsletter.';return;}
-  btn.disabled=true;btn.textContent='Subscribing…';
-  fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,lists})})
-    .then(r=>r.json().then(d=>({ok:r.ok,d})))
-    .then(({ok,d})=>{
-      if(ok){msg.className='ok';msg.textContent='Subscribed to: '+d.subscribed.join(', ')+'. First email arrives after next Monday\'s research run.';document.getElementById('subEmail').value='';}
-      else{msg.className='err';msg.textContent=d.error||'Something went wrong — try again later.';}
-    })
-    .catch(()=>{msg.className='err';msg.textContent='Network error — try again later.';})
-    .finally(()=>{btn.disabled=false;btn.textContent='Subscribe';});
-}
-</script>
-<script src="/assets/js/hub-hero.js"></script>
 </body>
 </html>
