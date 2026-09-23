@@ -1,0 +1,398 @@
+{
+  "sector": "weekly_brief",
+  "title": "Fynaptix · Weekly Brief",
+  "heading": "Emerging Tech Weekly Brief",
+  "subheading": "Cross-sector overview: momentum, news, themes & the week ahead",
+  "kicker": "WEEKLY BRIEF // ALL SECTORS // SEP 2026",
+  "week_of": "September 21, 2026",
+  "disclaimer": "Not financial advice. This brief synthesizes the eight sector dashboards for research purposes only — not a recommendation to buy or sell any security. Verify current prices and do your own due diligence before investing.",
+  "sector_scoreboard": [
+    {
+      "sector": "AI & Compute",
+      "sector_url": "/private/ai.html",
+      "momentum": "MIXED",
+      "story": "Anthropic's Dario Amodei published \"We Must Pace the Frontier\" on Sept 12 — backed by OpenAI's Altman and DeepMind's Hassabis — and chip names sold off in the days after while Meta, Alphabet and Microsoft rose; Broadcom's new 3.5GW Google TPU deal for Anthropic is the clearest evidence yet of compute diversifying away from Nvidia, and Mistral closed a record €3B Series D at a ~$24.4B valuation",
+      "fundamentals_check": "Tech layoffs crossed 128,536 for 2026 — already exceeding all of 2025 — even as Oracle's Sept 10 beat-and-raise (revenue +30%, Cloud Infrastructure +121%) kept the fundamental-demand case intact; the ~$3-4T committed to AI infrastructure against an estimated $50-150B/year of actual AI revenue remains the central tension, compounded by AI-linked debt issuance adding an estimated 0.3pp to 10-year yields"
+    },
+    {
+      "sector": "Robotics",
+      "sector_url": "/private/robotics.html",
+      "momentum": "BIFURCATED",
+      "story": "Vishay Precision Group's target nearly doubled to $77 after a formal vendor nomination letter from an unnamed humanoid developer, and J&J's Ottava earned a new Speculative starter position on a high-profile CNBC profile of its table-integrated, four-arm design — even as Unitree's Sept 15 G1+ launch failed to move a stock still ~54% below its Aug 19 peak",
+      "fundamentals_check": "Symbotic keeps getting cut by the sell-side (Needham to $60, the second reduction in two weeks) despite a GAAP-profitable, $721M-revenue quarter, while AeroVironment shares finally closed the gap with their own Sept 9 earnings beat, climbing to ~$160 — the split between narrative and execution keeps widening rather than resolving"
+    },
+    {
+      "sector": "Defense Tech",
+      "sector_url": "/private/defense.html",
+      "momentum": "CONSTRUCTIVE",
+      "story": "AeroVironment's $464.8M Army LOCUST X3 laser award — the Pentagon's first-ever directed-energy production contract — lands on top of its Sept 9 earnings beat, and BAE Systems' ~11% recovery reaffirms a record £84.0B order backlog; both were raised this week, while UBS lifted its Palantir target to $250 for the third time this year",
+      "fundamentals_check": "Kratos again failed to place in the Sept 18 Gauntlet II Drone Dominance results despite three sell-side targets and a Q2 beat-and-raise, and Red Cat's Teal Drones missed the top five too — both were cut, Red Cat moved all the way to Avoid — while Palantir CEO Alex Karp telling CNBC that AI labs may need to be nationalized to cap liability adds a fresh regulatory-risk thread"
+    },
+    {
+      "sector": "Nuclear & SMRs",
+      "sector_url": "/private/nuclear.html",
+      "momentum": "BIFURCATED",
+      "story": "Centrus Energy's Sept 17 multi-year HALEU supply deal with Antares Nuclear — the first dated commercial contract behind the DOE build-out, funded partly by customer prepayments — was raised on the news, and UK regulators opened a Generic Design Assessment of X-energy's Xe-100",
+      "fundamentals_check": "Holtec Nuclear pulled its ~$900M Nasdaq IPO on Sept 16-18 citing \"market conditions\" days after targeting a $10.2B valuation — a real operating company with $564M of trailing revenue and an operating asset (Palisades) stepping back is the starkest reality check yet on 2026's SMR enthusiasm, and Bechtel/TerraPower's split on Kemmerer Natrium's next construction phase adds to the caution, even as Constellation's six-day, 13% slide drew a fresh $369 Morgan Stanley target defending the underlying PPA thesis"
+    },
+    {
+      "sector": "Critical Minerals",
+      "sector_url": "/private/minerals.html",
+      "momentum": "CROSSCURRENTS",
+      "story": "Xi Jinping's first White House visit in 11 years is now three days out (Sept 24-25) with rare-earth licensing explicitly on the agenda, 47 days ahead of the Nov 10 export-control expiry, and Energy Fuels was raised on steady White Mesa heavy-rare-earth construction progress with pilot Dy oxide already exceeding automotive spec purity",
+      "fundamentals_check": "MP Materials fell 4.3% to $47.26 — its lowest since spring — after Reuters reported Beijing's China Rare Earth Group is in talks to acquire Shenghe Resources, MP's 3% Chinese shareholder, even though Q2 revenue doubled YoY to $126.1M; lithium carbonate kept sliding to $19,750/tonne and Mizuho cut Albemarle's target to $140, while Freeport recovered most of its tariff-doubt plunge back to ~$71.50"
+    },
+    {
+      "sector": "Space Economy",
+      "sector_url": "/private/space.html",
+      "momentum": "MIXED — MOST ACTIVE SLEEVE",
+      "story": "Rocket Lab was raised after fully funding its Iridium acquisition (a $1.94B ATM offering, canceling the $3.6B bridge facility) and L3Harris was raised on Guggenheim's Buy initiation with 49% upside, while ASTS and Intuitive Machines were also raised despite both selling off on genuinely positive deployment/handover news — six of eight names moved this week, the busiest sleeve on the page",
+      "fundamentals_check": "Redwire fell 7% on a fresh $1.15B trailing-12-month insider-selling disclosure even after a BofA target hike, and Planet Labs (down 67% from its May peak on a proposed $1.5B dilutive raise) were both cut; Starship Flight 14 has slipped a third time, now NET Sept 28"
+    },
+    {
+      "sector": "Energy Storage",
+      "sector_url": "/private/storage.html",
+      "momentum": "MIXED",
+      "story": "Eos Energy was raised, funded by trimming NRGV, after the Google/MN8 deal firmed to a specific 10MW/100MWh contract and an $87M DOE loan advance began funding the Thorn Hill second production line — real de-risking events, not just sentiment",
+      "fundamentals_check": "Fluence Energy slashed FY26 revenue guidance to ~$2.4B (from ~$3.0B), swung its EBITDA outlook to a ~$200M loss, disclosed an SEC investigation into revenue recognition, and fell 15.4% in a single session — at least five law firms have since opened shareholder investigations, even as GE Vernova's CEO said Q3 order strength points to a $200B backlog \"very early\" in 2027"
+    },
+    {
+      "sector": "AI Biotech",
+      "sector_url": "/private/biotech.html",
+      "momentum": "CONSTRUCTIVE",
+      "story": "Illumina was raised ahead of officially rejoining the S&P 500 today — its first time back since the 2023 GRAIL spinoff — on a genuine earnings turnaround plus a Sept 9 UBS upgrade to Buy; Intellia was raised on a firm March 10, 2027 PDUFA date for lonvo-z plus HAELO Phase 3 data showing an 87% attack-rate reduction, and Quantum-Si was raised on detecting 18 of 20 amino acids on Proteus",
+      "fundamentals_check": "Tempus AI surged ~40% in a week on a data-platform announcement with no new clinical or regulatory event, and zero AI-discovered drugs have reached full FDA approval out of 200+ in clinical development — genuine regulatory progress at Intellia is real, but it's a gene-editing program, not an AI-discovery one, and the Guardant/Tempus litigation mess remains unresolved on all three fronts"
+    },
+    {
+      "sector": "Quantum",
+      "sector_url": "/private/quantum.html",
+      "momentum": "EXTREME SPECULATION — HEAVIEST WEEK OF CHANGES",
+      "story": "IBM was raised after its Anderon subsidiary finalized the largest single quantum CHIPS Act award to date ($1B, matched by another $1B from IBM), and NVIDIA was raised on its most active week in the sector in over a month (CUDA-Q Logical's 7x Fermilab speedup, NVQLink's first live quantum-GPU program); IonQ was raised after recovering 6.5% on a Synopsys Best Paper win, not guidance",
+      "fundamentals_check": "Every major pure-play rallied this week (IonQ +6.5%, Rigetti +5.4%, Quantinuum +10.7%) yet Rigetti and Quantinuum were both trimmed — DARPA formally confirmed Rigetti missed QBI Stage B, and Quantinuum's ~$14.3B market cap keeps outrunning its unchanged $28-32M FY26 revenue guide; Alphabet was also trimmed after a fifth quiet week for Willow hardware milestones"
+    }
+  ],
+  "cross_cutting_themes": [
+    {
+      "tag": "AI'S OWN ARCHITECTS CALL FOR A SLOWDOWN",
+      "title": "A safety essay moved more than a week of earnings",
+      "description": "Anthropic CEO Dario Amodei's Sept 12 \"We Must Pace the Frontier\" essay — backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis — sent chip names lower while Meta, Alphabet and Microsoft rose, and Palantir's Alex Karp went further, telling CNBC frontier labs may need to be nationalized over \"unlimited risk.\" Skeptics note a company mid-prep for a ~$2T IPO calling for the industry to slow down is also a moat-building argument, not purely an act of altruism."
+    },
+    {
+      "tag": "UPGRADES CONVERT PROOF POINTS",
+      "title": "This week's raises share one thread",
+      "description": "Vishay Precision Group and J&J's Ottava (Robotics), BAE Systems and AeroVironment (Defense), Centrus Energy (Nuclear), Energy Fuels (Minerals), Rocket Lab and L3Harris (Space), Eos Energy (Storage), Illumina, Intellia and Quantum-Si (Biotech), and IBM, NVIDIA and IonQ (Quantum) were all raised this week — every one on a converting contract, a regulatory de-risking step, or a partner-validated technical milestone rather than a story alone."
+    },
+    {
+      "tag": "DOWNGRADES SHARE A MISSED-PROOF-POINT THREAD",
+      "title": "Execution and valuation risk, not scandal",
+      "description": "Kratos and Red Cat (Defense, the latter moved all the way to Avoid), Redwire and Planet Labs (Space), and Alphabet, Rigetti and Quantinuum (Quantum) were all cut this week — tied to a missed Gauntlet II leaderboard result, a fresh insider-selling disclosure, a formally confirmed DARPA exclusion, or simply a market cap outrunning unchanged revenue guidance, rather than any single scandal."
+    },
+    {
+      "tag": "THE SPECULATIVE CORNER KEEPS REPRICING",
+      "title": "Holtec pulls a $900M IPO from a real business",
+      "description": "Holtec Nuclear suspended its Nasdaq listing on Sept 16-18 citing \"market conditions\" days after targeting a $10.2B valuation — notable because, unlike the pre-revenue SMR developers on this hub, Holtec had $564M of trailing revenue and an operating asset (Palisades); on top of Unitree still down 54% from its August peak and Planet Labs down 67% from its May peak, a company with an actual operating base stepping back is the clearest tell yet that 2026's frothiest corners are still being repriced."
+    },
+    {
+      "tag": "GOVERNMENT AS PRICE-SETTER, AGAIN",
+      "title": "Washington and Beijing keep setting the terms",
+      "description": "IBM's $1B Anderon CHIPS Act award (the largest quantum award yet), AeroVironment's Pentagon's-first-ever directed-energy production contract, the FIPS 140-2 post-quantum cryptography sunset taking effect today, and Xi Jinping's imminent Washington visit — with rare-earth export licensing explicitly on the agenda — are all federal or state decisions doing more to move prices this week than any single earnings report."
+    }
+  ],
+  "news_of_the_week": [
+    {
+      "date": "SEP 12 · AI",
+      "title": "Anthropic's Dario Amodei calls for the industry to \"pace the frontier\"",
+      "description": "Backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis, the essay argued AI capability growth needs to slow for safety work to keep up; chip stocks sold off in the days that followed while Meta, Alphabet and Microsoft rose."
+    },
+    {
+      "date": "SEP 16-18 · NUCLEAR",
+      "title": "Holtec Nuclear pulls its ~$900M Nasdaq IPO",
+      "description": "Cited \"market conditions\" days after targeting a $10.2B valuation; unlike pre-revenue SMR peers, Holtec has $564M of trailing revenue and an operating asset (Palisades) — the clearest sign yet that 2026's speculative corners are being repriced."
+    },
+    {
+      "date": "SEP 16 · QUANTUM",
+      "title": "IBM's Anderon finalizes the largest quantum CHIPS Act award to date",
+      "description": "A $1B award for its Albany, NY 300mm quantum wafer foundry, matched by another $1B from IBM itself — on top of the $400M in awards to D-Wave, Rigetti, Quantinuum and PsiQuantum finalized the prior week, bringing September's federal quantum commitment to roughly $1.4B."
+    },
+    {
+      "date": "SEP 18 · MINERALS",
+      "title": "MP Materials falls 4.3% as Beijing moves on its Chinese shareholder",
+      "description": "Reuters reported state-owned China Rare Earth Group is in talks to acquire Shenghe Resources, MP's 3% shareholder, three days before Xi Jinping's first White House visit in 11 years with rare-earth licensing on the agenda."
+    },
+    {
+      "date": "SEP 9 · DEFENSE",
+      "title": "AeroVironment wins the Pentagon's first-ever directed-energy production contract",
+      "description": "A $464.8M Army award for LOCUST X3 laser systems lands on top of a Q1 FY27 earnings beat ($480.5M revenue, $1.5B backlog, +37% YoY) — shares have since climbed toward $160, up ~14% from the post-earnings low."
+    }
+  ],
+  "week_ahead": [
+    {
+      "date": "SEP 22",
+      "title": "Richmond Fed Manufacturing Index & $78B 2-year note auction",
+      "description": "First real data points since the Sept 16 hike to 3.75%-4%, ahead of a heavy Fed-speaker slate through the week."
+    },
+    {
+      "date": "SEP 23",
+      "title": "S&P Global flash Manufacturing & Services PMI",
+      "description": "The first broad read on how the economy is absorbing higher rates and the post-hike growth backdrop."
+    },
+    {
+      "date": "SEP 24-25",
+      "title": "Xi Jinping's Washington visit",
+      "description": "His first White House visit in 11 years; rare-earth export licensing is squarely on the agenda, 47 days ahead of the Nov 10 export-control deadline and with Chinese suppliers still withholding some US-bound shipments."
+    },
+    {
+      "date": "SEP 25",
+      "title": "Micron earnings & University of Michigan Consumer Sentiment",
+      "description": "Micron is the week's key AI-supply-chain earnings print; consumer sentiment is the first major post-hike read on how households are digesting the rate move."
+    },
+    {
+      "date": "NET SEP 28",
+      "title": "Starship Flight 14",
+      "description": "SpaceX's first true orbital attempt, carrying 26 Starlink V3 satellites, has now slipped three times in three weeks — a live test of the binary mission-risk thesis running across small-cap space."
+    },
+    {
+      "date": "~SEP 30",
+      "title": "Anduril's ~$100B round nears a decision point",
+      "description": "Prediction markets are now floating a $112.5B close by month-end — the round has remained unclosed for roughly nine weeks since first being reported."
+    },
+    {
+      "date": "OCT 2026 (TARGETED)",
+      "title": "Anthropic IPO pricing",
+      "description": "Backers are targeting a ~$2.0-2.3T valuation, with Nvidia reportedly in talks to anchor-invest up to $10B, pricing aimed before the November midterms."
+    }
+  ],
+  "risk_gauge": [
+    {
+      "sector": "Quantum",
+      "valuation_heat": 10
+    },
+    {
+      "sector": "AI & Compute",
+      "valuation_heat": 8
+    },
+    {
+      "sector": "Humanoid robotics",
+      "valuation_heat": 7
+    },
+    {
+      "sector": "Defense tech",
+      "valuation_heat": 7
+    },
+    {
+      "sector": "Nuclear/SMR",
+      "valuation_heat": 4
+    },
+    {
+      "sector": "Space small-caps",
+      "valuation_heat": 6
+    },
+    {
+      "sector": "AI biotech",
+      "valuation_heat": 5
+    },
+    {
+      "sector": "Critical minerals",
+      "valuation_heat": 5
+    },
+    {
+      "sector": "Energy storage",
+      "valuation_heat": 4
+    }
+  ],
+  "stance_changes": [
+    {
+      "ticker": "VPG",
+      "name": "Vishay Precision Group",
+      "sector": "Robotics",
+      "from": "Raised",
+      "to": "Speculative · 5%",
+      "why": "Analyst target nearly doubled to $77 from $39 after a formal vendor nomination letter from an unnamed humanoid robotics developer — a concrete signal, not just narrative."
+    },
+    {
+      "ticker": "JNJ",
+      "name": "Johnson & Johnson",
+      "sector": "Robotics",
+      "from": "Not held",
+      "to": "Watch · 0%",
+      "why": "Ottava's FDA de novo authorization (10 general surgery procedures, granted Jul 22) got a fresh CNBC profile this week (Sep 11) describing a table-integrated design that takes 30-50% less space than cart-based systems like da Vinci — a..."
+    },
+    {
+      "ticker": "BA.L",
+      "name": "BAE Systems",
+      "sector": "Defense Tech",
+      "from": "Raised",
+      "to": "Core · 50%",
+      "why": "The ~11% recovery to ~2,043p this week reaffirms the record £84.0B H1 order backlog and raised full-year guidance (8-10% sales, 11-13% EPS growth) as the least-disputed thesis in the sector;"
+    },
+    {
+      "ticker": "AVAV",
+      "name": "AeroVironment",
+      "sector": "Defense Tech",
+      "from": "Raised",
+      "to": "Speculative · 25%",
+      "why": "The $464.8M Army LOCUST X3 laser award — the Pentagon's first-ever directed-energy production contract — diversifies AeroVironment's revenue beyond the drone segment and lands on top of a record $1.5B backlog;"
+    },
+    {
+      "ticker": "KTOS",
+      "name": "Kratos Defense",
+      "sector": "Defense Tech",
+      "from": "Trimmed",
+      "to": "Speculative · 25%",
+      "why": "Three sell-side targets and a Q2 beat-and-raise still support the CCA-engine optionality (GEK800 testing toward $150M of 2027 turbojet revenue), but Kratos again failed to place on the Sep 18 Gauntlet II leaderboard despite qualifying..."
+    },
+    {
+      "ticker": "RCAT",
+      "name": "Red Cat Holdings",
+      "sector": "Defense Tech",
+      "from": "Trimmed",
+      "to": "Avoid · 0%",
+      "why": "Teal Drones missed the top five in Gauntlet II's Close Quarters Battle category, the second straight negative data point after August's insider selling;"
+    },
+    {
+      "ticker": "LEU",
+      "name": "Centrus Energy",
+      "sector": "Nuclear & SMRs",
+      "from": "Raised",
+      "to": "Speculative · 5%",
+      "why": "The Sep 17 multi-year HALEU supply deal with Antares Nuclear — with customer prepayments funding further Piketon capacity — is the first dated commercial contract behind the DOE build-out, not just a policy tailwind, and shares rose..."
+    },
+    {
+      "ticker": "UUUU",
+      "name": "Energy Fuels",
+      "sector": "Critical Minerals",
+      "from": "Raised",
+      "to": "Speculative · 17%",
+      "why": "White Mesa's heavy-rare-earth construction keeps advancing toward 2027 commercial light/heavy REE output, pilot Dy oxide already exceeds automotive spec purity, and the Vacuumschmelze deal remains on track for a Q1 2027 close."
+    },
+    {
+      "ticker": "RKLB",
+      "name": "Rocket Lab",
+      "sector": "Space Economy",
+      "from": "Raised",
+      "to": "Core · 28%",
+      "why": "Fully funded its Iridium acquisition on Sept 15 — completing a $1.94B ATM offering and canceling the $3.6B bridge facility — resolving the financing-risk bear case while Craig-Hallum initiated at Buy and Electron flew its 96th mission..."
+    },
+    {
+      "ticker": "LHX",
+      "name": "L3Harris",
+      "sector": "Space Economy",
+      "from": "Raised",
+      "to": "Core · 20%",
+      "why": "Guggenheim initiated coverage Sept 15 at Buy with 49% upside and Space & Mission Systems revenue is tracking to top $13B in 2026, but shares are still hovering near 52-week lows around $250 with the Kubasik-era securities investigation..."
+    },
+    {
+      "ticker": "RDW",
+      "name": "Redwire",
+      "sector": "Space Economy",
+      "from": "Trimmed",
+      "to": "Core · 17%",
+      "why": "Shares fell 7% on Sept 18 even as BofA raised its target to $8 (still Underperform), and a fresh disclosure shows $1.15B of net insider selling over the past 12 months — a scale that dwarfs the roughly $1B market cap and is hard to..."
+    },
+    {
+      "ticker": "ASTS",
+      "name": "AST SpaceMobile",
+      "sector": "Space Economy",
+      "from": "Raised",
+      "to": "Speculative · 22%",
+      "why": "BlueBird 12/13 are fully deployed and US Mobile is lining up a Q4 direct-to-cell launch alongside a new Vodafone Ukraine gateway JV, yet shares fell 10% on the news — a sell-the-news reaction that looks more like market noise than a..."
+    },
+    {
+      "ticker": "LUNR",
+      "name": "Intuitive Machines",
+      "sector": "Space Economy",
+      "from": "Raised",
+      "to": "Speculative · 13%",
+      "why": "Completed the SXM-11 satellite handover Sept 15 and carries a record $1.8B backlog, but shares stayed volatile (+6.6% then -5.9% in consecutive sessions) and insider selling remains heavy ($259.4M net over 12 months);"
+    },
+    {
+      "ticker": "PL",
+      "name": "Planet Labs",
+      "sector": "Space Economy",
+      "from": "Trimmed",
+      "to": "Watch · 0%",
+      "why": "Shares are down 67% from their May peak on a proposed $1.5B equity dilution plan, and the CEO sold $2.2M of stock Sept 15 (scheduled tax-withholding, not open-market conviction selling, but it adds to the overhang);"
+    },
+    {
+      "ticker": "EOSE",
+      "name": "Eos Energy",
+      "sector": "Energy Storage",
+      "from": "Raised",
+      "to": "Speculative · 7%",
+      "why": "Raised a point, funded by trimming NRGV below: the Google/MN8 deal firmed up to a specific 10MW/100MWh contract and an $87M DOE loan advance is now funding the Thorn Hill second line — real de-risking events, not just sentiment, even..."
+    },
+    {
+      "ticker": "ILMN",
+      "name": "Illumina",
+      "sector": "AI Biotech",
+      "from": "Raised",
+      "to": "Core · 12%",
+      "why": "Officially rejoins the S&P 500 today on a genuine earnings turnaround (FY2025 net income $850M) plus a Sept 9 UBS upgrade to Buy (PT $260, from $135) — fresh 52-week high $239.55, +143% trailing 12mo."
+    },
+    {
+      "ticker": "NTLA",
+      "name": "Intellia Therapeutics",
+      "sector": "AI Biotech",
+      "from": "Raised",
+      "to": "Speculative · 7%",
+      "why": "Now has a firm PDUFA date (March 10, 2027) for lonvo-z plus HAELO Phase 3 data showing an 87% attack-rate reduction and a new $400M credit facility to fund launch — real, continued de-risking."
+    },
+    {
+      "ticker": "QSI",
+      "name": "Quantum-Si",
+      "sector": "AI Biotech",
+      "from": "Raised",
+      "to": "Speculative · 2%",
+      "why": "Demonstrated detection of 18 of 20 amino acids on Proteus (Sept 15) — the first genuine technical proof point this platform has delivered in months, even with the commercial launch still a confirmed year late (Q2 2027)."
+    },
+    {
+      "ticker": "IBM",
+      "name": "IBM",
+      "sector": "Quantum",
+      "from": "Raised",
+      "to": "Core · 34%",
+      "why": "The single biggest quantum catalyst of the month: Anderon finalized a $1B CHIPS Act award (Sep 16) for its Albany 300mm quantum wafer foundry, matched by another $1B from IBM itself."
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet",
+      "sector": "Quantum",
+      "from": "Trimmed",
+      "to": "Core · 17%",
+      "why": "A fifth straight quiet week for Willow-specific hardware milestones; the UK NQCC access program is progressing but has yet to produce a concrete result."
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "sector": "Quantum",
+      "from": "Raised",
+      "to": "Core · 15%",
+      "why": "NVIDIA's most active week in the sector in over a month: the new CUDA-Q Logical layer gave Fermilab a 7x development speedup, NVQLink ran its first live end-to-end quantum-GPU program with Quantum Machines (Sep 13), and NVentures..."
+    },
+    {
+      "ticker": "IONQ",
+      "name": "IonQ",
+      "sector": "Quantum",
+      "from": "Raised",
+      "to": "Speculative · 10%",
+      "why": "Recovered 6.5% to $39.13 on substance rather than guidance: a Best Paper win with Synopsys on quantum-accelerated CAE (14.6% faster execution) and the ORNL/NVIDIA DQAOA-GPT circuit-synthesis framework."
+    },
+    {
+      "ticker": "RGTI",
+      "name": "Rigetti",
+      "sector": "Quantum",
+      "from": "Trimmed",
+      "to": "Speculative · 2%",
+      "why": "DARPA formally confirmed Rigetti is not among the eleven companies in QBI Stage B, closing off a key optionality thesis flagged as pending in prior weeks."
+    },
+    {
+      "ticker": "QNT",
+      "name": "Quantinuum",
+      "sector": "Quantum",
+      "from": "Trimmed",
+      "to": "Speculative · 1%",
+      "why": "Shares are up 10.7% on top of last week's rally to a ~$14.3B market cap, while FY26 revenue guidance is unchanged at $28-32M — the valuation gap is widening faster than the (genuinely real) technical progress justifies."
+    }
+  ],
+  "footnote": "Synthesized weekly from the nine sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Sep 21, 2026 — always confirm independently."
+}

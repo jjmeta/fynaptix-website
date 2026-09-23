@@ -1,0 +1,218 @@
+[
+  {
+    "ticker": "VPG",
+    "name": "Vishay Precision Group",
+    "sector": "Robotics",
+    "stance": "spec",
+    "weight": 5,
+    "change": "up",
+    "note": "Analyst target nearly doubled to $77 from $39 after a formal vendor nomination letter from an unnamed humanoid robotics developer \u2014 a concrete signal, not just narrative. Shares have actually pulled back ~11% over the past month to $60.49, widening the gap. Weight increased on the strength of the nomination letter, funded by trimming Kratos."
+  },
+  {
+    "ticker": "JNJ",
+    "name": "Johnson & Johnson",
+    "sector": "Robotics",
+    "stance": "watch",
+    "weight": 0,
+    "change": "new",
+    "note": "Ottava's FDA de novo authorization (10 general surgery procedures, granted Jul 22) got a fresh CNBC profile this week (Sep 11) describing a table-integrated design that takes 30-50% less space than cart-based systems like da Vinci \u2014 a real competitive signal for surgical robotics. But robotics is a rounding error inside a $450B+ diversified healthcare conglomerate; added to track the Ottava-vs-da Vinci dynamic, not for JNJ's own exposure."
+  },
+  {
+    "ticker": "BA.L",
+    "name": "BAE Systems",
+    "sector": "Defense Tech",
+    "stance": "core",
+    "weight": 50,
+    "change": "up",
+    "note": "The ~11% recovery to ~2,043p this week reaffirms the record \u00a384.0B H1 order backlog and raised full-year guidance (8-10% sales, 11-13% EPS growth) as the least-disputed thesis in the sector; weight raised on the price confirmation. Directly accessible from the UK with no wrapper needed \u2014 the most straightforward core holding on this page."
+  },
+  {
+    "ticker": "AVAV",
+    "name": "AeroVironment",
+    "sector": "Defense Tech",
+    "stance": "spec",
+    "weight": 25,
+    "change": "up",
+    "note": "The $464.8M Army LOCUST X3 laser award \u2014 the Pentagon's first-ever directed-energy production contract \u2014 diversifies AeroVironment's revenue beyond the drone segment and lands on top of a record $1.5B backlog; weight raised meaningfully, though the SCAR/BADGER securities-fraud litigation keeps this speculative rather than core. Also sits in the Robotics sleeve \u2014 don't double-count. Needs a US wrapper."
+  },
+  {
+    "ticker": "KTOS",
+    "name": "Kratos Defense",
+    "sector": "Defense Tech",
+    "stance": "spec",
+    "weight": 25,
+    "change": "down",
+    "note": "Three sell-side targets and a Q2 beat-and-raise still support the CCA-engine optionality (GEK800 testing toward $150M of 2027 turbojet revenue), but Kratos again failed to place on the Sep 18 Gauntlet II leaderboard despite qualifying for both rounds \u2014 real evidence against the near-term autonomy-optionality case, so weight trimmed. Also sits in the Robotics sleeve \u2014 don't double-count. Needs a US wrapper."
+  },
+  {
+    "ticker": "RCAT",
+    "name": "Red Cat Holdings",
+    "sector": "Defense Tech",
+    "stance": "avoid",
+    "weight": 0,
+    "change": "down",
+    "note": "Teal Drones missed the top five in Gauntlet II's Close Quarters Battle category, the second straight negative data point after August's insider selling; moving this to Avoid until the maritime-autonomy and swarm-robotics story converts into contracted revenue rather than platform narrative."
+  },
+  {
+    "ticker": "LEU",
+    "name": "Centrus Energy",
+    "sector": "Nuclear & SMRs",
+    "stance": "spec",
+    "weight": 5,
+    "change": "up",
+    "note": "The Sep 17 multi-year HALEU supply deal with Antares Nuclear \u2014 with customer prepayments funding further Piketon capacity \u2014 is the first dated commercial contract behind the DOE build-out, not just a policy tailwind, and shares rose 6.6% on it. Moving off Watch into a small Speculative position on that concrete catalyst."
+  },
+  {
+    "ticker": "UUUU",
+    "name": "Energy Fuels",
+    "sector": "Critical Minerals",
+    "stance": "spec",
+    "weight": 17,
+    "change": "up",
+    "note": "White Mesa's heavy-rare-earth construction keeps advancing toward 2027 commercial light/heavy REE output, pilot Dy oxide already exceeds automotive spec purity, and the Vacuumschmelze deal remains on track for a Q1 2027 close. No negative catalysts this week \u2014 bumping weight slightly to reflect steady execution."
+  },
+  {
+    "ticker": "RKLB",
+    "name": "Rocket Lab",
+    "sector": "Space Economy",
+    "stance": "core",
+    "weight": 28,
+    "change": "up",
+    "note": "Fully funded its Iridium acquisition on Sept 15 \u2014 completing a $1.94B ATM offering and canceling the $3.6B bridge facility \u2014 resolving the financing-risk bear case while Craig-Hallum initiated at Buy and Electron flew its 96th mission (17th of 2026) on Sept 19; raising weight as the deal de-risks even though Neutron still isn't flying before 2027."
+  },
+  {
+    "ticker": "LHX",
+    "name": "L3Harris",
+    "sector": "Space Economy",
+    "stance": "core",
+    "weight": 20,
+    "change": "up",
+    "note": "Guggenheim initiated coverage Sept 15 at Buy with 49% upside and Space & Mission Systems revenue is tracking to top $13B in 2026, but shares are still hovering near 52-week lows around $250 with the Kubasik-era securities investigation unresolved; raising weight modestly as new analyst conviction argues the backlog isn't being credited. Also sits in your Defense sleeve \u2014 don't double-count exposure."
+  },
+  {
+    "ticker": "RDW",
+    "name": "Redwire",
+    "sector": "Space Economy",
+    "stance": "core",
+    "weight": 17,
+    "change": "down",
+    "note": "Shares fell 7% on Sept 18 even as BofA raised its target to $8 (still Underperform), and a fresh disclosure shows $1.15B of net insider selling over the past 12 months \u2014 a scale that dwarfs the roughly $1B market cap and is hard to square with the 'consistent execution' thesis; cutting weight sharply pending clarity on what's driving that selling."
+  },
+  {
+    "ticker": "ASTS",
+    "name": "AST SpaceMobile",
+    "sector": "Space Economy",
+    "stance": "spec",
+    "weight": 22,
+    "change": "up",
+    "note": "BlueBird 12/13 are fully deployed and US Mobile is lining up a Q4 direct-to-cell launch alongside a new Vodafone Ukraine gateway JV, yet shares fell 10% on the news \u2014 a sell-the-news reaction that looks more like market noise than a thesis break; nudging weight up as commercial integration keeps advancing."
+  },
+  {
+    "ticker": "LUNR",
+    "name": "Intuitive Machines",
+    "sector": "Space Economy",
+    "stance": "spec",
+    "weight": 13,
+    "change": "up",
+    "note": "Completed the SXM-11 satellite handover Sept 15 and carries a record $1.8B backlog, but shares stayed volatile (+6.6% then -5.9% in consecutive sessions) and insider selling remains heavy ($259.4M net over 12 months); raising size modestly but keeping it small given that selling pattern."
+  },
+  {
+    "ticker": "PL",
+    "name": "Planet Labs",
+    "sector": "Space Economy",
+    "stance": "watch",
+    "weight": 0,
+    "change": "down",
+    "note": "Shares are down 67% from their May peak on a proposed $1.5B equity dilution plan, and the CEO sold $2.2M of stock Sept 15 (scheduled tax-withholding, not open-market conviction selling, but it adds to the overhang); staying on Watch until the dilution terms and next guide are clearer."
+  },
+  {
+    "ticker": "EOSE",
+    "name": "Eos Energy",
+    "sector": "Energy Storage",
+    "stance": "spec",
+    "weight": 7,
+    "change": "up",
+    "note": "Raised a point, funded by trimming NRGV below: the Google/MN8 deal firmed up to a specific 10MW/100MWh contract and an $87M DOE loan advance is now funding the Thorn Hill second line \u2014 real de-risking events, not just sentiment, even though storage revenue on this deal still doesn't start until 2028\u20132030 and the securities-law investigations remain open."
+  },
+  {
+    "ticker": "ILMN",
+    "name": "Illumina",
+    "sector": "AI Biotech",
+    "stance": "core",
+    "weight": 12,
+    "change": "up",
+    "note": "Officially rejoins the S&P 500 today on a genuine earnings turnaround (FY2025 net income $850M) plus a Sept 9 UBS upgrade to Buy (PT $260, from $135) \u2014 fresh 52-week high $239.55, +143% trailing 12mo. Weight increased again on a real fundamental-and-flow catalyst, not just index mechanics."
+  },
+  {
+    "ticker": "NTLA",
+    "name": "Intellia Therapeutics",
+    "sector": "AI Biotech",
+    "stance": "spec",
+    "weight": 7,
+    "change": "up",
+    "note": "Now has a firm PDUFA date (March 10, 2027) for lonvo-z plus HAELO Phase 3 data showing an 87% attack-rate reduction and a new $400M credit facility to fund launch \u2014 real, continued de-risking. Still pre-approval so stays Speculative, but weight increased again to reflect the improved odds."
+  },
+  {
+    "ticker": "QSI",
+    "name": "Quantum-Si",
+    "sector": "AI Biotech",
+    "stance": "spec",
+    "weight": 2,
+    "change": "up",
+    "note": "Demonstrated detection of 18 of 20 amino acids on Proteus (Sept 15) \u2014 the first genuine technical proof point this platform has delivered in months, even with the commercial launch still a confirmed year late (Q2 2027). Upgraded from Avoid on real progress, kept small given the execution history."
+  },
+  {
+    "ticker": "IBM",
+    "name": "IBM",
+    "sector": "Quantum",
+    "stance": "core",
+    "weight": 34,
+    "change": "up",
+    "note": "The single biggest quantum catalyst of the month: Anderon finalized a $1B CHIPS Act award (Sep 16) for its Albany 300mm quantum wafer foundry, matched by another $1B from IBM itself. Nudged up on the scale and specificity of that commitment; still a rounding error on a profitable, dividend-paying business."
+  },
+  {
+    "ticker": "GOOGL",
+    "name": "Alphabet",
+    "sector": "Quantum",
+    "stance": "core",
+    "weight": 17,
+    "change": "down",
+    "note": "A fifth straight quiet week for Willow-specific hardware milestones; the UK NQCC access program is progressing but has yet to produce a concrete result. Trimmed to fund this week's stronger NVIDIA and IonQ catalysts; also your largest AI-sleeve holding, so size this weight with that overlap in mind."
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "sector": "Quantum",
+    "stance": "core",
+    "weight": 15,
+    "change": "up",
+    "note": "NVIDIA's most active week in the sector in over a month: the new CUDA-Q Logical layer gave Fermilab a 7x development speedup, NVQLink ran its first live end-to-end quantum-GPU program with Quantum Machines (Sep 13), and NVentures reportedly joined QuEra's funding. Bumped up on the breadth of concrete, company-specific progress; also your largest cross-sector AI holding, so size for that concentration too."
+  },
+  {
+    "ticker": "IONQ",
+    "name": "IonQ",
+    "sector": "Quantum",
+    "stance": "spec",
+    "weight": 10,
+    "change": "up",
+    "note": "Recovered 6.5% to $39.13 on substance rather than guidance: a Best Paper win with Synopsys on quantum-accelerated CAE (14.6% faster execution) and the ORNL/NVIDIA DQAOA-GPT circuit-synthesis framework. Nudged up on the pivot from guidance-driven hype to peer-reviewed technical validation; still the cheapest pure-play on P/S (~64\u00d7)."
+  },
+  {
+    "ticker": "RGTI",
+    "name": "Rigetti",
+    "sector": "Quantum",
+    "stance": "spec",
+    "weight": 2,
+    "change": "down",
+    "note": "DARPA formally confirmed Rigetti is not among the eleven companies in QBI Stage B, closing off a key optionality thesis flagged as pending in prior weeks. This week's 5.4% share gain rode broad sector sentiment, not company-specific news, so weight is trimmed toward the minimum while the CHIPS award and Purdue partnership keep this a Speculative rather than a Watch/Avoid."
+  },
+  {
+    "ticker": "QNT",
+    "name": "Quantinuum",
+    "sector": "Quantum",
+    "stance": "spec",
+    "weight": 1,
+    "change": "down",
+    "note": "Shares are up 10.7% on top of last week's rally to a ~$14.3B market cap, while FY26 revenue guidance is unchanged at $28-32M \u2014 the valuation gap is widening faster than the (genuinely real) technical progress justifies. Trimmed toward the minimum: price has outrun fundamentals even though the underlying Helix/CHIPS story is intact. Also note the Aramco relationship overlaps with Microsoft's own AI-sleeve exposure."
+  }
+]
