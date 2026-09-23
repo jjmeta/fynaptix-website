@@ -55,10 +55,11 @@
   .btn-ghost:hover{border-color:#0b0b0c}
 
   /* ── Hero banner ─────────────────────────────────── */
-  .hero{background:#0b0b0c;color:#fff;padding:36px 32px 32px;position:relative;overflow:hidden}
+  .hero{background:#1c1c20;color:#fff;padding:36px 32px 32px;position:relative;overflow:hidden}
   @media(max-width:768px){.hero{padding:24px 16px}}
-  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(255,90,31,.08) 0%,transparent 70%);pointer-events:none}
-  .hero-inner{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;position:relative;z-index:1}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 90% at 72% 50%,rgba(255,90,31,.11) 0%,transparent 65%);pointer-events:none}
+  .hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+  .hero-inner{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;position:relative;z-index:2}
   @media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
   .hero-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:#52525b;margin-bottom:10px}
   .hero-pnl{font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#10b981;animation:count-up .6s ease both}
@@ -295,6 +296,39 @@
 
 <!-- HERO BANNER -->
 <div class="hero">
+  <!-- Decorative background elements -->
+  <svg style="position:absolute;right:0;top:0;height:100%;width:auto;opacity:.06;pointer-events:none" viewBox="0 0 420 160" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Candlestick silhouettes -->
+    <g fill="white" stroke="none">
+      <rect x="20"  y="60"  width="12" height="55" rx="0"/>
+      <rect x="25"  y="40"  width="2"  height="80"/>
+      <rect x="48"  y="45"  width="12" height="70" rx="0"/>
+      <rect x="53"  y="28"  width="2"  height="96"/>
+      <rect x="76"  y="70"  width="12" height="40" rx="0"/>
+      <rect x="81"  y="55"  width="2"  height="65"/>
+      <rect x="104" y="38"  width="12" height="65" rx="0"/>
+      <rect x="109" y="20"  width="2"  height="96"/>
+      <rect x="132" y="55"  width="12" height="45" rx="0"/>
+      <rect x="137" y="42"  width="2"  height="68"/>
+      <rect x="160" y="30"  width="12" height="72" rx="0"/>
+      <rect x="165" y="14"  width="2"  height="100"/>
+      <rect x="188" y="48"  width="12" height="50" rx="0"/>
+      <rect x="193" y="34"  width="2"  height="74"/>
+      <rect x="216" y="20"  width="12" height="80" rx="0"/>
+      <rect x="221" y="8"   width="2"  height="104"/>
+      <rect x="244" y="35"  width="12" height="58" rx="0"/>
+      <rect x="249" y="22"  width="2"  height="82"/>
+      <rect x="272" y="15"  width="12" height="90" rx="0"/>
+      <rect x="277" y="4"   width="2"  height="112"/>
+      <rect x="300" y="25"  width="12" height="68" rx="0"/>
+      <rect x="305" y="10"  width="2"  height="92"/>
+    </g>
+    <!-- Trend line -->
+    <polyline points="26,105 54,100 82,92 110,78 138,82 166,68 194,60 222,50 250,42 278,32 306,38" fill="none" stroke="white" stroke-width="2" opacity=".6"/>
+  </svg>
+  <!-- Large watermark text -->
+  <div style="position:absolute;bottom:-8px;left:24px;font-family:'IBM Plex Mono',monospace;font-size:120px;font-weight:500;letter-spacing:-.04em;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;z-index:0">BOT</div>
+
   <div class="hero-inner">
     <div>
       <div class="hero-label">FYNAPTIX AI BOT · ALL-TIME PERFORMANCE</div>
