@@ -228,41 +228,46 @@
     </div>
 
     <!-- RESEARCH HUB HERO BANNER -->
-    <div style="background:#ff5a1f;color:#fff;padding:28px 36px 24px;position:relative;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.08)">
+    <div style="background:#1c1c20;color:#fff;padding:28px 36px 24px;position:relative;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.15)">
       <!-- Grid texture -->
-      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none"></div>
-      <!-- Decorative circles top-right -->
-      <svg style="position:absolute;right:-30px;top:-40px;opacity:.12;pointer-events:none" width="240" height="200" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="180" cy="80" r="100" fill="none" stroke="white" stroke-width="1.5"/>
-        <circle cx="180" cy="80" r="68" fill="none" stroke="white" stroke-width="1"/>
-        <circle cx="180" cy="80" r="38" fill="none" stroke="white" stroke-width=".8"/>
-        <circle cx="60"  cy="160" r="55" fill="none" stroke="white" stroke-width="1"/>
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none"></div>
+      <!-- Orange radial glow -->
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(255,90,31,.12) 0%,transparent 65%);pointer-events:none"></div>
+      <!-- Decorative circles top-right (white + orange) -->
+      <svg style="position:absolute;right:-30px;top:-40px;pointer-events:none" width="260" height="220" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="195" cy="90" r="110" fill="none" stroke="white" stroke-width="1" opacity=".08"/>
+        <circle cx="195" cy="90" r="75"  fill="none" stroke="white" stroke-width="1" opacity=".1"/>
+        <circle cx="195" cy="90" r="42"  fill="none" stroke="#ff5a1f" stroke-width="1.5" opacity=".3"/>
+        <circle cx="195" cy="90" r="16"  fill="#ff5a1f" opacity=".15"/>
+        <circle cx="60"  cy="180" r="50" fill="none" stroke="white" stroke-width=".8" opacity=".07"/>
       </svg>
-      <!-- Dot grid bottom-left -->
-      <svg style="position:absolute;left:0;bottom:0;opacity:.1;pointer-events:none" width="160" height="80" viewBox="0 0 160 80">
-        <g fill="white">
-          <circle r="1.5" cx="16" cy="16"/><circle r="1.5" cx="40" cy="16"/><circle r="1.5" cx="64" cy="16"/><circle r="1.5" cx="88" cy="16"/><circle r="1.5" cx="112" cy="16"/><circle r="1.5" cx="136" cy="16"/>
-          <circle r="1.5" cx="16" cy="40"/><circle r="1.5" cx="40" cy="40"/><circle r="1.5" cx="64" cy="40"/><circle r="1.5" cx="88" cy="40"/><circle r="1.5" cx="112" cy="40"/><circle r="1.5" cx="136" cy="40"/>
-          <circle r="1.5" cx="16" cy="64"/><circle r="1.5" cx="40" cy="64"/><circle r="1.5" cx="64" cy="64"/><circle r="1.5" cx="88" cy="64"/><circle r="1.5" cx="112" cy="64"/><circle r="1.5" cx="136" cy="64"/>
+      <!-- Dot grid bottom-left (orange tinted) -->
+      <svg style="position:absolute;left:0;bottom:0;pointer-events:none" width="160" height="80" viewBox="0 0 160 80">
+        <g>
+          <circle r="1.5" cx="16" cy="16" fill="white" opacity=".08"/><circle r="1.5" cx="40" cy="16" fill="white" opacity=".08"/><circle r="1.5" cx="64" cy="16" fill="white" opacity=".08"/><circle r="1.5" cx="88" cy="16" fill="#ff5a1f" opacity=".2"/><circle r="1.5" cx="112" cy="16" fill="white" opacity=".08"/><circle r="1.5" cx="136" cy="16" fill="white" opacity=".08"/>
+          <circle r="1.5" cx="16" cy="40" fill="white" opacity=".08"/><circle r="1.5" cx="40" cy="40" fill="#ff5a1f" opacity=".2"/><circle r="1.5" cx="64" cy="40" fill="white" opacity=".08"/><circle r="1.5" cx="88" cy="40" fill="white" opacity=".08"/><circle r="1.5" cx="112" cy="40" fill="white" opacity=".08"/><circle r="1.5" cx="136" cy="40" fill="#ff5a1f" opacity=".2"/>
+          <circle r="1.5" cx="16" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="40" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="64" cy="64" fill="#ff5a1f" opacity=".2"/><circle r="1.5" cx="88" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="112" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="136" cy="64" fill="white" opacity=".08"/>
         </g>
       </svg>
+      <!-- Thin orange accent line -->
+      <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:#ff5a1f;pointer-events:none"></div>
       <!-- Content -->
       <div style="position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.65);margin-bottom:8px">FYNAPTIX · PRIVATE</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.4);margin-bottom:8px">FYNAPTIX · PRIVATE</div>
           <h1 style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff">Research Hub</h1>
-          <p style="font-size:14px;color:rgba(255,255,255,.75);margin-top:8px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;line-height:1.6">Weekly briefs · Sector intelligence · Macro signals · Crypto research</p>
+          <p style="font-size:14px;color:rgba(255,255,255,.5);margin-top:8px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;line-height:1.6">Weekly briefs · Sector intelligence · Macro signals · Crypto research</p>
         </div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
           <div style="text-align:right">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.55);margin-bottom:4px">LAST BRIEF</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">LAST BRIEF</div>
             <div style="font-size:15px;font-weight:600;color:#fff" id="hub-date">—</div>
           </div>
           <div style="text-align:right">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.55);margin-bottom:4px">SECTORS TRACKED</div>
-            <div style="font-size:15px;font-weight:600;color:#fff">9</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">SECTORS TRACKED</div>
+            <div style="font-size:15px;font-weight:600;color:#ff5a1f">9</div>
           </div>
-          <a href="/private/overview.html" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:10px 18px;font-size:13px;font-weight:600;font-family:Archivo,sans-serif;letter-spacing:-.01em;transition:background .15s;backdrop-filter:blur(4px)" onmouseover="this.style.background='rgba(255,255,255,.25)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">This week's brief →</a>
+          <a href="/private/overview.html" style="background:#ff5a1f;color:#fff;border:1px solid #ff5a1f;padding:10px 18px;font-size:13px;font-weight:600;font-family:Archivo,sans-serif;letter-spacing:-.01em;transition:background .15s" onmouseover="this.style.background='#e04a12';this.style.borderColor='#e04a12'" onmouseout="this.style.background='#ff5a1f';this.style.borderColor='#ff5a1f'">This week's brief →</a>
         </div>
       </div>
     </div>
