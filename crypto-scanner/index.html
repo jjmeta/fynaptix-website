@@ -709,8 +709,8 @@ function renderTreemap(cats){
     const w=t.w,h=t.h,minD=Math.min(w,h*1.4);
     const fs=minD>=160?24:minD>=110?17:12;
     const showAll=w>=110&&h>=72;
-    return `<div class="tm-tile" style="left:${t.x.toFixed(1)}px;top:${t.y.toFixed(1)}px;width:${w.toFixed(1)}px;height:${h.toFixed(1)}px;background:${bg};" title="${t.name} ${pct(t.h24)}">
-      <div class="tm-tile-inner">
+    return `<div class="tm-tile" style="left:${t.x.toFixed(1)}px;top:${t.y.toFixed(1)}px;width:${w.toFixed(1)}px;height:${h.toFixed(1)}px;" title="${t.name} ${pct(t.h24)}">
+      <div class="tm-tile-inner" style="background:${bg};">
         ${showAll?`<div class="tm-name" style="font-size:${fs}px;color:${fg};">${t.name}</div>`:''}
         ${w>=44&&h>=20?`<div class="tm-pct" style="font-size:${Math.min(fs,16)}px;color:${fg};">${pct(t.h24)}</div>`:''}
         ${showAll?`<div class="tm-mcap" style="font-size:${Math.max(fs-6,9)}px;color:${fg};opacity:0.75;">${big(t.mcap)}</div>`:''}
