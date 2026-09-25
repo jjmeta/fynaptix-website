@@ -1,253 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="apple-touch-icon" href="../favicon.png">
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Fynaptix · Weekly Brief</title>
 <meta name="robots" content="noindex,nofollow"/>
 <link rel="manifest" href="/private/manifest.json"/>
-<meta name="theme-color" content="#05070f"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-<link rel="stylesheet" href="/private/research.css"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="apple-touch-icon" href="../favicon.png"/>
+<meta name="theme-color" content="#f3f2f2"/>
+<link rel="stylesheet" href="/private/hub.css"/>
 </head>
 <body>
-<div class="layout">
-
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
-    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
-      <div class="sidebar-section">Research</div>
-      <a class="nav-item" href="/private/">Home</a>
-      <a class="nav-item active" href="/private/overview.html">★ Weekly Brief</a>
-      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
-      <a class="nav-item" href="/private/robotics.html">Robotics</a>
-      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
-      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
-      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
-      <a class="nav-item" href="/private/space.html">Space Economy</a>
-      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
-      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
-      <a class="nav-item" href="/private/quantum.html">Quantum</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
-      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
-      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
-      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
-      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
-      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
-      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
-      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
-      <a class="nav-item" href="/private/macro.html">Macro</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
-      <a class="nav-item" href="/private/education.html">Investing 101</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
-      <a class="nav-item" href="/private/archive.html">Research Archive</a>
-      <a class="nav-item" href="/private/calibration.html">Calibration</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
-      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
-      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
-      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
-    </div>
-    <div class="sidebar-footer">
-      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+<div id="hub" class="hub-layout">
+  <!-- sidebar -->
+  <aside class="hub-sidebar" id="hub-sidebar">
+    <div class="hub-sidebar-inner">
+      <div class="hub-brand">
+        <div class="hub-brand-kicker"><span class="hub-brand-kicker-dot"></span>Fynaptix · Private</div>
+        <div class="hub-brand-name">Research<br>Hub</div>
+      </div>
+      <div class="hub-nav-groups" id="hub-nav"></div>
+      <div class="hub-sidebar-footer"><a href="https://fynaptix.com/">← Public site</a></div>
     </div>
   </aside>
 
-  <main class="main">
-    <div class="topbar">
-      <div class="topbar-left">
-        <div class="kicker">WEEKLY BRIEF // ALL SECTORS // SEP 2026</div>
-        <h2>Emerging Tech Weekly Brief</h2>
-        <p>Cross-sector overview: momentum, news, themes &amp; the week ahead</p>
+  <!-- main -->
+  <main class="hub-main">
+    <!-- ticker strip -->
+    <div class="hub-strip" id="hub-strip"></div>
+
+    <div class="hub-content">
+      <!-- page header -->
+      <div class="hub-page-header">
+        <div>
+          <div class="hub-kicker">★ Weekly brief · Week of Sep 21, 2026</div>
+          <h1 class="hub-h1">Emerging Tech<br>Weekly</h1>
+        </div>
+        <div class="hub-meta">
+          <span>Nine sectors · one view</span>
+          <span>Refreshes Mondays ~12:30pm</span>
+          <span style="color:var(--color-accent-700);">Not financial advice</span>
+        </div>
       </div>
-      <div class="time-badge"><div class="pulse"></div>Week of Sep 21, 2026 · Refreshes Mondays ~12:30pm</div>
-    </div>
 
-    <div class="disclaimer"><strong>Not financial advice.</strong> This brief synthesizes the eight sector dashboards for research purposes only — not a recommendation to buy or sell any security. Verify current prices and do your own due diligence before investing.</div>
+      <!-- summary band -->
+      <div class="hub-band" id="hub-band"></div>
 
-    <section id="stance-sec">
-      <div class="kicker">00 // POSITION BOARD</div>
-      <div class="sec-title">Every Name, Every Sector, One View</div>
-      <div class="sec-note">The single highest-level picture in the hub &mdash; each sector's research stance and sleeve weights, pulled live from the nine sector reports.</div>
-      <div id="stance-board"></div>
-    </section>
-
-    <section>
-      <div class="kicker">01 // SECTOR SCOREBOARD</div>
-      <div class="sec-title">All Sectors at a Glance</div>
-      <div class="sec-note">Momentum reflects news flow and fundamentals direction, not a price signal. Click any sector in the sidebar for the full dashboard.</div>
-      <div class="tbl-wrap"><table>
-        <tr><th>Sector</th><th>Momentum</th><th>This week's story</th><th>Fundamentals check</th></tr>
-        <tr><td class="tk"><a href="/private/ai.html" style="color:var(--ge);text-decoration:none">AI &amp; Compute</a></td><td><span class="pill pill-blue">MIXED</span></td><td>Anthropic's Dario Amodei published "We Must Pace the Frontier" on Sept 12 — backed by OpenAI's Altman and DeepMind's Hassabis — and chip names sold off in the days after while Meta, Alphabet and Microsoft rose; Broadcom's new 3.5GW Google TPU deal for Anthropic is the clearest evidence yet of compute diversifying away from Nvidia, and Mistral closed a record €3B Series D at a ~$24.4B valuation</td><td>Tech layoffs crossed 128,536 for 2026 — already exceeding all of 2025 — even as Oracle's Sept 10 beat-and-raise (revenue +30%, Cloud Infrastructure +121%) kept the fundamental-demand case intact; the ~$3-4T committed to AI infrastructure against an estimated $50-150B/year of actual AI revenue remains the central tension, compounded by AI-linked debt issuance adding an estimated 0.3pp to 10-year yields</td></tr>
-        <tr><td class="tk"><a href="/private/robotics.html" style="color:var(--ge);text-decoration:none">Robotics</a></td><td><span class="pill pill-amber">BIFURCATED</span></td><td>Vishay Precision Group's target nearly doubled to $77 after a formal vendor nomination letter from an unnamed humanoid developer, and J&amp;J's Ottava earned a new Speculative starter position on a high-profile CNBC profile of its table-integrated, four-arm design — even as Unitree's Sept 15 G1+ launch failed to move a stock still ~54% below its Aug 19 peak</td><td>Symbotic keeps getting cut by the sell-side (Needham to $60, the second reduction in two weeks) despite a GAAP-profitable, $721M-revenue quarter, while AeroVironment shares finally closed the gap with their own Sept 9 earnings beat, climbing to ~$160 — the split between narrative and execution keeps widening rather than resolving</td></tr>
-        <tr><td class="tk"><a href="/private/defense.html" style="color:var(--ge);text-decoration:none">Defense Tech</a></td><td><span class="pill pill-green">CONSTRUCTIVE</span></td><td>AeroVironment's $464.8M Army LOCUST X3 laser award — the Pentagon's first-ever directed-energy production contract — lands on top of its Sept 9 earnings beat, and BAE Systems' ~11% recovery reaffirms a record £84.0B order backlog; both were raised this week, while UBS lifted its Palantir target to $250 for the third time this year</td><td>Kratos again failed to place in the Sept 18 Gauntlet II Drone Dominance results despite three sell-side targets and a Q2 beat-and-raise, and Red Cat's Teal Drones missed the top five too — both were cut, Red Cat moved all the way to Avoid — while Palantir CEO Alex Karp telling CNBC that AI labs may need to be nationalized to cap liability adds a fresh regulatory-risk thread</td></tr>
-        <tr><td class="tk"><a href="/private/nuclear.html" style="color:var(--ge);text-decoration:none">Nuclear &amp; SMRs</a></td><td><span class="pill pill-amber">BIFURCATED</span></td><td>Centrus Energy's Sept 17 multi-year HALEU supply deal with Antares Nuclear — the first dated commercial contract behind the DOE build-out, funded partly by customer prepayments — was raised on the news, and UK regulators opened a Generic Design Assessment of X-energy's Xe-100</td><td>Holtec Nuclear pulled its ~$900M Nasdaq IPO on Sept 16-18 citing "market conditions" days after targeting a $10.2B valuation — a real operating company with $564M of trailing revenue and an operating asset (Palisades) stepping back is the starkest reality check yet on 2026's SMR enthusiasm, and Bechtel/TerraPower's split on Kemmerer Natrium's next construction phase adds to the caution, even as Constellation's six-day, 13% slide drew a fresh $369 Morgan Stanley target defending the underlying PPA thesis</td></tr>
-        <tr><td class="tk"><a href="/private/minerals.html" style="color:var(--ge);text-decoration:none">Critical Minerals</a></td><td><span class="pill pill-blue">CROSSCURRENTS</span></td><td>Xi Jinping's first White House visit in 11 years is now three days out (Sept 24-25) with rare-earth licensing explicitly on the agenda, 47 days ahead of the Nov 10 export-control expiry, and Energy Fuels was raised on steady White Mesa heavy-rare-earth construction progress with pilot Dy oxide already exceeding automotive spec purity</td><td>MP Materials fell 4.3% to $47.26 — its lowest since spring — after Reuters reported Beijing's China Rare Earth Group is in talks to acquire Shenghe Resources, MP's 3% Chinese shareholder, even though Q2 revenue doubled YoY to $126.1M; lithium carbonate kept sliding to $19,750/tonne and Mizuho cut Albemarle's target to $140, while Freeport recovered most of its tariff-doubt plunge back to ~$71.50</td></tr>
-        <tr><td class="tk"><a href="/private/space.html" style="color:var(--ge);text-decoration:none">Space Economy</a></td><td><span class="pill pill-blue">MIXED — MOST ACTIVE SLEEVE</span></td><td>Rocket Lab was raised after fully funding its Iridium acquisition (a $1.94B ATM offering, canceling the $3.6B bridge facility) and L3Harris was raised on Guggenheim's Buy initiation with 49% upside, while ASTS and Intuitive Machines were also raised despite both selling off on genuinely positive deployment/handover news — six of eight names moved this week, the busiest sleeve on the page</td><td>Redwire fell 7% on a fresh $1.15B trailing-12-month insider-selling disclosure even after a BofA target hike, and Planet Labs (down 67% from its May peak on a proposed $1.5B dilutive raise) were both cut; Starship Flight 14 has slipped a third time, now NET Sept 28</td></tr>
-        <tr><td class="tk"><a href="/private/storage.html" style="color:var(--ge);text-decoration:none">Energy Storage</a></td><td><span class="pill pill-amber">MIXED</span></td><td>Eos Energy was raised, funded by trimming NRGV, after the Google/MN8 deal firmed to a specific 10MW/100MWh contract and an $87M DOE loan advance began funding the Thorn Hill second production line — real de-risking events, not just sentiment</td><td>Fluence Energy slashed FY26 revenue guidance to ~$2.4B (from ~$3.0B), swung its EBITDA outlook to a ~$200M loss, disclosed an SEC investigation into revenue recognition, and fell 15.4% in a single session — at least five law firms have since opened shareholder investigations, even as GE Vernova's CEO said Q3 order strength points to a $200B backlog "very early" in 2027</td></tr>
-        <tr><td class="tk"><a href="/private/biotech.html" style="color:var(--ge);text-decoration:none">AI Biotech</a></td><td><span class="pill pill-blue">CONSTRUCTIVE</span></td><td>Illumina was raised ahead of officially rejoining the S&amp;P 500 today — its first time back since the 2023 GRAIL spinoff — on a genuine earnings turnaround plus a Sept 9 UBS upgrade to Buy; Intellia was raised on a firm March 10, 2027 PDUFA date for lonvo-z plus HAELO Phase 3 data showing an 87% attack-rate reduction, and Quantum-Si was raised on detecting 18 of 20 amino acids on Proteus</td><td>Tempus AI surged ~40% in a week on a data-platform announcement with no new clinical or regulatory event, and zero AI-discovered drugs have reached full FDA approval out of 200+ in clinical development — genuine regulatory progress at Intellia is real, but it's a gene-editing program, not an AI-discovery one, and the Guardant/Tempus litigation mess remains unresolved on all three fronts</td></tr>
-        <tr><td class="tk"><a href="/private/quantum.html" style="color:var(--ge);text-decoration:none">Quantum</a></td><td><span class="pill pill-red">EXTREME SPECULATION — HEAVIEST WEEK OF CHANGES</span></td><td>IBM was raised after its Anderon subsidiary finalized the largest single quantum CHIPS Act award to date ($1B, matched by another $1B from IBM), and NVIDIA was raised on its most active week in the sector in over a month (CUDA-Q Logical's 7x Fermilab speedup, NVQLink's first live quantum-GPU program); IonQ was raised after recovering 6.5% on a Synopsys Best Paper win, not guidance</td><td>Every major pure-play rallied this week (IonQ +6.5%, Rigetti +5.4%, Quantinuum +10.7%) yet Rigetti and Quantinuum were both trimmed — DARPA formally confirmed Rigetti missed QBI Stage B, and Quantinuum's ~$14.3B market cap keeps outrunning its unchanged $28-32M FY26 revenue guide; Alphabet was also trimmed after a fifth quiet week for Willow hardware milestones</td></tr>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="kicker">02 // MARKETS THIS WEEK</div>
-      <div class="sec-title">Stock &amp; Crypto Market Performance</div>
-      <div class="sec-note">Live widgets — use the range tabs (1D/1M) to frame the recent week. Tabs cover US indices, crypto, and commodities; biggest US movers right, crypto detail below.</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem">
-        <div class="card" style="padding:.5rem">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-            {
-              "colorTheme": "dark", "dateRange": "1M", "showChart": true, "locale": "en",
-              "width": "100%", "height": 440, "isTransparent": true, "showSymbolLogo": true,
-              "plotLineColorGrowing": "rgba(46, 208, 245, 1)", "plotLineColorFalling": "rgba(239, 68, 68, 1)",
-              "gridLineColor": "rgba(255, 255, 255, 0.04)", "scaleFontColor": "rgba(107, 122, 153, 1)",
-              "belowLineFillColorGrowing": "rgba(46, 208, 245, 0.08)", "belowLineFillColorFalling": "rgba(239, 68, 68, 0.08)",
-              "symbolActiveColor": "rgba(192, 37, 232, 0.12)",
-              "tabs": [
-                { "title": "US Indices", "symbols": [
-                  { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
-                  { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" },
-                  { "s": "FOREXCOM:DJI", "d": "Dow Jones" },
-                  { "s": "CAPITALCOM:RTY", "d": "Russell 2000" }
-                ]},
-                { "title": "Crypto", "symbols": [
-                  { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
-                  { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
-                  { "s": "CRYPTOCAP:TOTAL", "d": "Total Crypto Mkt Cap" },
-                  { "s": "CRYPTOCAP:BTC.D", "d": "BTC Dominance %" }
-                ]},
-                { "title": "Commodities", "symbols": [
-                  { "s": "TVC:GOLD", "d": "Gold" },
-                  { "s": "TVC:SILVER", "d": "Silver" },
-                  { "s": "TVC:USOIL", "d": "WTI Crude Oil" },
-                  { "s": "CAPITALCOM:NATURALGAS", "d": "Natural Gas" },
-                  { "s": "CAPITALCOM:COPPER", "d": "Copper" }
-                ]}
-              ]
-            }
-            </script>
+      <!-- 01 Sector scoreboard -->
+      <section class="hub-section">
+        <div class="hub-section-label">
+          <div class="hub-section-num">01</div>
+          <h2 class="hub-section-h2">Sector scoreboard</h2>
+          <p class="hub-section-desc">Momentum reflects news flow and fundamentals, not price. Click a row for the moves.</p>
+        </div>
+        <div class="hub-section-content">
+          <div class="hub-board-wrap">
+            <div class="hub-board">
+              <div class="hub-board-head"><span>Sector</span><span>Momentum</span><span>This week's story</span><span>Fundamentals check</span><span>Moves</span><span></span></div>
+              <div id="hub-board"></div>
+            </div>
           </div>
         </div>
-        <div class="card" style="padding:.5rem">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-            {
-              "colorTheme": "dark", "dateRange": "1M", "exchange": "US", "showChart": true,
-              "locale": "en", "width": "100%", "height": 440, "isTransparent": true, "showSymbolLogo": false,
-              "plotLineColorGrowing": "rgba(46, 208, 245, 1)", "plotLineColorFalling": "rgba(239, 68, 68, 1)",
-              "gridLineColor": "rgba(255, 255, 255, 0.04)", "scaleFontColor": "rgba(107, 122, 153, 1)",
-              "belowLineFillColorGrowing": "rgba(46, 208, 245, 0.08)", "belowLineFillColorFalling": "rgba(239, 68, 68, 0.08)",
-              "symbolActiveColor": "rgba(192, 37, 232, 0.12)"
-            }
-            </script>
-          </div>
+      </section>
+
+      <!-- 02 Themes -->
+      <section class="hub-section">
+        <div class="hub-section-label">
+          <div class="hub-section-num">02</div>
+          <h2 class="hub-section-h2">Themes</h2>
+          <p class="hub-section-desc">The threads connecting every sector this week.</p>
         </div>
-      </div>
-      <div class="card" style="padding:.5rem;margin-top:1rem">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-          {
-            "width": "100%", "height": 430, "defaultColumn": "performance", "defaultScreen": "general",
-            "market": "crypto", "showToolbar": true, "colorTheme": "dark", "isTransparent": true, "locale": "en"
-          }
-          </script>
+        <div class="hub-section-content">
+          <div class="hub-themes-grid" id="hub-themes"></div>
         </div>
+      </section>
+
+      <!-- 03 News -->
+      <section class="hub-section">
+        <div class="hub-section-label">
+          <div class="hub-section-num">03</div>
+          <h2 class="hub-section-h2">News of the week</h2>
+          <p class="hub-section-desc">Top cross-sector events.</p>
+        </div>
+        <div class="hub-section-content" style="border-top:2px solid var(--color-text);" id="hub-news"></div>
+      </section>
+
+      <!-- 04 Risk gauge -->
+      <section class="hub-section">
+        <div class="hub-section-label">
+          <div class="hub-section-num">04</div>
+          <h2 class="hub-section-h2">Risk gauge</h2>
+          <p class="hub-section-desc">How much perfection is priced in. Subjective, 0–10 — higher means more air underneath.</p>
+        </div>
+        <div class="hub-section-content" style="border-top:2px solid var(--color-text);" id="hub-gauge"></div>
+      </section>
+
+      <!-- 05 Week ahead -->
+      <section class="hub-section" style="border-bottom:none;">
+        <div class="hub-section-label">
+          <div class="hub-section-num">05</div>
+          <h2 class="hub-section-h2">The week ahead</h2>
+          <p class="hub-section-desc">Catalysts on the clock.</p>
+        </div>
+        <div class="hub-section-content">
+          <div class="hub-ahead-grid" id="hub-ahead"></div>
+        </div>
+      </section>
+
+      <div class="hub-footer">
+        <span>© 2026 Fynaptix · Personal research hub</span>
+        <span>Not financial advice · do your own due diligence</span>
       </div>
-      <div class="sec-note" style="margin-top:.6rem">The crypto screener's "Performance" columns include weekly (7d) change per coin. For deeper macro context see the <a href="/private/macro.html" style="color:var(--ge)">Macro dashboard</a>.</div>
-    </section>
-
-    <section>
-      <div class="kicker">03 // CROSS-CUTTING THEMES</div>
-      <div class="sec-title">The Threads Connecting Everything</div>
-      <div class="grid-cards">
-        <div class="card-sm theme"><span class="tag">AI'S OWN ARCHITECTS CALL FOR A SLOWDOWN</span><div class="t">A safety essay moved more than a week of earnings</div><div class="d">Anthropic CEO Dario Amodei's Sept 12 "We Must Pace the Frontier" essay — backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis — sent chip names lower while Meta, Alphabet and Microsoft rose, and Palantir's Alex Karp went further, telling CNBC frontier labs may need to be nationalized over "unlimited risk." Skeptics note a company mid-prep for a ~$2T IPO calling for the industry to slow down is also a moat-building argument, not purely an act of altruism.</div></div>
-        <div class="card-sm theme"><span class="tag">UPGRADES CONVERT PROOF POINTS</span><div class="t">This week's raises share one thread</div><div class="d">Vishay Precision Group and J&amp;J's Ottava (Robotics), BAE Systems and AeroVironment (Defense), Centrus Energy (Nuclear), Energy Fuels (Minerals), Rocket Lab and L3Harris (Space), Eos Energy (Storage), Illumina, Intellia and Quantum-Si (Biotech), and IBM, NVIDIA and IonQ (Quantum) were all raised this week — every one on a converting contract, a regulatory de-risking step, or a partner-validated technical milestone rather than a story alone.</div></div>
-        <div class="card-sm theme"><span class="tag">DOWNGRADES SHARE A MISSED-PROOF-POINT THREAD</span><div class="t">Execution and valuation risk, not scandal</div><div class="d">Kratos and Red Cat (Defense, the latter moved all the way to Avoid), Redwire and Planet Labs (Space), and Alphabet, Rigetti and Quantinuum (Quantum) were all cut this week — tied to a missed Gauntlet II leaderboard result, a fresh insider-selling disclosure, a formally confirmed DARPA exclusion, or simply a market cap outrunning unchanged revenue guidance, rather than any single scandal.</div></div>
-        <div class="card-sm theme"><span class="tag">THE SPECULATIVE CORNER KEEPS REPRICING</span><div class="t">Holtec pulls a $900M IPO from a real business</div><div class="d">Holtec Nuclear suspended its Nasdaq listing on Sept 16-18 citing "market conditions" days after targeting a $10.2B valuation — notable because, unlike the pre-revenue SMR developers on this hub, Holtec had $564M of trailing revenue and an operating asset (Palisades); on top of Unitree still down 54% from its August peak and Planet Labs down 67% from its May peak, a company with an actual operating base stepping back is the clearest tell yet that 2026's frothiest corners are still being repriced.</div></div>
-        <div class="card-sm theme"><span class="tag">GOVERNMENT AS PRICE-SETTER, AGAIN</span><div class="t">Washington and Beijing keep setting the terms</div><div class="d">IBM's $1B Anderon CHIPS Act award (the largest quantum award yet), AeroVironment's Pentagon's-first-ever directed-energy production contract, the FIPS 140-2 post-quantum cryptography sunset taking effect today, and Xi Jinping's imminent Washington visit — with rare-earth export licensing explicitly on the agenda — are all federal or state decisions doing more to move prices this week than any single earnings report.</div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="kicker">04 // NEWS OF THE WEEK</div>
-      <div class="sec-title">Top Cross-Sector Events</div>
-      <div class="timeline">
-        <div class="tl"><div class="dt">SEP 12 · AI</div><div class="tt">Anthropic's Dario Amodei calls for the industry to "pace the frontier"</div><div class="bd">Backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis, the essay argued AI capability growth needs to slow for safety work to keep up; chip stocks sold off in the days that followed while Meta, Alphabet and Microsoft rose.</div></div>
-        <div class="tl"><div class="dt">SEP 16-18 · NUCLEAR</div><div class="tt">Holtec Nuclear pulls its ~$900M Nasdaq IPO</div><div class="bd">Cited "market conditions" days after targeting a $10.2B valuation; unlike pre-revenue SMR peers, Holtec has $564M of trailing revenue and an operating asset (Palisades) — the clearest sign yet that 2026's speculative corners are being repriced.</div></div>
-        <div class="tl"><div class="dt">SEP 16 · QUANTUM</div><div class="tt">IBM's Anderon finalizes the largest quantum CHIPS Act award to date</div><div class="bd">A $1B award for its Albany, NY 300mm quantum wafer foundry, matched by another $1B from IBM itself — on top of the $400M in awards to D-Wave, Rigetti, Quantinuum and PsiQuantum finalized the prior week, bringing September's federal quantum commitment to roughly $1.4B.</div></div>
-        <div class="tl"><div class="dt">SEP 18 · MINERALS</div><div class="tt">MP Materials falls 4.3% as Beijing moves on its Chinese shareholder</div><div class="bd">Reuters reported state-owned China Rare Earth Group is in talks to acquire Shenghe Resources, MP's 3% shareholder, three days before Xi Jinping's first White House visit in 11 years with rare-earth licensing on the agenda.</div></div>
-        <div class="tl"><div class="dt">SEP 9 · DEFENSE</div><div class="tt">AeroVironment wins the Pentagon's first-ever directed-energy production contract</div><div class="bd">A $464.8M Army award for LOCUST X3 laser systems lands on top of a Q1 FY27 earnings beat ($480.5M revenue, $1.5B backlog, +37% YoY) — shares have since climbed toward $160, up ~14% from the post-earnings low.</div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="kicker">05 // RISK GAUGE</div>
-      <div class="sec-title">Valuation Heat by Sector</div>
-      <div class="sec-note">Subjective ranking of how much future perfection is priced in — higher = more air underneath if sentiment turns.</div>
-      <div class="card chart-wrap"><canvas id="heatChart"></canvas></div>
-    </section>
-
-    <section>
-      <div class="kicker">06 // THE WEEK AHEAD</div>
-      <div class="sec-title">Catalysts to Watch</div>
-      <div class="timeline">
-        <div class="tl"><div class="dt">SEP 22</div><div class="tt">Richmond Fed Manufacturing Index &amp; $78B 2-year note auction</div><div class="bd">First real data points since the Sept 16 hike to 3.75%-4%, ahead of a heavy Fed-speaker slate through the week.</div></div>
-        <div class="tl"><div class="dt">SEP 23</div><div class="tt">S&amp;P Global flash Manufacturing &amp; Services PMI</div><div class="bd">The first broad read on how the economy is absorbing higher rates and the post-hike growth backdrop.</div></div>
-        <div class="tl"><div class="dt">SEP 24-25</div><div class="tt">Xi Jinping's Washington visit</div><div class="bd">His first White House visit in 11 years; rare-earth export licensing is squarely on the agenda, 47 days ahead of the Nov 10 export-control deadline and with Chinese suppliers still withholding some US-bound shipments.</div></div>
-        <div class="tl"><div class="dt">SEP 25</div><div class="tt">Micron earnings &amp; University of Michigan Consumer Sentiment</div><div class="bd">Micron is the week's key AI-supply-chain earnings print; consumer sentiment is the first major post-hike read on how households are digesting the rate move.</div></div>
-        <div class="tl"><div class="dt">NET SEP 28</div><div class="tt">Starship Flight 14</div><div class="bd">SpaceX's first true orbital attempt, carrying 26 Starlink V3 satellites, has now slipped three times in three weeks — a live test of the binary mission-risk thesis running across small-cap space.</div></div>
-        <div class="tl"><div class="dt">~SEP 30</div><div class="tt">Anduril's ~$100B round nears a decision point</div><div class="bd">Prediction markets are now floating a $112.5B close by month-end — the round has remained unclosed for roughly nine weeks since first being reported.</div></div>
-        <div class="tl"><div class="dt">OCT 2026 (TARGETED)</div><div class="tt">Anthropic IPO pricing</div><div class="bd">Backers are targeting a ~$2.0-2.3T valuation, with Nvidia reportedly in talks to anchor-invest up to $10B, pricing aimed before the November midterms.</div></div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="kicker">ABOUT THIS BRIEF</div>
-      <div style="margin-top:.5rem">Synthesized weekly from the nine sector dashboards (each independently researched Monday mornings) plus cross-sector market review. Sources are cited on each sector page. Figures approximate as of Sep 21, 2026 &mdash; always confirm independently.</div>
-    </footer>
+    </div><!-- /hub-content -->
   </main>
-</div>
+</div><!-- /hub-layout -->
 
+<script src="/private/sectors-data.js"></script>
 <script>
-  new Chart(document.getElementById('heatChart'), {
-    type: 'bar',
-    data: {
-      labels: ['Quantum','AI & Compute','Humanoid robotics','Defense tech','Nuclear/SMR','Space small-caps','AI biotech','Critical minerals','Energy storage'],
-      datasets: [{
-        label: 'Valuation heat (subjective, 1–10)',
-        data: [10, 8, 7, 7, 4, 6, 5, 5, 4],
-        backgroundColor: ['rgba(239,68,68,0.55)','rgba(239,68,68,0.45)','rgba(255,95,31,0.5)','rgba(255,95,31,0.45)','rgba(255,95,31,0.35)','rgba(245,158,11,0.45)','rgba(245,158,11,0.35)','rgba(16,185,129,0.4)','rgba(16,185,129,0.5)'],
-        borderColor: ['#ef4444','#ef4444','#ff5f1f','#ff5f1f','#ff5f1f','#f59e0b','#f59e0b','#10b981','#10b981'],
-        borderWidth: 1, borderRadius: 6
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        title: { display: true, text: 'HOW MUCH PERFECTION IS PRICED IN (SUBJECTIVE)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
-      },
-      scales: {
-        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, min: 0, max: 10 },
-        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { display: false } }
-      }
+(function(){
+'use strict';
+var B=window.FYN_BRIEF||{};
+var F=window.FYN_SECTORS||{};
+
+var NAV_SECTORS=[
+  {id:'ai',    n:'01',name:'AI & Compute',   href:'/private/ai.html'},
+  {id:'robotics',n:'02',name:'Robotics',     href:'/private/robotics.html'},
+  {id:'defense', n:'03',name:'Defense Tech', href:'/private/defense.html'},
+  {id:'nuclear', n:'04',name:'Nuclear & SMRs',href:'/private/nuclear.html'},
+  {id:'minerals',n:'05',name:'Critical Minerals',href:'/private/minerals.html'},
+  {id:'space',   n:'06',name:'Space Economy',href:'/private/space.html'},
+  {id:'storage', n:'07',name:'Energy Storage',href:'/private/storage.html'},
+  {id:'biotech', n:'08',name:'AI Biotech',   href:'/private/biotech.html'},
+  {id:'quantum', n:'09',name:'Quantum',      href:'/private/quantum.html'}
+];
+var OTHER_NAV=[
+  {group:'Markets',items:[{l:'Live Watchlist',h:'/private/watchlist.html'},{l:'Catalyst Calendar',h:'/private/calendar.html'},{l:'IPO Pipeline',h:'/private/ipo.html'},{l:'ETF Compare',h:'/private/etfs.html'},{l:'Macro',h:'/private/macro.html'}]},
+  {group:'Crypto',items:[{l:'Crypto Scanner',h:'/crypto-scanner/'},{l:'Trading Bots',h:'/aibot/'}]},
+  {group:'Track record',items:[{l:'Research Archive',h:'/private/archive.html'},{l:'Calibration',h:'/private/calibration.html'}]},
+  {group:'Strategy',items:[{l:'Portfolio Strategy',h:'/private/strategy.html'},{l:'Decision Journal',h:'/private/journal.html'},{l:'Paper Portfolio',h:'/private/paper.html'}]},
+  {group:'Fund watch',items:[{l:'ARK Invest',h:'/private/ark.html'},{l:'Baillie Gifford',h:'/private/bailliegifford.html'},{l:'Investor Voices',h:'/private/investors.html'}]}
+];
+
+function x(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function momentumDot(tag){
+  var t=(tag||'').toLowerCase();
+  if(t==='constructive')return 'var(--color-text)';
+  if(t==='extreme spec')return 'var(--color-accent)';
+  if(t==='bifurcated'||t==='crosscurrents')return 'var(--n600)';
+  return 'var(--n400)';
+}
+function toneStyle(tag){
+  var t=(tag||'').toLowerCase();
+  if(t==='constructive')return 'background:var(--color-text);color:var(--color-bg);box-shadow:inset 0 0 0 1px var(--color-text);';
+  if(t==='extreme spec')return 'background:var(--color-accent);color:var(--color-bg);box-shadow:inset 0 0 0 1px var(--color-accent);';
+  if(t==='bifurcated'||t==='crosscurrents')return 'background:transparent;color:var(--color-text);box-shadow:inset 0 0 0 1px var(--color-text);';
+  return 'background:var(--n200);color:var(--color-text);box-shadow:inset 0 0 0 1px var(--n400);';
+}
+
+// Sidebar nav
+var sectorItems=NAV_SECTORS.map(function(s){
+  var d=F[s.id]||{};
+  return '<a class="hub-nav-item" href="'+s.href+'">'
+    +'<span class="hub-nav-num">'+s.n+'</span><span>'+x(s.name)+'</span>'
+    +'<span class="hub-nav-dot" style="background:'+momentumDot(d.momentum)+';"></span></a>';
+}).join('');
+var otherGroups=OTHER_NAV.map(function(g){
+  return '<div class="hub-nav-group-label">'+x(g.group)+'</div>'
+    +g.items.map(function(it){
+      return '<a class="hub-nav-item" href="'+it.h+'"><span class="hub-nav-num"></span><span>'+x(it.l)+'</span><span></span></a>';
+    }).join('');
+}).join('');
+document.getElementById('hub-nav').innerHTML=
+  '<div class="hub-nav-group-label">Research</div>'
+  +'<a class="hub-nav-item" href="/private/"><span class="hub-nav-num"></span><span>Home</span><span></span></a>'
+  +'<a class="hub-nav-item active" href="/private/overview.html"><span class="hub-nav-num">★</span><span>Weekly Brief</span><span></span></a>'
+  +sectorItems+otherGroups;
+
+// Ticker strip
+var STRIP=(B.strip)||[
+  ['S&P 500','5,738','+0.21%'],['Nasdaq','18,210','+0.40%'],['VIX','16.2','−3.1%'],
+  ['US 10Y','4.18%','−0.02'],['BTC','$112,480','+1.12%'],['ETH','$4,182','+0.86%'],['Fed funds','3.75–4.00%','Held']
+];
+document.getElementById('hub-strip').innerHTML=STRIP.map(function(s){
+  var id=s[0]==='BTC'?'sv-BTC':s[0]==='ETH'?'sv-ETH':'';
+  return '<div class="hub-strip-cell"><div class="hub-strip-label">'+x(s[0])+'</div>'
+    +'<div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;">'
+    +'<span class="hub-strip-val"'+(id?' id="'+id+'"':'')+'>'+x(s[1])+'</span>'
+    +'<span class="hub-strip-chg" style="color:var(--n700);">'+x(s[2])+'</span>'
+    +'</div></div>';
+}).join('');
+
+// Summary band
+var SECT=B.sect||[];
+var raisedTotal=SECT.reduce(function(a,s){return a+s[3].length;},0);
+var cutTotal=SECT.reduce(function(a,s){return a+s[4].length;},0);
+var mostActive=SECT.reduce(function(a,s){var n=s[3].length+s[4].length;return n>a[0]?[n,s[1]]:a;},[0,'—']);
+document.getElementById('hub-band').innerHTML=
+  '<div class="hub-band-cell accent-bg"><div class="hub-band-label">The one-line read</div>'
+  +'<b class="hub-band-read">Upgrades need proof points. Speculation keeps repricing.</b></div>'
+  +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Names raised</div>'
+  +'<span class="hub-band-big" style="color:var(--color-text);">'+raisedTotal+'</span>'
+  +'<span class="hub-band-note">Across seven sectors</span></div>'
+  +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Names cut</div>'
+  +'<span class="hub-band-big" style="color:var(--color-accent-700);">'+cutTotal+'</span>'
+  +'<span class="hub-band-note">Defense, space, quantum</span></div>'
+  +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Most active</div>'
+  +'<span class="hub-band-big" style="font-size:32px;">'+x(mostActive[1])+'</span>'
+  +'<span class="hub-band-note">Six of eight names moved</span></div>';
+
+// Scoreboard
+var openRows={};
+document.getElementById('hub-board').innerHTML=SECT.map(function(s){
+  var id=s[0];
+  return '<div class="hub-board-row" id="row-'+id+'">'
+    +'<div class="hub-board-row-top" onclick="toggleRow(\''+id+'\')">'
+    +'<b class="hub-board-sector-name">'+x(s[1])+'</b>'
+    +'<span><span class="tag" style="'+toneStyle(s[2])+'">'+x(s[2])+'</span></span>'
+    +'<span style="text-wrap:pretty;">'+x(s[5])+'</span>'
+    +'<span style="text-wrap:pretty;color:var(--n800);">'+x(s[6])+'</span>'
+    +'<span style="display:flex;flex-direction:column;gap:2px;font-weight:800;">'
+    +'<span style="color:'+(s[3].length?'var(--color-text)':'var(--n500)')+';">↑ '+s[3].length+'</span>'
+    +'<span style="color:'+(s[4].length?'var(--color-accent-700)':'var(--n500)')+';">↓ '+s[4].length+'</span>'
+    +'</span>'
+    +'<span style="font-size:16px;font-weight:800;color:var(--n600);" id="chev-'+id+'">+</span>'
+    +'</div>'
+    +'<div class="hub-board-expand" id="exp-'+id+'">'
+    +'<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">'
+    +'<span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--n700);">Raised</span>'
+    +(s[3].length?s[3].map(function(r){return '<span class="tag tag-neutral">'+x(r)+'</span>';}).join(''):'<span style="color:var(--n600);">None</span>')
+    +'</div>'
+    +'<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">'
+    +'<span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--n700);">Cut</span>'
+    +(s[4].length?s[4].map(function(r){return '<span class="tag tag-accent">'+x(r)+'</span>';}).join(''):'<span style="color:var(--n600);">None</span>')
+    +'</div>'
+    +'<a href="/private/'+id+'.html" style="margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;">Open dashboard →</a>'
+    +'</div>'
+    +'</div>';
+}).join('');
+
+window.toggleRow=function(id){
+  var exp=document.getElementById('exp-'+id);
+  var chev=document.getElementById('chev-'+id);
+  if(!exp)return;
+  var open=exp.classList.toggle('open');
+  if(chev)chev.textContent=open?'−':'+';
+};
+
+// Themes
+var THEMES=B.themes||[];
+document.getElementById('hub-themes').innerHTML=THEMES.map(function(th,i){
+  var n=String(i+1).padStart(2,'0');
+  return '<div class="hub-theme-cell">'
+    +'<div style="display:flex;gap:10px;align-items:baseline;">'
+    +'<span class="hub-theme-num">'+n+'</span>'
+    +'<span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--n700);">'+x(th[0])+'</span>'
+    +'</div>'
+    +'<b style="font-size:18px;line-height:1.2;letter-spacing:-.01em;text-wrap:pretty;">'+x(th[1])+'</b>'
+    +'<p style="margin:0;font-size:13px;line-height:1.5;color:var(--n800);text-wrap:pretty;">'+x(th[2])+'</p>'
+    +'</div>';
+}).join('');
+
+// News
+var NEWS=B.news||[];
+document.getElementById('hub-news').innerHTML=NEWS.map(function(nw){
+  return '<div class="hub-news-row">'
+    +'<b style="font-size:13px;">'+x(nw[0])+'</b>'
+    +'<span><span class="tag tag-outline">'+x(nw[1])+'</span></span>'
+    +'<div style="display:flex;flex-direction:column;gap:4px;">'
+    +'<b style="font-size:16px;line-height:1.25;text-wrap:pretty;">'+x(nw[2])+'</b>'
+    +'<span style="font-size:13px;color:var(--n800);text-wrap:pretty;">'+x(nw[3])+'</span>'
+    +'</div></div>';
+}).join('');
+
+// Risk gauge
+var HEAT=B.heat||{};
+var gaugeData=Object.keys(HEAT).map(function(k){
+  var sec=SECT.find(function(s){return s[0]===k;})||[k,k];
+  return {name:sec[1],v:HEAT[k]};
+}).sort(function(a,b){return b.v-a.v;});
+document.getElementById('hub-gauge').innerHTML=gaugeData.map(function(h){
+  var cells=[];
+  for(var i=1;i<=10;i++){
+    var bg;
+    if(i<=Math.floor(h.v)){bg=h.v>=8?'var(--color-accent)':'var(--color-text)';}
+    else if(i<=h.v){bg=h.v>=8?'var(--color-accent-700)':'var(--n400)';}
+    else{bg='var(--n200)';}
+    cells.push('<span class="hub-gauge-dot" style="background:'+bg+';"></span>');
+  }
+  return '<div class="hub-gauge-row">'
+    +'<b>'+x(h.name)+'</b>'
+    +'<div class="hub-gauge-dots">'+cells.join('')+'</div>'
+    +'<b style="text-align:right;color:'+(h.v>=8?'var(--color-accent-700)':'var(--color-text)')+';">'+h.v.toFixed(1)+'</b>'
+    +'</div>';
+}).join('');
+
+// Week ahead
+var AHEAD=B.ahead||[];
+document.getElementById('hub-ahead').innerHTML=AHEAD.map(function(a){
+  var accent=a[3];
+  return '<div class="hub-ahead-cell">'
+    +'<span class="hub-ahead-date" style="color:'+(accent?'var(--color-accent)':'var(--color-text)')+';">'+x(a[0])+'</span>'
+    +'<b style="font-size:14px;line-height:1.25;text-wrap:pretty;">'+x(a[1])+'</b>'
+    +'<span style="font-size:12px;line-height:1.45;color:var(--n800);text-wrap:pretty;">'+x(a[2])+'</span>'
+    +'</div>';
+}).join('');
+
+// Live BTC/ETH tick
+var px={BTC:112480,ETH:4182};
+setInterval(function(){
+  for(var k in px){
+    var nv=px[k]*(1+(Math.random()-.5)*.0012);
+    var up=nv>=px[k];px[k]=nv;
+    var el=document.getElementById('sv-'+k);
+    if(el){
+      el.textContent='$'+Math.round(nv).toLocaleString('en-US');
+      el.className='hub-strip-val '+(up?'flash-up':'flash-dn');
+      (function(e){setTimeout(function(){e.className='hub-strip-val';},700);})(el);
     }
-  });
+  }
+},2500);
+
+})();
 </script>
-<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
-<script src="/private/stance.js"></script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js');}</script>
 </body>
 </html>

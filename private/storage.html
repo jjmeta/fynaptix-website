@@ -1,207 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="apple-touch-icon" href="../favicon.png">
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Fynaptix · Energy Storage Research</title>
+<title>Fynaptix · Loading…</title>
 <meta name="robots" content="noindex,nofollow"/>
 <link rel="manifest" href="/private/manifest.json"/>
-<meta name="theme-color" content="#05070f"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-<link rel="stylesheet" href="/private/research.css"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="apple-touch-icon" href="../favicon.png"/>
+<meta name="theme-color" content="#f3f2f2"/>
+<link rel="stylesheet" href="/private/hub.css"/>
 </head>
 <body>
-<div class="layout">
-
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Hub</a>
-    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
-      <div class="sidebar-section">Research</div>
-      <a class="nav-item" href="/private/">Home</a>
-      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
-      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
-      <a class="nav-item" href="/private/robotics.html">Robotics</a>
-      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
-      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
-      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
-      <a class="nav-item" href="/private/space.html">Space Economy</a>
-      <a class="nav-item active" href="/private/storage.html">Energy Storage</a>
-      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
-      <a class="nav-item" href="/private/quantum.html">Quantum</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
-      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
-      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
-      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
-      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
-      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
-      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
-      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
-      <a class="nav-item" href="/private/macro.html">Macro</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
-      <a class="nav-item" href="/private/education.html">Investing 101</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
-      <a class="nav-item" href="/private/archive.html">Research Archive</a>
-      <a class="nav-item" href="/private/calibration.html">Calibration</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
-      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
-      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
-      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
-    </div>
-    <div class="sidebar-footer">
-      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
-    </div>
-  </aside>
-
-  <main class="main">
-    <div class="topbar">
-      <div class="topbar-left">
-        <div class="kicker">ENERGY STORAGE &amp; GRID // SEP 2026</div>
-        <h2>Energy Storage Intelligence</h2>
-        <p>Grid-scale batteries, the storage software layer &amp; next-gen chemistry</p>
-      </div>
-      <div class="time-badge"><div class="pulse"></div>Generated Sep 21, 2026 · Refreshes Mondays</div>
-    </div>
-
-    <div class="disclaimer"><strong>Not financial advice.</strong> This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Storage names face Chinese competition and policy risk. Verify current prices and do your own due diligence before investing.</div>
-
-    <section id="stance-sec">
-      <div class="kicker">00 // AT A GLANCE</div>
-      <div class="sec-title">Research Stance &amp; Sleeve Weights</div>
-      <div class="sec-note">A one-look summary of everything below this fold &mdash; where each listed name sits and how a sector sleeve might split. The reasoning is the rest of the page.</div>
-      <div id="stance-mount" data-sector="storage"></div>
-    </section>
-
-    <section>
-      <div class="kicker">01 // SECTOR OVERVIEW</div>
-      <div class="sec-title">Market Size &amp; Momentum</div>
-      <div class="grid-4">
-        <div class="card-sm hl"><div class="stat-val">52 GW → 64.9 GW</div><div class="stat-sub">US BATTERY STORAGE — EIA STILL SEES NEARLY 65 GW BY YEAR-END</div><div class="stat-lbl">EIA's mid-2026 count has operating capacity near 52 GW after 8.3 GW came online in H1, with 64.9 GW still targeted by year-end as developers plan a record 24 GW of utility-scale additions in 2026 — up from 15 GW in 2025 — with another 89 GW pipelined for 2027</div></div>
-        <div class="card-sm hl"><div class="stat-val">$2.4B / -$200M</div><div class="stat-sub">FLUENCE SLASHES FY26 GUIDANCE, DISCLOSES SEC PROBE</div><div class="stat-lbl">Fluence cut FY26 revenue guidance to ~$2.4B (from ~$3.0B) and adjusted EBITDA to a ~$200M loss (from a ~$10M loss) on Sept 16, citing Houston contract-manufacturing delays; shares fell 15.4% to $7.66 the next day and the company disclosed an SEC investigation into revenue recognition and internal controls</div></div>
-        <div class="card-sm"><div class="stat-val">$176B → $200B?</div><div class="stat-sub">GE VERNOVA BACKLOG STEADY, CEO SEES $200B EARLY 2027</div><div class="stat-lbl">Backlog held at $176B through Q2 (+37% YoY); CEO Scott Strazik said Sept 16 that Q3 order strength gives him confidence backlog could cross $200B very early in 2027 — even as shares, near $925 on Sept 17, are down more than 14% over the past month on broader sector rotation</div></div>
-        <div class="card-sm"><div class="stat-val">$4.08 / $87M</div><div class="stat-sub">EOS ENERGY: DOE LOAN ADVANCE FUNDS THORN HILL RAMP</div><div class="stat-lbl">Eos received an $87M advance on its DOE loan for the Thorn Hill plant's second production line (toward 2GWh, then 4GWh), while shares climbed from $3.04 to $4.08 over two weeks as the formalized 10MW/100MWh Z3 deal with Google/MN8 in West Virginia kept sentiment constructive; Roth Capital lifted its target to $4.50 (Neutral)</div></div>
-      </div>
-      <div class="card chart-wrap"><canvas id="secChart"></canvas></div>
-    </section>
-
-    <section>
-      <div class="kicker">02 // PUBLIC WATCHLIST</div>
-      <div class="sec-title">Public Companies by Tier</div>
-      <div class="sec-note">Tiered by maturity/risk — not a ranked buy list.</div>
-
-      <div class="tier-hdr"><span class="pill pill-green">TIER 1</span><span class="th-label">Scale / Revenue-Generating</span></div>
-      <div class="tbl-wrap"><table>
-        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
-        <tr><td class="tk">TSLA</td><td>Tesla (Energy)</td><td>Megablock (four 5MWh Megapack 3 units bundled into a 20MWh unit) remains the flagship product; the Brookshire, TX Megafactory (50GWh/yr capacity) stays on track for Megapack 3/Megablock production starting H2 2026, which would lift Tesla's combined Megafactory capacity to roughly 130–133GWh/yr across Nevada, Lathrop and Houston</td><td>No fresh company-specific catalysts this week — Q2's 31.4% energy-segment gross margin (on $1.07B gross profit) remains the benchmark; the October Q3 print is the next real test of both the margin and the Houston ramp</td></tr>
-        <tr><td class="tk">FLNC</td><td>Fluence Energy</td><td>Global grid-scale leader with a still-large backlog, but FY26 guidance was slashed on Sept 16: revenue cut to ~$2.4B (from ~$3.0B) and adjusted EBITDA to a ~$200M loss (from ~$10M loss), with roughly 80% of the $600M revenue cut tied to Houston contract-manufacturing delays (~$450M in slipped production, ~$65M in late-delivery penalties)</td><td>Shares fell 15.4% to $7.66 on Sept 17 (~$1.8B market cap, down from a $33.51 52-week high) and Fluence disclosed an SEC investigation into its revenue recognition and internal controls; at least five law firms (Kirby McInerney, Block &amp; Leviton, Levi &amp; Korsinsky, SBS Law, Frank R. Cruz) have opened securities-fraud investigations on behalf of shareholders — no lawsuit filed yet</td></tr>
-        <tr><td class="tk">GEV</td><td>GE Vernova</td><td>Grid equipment super-cycle beneficiary; backlog held at $176B in Q2 (+37% YoY), and CEO Scott Strazik said Sept 16 that strong Q3 order intake gives him confidence the backlog could cross $200B very early in 2027</td><td>Shares closed near $925 on Sept 17, down more than 14% over the past month despite the backlog commentary — a sector-wide derating so far rather than a company-specific issue; the October Q3 print is the next hard data point</td></tr>
-        <tr><td class="tk">ENPH</td><td>Enphase</td><td>Pushing past hardware with the Global IQ Bidirectional EV Charging Platform (targeting Q4 2026 volume production) and IQ Battery C80 commercial pre-orders, while Enphase Care enrollments keep climbing</td><td>Shares fell 3.8% to $34.64 on Sept 18 as a Fed rate hike pressured residential-solar financing demand sector-wide (First Solar, Sunrun also fell) — still up ~7% YTD; Hold consensus holds (19 analysts, ~$45 average target) with Northland Securities among the Buy holdouts</td></tr>
-      </table></div>
-
-      <div class="tier-hdr"><span class="pill pill-red">TIER 2</span><span class="th-label">Next-Gen / Speculative</span></div>
-      <div class="tbl-wrap"><table>
-        <tr><th>Ticker</th><th>Company</th><th>Angle</th><th>Watch for</th></tr>
-        <tr><td class="tk">QS</td><td>QuantumScape</td><td>Solid-state lithium-metal batteries (VW-backed); Cobra-process cells continue shipping for B1 customer sampling ahead of targeted 2026 road testing, and the PowerCo licensing deal still targets a 2027 commercial launch</td><td>Shares remain down roughly 51% YTD with no fresh company catalysts this month; recent CTO share sales added a mildly negative signal, and CATL/BYD's 2027 solid-state trial-production targets keep the competitive clock running against QuantumScape's still-nonexistent production license and revenue</td></tr>
-        <tr><td class="tk">EOSE</td><td>Eos Energy</td><td>Zinc-based long-duration storage (LDES); the Google/MN8 West Virginia deal firmed up to a 10MW/100MWh Z3 contract, and an $87M DOE loan advance is funding the Thorn Hill plant's second production line toward 2GWh (then 4GWh) capacity</td><td>Shares climbed from $3.04 to $4.08 over two weeks and Roth Capital lifted its target to $4.50 (still Neutral); storage revenue on this deal still doesn't start until 2028–2030, per-share losses remain wide, and the securities-law investigations opened in August remain unresolved</td></tr>
-        <tr><td class="tk">STEM</td><td>Stem Inc</td><td>AI-driven storage optimization software (PowerTrack); Q2's -$1.58 EPS beat the -$1.92 estimate, marking a fifth straight quarter of positive adjusted EBITDA and record non-GAAP gross margin</td><td>Shares trade near $4.72, just above the $4.44 52-week low, despite the guidance reaffirmation — Hold consensus and a $7.50 price target are unchanged, and the market keeps pricing top-line softness harder than the cost discipline offsets; next earnings Oct 29</td></tr>
-        <tr><td class="tk">NRGV</td><td>Energy Vault Holdings</td><td>Battery/gravity storage integrator; closed financing on 275MW of Rolls-Royce MTU generation capacity in early September, and the Sardinia Digital Vault Sulcis project keeps advancing toward 2028–2030 milestones under its Italian strategic-interest designation</td><td>Shares rose 5.2% on Sept 18 on continued AI-power-deal momentum, but the business still runs deeply unprofitable (~-40% EBIT margin, ~-$40M quarterly free cash flow) and faces the same data-center BESS competition from larger, better-capitalized players like Cummins</td></tr>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="kicker">03 // BEAR CASE</div>
-      <div class="sec-title">Risks &amp; Counterarguments</div>
-      <div class="grid-cards">
-        <div class="card-sm risk"><div class="t">China dominates cells — and domestic rivalry is compressing terms further</div><div class="d">CATL still holds the global No.1 BESS shipment position for H1 2026 (storage now 19.23% of its revenue), and just locked in a 10-year, up-to-200GWh supply deal with Beijing HyperStrong running through 2028 — deepening its grip on the value chain. BYD and Sungrow's earlier win of the Masdar deal already showed domestic rivalry compresses terms on its own; combined, CATL and BYD now account for 62.43% of battery installations, the highest concentration in recent months.</div></div>
-        <div class="card-sm risk"><div class="t">Tariffs keep rising, and FEOC/FERC rules add layers of cost and complexity</div><div class="d">Section 301 duties on Chinese-origin ESS batteries jumped from 40.9% in 2025 to 58.4% in 2026, and FEOC content thresholds (55% domestic in 2026, rising to 75% after 2029) still risk disqualifying projects from the ITC. Layered on top, the FERC-directed PJM co-location rule rewrite remains mid-implementation in 2026 — transmission cost allocation under the new framework directly affects grid-services revenue for data-center-adjacent storage names like NRGV and Cummins' customers.</div></div>
-        <div class="card-sm risk"><div class="t">Fluence's crisis is now weighing on how the market reads the whole hardware/software stack</div><div class="d">Fluence cut FY26 revenue guidance by $600M and swung its EBITDA outlook from a $10M loss to a $200M loss, disclosed an SEC investigation into revenue recognition and internal controls, and saw shares fall 15.4% in a single session — on top of three sell-side downgrades already in place from early September. At least five law firms have since opened shareholder investigations. Stem's slide to a fresh 52-week low despite positive adjusted EBITDA suggests the market is now discounting execution risk across the software/optimization layer too, not just Fluence's hardware integration.</div></div>
-        <div class="card-sm risk"><div class="t">Solid-state timelines keep slipping while China's catches up</div><div class="d">QuantumScape shares are down roughly 51% YTD with no fresh catalysts this month, and recent CTO share sales add a mildly negative signal; the PowerCo licensing deal still targets only a 2027 commercial launch with no production license or revenue yet. CATL and BYD are both still publicly targeting 2027 solid-state trial production, meaning the assumed Western first-mover advantage in solid-state keeps eroding rather than firming up.</div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="kicker">04 // CATALYSTS</div>
-      <div class="sec-title">News &amp; Upcoming Events</div>
-      <div class="timeline">
-        <div class="tl"><div class="dt">SEP 9, 2026</div><div class="tt">DIMAAG-AI and Toshiba partner on AI data-center storage using lithium-titanate cells</div><div class="bd">The collaboration pairs Toshiba's SCiB lithium-titanate technology with DIMAAG's immersion-cooled architecture, targeting continuous 10C charge/discharge and 10+ year service life for load smoothing and backup power at AI data centers.</div></div>
-        <div class="tl"><div class="dt">SEP 14–15, 2026</div><div class="tt">Fluence restructures leadership, names AES veteran Bernerd Da Santos as EVP/COO</div><div class="bd">The board appointment came just two days ahead of the FY26 guidance cut, positioning an operations-focused executive to address the Houston manufacturing delays.</div></div>
-        <div class="tl"><div class="dt">SEP 16, 2026</div><div class="tt">Fluence slashes FY26 guidance and discloses SEC investigation</div><div class="bd">Revenue guidance cut to ~$2.4B from ~$3.0B and adjusted EBITDA to a ~$200M loss from a ~$10M loss, largely on Houston contract-manufacturing delays; the company also disclosed an SEC probe into revenue recognition and internal controls.</div></div>
-        <div class="tl"><div class="dt">SEP 16, 2026</div><div class="tt">GE Vernova CEO says backlog could hit $200B "very early" in 2027</div><div class="bd">Scott Strazik pointed to strong Q3 order intake as the basis for the call, even as shares have pulled back more than 14% over the past month on broader sector rotation.</div></div>
-        <div class="tl"><div class="dt">SEP 17, 2026</div><div class="tt">Fluence shares fall 15.4% as securities-fraud investigations open</div><div class="bd">Shares dropped from $9.05 to $7.66; at least five law firms (Kirby McInerney, Block &amp; Leviton, Levi &amp; Korsinsky, SBS Law, Frank R. Cruz) launched investigations on behalf of shareholders.</div></div>
-        <div class="tl"><div class="dt">SEP 18, 2026</div><div class="tt">Enphase and the solar/storage complex drop on a Fed rate hike; Energy Vault bucks the trend</div><div class="bd">Enphase fell 3.8% to $34.64 alongside First Solar and Sunrun as higher rates pressured residential-solar financing demand — a sector-wide move, not company-specific; Energy Vault rose 5.2% on continued AI-power-deal momentum.</div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="kicker">05 // ETFS</div>
-      <div class="sec-title">Diversified Exposure</div>
-      <div class="grid-cards">
-        <div class="card-sm etf"><div class="n">GRID</div><div class="nm">First Trust Clean Edge Smart Grid</div><div class="s">Grid infrastructure &amp; equipment; trading in a $176–178 range as of Sept 19, essentially flat on the week even as individual names (Fluence, GE Vernova) moved sharply on earnings and guidance news</div></div>
-        <div class="card-sm etf"><div class="n">BATT</div><div class="nm">Amplify Lithium &amp; Battery</div><div class="s">Battery value chain; trading near $13.96, within its $9.67–$18.08 52-week range — Fluence's guidance cut is a reminder that single-name volatility still swings the fund even as the broader storage-hardware buildout continues</div></div>
-        <div class="card-sm etf"><div class="n">LIT</div><div class="nm">Global X Lithium &amp; Battery Tech</div><div class="s">Lithium miners to battery makers; last printed near $74.18 (Sept 5) within a $48.70–$91.98 52-week range, continuing to track the broader battery/EV complex more than pure grid-storage names</div></div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="kicker">SOURCES // THIS EDITION</div>
-      <div class="src-list">
-        <div><a href="https://www.energy-storage.news/fluence-cuts-2026-revenue-ebitda-guidance-as-us-production-delays-bite/" target="_blank" rel="noopener">Energy-Storage.News — Fluence cuts 2026 revenue &amp; EBITDA guidance as US production delays bite</a></div>
-        <div><a href="https://www.globenewswire.com/news-release/2026/09/16/3363545/0/en/fluence-energy-announces-revised-guidance-for-fiscal-year-2026-management-to-host-conference-call-at-5pm-eastern-time-today.html" target="_blank" rel="noopener">GlobeNewswire — Fluence Energy Announces Revised Guidance for Fiscal Year 2026</a></div>
-        <div><a href="https://www.stocktitan.net/news/FLNC/fluence-energy-announces-revised-guidance-for-fiscal-year-2026-ihscre93hdp0.html" target="_blank" rel="noopener">StockTitan — Fluence Energy Cuts FY2026 Revenue Guidance to About $2.4B</a></div>
-        <div><a href="https://www.globenewswire.com/news-release/2026/09/18/3364920/937/en/fluence-energy-inc-investigation-flnc-securities-investors-encouraged-to-contact-kirby-mcinerney-llp-about-their-rights.html" target="_blank" rel="noopener">GlobeNewswire — Fluence Energy, Inc. Investigation: Kirby McInerney LLP Notice</a></div>
-        <div><a href="https://pluang.com/en/news-feed/penyelidikan-fluence-energy-notice-lewi-korsinsky" target="_blank" rel="noopener">Pluang — Fluence Energy faces SEC probe and cuts 2026 EBITDA guidance</a></div>
-        <div><a href="https://247wallst.com/investing/2026/09/16/ge-vernova-climbs-5-as-ceo-sees-backlog-hitting-200b-early-eaton-and-quanta-services-edge-higher/" target="_blank" rel="noopener">24/7 Wall St — GE Vernova Climbs 5% as CEO Sees Backlog Hitting $200B Early</a></div>
-        <div><a href="https://www.fool.com/investing/2026/08/07/ge-vernova-holds-an-176-billion-backlog/" target="_blank" rel="noopener">The Motley Fool — GE Vernova Holds a $176 Billion Backlog, Yet Wall Street Is Selling</a></div>
-        <div><a href="https://stockstotrade.com/news/eos-energy-enterprises-inc-eose-news-2026_09_15/" target="_blank" rel="noopener">StocksToTrade — EOSE Stock Rises As Google Data Center Deal Energizes Outlook</a></div>
-        <div><a href="https://www.canarymedia.com/articles/batteries/tesla-just-launched-the-megablock-a-big-easy-to-deploy-grid-battery" target="_blank" rel="noopener">Canary Media — Tesla just launched the Megablock, a big, easy-to-deploy grid battery</a></div>
-        <div><a href="https://gcn.com/eia-sees-utility-scale-battery-storage/21071" target="_blank" rel="noopener">GCN — EIA sees US utility-scale battery storage nearly hitting 65 GW by end of 2026</a></div>
-        <div><a href="https://energiesmedia.com/us-battery-storage-capacity-2026-energy/" target="_blank" rel="noopener">Energiesmedia — U.S. utility-scale battery storage capacity reaches 52 GW in mid-2026</a></div>
-        <div><a href="https://www.ess-news.com/2026/02/26/new-us-battery-capacity-in-2026-24-3-gw-of-new-battery-storage-to-come-online/" target="_blank" rel="noopener">ESS-News — New US battery capacity in 2026: 24.3 GW of new battery storage to come online</a></div>
-        <div><a href="https://www.energy-storage.news/energy-storage-generates-nearly-20-of-catls-revenues-in-first-half-of-2026/" target="_blank" rel="noopener">Energy-Storage.News — Energy storage generates nearly 20% of CATL's revenues in first half of 2026</a></div>
-        <div><a href="https://www.scmp.com/business/climate-and-energy/article/3362085/catl-byd-battle-supremacy-middle-east-energy-storage-market" target="_blank" rel="noopener">South China Morning Post — CATL, BYD battle for supremacy in Middle East energy-storage market</a></div>
-        <div><a href="https://battery-tech.net/battery-markets-news/u-s-raises-section-301-duties-on-chinese-ess-batteries/" target="_blank" rel="noopener">Battery-Tech Network — U.S. Raises Section 301 Duties on Chinese ESS Batteries</a></div>
-        <div><a href="https://stockstotrade.com/news/energy-vault-holdings-inc-nrgv-news-2026_09_18/" target="_blank" rel="noopener">StocksToTrade — NRGV Stock Gains As AI Power Deals And Targets Climb</a></div>
-        <div><a href="https://247wallst.com/investing/2026/09/18/enphase-energy-drops-5-as-solar-selling-resumes-first-solar-and-sunrun-fall-4/" target="_blank" rel="noopener">24/7 Wall St — Enphase Energy Drops 5% as Solar Selling Resumes</a></div>
-        <div><a href="https://finance.yahoo.com/news/b1-shipments-push-quantumscape-closer-141900242.html" target="_blank" rel="noopener">Yahoo Finance — Can B1 Shipments Push QuantumScape Closer to 2026 Road Testing?</a></div>
-      </div>
-      <div style="margin-top:.8rem">Figures approximate, from public reporting as of Sep 21, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.</div>
-    </footer>
-  </main>
-</div>
-
-<script>
-  new Chart(document.getElementById('secChart'), {
-    type: 'bar',
-    data: {
-      labels: ['2023','2024','2025','2026 (planned)'],
-      datasets: [{
-        label: 'US utility-scale battery additions (GW)',
-        data: [6.4, 10.3, 15, 24.3],
-        backgroundColor: 'rgba(46,208,245,0.5)',
-        borderColor: '#2ed0f5', borderWidth: 1, borderRadius: 6
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } } },
-        title: { display: true, text: 'US UTILITY-SCALE BATTERY BUILDOUT (EIA / ANALYST EST.)', color: '#6b7a99', font: { family: "'Space Mono', monospace", size: 10 } }
-      },
-      scales: {
-        y: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.04)' }, beginAtZero: true },
-        x: { ticks: { color: '#6b7a99', font: { size: 10 } }, grid: { display: false } }
-      }
-    }
-  });
-</script>
-<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
-<script src="/private/stance.js"></script>
+<div id="hub" class="hub-layout"></div>
+<script>var SECTOR_ID='storage';</script>
+<script src="/private/sectors-data.js"></script>
+<script src="/private/sector.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){renderSector(SECTOR_ID);});</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js');}</script>
 </body>
 </html>
