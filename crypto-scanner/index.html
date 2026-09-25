@@ -195,6 +195,8 @@ a{text-decoration:none;color:inherit;}
 .gp{display:grid;grid-template-columns:40px minmax(160px,1.4fr) repeat(2,minmax(110px,1fr)) minmax(110px,1fr) 90px 90px minmax(140px,1.2fr);}
 /* hot grid */
 .gh{display:grid;grid-template-columns:40px minmax(190px,1.6fr) 100px minmax(100px,1fr) repeat(4,76px) repeat(3,minmax(90px,1fr)) 80px;}
+/* ai grid */
+.gai{display:grid;grid-template-columns:56px minmax(150px,1.3fr) minmax(90px,1fr) 76px 76px 84px minmax(100px,1fr) minmax(100px,1fr);}
 
 /* ── DEFI ── */
 .defi-hero-pair{display:flex;flex-wrap:wrap;gap:1px;background:var(--color-divider);border-bottom:2px solid var(--color-divider);}
@@ -286,6 +288,7 @@ a{text-decoration:none;color:inherit;}
   <nav>
     <div class="sb-item active" onclick="showView('overview',this)"><span class="sb-item-num">01</span><span>Overview</span></div>
     <div class="sb-item" onclick="showView('narratives',this)"><span class="sb-item-num">02</span><span>Narratives</span></div>
+    <div class="sb-item" onclick="showView('ai',this)"><span class="sb-item-num">06</span><span>AI Sector</span></div>
     <div class="sb-item" onclick="showView('defi',this)"><span class="sb-item-num">03</span><span>DeFi On-Chain</span></div>
     <div class="sb-item" onclick="showView('hotspots',this)"><span class="sb-item-num">04</span><span>Hot Spots</span></div>
     <div class="sb-item" onclick="showView('largecap',this)"><span class="sb-item-num">05</span><span>Large Cap</span></div>
@@ -397,6 +400,61 @@ a{text-decoration:none;color:inherit;}
             <button class="tbl-hdr-btn">7d spark</button>
           </div>
           <div id="catTblBody"></div>
+        </div></div>
+
+        <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ 06 AI SECTOR ═══ -->
+    <div class="view" id="view-ai">
+      <div class="page-header">
+        <div><div class="page-kicker">06 · AGENTS, LAUNCHPADS &amp; NARRATIVES</div><h1 class="page-title">AI Sector</h1></div>
+        <div class="page-source">SOURCE · COINGECKO /COINS/MARKETS?CATEGORY=ARTIFICIAL-INTELLIGENCE</div>
+      </div>
+      <div class="vbody">
+
+        <!-- Sub-category tabs -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:24px 0 16px;">
+          <div class="chain-tabs" id="aiCatTabs">
+            <button class="chain-tab ai-cat-btn active" data-cat="all" onclick="switchAiCat('all',this)" style="background:var(--color-text);color:var(--color-bg);">All AI</button>
+            <button class="chain-tab ai-cat-btn" data-cat="agents" onclick="switchAiCat('agents',this)" style="background:var(--color-bg);color:var(--color-text);">AI Agents</button>
+            <button class="chain-tab ai-cat-btn" data-cat="launch" onclick="switchAiCat('launch',this)" style="background:var(--color-bg);color:var(--color-text);">AI Agent Launchpad</button>
+          </div>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;">Source · CoinGecko categories</span>
+        </div>
+
+        <!-- Stat row -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--color-divider);border-top:2px solid var(--color-text);border-bottom:2px solid var(--color-divider);">
+          <div id="ai-stat-mcap" style="background:var(--color-bg);padding:22px 24px 22px 0;"><div class="stat-cell-lbl">Market cap</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">—</div></div>
+          <div id="ai-stat-vol" style="background:var(--color-bg);padding:22px 24px 22px 0;"><div class="stat-cell-lbl">24h volume</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">—</div></div>
+          <div style="background:var(--color-bg);padding:22px 24px 22px 0;">
+            <div class="stat-cell-lbl" style="color:var(--color-accent-700);">🔥 Trending</div>
+            <div id="ai-trending" style="margin-top:4px;"></div>
+          </div>
+          <div style="background:var(--color-bg);padding:22px 0 22px 24px;">
+            <div class="stat-cell-lbl">🚀 Top gainers</div>
+            <div id="ai-gainers" style="margin-top:4px;"></div>
+          </div>
+        </div>
+
+        <!-- Token table -->
+        <div class="sec-hdr">
+          <h3 class="sec-title" id="ai-tbl-title">AI Sector · tokens</h3>
+          <span class="sec-sub" id="ai-tbl-count">Loading…</span>
+        </div>
+        <div class="tbl-wrap"><div style="min-width:940px;">
+          <div class="gai tbl-hdr-row" id="aiTblHdr">
+            <button class="tbl-hdr-btn tbl-hdr-left" onclick="sortAi('rank',this)">#</button>
+            <button class="tbl-hdr-btn tbl-hdr-left" onclick="sortAi('name',this)">Coin</button>
+            <button class="tbl-hdr-btn" onclick="sortAi('price',this)">Price</button>
+            <button class="tbl-hdr-btn" onclick="sortAi('h1',this)">1h</button>
+            <button class="tbl-hdr-btn sort-active" onclick="sortAi('h24',this)">24h ↓</button>
+            <button class="tbl-hdr-btn" onclick="sortAi('d7',this)">7d</button>
+            <button class="tbl-hdr-btn" onclick="sortAi('vol',this)">Volume</button>
+            <button class="tbl-hdr-btn" onclick="sortAi('mcap',this)">Mcap</button>
+          </div>
+          <div id="aiTblBody"><div style="padding:24px 0;color:var(--color-neutral-600);">Loading…</div></div>
         </div></div>
 
         <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
@@ -1112,12 +1170,117 @@ async function fetchDexscreener(){
 }
 
 // ═══════════════════════════════════════
+// AI SECTOR
+// ═══════════════════════════════════════
+let aiTokens={all:[],agents:[],launch:[]};
+let aiCat='all';
+let aiSortKey='mcap';
+let aiSortDir=-1;
+
+const AI_CAT_IDS={all:'artificial-intelligence',agents:'ai-agents',launch:'ai-agent-launchpad'};
+const AI_CAT_LABELS={all:'All Artificial Intelligence',agents:'AI Agents',launch:'AI Agent Launchpad'};
+
+async function fetchAiSector(){
+  try{
+    const [rAll,rAgents,rLaunch]=await Promise.all([
+      fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=artificial-intelligence&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h,24h,7d'),
+      fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=ai-agents&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h,24h,7d'),
+      fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=ai-agent-launchpad&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h,24h,7d'),
+    ]);
+    const [dAll,dAgents,dLaunch]=await Promise.all([rAll.json(),rAgents.json(),rLaunch.json()]);
+    if(Array.isArray(dAll)) aiTokens.all=dAll;
+    if(Array.isArray(dAgents)) aiTokens.agents=dAgents;
+    if(Array.isArray(dLaunch)) aiTokens.launch=dLaunch;
+    renderAi();
+  }catch(_){}
+}
+
+function switchAiCat(id,btn){
+  aiCat=id; aiSortKey='mcap'; aiSortDir=-1;
+  document.querySelectorAll('.ai-cat-btn').forEach(b=>{
+    const a=b.dataset.cat===id;
+    b.style.background=a?'var(--color-text)':'var(--color-bg)';
+    b.style.color=a?'var(--color-bg)':'var(--color-text)';
+    b.classList.toggle('active',a);
+  });
+  // reset sort header
+  document.querySelectorAll('#aiTblHdr .tbl-hdr-btn').forEach(b=>{
+    b.classList.remove('sort-active');
+    b.textContent=b.textContent.replace(/[ ↑↓]$/,'');
+  });
+  const mcapBtn=document.querySelector('#aiTblHdr .tbl-hdr-btn:last-child');
+  if(mcapBtn){mcapBtn.classList.add('sort-active');mcapBtn.textContent+=' ↓';}
+  renderAi();
+}
+
+function sortAi(key,btn){
+  if(aiSortKey===key) aiSortDir*=-1; else{aiSortKey=key;aiSortDir=key==='name'?1:-1;}
+  document.querySelectorAll('#aiTblHdr .tbl-hdr-btn').forEach(b=>{b.classList.remove('sort-active');b.textContent=b.textContent.replace(/[ ↑↓]$/,'');});
+  btn.classList.add('sort-active'); btn.textContent+=aiSortDir>0?' ↑':' ↓';
+  renderAiTable();
+}
+
+function renderAiStats(){
+  const rows=aiTokens[aiCat]||[];
+  const catId=AI_CAT_IDS[aiCat];
+  const catObj=catData.find(c=>c.id===catId);
+  const mcap=catObj?catObj.market_cap:rows.reduce((s,c)=>s+(c.market_cap||0),0);
+  const mcapChg=catObj?catObj.market_cap_change_24h:null;
+  const vol=catObj?catObj.volume_24h:rows.reduce((s,c)=>s+(c.total_volume||0),0);
+  const label=AI_CAT_LABELS[aiCat];
+
+  const trending=[...rows].sort((a,b)=>(b.total_volume||0)-(a.total_volume||0)).slice(0,3);
+  const gainers=[...rows].sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0)).slice(0,3);
+
+  const chgHtml=mcapChg!=null?`<span style="font-size:13px;font-weight:800;" class="${cls(mcapChg)}">${pct(mcapChg)}</span>`:'';
+  setEl('ai-stat-mcap',`<div class="stat-cell-lbl">${label} · market cap</div><div style="display:flex;align-items:baseline;gap:10px;margin-top:6px;"><span style="font-size:34px;font-weight:800;letter-spacing:-0.03em;">${big(mcap)}</span>${chgHtml}</div>`);
+  setEl('ai-stat-vol',`<div class="stat-cell-lbl">24h volume</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">${big(vol)}</div>`);
+  setEl('ai-trending',trending.map(t=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px;"><b>${(t.symbol||'').toUpperCase()}</b><span class="${cls(t.price_change_percentage_24h||0)}">${pct(t.price_change_percentage_24h||0)}</span></div>`).join(''));
+  setEl('ai-gainers',gainers.map(t=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px;"><b>${(t.symbol||'').toUpperCase()}</b><span class="${cls(t.price_change_percentage_24h||0)}">${pct(t.price_change_percentage_24h||0)}</span></div>`).join(''));
+  setEl('ai-tbl-title',`${label} · tokens`);
+  setEl('ai-tbl-count',`Top ${rows.length} by market cap`);
+}
+
+function renderAiTable(){
+  const rows=aiTokens[aiCat]||[];
+  const fieldMap={rank:null,name:null,price:'current_price',h1:'price_change_percentage_1h_in_currency',h24:'price_change_percentage_24h',d7:'price_change_percentage_7d_in_currency',vol:'total_volume',mcap:'market_cap'};
+  const sorted=[...rows].sort((a,b)=>{
+    if(aiSortKey==='name') return aiSortDir*(a.name||'').localeCompare(b.name||'');
+    const f=fieldMap[aiSortKey]||'market_cap';
+    return aiSortDir*((b[f]||0)-(a[f]||0));
+  });
+  const el=document.getElementById('aiTblBody'); if(!el) return;
+  if(!sorted.length){el.innerHTML='<div style="padding:24px 0;color:var(--color-neutral-600);">No data — check back shortly.</div>';return;}
+  el.innerHTML=sorted.map((c,i)=>{
+    const h1=c.price_change_percentage_1h_in_currency||0;
+    const h24=c.price_change_percentage_24h||0;
+    const d7=c.price_change_percentage_7d_in_currency||0;
+    return `<div class="gai tbl-data-row">
+      <span class="tc-i">${i+1}</span>
+      <div class="tc" style="display:flex;flex-direction:column;min-width:0;"><b>${(c.symbol||'').toUpperCase()}</b><span style="font-size:12px;color:var(--color-neutral-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${c.name||''}</span></div>
+      <span class="tc-r">${px(c.current_price)}</span>
+      <span class="tc-r ${cls(h1)}">${pct(h1)}</span>
+      <b class="tc-r ${cls(h24)}">${pct(h24)}</b>
+      <span class="tc-r ${cls(d7)}">${pct(d7)}</span>
+      <span class="tc-r">${big(c.total_volume)}</span>
+      <span class="tc-r">${big(c.market_cap)}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderAi(){
+  renderAiStats();
+  renderAiTable();
+}
+
+// ═══════════════════════════════════════
 // MAIN
 // ═══════════════════════════════════════
 async function fetchAll(){
   await Promise.allSettled([
     fetchGlobal(), fetchMovers(), fetchBybit(),
     fetchDefiLlama(), fetchFearGreed(), fetchCategories(), fetchDexscreener(),
+    fetchAiSector(),
   ]);
 }
 fetchAll();
