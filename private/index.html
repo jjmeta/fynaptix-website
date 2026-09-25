@@ -12,60 +12,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#fff;color:#0b0b0c;font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased}
+  body{background:#f3f2f2;color:#201e1d;font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   @keyframes fx-pulse{0%,100%{opacity:.3}50%{opacity:1}}
   .hub{display:flex;align-items:stretch;min-height:100vh}
-  .sb{width:252px;flex:0 0 252px;border-right:1px solid #ececef;padding:24px 0 32px;display:flex;flex-direction:column;gap:26px;position:sticky;top:0;align-self:flex-start;max-height:100vh;overflow-y:auto;background:#fff;transition:transform .25s}
+  .sb{width:252px;flex:0 0 252px;border-right:2px solid #201e1d;padding:24px 0 32px;display:flex;flex-direction:column;gap:26px;position:sticky;top:0;align-self:flex-start;max-height:100vh;overflow-y:auto;background:#f3f2f2;transition:transform .25s}
   .sb-logo{display:flex;align-items:center;gap:10px;padding:0 22px}
   .sb-logo-text{display:flex;flex-direction:column;line-height:1.1}
   .sb-logo-name{font-size:15px;font-weight:700;letter-spacing:-.02em}
-  .sb-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
+  .sb-logo-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#7d7979}
   .sb-group{display:flex;flex-direction:column;gap:3px;padding:0 12px}
-  .sb-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#a1a1aa;padding:6px 10px}
+  .sb-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#7d7979;padding:6px 10px}
   .sb-link{font-size:14px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;transition:background .12s}
-  .sb-link:hover,.sb-link.active{background:#fafafa}
-  .sb-link.active{font-weight:500}
-  .sb-dot{width:5px;height:5px;border-radius:50%;background:#ff5a1f;flex-shrink:0}
-  .sb-footer{margin:auto 22px 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#a1a1aa;padding-top:18px}
+  .sb-link:hover,.sb-link.active{background:#eae7e7}
+  .sb-link.active{font-weight:600;box-shadow:inset 4px 0 0 #ec3013;}
+  .sb-dot{width:7px;height:7px;background:#ec3013;flex-shrink:0}
+  .sb-sector-dot{width:7px;height:7px;flex-shrink:0;display:inline-block}
+  .sb-footer{margin:auto 22px 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#7d7979;padding-top:18px}
   .main{flex:1;min-width:0;display:flex;flex-direction:column}
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 36px;border-bottom:1px solid #ececef;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:5}
   .topbar-live{display:flex;align-items:center;gap:10px;flex:0 1 auto;min-width:0;overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#52525b}
-  .topbar-dot{width:6px;height:6px;border-radius:50%;background:#ff5a1f;animation:fx-pulse 2.4s ease-in-out infinite;flex-shrink:0}
+  .topbar-dot{width:6px;height:6px;border-radius:50%;background:#ec3013;animation:fx-pulse 2.4s ease-in-out infinite;flex-shrink:0}
   .topbar-right{display:flex;align-items:center;gap:10px;flex:1 1 auto;justify-content:flex-end}
   .topbar-search{flex:1;min-width:0;max-width:300px;border:1px solid #e4e4e7;padding:10px 14px;font-size:13px;font-family:Archivo,sans-serif;outline:none;background:#fff}
-  .topbar-search:focus{border-color:#ff5a1f}
-  .topbar-cta{background:#0b0b0c;color:#fff;padding:11px 18px;font-size:13px;font-weight:600;white-space:nowrap;transition:background .15s}
-  .topbar-cta:hover{background:#27272a}
+  .topbar-search:focus{border-color:#ec3013}
+  .topbar-cta{background:#201e1d;color:#f3f2f2;padding:11px 18px;font-size:13px;font-weight:600;white-space:nowrap;transition:background .15s}
+  .topbar-cta:hover{background:#444141}
   .mkt-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-bottom:1px solid #ececef}
   .mkt-cell{padding:18px 20px;display:flex;flex-direction:column;gap:7px;border-right:1px solid #ececef}
   .mkt-cell:last-child{border-right:none}
   .mkt-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
   .mkt-val{font-size:22px;font-weight:600;letter-spacing:-.03em}
   .mkt-chg{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#71717a}
-  .mkt-chg.pos{color:#ff5a1f}
+  .mkt-chg.pos{color:#ec3013}
   .data-grid{padding:34px 36px;border-bottom:1px solid #ececef;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:44px}
   .data-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-  .data-dot{width:8px;height:8px;background:#ff5a1f;flex-shrink:0;display:inline-block}
+  .data-dot{width:8px;height:8px;background:#ec3013;flex-shrink:0;display:inline-block}
   .data-title{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.18em;color:#52525b}
   .mom-row{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px;align-items:center;gap:12px;margin-bottom:9px}
   .mom-name{font-size:13px;color:#52525b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .mom-track{height:10px;background:#f4f4f5}
-  .mom-bar{height:100%}
+  .mom-bar{height:100%;background:#9b9797}
   .mom-val{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right}
   .mom-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a1a1aa;margin-top:8px}
   .macro-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:12px}
-  .macro-card{background:#fff;border:1px solid #ececef;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+  .macro-card{background:#f3f2f2;border:1px solid rgba(32,30,29,.2);padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
   .mc-hd{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
   .mc-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
   .mc-val{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#52525b}
-  .mc-val.hi{color:#ff5a1f}
+  .mc-val.hi{color:#ec3013}
   .mc-desc{font-size:13px;color:#52525b}
   .hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));border-bottom:1px solid #ececef}
   .hero-main{padding:44px 36px;display:flex;flex-direction:column;gap:18px;border-right:1px solid #ececef;position:relative;overflow:hidden;transition:background .15s}
   .hero-main:hover{background:#fafafa}
-  .hero-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:#ff5a1f}
-  .hero-kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#ff5a1f}
+  .hero-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:#ec3013}
+  .hero-kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#ec3013}
   .hero-hl{font-size:clamp(26px,3.5vw,46px);font-weight:700;letter-spacing:-.042em;line-height:1.03;max-width:620px}
   .hero-sub{font-size:16px;line-height:1.6;color:#52525b;max-width:560px}
   .hero-cta{font-size:14px;font-weight:600;margin-top:6px}
@@ -79,13 +80,13 @@
   .sg-header{padding:40px 36px 18px;display:flex;align-items:baseline;justify-content:space-between}
   .sg-note{font-size:13px;color:#a1a1aa}
   .sg{padding:0 36px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-  .sc{background:#fff;border:1px solid #ececef;padding:24px;display:flex;flex-direction:column;gap:9px;min-height:158px;transition:background .15s}
-  .sc:hover{background:#fafafa}
+  .sc{background:#f3f2f2;border:1px solid rgba(32,30,29,.2);padding:24px;display:flex;flex-direction:column;gap:9px;min-height:158px;transition:background .15s}
+  .sc:hover{background:#eae7e7}
   .sc-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
   .sc-name{font-size:23px;font-weight:600;letter-spacing:-.03em}
   .sc-desc{font-size:14px;line-height:1.5;color:#52525b}
   .sc-footer{margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#71717a}
-  .sc-footer.hot{color:#ff5a1f}
+  .sc-footer.hot{color:#ec3013}
   .bot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));border-top:1px solid #ececef}
   .bot-cell{padding:38px 36px;display:flex;flex-direction:column;gap:20px;border-right:1px solid #ececef}
   .bot-cell:last-child{border-right:none}
@@ -95,7 +96,7 @@
   .mv-name{font-size:15px}
   .mv-price{font-size:15px;text-align:right;font-family:'IBM Plex Mono',monospace}
   .mv-chg{font-size:15px;text-align:right;font-family:'IBM Plex Mono',monospace;color:#71717a}
-  .mv-chg.pos{color:#ff5a1f}
+  .mv-chg.pos{color:#ec3013}
   .mv-hdr{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:#a1a1aa}
   .mv-last{border-bottom:1px solid #ececef}
   .tr-bars{display:flex;align-items:flex-end;gap:14px;height:112px;border-bottom:1px solid #d4d4d8}
@@ -108,7 +109,7 @@
   .tr-stat{background:#fff;border:1px solid #ececef;padding:20px;display:flex;flex-direction:column;gap:6px}
   .tr-stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#a1a1aa}
   .tr-stat-val{font-size:30px;font-weight:600;letter-spacing:-.03em}
-  .tr-stat-val.acc{color:#ff5a1f}
+  .tr-stat-val.acc{color:#ec3013}
   .tr-stat-sub{font-size:12px;color:#71717a}
   .tr-links{display:flex;flex-direction:column;gap:12px}
   .tr-link{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border:1px solid #ececef;transition:border-color .15s}
@@ -130,7 +131,7 @@
   .chip.primary{border-color:#0b0b0c}
   .hub-footer{padding:24px 36px 40px;border-top:1px solid #ececef;display:flex;justify-content:space-between;gap:30px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a1a1aa}
   @media(max-width:768px){
-    .sb{position:fixed;top:0;left:0;z-index:200;height:100vh;transform:translateX(-100%);width:252px}
+    .sb{position:fixed;top:0;left:0;z-index:200;height:100vh;transform:translateX(-100%);width:252px;background:#f3f2f2}
     .sb.open{transform:translateX(0)}
     .main{width:100vw}
     .topbar{padding:12px 16px}
@@ -228,17 +229,17 @@
     </div>
 
     <!-- RESEARCH HUB HERO BANNER -->
-    <div style="background:#1c1c20;color:#fff;padding:28px 36px 24px;position:relative;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.15)">
+    <div style="background:#201e1d;color:#f3f2f2;padding:28px 36px 24px;position:relative;overflow:hidden;border-bottom:2px solid #201e1d">
       <!-- Grid texture -->
       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none"></div>
-      <!-- Orange radial glow -->
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(255,90,31,.12) 0%,transparent 65%);pointer-events:none"></div>
-      <!-- Decorative circles top-right (white + orange) -->
+      <!-- Red radial glow -->
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(236,48,19,.14) 0%,transparent 65%);pointer-events:none"></div>
+      <!-- Decorative circles top-right (white + red) -->
       <svg style="position:absolute;right:-30px;top:-40px;pointer-events:none" width="260" height="220" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
         <circle cx="195" cy="90" r="110" fill="none" stroke="white" stroke-width="1" opacity=".08"/>
         <circle cx="195" cy="90" r="75"  fill="none" stroke="white" stroke-width="1" opacity=".1"/>
-        <circle cx="195" cy="90" r="42"  fill="none" stroke="#ff5a1f" stroke-width="1.5" opacity=".3"/>
-        <circle cx="195" cy="90" r="16"  fill="#ff5a1f" opacity=".15"/>
+        <circle cx="195" cy="90" r="42"  fill="none" stroke="#ec3013" stroke-width="1.5" opacity=".3"/>
+        <circle cx="195" cy="90" r="16"  fill="#ec3013" opacity=".15"/>
         <circle cx="60"  cy="180" r="50" fill="none" stroke="white" stroke-width=".8" opacity=".07"/>
       </svg>
       <!-- Dot grid bottom-left (orange tinted) -->
@@ -249,25 +250,25 @@
           <circle r="1.5" cx="16" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="40" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="64" cy="64" fill="#ff5a1f" opacity=".2"/><circle r="1.5" cx="88" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="112" cy="64" fill="white" opacity=".08"/><circle r="1.5" cx="136" cy="64" fill="white" opacity=".08"/>
         </g>
       </svg>
-      <!-- Thin orange accent line -->
-      <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:#ff5a1f;pointer-events:none"></div>
+      <!-- Thin red accent line -->
+      <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:#ec3013;pointer-events:none"></div>
       <!-- Content -->
       <div style="position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
         <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.4);margin-bottom:8px">FYNAPTIX · PRIVATE</div>
-          <h1 style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff">Research Hub</h1>
-          <p style="font-size:14px;color:rgba(255,255,255,.5);margin-top:8px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;line-height:1.6">Weekly briefs · Sector intelligence · Macro signals · Crypto research</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:rgba(243,242,242,.4);margin-bottom:8px">FYNAPTIX · PRIVATE</div>
+          <h1 style="font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#f3f2f2">Research Hub</h1>
+          <p style="font-size:14px;color:rgba(243,242,242,.5);margin-top:8px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;line-height:1.6">Weekly briefs · Sector intelligence · Macro signals · Crypto research</p>
         </div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
           <div style="text-align:right">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">LAST BRIEF</div>
-            <div style="font-size:15px;font-weight:600;color:#fff" id="hub-date">—</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(243,242,242,.35);margin-bottom:4px">LAST BRIEF</div>
+            <div style="font-size:15px;font-weight:600;color:#f3f2f2" id="hub-date">—</div>
           </div>
           <div style="text-align:right">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">SECTORS TRACKED</div>
-            <div style="font-size:15px;font-weight:600;color:#ff5a1f">9</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(243,242,242,.35);margin-bottom:4px">SECTORS TRACKED</div>
+            <div style="font-size:15px;font-weight:600;color:#ec3013">9</div>
           </div>
-          <a href="/private/overview.html" style="background:#ff5a1f;color:#fff;border:1px solid #ff5a1f;padding:10px 18px;font-size:13px;font-weight:600;font-family:Archivo,sans-serif;letter-spacing:-.01em;transition:background .15s" onmouseover="this.style.background='#e04a12';this.style.borderColor='#e04a12'" onmouseout="this.style.background='#ff5a1f';this.style.borderColor='#ff5a1f'">This week's brief →</a>
+          <a href="/private/overview.html" style="background:#ec3013;color:#f3f2f2;border:1px solid #ec3013;padding:10px 18px;font-size:13px;font-weight:600;font-family:Archivo,sans-serif;letter-spacing:-.01em;transition:background .15s" onmouseover="this.style.background='#ae1800';this.style.borderColor='#ae1800'" onmouseout="this.style.background='#ec3013';this.style.borderColor='#ec3013'">This week's brief →</a>
         </div>
       </div>
     </div>
@@ -278,7 +279,7 @@
         <span class="mkt-val" id="btc-p">—</span>
         <span class="mkt-chg" id="btc-c">loading…</span>
         <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%;height:26px;display:block;margin-top:4px">
-          <polyline points="0,20 15,17 30,21 45,13 60,16 75,9 90,12 105,6 120,3" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <polyline points="0,20 15,17 30,21 45,13 60,16 75,9 90,12 105,6 120,3" fill="none" stroke="#ec3013" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
         </svg>
       </div>
       <div class="mkt-cell">
@@ -321,7 +322,7 @@
           <div style="flex:1;height:55%;background:#ececef"></div>
           <div style="flex:1;height:70%;background:#e4e4e7"></div>
           <div style="flex:1;height:85%;background:#d4d4d8"></div>
-          <div style="flex:1;height:100%;background:#ff5a1f"></div>
+          <div style="flex:1;height:100%;background:#ec3013"></div>
         </div>
       </div>
     </div>
@@ -338,8 +339,8 @@
           <div class="macro-card">
             <div class="mc-hd"><span class="mc-lbl">BITCOIN</span><span class="mc-val hi" id="btc-6m">—</span></div>
             <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%;height:92px;display:block">
-              <polygon points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10 300,90 0,90" fill="#ff5a1f" opacity="0.1"/>
-              <polyline points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10" fill="none" stroke="#ff5a1f" stroke-width="2" vector-effect="non-scaling-stroke"/>
+              <polygon points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10 300,90 0,90" fill="#ec3013" opacity="0.1"/>
+              <polyline points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10" fill="none" stroke="#ec3013" stroke-width="2" vector-effect="non-scaling-stroke"/>
             </svg>
             <span class="mc-desc">Front-running the liquidity turn</span>
           </div>
@@ -398,9 +399,9 @@
     <div class="sg">
       <a href="/private/ai.html" class="sc"><span class="sc-tag">01 · SUPERCYCLE</span><span class="sc-name">AI &amp; Compute</span><span class="sc-desc">Hyperscaler capex, silicon stack, the bubble debate.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,21 15,18 30,20 45,14 60,16 75,11 90,13 105,8 120,6" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
       <a href="/private/robotics.html" class="sc"><span class="sc-tag">02 · PHYSICAL AI</span><span class="sc-name">Robotics</span><span class="sc-desc">Humanoids, warehouse automation, components.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,18 15,21 30,16 45,19 60,14 75,17 90,12 105,14 120,10" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
-      <a href="/private/defense.html" class="sc"><span class="sc-tag">03 · AUTONOMY</span><span class="sc-name">Defense Tech</span><span class="sc-desc">Battlefield software, drones, rearmament.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,22 15,20 30,21 45,15 60,17 75,10 90,12 105,7 120,4" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
-      <a href="/private/nuclear.html" class="sc"><span class="sc-tag">04 · AI POWER</span><span class="sc-name">Nuclear &amp; SMRs</span><span class="sc-desc">Reactors, uranium, data-center demand.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,24 15,21 30,22 45,16 60,13 75,15 90,9 105,6 120,3" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
-      <a href="/private/minerals.html" class="sc"><span class="sc-tag">05 · SOVEREIGNTY</span><span class="sc-name">Critical Minerals</span><span class="sc-desc">Rare earths, lithium, onshoring.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,25 15,23 30,24 45,20 60,21 75,16 90,17 105,9 120,2" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer hot">UPDATED MON</span></a>
+      <a href="/private/defense.html" class="sc"><span class="sc-tag">03 · AUTONOMY</span><span class="sc-name">Defense Tech</span><span class="sc-desc">Battlefield software, drones, rearmament.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,22 15,20 30,21 45,15 60,17 75,10 90,12 105,7 120,4" fill="none" stroke="#ec3013" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/nuclear.html" class="sc"><span class="sc-tag">04 · AI POWER</span><span class="sc-name">Nuclear &amp; SMRs</span><span class="sc-desc">Reactors, uranium, data-center demand.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,24 15,21 30,22 45,16 60,13 75,15 90,9 105,6 120,3" fill="none" stroke="#ec3013" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
+      <a href="/private/minerals.html" class="sc"><span class="sc-tag">05 · SOVEREIGNTY</span><span class="sc-name">Critical Minerals</span><span class="sc-desc">Rare earths, lithium, onshoring.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,25 15,23 30,24 45,20 60,21 75,16 90,17 105,9 120,2" fill="none" stroke="#ec3013" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer hot">UPDATED MON</span></a>
       <a href="/private/space.html" class="sc"><span class="sc-tag">06 · FRONTIER</span><span class="sc-name">Space Economy</span><span class="sc-desc">Launch and satellites post-SpaceX IPO.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,19 15,17 30,20 45,15 60,18 75,13 90,15 105,12 120,11" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
       <a href="/private/storage.html" class="sc"><span class="sc-tag">07 · GRID</span><span class="sc-name">Energy Storage</span><span class="sc-desc">Grid batteries, next-gen chemistry.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,16 15,18 30,15 45,19 60,16 75,18 90,15 105,17 120,15" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
       <a href="/private/biotech.html" class="sc"><span class="sc-tag">08 · COMP BIO</span><span class="sc-name">AI Biotech</span><span class="sc-desc">Drug discovery models, longevity capital.</span><svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%;height:28px;display:block"><polyline points="0,12 15,14 30,11 45,15 60,14 75,18 90,16 105,20 120,22" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg><span class="sc-footer">UPDATED MON</span></a>
@@ -454,14 +455,14 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:12px;padding-bottom:6px">
         <div class="funds-bar">
-          <div style="width:34%;background:#ff5a1f"></div><div style="width:18%;background:#27272a"></div>
+          <div style="width:34%;background:#ec3013"></div><div style="width:18%;background:#201e1d"></div>
           <div style="width:14%;background:#52525b"></div><div style="width:12%;background:#71717a"></div>
           <div style="width:9%;background:#a1a1aa"></div><div style="width:7%;background:#d4d4d8"></div>
           <div style="width:6%;background:#f4f4f5;outline:1px solid #e4e4e7"></div>
         </div>
         <div class="funds-legend">
-          <span class="fl-item"><span class="fl-dot" style="background:#ff5a1f"></span>AI &amp; COMPUTE 34%</span>
-          <span class="fl-item"><span class="fl-dot" style="background:#27272a"></span>DEFENSE 18%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#ec3013"></span>AI &amp; COMPUTE 34%</span>
+          <span class="fl-item"><span class="fl-dot" style="background:#201e1d"></span>DEFENSE 18%</span>
           <span class="fl-item"><span class="fl-dot" style="background:#52525b"></span>NUCLEAR 14%</span>
           <span class="fl-item"><span class="fl-dot" style="background:#71717a"></span>ROBOTICS 12%</span>
           <span class="fl-item"><span class="fl-dot" style="background:#a1a1aa"></span>MINERALS 9%</span>
@@ -494,6 +495,7 @@
 </div>
 
 <button class="menu-btn" onclick="openSb()">☰</button>
+<script src="/private/sectors-data.js"></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('/private/sw.js')</script>
 <script>
 function openSb(){document.getElementById('sb').classList.add('open');document.getElementById('overlay').style.display='block'}
@@ -538,7 +540,40 @@ const sectors=[
   {n:'Quantum',p:4.1,w:15},{n:'Energy Storage',p:2.4,w:9},{n:'AI Biotech',p:-1.6,w:5}
 ];
 const mr=$('mom-rows');
-if(mr)mr.innerHTML=sectors.map(s=>`<div class="mom-row"><span class="mom-name">${s.n}</span><div class="mom-track"><div class="mom-bar" style="width:${s.w}%;background:${s.top?'#ff5a1f':'#52525b'}"></div></div><span class="mom-val">${s.p>=0?'+':''}${s.p}%</span></div>`).join('');
+if(mr)mr.innerHTML=sectors.map(s=>`<div class="mom-row"><span class="mom-name">${s.n}</span><div class="mom-track"><div class="mom-bar" style="width:${s.w}%;background:${s.top?'#ec3013':'#605d5d'}"></div></div><span class="mom-val">${s.p>=0?'+':''}${s.p}%</span></div>`).join('');
+
+// Inject momentum dots into sidebar sector links from FYN_BRIEF data
+(function(){
+  var order=['ai','robotics','defense','nuclear','minerals','space','storage','biotech','quantum'];
+  var links=document.querySelectorAll('.sb-group a[href]');
+  links.forEach(function(a){
+    var href=a.getAttribute('href')||'';
+    var match=href.match(/\/private\/(\w+)\.html$/);
+    if(!match)return;
+    var id=match[1];
+    if(order.indexOf(id)<0)return;
+    var dot=document.createElement('span');
+    dot.className='sb-sector-dot';
+    var color='#bab6b6';
+    if(window.FYN_BRIEF&&window.FYN_BRIEF.sect){
+      var s=window.FYN_BRIEF.sect.find(function(x){return x[0]===id;});
+      if(s){
+        var tag=(s[2]||'').toLowerCase();
+        if(tag==='constructive')color='#201e1d';
+        else if(tag==='extreme spec')color='#ec3013';
+        else if(tag==='bifurcated'||tag==='crosscurrents')color='#bab6b6';
+        else color='#eae7e7';
+      }
+    } else if(window.FYN_SECTORS&&window.FYN_SECTORS[id]){
+      var m=(window.FYN_SECTORS[id].momentum||'').toLowerCase();
+      if(m==='constructive')color='#201e1d';
+      else if(m==='extreme spec')color='#ec3013';
+      else color='#bab6b6';
+    }
+    dot.style.background=color;
+    a.appendChild(dot);
+  });
+})();
 </script>
 </body>
 </html>
