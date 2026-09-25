@@ -357,12 +357,12 @@ a{text-decoration:none;color:inherit;}
         <div class="sec-hdr" style="margin-top:32px;">
           <h3 class="sec-title">Sectors</h3>
           <div class="tm-legend">
-            <div class="tm-swatch"><div class="tm-sq" style="background:var(--color-text)"></div>≥+5%</div>
-            <div class="tm-swatch"><div class="tm-sq" style="background:var(--color-neutral-700)"></div>+2–5%</div>
-            <div class="tm-swatch"><div class="tm-sq" style="background:var(--color-neutral-300)"></div>0–2%</div>
-            <div class="tm-swatch"><div class="tm-sq" style="background:var(--color-accent-200)"></div>0– −2%</div>
-            <div class="tm-swatch"><div class="tm-sq" style="background:var(--color-accent-500)"></div>−2– −5%</div>
-            <div class="tm-swatch"><div class="tm-sq" style="background:var(--color-accent-700)"></div>≤−5%</div>
+            <div class="tm-swatch"><div class="tm-sq" style="background:#1a7a3c"></div>≥+5%</div>
+            <div class="tm-swatch"><div class="tm-sq" style="background:#2da84f"></div>+2–5%</div>
+            <div class="tm-swatch"><div class="tm-sq" style="background:#7dcf99"></div>0–2%</div>
+            <div class="tm-swatch"><div class="tm-sq" style="background:#f4a4a0"></div>0– −2%</div>
+            <div class="tm-swatch"><div class="tm-sq" style="background:#e03030"></div>−2– −5%</div>
+            <div class="tm-swatch"><div class="tm-sq" style="background:#a81818"></div>≤−5%</div>
           </div>
         </div>
         <div class="treemap-wrap" id="treemap"><div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-neutral-600);">Loading…</div></div>
@@ -669,14 +669,14 @@ function attachChartHover(chartId,series,fmtFn,timeFn){
 // TREEMAP
 // ═══════════════════════════════════════
 function heatBg(v){
-  if(v>=5)  return 'var(--color-text)';
-  if(v>=2)  return 'var(--color-neutral-700)';
-  if(v>=0)  return 'var(--color-neutral-300)';
-  if(v>=-2) return 'var(--color-accent-200)';
-  if(v>=-5) return 'var(--color-accent-500)';
-  return 'var(--color-accent-700)';
+  if(v>=5)  return '#1a7a3c';  /* strong green */
+  if(v>=2)  return '#2da84f';  /* mid green */
+  if(v>=0)  return '#7dcf99';  /* light green */
+  if(v>=-2) return '#f4a4a0';  /* light red */
+  if(v>=-5) return '#e03030';  /* mid red */
+  return '#a81818';            /* strong red */
 }
-function heatFg(v){ return (v>=0&&v<2)?'var(--color-text)':'var(--color-bg)'; }
+function heatFg(v){ return (v>=-2&&v<2)?'var(--color-text)':'var(--color-bg)'; }
 
 function tmLayout(items,x,y,w,h){
   if(!items.length) return [];
