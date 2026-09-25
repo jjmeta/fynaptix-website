@@ -134,6 +134,33 @@ a{text-decoration:none;color:inherit}
 .sp-tok-chg{font-family:var(--fm);font-size:.62rem;font-weight:700}
 .sp-mcap{font-family:var(--fm);font-size:.44rem;color:var(--subtle);margin-top:8px}
 
+/* ── TOP 3 CATEGORY DEEP DIVE ── */
+.top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.t3-card{background:var(--bg2);border:1px solid var(--border);overflow:hidden;position:relative}
+.t3-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#10b981,#34d399)}
+.t3-header{padding:16px 18px 12px;border-bottom:1px solid var(--border)}
+.t3-rank{font-family:var(--fm);font-size:.44rem;letter-spacing:.14em;color:var(--orange);margin-bottom:4px}
+.t3-name{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:8px}
+.t3-stats{display:flex;gap:20px;align-items:flex-end}
+.t3-pct{font-family:var(--fm);font-size:1.8rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.t3-meta{display:flex;flex-direction:column;gap:3px}
+.t3-7d{font-family:var(--fm);font-size:.58rem;font-weight:700}
+.t3-mcap{font-family:var(--fm);font-size:.5rem;color:var(--subtle)}
+.t3-tokens{padding:0 18px 14px}
+.t3-tok{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.t3-tok:last-child{border-bottom:none}
+.t3-tok-img{width:28px;height:28px;border-radius:50%;background:var(--bg3);flex-shrink:0}
+.t3-tok-info{flex:1;min-width:0}
+.t3-tok-sym{font-family:var(--fm);font-size:.75rem;font-weight:700;color:var(--text)}
+.t3-tok-name{font-size:.62rem;color:var(--subtle);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t3-tok-price{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--text);text-align:right}
+.t3-tok-chg{font-family:var(--fm);font-size:.72rem;font-weight:700;text-align:right;min-width:52px}
+.t3-tok-7d{font-family:var(--fm);font-size:.5rem;text-align:right;color:var(--subtle)}
+.t3-vol{padding:8px 18px;background:rgba(255,255,255,.02);border-top:1px solid var(--border)}
+.t3-vol-lbl{font-family:var(--fm);font-size:.44rem;letter-spacing:.1em;color:var(--subtle)}
+.t3-vol-val{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--text)}
+@media(max-width:900px){.top3-grid{grid-template-columns:1fr}}
+
 /* ── CATEGORIES ── */
 .cat-controls{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;align-items:center}
 .cat-sort-btn{font-family:var(--fm);font-size:.52rem;letter-spacing:.07em;padding:4px 10px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer}
@@ -259,6 +286,19 @@ a{text-decoration:none;color:inherit}
     <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
     <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
     <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+  </div>
+</div>
+
+<!-- TOP 3 CATEGORIES DEEP DIVE -->
+<div style="padding:0 24px;background:var(--bg);border-bottom:1px solid var(--border)">
+  <div style="padding:14px 0 4px;display:flex;align-items:center;gap:8px">
+    <span style="font-family:var(--fm);font-size:.48rem;font-weight:700;letter-spacing:.16em;color:var(--orange)">TOP NARRATIVES</span>
+    <span style="font-family:var(--fm);font-size:.46rem;letter-spacing:.06em;color:var(--subtle)">TOP 3 PERFORMING CATEGORIES WITH BEST TOKENS INSIDE EACH</span>
+  </div>
+  <div class="top3-grid" id="top3Grid">
+    <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div><div class="t3-pct" style="color:var(--subtle)">—</div></div></div>
+    <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div><div class="t3-pct" style="color:var(--subtle)">—</div></div></div>
+    <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div><div class="t3-pct" style="color:var(--subtle)">—</div></div></div>
   </div>
 </div>
 
@@ -727,6 +767,62 @@ function renderSpotlight(){
   }).join('');
 }
 
+function renderTop3(){
+  if(!catData.length) return;
+  const filtered = catData.filter(c=>c.market_cap>5e7 && (c.top_3_coins_data||[]).length>0);
+  const top3 = [...filtered].sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0)).slice(0,3);
+
+  const rankLabel = ['#1 RUNNING NARRATIVE','#2 RUNNING NARRATIVE','#3 RUNNING NARRATIVE'];
+
+  document.getElementById('top3Grid').innerHTML = top3.map((cat,idx)=>{
+    const chg24 = cat.market_cap_change_24h||0;
+    const chg7  = cat.market_cap_change_7d||0;
+    const tokens = (cat.top_3_coins_data||[]).slice(0,3);
+    const name = cat.name.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFT');
+
+    const topBorder = chg24>=0
+      ? `background:linear-gradient(90deg,#10b981,#34d399)`
+      : `background:linear-gradient(90deg,#ef4444,#f87171)`;
+
+    const tokRows = tokens.map(t=>{
+      const tc  = t.price_change_percentage_24h||0;
+      const tc7 = t.price_change_percentage_7d_in_currency||0;
+      return `<div class="t3-tok">
+        <img src="${t.image||t.thumb||''}" class="t3-tok-img" onerror="this.style.display='none'"/>
+        <div class="t3-tok-info">
+          <div class="t3-tok-sym">${(t.symbol||'').toUpperCase()}</div>
+          <div class="t3-tok-name">${t.name||''}</div>
+        </div>
+        <div>
+          <div class="t3-tok-price">${price(t.current_price)}</div>
+          <div class="t3-tok-7d ${cls(tc7)}" style="text-align:right;font-size:.46rem">${pct(tc7)} 7d</div>
+        </div>
+        <div class="t3-tok-chg ${cls(tc)}">${pct(tc)}</div>
+      </div>`;
+    }).join('');
+
+    return `<div class="t3-card">
+      <div style="position:absolute;top:0;left:0;right:0;height:4px;${topBorder}"></div>
+      <div class="t3-header">
+        <div class="t3-rank">${rankLabel[idx]}</div>
+        <div class="t3-name">${name}</div>
+        <div class="t3-stats">
+          <div class="t3-pct ${cls(chg24)}">${pct(chg24)}</div>
+          <div class="t3-meta">
+            <span class="t3-7d ${cls(chg7)}">${pct(chg7)} <span style="color:var(--subtle);font-weight:400">7d</span></span>
+            <span class="t3-mcap">${big(cat.market_cap)} mcap</span>
+          </div>
+        </div>
+      </div>
+      <div class="t3-tokens">${tokRows}</div>
+      <div class="t3-vol">
+        <div class="t3-vol-lbl">24H VOLUME</div>
+        <div class="t3-vol-val">${big(cat.volume_24h||0)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function heatClass(v){
   if(v>=5)  return 'cat-hot3';
   if(v>=2)  return 'cat-hot2';
@@ -784,6 +880,7 @@ function renderCategories(){
                   :                      'UNDER PRESSURE (24H)';
 
   renderSpotlight();
+  renderTop3();
 
   document.getElementById('catPanels').innerHTML = `
     <div class="card">
