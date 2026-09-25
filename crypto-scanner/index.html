@@ -824,7 +824,7 @@ async function fetchCategories(){
 
 function renderTop3(){
   if(!catData.length) return;
-  const top3=[...catData].filter(c=>c.market_cap>5e7&&(c.top_3_coins_data||[]).length>0)
+  const top3=[...catData].filter(c=>c.market_cap>5e7)
     .sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0)).slice(0,3);
   const el=document.getElementById('top3Grid'); if(!el) return;
   el.innerHTML=top3.map((cat,idx)=>{
@@ -840,6 +840,7 @@ function renderTop3(){
         <div><div class="top3-stat-lbl">Mcap</div><div style="font-size:14px;font-weight:600;">${big(cat.market_cap)}</div></div>
       </div>
       <div class="top3-rule"></div>
+      ${!toks.length?'<div style="padding:10px 0;color:var(--color-neutral-600);font-size:13px;">Loading tokens…</div>':''}
       ${toks.map((t,i)=>{
         const tc=t.price_change_percentage_24h||0;
         return `<div class="top3-tok-row">
