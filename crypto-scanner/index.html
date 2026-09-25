@@ -62,16 +62,6 @@ a{text-decoration:none;color:inherit}
 .card{background:var(--bg2);border:1px solid var(--border);padding:14px 16px}
 .card-hd{font-family:var(--fm);font-size:.48rem;letter-spacing:.12em;color:var(--orange);text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 
-/* ── WATCHLIST ── */
-.wl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:7px;margin-bottom:22px}
-.wl-card{background:var(--bg2);border:1px solid var(--border);padding:11px 13px;transition:border-color .2s}
-.wl-card:hover{border-color:rgba(255,90,31,.3)}
-.wl-sym{font-family:var(--fm);font-size:.72rem;font-weight:700}
-.wl-name{font-size:.6rem;color:var(--muted);margin-bottom:7px}
-.wl-price{font-family:var(--fm);font-size:.95rem;font-weight:700}
-.wl-row{display:flex;gap:10px;margin-top:5px;flex-wrap:wrap}
-.wl-chg-lbl{font-family:var(--fm);font-size:.42rem;color:var(--subtle)}
-.wl-chg{font-family:var(--fm);font-size:.58rem;font-weight:700}
 
 /* ── COLORS ── */
 .up{color:var(--green)} .dn{color:var(--red)} .neu{color:var(--muted)}
@@ -287,10 +277,6 @@ a{text-decoration:none;color:inherit}
     <div class="ov-cell"><div class="ov-lbl">24h Vol (spot)</div><div class="ov-val" id="ov-vol">—</div><div class="ov-chg" style="font-size:.44rem;color:var(--subtle)">COINGECKO</div></div>
   </div>
 
-  <!-- WATCHLIST -->
-  <div class="sh"><div class="sk">01</div><div class="st">Your Watchlist</div><div class="sb">8 TOKENS · LIVE</div></div>
-  <div class="wl-grid" id="wlGrid"><div class="loading">Loading prices…</div></div>
-
   <!-- TOP MOVERS + FUNDING RATES -->
   <div class="g2">
     <div>
@@ -405,16 +391,6 @@ a{text-decoration:none;color:inherit}
 // ═══════════════════════════════════════════════
 const COINALYZE_KEY = ''; // paste your key here
 
-const WL = [
-  {id:'bitcoin',            sym:'BTC',  name:'Bitcoin'},
-  {id:'ethereum',           sym:'ETH',  name:'Ethereum'},
-  {id:'solana',             sym:'SOL',  name:'Solana'},
-  {id:'chainlink',          sym:'LINK', name:'Chainlink'},
-  {id:'injective-protocol', sym:'INJ',  name:'Injective'},
-  {id:'avalanche-2',        sym:'AVAX', name:'Avalanche'},
-  {id:'render-token',       sym:'RNDR', name:'Render'},
-  {id:'bittensor',          sym:'TAO',  name:'Bittensor'},
-];
 
 const SECTORS = {
   'AI × Crypto':   ['render-token','bittensor','fetch-ai','akash-network'],
@@ -460,19 +436,6 @@ function setChg(id,v){
 // ═══════════════════════════════════════════════
 // TICKER TAPE
 // ═══════════════════════════════════════════════
-let tickerPrices = {};
-function buildTicker(){
-  const items = [...WL.map(w=>{
-    const d = tickerPrices[w.id]||{};
-    const c = d.usd_24h_change||0;
-    return `<div class="ticker-item"><b>${w.sym}</b><span class="${cls(c)}">${price(d.usd)} ${pct(c)}</span></div>`;
-  }),
-  `<div class="ticker-item"><b>BTC.D</b><span id="tick-btcd">—</span></div>`,
-  `<div class="ticker-item"><b>MCAP</b><span id="tick-mcap">—</span></div>`,
-  ];
-  const doubled = [...items,...items];
-  document.getElementById('tickerTrack').innerHTML = doubled.join('');
-}
 
 // ═══════════════════════════════════════════════
 // COINGECKO — global
@@ -498,51 +461,37 @@ async function fetchGlobal(){
   if(bm) bm.textContent = big(mcap);
 }
 
-// ═══════════════════════════════════════════════
-// COINGECKO — watchlist
-// ═══════════════════════════════════════════════
-async function fetchWatchlist(){
-  const ids = WL.map(w=>w.id).join(',');
-  const r = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true&include_7d_change=true&include_market_cap=true`);
-  const data = await r.json();
-  tickerPrices = data;
-  buildTicker();
-
-  // overview for BTC / ETH / SOL
-  ['btc','eth','sol'].forEach(sym=>{
-    const w = WL.find(x=>x.sym===sym.toUpperCase());
-    if(!w) return;
-    const d = data[w.id]||{};
-    setEl(`ov-${sym}`, price(d.usd));
-    setChg(`ov-${sym}-c`, d.usd_24h_change);
-  });
-
-  // watchlist cards
-  document.getElementById('wlGrid').innerHTML = WL.map(w=>{
-    const d = data[w.id]||{};
-    const c24 = d.usd_24h_change||0;
-    const c7  = d.usd_7d_change||0;
-    const accent = c24>4?'border-left:3px solid var(--green)':c24<-4?'border-left:3px solid var(--red)':'';
-    return `<div class="wl-card" style="${accent}">
-      <div class="wl-sym">${w.sym}</div>
-      <div class="wl-name">${w.name}</div>
-      <div class="wl-price">${price(d.usd)}</div>
-      <div class="wl-row">
-        <div><div class="wl-chg-lbl">24H</div><div class="wl-chg ${cls(c24)}">${pct(c24)}</div></div>
-        <div><div class="wl-chg-lbl">7D</div><div class="wl-chg ${cls(c7)}">${pct(c7)}</div></div>
-        <div><div class="wl-chg-lbl">MCAP</div><div class="wl-chg neu" style="font-size:.48rem">${big(d.usd_market_cap)}</div></div>
-      </div>
-    </div>`;
-  }).join('');
-}
 
 // ═══════════════════════════════════════════════
 // COINGECKO — top 100 movers
 // ═══════════════════════════════════════════════
 async function fetchMovers(){
-  const r = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h');
+  const r = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h,7d');
   const coins = await r.json();
   if(!Array.isArray(coins)) return;
+
+  // populate BTC / ETH / SOL overview cells
+  const symMap = {bitcoin:'btc', ethereum:'eth', solana:'sol'};
+  coins.forEach(c=>{
+    const sym = symMap[c.id];
+    if(!sym) return;
+    setEl(`ov-${sym}`, price(c.current_price));
+    setChg(`ov-${sym}-c`, c.price_change_percentage_24h);
+  });
+
+  // populate ticker tape from top coins
+  const tickerCoins = ['bitcoin','ethereum','solana','chainlink','injective-protocol','avalanche-2','render-token','bittensor'];
+  const tickItems = tickerCoins.map(id=>{
+    const c = coins.find(x=>x.id===id);
+    if(!c) return '';
+    const sym = c.symbol.toUpperCase();
+    const ch  = c.price_change_percentage_24h||0;
+    return `<div class="ticker-item"><b>${sym}</b><span class="${cls(ch)}">${price(c.current_price)} ${pct(ch)}</span></div>`;
+  }).filter(Boolean);
+  const btcdEl = `<div class="ticker-item"><b>BTC.D</b><span id="tick-btcd">—</span></div>`;
+  const mcapEl = `<div class="ticker-item"><b>MCAP</b><span id="tick-mcap">—</span></div>`;
+  const all = [...tickItems, btcdEl, mcapEl];
+  document.getElementById('tickerTrack').innerHTML = [...all,...all].join('');
 
   const sorted = [...coins].filter(c=>c.price_change_percentage_24h!=null)
     .sort((a,b)=>b.price_change_percentage_24h - a.price_change_percentage_24h);
@@ -885,7 +834,6 @@ async function fetchAll(){
   document.getElementById('lastUpd').textContent = 'Refreshing…';
   await Promise.allSettled([
     fetchGlobal(),
-    fetchWatchlist(),
     fetchMovers(),
     fetchSectors(),
     fetchBybit(),
