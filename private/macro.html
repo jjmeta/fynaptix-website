@@ -3,133 +3,237 @@
 <head>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="icon" type="image/png" href="../favicon.png">
   <link rel="apple-touch-icon" href="../favicon.png">
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Fynaptix · Macro Context</title>
-<meta name="robots" content="noindex,nofollow"/>
-<link rel="manifest" href="/private/manifest.json"/>
-<meta name="theme-color" content="#05070f"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/private/research.css"/>
-<style>
-  .tv-mini{height:220px}
-  .grid-2m{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fynaptix · Macro Dashboard</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link rel="stylesheet" href="/private/hub.css"/>
+  <style>
+    .mk-nav-item{display:block;padding:7px 20px;font-size:13px;color:var(--color-text);text-decoration:none;}
+    .mk-nav-item:hover{background:var(--n200);}
+    .mk-nav-item.active{background:var(--n200);box-shadow:inset 4px 0 0 var(--color-accent);font-weight:800;cursor:default;}
+
+    .ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--color-bg);overflow:hidden;border-top:2px solid var(--color-text);}
+    .ind-cell{background:var(--color-bg);outline:1px solid var(--color-divider);padding:20px 24px 22px 0;display:flex;flex-direction:column;gap:10px;}
+    .ind-row{display:flex;justify-content:space-between;align-items:baseline;}
+    .ind-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--n700);}
+    .ind-val{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+    .ind-chg{font-size:11px;font-weight:800;}
+    .ind-cap{font-size:11px;color:var(--n700);}
+    .c-up{color:oklch(0.5 0.13 150);}
+    .c-dn{color:var(--color-accent-700);}
+
+    .reads-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--color-bg);overflow:hidden;border-top:2px solid var(--color-text);}
+    .read-cell{background:var(--color-bg);outline:1px solid var(--color-divider);padding:18px 20px 20px 0;display:flex;flex-direction:column;gap:8px;}
+    .read-name{font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;}
+    .read-head{font-size:13px;font-weight:600;color:var(--color-accent-700);}
+    .read-body{font-size:13px;line-height:1.5;color:var(--n800);}
+
+    .commentary-wrap{border-top:2px solid var(--color-text);padding-top:18px;display:flex;flex-direction:column;gap:14px;max-width:900px;}
+    .commentary-p{font-size:15px;line-height:1.65;color:var(--n800);}
+    .commentary-cap{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--n700);padding-top:8px;border-top:1px solid var(--color-divider);}
+  </style>
 </head>
 <body>
-<div class="layout">
+<div class="hub-layout">
 
-  <aside class="sidebar">
-    <a class="sidebar-logo" href="/"><div class="logo-mark">∞</div>Fynaptix Research</a>
-    <div style="flex:1;overflow-y:auto;padding:.5rem 0">
-      <div class="sidebar-section">Research</div>
-      <a class="nav-item" href="/private/">Home</a>
-      <a class="nav-item" href="/private/overview.html">★ Weekly Brief</a>
-      <a class="nav-item" href="/private/ai.html">AI &amp; Compute</a>
-      <a class="nav-item" href="/private/robotics.html">Robotics</a>
-      <a class="nav-item" href="/private/defense.html">Defense Tech</a>
-      <a class="nav-item" href="/private/nuclear.html">Nuclear &amp; SMRs</a>
-      <a class="nav-item" href="/private/minerals.html">Critical Minerals</a>
-      <a class="nav-item" href="/private/space.html">Space Economy</a>
-      <a class="nav-item" href="/private/storage.html">Energy Storage</a>
-      <a class="nav-item" href="/private/biotech.html">AI Biotech</a>
-      <a class="nav-item" href="/private/quantum.html">Quantum</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Fund Watch</div>
-      <a class="nav-item" href="/private/ark.html">ARK Invest</a>
-      <a class="nav-item" href="/private/bailliegifford.html">Baillie Gifford</a>
-      <a class="nav-item" href="/private/investors.html">Investor Voices</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Markets</div>
-      <a class="nav-item" href="/private/watchlist.html">Live Watchlist</a>
-      <a class="nav-item" href="/private/calendar.html">Catalyst Calendar</a>
-      <a class="nav-item" href="/private/ipo.html">IPO Pipeline</a>
-      <a class="nav-item" href="/private/etfs.html">ETF Compare</a>
-      <a class="nav-item active" href="/private/macro.html">Macro</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Education</div>
-      <a class="nav-item" href="/private/education.html">Investing 101</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Track Record</div>
-      <a class="nav-item" href="/private/archive.html">Research Archive</a>
-      <a class="nav-item" href="/private/calibration.html">Calibration</a>
-      <div class="sidebar-section" style="margin-top:.5rem">Strategy</div>
-      <a class="nav-item" href="/private/strategy.html">Portfolio Strategy</a>
-      <a class="nav-item" href="/private/journal.html">Decision Journal</a>
-      <a class="nav-item" href="/private/paper.html">Paper Portfolio</a>
-    </div>
-    <div class="sidebar-footer">
-      <a class="nav-item" href="/" style="margin:0"><span class="icon"></span> Public Site</a>
+  <aside class="hub-sidebar">
+    <div class="hub-sidebar-inner">
+      <a href="/" class="hub-brand">
+        <div class="hub-brand-kicker"><span class="hub-brand-kicker-dot"></span>Fynaptix · Private</div>
+        <div class="hub-brand-name">Macro</div>
+      </a>
+      <div class="hub-nav-groups">
+        <div class="hub-nav-group-label">Markets</div>
+        <a href="/private/watchlist.html" class="mk-nav-item">Live Watchlist</a>
+        <a href="/private/markets.html" class="mk-nav-item">Catalyst Calendar</a>
+        <a href="/private/markets.html#ipo" class="mk-nav-item">IPO Pipeline</a>
+        <a href="/private/etfs.html" class="mk-nav-item">ETF Compare</a>
+        <div class="mk-nav-item active">Macro</div>
+      </div>
+      <div class="hub-sidebar-footer" style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;justify-content:space-between;color:var(--n700);">
+          <span>Updated</span><span id="mk-clock" style="color:var(--color-text);"></span>
+        </div>
+        <a href="/private/" style="color:var(--color-text);text-decoration:none;">← Research Hub</a>
+      </div>
     </div>
   </aside>
 
-  <main class="main">
-    <div class="topbar">
-      <div class="topbar-left">
-        <div class="kicker">MACRO CONTEXT // THE BACKDROP</div>
-        <h2>Macro Dashboard</h2>
-        <p>Rates, risk appetite &amp; hedges — the weather behind every sector dashboard</p>
+  <main class="hub-main">
+    <div class="hub-content">
+
+      <div class="hub-page-header">
+        <div>
+          <div class="hub-kicker" style="margin-bottom:10px;">Macro context · The backdrop</div>
+          <h1 class="hub-h1">Macro<br>Dashboard</h1>
+          <p style="margin:14px 0 0;font-size:16px;max-width:560px;color:var(--n800);">Rates, risk appetite and hedges — the weather behind every sector dashboard.</p>
+        </div>
+        <div class="hub-meta">
+          <span>Live indicators</span>
+          <span>Commentary refreshes Mondays</span>
+          <span style="color:var(--color-accent-700);">Not financial advice</span>
+        </div>
       </div>
-      <div class="time-badge"><div class="pulse"></div>Live charts · Commentary refreshes Mondays</div>
+
+      <!-- 01 The big five -->
+      <section style="padding:8px 0 32px;border-bottom:2px solid var(--color-divider);">
+        <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:16px;">
+          <span class="hub-kicker">01</span>
+          <h2 style="font-size:25px;font-weight:800;">The big five</h2>
+        </div>
+        <div class="ind-grid">
+
+          <div class="ind-cell">
+            <div class="ind-row">
+              <span class="ind-label">US10Y · Rates</span>
+              <span class="ind-chg c-up">−0.07pp</span>
+            </div>
+            <div class="ind-val">4.945%</div>
+            <div class="tradingview-widget-container" style="height:70px;">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {"symbol":"TVC:US10Y","width":"100%","height":"70","locale":"en","dateRange":"3M","colorTheme":"light","trendLineColor":"#201e1d","underLineColor":"rgba(32,30,29,0.05)","isTransparent":true,"autosize":false,"chartOnly":true,"noTimeScale":true}
+              </script>
+            </div>
+            <span class="ind-cap">60-day yield</span>
+          </div>
+
+          <div class="ind-cell">
+            <div class="ind-row">
+              <span class="ind-label">VIX · Risk appetite</span>
+              <span class="ind-chg c-up">−0.63</span>
+            </div>
+            <div class="ind-val">14.81</div>
+            <div class="tradingview-widget-container" style="height:70px;">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {"symbol":"TVC:VIX","width":"100%","height":"70","locale":"en","dateRange":"3M","colorTheme":"light","trendLineColor":"#201e1d","underLineColor":"rgba(32,30,29,0.05)","isTransparent":true,"autosize":false,"chartOnly":true,"noTimeScale":true}
+              </script>
+            </div>
+            <span class="ind-cap">60-day level</span>
+          </div>
+
+          <div class="ind-cell">
+            <div class="ind-row">
+              <span class="ind-label">Gold · Hedge</span>
+              <span class="ind-chg c-up">+$42</span>
+            </div>
+            <div class="ind-val">$4,383</div>
+            <div class="tradingview-widget-container" style="height:70px;">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {"symbol":"TVC:GOLD","width":"100%","height":"70","locale":"en","dateRange":"3M","colorTheme":"light","trendLineColor":"#201e1d","underLineColor":"rgba(32,30,29,0.05)","isTransparent":true,"autosize":false,"chartOnly":true,"noTimeScale":true}
+              </script>
+            </div>
+            <span class="ind-cap">60-day $/oz</span>
+          </div>
+
+          <div class="ind-cell">
+            <div class="ind-row">
+              <span class="ind-label">BTC · Liquidity</span>
+              <span class="ind-chg c-up">+$2,100</span>
+            </div>
+            <div class="ind-val">$78,400</div>
+            <div class="tradingview-widget-container" style="height:70px;">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {"symbol":"COINBASE:BTCUSD","width":"100%","height":"70","locale":"en","dateRange":"3M","colorTheme":"light","trendLineColor":"#201e1d","underLineColor":"rgba(32,30,29,0.05)","isTransparent":true,"autosize":false,"chartOnly":true,"noTimeScale":true}
+              </script>
+            </div>
+            <span class="ind-cap">60-day price</span>
+          </div>
+
+          <div class="ind-cell">
+            <div class="ind-row">
+              <span class="ind-label">DXY · Dollar</span>
+              <span class="ind-chg c-up">+0.34</span>
+            </div>
+            <div class="ind-val">100.20</div>
+            <div class="tradingview-widget-container" style="height:70px;">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {"symbol":"TVC:DXY","width":"100%","height":"70","locale":"en","dateRange":"3M","colorTheme":"light","trendLineColor":"#ae1800","underLineColor":"rgba(174,24,0,0.06)","isTransparent":true,"autosize":false,"chartOnly":true,"noTimeScale":true}
+              </script>
+            </div>
+            <span class="ind-cap">60-day index</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 02 Reading the backdrop -->
+      <section style="padding:28px 0;border-bottom:2px solid var(--color-divider);">
+        <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:14px;">
+          <span class="hub-kicker">02</span>
+          <h2 style="font-size:25px;font-weight:800;">Reading the backdrop</h2>
+        </div>
+        <div class="reads-grid">
+          <div class="read-cell">
+            <b class="read-name">Rates (US10Y)</b>
+            <span class="read-head">The gravity on growth stocks</span>
+            <span class="read-body">Rising long yields compress valuations of long-duration cash flows — quantum, humanoids, pre-revenue SMRs and biotech feel it first and hardest.</span>
+          </div>
+          <div class="read-cell">
+            <b class="read-name">VIX</b>
+            <span class="read-head">Risk appetite gauge</span>
+            <span class="read-body">Sustained spikes drain speculative sectors regardless of fundamentals — also historically the best moments to deploy the cash "opportunity" sleeve.</span>
+          </div>
+          <div class="read-cell">
+            <b class="read-name">Gold</b>
+            <span class="read-head">Hedge confirmation</span>
+            <span class="read-body">Gold strength alongside equity weakness is diversification working; gold and stocks rising together often signals inflation or currency concerns.</span>
+          </div>
+          <div class="read-cell">
+            <b class="read-name">Bitcoin</b>
+            <span class="read-head">Liquidity thermometer</span>
+            <span class="read-body">BTC tends to front-run liquidity shifts — weakness there often precedes pressure on the most speculative equity sleeves.</span>
+          </div>
+          <div class="read-cell">
+            <b class="read-name">Dollar (DXY)</b>
+            <span class="read-head">Overseas earnings &amp; commodities</span>
+            <span class="read-body">A strong dollar pressures commodity prices (minerals) and international revenue (Japanese FA names); a weak dollar is a tailwind for both.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Commentary -->
+      <section style="padding:28px 0;">
+        <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:14px;">
+          <span class="hub-kicker">03</span>
+          <h2 style="font-size:25px;font-weight:800;">This week's commentary</h2>
+        </div>
+        <div class="commentary-wrap">
+          <p class="commentary-p">The higher-for-longer regime the Fed set in motion on Sept 16 is still the backdrop, but this week was about AI's own leaders questioning the pace of the buildout they created.</p>
+          <p class="commentary-p">The 10-year touched ~5.01% on Sept 18, briefly nearing the 2007 record of 5.04%, before easing to ~4.94–4.95% — the AI sector's own debt-funding wave (an estimated ~$300B of AI-linked investment-grade issuance for 2026) is compounding the Fed's move, not just replacing it, with BofA pegging roughly 0.3 percentage points of the rise on that issuance alone.</p>
+          <p class="commentary-p">The VIX eased to ~14.81 (−4.08% on Sept 18) as post-hike uncertainty resolved; gold held its safe-haven bid near $4,383/oz (+0.97%) and bitcoin continued recovering toward the high-$70,000s, while the dollar index firmed to ~100.20.</p>
+          <p class="commentary-p">Anthropic CEO Dario Amodei's Sept 12 essay calling for the industry to "pace the frontier" — backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis — sent chip names lower for several sessions while Meta, Alphabet and Microsoft rose, a genuine sentiment move on top of the rate story.</p>
+          <p class="commentary-p">Beneath it, the stance board saw one of its heaviest weeks of changes yet, 24 in total: Vishay Precision Group and J&amp;J's Ottava (Robotics), BAE Systems and AeroVironment (Defense), Centrus Energy (Nuclear), Energy Fuels (Minerals), Rocket Lab, L3Harris, ASTS and Intuitive Machines (Space), Eos Energy (Storage), Illumina, Intellia and Quantum-Si (Biotech), and IBM, NVIDIA and IonQ (Quantum) were all raised on converting contracts, regulatory de-risking or partner-validated milestones, while Kratos and Red Cat (Defense, the latter to Avoid), Redwire and Planet Labs (Space), and Alphabet, Rigetti and Quantinuum (Quantum) were trimmed — mostly on missed proof points rather than any single scandal.</p>
+          <p class="commentary-p">The starkest single data point: Holtec Nuclear pulled its ~$900M Nasdaq IPO on Sept 16–18 citing "market conditions" days after targeting a $10.2B valuation — a real operating company with $564M of trailing revenue stepping back is the clearest sign yet that 2026's most speculative corners are still being repriced.</p>
+          <p class="commentary-p">For the week ahead: Xi Jinping's Sept 24–25 Washington visit is the dominant catalyst, with rare-earth export licensing squarely on the agenda 47 days ahead of the Nov 10 export-control deadline, alongside flash PMI data Sept 23, Micron's Sept 25 earnings, and Starship Flight 14's latest target of NET Sept 28.</p>
+          <span class="commentary-cap">Charts stream live · commentary rewritten every Monday · updated Sep 21, 2026</span>
+        </div>
+      </section>
+
+      <div class="hub-footer">
+        <span>© 2026 Fynaptix · Personal research hub</span>
+        <span>Not financial advice · do your own due diligence</span>
+      </div>
+
     </div>
-
-    <div class="disclaimer"><strong>Not financial advice.</strong> Live charts via TradingView. Growth and speculative sectors are highly rate-sensitive — this backdrop often matters more than any single stock story.</div>
-
-    <section>
-      <div class="kicker">01 // LIVE INDICATORS</div>
-      <div class="sec-title">The Big Five</div>
-      <div class="grid-2m">
-        <div class="card tv-mini" style="padding:.4rem"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"SP:SPX","width":"100%","height":210,"locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
-          </script></div></div>
-        <div class="card tv-mini" style="padding:.4rem"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"TVC:US10Y","width":"100%","height":210,"locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
-          </script></div></div>
-        <div class="card tv-mini" style="padding:.4rem"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"TVC:GOLD","width":"100%","height":210,"locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
-          </script></div></div>
-        <div class="card tv-mini" style="padding:.4rem"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"BITSTAMP:BTCUSD","width":"100%","height":210,"locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
-          </script></div></div>
-        <div class="card tv-mini" style="padding:.4rem"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"TVC:DXY","width":"100%","height":210,"locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
-          </script></div></div>
-        <div class="card tv-mini" style="padding:.4rem"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"CAPITALCOM:VIX","width":"100%","height":210,"locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
-          </script></div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="kicker">02 // WHY EACH MATTERS</div>
-      <div class="sec-title">Reading the Backdrop</div>
-      <div class="grid-cards">
-        <div class="card-sm theme"><span class="tag">RATES (US10Y)</span><div class="t">The gravity on growth stocks</div><div class="d">Rising long yields compress valuations of long-duration cash flows — quantum, humanoids, pre-revenue SMRs, and biotech feel it first and hardest.</div></div>
-        <div class="card-sm theme"><span class="tag">VIX</span><div class="t">Risk appetite gauge</div><div class="d">Sustained VIX spikes drain speculative sectors regardless of fundamentals; also historically the best moments to deploy the cash "opportunity" sleeve.</div></div>
-        <div class="card-sm theme"><span class="tag">GOLD</span><div class="t">Hedge confirmation</div><div class="d">Gold strength alongside equity weakness is your diversification working; gold + stocks rising together often signals inflation/currency concerns.</div></div>
-        <div class="card-sm theme"><span class="tag">BITCOIN</span><div class="t">Liquidity thermometer</div><div class="d">BTC tends to front-run liquidity shifts — weakness there often precedes pressure on the most speculative equity sleeves.</div></div>
-        <div class="card-sm theme"><span class="tag">DOLLAR (DXY)</span><div class="t">Overseas earnings &amp; commodities</div><div class="d">A strong dollar pressures commodity prices (minerals) and international revenue (Japanese FA names); a weak dollar is a tailwind for both.</div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="kicker">03 // CURRENT READ</div>
-      <div class="sec-title">This Week's Commentary</div>
-      <div class="card-sm"><div class="theme"><div class="d">The higher-for-longer regime the Fed set in motion on Sept 16 is still the backdrop, but this week was about AI's own leaders questioning the pace of the buildout they created. The 10-year touched ~5.01% on Sept 18, briefly nearing the 2007 record of 5.04%, before easing to ~4.94-4.95% — the AI sector's own debt-funding wave (an estimated ~$300B of AI-linked investment-grade issuance for 2026) is compounding the Fed's move, not just replacing it, with BofA pegging roughly 0.3 percentage points of the rise on that issuance alone. The VIX eased to ~14.81 (-4.08% on Sept 18) as post-hike uncertainty resolved; gold held its safe-haven bid near $4,383/oz (+0.97%) and bitcoin continued recovering toward the high-$70,000s, while the dollar index firmed to ~100.20. Anthropic CEO Dario Amodei's Sept 12 essay calling for the industry to "pace the frontier" — backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis — sent chip names lower for several sessions while Meta, Alphabet and Microsoft rose, a genuine sentiment move on top of the rate story. Beneath it, the stance board saw one of its heaviest weeks of changes yet, 24 in total: Vishay Precision Group and J&amp;J's Ottava (Robotics), BAE Systems and AeroVironment (Defense), Centrus Energy (Nuclear), Energy Fuels (Minerals), Rocket Lab, L3Harris, ASTS and Intuitive Machines (Space), Eos Energy (Storage), Illumina, Intellia and Quantum-Si (Biotech), and IBM, NVIDIA and IonQ (Quantum) were all raised on converting contracts, regulatory de-risking or partner-validated technical milestones, while Kratos and Red Cat (Defense, the latter to Avoid), Redwire and Planet Labs (Space), and Alphabet, Rigetti and Quantinuum (Quantum) were trimmed — mostly on missed proof points rather than any single scandal. The starkest single data point: Holtec Nuclear pulled its ~$900M Nasdaq IPO on Sept 16-18 citing "market conditions" days after targeting a $10.2B valuation — a real operating company with $564M of trailing revenue stepping back is the clearest sign yet that 2026's most speculative corners are still being repriced. For the week ahead: Xi Jinping's Sept 24-25 Washington visit is the dominant catalyst, with rare-earth export licensing squarely on the agenda 47 days ahead of the Nov 10 export-control deadline, alongside flash PMI data Sept 23, Micron's Sept 25 earnings, and Starship Flight 14's latest target of NET Sept 28. — Updated Sep 21, 2026; refreshed weekly.</div></div></div>
-    </section>
-
-    <footer>
-      <div style="margin-top:.5rem">Charts stream live via TradingView; the commentary section is rewritten each Monday by the weekly research pipeline. Figures approximate as of Sep 21, 2026.</div>
-    </footer>
   </main>
-</div>
 
-<button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js')}</script>
+</div>
+<script>
+(function(){
+  function tick(){
+    var d=new Date();
+    var pad=function(n){return n.toString().padStart(2,'0');};
+    var el=document.getElementById('mk-clock');
+    if(el) el.textContent=pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds())+' UTC';
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
 </body>
 </html>
