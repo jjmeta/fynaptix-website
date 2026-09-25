@@ -119,6 +119,31 @@ a{text-decoration:none;color:inherit}
 .sc-24{font-family:var(--fm);font-size:.52rem;margin-top:3px}
 .sc-pct{font-family:var(--fm);font-size:.88rem;font-weight:700}
 
+/* ── SPOTLIGHT STRIP ── */
+.spotlight-wrap{background:var(--bg);border-bottom:1px solid var(--border);padding:0 24px}
+.spotlight-inner{display:flex;gap:10px;overflow-x:auto;padding:16px 0;scrollbar-width:none}
+.spotlight-inner::-webkit-scrollbar{display:none}
+.sp-card{width:172px;flex-shrink:0;background:var(--bg2);border:1px solid var(--border);padding:13px 14px;position:relative;overflow:hidden;transition:border-color .2s}
+.sp-card:hover{border-color:rgba(255,255,255,.18)}
+.sp-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sp-card.sp-h3::after{background:linear-gradient(90deg,#10b981,#34d399)}
+.sp-card.sp-h2::after{background:linear-gradient(90deg,#10b981,#6ee7b7);opacity:.7}
+.sp-card.sp-h1::after{background:#10b981;opacity:.4}
+.sp-card.sp-c1::after{background:#ef4444;opacity:.4}
+.sp-card.sp-c2::after{background:linear-gradient(90deg,#ef4444,#fca5a5);opacity:.7}
+.sp-card.sp-c3::after{background:linear-gradient(90deg,#ef4444,#f87171)}
+.sp-lbl{font-family:var(--fm);font-size:.46rem;letter-spacing:.12em;color:var(--subtle);text-transform:uppercase;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-name{font-size:.72rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:6px;min-height:2em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sp-pct{font-family:var(--fm);font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:2px}
+.sp-7d{font-family:var(--fm);font-size:.5rem;margin-bottom:10px}
+.sp-div{height:1px;background:var(--border);margin:8px 0}
+.sp-tok{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid var(--border2)}
+.sp-tok:last-child{border-bottom:none}
+.sp-tok-img{width:14px;height:14px;border-radius:50%;background:var(--bg3);flex-shrink:0}
+.sp-tok-sym{font-family:var(--fm);font-size:.62rem;font-weight:700;flex:1;color:var(--text)}
+.sp-tok-chg{font-family:var(--fm);font-size:.62rem;font-weight:700}
+.sp-mcap{font-family:var(--fm);font-size:.44rem;color:var(--subtle);margin-top:8px}
+
 /* ── CATEGORIES ── */
 .cat-controls{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;align-items:center}
 .cat-sort-btn{font-family:var(--fm);font-size:.52rem;letter-spacing:.07em;padding:4px 10px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer}
@@ -232,6 +257,18 @@ a{text-decoration:none;color:inherit}
         <div style="font-size:20px;font-weight:600;color:#fff;letter-spacing:-.02em" id="bn-tvl">—</div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- SPOTLIGHT STRIP -->
+<div class="spotlight-wrap">
+  <div class="spotlight-inner" id="spotlight">
+    <!-- skeleton placeholders while loading -->
+    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
   </div>
 </div>
 
@@ -694,6 +731,53 @@ async function fetchCoinalyze(){
 let catData = [];
 let catSort = '24h';
 
+function renderSpotlight(){
+  if(!catData.length) return;
+
+  // Top 10 by 24h gain + bottom 3 for context — total 13 cards, horizontally scrollable
+  const filtered = catData.filter(c=>c.market_cap>5e7); // skip micro-caps
+  const sorted24 = [...filtered].sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0));
+  const top = sorted24.slice(0,10);
+  const bottom = sorted24.slice(-3).reverse();
+  const cards = [...top, ...bottom];
+
+  function spClass(v){
+    if(v>=8)  return 'sp-h3';
+    if(v>=3)  return 'sp-h2';
+    if(v>=0)  return 'sp-h1';
+    if(v>=-3) return 'sp-c1';
+    if(v>=-8) return 'sp-c2';
+    return 'sp-c3';
+  }
+
+  document.getElementById('spotlight').innerHTML = cards.map(cat=>{
+    const chg24 = cat.market_cap_change_24h||0;
+    const chg7  = cat.market_cap_change_7d||0;
+    const tokens = (cat.top_3_coins_data||[]).slice(0,3);
+    const tokRows = tokens.map(t=>{
+      const tc = t.price_change_percentage_24h||0;
+      return `<div class="sp-tok">
+        <img src="${t.thumb||''}" class="sp-tok-img" onerror="this.style.display='none'"/>
+        <span class="sp-tok-sym">${(t.symbol||'').toUpperCase()}</span>
+        <span class="sp-tok-chg ${cls(tc)}">${pct(tc)}</span>
+      </div>`;
+    }).join('');
+
+    // Shorten long category names
+    const name = cat.name.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFT');
+
+    return `<div class="sp-card ${spClass(chg24)}">
+      <div class="sp-lbl">NARRATIVE</div>
+      <div class="sp-name">${name}</div>
+      <div class="sp-pct ${cls(chg24)}">${pct(chg24)}</div>
+      <div class="sp-7d ${cls(chg7)}">${pct(chg7)} <span style="color:var(--subtle)">7d</span></div>
+      <div class="sp-div"></div>
+      ${tokRows || '<div style="font-family:var(--fm);font-size:.55rem;color:var(--subtle);padding:4px 0">No token data</div>'}
+      <div class="sp-mcap">${big(cat.market_cap)}</div>
+    </div>`;
+  }).join('');
+}
+
 function heatClass(v){
   if(v>=5)  return 'cat-hot3';
   if(v>=2)  return 'cat-hot2';
@@ -749,6 +833,8 @@ function renderCategories(){
                   : catSort==='volume' ? 'LOWEST VOLUME'
                   : catSort==='7d'     ? 'WEAKEST NARRATIVES (7D)'
                   :                      'UNDER PRESSURE (24H)';
+
+  renderSpotlight();
 
   document.getElementById('catPanels').innerHTML = `
     <div class="card">
