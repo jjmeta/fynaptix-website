@@ -60,8 +60,8 @@ function sidebar(activeId){
       }).join('');
   }).join('');
   return '<aside class="hub-sidebar"><div class="hub-sidebar-inner">'
-    +'<div class="hub-brand"><div class="hub-brand-kicker"><span class="hub-brand-kicker-dot"></span>Fynaptix · Private</div>'
-    +'<div class="hub-brand-name">Research<br>Hub</div></div>'
+    +'<a href="/" class="hub-brand" style="display:block;color:inherit;text-decoration:none;"><div class="hub-brand-kicker"><span class="hub-brand-kicker-dot"></span>Fynaptix · Private</div>'
+    +'<div class="hub-brand-name">Research<br>Hub</div></a>'
     +'<div class="hub-nav-groups">'
     +'<div class="hub-nav-group-label">Research</div>'
     +'<a class="hub-nav-item" href="/private/"><span class="hub-nav-num"></span><span>Home</span><span></span></a>'
