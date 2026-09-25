@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fynaptix · Tech News</title>
+  <meta name="description" content="Tech news from TechCrunch — AI, startups, security, venture and more, filtered by category."/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet"/>
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f3f2f2;--ink:#201e1d;--accent:#ec3013;--accent-700:#ae1800;
+  --divider:rgba(32,30,29,.4);
+  --n100:#f8f4f4;--n200:#eae7e7;--n300:#d7d3d3;--n400:#bab6b6;
+  --n500:#9b9797;--n600:#7d7979;--n700:#605d5d;--n800:#444141;--n900:#2d2b2b;
+}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;}
+a{color:var(--ink);text-decoration:none;}
+a:hover{background:var(--n200);}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+
+/* ── Layout ── */
+.tn-layout{display:flex;min-height:100vh;align-items:stretch;}
+
+/* ── Sidebar ── */
+.tn-sb{flex:0 0 232px;border-right:2px solid var(--ink);}
+.tn-sb-inner{position:sticky;top:0;max-height:100vh;overflow-y:auto;display:flex;flex-direction:column;}
+.tn-brand{padding:20px 20px 18px;border-bottom:2px solid var(--ink);}
+.tn-brand-kicker{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--n700);margin-bottom:10px;}
+.tn-brand-dot{width:8px;height:8px;background:var(--accent);flex:none;}
+.tn-brand-name{font-size:24px;font-weight:800;line-height:1;letter-spacing:-.03em;}
+.tn-nav-label{padding:16px 20px 6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--n700);}
+.tn-cat-btn{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;padding:7px 20px;font-size:13px;font-weight:500;color:var(--ink);width:100%;}
+.tn-cat-btn:hover{background:var(--n200);}
+.tn-cat-btn.active{background:var(--n200);box-shadow:inset 4px 0 0 var(--accent);font-weight:800;}
+.tn-source{padding:6px 20px;font-size:13px;color:var(--n700);}
+.tn-sb-footer{margin-top:auto;border-top:2px solid var(--divider);padding:14px 20px;display:flex;flex-direction:column;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.tn-sb-footer-row{display:flex;justify-content:space-between;color:var(--n700);}
+.tn-sb-footer-row span:last-child{color:var(--ink);}
+.tn-sb-footer a{color:var(--accent-700);}
+
+/* ── Main ── */
+.tn-main{flex:1 1 640px;min-width:0;display:flex;flex-direction:column;}
+
+/* ── Trending strip ── */
+.tn-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--bg);overflow:hidden;border-bottom:2px solid var(--ink);}
+.tn-strip-cell{background:var(--bg);outline:1px solid var(--divider);padding:10px 16px;display:flex;flex-direction:column;gap:2px;}
+.tn-strip-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--n700);}
+.tn-strip-val{font-size:13px;font-weight:700;line-height:1.3;}
+
+/* ── Content ── */
+.tn-content{padding:0 32px 64px;flex:1;}
+
+/* ── Page header ── */
+.tn-page-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:36px 0 22px;}
+.tn-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-700);margin-bottom:10px;}
+.tn-h1{font-size:64px;font-weight:800;line-height:.92;letter-spacing:-.04em;}
+.tn-meta{display:flex;flex-direction:column;gap:6px;max-width:300px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--n700);}
+.tn-meta-accent{color:var(--accent-700);}
+
+/* ── Featured ── */
+.tn-featured{display:flex;flex-wrap:wrap;gap:1px;background:var(--bg);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.tn-feat-main{flex:2 1 460px;min-width:0;background:var(--bg);outline:1px solid var(--divider);padding:24px;display:flex;flex-direction:column;gap:14px;color:var(--ink);}
+.tn-feat-main:hover{background:var(--n100);}
+.tn-feat-hl{font-size:34px;font-weight:800;line-height:1.1;letter-spacing:-.02em;}
+.tn-feat-byline{font-size:14px;color:var(--n800);}
+.tn-headlines{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;}
+.tn-headline-row{display:flex;flex-direction:column;gap:4px;padding:14px 20px 14px 0;border-bottom:1px solid var(--divider);color:var(--ink);}
+.tn-headline-row:last-child{border-bottom:none;}
+.tn-headline-row:hover{background:var(--n100);}
+.tn-headline-title{font-size:15px;font-weight:600;line-height:1.3;}
+.tn-headline-byline{font-size:12px;color:var(--n700);}
+
+/* ── Tags ── */
+.tag{display:inline-flex;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;line-height:1;}
+.tag-accent{background:var(--accent);color:var(--bg);}
+.tag-neutral{background:var(--n200);color:var(--ink);}
+
+/* ── Section pattern ── */
+.tn-section{display:flex;flex-wrap:wrap;gap:20px 32px;padding:32px 0;border-bottom:2px solid var(--divider);}
+.tn-section:last-of-type{border-bottom:none;}
+.tn-section-label{flex:0 0 200px;}
+.tn-section-num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-700);}
+.tn-section-h2{font-size:25px;font-weight:800;margin:6px 0 8px;}
+.tn-section-desc{font-size:13px;color:var(--n700);}
+.tn-section-content{flex:1 1 560px;min-width:0;border-top:2px solid var(--ink);}
+
+/* ── Latest list ── */
+.tn-latest-row{display:grid;grid-template-columns:110px minmax(0,1fr) 90px;gap:0 16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--divider);color:var(--ink);}
+.tn-latest-row:hover{background:var(--n200);}
+.tn-latest-hl{font-size:16px;font-weight:600;line-height:1.3;}
+.tn-latest-time{font-size:11px;text-align:right;color:var(--n700);}
+.tn-empty{padding:20px 0;font-size:13px;color:var(--n600);}
+
+/* ── Most popular + In brief ── */
+.tn-bot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--bg);overflow:hidden;}
+.tn-bot-cell{background:var(--bg);outline:1px solid var(--divider);padding:20px 24px 24px 0;}
+.tn-bot-cell:last-child{padding:20px 0 24px 24px;}
+.tn-popular-row,.tn-brief-row{padding:9px 0;border-bottom:1px solid var(--divider);color:var(--ink);}
+.tn-popular-row{display:grid;grid-template-columns:24px minmax(0,1fr);gap:0 10px;}
+.tn-popular-row:hover,.tn-brief-row:hover{background:var(--n100);}
+.tn-popular-idx{font-size:11px;color:var(--n700);}
+.tn-popular-title,.tn-brief-title{font-size:14px;font-weight:600;line-height:1.3;}
+.tn-popular-byline,.tn-brief-byline{font-size:11px;color:var(--n700);margin-top:2px;}
+.tn-brief-row{display:flex;flex-direction:column;gap:3px;}
+
+/* ── Footer ── */
+.tn-footer{margin-top:24px;padding-top:14px;border-top:2px solid var(--divider);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--n700);}
+
+/* ── Mobile ── */
+@media(max-width:768px){
+  .tn-layout{flex-direction:column;}
+  .tn-sb{flex:0 0 auto;border-right:none;border-bottom:2px solid var(--ink);}
+  .tn-sb-inner{position:static;max-height:none;}
+  .tn-h1{font-size:40px;}
+  .tn-content{padding:0 16px 48px;}
+  .tn-page-header{flex-direction:column;align-items:flex-start;}
+  .tn-latest-row{grid-template-columns:90px minmax(0,1fr);}
+  .tn-latest-time{display:none;}
+}
+  </style>
+</head>
+<body>
+<div class="tn-layout">
+
+  <!-- Sidebar -->
+  <aside class="tn-sb">
+    <div class="tn-sb-inner">
+      <div class="tn-brand">
+        <div class="tn-brand-kicker"><span class="tn-brand-dot"></span>Fynaptix · Live feed</div>
+        <div class="tn-brand-name">Tech<br>News</div>
+      </div>
+      <div class="tn-nav-label">Feed</div>
+      <div id="tn-cats"></div>
+      <div class="tn-nav-label">Source</div>
+      <div class="tn-source">TechCrunch, live</div>
+      <div class="tn-sb-footer">
+        <div class="tn-sb-footer-row"><span>Updated</span><span id="tn-clock">—</span></div>
+        <a href="/private/">← Research Hub</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="tn-main">
+
+    <!-- Trending strip -->
+    <div class="tn-strip" id="tn-strip"></div>
+
+    <div class="tn-content">
+      <!-- Header -->
+      <div class="tn-page-header">
+        <div>
+          <div class="tn-kicker" id="tn-kicker">Latest · —</div>
+          <h1 class="tn-h1">Tech News</h1>
+        </div>
+        <div class="tn-meta">
+          <span id="tn-count">— stories tracked</span>
+          <span>Refreshes every 15 min</span>
+          <span class="tn-meta-accent">Curated from TechCrunch</span>
+        </div>
+      </div>
+
+      <!-- Featured + top headlines -->
+      <div class="tn-featured" id="tn-featured"></div>
+
+      <!-- 01 Latest -->
+      <div class="tn-section">
+        <div class="tn-section-label">
+          <div class="tn-section-num">01</div>
+          <h2 class="tn-section-h2" id="tn-list-head">Latest</h2>
+          <p class="tn-section-desc">Newest first. Filter from the sidebar.</p>
+        </div>
+        <div class="tn-section-content">
+          <div id="tn-latest"></div>
+        </div>
+      </div>
+
+      <!-- 02 Most popular + 03 In brief -->
+      <div class="tn-section" style="padding-bottom:0;border-bottom:none;">
+        <div class="tn-section-label">
+          <div class="tn-section-num">02 — 03</div>
+          <h2 class="tn-section-h2">Roundup</h2>
+          <p class="tn-section-desc">Popular this week and quick reads.</p>
+        </div>
+        <div class="tn-section-content" style="border-top:none;padding-top:0;">
+          <div class="tn-bot-grid">
+            <div class="tn-bot-cell">
+              <div class="tn-section-num">02</div>
+              <h2 class="tn-section-h2" style="margin-bottom:14px;">Most popular</h2>
+              <div id="tn-popular"></div>
+            </div>
+            <div class="tn-bot-cell">
+              <div class="tn-section-num">03</div>
+              <h2 class="tn-section-h2" style="margin-bottom:14px;">In brief</h2>
+              <div id="tn-brief"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tn-footer">
+        <span>© 2026 Fynaptix</span>
+        <span>Stories sourced from TechCrunch · Not financial advice</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+var STORIES=[
+  ['Waymo is scaling fast. Here’s what the fleet data shows.','Transportation','Kirsten Korosec',4,'https://techcrunch.com/2026/09/24/waymo-is-scaling-fast-heres-what-the-fleet-data-shows/'],
+  ['Meet Feather, the startup building the ‘Android of robotics’ for developers','Startups','Marina Temkin',8,'https://techcrunch.com/2026/09/24/meet-feather-the-startup-building-the-android-of-robotics-for-developers/'],
+  ['Databricks buys Row Zero and is scouting for more startups to acquire','Startups','Julie Bort',10,'https://techcrunch.com/2026/09/24/databricks-buys-row-zero-and-is-scouting-for-more-startups-to-acquire/'],
+  ['Nexterity wants to automate the hard, dangerous part of pipefitting','Startups','Sean O’Kane',6,'https://techcrunch.com/2026/09/24/nexterity-wants-to-automate-the-hard-dangerous-part-of-pipefitting/'],
+  ['PrismML brings its tiny LLMs to Qualcomm-powered smart glasses','AI','Julie Bort',8,'https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/'],
+  ['Oracle sends force majeure notice on its New Mexico Stargate data center','AI','Aditya Mehta',9,'https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/'],
+  ['Meta’s Muse Charm looks like a Tamagotchi, but it’s tapping into a much newer trend','Apps','Sarah Perez',9,'https://techcrunch.com/2026/09/24/metas-muse-charm-looks-like-a-tamagotchi-but-its-tapping-into-a-much-newer-trend/'],
+  ['Google Photos ‘Clueless’-inspired virtual closet is now on Android and iOS','Apps','Sarah Perez',10,'https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/'],
+  ['Google tests letting Gemini call businesses for you','AI','Sarah Perez',11,'https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/'],
+  ['ElevenLabs’ CEO on margins, IPO timing, and telling customers they’re talking to a bot','AI','Connie Loizos',12,'https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/'],
+  ['Lovable’s annualized revenue crosses $600M as vibe coding takes off','Startups','Ivan Mehta',13,'https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/'],
+  ['Australia to investigate if OpenAI hack of government health website broke the law','Security','Zack Whittaker',14,'https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/'],
+  ['Shield AI, Waabi, and General Motors on building AI when failure is not an option','Transportation','TechCrunch Events',12,'https://techcrunch.com/2026/09/24/shield-ai-waabi-and-general-motors-on-building-ai-when-failure-is-not-an-option-at-techcrunch-disrupt-2026/'],
+  ['Zoox grounds Atlanta test fleet after workers report toxic gas exposure symptoms','Transportation','Sean O’Kane',26,'https://techcrunch.com/2026/09/23/zoox-grounds-atlanta-test-fleet-after-workers-report-toxic-gas-exposure-symptoms/'],
+  ['PitPro’s first tire-changing robot goes live in Canada','Transportation','Sean O’Kane',30,'https://techcrunch.com/2026/09/23/pitpros-first-tire-changing-robot-goes-live-in-canada/'],
+  ['Comma’s hands-off driving tech under investigation after 2 fatal crashes','Transportation','Sean O’Kane',31,'https://techcrunch.com/2026/09/23/commas-hands-off-driving-tech-under-investigation-after-2-fatal-crashes/'],
+  ['Hacking group ShinyHunters claims it breached the FBI','Security','Zack Whittaker',48,'https://techcrunch.com/2026/09/22/hacking-group-shinyhunters-claims-it-breached-the-fbi-stole-agents-and-applicants-data/'],
+  ['Stolen passwords are exposing America’s water providers to hackers','Security','Zack Whittaker',48,'https://techcrunch.com/2026/09/22/stolen-passwords-are-exposing-americas-water-providers-to-hackers/'],
+  ['LinkedIn adds new tools to fight fake profiles and bogus work histories','Apps','Sarah Perez',26,'https://techcrunch.com/2026/09/23/linkedin-adds-new-tools-to-fight-fake-profiles-and-bogus-work-histories/'],
+  ['YouTube will let you build your own algorithm with AI','Apps','Sarah Perez',36,'https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/'],
+  ['YouTube Music gets more conversational with new AI features','AI','Lauren Forristal',25,'https://techcrunch.com/2026/09/23/youtube-music-gets-more-conversational-with-new-ai-features/'],
+  ['VC firm Bessemer now has another $5.75B to invest in (what else?) AI','Venture','Julie Bort',24,'https://techcrunch.com/2026/09/23/vc-firm-bessemer-now-has-another-5-75b-to-invest-in-what-else-ai/'],
+  ['Enveda secures $311M to bring more nature-derived AI drugs into clinical trials','Venture','Marina Temkin',25,'https://techcrunch.com/2026/09/23/enveda-secures-311m-to-bring-more-nature-derived-ai-drugs-into-clinical-trials/'],
+  ['ChatGPT mobile app gets voice-based agentic features','AI','Ivan Mehta',25,'https://techcrunch.com/2026/09/23/chatgpt-mobile-app-gets-voice-based-agentic-features/'],
+  ['Apple could take on Whoop with a new fitness tracker, report says','Apps','Lucas Ropek',50,'https://techcrunch.com/2026/09/22/apple-could-take-on-whoop-with-a-new-fitness-tracker-report-says/'],
+];
+var POPULAR=[
+  ['Meta made a Tamagotchi-like wearable for its Muse AI agent','Lucas Ropek','https://techcrunch.com/2026/09/23/meta-made-a-tamagotchi-like-wearable-for-its-muse-ai-agent/'],
+  ['Anthropic says its biology lab has already found something big','Julie Bort','https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/'],
+  ['PitPro’s first tire-changing robot goes live in Canada','Sean O’Kane','https://techcrunch.com/2026/09/23/pitpros-first-tire-changing-robot-goes-live-in-canada/'],
+  ['Anthropic releases Opus 5.5 with lower prices and Fable-level performance','Russell Brandom','https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/'],
+  ['Meta’s Muse is outpacing ChatGPT’s early mobile launch','Sarah Perez','https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/'],
+  ['Tilly Norwood’s press tour is going about as well as you’d expect for an AI','Amanda Silberling','https://techcrunch.com/2026/09/18/tilly-norwoods-press-tour-is-going-about-as-well-as-youd-expect-for-an-ai/'],
+  ['A new kind of AI model from a ChatGPT inventor is thrilling developers','Tim Fernholz','https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/'],
+];
+var BRIEF=[
+  ['PrismML brings its tiny LLMs to Qualcomm-powered smart glasses','Julie Bort',8,'https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/'],
+  ['VC firm Bessemer now has another $5.75B to invest in (what else?) AI','Julie Bort',24,'https://techcrunch.com/2026/09/23/vc-firm-bessemer-now-has-another-5-75b-to-invest-in-what-else-ai/'],
+  ['Enveda secures $311M to bring more nature-derived AI drugs into clinical trials','Marina Temkin',25,'https://techcrunch.com/2026/09/23/enveda-secures-311m-to-bring-more-nature-derived-ai-drugs-into-clinical-trials/'],
+  ['ChatGPT mobile app gets voice-based agentic features','Ivan Mehta',25,'https://techcrunch.com/2026/09/23/chatgpt-mobile-app-gets-voice-based-agentic-features/'],
+  ['Apple could take on Whoop with a new fitness tracker, report says','Lucas Ropek',50,'https://techcrunch.com/2026/09/22/apple-could-take-on-whoop-with-a-new-fitness-tracker-report-says/'],
+  ['Meta’s AI agent has been blocked from using Amazon.com','Russell Brandom',72,'https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/'],
+];
+var TRENDING=['Anthropic Opus 5.5','Meta Muse Charm','Waymo fleet data','Disrupt 2026','ShinyHunters FBI breach'];
+var CATS=['Latest','AI','Startups','Security','Venture','Apps','Transportation'];
+
+var activeCat='Latest';
+
+function x(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function fmtTime(h){return h<24?h+'h ago':Math.round(h/24)+'d ago';}
+function fmtDate(){var n=new Date();var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return M[n.getMonth()]+' '+n.getDate()+', '+n.getFullYear();}
+function fmtClock(){var n=new Date();return String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+' UTC';}
+
+function filteredStories(){
+  return activeCat==='Latest'?STORIES:STORIES.filter(function(s){return s[1]===activeCat;});
+}
+
+function countForCat(c){
+  return c==='Latest'?STORIES.length:STORIES.filter(function(s){return s[1]===c;}).length;
+}
+
+function renderCats(){
+  var html='';
+  CATS.forEach(function(c){
+    var active=c===activeCat;
+    html+='<button class="tn-cat-btn'+(active?' active':'')+'" data-cat="'+x(c)+'"><span>'+x(c)+'</span><span style="font-size:11px;color:var(--n700);">'+countForCat(c)+'</span></button>';
+  });
+  document.getElementById('tn-cats').innerHTML=html;
+}
+
+function renderStrip(){
+  var html='';
+  TRENDING.forEach(function(t){
+    html+='<div class="tn-strip-cell"><div class="tn-strip-label">Trending</div><div class="tn-strip-val">'+x(t)+'</div></div>';
+  });
+  document.getElementById('tn-strip').innerHTML=html;
+}
+
+function renderHeader(){
+  document.getElementById('tn-kicker').textContent=activeCat+' · '+fmtDate();
+  document.getElementById('tn-count').textContent=STORIES.length+' stories tracked';
+}
+
+function renderFeatured(){
+  var s=STORIES[0];
+  var heads=STORIES.slice(1,6);
+  var headHtml='';
+  heads.forEach(function(h){
+    headHtml+='<a href="'+x(h[4])+'" target="_blank" rel="noopener" class="tn-headline-row"><b class="tn-headline-title">'+x(h[0])+'</b><span class="tn-headline-byline">'+x(h[2])+' · '+fmtTime(h[3])+'</span></a>';
+  });
+  document.getElementById('tn-featured').innerHTML=
+    '<a href="'+x(s[4])+'" target="_blank" rel="noopener" class="tn-feat-main"><span class="tag tag-accent">'+x(s[1])+'</span><b class="tn-feat-hl">'+x(s[0])+'</b><span class="tn-feat-byline">'+x(s[2])+' · '+fmtTime(s[3])+'</span></a>'+
+    '<div class="tn-headlines">'+headHtml+'</div>';
+}
+
+function renderLatest(){
+  var list=filteredStories();
+  document.getElementById('tn-list-head').textContent=activeCat;
+  var html='';
+  if(!list.length){
+    html='<div class="tn-empty">No stories in this category yet.</div>';
+  } else {
+    list.forEach(function(n){
+      html+='<a href="'+x(n[4])+'" target="_blank" rel="noopener" class="tn-latest-row"><span><span class="tag tag-neutral">'+x(n[1])+'</span></span><b class="tn-latest-hl">'+x(n[0])+'</b><span class="tn-latest-time">'+fmtTime(n[3])+'</span></a>';
+    });
+  }
+  document.getElementById('tn-latest').innerHTML=html;
+}
+
+function renderPopular(){
+  var html='';
+  POPULAR.forEach(function(p,i){
+    html+='<a href="'+x(p[2])+'" target="_blank" rel="noopener" class="tn-popular-row"><span class="tn-popular-idx">'+(i+1)+'</span><div><b class="tn-popular-title">'+x(p[0])+'</b><div class="tn-popular-byline">'+x(p[1])+'</div></div></a>';
+  });
+  document.getElementById('tn-popular').innerHTML=html;
+}
+
+function renderBrief(){
+  var html='';
+  BRIEF.forEach(function(b){
+    html+='<a href="'+x(b[3])+'" target="_blank" rel="noopener" class="tn-brief-row"><b class="tn-brief-title">'+x(b[0])+'</b><span class="tn-brief-byline">'+x(b[1])+' · '+fmtTime(b[2])+'</span></a>';
+  });
+  document.getElementById('tn-brief').innerHTML=html;
+}
+
+function renderClock(){
+  var el=document.getElementById('tn-clock');
+  if(el)el.textContent=fmtClock();
+}
+
+function render(){
+  renderCats();
+  renderStrip();
+  renderHeader();
+  renderFeatured();
+  renderLatest();
+  renderPopular();
+  renderBrief();
+  renderClock();
+}
+
+// Category filter via event delegation
+document.getElementById('tn-cats').addEventListener('click',function(e){
+  var btn=e.target.closest('.tn-cat-btn');
+  if(!btn)return;
+  activeCat=btn.dataset.cat;
+  renderCats();
+  renderHeader();
+  renderLatest();
+});
+
+// Clock tick
+setInterval(renderClock,60000);
+
+render();
+</script>
+</body>
+</html>
