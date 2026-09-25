@@ -9,112 +9,118 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --bg:#0a0b0f; --bg2:#111218; --bg3:#1a1b23;
-  --border:rgba(255,255,255,.08); --border2:rgba(255,255,255,.04);
+  --bg:#0a0b0f; --bg2:#111218; --bg3:#1a1b23; --bg4:#1f2028;
+  --border:rgba(255,255,255,.07); --border2:rgba(255,255,255,.04);
   --text:#f4f4f5; --muted:#9ca3b0; --subtle:#4b5263;
   --orange:#ff5a1f; --green:#10b981; --red:#ef4444;
   --blue:#2ed0f5; --yellow:#f59e0b;
+  --sb-w:210px;
   --fm:'IBM Plex Mono',monospace; --fs:'Archivo',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:var(--fs);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--fs);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{text-decoration:none;color:inherit}
 
-/* ── TICKER TAPE ── */
-.ticker-wrap{background:#000;overflow:hidden;height:30px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.04)}
-.ticker-track{display:flex;white-space:nowrap;animation:tick 80s linear infinite}
-.ticker-item{font-family:var(--fm);font-size:.6rem;letter-spacing:.04em;padding:0 18px;color:var(--muted);border-right:1px solid rgba(255,255,255,.05)}
+/* ── TICKER ── */
+.ticker-wrap{background:#000;overflow:hidden;height:28px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.04);flex-shrink:0}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 90s linear infinite}
+.ticker-item{font-family:var(--fm);font-size:.58rem;letter-spacing:.04em;padding:0 16px;color:var(--muted);border-right:1px solid rgba(255,255,255,.04)}
 .ticker-item b{color:var(--text);margin-right:5px}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── TOPBAR ── */
-.topbar{background:#fff;border-bottom:1px solid #e5e7eb;padding:0 24px;height:50px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
-.logo{font-size:.9rem;font-weight:700;color:#111;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.logo .mark{background:var(--orange);color:#fff;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
-.nav{display:flex;gap:2px;margin-left:12px}
-.nav a{font-size:.72rem;font-weight:500;color:#6b7280;padding:4px 9px;border-radius:3px}
-.nav a:hover{background:#f3f4f6;color:#111}
-.nav a.active{background:#fff7f4;color:var(--orange)}
-.topbar-r{margin-left:auto;display:flex;align-items:center;gap:10px}
-.upd{font-family:var(--fm);font-size:.55rem;color:#9ca3af;letter-spacing:.03em}
-.refresh{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;padding:4px 11px;border:1px solid #e5e7eb;background:#fff;color:#374151;cursor:pointer}
-.refresh:hover{background:#f9fafb}
+/* ── APP SHELL ── */
+.app{display:flex;flex:1;overflow:hidden}
 
-/* ── BANNER — inline styles used, no class needed ── */
+/* ── SIDEBAR ── */
+.sidebar{width:var(--sb-w);background:#0d0e14;border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;scrollbar-width:none}
+.sidebar::-webkit-scrollbar{display:none}
+.sb-logo{padding:18px 16px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px;flex-shrink:0}
+.sb-mark{width:26px;height:26px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
+.sb-brand{font-size:.8rem;font-weight:700;letter-spacing:.02em}
+.sb-tagline{font-family:var(--fm);font-size:.42rem;letter-spacing:.1em;color:var(--subtle);margin-top:1px}
 
-/* ── OVERVIEW STRIP ── */
-.ov-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:20px}
-.ov-cell{background:var(--bg2);padding:10px 12px}
-.ov-lbl{font-family:var(--fm);font-size:.44rem;letter-spacing:.12em;color:var(--subtle);text-transform:uppercase;margin-bottom:3px}
-.ov-val{font-family:var(--fm);font-size:.85rem;font-weight:700}
-.ov-chg{font-family:var(--fm);font-size:.55rem;margin-top:2px}
+.sb-section{padding:14px 10px 6px;font-family:var(--fm);font-size:.4rem;letter-spacing:.15em;color:var(--subtle);text-transform:uppercase}
 
-/* ── PAGE ── */
-.page{padding:20px 24px 60px;max-width:1440px;margin:0 auto}
+.sb-item{display:flex;align-items:center;gap:10px;padding:9px 14px;cursor:pointer;border-radius:4px;margin:1px 6px;transition:background .15s,color .15s;color:var(--muted);font-size:.78rem;font-weight:500;user-select:none}
+.sb-item:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.sb-item.active{background:rgba(255,90,31,.1);color:var(--orange);border-left:2px solid var(--orange);padding-left:12px}
+.sb-item svg{flex-shrink:0;opacity:.7}
+.sb-item.active svg{opacity:1}
+
+.sb-divider{height:1px;background:var(--border);margin:8px 14px}
+
+.sb-footer{margin-top:auto;padding:14px 14px 18px;border-top:1px solid var(--border)}
+.sb-upd{font-family:var(--fm);font-size:.48rem;letter-spacing:.06em;color:var(--subtle);margin-bottom:8px}
+.sb-refresh{width:100%;font-family:var(--fm);font-size:.52rem;letter-spacing:.08em;padding:7px 0;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s}
+.sb-refresh:hover{border-color:var(--orange);color:var(--orange);background:rgba(255,90,31,.05)}
+
+.sb-links{padding:12px 14px 0;display:flex;flex-direction:column;gap:4px}
+.sb-ext{font-size:.7rem;color:var(--subtle);padding:5px 0;display:flex;align-items:center;gap:7px}
+.sb-ext:hover{color:var(--muted)}
+.sb-ext svg{opacity:.5}
+
+/* ── MAIN CONTENT ── */
+.main{flex:1;overflow-y:auto;overflow-x:hidden}
+
+/* ── VIEWS ── */
+.view{display:none;min-height:100%}
+.view.active{display:block}
+
+/* ── VIEW HEADER ── */
+.vh{padding:22px 28px 18px;border-bottom:1px solid var(--border);background:var(--bg)}
+.vh-eyebrow{font-family:var(--fm);font-size:.44rem;letter-spacing:.18em;color:var(--subtle);margin-bottom:6px}
+.vh-row{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.vh-hero{font-family:var(--fm);font-size:2.6rem;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--text)}
+.vh-chg{font-family:var(--fm);font-size:.9rem;font-weight:700;margin-bottom:4px}
+.vh-meta{font-family:var(--fm);font-size:.52rem;letter-spacing:.06em;color:var(--subtle);margin-bottom:4px}
+.vh-pills{display:flex;gap:12px;margin-left:auto;flex-wrap:wrap}
+.vh-pill{display:flex;flex-direction:column;align-items:flex-end;gap:1px;padding:6px 14px;background:var(--bg2);border:1px solid var(--border)}
+.vh-pill-lbl{font-family:var(--fm);font-size:.4rem;letter-spacing:.12em;color:var(--subtle)}
+.vh-pill-val{font-family:var(--fm);font-size:.72rem;font-weight:700}
+
+/* ── CONTENT PADDING ── */
+.vbody{padding:20px 28px 48px}
+
+/* ── GRID LAYOUTS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px}
+.mb{margin-bottom:20px}
 
 /* ── SECTION HDR ── */
 .sh{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.sk{font-family:var(--fm);font-size:.48rem;font-weight:700;letter-spacing:.16em;color:var(--orange)}
-.st{font-size:.78rem;font-weight:600}
-.sb{font-family:var(--fm);font-size:.46rem;letter-spacing:.08em;padding:.12rem .45rem;border:1px solid var(--border);color:var(--subtle);margin-left:auto}
+.sk{font-family:var(--fm);font-size:.44rem;font-weight:700;letter-spacing:.16em;color:var(--orange)}
+.st{font-size:.76rem;font-weight:600}
+.sb2{font-family:var(--fm);font-size:.44rem;letter-spacing:.08em;padding:.1rem .4rem;border:1px solid var(--border);color:var(--subtle);margin-left:auto}
 
 /* ── CARD ── */
 .card{background:var(--bg2);border:1px solid var(--border);padding:14px 16px}
-.card-hd{font-family:var(--fm);font-size:.48rem;letter-spacing:.12em;color:var(--orange);text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-
+.card-hd{font-family:var(--fm);font-size:.46rem;letter-spacing:.12em;color:var(--orange);text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 
 /* ── COLORS ── */
 .up{color:var(--green)} .dn{color:var(--red)} .neu{color:var(--muted)}
 
 /* ── TABLE ── */
 .tbl{width:100%;border-collapse:collapse}
-.tbl th{font-family:var(--fm);font-size:.44rem;letter-spacing:.1em;color:var(--subtle);text-align:left;padding:5px 9px;border-bottom:1px solid var(--border);white-space:nowrap}
-.tbl td{font-family:var(--fm);font-size:.65rem;padding:6px 9px;border-bottom:1px solid var(--border2);vertical-align:middle}
+.tbl th{font-family:var(--fm);font-size:.43rem;letter-spacing:.1em;color:var(--subtle);text-align:left;padding:5px 9px;border-bottom:1px solid var(--border);white-space:nowrap}
+.tbl td{font-family:var(--fm);font-size:.65rem;padding:7px 9px;border-bottom:1px solid var(--border2);vertical-align:middle}
 .tbl tr:last-child td{border-bottom:none}
 .tbl tr:hover td{background:rgba(255,255,255,.015)}
 .sym{font-weight:700;color:var(--text)}
 .sub{font-size:.5rem;color:var(--subtle);display:block;margin-top:1px}
 
-/* ── OI LIST ── */
-.oi-row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--border2)}
-.oi-row:last-child{border-bottom:none}
-.oi-n{font-family:var(--fm);font-size:.45rem;color:var(--subtle);width:14px;flex-shrink:0}
-.oi-sym{font-family:var(--fm);font-size:.65rem;font-weight:700;width:60px;flex-shrink:0}
-.oi-chg{font-family:var(--fm);font-size:.5rem;display:block}
-.oi-bar-bg{flex:1;height:3px;background:rgba(255,255,255,.05)}
-.oi-bar{height:3px;background:var(--orange);transition:width .6s}
-.oi-amt{font-family:var(--fm);font-size:.6rem;text-align:right;width:65px;flex-shrink:0}
+/* ── STAT ROW ── */
+.stat-row{display:flex;gap:0;border:1px solid var(--border);margin-bottom:20px}
+.stat-cell{flex:1;padding:14px 16px;border-right:1px solid var(--border);background:var(--bg2)}
+.stat-cell:last-child{border-right:none}
+.stat-lbl{font-family:var(--fm);font-size:.42rem;letter-spacing:.12em;color:var(--subtle);margin-bottom:4px}
+.stat-val{font-family:var(--fm);font-size:1.1rem;font-weight:700;letter-spacing:-.02em}
+.stat-chg{font-family:var(--fm);font-size:.55rem;margin-top:2px}
 
-/* ── TVL LIST ── */
-.tvl-row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--border2)}
-.tvl-row:last-child{border-bottom:none}
-.tvl-n{font-family:var(--fm);font-size:.45rem;color:var(--subtle);width:14px;flex-shrink:0}
-.tvl-name{font-family:var(--fm);font-size:.65rem;font-weight:700;flex:1}
-.tvl-bar-bg{width:70px;height:3px;background:rgba(255,255,255,.05);flex-shrink:0}
-.tvl-bar{height:3px;background:var(--blue)}
-.tvl-amt{font-family:var(--fm);font-size:.6rem;text-align:right;width:60px;flex-shrink:0}
-.tvl-chg{font-family:var(--fm);font-size:.58rem;font-weight:700;text-align:right;width:48px;flex-shrink:0}
-
-/* ── FUNDING PILL ── */
-.fp{font-family:var(--fm);font-size:.55rem;font-weight:700;padding:.12rem .45rem}
-.fp-bull{background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.2)}
-.fp-bear{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2)}
-.fp-neu{background:rgba(75,82,99,.12);color:var(--subtle);border:1px solid var(--border)}
-
-/* ── SECTOR CARDS ── */
-.sc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:7px}
-.sc-card{background:var(--bg2);border:1px solid var(--border);padding:11px 13px;display:flex;justify-content:space-between;align-items:center}
-.sc-name{font-size:.73rem;font-weight:600}
-.sc-tokens{font-size:.58rem;color:var(--subtle);margin-top:2px}
-.sc-24{font-family:var(--fm);font-size:.52rem;margin-top:3px}
-.sc-pct{font-family:var(--fm);font-size:.88rem;font-weight:700}
-
-/* ── SPOTLIGHT STRIP ── */
-.spotlight-wrap{background:var(--bg);border-bottom:1px solid var(--border);padding:0 24px}
-.spotlight-inner{display:flex;gap:10px;overflow-x:auto;padding:16px 0;scrollbar-width:none}
-.spotlight-inner::-webkit-scrollbar{display:none}
-.sp-card{width:172px;flex-shrink:0;background:var(--bg2);border:1px solid var(--border);padding:13px 14px;position:relative;overflow:hidden;transition:border-color .2s}
-.sp-card:hover{border-color:rgba(255,255,255,.18)}
+/* ── SPOT STRIP ── */
+.spot-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;scrollbar-width:none}
+.spot-strip::-webkit-scrollbar{display:none}
+.sp-card{width:168px;flex-shrink:0;background:var(--bg2);border:1px solid var(--border);padding:13px 14px;position:relative;overflow:hidden;transition:border-color .2s;cursor:default}
+.sp-card:hover{border-color:rgba(255,255,255,.16)}
 .sp-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .sp-card.sp-h3::after{background:linear-gradient(90deg,#10b981,#34d399)}
 .sp-card.sp-h2::after{background:linear-gradient(90deg,#10b981,#6ee7b7);opacity:.7}
@@ -122,365 +128,501 @@ a{text-decoration:none;color:inherit}
 .sp-card.sp-c1::after{background:#ef4444;opacity:.4}
 .sp-card.sp-c2::after{background:linear-gradient(90deg,#ef4444,#fca5a5);opacity:.7}
 .sp-card.sp-c3::after{background:linear-gradient(90deg,#ef4444,#f87171)}
-.sp-lbl{font-family:var(--fm);font-size:.46rem;letter-spacing:.12em;color:var(--subtle);text-transform:uppercase;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sp-name{font-size:.72rem;font-weight:700;color:var(--text);line-height:1.25;margin-bottom:6px;min-height:2em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.sp-pct{font-family:var(--fm);font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:2px}
-.sp-7d{font-family:var(--fm);font-size:.5rem;margin-bottom:10px}
-.sp-div{height:1px;background:var(--border);margin:8px 0}
-.sp-tok{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid var(--border2)}
+.sp-lbl{font-family:var(--fm);font-size:.44rem;letter-spacing:.1em;color:var(--subtle);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-name{font-size:.72rem;font-weight:700;line-height:1.2;margin-bottom:6px;min-height:2em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sp-pct{font-family:var(--fm);font-size:1.4rem;font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:2px}
+.sp-7d{font-family:var(--fm);font-size:.48rem;margin-bottom:8px}
+.sp-div{height:1px;background:var(--border);margin:6px 0}
+.sp-tok{display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid var(--border2)}
 .sp-tok:last-child{border-bottom:none}
-.sp-tok-img{width:14px;height:14px;border-radius:50%;background:var(--bg3);flex-shrink:0}
-.sp-tok-sym{font-family:var(--fm);font-size:.62rem;font-weight:700;flex:1;color:var(--text)}
-.sp-tok-chg{font-family:var(--fm);font-size:.62rem;font-weight:700}
-.sp-mcap{font-family:var(--fm);font-size:.44rem;color:var(--subtle);margin-top:8px}
+.sp-tok-img{width:13px;height:13px;border-radius:50%;background:var(--bg3);flex-shrink:0}
+.sp-tok-sym{font-family:var(--fm);font-size:.6rem;font-weight:700;flex:1}
+.sp-tok-chg{font-family:var(--fm);font-size:.58rem;font-weight:700}
+.sp-mcap{font-family:var(--fm);font-size:.42rem;color:var(--subtle);margin-top:6px}
 
-/* ── TOP 3 CATEGORY DEEP DIVE ── */
-.top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+/* ── TOP 3 NARRATIVE CARDS ── */
+.t3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 .t3-card{background:var(--bg2);border:1px solid var(--border);overflow:hidden;position:relative}
-.t3-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#10b981,#34d399)}
 .t3-header{padding:16px 18px 12px;border-bottom:1px solid var(--border)}
-.t3-rank{font-family:var(--fm);font-size:.44rem;letter-spacing:.14em;color:var(--orange);margin-bottom:4px}
-.t3-name{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:8px}
-.t3-stats{display:flex;gap:20px;align-items:flex-end}
-.t3-pct{font-family:var(--fm);font-size:1.8rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.t3-rank{font-family:var(--fm);font-size:.43rem;letter-spacing:.14em;color:var(--orange);margin-bottom:4px}
+.t3-name{font-size:.92rem;font-weight:700;line-height:1.2;margin-bottom:8px}
+.t3-stats{display:flex;gap:16px;align-items:flex-end}
+.t3-pct{font-family:var(--fm);font-size:1.7rem;font-weight:700;letter-spacing:-.04em;line-height:1}
 .t3-meta{display:flex;flex-direction:column;gap:3px}
-.t3-7d{font-family:var(--fm);font-size:.58rem;font-weight:700}
-.t3-mcap{font-family:var(--fm);font-size:.5rem;color:var(--subtle)}
-.t3-tokens{padding:0 18px 14px}
-.t3-tok{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.t3-7d{font-family:var(--fm);font-size:.56rem;font-weight:700}
+.t3-mcap{font-family:var(--fm);font-size:.48rem;color:var(--subtle)}
+.t3-tokens{padding:0 18px 12px}
+.t3-tok{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border2)}
 .t3-tok:last-child{border-bottom:none}
-.t3-tok-img{width:28px;height:28px;border-radius:50%;background:var(--bg3);flex-shrink:0}
+.t3-tok-img{width:26px;height:26px;border-radius:50%;background:var(--bg3);flex-shrink:0}
 .t3-tok-info{flex:1;min-width:0}
-.t3-tok-sym{font-family:var(--fm);font-size:.75rem;font-weight:700;color:var(--text)}
-.t3-tok-name{font-size:.62rem;color:var(--subtle);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.t3-tok-price{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--text);text-align:right}
-.t3-tok-chg{font-family:var(--fm);font-size:.72rem;font-weight:700;text-align:right;min-width:52px}
-.t3-tok-7d{font-family:var(--fm);font-size:.5rem;text-align:right;color:var(--subtle)}
-.t3-vol{padding:8px 18px;background:rgba(255,255,255,.02);border-top:1px solid var(--border)}
-.t3-vol-lbl{font-family:var(--fm);font-size:.44rem;letter-spacing:.1em;color:var(--subtle)}
-.t3-vol-val{font-family:var(--fm);font-size:.68rem;font-weight:700;color:var(--text)}
-@media(max-width:900px){.top3-grid{grid-template-columns:1fr}}
+.t3-tok-sym{font-family:var(--fm);font-size:.72rem;font-weight:700}
+.t3-tok-name{font-size:.6rem;color:var(--subtle);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t3-tok-price{font-family:var(--fm);font-size:.66rem;font-weight:700;text-align:right}
+.t3-tok-chg{font-family:var(--fm);font-size:.72rem;font-weight:700;text-align:right;min-width:50px}
+.t3-vol{padding:8px 18px;background:rgba(255,255,255,.02);border-top:1px solid var(--border);font-family:var(--fm)}
+.t3-vol-lbl{font-size:.42rem;letter-spacing:.1em;color:var(--subtle)}
+.t3-vol-val{font-size:.66rem;font-weight:700}
+@media(max-width:900px){.t3-grid{grid-template-columns:1fr}}
 
 /* ── CATEGORIES ── */
-.cat-controls{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;align-items:center}
-.cat-sort-btn{font-family:var(--fm);font-size:.52rem;letter-spacing:.07em;padding:4px 10px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer}
+.cat-controls{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap;align-items:center}
+.cat-sort-btn{font-family:var(--fm);font-size:.5rem;letter-spacing:.07em;padding:4px 10px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer}
 .cat-sort-btn.active{border-color:var(--orange);color:var(--orange);background:rgba(255,90,31,.06)}
 .cat-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cat-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--border2)}
 .cat-row:last-child{border-bottom:none}
-.cat-rank{font-family:var(--fm);font-size:.46rem;color:var(--subtle);width:16px;flex-shrink:0}
+.cat-rank{font-family:var(--fm);font-size:.44rem;color:var(--subtle);width:16px;flex-shrink:0}
 .cat-name{font-size:.7rem;font-weight:600;flex:1;line-height:1.3}
 .cat-tokens{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px}
-.cat-tok{font-family:var(--fm);font-size:.46rem;font-weight:700;padding:.1rem .35rem;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--subtle)}
+.cat-tok{font-family:var(--fm);font-size:.44rem;font-weight:700;padding:.1rem .32rem;background:rgba(255,255,255,.04);border:1px solid var(--border)}
 .cat-chg{font-family:var(--fm);font-size:.75rem;font-weight:700;text-align:right;width:52px;flex-shrink:0}
-.cat-7d{font-family:var(--fm);font-size:.52rem;text-align:right;width:44px;flex-shrink:0;color:var(--subtle)}
-.cat-mcap-sm{font-family:var(--fm);font-size:.46rem;color:var(--subtle);display:block;margin-top:1px}
+.cat-7d{font-family:var(--fm);font-size:.5rem;text-align:right;width:44px;flex-shrink:0;color:var(--subtle)}
+.cat-mcap-sm{font-family:var(--fm);font-size:.44rem;color:var(--subtle);display:block;margin-top:1px}
 @media(max-width:800px){.cat-panels{grid-template-columns:1fr}}
 
+/* ── OI / TVL LIST ── */
+.oi-row,.tvl-row{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid var(--border2)}
+.oi-row:last-child,.tvl-row:last-child{border-bottom:none}
+.oi-n,.tvl-n{font-family:var(--fm);font-size:.44rem;color:var(--subtle);width:14px;flex-shrink:0}
+.oi-sym{font-family:var(--fm);font-size:.65rem;font-weight:700;width:60px;flex-shrink:0}
+.oi-chg,.tvl-chg{font-family:var(--fm);font-size:.5rem;display:block}
+.oi-bar-bg,.tvl-bar-bg{flex:1;height:3px;background:rgba(255,255,255,.05)}
+.oi-bar{height:3px;background:var(--orange);transition:width .6s}
+.tvl-bar{height:3px;background:var(--blue)}
+.tvl-bar-bg{width:70px;flex:none;flex-shrink:0}
+.oi-amt,.tvl-amt{font-family:var(--fm);font-size:.62rem;text-align:right;width:65px;flex-shrink:0}
+.tvl-name{font-family:var(--fm);font-size:.65rem;font-weight:700;flex:1}
+.tvl-chg{font-family:var(--fm);font-size:.58rem;font-weight:700;text-align:right;width:48px;flex-shrink:0}
+
+/* ── FUNDING PILL ── */
+.fp{font-family:var(--fm);font-size:.54rem;font-weight:700;padding:.12rem .44rem}
+.fp-bull{background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.2)}
+.fp-bear{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.fp-neu{background:rgba(75,82,99,.1);color:var(--subtle);border:1px solid var(--border)}
+
+/* ── SECTOR CARDS ── */
+.sc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.sc-card{background:var(--bg2);border:1px solid var(--border);padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.sc-name{font-size:.73rem;font-weight:600}
+.sc-tokens{font-size:.56rem;color:var(--subtle);margin-top:2px}
+.sc-24{font-family:var(--fm);font-size:.5rem;margin-top:3px}
+.sc-pct{font-family:var(--fm);font-size:.88rem;font-weight:700}
+
 /* ── DEXSCREENER ── */
-.dex-chain-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
-.dex-tab{font-family:var(--fm);font-size:.52rem;letter-spacing:.06em;padding:4px 11px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer;transition:all .15s}
+.dex-chain-tabs{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}
+.dex-tab{font-family:var(--fm);font-size:.5rem;letter-spacing:.06em;padding:4px 11px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer;transition:all .15s}
 .dex-tab:hover{color:var(--text);border-color:rgba(255,255,255,.18)}
 .dex-tab.active{border-color:var(--orange);color:var(--orange);background:rgba(255,90,31,.06)}
-.dex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
-.dex-card{background:var(--bg2);border:1px solid var(--border);padding:13px 15px;position:relative;overflow:hidden;transition:border-color .2s}
+.dex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.dex-card{background:var(--bg2);border:1px solid var(--border);padding:14px 16px;position:relative;overflow:hidden;transition:border-color .2s}
 .dex-card:hover{border-color:rgba(255,255,255,.16)}
 .dex-card-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
 .dex-icon{width:34px;height:34px;border-radius:50%;background:var(--bg3);flex-shrink:0;object-fit:cover}
 .dex-icon-ph{width:34px;height:34px;border-radius:50%;background:var(--bg3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--muted)}
 .dex-meta{flex:1;min-width:0}
-.dex-sym{font-family:var(--fm);font-size:.78rem;font-weight:700;color:var(--text)}
+.dex-sym{font-family:var(--fm);font-size:.78rem;font-weight:700}
 .dex-name{font-size:.62rem;color:var(--subtle);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
-.dex-badge{display:inline-block;font-family:var(--fm);font-size:.42rem;letter-spacing:.06em;padding:.1rem .38rem;border:1px solid var(--border);color:var(--subtle);text-transform:uppercase;margin-top:3px}
+.dex-badge{display:inline-block;font-family:var(--fm);font-size:.42rem;letter-spacing:.06em;padding:.1rem .36rem;border:1px solid var(--border);color:var(--subtle);margin-top:3px}
 .dex-badge.sol{border-color:rgba(147,112,219,.35);color:#9370db}
 .dex-badge.eth{border-color:rgba(100,130,200,.35);color:#8197c8}
 .dex-badge.base{border-color:rgba(0,120,255,.35);color:#4080e8}
 .dex-badge.bsc{border-color:rgba(243,186,47,.35);color:#f3ba2f}
 .dex-badge.arb{border-color:rgba(40,160,240,.35);color:#28a0f0}
 .dex-price-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid var(--border);margin-top:4px}
-.dex-price{font-family:var(--fm);font-size:.72rem;font-weight:700;color:var(--text)}
-.dex-chg{font-family:var(--fm);font-size:.8rem;font-weight:700}
-.dex-stats{display:flex;gap:12px;margin-top:6px}
+.dex-price{font-family:var(--fm);font-size:.72rem;font-weight:700}
+.dex-chg{font-family:var(--fm);font-size:.78rem;font-weight:700}
+.dex-stats{display:flex;gap:12px;margin-top:7px}
 .dex-stat{display:flex;flex-direction:column;gap:2px}
 .dex-stat-lbl{font-family:var(--fm);font-size:.42rem;letter-spacing:.08em;color:var(--subtle)}
 .dex-stat-val{font-family:var(--fm);font-size:.62rem;font-weight:700;color:var(--muted)}
 .dex-desc{font-size:.62rem;color:var(--subtle);line-height:1.5;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.dex-boost{position:absolute;top:10px;right:12px;font-family:var(--fm);font-size:.42rem;letter-spacing:.06em;padding:.1rem .38rem;background:rgba(255,90,31,.1);border:1px solid rgba(255,90,31,.25);color:var(--orange)}
+.dex-boost{position:absolute;top:10px;right:12px;font-family:var(--fm);font-size:.42rem;letter-spacing:.06em;padding:.1rem .36rem;background:rgba(255,90,31,.1);border:1px solid rgba(255,90,31,.25);color:var(--orange)}
 .dex-link{font-family:var(--fm);font-size:.46rem;color:var(--blue);margin-top:8px;display:inline-block;text-decoration:underline;text-underline-offset:2px}
-.dex-empty{font-family:var(--fm);font-size:.62rem;color:var(--subtle);padding:24px;text-align:center;grid-column:1/-1}
+.dex-empty{font-family:var(--fm);font-size:.62rem;color:var(--subtle);padding:28px;text-align:center;grid-column:1/-1}
 
 /* ── COINALYZE STUB ── */
-.stub{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--yellow);padding:14px 18px}
-.stub-ttl{font-family:var(--fm);font-size:.6rem;font-weight:700;color:var(--yellow);letter-spacing:.06em;margin-bottom:6px}
+.stub{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--yellow);padding:16px 20px}
+.stub-ttl{font-family:var(--fm);font-size:.58rem;font-weight:700;color:var(--yellow);letter-spacing:.06em;margin-bottom:6px}
 .stub-body{font-size:.72rem;color:var(--muted);line-height:1.65}
 .stub-body code{font-family:var(--fm);font-size:.62rem;background:rgba(255,255,255,.05);padding:1px 5px;color:var(--text)}
 .stub-body ul{margin-top:8px;padding-left:15px;font-size:.68rem;line-height:1.9}
 
-/* ── LOADING / ERROR ── */
-.loading{font-family:var(--fm);font-size:.58rem;color:var(--subtle);letter-spacing:.05em;padding:16px;text-align:center}
+/* ── MISC ── */
+.loading{font-family:var(--fm);font-size:.58rem;color:var(--subtle);letter-spacing:.05em;padding:20px;text-align:center}
 .err{font-family:var(--fm);font-size:.58rem;color:var(--red);padding:8px}
 
-/* ── LAYOUT ── */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:22px}
-.mb{margin-bottom:22px}
-
 @media(max-width:1100px){.g3{grid-template-columns:1fr 1fr}}
-@media(max-width:800px){.g2,.g3{grid-template-columns:1fr}.ov-strip{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:500px){.ov-strip{grid-template-columns:repeat(2,1fr)}.banner{padding:16px}.page{padding:12px 12px 40px}}
+@media(max-width:800px){
+  :root{--sb-w:0px}
+  .sidebar{display:none}
+  .g2,.g3{grid-template-columns:1fr}
+  .cat-panels{grid-template-columns:1fr}
+  body{overflow:auto}
+  .main{overflow:visible}
+  .app{overflow:visible}
+}
 </style>
 </head>
 <body>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-track" id="tickerTrack">
-    <!-- populated by JS -->
-  </div>
+  <div class="ticker-track" id="tickerTrack"><!-- populated by JS --></div>
 </div>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <a class="logo" href="/"><div class="mark">∞</div>Fynaptix</a>
-  <nav class="nav">
-    <a href="/private/">Research Hub</a>
-    <a href="/crypto-scanner/" class="active">Crypto Scanner</a>
-    <a href="/aibot/">Trading Bot</a>
-  </nav>
-  <div class="topbar-r">
-    <span class="upd" id="lastUpd">—</span>
-    <button class="refresh" onclick="fetchAll()">↻ REFRESH</button>
-  </div>
-</div>
+<!-- APP -->
+<div class="app">
 
-<!-- BANNER -->
-<div style="background:#1c1c20;color:#fff;padding:28px 32px 26px;position:relative;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.15)">
-  <!-- Grid texture -->
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none"></div>
-  <!-- Orange radial glow -->
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 120% at 78% 50%,rgba(255,90,31,.11) 0%,transparent 65%);pointer-events:none"></div>
-  <!-- Candlestick / chart line right -->
-  <svg style="position:absolute;right:0;top:0;height:100%;width:auto;opacity:.05;pointer-events:none" viewBox="0 0 320 130" preserveAspectRatio="xMaxYMid slice">
-    <g fill="white"><rect x="20" y="50" width="10" height="45"/><rect x="24" y="34" width="2" height="66"/><rect x="44" y="36" width="10" height="56"/><rect x="48" y="22" width="2" height="78"/><rect x="68" y="58" width="10" height="32"/><rect x="72" y="44" width="2" height="52"/><rect x="92" y="28" width="10" height="54"/><rect x="96" y="14" width="2" height="78"/><rect x="116" y="44" width="10" height="36"/><rect x="120" y="32" width="2" height="56"/><rect x="140" y="20" width="10" height="62"/><rect x="144" y="8" width="2" height="82"/><rect x="164" y="36" width="10" height="42"/><rect x="168" y="24" width="2" height="60"/><rect x="188" y="14" width="10" height="66"/><rect x="192" y="4" width="2" height="86"/></g>
-    <polyline points="25,88 49,82 73,74 97,60 121,66 145,50 169,44 193,34" fill="none" stroke="white" stroke-width="1.8" opacity=".5"/>
-  </svg>
-  <!-- Concentric circles top-right -->
-  <svg style="position:absolute;right:180px;top:-40px;pointer-events:none" width="200" height="180" viewBox="0 0 200 180">
-    <circle cx="160" cy="70" r="90" fill="none" stroke="white" stroke-width="1" opacity=".07"/>
-    <circle cx="160" cy="70" r="58" fill="none" stroke="white" stroke-width="1" opacity=".09"/>
-    <circle cx="160" cy="70" r="30" fill="none" stroke="#ff5a1f" stroke-width="1.5" opacity=".28"/>
-    <circle cx="160" cy="70" r="8"  fill="#ff5a1f" opacity=".18"/>
-  </svg>
-  <!-- Dot grid bottom-left -->
-  <svg style="position:absolute;left:0;bottom:0;pointer-events:none" width="160" height="72" viewBox="0 0 160 72">
-    <circle r="1.5" cx="16" cy="14" fill="white" opacity=".08"/><circle r="1.5" cx="44" cy="14" fill="#ff5a1f" opacity=".22"/><circle r="1.5" cx="72" cy="14" fill="white" opacity=".08"/><circle r="1.5" cx="100" cy="14" fill="white" opacity=".08"/><circle r="1.5" cx="128" cy="14" fill="#ff5a1f" opacity=".18"/>
-    <circle r="1.5" cx="16" cy="40" fill="#ff5a1f" opacity=".2"/><circle r="1.5" cx="44" cy="40" fill="white" opacity=".08"/><circle r="1.5" cx="72" cy="40" fill="white" opacity=".08"/><circle r="1.5" cx="100" cy="40" fill="#ff5a1f" opacity=".2"/><circle r="1.5" cx="128" cy="40" fill="white" opacity=".08"/>
-    <circle r="1.5" cx="16" cy="66" fill="white" opacity=".08"/><circle r="1.5" cx="44" cy="66" fill="white" opacity=".08"/><circle r="1.5" cx="72" cy="66" fill="#ff5a1f" opacity=".18"/><circle r="1.5" cx="100" cy="66" fill="white" opacity=".08"/><circle r="1.5" cx="128" cy="66" fill="white" opacity=".08"/>
-  </svg>
-  <!-- Orange left accent bar -->
-  <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:#ff5a1f;pointer-events:none"></div>
-  <!-- Watermark -->
-  <div style="position:absolute;bottom:-10px;left:28px;font-family:'IBM Plex Mono',monospace;font-size:90px;font-weight:500;letter-spacing:-.04em;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;user-select:none">SCAN</div>
-  <!-- Content -->
-  <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center">
-    <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.4);margin-bottom:8px">FYNAPTIX · PRIVATE</div>
-      <h1 style="font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff">Crypto Scanner</h1>
-      <p style="font-size:12px;color:rgba(255,255,255,.45);margin-top:7px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em">Live prices · Open interest · Funding rates · Chain TVL · Narratives</p>
-    </div>
-    <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
-      <div style="text-align:right">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">FEAR &amp; GREED</div>
-        <div style="font-size:20px;font-weight:700;letter-spacing:-.02em" id="bn-fg">—</div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">BTC DOMINANCE</div>
-        <div style="font-size:20px;font-weight:700;color:#ff5a1f;letter-spacing:-.02em" id="bn-btcd">—</div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">TOTAL MCAP</div>
-        <div style="font-size:20px;font-weight:700;color:#fff;letter-spacing:-.02em" id="bn-mcap">—</div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.18em;color:rgba(255,255,255,.35);margin-bottom:4px">DEFI TVL</div>
-        <div style="font-size:20px;font-weight:600;color:#fff;letter-spacing:-.02em" id="bn-tvl">—</div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-mark">∞</div>
+      <div>
+        <div class="sb-brand">Fynaptix</div>
+        <div class="sb-tagline">CRYPTO SCANNER</div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- SPOTLIGHT STRIP -->
-<div class="spotlight-wrap">
-  <div class="spotlight-inner" id="spotlight">
-    <!-- skeleton placeholders while loading -->
-    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
-    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
-    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
-    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
-    <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
-  </div>
-</div>
+    <div class="sb-section">Market</div>
 
-<!-- TOP 3 CATEGORIES DEEP DIVE -->
-<div style="padding:0 24px;background:var(--bg);border-bottom:1px solid var(--border)">
-  <div style="padding:14px 0 4px;display:flex;align-items:center;gap:8px">
-    <span style="font-family:var(--fm);font-size:.48rem;font-weight:700;letter-spacing:.16em;color:var(--orange)">TOP NARRATIVES</span>
-    <span style="font-family:var(--fm);font-size:.46rem;letter-spacing:.06em;color:var(--subtle)">TOP 3 PERFORMING CATEGORIES WITH BEST TOKENS INSIDE EACH</span>
-  </div>
-  <div class="top3-grid" id="top3Grid">
-    <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div><div class="t3-pct" style="color:var(--subtle)">—</div></div></div>
-    <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div><div class="t3-pct" style="color:var(--subtle)">—</div></div></div>
-    <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div><div class="t3-pct" style="color:var(--subtle)">—</div></div></div>
-  </div>
-</div>
+    <div class="sb-item active" onclick="showView('overview',this)">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/>
+        <rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/>
+      </svg>
+      Overview
+    </div>
 
-<!-- PAGE -->
-<div class="page">
+    <div class="sb-item" onclick="showView('narratives',this)">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="1,12 5,7 8,9 11,4 15,2"/><line x1="1" y1="15" x2="15" y2="15"/>
+      </svg>
+      Narratives
+    </div>
 
-  <!-- OVERVIEW STRIP -->
-  <div class="ov-strip mb">
-    <div class="ov-cell"><div class="ov-lbl">Bitcoin</div><div class="ov-val" id="ov-btc">—</div><div class="ov-chg" id="ov-btc-c">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">Ethereum</div><div class="ov-val" id="ov-eth">—</div><div class="ov-chg" id="ov-eth-c">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">Solana</div><div class="ov-val" id="ov-sol">—</div><div class="ov-chg" id="ov-sol-c">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">BTC Dominance</div><div class="ov-val" id="ov-btcd">—</div><div class="ov-chg" id="ov-btcd-c">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">Total Mcap</div><div class="ov-val" id="ov-mcap">—</div><div class="ov-chg" id="ov-mcap-c">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">Fear &amp; Greed</div><div class="ov-val" id="ov-fg">—</div><div class="ov-chg" id="ov-fg-l" style="font-size:.5rem;color:var(--muted)">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">DeFi TVL</div><div class="ov-val" id="ov-tvl">—</div><div class="ov-chg" id="ov-tvl-c">—</div></div>
-    <div class="ov-cell"><div class="ov-lbl">24h Vol (spot)</div><div class="ov-val" id="ov-vol">—</div><div class="ov-chg" style="font-size:.44rem;color:var(--subtle)">COINGECKO</div></div>
-  </div>
+    <div class="sb-item" onclick="showView('defi',this)">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>
+      </svg>
+      DeFi On-Chain
+    </div>
 
-  <!-- TOP MOVERS + FUNDING RATES -->
-  <div class="g2">
-    <div>
-      <div class="sh"><div class="sk">02</div><div class="st">Top Movers (24h)</div><div class="sb">COINGECKO · TOP 100</div></div>
-      <div class="g2" style="gap:8px;margin-bottom:0">
-        <div class="card">
-          <div class="card-hd">GAINERS</div>
-          <table class="tbl"><thead><tr><th>#</th><th>TOKEN</th><th>PRICE</th><th>24H</th></tr></thead>
-          <tbody id="gainers"><tr><td colspan="4" class="loading">…</td></tr></tbody></table>
-        </div>
-        <div class="card">
-          <div class="card-hd">LOSERS</div>
-          <table class="tbl"><thead><tr><th>#</th><th>TOKEN</th><th>PRICE</th><th>24H</th></tr></thead>
-          <tbody id="losers"><tr><td colspan="4" class="loading">…</td></tr></tbody></table>
+    <div class="sb-item" onclick="showView('hotspots',this)">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 1C8 1 4 5.5 4 9a4 4 0 008 0c0-3.5-4-8-4-8z"/><circle cx="8" cy="9" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+      Hot Spots
+    </div>
+
+    <div class="sb-item" onclick="showView('largecap',this)">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="10" width="3" height="5"/><rect x="6" y="6" width="3" height="9"/><rect x="11" y="2" width="3" height="13"/>
+      </svg>
+      Large Cap
+    </div>
+
+    <div class="sb-divider"></div>
+    <div class="sb-section">External</div>
+
+    <div class="sb-links">
+      <a class="sb-ext" href="https://defillama.com" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v10h10V9M13 3H9M13 3v4M13 3L8 8"/></svg>
+        DefiLlama
+      </a>
+      <a class="sb-ext" href="https://dexscreener.com" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v10h10V9M13 3H9M13 3v4M13 3L8 8"/></svg>
+        DEXScreener
+      </a>
+      <a class="sb-ext" href="https://coingecko.com" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v10h10V9M13 3H9M13 3v4M13 3L8 8"/></svg>
+        CoinGecko
+      </a>
+      <a class="sb-ext" href="/aibot/" target="_blank" rel="noopener">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v10h10V9M13 3H9M13 3v4M13 3L8 8"/></svg>
+        Trading Bot
+      </a>
+    </div>
+
+    <div class="sb-footer">
+      <div class="sb-upd" id="lastUpd">Loading…</div>
+      <button class="sb-refresh" onclick="fetchAll()">↻ REFRESH</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ═══ OVERVIEW ═══ -->
+    <div class="view active" id="view-overview">
+      <div class="vh">
+        <div class="vh-eyebrow">GLOBAL MARKET</div>
+        <div class="vh-row">
+          <div>
+            <div class="vh-hero" id="hero-mcap">—</div>
+            <div class="vh-meta">TOTAL MARKET CAP · <span id="hero-mcap-chg" class="vh-chg">—</span> 24H</div>
+          </div>
+          <div class="vh-pills">
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">BTC DOMINANCE</div>
+              <div class="vh-pill-val" id="hero-btcd">—</div>
+            </div>
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">FEAR &amp; GREED</div>
+              <div class="vh-pill-val" id="hero-fg">—</div>
+            </div>
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">DEFI TVL</div>
+              <div class="vh-pill-val" id="hero-tvl">—</div>
+            </div>
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">24H VOLUME</div>
+              <div class="vh-pill-val" id="hero-vol">—</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="sh"><div class="sk">03</div><div class="st">Funding Rates</div><div class="sb">BYBIT PERPS</div></div>
-      <div class="card">
-        <div class="card-hd">EXTREME FUNDING — CROWDED POSITIONS</div>
-        <table class="tbl">
-          <thead><tr><th>SYMBOL</th><th>RATE (8H)</th><th>SIGNAL</th><th>PRICE</th><th>24H</th></tr></thead>
-          <tbody id="funding"><tr><td colspan="5" class="loading">…</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+      <div class="vbody">
+        <!-- BTC / ETH / SOL -->
+        <div class="sh"><div class="sk">01</div><div class="st">Price Leaders</div><div class="sb2">COINGECKO</div></div>
+        <div class="stat-row mb">
+          <div class="stat-cell">
+            <div class="stat-lbl">BITCOIN</div>
+            <div class="stat-val" id="ov-btc">—</div>
+            <div class="stat-chg" id="ov-btc-c">—</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-lbl">ETHEREUM</div>
+            <div class="stat-val" id="ov-eth">—</div>
+            <div class="stat-chg" id="ov-eth-c">—</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-lbl">SOLANA</div>
+            <div class="stat-val" id="ov-sol">—</div>
+            <div class="stat-chg" id="ov-sol-c">—</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-lbl">BTC DOMINANCE</div>
+            <div class="stat-val" id="ov-btcd">—</div>
+            <div class="stat-chg" style="font-size:.44rem;color:var(--subtle)">% of total mcap</div>
+          </div>
+        </div>
 
-  <!-- OI + CHAIN TVL -->
-  <div class="g2">
-    <div>
-      <div class="sh"><div class="sk">04</div><div class="st">Open Interest — Top 15</div><div class="sb">BYBIT PERPS</div></div>
-      <div class="card">
-        <div class="card-hd">RANKED BY OI VALUE (USD)</div>
-        <div id="oiList"><div class="loading">…</div></div>
-      </div>
-    </div>
-    <div>
-      <div class="sh"><div class="sk">05</div><div class="st">Chain TVL</div><div class="sb">DEFILLAMA</div></div>
-      <div class="card">
-        <div class="card-hd">TOP CHAINS BY TOTAL VALUE LOCKED</div>
-        <div id="tvlList"><div class="loading">…</div></div>
-      </div>
-    </div>
-  </div>
+        <!-- Narrative Sectors quick view -->
+        <div class="sh mb" style="margin-bottom:10px"><div class="sk">02</div><div class="st">Narrative Sectors (7d avg)</div><div class="sb2">COINGECKO</div></div>
+        <div class="sc-grid mb" id="sectors"><div class="loading">…</div></div>
 
-  <!-- NARRATIVE SECTORS + COINALYZE -->
-  <div class="g2">
-    <div>
-      <div class="sh"><div class="sk">06</div><div class="st">Narrative Sectors (7d avg)</div><div class="sb">COINGECKO</div></div>
-      <div class="sc-grid" id="sectors"><div class="loading">…</div></div>
+        <!-- Spotlight strip -->
+        <div class="sh mb" style="margin-bottom:10px"><div class="sk">03</div><div class="st">Category Momentum</div><div class="sb2">COINGECKO · 24H</div></div>
+        <div class="spot-strip" id="spotlight">
+          <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+          <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+          <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+          <div class="sp-card" style="opacity:.3"><div class="sp-lbl">LOADING</div><div class="sp-pct" style="color:var(--subtle)">—</div></div>
+        </div>
+      </div>
     </div>
-    <div>
-      <div class="sh"><div class="sk">07</div><div class="st">Derivatives Analytics</div><div class="sb">COINALYZE</div></div>
-      <div id="coinalyze">
-        <div class="stub">
-          <div class="stub-ttl">⚡ API KEY REQUIRED</div>
-          <div class="stub-body">
-            Coinalyze delivers <strong>aggregated OI across all exchanges</strong>, long/short ratios, liquidation data, and funding rate history — more complete than any single exchange.<br><br>
-            To activate: set the <code>COINALYZE_KEY</code> constant at the top of the page script. Get a free API key at <strong>coinalyze.net</strong>.<br><br>
-            Once connected you'll see:
-            <ul>
-              <li>Aggregated Open Interest (all exchanges)</li>
-              <li>Long / Short ratio</li>
-              <li>Liquidation heatmap data</li>
-              <li>OI-weighted funding rates</li>
-            </ul>
+
+    <!-- ═══ NARRATIVES ═══ -->
+    <div class="view" id="view-narratives">
+      <div class="vh">
+        <div class="vh-eyebrow">NARRATIVES &amp; CATEGORIES</div>
+        <div class="vh-row">
+          <div>
+            <div class="vh-hero" id="narr-hero">—</div>
+            <div class="vh-meta">TOP CATEGORY 24H CHANGE</div>
+          </div>
+          <div class="vh-pills">
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">CATEGORIES TRACKED</div>
+              <div class="vh-pill-val" id="narr-count">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vbody">
+        <!-- Top 3 deep-dive -->
+        <div class="sh mb" style="margin-bottom:10px">
+          <div class="sk">TOP NARRATIVES</div>
+          <div class="st">Running Categories + Best Tokens</div>
+          <div class="sb2">COINGECKO · LIVE</div>
+        </div>
+        <div class="t3-grid" id="top3Grid">
+          <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div></div></div>
+          <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div></div></div>
+          <div class="t3-card" style="opacity:.3"><div class="t3-header"><div class="t3-rank">LOADING</div><div class="t3-name">—</div></div></div>
+        </div>
+
+        <!-- Category table -->
+        <div class="sh mb" style="margin-bottom:8px">
+          <div class="sk">ALL CATEGORIES</div>
+          <div class="st">Hot vs Under Pressure</div>
+          <div class="sb2">SORT BY →</div>
+        </div>
+        <div class="cat-controls">
+          <button class="cat-sort-btn active" onclick="sortCategories('24h',this)">24H</button>
+          <button class="cat-sort-btn" onclick="sortCategories('7d',this)">7D</button>
+          <button class="cat-sort-btn" onclick="sortCategories('mcap',this)">MARKET CAP</button>
+          <button class="cat-sort-btn" onclick="sortCategories('volume',this)">VOLUME</button>
+        </div>
+        <div class="cat-panels" id="catPanels">
+          <div class="card"><div class="loading">Loading…</div></div>
+          <div class="card"><div class="loading">Loading…</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ DEFI ═══ -->
+    <div class="view" id="view-defi">
+      <div class="vh">
+        <div class="vh-eyebrow">DEFI ON-CHAIN</div>
+        <div class="vh-row">
+          <div>
+            <div class="vh-hero" id="defi-hero">—</div>
+            <div class="vh-meta">TOTAL VALUE LOCKED · <span id="defi-hero-chg" class="vh-chg">—</span> 24H</div>
+          </div>
+          <div class="vh-pills">
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">DEX VOLUME 24H</div>
+              <div class="vh-pill-val" id="defi-dex-vol">—</div>
+            </div>
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">TOP CHAIN</div>
+              <div class="vh-pill-val" id="defi-top-chain">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vbody">
+        <div class="g2">
+          <div>
+            <div class="sh mb" style="margin-bottom:10px"><div class="sk">01</div><div class="st">Chain TVL</div><div class="sb2">DEFILLAMA</div></div>
+            <div class="card"><div id="tvlList"><div class="loading">…</div></div></div>
+          </div>
+          <div>
+            <div class="sh mb" style="margin-bottom:10px"><div class="sk">02</div><div class="st">Top Protocols by TVL</div><div class="sb2">DEFILLAMA · TOP 15</div></div>
+            <div class="card">
+              <table class="tbl">
+                <thead><tr><th>#</th><th>PROTOCOL</th><th>CATEGORY</th><th>CHAIN</th><th>TVL</th><th>7D</th></tr></thead>
+                <tbody id="protocols"><tr><td colspan="6" class="loading">…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="sh mb" style="margin-bottom:10px"><div class="sk">03</div><div class="st">Derivatives Analytics</div><div class="sb2">COINALYZE</div></div>
+        <div id="coinalyze">
+          <div class="stub">
+            <div class="stub-ttl">⚡ API KEY REQUIRED</div>
+            <div class="stub-body">
+              Coinalyze delivers <strong>aggregated OI across all exchanges</strong>, long/short ratios, liquidation data, and funding rate history.<br><br>
+              To activate: set the <code>COINALYZE_KEY</code> constant at the top of the page script.
+              <ul>
+                <li>Aggregated Open Interest (all exchanges)</li>
+                <li>Long / Short ratio</li>
+                <li>Liquidation heatmap data</li>
+                <li>OI-weighted funding rates</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- COINGECKO CATEGORIES / NARRATIVES -->
-  <div class="mb">
-    <div class="sh">
-      <div class="sk">08</div>
-      <div class="st">Narratives &amp; Categories</div>
-      <div class="sb">COINGECKO · LIVE</div>
+    <!-- ═══ HOT SPOTS ═══ -->
+    <div class="view" id="view-hotspots">
+      <div class="vh">
+        <div class="vh-eyebrow">DEX HOT SPOTS</div>
+        <div class="vh-row">
+          <div>
+            <div class="vh-hero" id="dex-hero">—</div>
+            <div class="vh-meta">TRENDING TOKENS ACROSS ALL CHAINS</div>
+          </div>
+          <div class="vh-pills">
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">SOURCE</div>
+              <div class="vh-pill-val" style="font-size:.6rem">DEXSCREENER</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vbody">
+        <div class="sh mb" style="margin-bottom:12px"><div class="sk">TRENDING</div><div class="st">Top Boosted + Volume Tokens</div><div class="sb2">REAL-TIME · CHAIN FILTER →</div></div>
+        <div class="dex-chain-tabs" id="dexTabs">
+          <button class="dex-tab active" onclick="dexFilter('all',this)">ALL CHAINS</button>
+          <button class="dex-tab" onclick="dexFilter('solana',this)">SOLANA</button>
+          <button class="dex-tab" onclick="dexFilter('ethereum',this)">ETHEREUM</button>
+          <button class="dex-tab" onclick="dexFilter('base',this)">BASE</button>
+          <button class="dex-tab" onclick="dexFilter('bsc',this)">BSC</button>
+          <button class="dex-tab" onclick="dexFilter('arbitrum',this)">ARBITRUM</button>
+        </div>
+        <div class="dex-grid" id="dexGrid"><div class="dex-empty">Loading DEXScreener data…</div></div>
+      </div>
     </div>
-    <div class="cat-controls">
-      <span style="font-family:var(--fm);font-size:.48rem;color:var(--subtle);letter-spacing:.06em;margin-right:4px">SORT BY</span>
-      <button class="cat-sort-btn active" onclick="sortCategories('24h',this)">24H CHANGE</button>
-      <button class="cat-sort-btn" onclick="sortCategories('7d',this)">7D CHANGE</button>
-      <button class="cat-sort-btn" onclick="sortCategories('mcap',this)">MARKET CAP</button>
-      <button class="cat-sort-btn" onclick="sortCategories('volume',this)">VOLUME</button>
-    </div>
-    <div class="cat-panels" id="catPanels">
-      <div class="card"><div class="loading">Loading…</div></div>
-      <div class="card"><div class="loading">Loading…</div></div>
-    </div>
-  </div>
 
-  <!-- DEFILLAMA PROTOCOLS -->
-  <div>
-    <div class="sh"><div class="sk">09</div><div class="st">DeFi Protocols</div><div class="sb">DEFILLAMA · TOP 15</div></div>
-    <div class="card">
-      <div class="card-hd">TOP PROTOCOLS BY TVL</div>
-      <table class="tbl">
-        <thead><tr><th>#</th><th>PROTOCOL</th><th>CATEGORY</th><th>CHAIN</th><th>TVL</th><th>7D CHG</th></tr></thead>
-        <tbody id="protocols"><tr><td colspan="6" class="loading">…</td></tr></tbody>
-      </table>
-    </div>
-  </div>
+    <!-- ═══ LARGE CAP ═══ -->
+    <div class="view" id="view-largecap">
+      <div class="vh">
+        <div class="vh-eyebrow">LARGE CAP MOMENTUM</div>
+        <div class="vh-row">
+          <div>
+            <div class="vh-hero" id="lc-hero">—</div>
+            <div class="vh-meta">TOP GAINER · 24H CHANGE</div>
+          </div>
+          <div class="vh-pills">
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">UNIVERSE</div>
+              <div class="vh-pill-val">TOP 100</div>
+            </div>
+            <div class="vh-pill">
+              <div class="vh-pill-lbl">SOURCE</div>
+              <div class="vh-pill-val" style="font-size:.6rem">CG + BYBIT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vbody">
+        <!-- Movers -->
+        <div class="sh mb" style="margin-bottom:10px"><div class="sk">01</div><div class="st">Top Movers (24h)</div><div class="sb2">COINGECKO · TOP 100</div></div>
+        <div class="g2 mb">
+          <div class="card">
+            <div class="card-hd">GAINERS</div>
+            <table class="tbl"><thead><tr><th>#</th><th>TOKEN</th><th>PRICE</th><th>24H</th></tr></thead>
+            <tbody id="gainers"><tr><td colspan="4" class="loading">…</td></tr></tbody></table>
+          </div>
+          <div class="card">
+            <div class="card-hd">LOSERS</div>
+            <table class="tbl"><thead><tr><th>#</th><th>TOKEN</th><th>PRICE</th><th>24H</th></tr></thead>
+            <tbody id="losers"><tr><td colspan="4" class="loading">…</td></tr></tbody></table>
+          </div>
+        </div>
 
-  <!-- DEXSCREENER -->
-  <div class="mb" style="margin-top:22px">
-    <div class="sh">
-      <div class="sk">10</div>
-      <div class="st">DEX Hot Spots</div>
-      <div class="sb">DEXSCREENER · TRENDING</div>
+        <!-- OI + Funding -->
+        <div class="sh mb" style="margin-bottom:10px"><div class="sk">02</div><div class="st">Derivatives — OI &amp; Funding</div><div class="sb2">BYBIT PERPS</div></div>
+        <div class="g2">
+          <div class="card">
+            <div class="card-hd">OPEN INTEREST — TOP 15</div>
+            <div id="oiList"><div class="loading">…</div></div>
+          </div>
+          <div class="card">
+            <div class="card-hd">EXTREME FUNDING — CROWDED POSITIONS</div>
+            <table class="tbl">
+              <thead><tr><th>SYMBOL</th><th>RATE (8H)</th><th>SIGNAL</th><th>PRICE</th><th>24H</th></tr></thead>
+              <tbody id="funding"><tr><td colspan="5" class="loading">…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="dex-chain-tabs" id="dexTabs">
-      <button class="dex-tab active" onclick="dexFilter('all',this)">ALL CHAINS</button>
-      <button class="dex-tab" onclick="dexFilter('solana',this)">SOLANA</button>
-      <button class="dex-tab" onclick="dexFilter('ethereum',this)">ETHEREUM</button>
-      <button class="dex-tab" onclick="dexFilter('base',this)">BASE</button>
-      <button class="dex-tab" onclick="dexFilter('bsc',this)">BSC</button>
-      <button class="dex-tab" onclick="dexFilter('arbitrum',this)">ARBITRUM</button>
-    </div>
-    <div class="dex-grid" id="dexGrid"><div class="dex-empty">Loading…</div></div>
-  </div>
 
-</div><!-- /page -->
+  </main>
+</div><!-- /app -->
 
 <script>
 // ═══════════════════════════════════════════════
 // CONFIG
 // ═══════════════════════════════════════════════
 const COINALYZE_KEY = ''; // paste your key here
-
 
 const SECTORS = {
   'AI × Crypto':   ['render-token','bittensor','fetch-ai','akash-network'],
@@ -492,11 +634,22 @@ const SECTORS = {
 };
 
 // ═══════════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════════
+function showView(id, el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  if(el) el.classList.add('active');
+  document.querySelector('.main').scrollTop = 0;
+}
+
+// ═══════════════════════════════════════════════
 // FORMATTERS
 // ═══════════════════════════════════════════════
-const f2  = n => n == null ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-const f4  = n => n == null ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:4});
-const pct = (n,sign=true) => n == null ? '—' : (sign&&n>0?'+':'')+f2(n)+'%';
+const f2  = n => n==null?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const f4  = n => n==null?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:4});
+const pct = (n,sign=true) => n==null?'—':(sign&&n>0?'+':'')+f2(n)+'%';
 const big = n => {
   if(n==null) return '—';
   if(n>=1e12) return '$'+f2(n/1e12)+'T';
@@ -506,26 +659,22 @@ const big = n => {
 };
 const price = p => {
   if(p==null) return '—';
-  if(p>=1000)  return '$'+f2(p);
-  if(p>=1)     return '$'+f2(p);
-  if(p>=0.001) return '$'+f4(p);
+  if(p>=1000) return '$'+f2(p);
+  if(p>=1)    return '$'+f2(p);
+  if(p>=0.001)return '$'+f4(p);
   return '$'+Number(p).toFixed(6);
 };
 const cls  = v => v>0?'up':v<0?'dn':'neu';
 const span = (v,sfx='%') => `<span class="${cls(v)}">${v>0?'+':''}${f2(v)}${sfx}</span>`;
 
 function setEl(id,html,color){
-  const el=document.getElementById(id); if(!el)return;
-  el.innerHTML=html; if(color)el.style.color=color;
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=html;if(color)el.style.color=color;
 }
 function setChg(id,v){
-  const el=document.getElementById(id); if(!el)return;
-  el.innerHTML=pct(v); el.className='ov-chg '+cls(v);
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=pct(v);el.className='stat-chg '+cls(v);
 }
-
-// ═══════════════════════════════════════════════
-// TICKER TAPE
-// ═══════════════════════════════════════════════
 
 // ═══════════════════════════════════════════════
 // COINGECKO — global
@@ -538,19 +687,17 @@ async function fetchGlobal(){
   const btcd  = g.market_cap_percentage.btc;
   const vol   = g.total_volume.usd;
 
-  setEl('ov-mcap', big(mcap));  setChg('ov-mcap-c', mcapC);
-  setEl('ov-btcd', f2(btcd)+'%'); setEl('ov-btcd-c', '');
-  setEl('ov-vol',  big(vol));
-  setEl('bn-btcd', f2(btcd)+'%');
-  setEl('bn-mcap', big(mcap));
+  setEl('hero-mcap', big(mcap));
+  setEl('hero-mcap-chg', pct(mcapC), mcapC>=0?'var(--green)':'var(--red)');
+  setEl('hero-btcd', f2(btcd)+'%');
+  setEl('hero-vol', big(vol));
+  setEl('ov-btcd', f2(btcd)+'%');
 
-  // update ticker global items
   const bd = document.getElementById('tick-btcd');
   const bm = document.getElementById('tick-mcap');
   if(bd) bd.textContent = f2(btcd)+'%';
   if(bm) bm.textContent = big(mcap);
 }
-
 
 // ═══════════════════════════════════════════════
 // COINGECKO — top 100 movers
@@ -560,8 +707,7 @@ async function fetchMovers(){
   const coins = await r.json();
   if(!Array.isArray(coins)) return;
 
-  // populate BTC / ETH / SOL overview cells
-  const symMap = {bitcoin:'btc', ethereum:'eth', solana:'sol'};
+  const symMap = {bitcoin:'btc',ethereum:'eth',solana:'sol'};
   coins.forEach(c=>{
     const sym = symMap[c.id];
     if(!sym) return;
@@ -569,14 +715,13 @@ async function fetchMovers(){
     setChg(`ov-${sym}-c`, c.price_change_percentage_24h);
   });
 
-  // populate ticker tape from top coins
-  const tickerCoins = ['bitcoin','ethereum','solana','chainlink','injective-protocol','avalanche-2','render-token','bittensor'];
-  const tickItems = tickerCoins.map(id=>{
+  // ticker tape
+  const tickCoins = ['bitcoin','ethereum','solana','chainlink','injective-protocol','avalanche-2','render-token','bittensor'];
+  const tickItems = tickCoins.map(id=>{
     const c = coins.find(x=>x.id===id);
     if(!c) return '';
-    const sym = c.symbol.toUpperCase();
-    const ch  = c.price_change_percentage_24h||0;
-    return `<div class="ticker-item"><b>${sym}</b><span class="${cls(ch)}">${price(c.current_price)} ${pct(ch)}</span></div>`;
+    const ch = c.price_change_percentage_24h||0;
+    return `<div class="ticker-item"><b>${c.symbol.toUpperCase()}</b><span class="${cls(ch)}">${price(c.current_price)} ${pct(ch)}</span></div>`;
   }).filter(Boolean);
   const btcdEl = `<div class="ticker-item"><b>BTC.D</b><span id="tick-btcd">—</span></div>`;
   const mcapEl = `<div class="ticker-item"><b>MCAP</b><span id="tick-mcap">—</span></div>`;
@@ -585,6 +730,10 @@ async function fetchMovers(){
 
   const sorted = [...coins].filter(c=>c.price_change_percentage_24h!=null)
     .sort((a,b)=>b.price_change_percentage_24h - a.price_change_percentage_24h);
+
+  // large cap hero — top gainer
+  const topG = sorted[0];
+  if(topG) setEl('lc-hero', pct(topG.price_change_percentage_24h), topG.price_change_percentage_24h>=0?'var(--green)':'var(--red)');
 
   const row = (c,i) => `<tr>
     <td style="color:var(--subtle)">${i+1}</td>
@@ -627,7 +776,7 @@ async function fetchSectors(){
 }
 
 // ═══════════════════════════════════════════════
-// BYBIT — public tickers (OI + funding)
+// BYBIT
 // ═══════════════════════════════════════════════
 async function fetchBybit(){
   const r = await fetch('https://api.bybit.com/v5/market/tickers?category=linear');
@@ -646,7 +795,6 @@ async function fetchBybit(){
     }))
     .filter(t=>t.oi>0);
 
-  // ── OI TOP 15
   const topOI = [...tickers].sort((a,b)=>b.oi-a.oi).slice(0,15);
   const maxOI = topOI[0]?.oi||1;
   document.getElementById('oiList').innerHTML = topOI.map((t,i)=>`
@@ -657,7 +805,6 @@ async function fetchBybit(){
       <div class="oi-amt ${cls(t.chg24)}">${big(t.oi)}</div>
     </div>`).join('');
 
-  // ── FUNDING — most extreme (long + short)
   const sorted = [...tickers].sort((a,b)=>Math.abs(b.funding)-Math.abs(a.funding)).slice(0,14);
   document.getElementById('funding').innerHTML = sorted.map(t=>{
     const f = t.funding;
@@ -674,7 +821,7 @@ async function fetchBybit(){
 }
 
 // ═══════════════════════════════════════════════
-// DEFILLAMA — chains + protocols
+// DEFILLAMA
 // ═══════════════════════════════════════════════
 async function fetchDefiLlama(){
   const [cr, pr] = await Promise.all([
@@ -684,13 +831,17 @@ async function fetchDefiLlama(){
   const chains    = await cr.json();
   const protocols = await pr.json();
 
-  // chains
   const topChains = chains.filter(c=>c.tvl>0).sort((a,b)=>b.tvl-a.tvl).slice(0,12);
   const maxTVL    = topChains[0]?.tvl||1;
   const totalTVL  = topChains.reduce((s,c)=>s+c.tvl,0);
+  const topChain  = topChains[0];
 
-  setEl('ov-tvl', big(totalTVL));
-  setEl('bn-tvl', big(totalTVL));
+  setEl('hero-tvl', big(totalTVL));
+  setEl('defi-hero', big(totalTVL));
+  setEl('defi-top-chain', topChain?.name||'—');
+
+  const chg24 = topChain?.change_1d||0;
+  setEl('defi-hero-chg', pct(chg24), chg24>=0?'var(--green)':'var(--red)');
 
   document.getElementById('tvlList').innerHTML = topChains.map((c,i)=>{
     const chg = c.change_1d||0;
@@ -703,7 +854,6 @@ async function fetchDefiLlama(){
     </div>`;
   }).join('');
 
-  // protocols
   const top15 = protocols.filter(p=>p.tvl>0).sort((a,b)=>b.tvl-a.tvl).slice(0,15);
   document.getElementById('protocols').innerHTML = top15.map((p,i)=>{
     const c7  = p.change_7d||0;
@@ -728,13 +878,12 @@ async function fetchFearGreed(){
   const val   = parseInt(d.data[0].value);
   const label = d.data[0].value_classification;
   const color = val>=75?'var(--green)':val>=55?'#a3e635':val>=45?'var(--yellow)':val>=25?'var(--orange)':'var(--red)';
-  setEl('ov-fg', String(val), color);
-  setEl('ov-fg-l', label.toUpperCase());
-  setEl('bn-fg', `${val} · ${label.toUpperCase()}`, color);
+  setEl('hero-fg', `${val}`, color);
+  document.querySelector('#hero-fg').title = label;
 }
 
 // ═══════════════════════════════════════════════
-// COINALYZE — activates when key is set
+// COINALYZE
 // ═══════════════════════════════════════════════
 async function fetchCoinalyze(){
   if(!COINALYZE_KEY) return;
@@ -753,32 +902,26 @@ async function fetchCoinalyze(){
         <td style="font-size:.55rem;color:var(--subtle)">${item.exchange||'Aggregated'}</td>
       </tr>`;
     }).join('') : '<tr><td colspan="4" class="err">No data</td></tr>';
-
     sec.innerHTML = `<div class="card"><div class="card-hd">AGGREGATED OI — ALL EXCHANGES</div>
-      <table class="tbl">
-        <thead><tr><th>SYMBOL</th><th>OI (USD)</th><th>CHG 24H</th><th>SOURCE</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>`;
+      <table class="tbl"><thead><tr><th>SYMBOL</th><th>OI (USD)</th><th>CHG 24H</th><th>SOURCE</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
   } catch(e){
     sec.innerHTML = `<div class="stub"><div class="stub-ttl">ERROR</div><div class="stub-body">${e.message}</div></div>`;
   }
 }
 
 // ═══════════════════════════════════════════════
-// COINGECKO CATEGORIES — with top tokens
+// COINGECKO CATEGORIES
 // ═══════════════════════════════════════════════
 let catData = [];
 let catSort = '24h';
 
 function renderSpotlight(){
   if(!catData.length) return;
-
-  // Top 10 by 24h gain + bottom 3 for context — total 13 cards, horizontally scrollable
-  const filtered = catData.filter(c=>c.market_cap>5e7); // skip micro-caps
+  const filtered = catData.filter(c=>c.market_cap>5e7);
   const sorted24 = [...filtered].sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0));
   const top = sorted24.slice(0,10);
   const bottom = sorted24.slice(-3).reverse();
-  const cards = [...top, ...bottom];
 
   function spClass(v){
     if(v>=8)  return 'sp-h3';
@@ -789,7 +932,7 @@ function renderSpotlight(){
     return 'sp-c3';
   }
 
-  document.getElementById('spotlight').innerHTML = cards.map(cat=>{
+  document.getElementById('spotlight').innerHTML = [...top,...bottom].map(cat=>{
     const chg24 = cat.market_cap_change_24h||0;
     const chg7  = cat.market_cap_change_7d||0;
     const tokens = (cat.top_3_coins_data||[]).slice(0,3);
@@ -801,17 +944,14 @@ function renderSpotlight(){
         <span class="sp-tok-chg ${cls(tc)}">${pct(tc)}</span>
       </div>`;
     }).join('');
-
-    // Shorten long category names
     const name = cat.name.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFT');
-
     return `<div class="sp-card ${spClass(chg24)}">
       <div class="sp-lbl">NARRATIVE</div>
       <div class="sp-name">${name}</div>
       <div class="sp-pct ${cls(chg24)}">${pct(chg24)}</div>
       <div class="sp-7d ${cls(chg7)}">${pct(chg7)} <span style="color:var(--subtle)">7d</span></div>
       <div class="sp-div"></div>
-      ${tokRows || '<div style="font-family:var(--fm);font-size:.55rem;color:var(--subtle);padding:4px 0">No token data</div>'}
+      ${tokRows||'<div style="font-family:var(--fm);font-size:.52rem;color:var(--subtle);padding:3px 0">Loading tokens…</div>'}
       <div class="sp-mcap">${big(cat.market_cap)}</div>
     </div>`;
   }).join('');
@@ -822,18 +962,20 @@ function renderTop3(){
   const filtered = catData.filter(c=>c.market_cap>5e7 && (c.top_3_coins_data||[]).length>0);
   const top3 = [...filtered].sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0)).slice(0,3);
 
-  const rankLabel = ['#1 RUNNING NARRATIVE','#2 RUNNING NARRATIVE','#3 RUNNING NARRATIVE'];
+  // narratives view hero
+  if(top3[0]){
+    const chg = top3[0].market_cap_change_24h||0;
+    setEl('narr-hero', pct(chg), chg>=0?'var(--green)':'var(--red)');
+    setEl('narr-count', catData.length.toString());
+  }
 
+  const rankLabel = ['#1 RUNNING NARRATIVE','#2 RUNNING NARRATIVE','#3 RUNNING NARRATIVE'];
   document.getElementById('top3Grid').innerHTML = top3.map((cat,idx)=>{
     const chg24 = cat.market_cap_change_24h||0;
     const chg7  = cat.market_cap_change_7d||0;
     const tokens = (cat.top_3_coins_data||[]).slice(0,3);
     const name = cat.name.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFT');
-
-    const topBorder = chg24>=0
-      ? `background:linear-gradient(90deg,#10b981,#34d399)`
-      : `background:linear-gradient(90deg,#ef4444,#f87171)`;
-
+    const topBorder = chg24>=0?'background:linear-gradient(90deg,#10b981,#34d399)':'background:linear-gradient(90deg,#ef4444,#f87171)';
     const tokRows = tokens.map(t=>{
       const tc  = t.price_change_percentage_24h||0;
       const tc7 = t.price_change_percentage_7d_in_currency||0;
@@ -845,14 +987,13 @@ function renderTop3(){
         </div>
         <div>
           <div class="t3-tok-price">${price(t.current_price)}</div>
-          <div class="t3-tok-7d ${cls(tc7)}" style="text-align:right;font-size:.46rem">${pct(tc7)} 7d</div>
+          <div style="font-family:var(--fm);font-size:.44rem;text-align:right;color:var(--subtle)">${pct(tc7)} 7d</div>
         </div>
         <div class="t3-tok-chg ${cls(tc)}">${pct(tc)}</div>
       </div>`;
     }).join('');
-
     return `<div class="t3-card">
-      <div style="position:absolute;top:0;left:0;right:0;height:4px;${topBorder}"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;${topBorder}"></div>
       <div class="t3-header">
         <div class="t3-rank">${rankLabel[idx]}</div>
         <div class="t3-name">${name}</div>
@@ -873,18 +1014,8 @@ function renderTop3(){
   }).join('');
 }
 
-function heatClass(v){
-  if(v>=5)  return 'cat-hot3';
-  if(v>=2)  return 'cat-hot2';
-  if(v>=0)  return 'cat-hot1';
-  if(v>=-2) return 'cat-cold1';
-  if(v>=-5) return 'cat-cold2';
-  return 'cat-cold3';
-}
-
 function renderCategories(){
   if(!catData.length) return;
-
   const sorted = [...catData].filter(c=>c.market_cap>0).sort((a,b)=>{
     if(catSort==='24h')    return (b.market_cap_change_24h||0)-(a.market_cap_change_24h||0);
     if(catSort==='7d')     return (b.market_cap_change_7d||0)-(a.market_cap_change_7d||0);
@@ -896,7 +1027,6 @@ function renderCategories(){
   const makeRow = (cat, i) => {
     const chg24 = cat.market_cap_change_24h||0;
     const chg7  = cat.market_cap_change_7d||0;
-    const primary = catSort==='7d' ? chg7 : catSort==='mcap' ? null : catSort==='volume' ? null : chg24;
     const tokens = (cat.top_3_coins_data||[]).slice(0,3);
     const tokBadges = tokens.map(t=>{
       const tc = t.price_change_percentage_24h||0;
@@ -911,7 +1041,7 @@ function renderCategories(){
       </div>
       <div style="text-align:right;flex-shrink:0">
         <div class="cat-chg ${cls(chg24)}">${pct(chg24)}</div>
-        <div class="cat-7d ${cls(chg7)}" style="color:${chg7>=0?'rgba(16,185,129,.6)':'rgba(239,68,68,.6)'}">${pct(chg7)} 7d</div>
+        <div class="cat-7d" style="color:${chg7>=0?'rgba(16,185,129,.6)':'rgba(239,68,68,.6)'}">${pct(chg7)} 7d</div>
       </div>
     </div>`;
   };
@@ -919,28 +1049,15 @@ function renderCategories(){
   const half = Math.ceil(sorted.length/2);
   const hot  = sorted.slice(0, Math.min(15, half));
   const cold = sorted.slice(-Math.min(15, half)).reverse();
-
-  const hotLabel  = catSort==='mcap'   ? 'LARGEST BY MARKET CAP'
-                  : catSort==='volume' ? 'HIGHEST VOLUME'
-                  : catSort==='7d'     ? 'TOP NARRATIVES (7D)'
-                  :                      'HOT NARRATIVES (24H)';
-  const coldLabel = catSort==='mcap'   ? 'SMALLEST BY MARKET CAP'
-                  : catSort==='volume' ? 'LOWEST VOLUME'
-                  : catSort==='7d'     ? 'WEAKEST NARRATIVES (7D)'
-                  :                      'UNDER PRESSURE (24H)';
+  const hotLabel  = catSort==='mcap'?'LARGEST BY MARKET CAP':catSort==='volume'?'HIGHEST VOLUME':catSort==='7d'?'TOP NARRATIVES (7D)':'HOT NARRATIVES (24H)';
+  const coldLabel = catSort==='mcap'?'SMALLEST BY MARKET CAP':catSort==='volume'?'LOWEST VOLUME':catSort==='7d'?'WEAKEST NARRATIVES (7D)':'UNDER PRESSURE (24H)';
 
   renderSpotlight();
   renderTop3();
 
   document.getElementById('catPanels').innerHTML = `
-    <div class="card">
-      <div class="card-hd">${hotLabel}</div>
-      ${hot.map(makeRow).join('')}
-    </div>
-    <div class="card">
-      <div class="card-hd">${coldLabel}</div>
-      ${cold.map((cat,i)=>makeRow(cat,i)).join('')}
-    </div>`;
+    <div class="card"><div class="card-hd">${hotLabel}</div>${hot.map(makeRow).join('')}</div>
+    <div class="card"><div class="card-hd">${coldLabel}</div>${cold.map((cat,i)=>makeRow(cat,i)).join('')}</div>`;
 }
 
 function sortCategories(by, btn){
@@ -965,16 +1082,13 @@ async function fetchCategories(){
 
   catData = data;
 
-  // Sort by 24h change to find the leaders, then enrich top 3 first
   const sorted24 = [...data].filter(c=>c.market_cap>5e7)
     .sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0));
 
-  // Step 1: enrich top 3 immediately — these power the deep-dive section
   await Promise.all(sorted24.slice(0,3).map(enrichCat));
   renderTop3();
   renderSpotlight();
 
-  // Step 2: enrich positions 4-20 sequentially with a small delay to avoid rate limits
   for(const cat of sorted24.slice(3,20)){
     await enrichCat(cat);
     await new Promise(res=>setTimeout(res,150));
@@ -990,16 +1104,14 @@ let dexData = [];
 let dexChain = 'all';
 
 const CHAIN_LABELS = {
-  solana:'SOL', ethereum:'ETH', base:'BASE', bsc:'BSC',
-  arbitrum:'ARB', polygon:'POLY', avalanche:'AVAX', blast:'BLAST',
+  solana:'SOL',ethereum:'ETH',base:'BASE',bsc:'BSC',
+  arbitrum:'ARB',polygon:'POLY',avalanche:'AVAX',blast:'BLAST',
 };
 
 function dexBadge(chainId){
   const key = (chainId||'').toLowerCase();
-  const cls = ['sol','eth','base','bsc','arb'].includes(
-    key==='solana'?'sol':key==='ethereum'?'eth':key==='bsc'?'bsc':key==='arbitrum'?'arb':key
-  ) ? (key==='solana'?'sol':key==='ethereum'?'eth':key==='bsc'?'bsc':key==='arbitrum'?'arb':key) : '';
-  return `<span class="dex-badge ${cls}">${CHAIN_LABELS[key]||chainId.toUpperCase()}</span>`;
+  const cssKey = key==='solana'?'sol':key==='ethereum'?'eth':key==='bsc'?'bsc':key==='arbitrum'?'arb':key==='base'?'base':'';
+  return `<span class="dex-badge ${cssKey}">${CHAIN_LABELS[key]||chainId.toUpperCase()}</span>`;
 }
 
 function dexFilter(chain, btn){
@@ -1015,33 +1127,36 @@ function renderDex(){
   const filtered = dexChain==='all' ? dexData : dexData.filter(d=>d.chainId===dexChain);
   if(!filtered.length){ el.innerHTML='<div class="dex-empty">No results for this chain</div>'; return; }
 
+  // dex hero — top token by 24h change
+  const top = [...filtered].sort((a,b)=>(b.pair?.priceChange?.h24||0)-(a.pair?.priceChange?.h24||0))[0];
+  if(top && top.pair?.priceChange?.h24!=null){
+    const chg = top.pair.priceChange.h24;
+    setEl('dex-hero', (top.symbol||'?')+' '+pct(chg), chg>=0?'var(--green)':'var(--red)');
+  }
+
   el.innerHTML = filtered.slice(0,24).map(d=>{
     const pair = d.pair;
-    const chg = pair ? (pair.priceChange?.h24||0) : null;
+    const chg  = pair ? (pair.priceChange?.h24||0) : null;
     const chgHtml = chg!==null
       ? `<span class="dex-chg ${chg>=0?'up':'dn'}">${chg>=0?'+':''}${chg.toFixed(1)}%</span>`
       : '<span class="dex-chg neu">—</span>';
-    const priceHtml = pair ? `<span class="dex-price">${pair.priceUsd ? '$'+Number(pair.priceUsd).toPrecision(4) : '—'}</span>` : '';
-    const vol = pair?.volume?.h24;
-    const liq = pair?.liquidity?.usd;
+    const priceHtml = pair ? `<span class="dex-price">${pair.priceUsd?'$'+Number(pair.priceUsd).toPrecision(4):'—'}</span>` : '';
+    const vol  = pair?.volume?.h24;
+    const liq  = pair?.liquidity?.usd;
     const txns = pair ? ((pair.txns?.h24?.buys||0)+(pair.txns?.h24?.sells||0)) : 0;
 
     const iconHtml = d.icon
       ? `<img class="dex-icon" src="${d.icon}" onerror="this.outerHTML='<div class=dex-icon-ph>${(d.symbol||'?')[0]}</div>'" loading="lazy"/>`
       : `<div class="dex-icon-ph">${(d.symbol||'?')[0]}</div>`;
 
-    const boostHtml = d.totalAmount ? `<div class="dex-boost">🔥 ${d.totalAmount.toLocaleString()} BOOST</div>` : '';
-
     const statsHtml = (vol||liq||txns) ? `<div class="dex-stats">
-      ${vol ? `<div class="dex-stat"><div class="dex-stat-lbl">VOL 24H</div><div class="dex-stat-val">${big(vol)}</div></div>` : ''}
-      ${liq ? `<div class="dex-stat"><div class="dex-stat-lbl">LIQUIDITY</div><div class="dex-stat-val">${big(liq)}</div></div>` : ''}
-      ${txns ? `<div class="dex-stat"><div class="dex-stat-lbl">TXNs 24H</div><div class="dex-stat-val">${txns.toLocaleString()}</div></div>` : ''}
+      ${vol?`<div class="dex-stat"><div class="dex-stat-lbl">VOL 24H</div><div class="dex-stat-val">${big(vol)}</div></div>`:''}
+      ${liq?`<div class="dex-stat"><div class="dex-stat-lbl">LIQUIDITY</div><div class="dex-stat-val">${big(liq)}</div></div>`:''}
+      ${txns?`<div class="dex-stat"><div class="dex-stat-lbl">TXNs 24H</div><div class="dex-stat-val">${txns.toLocaleString()}</div></div>`:''}
     </div>` : '';
 
-    const descHtml = d.description ? `<div class="dex-desc">${d.description}</div>` : '';
-
     return `<div class="dex-card">
-      ${boostHtml}
+      ${d.totalAmount?`<div class="dex-boost">🔥 ${d.totalAmount.toLocaleString()}</div>`:''}
       <div class="dex-card-top">
         ${iconHtml}
         <div class="dex-meta">
@@ -1050,7 +1165,7 @@ function renderDex(){
           ${dexBadge(d.chainId)}
         </div>
       </div>
-      ${descHtml}
+      ${d.description?`<div class="dex-desc">${d.description}</div>`:''}
       <div class="dex-price-row">${priceHtml}${chgHtml}</div>
       ${statsHtml}
       <a class="dex-link" href="${d.url||'https://dexscreener.com'}" target="_blank" rel="noopener">View on DEXScreener →</a>
@@ -1061,44 +1176,31 @@ function renderDex(){
 async function fetchDexscreener(){
   const el = document.getElementById('dexGrid');
   try {
-    // Fetch top boosted tokens — these have the most community/volume attention
     const r = await fetch('https://api.dexscreener.com/token-boosts/top/v1');
     const boosts = await r.json();
-    if(!Array.isArray(boosts) || !boosts.length){
-      el.innerHTML='<div class="dex-empty">No data from DEXScreener</div>';
-      return;
+    if(!Array.isArray(boosts)||!boosts.length){
+      el.innerHTML='<div class="dex-empty">No data from DEXScreener</div>'; return;
     }
-
-    // Deduplicate by tokenAddress and take top 24
     const seen = new Set();
     const top = [];
     for(const b of boosts){
-      if(!seen.has(b.tokenAddress) && b.chainId){
-        seen.add(b.tokenAddress);
-        top.push(b);
-      }
+      if(!seen.has(b.tokenAddress)&&b.chainId){ seen.add(b.tokenAddress); top.push(b); }
       if(top.length>=24) break;
     }
-
-    // Enrich each with pair data (price, volume, liquidity) in batches of 4
-    const enriched = await Promise.allSettled(
-      top.map(async b => {
-        try {
-          const r2 = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${b.tokenAddress}`);
-          const pd = await r2.json();
-          const pairs = pd?.pairs;
-          if(Array.isArray(pairs) && pairs.length){
-            // pick the pair with most liquidity
-            const best = pairs.sort((a,z)=>(z.liquidity?.usd||0)-(a.liquidity?.usd||0))[0];
-            b.pair = best;
-            b.symbol = best.baseToken?.symbol || b.symbol;
-            b.name = best.baseToken?.name || b.name;
-          }
-        } catch(_){}
-        return b;
-      })
-    );
-
+    const enriched = await Promise.allSettled(top.map(async b=>{
+      try {
+        const r2 = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${b.tokenAddress}`);
+        const pd = await r2.json();
+        const pairs = pd?.pairs;
+        if(Array.isArray(pairs)&&pairs.length){
+          const best = pairs.sort((a,z)=>(z.liquidity?.usd||0)-(a.liquidity?.usd||0))[0];
+          b.pair = best;
+          b.symbol = best.baseToken?.symbol||b.symbol;
+          b.name   = best.baseToken?.name||b.name;
+        }
+      } catch(_){}
+      return b;
+    }));
     dexData = enriched.map(r=>r.status==='fulfilled'?r.value:null).filter(Boolean);
     renderDex();
   } catch(e){
@@ -1124,11 +1226,11 @@ async function fetchAll(){
   ]);
   const n = new Date();
   document.getElementById('lastUpd').textContent =
-    `Updated ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')}`;
+    `Updated ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
 }
 
 fetchAll();
-setInterval(fetchAll, 180000); // auto-refresh every 3 min
+setInterval(fetchAll, 180000);
 </script>
 </body>
 </html>
