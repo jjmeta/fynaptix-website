@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #fff; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #52525b; }
+  @keyframes fx-pulse { 0%,100% { opacity: .3; } 50% { opacity: 1; } }
+</style>
+</helmet>
+
+<div style="display:flex; align-items:stretch; min-height:100vh; background:#fff; color:#0b0b0c; font-family:Archivo,sans-serif">
+
+  <div style="width:252px; flex:0 0 252px; borderRight:1px solid #ececef; padding:24px 0 32px; display:flex; flex-direction:column; gap:26px; position:sticky; top:0; align-self:flex-start; max-height:100vh; overflow:auto">
+    <a href="https://fynaptix.com/private/" style="display:flex; align-items:center; gap:10px; padding:0 22px">
+      <svg viewBox="0 0 40 24" role="img" aria-label="Fynaptix" style="height:22px; width:auto; display:block; overflow:visible">
+        <circle cx="13" cy="12" r="9.2" fill="none" stroke="#71717a" stroke-width="2.6"></circle>
+        <circle cx="27" cy="12" r="9.2" fill="none" stroke="#a1a1aa" stroke-width="2.6"></circle>
+      </svg>
+      <span style="display:flex; flex-direction:column; line-height:1.1">
+        <span style="font-size:15px; font-weight:700; letter-spacing:-.02em">FYNAPTIX</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">RESEARCH HUB</span>
+      </span>
+    </a>
+
+    <div style="display:flex; flex-direction:column; gap:3px; padding:0 12px">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.18em; color:#a1a1aa; padding:6px 10px">THIS WEEK</span>
+      <a href="https://fynaptix.com/private/overview.html" style="font-size:14px; font-weight:500; padding:9px 10px; background:#fafafa; display:flex; justify-content:space-between; align-items:center">
+        <span>Weekly Brief</span><span style="width:5px; height:5px; border-radius:50%; background:#ff5a1f"></span>
+      </a>
+      <a href="https://fynaptix.com/private/news.html" style="font-size:14px; padding:9px 10px" style-hover="background:#fafafa">Daily Intelligence</a>
+      <a href="https://fynaptix.com/private/calendar.html" style="font-size:14px; padding:9px 10px" style-hover="background:#fafafa">Catalyst Calendar</a>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:3px; padding:0 12px">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.18em; color:#a1a1aa; padding:6px 10px">SECTORS</span>
+      <a href="https://fynaptix.com/private/ai.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">AI &amp; Compute</a>
+      <a href="https://fynaptix.com/private/robotics.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Robotics</a>
+      <a href="https://fynaptix.com/private/defense.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Defense Tech</a>
+      <a href="https://fynaptix.com/private/nuclear.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Nuclear &amp; SMRs</a>
+      <a href="https://fynaptix.com/private/minerals.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Critical Minerals</a>
+      <a href="https://fynaptix.com/private/space.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Space Economy</a>
+      <a href="https://fynaptix.com/private/storage.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Energy Storage</a>
+      <a href="https://fynaptix.com/private/biotech.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">AI Biotech</a>
+      <a href="https://fynaptix.com/private/quantum.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Quantum</a>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:3px; padding:0 12px">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.18em; color:#a1a1aa; padding:6px 10px">MARKETS</span>
+      <a href="https://fynaptix.com/private/watchlist.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Live Watchlist</a>
+      <a href="https://fynaptix.com/private/macro.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Macro Dashboard</a>
+      <a href="https://fynaptix.com/private/ipo.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">IPO Pipeline</a>
+      <a href="https://fynaptix.com/private/etfs.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">ETF Compare</a>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:3px; padding:0 12px">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.18em; color:#a1a1aa; padding:6px 10px">CRYPTO</span>
+      <a href="https://fynaptix.com/private/crypto-alpha.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Alpha Investors</a>
+      <a href="https://fynaptix.com/private/crypto-signals.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Crypto Signals</a>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:3px; padding:0 12px">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.18em; color:#a1a1aa; padding:6px 10px">TRACK RECORD</span>
+      <a href="https://fynaptix.com/private/calibration.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Calibration</a>
+      <a href="https://fynaptix.com/private/journal.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Decision Journal</a>
+      <a href="https://fynaptix.com/private/paper.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Paper Portfolio</a>
+      <a href="https://fynaptix.com/private/archive.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Research Archive</a>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:3px; padding:0 12px">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.18em; color:#a1a1aa; padding:6px 10px">FUNDS &amp; VOICES</span>
+      <a href="https://fynaptix.com/private/ark.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">ARK Invest</a>
+      <a href="https://fynaptix.com/private/bailliegifford.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Baillie Gifford</a>
+      <a href="https://fynaptix.com/private/investors.html" style="font-size:14px; padding:8px 10px" style-hover="background:#fafafa">Investor Voices</a>
+    </div>
+
+    <a href="https://fynaptix.com/" style="margin:auto 22px 0; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.14em; color:#a1a1aa; padding-top:18px">← PUBLIC SITE</a>
+  </div>
+
+  <div style="flex:1; min-width:0; display:flex; flex-direction:column">
+
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:16px 36px; borderBottom:1px solid #ececef; position:sticky; top:0; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); z-index:5">
+      <div style="display:flex; align-items:center; gap:10px; flex:0 1 auto; min-width:0; overflow:hidden; white-space:nowrap; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; color:#52525b">
+        <span style="width:6px; height:6px; border-radius:50%; background:#ff5a1f; animation:fx-pulse 2.4s ease-in-out infinite"></span>
+        <span style="min-width:0; overflow:hidden; text-overflow:ellipsis">LIVE · MON 21 SEP 2026 · 09:42 BST</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; flex:1 1 auto; min-width:0; justify-content:flex-end">
+        <input placeholder="Search theses, tickers, sectors…" style="flex:1; min-width:0; max-width:300px; border:1px solid #e4e4e7; padding:10px 14px; font-size:13px; font-family:Archivo,sans-serif; outline:none">
+        <a href="https://fynaptix.com/private/overview.html" style="background:#0b0b0c; color:#fff; padding:11px 18px; font-size:13px; font-weight:600; white-space:nowrap">This week's brief</a>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); borderBottom:1px solid #ececef">
+      <div style="padding:18px 20px; display:flex; flex-direction:column; gap:7px; borderRight:1px solid #ececef">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">BITCOIN</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-.03em">$64,820</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#ff5a1f">+2.4% 24H</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%; height:26px; display:block">
+          <polyline points="0,20 15,17 30,21 45,13 60,16 75,9 90,12 105,6 120,3" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
+        </svg>
+      </div>
+      <div style="padding:18px 20px; display:flex; flex-direction:column; gap:7px; borderRight:1px solid #ececef">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">ETHEREUM</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-.03em">$3,412</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#71717a">+0.8% 24H</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%; height:26px; display:block">
+          <polyline points="0,15 15,18 30,13 45,17 60,12 75,15 90,10 105,13 120,9" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
+        </svg>
+      </div>
+      <div style="padding:18px 20px; display:flex; flex-direction:column; gap:7px; borderRight:1px solid #ececef">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">S&amp;P 500</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-.03em">6,412</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#71717a">NEAR RECORD</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%; height:26px; display:block">
+          <polyline points="0,19 15,16 30,18 45,12 60,14 75,10 90,11 105,7 120,5" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
+        </svg>
+      </div>
+      <div style="padding:18px 20px; display:flex; flex-direction:column; gap:7px; borderRight:1px solid #ececef">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">NASDAQ</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-.03em">21,088</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#71717a">+0.3%</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%; height:26px; display:block">
+          <polyline points="0,17 15,20 30,15 45,18 60,11 75,14 90,9 105,11 120,8" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
+        </svg>
+      </div>
+      <div style="padding:18px 20px; display:flex; flex-direction:column; gap:7px; borderRight:1px solid #ececef">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">VIX</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-.03em">14.5</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#71717a">CALM</span>
+        <svg viewBox="0 0 120 26" preserveAspectRatio="none" style="width:100%; height:26px; display:block">
+          <polyline points="0,8 15,11 30,7 45,13 60,10 75,16 90,14 105,19 120,21" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
+        </svg>
+      </div>
+      <div style="padding:18px 20px; display:flex; flex-direction:column; gap:7px">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">FEAR &amp; GREED</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-.03em">68</span>
+        <div style="display:flex; gap:2px; align-items:flex-end; height:14px">
+          <div style="flex:1; height:40%; background:#ececef"></div><div style="flex:1; height:55%; background:#ececef"></div><div style="flex:1; height:70%; background:#e4e4e7"></div><div style="flex:1; height:85%; background:#d4d4d8"></div><div style="flex:1; height:100%; background:#ff5a1f"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:34px 36px; borderBottom:1px solid #ececef; display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:44px">
+      <div style="display:flex; flex-direction:column; gap:16px; min-width:0">
+        <div style="display:flex; align-items:center; gap:10px">
+          <span style="width:8px; height:8px; background:#ff5a1f"></span>
+          <h2 style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.18em; color:#52525b">SECTOR MOMENTUM · 4 WEEKS</h2>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:9px">
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Critical Minerals</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:100%; height:100%; background:#ff5a1f"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+28.4%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Nuclear &amp; SMRs</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:74%; height:100%; background:#ff5a1f"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+21.0%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Defense Tech</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:58%; height:100%; background:#ff5a1f"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+16.5%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">AI &amp; Compute</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:44%; height:100%; background:#27272a"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+12.4%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Robotics</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:33%; height:100%; background:#3f3f46"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+9.3%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Space Economy</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:24%; height:100%; background:#52525b"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+6.8%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Quantum</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:15%; height:100%; background:#71717a"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+4.1%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">Energy Storage</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:9%; height:100%; background:#a1a1aa"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">+2.4%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr) 54px; align-items:center; gap:12px">
+            <span style="font-size:13px; color:#52525b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis">AI Biotech</span>
+            <div style="height:10px; background:#f4f4f5"><div style="width:5%; height:100%; background:#d4d4d8"></div></div>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; text-align:right">−1.6%</span>
+          </div>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; color:#a1a1aa">ORANGE = TOP QUARTILE · EQUAL-WEIGHT BASKET PER SECTOR</span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px; min-width:0">
+        <div style="display:flex; align-items:center; gap:10px">
+          <span style="width:8px; height:8px; background:#ff5a1f"></span>
+          <h2 style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.18em; color:#52525b">MACRO · 6 MONTHS</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px">
+          <div style="background:#fff; border:1px solid #ececef; padding:18px; display:flex; flex-direction:column; gap:10px; min-width:0">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">BITCOIN</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#ff5a1f">+38.2%</span>
+            </div>
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%; height:92px; display:block">
+              <polygon points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10 300,90 0,90" fill="#ff5a1f" opacity="0.1"></polygon>
+              <polyline points="0,66 25,60 50,68 75,52 100,57 125,44 150,48 175,34 200,39 225,25 250,29 275,16 300,10" fill="none" stroke="#ff5a1f" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>
+            </svg>
+            <span style="font-size:13px; color:#52525b">Front-running the liquidity turn</span>
+          </div>
+          <div style="background:#fff; border:1px solid #ececef; padding:18px; display:flex; flex-direction:column; gap:10px; min-width:0">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">S&amp;P 500</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#52525b">+11.4%</span>
+            </div>
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%; height:92px; display:block">
+              <polygon points="0,62 25,58 50,60 75,50 100,53 125,46 150,49 175,41 200,44 225,36 250,33 275,27 300,20 300,90 0,90" fill="#0b0b0c" opacity="0.06"></polygon>
+              <polyline points="0,62 25,58 50,60 75,50 100,53 125,46 150,49 175,41 200,44 225,36 250,33 275,27 300,20" fill="none" stroke="#27272a" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>
+            </svg>
+            <span style="font-size:13px; color:#52525b">Near record, dispersion doing the work</span>
+          </div>
+          <div style="background:#fff; border:1px solid #ececef; padding:18px; display:flex; flex-direction:column; gap:10px; min-width:0">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:8px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">US 10Y</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#52525b">4.18%</span>
+            </div>
+            <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%; height:92px; display:block">
+              <polygon points="0,30 25,34 50,28 75,38 100,35 125,44 150,40 175,50 200,46 225,54 250,50 275,58 300,55 300,90 0,90" fill="#0b0b0c" opacity="0.06"></polygon>
+              <polyline points="0,30 25,34 50,28 75,38 100,35 125,44 150,40 175,50 200,46 225,54 250,50 275,58 300,55" fill="none" stroke="#a1a1aa" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>
+            </svg>
+            <span style="font-size:13px; color:#52525b">Easing — long duration gets its bid back</span>
+          </div>
+        </div>
+        <a href="https://fynaptix.com/private/macro.html" style="font-size:14px; font-weight:600">Open the macro dashboard →</a>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); borderBottom:1px solid #ececef">
+      <a href="https://fynaptix.com/private/overview.html" style="padding:44px 36px; display:flex; flex-direction:column; gap:18px; borderRight:1px solid #ececef; position:relative; overflow:hidden" style-hover="background:#fafafa">
+        <div style="position:absolute; top:0; left:0; width:3px; height:100%; background:#ff5a1f"></div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; color:#ff5a1f">★ WEEKLY BRIEF · WEEK 38</span>
+        <span style="font-size:46px; font-weight:700; letter-spacing:-.042em; line-height:1.03; max-width:620px; text-wrap:balance">Compute capex is now a power story. Minerals are next.</span>
+        <span style="font-size:16px; line-height:1.6; color:#52525b; max-width:560px">All nine sectors at a glance — scoreboard, live markets, themes, risk gauge and the week ahead. NVIDIA earnings in 5 days; Jackson Hole in 6.</span>
+        <span style="font-size:14px; font-weight:600; margin-top:6px">Read the full brief →</span>
+      </a>
+      <div style="display:flex; flex-direction:column">
+        <a href="https://fynaptix.com/private/news.html" style="padding:26px 30px; borderBottom:1px solid #ececef; display:flex; flex-direction:column; gap:7px" style-hover="background:#fafafa">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">DAILY INTELLIGENCE · TODAY</span>
+          <span style="font-size:19px; font-weight:600; letter-spacing:-.02em">Drone tariffs bite; MP Materials +23.5%</span>
+          <span style="font-size:14px; color:#52525b; line-height:1.5">Cross-sector signals across AI, crypto, defense and emerging tech.</span>
+        </a>
+        <a href="https://fynaptix.com/private/calendar.html" style="padding:26px 30px; borderBottom:1px solid #ececef; display:flex; flex-direction:column; gap:7px" style-hover="background:#fafafa">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">NEXT CATALYSTS</span>
+          <span style="font-size:19px; font-weight:600; letter-spacing:-.02em">NVIDIA earnings · Aug 26</span>
+          <span style="font-size:14px; color:#52525b; line-height:1.5">Jackson Hole Aug 27–29 · USA Rare Earth vote Aug 28.</span>
+        </a>
+        <a href="https://fynaptix.com/private/calibration.html" style="padding:26px 30px; display:flex; flex-direction:column; gap:7px; flex:1" style-hover="background:#fafafa">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">CALIBRATION</span>
+          <span style="font-size:19px; font-weight:600; letter-spacing:-.02em">4 theses due review</span>
+          <span style="font-size:14px; color:#52525b; line-height:1.5">Score them honestly — hit rate updates by sector and conviction.</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="padding:40px 36px 18px; display:flex; align-items:baseline; justify-content:space-between">
+      <h2 style="margin:0; display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.18em; color:#52525b"><span style="width:8px; height:8px; background:#ff5a1f"></span>SECTOR DASHBOARDS</h2>
+      <span style="font-size:13px; color:#a1a1aa">Refreshed Monday mornings</span>
+    </div>
+
+    <div style="padding:0 36px 36px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px">
+      <a href="https://fynaptix.com/private/ai.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">01 · SUPERCYCLE</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">AI &amp; Compute</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Hyperscaler capex, silicon stack, the bubble debate.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,21 15,18 30,20 45,14 60,16 75,11 90,13 105,8 120,6" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#ff5a1f">12 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/robotics.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">02 · PHYSICAL AI</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Robotics</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Humanoids, warehouse automation, components.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,18 15,21 30,16 45,19 60,14 75,17 90,12 105,14 120,10" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">9 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/defense.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">03 · AUTONOMY</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Defense Tech</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Battlefield software, drones, rearmament.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,22 15,20 30,21 45,15 60,17 75,10 90,12 105,7 120,4" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">8 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/nuclear.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">04 · AI POWER</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Nuclear &amp; SMRs</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Reactors, uranium, data-center demand.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,24 15,21 30,22 45,16 60,13 75,15 90,9 105,6 120,3" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">7 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/minerals.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">05 · SOVEREIGNTY</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Critical Minerals</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Rare earths, lithium, onshoring.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,25 15,23 30,24 45,20 60,21 75,16 90,17 105,9 120,2" fill="none" stroke="#ff5a1f" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#ff5a1f">MOVER · MP +23.5%</span>
+      </a>
+      <a href="https://fynaptix.com/private/space.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">06 · FRONTIER</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Space Economy</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Launch and satellites post-SpaceX IPO.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,19 15,17 30,20 45,15 60,18 75,13 90,15 105,12 120,11" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">6 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/storage.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">07 · GRID</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Energy Storage</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Grid batteries, next-gen chemistry.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,16 15,18 30,15 45,19 60,16 75,18 90,15 105,17 120,15" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">7 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/biotech.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">08 · COMP BIO</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">AI Biotech</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Drug discovery models, longevity capital.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,12 15,14 30,11 45,15 60,14 75,18 90,16 105,20 120,22" fill="none" stroke="#d4d4d8" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">10 TICKERS · UPDATED MON</span>
+      </a>
+      <a href="https://fynaptix.com/private/quantum.html" style="background:#fff; border:1px solid #ececef; padding:24px; display:flex; flex-direction:column; gap:9px; min-height:158px" style-hover="background:#fafafa">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">09 · DEEP TECH</span>
+        <span style="font-size:23px; font-weight:600; letter-spacing:-.03em">Quantum</span>
+        <span style="font-size:14px; line-height:1.5; color:#52525b">Pure-plays, giants, the road to advantage.</span>
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none" style="width:100%; height:28px; display:block"><polyline points="0,20 15,22 30,18 45,21 60,17 75,19 90,15 105,17 120,14" fill="none" stroke="#a1a1aa" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline></svg>
+        <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#71717a">5 TICKERS · UPDATED MON</span>
+      </a>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); borderTop:1px solid #ececef">
+      <div style="padding:38px 36px; borderRight:1px solid #ececef; display:flex; flex-direction:column; gap:20px">
+        <h2 style="margin:0; display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.18em; color:#52525b"><span style="width:8px; height:8px; background:#ff5a1f"></span>TOP MOVERS · 24H</h2>
+        <div style="display:flex; flex-direction:column">
+          <div style="display:grid; grid-template-columns:52px minmax(0,1fr) 84px 74px; align-items:center; gap:10px; padding:13px 0; borderTop:1px solid #ececef; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.14em; color:#a1a1aa">
+            <span></span><span>NAME</span><span style="text-align:right">PRICE</span><span style="text-align:right">24H</span>
+          </div>
+          <div style="display:grid; grid-template-columns:52px minmax(0,1fr) 84px 74px; align-items:center; gap:10px; padding:13px 0; borderTop:1px solid #ececef">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500">MP</span>
+            <span style="font-size:15px">MP Materials</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace">$58.20</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace; color:#ff5a1f">+23.5%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:52px minmax(0,1fr) 84px 74px; align-items:center; gap:10px; padding:13px 0; borderTop:1px solid #ececef">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500">AVAV</span>
+            <span style="font-size:15px">AeroVironment</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace">$214.40</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace; color:#ff5a1f">+6.1%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:52px minmax(0,1fr) 84px 74px; align-items:center; gap:10px; padding:13px 0; borderTop:1px solid #ececef">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500">UNIT</span>
+            <span style="font-size:15px">Unitree Robotics</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace">¥96.80</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace; color:#ff5a1f">+4.8%</span>
+          </div>
+          <div style="display:grid; grid-template-columns:52px minmax(0,1fr) 84px 74px; align-items:center; gap:10px; padding:13px 0; borderTop:1px solid #ececef; borderBottom:1px solid #ececef">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500">KTOS</span>
+            <span style="font-size:15px">Kratos Defense</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace">$41.95</span>
+            <span style="font-size:15px; text-align:right; font-family:'IBM Plex Mono',monospace; color:#71717a">−1.2%</span>
+          </div>
+        </div>
+        <a href="https://fynaptix.com/private/watchlist.html" style="font-size:14px; font-weight:600">Open the live watchlist →</a>
+      </div>
+
+      <div style="padding:38px 36px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; align-items:center; gap:10px">
+          <span style="width:8px; height:8px; background:#ff5a1f"></span>
+          <h2 style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.18em; color:#52525b">TRACK RECORD</h2>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <div style="display:flex; align-items:flex-end; gap:14px; height:112px; borderBottom:1px solid #d4d4d8">
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:15%; background:#f4f4f5"></div><div style="height:52%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:22%; background:#f4f4f5"></div><div style="height:44%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:12%; background:#f4f4f5"></div><div style="height:61%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:18%; background:#f4f4f5"></div><div style="height:58%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:10%; background:#f4f4f5"></div><div style="height:70%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:16%; background:#f4f4f5"></div><div style="height:64%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:9%; background:#f4f4f5"></div><div style="height:76%; background:#ff5a1f"></div></div>
+            <div style="flex:1; max-width:26px; margin:0 auto; display:flex; flex-direction:column; justify-content:flex-end; height:100%"><div style="height:40%; background:#f4f4f5"></div><div style="height:31%; background:#d4d4d8"></div></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.14em; color:#a1a1aa">
+            <span>Q1 25</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q1 26</span><span>Q2</span><span>Q3</span><span>OPEN</span>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px">
+          <div style="background:#fff; border:1px solid #ececef; padding:20px; display:flex; flex-direction:column; gap:6px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">HIT RATE</span>
+            <span style="font-size:30px; font-weight:600; letter-spacing:-.03em">64%</span>
+            <span style="font-size:12px; color:#71717a">44 scored theses</span>
+          </div>
+          <div style="background:#fff; border:1px solid #ececef; padding:20px; display:flex; flex-direction:column; gap:6px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">BEST SECTOR</span>
+            <span style="font-size:30px; font-weight:600; letter-spacing:-.03em">78%</span>
+            <span style="font-size:12px; color:#71717a">Nuclear &amp; SMRs</span>
+          </div>
+          <div style="background:#fff; border:1px solid #ececef; padding:20px; display:flex; flex-direction:column; gap:6px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.16em; color:#a1a1aa">DUE REVIEW</span>
+            <span style="font-size:30px; font-weight:600; letter-spacing:-.03em; color:#ff5a1f">04</span>
+            <span style="font-size:12px; color:#71717a">Score them today</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <a href="https://fynaptix.com/private/journal.html" style="display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border:1px solid #ececef" style-hover="border-color:#0b0b0c">
+            <span style="display:flex; flex-direction:column; gap:3px"><span style="font-size:17px; font-weight:600; letter-spacing:-.02em">Decision Journal</span><span style="font-size:13px; color:#52525b">Where theses get written down</span></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px">→</span>
+          </a>
+          <a href="https://fynaptix.com/private/archive.html" style="display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border:1px solid #ececef" style-hover="border-color:#0b0b0c">
+            <span style="display:flex; flex-direction:column; gap:3px"><span style="font-size:17px; font-weight:600; letter-spacing:-.02em">Research Archive</span><span style="font-size:13px; color:#52525b">Every week kept — compare how numbers moved</span></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px">→</span>
+          </a>
+          <a href="https://fynaptix.com/private/paper.html" style="display:flex; justify-content:space-between; align-items:center; padding:16px 18px; border:1px solid #ececef" style-hover="border-color:#0b0b0c">
+            <span style="display:flex; flex-direction:column; gap:3px"><span style="font-size:17px; font-weight:600; letter-spacing:-.02em">Paper Portfolio</span><span style="font-size:13px; color:#52525b">Hypothetical positions with automatic P&amp;L</span></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:38px 36px; borderTop:1px solid #ececef; display:flex; flex-direction:column; gap:18px">
+      <div style="display:flex; align-items:baseline; justify-content:space-between">
+        <h2 style="margin:0; display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.18em; color:#52525b"><span style="width:8px; height:8px; background:#ff5a1f"></span>FUNDS &amp; CAPITAL FLOWS</h2>
+        <a href="https://fynaptix.com/private/investors.html" style="font-size:13px; color:#52525b">All investor voices →</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; padding-bottom:6px">
+        <div style="display:flex; height:22px; width:100%; overflow:hidden">
+          <div style="width:34%; background:#ff5a1f"></div>
+          <div style="width:18%; background:#27272a"></div>
+          <div style="width:14%; background:#52525b"></div>
+          <div style="width:12%; background:#71717a"></div>
+          <div style="width:9%; background:#a1a1aa"></div>
+          <div style="width:7%; background:#d4d4d8"></div>
+          <div style="width:6%; background:#f4f4f5"></div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 22px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; color:#52525b">
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#ff5a1f"></span>AI &amp; COMPUTE 34%</span>
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#27272a"></span>DEFENSE 18%</span>
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#52525b"></span>NUCLEAR 14%</span>
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#71717a"></span>ROBOTICS 12%</span>
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#a1a1aa"></span>MINERALS 9%</span>
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#d4d4d8"></span>SPACE 7%</span>
+          <span style="display:flex; align-items:center; gap:7px"><span style="width:8px; height:8px; background:#f4f4f5; border:1px solid #e4e4e7"></span>OTHER 6%</span>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; color:#a1a1aa">DISCLOSED DEPLOYMENT MIX ACROSS TRACKED FUNDS · LAST 12 WEEKS</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px">
+        <a href="https://fynaptix.com/private/ark.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">ARK Invest</a>
+        <a href="https://fynaptix.com/private/bailliegifford.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">Baillie Gifford</a>
+        <a href="https://fynaptix.com/private/a16z.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">a16z</a>
+        <a href="https://fynaptix.com/private/sequoia.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">Sequoia</a>
+        <a href="https://fynaptix.com/private/foundersfund.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">Founders Fund</a>
+        <a href="https://fynaptix.com/private/thrive.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">Thrive Capital</a>
+        <a href="https://fynaptix.com/private/shieldcapital.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">Shield Capital</a>
+        <a href="https://fynaptix.com/private/dcvc.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">DCVC</a>
+        <a href="https://fynaptix.com/private/8vc.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">8VC</a>
+        <a href="https://fynaptix.com/private/eclipse.html" style="border:1px solid #ececef; padding:11px 16px; font-size:14px; font-weight:500" style-hover="border-color:#0b0b0c">Eclipse</a>
+        <a href="https://fynaptix.com/private/ipo.html" style="border:1px solid #0b0b0c; padding:11px 16px; font-size:14px; font-weight:500">IPO pipeline →</a>
+      </div>
+    </div>
+
+    <div style="padding:24px 36px 40px; borderTop:1px solid #ececef; display:flex; justify-content:space-between; gap:30px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; color:#a1a1aa">
+      <span>© 2026 FYNAPTIX · PERSONAL RESEARCH HUB</span>
+      <span style="max-width:620px; text-align:right; line-height:1.7">NOT FINANCIAL ADVICE. EVERYTHING HERE ORGANISES PUBLIC INFORMATION FOR RESEARCH AND EDUCATION. DO YOUR OWN DUE DILIGENCE.</span>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}"></script>
+</body>
+</html>
