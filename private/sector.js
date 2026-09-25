@@ -14,7 +14,7 @@ var NAV_SECTORS=[
   {id:'quantum', n:'09',name:'Quantum',      href:'/private/quantum.html'}
 ];
 var OTHER_NAV=[
-  {group:'Markets',items:[{l:'Live Watchlist',h:'/private/watchlist.html'},{l:'Catalyst Calendar',h:'/private/calendar.html'},{l:'IPO Pipeline',h:'/private/ipo.html'},{l:'ETF Compare',h:'/private/etfs.html'},{l:'Macro',h:'/private/macro.html'}]},
+  {group:'Markets',items:[{l:'Live Watchlist',h:'/private/watchlist.html'},{l:'Catalyst Calendar',h:'/private/markets.html'},{l:'IPO Pipeline',h:'/private/markets.html#ipo'},{l:'ETF Compare',h:'/private/etfs.html'},{l:'Macro',h:'/private/macro.html'}]},
   {group:'Crypto',items:[{l:'Crypto Scanner',h:'/crypto-scanner/'},{l:'Trading Bots',h:'/aibot/'}]},
   {group:'Track record',items:[{l:'Research Archive',h:'/private/archive.html'},{l:'Calibration',h:'/private/calibration.html'}]},
   {group:'Strategy',items:[{l:'Portfolio Strategy',h:'/private/strategy.html'},{l:'Decision Journal',h:'/private/journal.html'},{l:'Paper Portfolio',h:'/private/paper.html'}]},

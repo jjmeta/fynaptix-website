@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Fynaptix · Markets</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link rel="manifest" href="/private/manifest.json"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="apple-touch-icon" href="../favicon.png"/>
+  <meta name="theme-color" content="#f3f2f2"/>
+  <link rel="stylesheet" href="/private/hub.css"/>
+  <style>
+    /* ── Markets tab buttons ── */
+    .mk-tab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:7px 20px;font-size:13px;font-weight:500;color:var(--color-text);width:100%;}
+    .mk-tab:hover{background:var(--n200);}
+    .mk-tab.active{background:var(--n200);box-shadow:inset 4px 0 0 var(--color-accent);font-weight:800;}
+    .mk-tab-count{font-size:11px;color:var(--n700);}
+    .mk-plain-link{display:block;padding:7px 20px;font-size:13px;color:var(--color-text);text-decoration:none;}
+    .mk-plain-link:hover{background:var(--n200);}
+
+    /* ── Page ── */
+    .mk-view{display:none;}
+    .mk-view.active{display:block;}
+
+    /* ── Section inline header ── */
+    .mk-sec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;}
+    .mk-sec-num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-700);}
+    .mk-sec-h2{margin:0;font-size:25px;font-weight:800;}
+
+    /* ── Calendar tables ── */
+    .mk-cal-wrap{overflow-x:auto;}
+    .mk-cal-table{min-width:860px;}
+    .mk-cal-head{display:grid;gap:0 16px;padding:0 0 10px;border-bottom:2px solid var(--color-text);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--n700);}
+    .mk-cal-head.imminent{grid-template-columns:120px 100px minmax(0,1.3fr) minmax(0,1.6fr);}
+    .mk-cal-head.horizon{grid-template-columns:150px 110px minmax(0,1.3fr) minmax(0,1.6fr);}
+    .mk-cal-row{display:grid;gap:0 16px;align-items:start;padding:13px 0;border-bottom:1px solid var(--color-divider);font-size:13px;line-height:1.45;}
+    .mk-cal-row:hover{background:var(--n200);}
+    .mk-cal-row.imminent{grid-template-columns:120px 100px minmax(0,1.3fr) minmax(0,1.6fr);}
+    .mk-cal-row.horizon{grid-template-columns:150px 110px minmax(0,1.3fr) minmax(0,1.6fr);}
+    .mk-cal-row.horizon2{min-width:900px;}
+    .mk-cal-date{font-size:14px;font-weight:700;}
+    .mk-cal-event{font-size:14px;font-weight:700;line-height:1.3;}
+    .mk-cal-why{color:var(--n800);}
+
+    /* ── IPO cards ── */
+    .mk-ipo-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--color-bg);overflow:hidden;}
+    .mk-ipo-card{background:var(--color-bg);outline:1px solid var(--color-divider);padding:18px 20px 20px 0;display:flex;flex-direction:column;gap:10px;}
+    .mk-ipo-card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
+    .mk-ipo-name{font-size:17px;font-weight:700;line-height:1.15;}
+    .mk-ipo-sector-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--n700);}
+    .mk-ipo-val{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+    .mk-ipo-note{font-size:13px;line-height:1.5;color:var(--n800);}
+    .mk-status-tag{display:inline-flex;align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;}
+
+    /* ── IPO watch list ── */
+    .mk-watch-table{border-top:2px solid var(--color-text);}
+    .mk-watch-row{display:grid;grid-template-columns:minmax(120px,1fr) 100px 110px minmax(0,2fr);gap:0 16px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--color-divider);font-size:13px;}
+    .mk-watch-name{font-size:15px;font-weight:700;}
+    .mk-watch-sector{font-size:11px;color:var(--n700);}
+    .mk-watch-val{font-weight:700;}
+    .mk-watch-note{color:var(--n800);line-height:1.45;}
+
+    /* ── IPO trading table ── */
+    .mk-trading-wrap{overflow-x:auto;}
+    .mk-trading-table{min-width:900px;}
+    .mk-trading-head{display:grid;grid-template-columns:minmax(120px,1fr) 90px 110px 120px minmax(0,2fr);gap:0 16px;padding:0 0 10px;border-bottom:2px solid var(--color-text);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--n700);}
+    .mk-trading-row{display:grid;grid-template-columns:minmax(120px,1fr) 90px 110px 120px minmax(0,2fr);gap:0 16px;align-items:start;padding:13px 0;border-bottom:1px solid var(--color-divider);font-size:13px;line-height:1.45;}
+    .mk-trading-row:hover{background:var(--n200);}
+    .mk-trading-name{font-size:14px;font-weight:700;}
+    .mk-trading-sec{font-size:11px;color:var(--n700);}
+    .mk-trading-val{font-weight:700;}
+    .mk-trading-note{color:var(--n800);}
+
+    @media(max-width:768px){
+      .mk-watch-row{grid-template-columns:1fr 1fr;}
+      .mk-watch-sector,.mk-watch-note{display:none;}
+    }
+  </style>
+</head>
+<body>
+<div id="hub" class="hub-layout">
+
+  <!-- Sidebar -->
+  <aside class="hub-sidebar">
+    <div class="hub-sidebar-inner">
+      <a href="/" class="hub-brand">
+        <div class="hub-brand-kicker"><span class="hub-brand-kicker-dot"></span>Fynaptix · Private</div>
+        <div class="hub-brand-name">Markets</div>
+      </a>
+      <nav class="hub-nav-groups">
+        <div class="hub-nav-group-label">Markets</div>
+        <button class="mk-tab active" id="tab-cal" onclick="switchTab('cal')">
+          <span>Catalyst Calendar</span><span class="mk-tab-count" id="count-cal"></span>
+        </button>
+        <button class="mk-tab" id="tab-ipo" onclick="switchTab('ipo')">
+          <span>IPO Pipeline</span><span class="mk-tab-count" id="count-ipo"></span>
+        </button>
+        <a href="/private/watchlist.html" class="mk-plain-link">Live Watchlist</a>
+        <a href="/private/etfs.html" class="mk-plain-link">ETF Compare</a>
+        <a href="/private/macro.html" class="mk-plain-link">Macro</a>
+      </nav>
+      <div class="hub-sidebar-footer">
+        <a href="/private/">← Research Hub</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="hub-main">
+    <div class="hub-content">
+
+      <!-- CATALYST CALENDAR -->
+      <div class="mk-view active" id="view-cal">
+        <div class="hub-page-header">
+          <div>
+            <div class="hub-kicker">Catalyst calendar · All sectors</div>
+            <h1 class="hub-h1">Upcoming<br>Catalysts</h1>
+          </div>
+          <div class="hub-meta">
+            <span>Every dated event, one view</span>
+            <span>Updated Sep 21 · refreshes Mondays</span>
+            <span style="color:var(--color-accent-700);">Dates shift — verify before trading</span>
+          </div>
+        </div>
+
+        <!-- 01 Next 30 days -->
+        <section style="padding:8px 0 32px;border-bottom:2px solid var(--color-divider);">
+          <div class="mk-sec-head">
+            <span class="mk-sec-num">01</span>
+            <h2 class="mk-sec-h2">Next 30 days — imminent</h2>
+          </div>
+          <div class="mk-cal-wrap">
+            <div class="mk-cal-table">
+              <div class="mk-cal-head imminent"><span>Date</span><span>Sector</span><span>Event</span><span>Why it matters</span></div>
+              <div id="cal-imminent"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02 Horizon -->
+        <section style="padding:28px 0;">
+          <div class="mk-sec-head">
+            <span class="mk-sec-num">02</span>
+            <h2 class="mk-sec-h2">Second half 2026 — on the horizon</h2>
+          </div>
+          <div class="mk-cal-wrap">
+            <div style="min-width:900px;">
+              <div class="mk-cal-head horizon"><span>Window</span><span>Sector</span><span>Event</span><span>Why it matters</span></div>
+              <div id="cal-horizon"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- IPO PIPELINE -->
+      <div class="mk-view" id="view-ipo">
+        <div class="hub-page-header">
+          <div>
+            <div class="hub-kicker">IPO pipeline · Emerging tech</div>
+            <h1 class="hub-h1">IPO &amp;<br>Listing<br>Pipeline</h1>
+          </div>
+          <div class="hub-meta">
+            <span>The moment they become investable</span>
+            <span>Updated Sep 21 · refreshes Mondays</span>
+            <span style="color:var(--color-accent-700);">Rumoured listings may never happen</span>
+          </div>
+        </div>
+
+        <!-- 01 In motion -->
+        <section style="padding:8px 0 32px;border-bottom:2px solid var(--color-divider);">
+          <div class="mk-sec-head">
+            <span class="mk-sec-num">01</span>
+            <h2 class="mk-sec-h2">In motion — filed, approved or announced</h2>
+          </div>
+          <div class="mk-ipo-cards" id="ipo-motion"></div>
+        </section>
+
+        <!-- 02 Watch closely -->
+        <section style="padding:28px 0;border-bottom:2px solid var(--color-divider);">
+          <div class="mk-sec-head">
+            <span class="mk-sec-num">02</span>
+            <h2 class="mk-sec-h2">Watch closely — credible, no confirmed filing</h2>
+          </div>
+          <div class="mk-watch-table" id="ipo-watch"></div>
+        </section>
+
+        <!-- 03 Recently completed -->
+        <section style="padding:28px 0;">
+          <div class="mk-sec-head">
+            <span class="mk-sec-num">03</span>
+            <h2 class="mk-sec-h2">Recently completed — now trading</h2>
+          </div>
+          <div class="mk-trading-wrap">
+            <div class="mk-trading-table">
+              <div class="mk-trading-head"><span>Company</span><span>Sector</span><span>Listed</span><span>Debut value</span><span>Watch</span></div>
+              <div id="ipo-trading"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="hub-footer">
+        <span>© 2026 Fynaptix · Personal research hub</span>
+        <span>Not financial advice · do your own due diligence</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+var IMMINENT=[
+  ['SEP 22','MACRO','Richmond Fed Manufacturing Index & $78B 2-yr auction','First real data since the Sept 16 hike to 3.75–4%, ahead of a heavy Fed-speaker slate.',false],
+  ['SEP 23','MACRO','S&P Global flash Manufacturing & Services PMI','First broad read on how the economy is absorbing higher rates.',false],
+  ['SEP 24–25','MINERALS','Xi Jinping’s Washington visit','First White House visit in 11 years; rare-earth licensing on the agenda, 47 days before the Nov 10 deadline.',true],
+  ['SEP 25','MACRO','Micron earnings & Michigan Consumer Sentiment','Micron is the week’s key AI-supply-chain print.',false],
+  ['NET SEP 28','SPACE','Starship Flight 14','SpaceX’s first true orbital attempt has slipped three times in three weeks.',true],
+  ['~SEP 30','DEFENSE','Anduril’s ~$100B round nears a decision point','Prediction markets float a $112.5B close; unclosed for ~9 weeks.',false],
+  ['OCT 2026','AI & COMPUTE','Anthropic IPO (targeted)','Seeking up to $100B at ~$2.0–2.3T; would be the largest IPO in history.',true],
+  ['OCT 20','AI BIOTECH','Guardant/Tempus patent Markman hearing','Follow-on to the $245.2M TwinStrand judgment, under appeal.',false],
+  ['OCT 2026','STORAGE','GE Vernova Q3 print','Tests the $176B AI-power backlog thesis; CEO points to $200B in early 2027.',false]
+];
+var HORIZON=[
+  ['SUSPENDED','NUCLEAR','Holtec Nuclear IPO (HNUC)','Pulled Sept 16–18; S-1 remains on file with no new pricing date.'],
+  ['H2 2026','ROBOTICS','Agility Robotics SPAC completion','First US-listed pure-play humanoid; ~$620M+ gross proceeds incl. $200M Foxconn PIPE.'],
+  ['H2 2026','ROBOTICS','LimX & Agibot confidential HK listings','LimX at $2.2B; Agibot targeting a HK$40–50bn IPO.'],
+  ['H2 2026 → 2027','AI & COMPUTE','OpenAI IPO','Pushed to 2027 on safety grounds; in talks for a $1.2T+ pre-IPO round instead.'],
+  ['MID–LATE 2026','ROBOTICS','ABB–SoftBank robotics deal close','~$5.4B EV divestment awaiting regulatory clearance.'],
+  ['2027','SPACE','Rocket Lab Neutron debut','Financing risk resolved after the Iridium ATM offering.'],
+  ['DEC 2026','NUCLEAR','Clinch River construction-permit decision','Next hard SMR milestone against zero operating commercial SMRs.'],
+  ['DEC 11, 2026','DEFENSE / MACRO','Government funding CR deadline','98% of Golden Dome’s $17.5B FY27 ask needs a reconciliation bill.'],
+  ['NOV 10, 2026','MINERALS','China rare-earth export reprieve expires','47 days after Xi’s Washington visit.'],
+  ['NOV 27, 2026','MINERALS / MACRO','Busan-truce deadline','A second trade deadline bracketing the rare-earth question.'],
+  ['END 2026','DEFENSE','Anduril Arsenal-1 full ramp','6,000 tactical rocket motors/yr target.'],
+  ['H2 2026','QUANTUM','Remaining CHIPS quantum LOIs finalize','GlobalFoundries, Atom Computing and Diraq still to convert.'],
+  ['2027','SPACE','Rocket Lab \xd7 Iridium deal closes','Financing resolved; pointed at a 2027 close.'],
+  ['FY27 CYCLE','DEFENSE','Pentagon autonomy appropriations','~$75B unmanned/counter-drone request incl. the $54.6B DAWG line.']
+];
+var MOTION=[
+  ['Anthropic','AI & Compute','Confidential S-1 filed','~$2.0–2.3T','Pre-roadshow meetings underway; targeting before the Nov midterms. Nvidia may anchor up to $10B.'],
+  ['OpenAI','AI & Compute','Confidential S-1 filed','~$852B (in talks $1.2T+)','Altman called a 2026 listing “ill-advised”; pushed to 2027 in favour of a bigger pre-IPO round.'],
+  ['Holtec Nuclear','Nuclear','IPO suspended (HNUC)','~$2.0B (was $10.2B)','Pulled Sept 16–18 citing market conditions; S-1 stays on file.'],
+  ['Agility Robotics','Robotics','SPAC announced','~$2.5B','Confidential S-4 filed; ~$620M+ proceeds incl. a $200M Foxconn PIPE.'],
+  ['LimX Dynamics','Robotics','Pre-IPO closed','~$2.2B','Closed a $200M round; prepping a confidential HK listing.'],
+  ['Agibot','Robotics','Planned','~$5.1–6.4B','Targeting a HK$40–50bn Hong Kong listing in 2026.'],
+  ['European defense wave','Defense','Ongoing','Various','Helsing’s $1.8B round (demand exceeded allocation) keeps speculation alive.']
+];
+var WATCH=[
+  ['Anduril','Defense','~$100B (talks)','Round unclosed ~9 weeks; keeps shipping hardware regardless.'],
+  ['Figure AI','Robotics','~$39B','Most-funded humanoid; ~150 robots shipped in 2025 vs the valuation.'],
+  ['Blue Origin','Space','—','Bezos-funded; New Glenn root cause fixed, hot-fire testing this fall.'],
+  ['1X Technologies','Robotics','Seeking $10B+','Full-scale NEO production under way in Hayward, CA.'],
+  ['Helsing','Defense','~$18B','$1.8B round closed with demand exceeding allocation; no filing yet.']
+];
+var TRADING=[
+  ['Pasqal','Quantum','Aug 2026 (SPAC)','~$9.79 ref.','Fell below its SPAC reference price within a week and stayed there.'],
+  ['Unitree','Robotics','Aug 2026 (688836)','~$30.3B','Stabilised ~54% below its $66B peak; FCC import ban still in force.'],
+  ['SpaceX','Space','Jun 2026','~$1.75T','~32% below its post-IPO high; Starship 14 has slipped three times.'],
+  ['Quantinuum','Quantum','Jun 2026 (QNT)','~$14.3B','Kept rallying even as the gap to $28–32M FY26 revenue widens.'],
+  ['X-energy','Nuclear','Apr 2026 (XE)','~$1B raised','UK opened a ~3-year design assessment of its Xe-100.'],
+  ['Generate Biomedicines','AI Biotech','Feb 2026','$400M raised','GB-0895 Phase 3 recruitment complete across all six regions.'],
+  ['Eikon Therapeutics','AI Biotech','Feb 2026','$381M raised','Shares remain below the $18 IPO price after the lock-up expiry.']
+];
+
+function x(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function stanceStyle(status){
+  var t=status.toLowerCase();
+  if(t.includes('suspend')) return 'background:var(--color-accent);color:var(--color-bg);box-shadow:none;';
+  if(t.includes('filed')||t.includes('closed')||t.includes('announced')||t.includes('ongoing'))
+    return 'background:var(--color-text);color:var(--color-bg);box-shadow:none;';
+  return 'background:var(--n200);color:var(--color-text);box-shadow:none;';
+}
+
+function renderCalendar(){
+  // imminent
+  var ih='';
+  IMMINENT.forEach(function(e){
+    var dc=e[4]?'var(--color-accent-700)':'var(--color-text)';
+    ih+='<div class="mk-cal-row imminent"><b class="mk-cal-date" style="color:'+dc+'">'+x(e[0])+'</b>'
+      +'<span><span class="tag tag-neutral">'+x(e[1])+'</span></span>'
+      +'<b class="mk-cal-event">'+x(e[2])+'</b>'
+      +'<span class="mk-cal-why">'+x(e[3])+'</span></div>';
+  });
+  document.getElementById('cal-imminent').innerHTML=ih;
+
+  // horizon
+  var hh='';
+  HORIZON.forEach(function(e){
+    hh+='<div class="mk-cal-row horizon"><b class="mk-cal-date" style="color:var(--n700);font-weight:600;letter-spacing:.03em;">'+x(e[0])+'</b>'
+      +'<span><span class="tag tag-outline">'+x(e[1])+'</span></span>'
+      +'<b class="mk-cal-event">'+x(e[2])+'</b>'
+      +'<span class="mk-cal-why">'+x(e[3])+'</span></div>';
+  });
+  document.getElementById('cal-horizon').innerHTML=hh;
+
+  document.getElementById('count-cal').textContent=IMMINENT.length+HORIZON.length;
+}
+
+function renderIPO(){
+  // motion cards
+  var mh='';
+  MOTION.forEach(function(c){
+    mh+='<div class="mk-ipo-card"><div class="mk-ipo-card-top"><b class="mk-ipo-name">'+x(c[0])+'</b><span class="mk-ipo-sector-label">'+x(c[1])+'</span></div>'
+      +'<span class="mk-status-tag" style="'+stanceStyle(c[2])+'">'+x(c[2])+'</span>'
+      +'<b class="mk-ipo-val">'+x(c[3])+'</b>'
+      +'<span class="mk-ipo-note">'+x(c[4])+'</span></div>';
+  });
+  document.getElementById('ipo-motion').innerHTML=mh;
+
+  // watch rows
+  var wh='';
+  WATCH.forEach(function(c){
+    wh+='<div class="mk-watch-row"><b class="mk-watch-name">'+x(c[0])+'</b>'
+      +'<span class="mk-watch-sector">'+x(c[1])+'</span>'
+      +'<b class="mk-watch-val">'+x(c[2])+'</b>'
+      +'<span class="mk-watch-note">'+x(c[3])+'</span></div>';
+  });
+  document.getElementById('ipo-watch').innerHTML=wh;
+
+  // trading table
+  var th='';
+  TRADING.forEach(function(c){
+    th+='<div class="mk-trading-row"><b class="mk-trading-name">'+x(c[0])+'</b>'
+      +'<span class="mk-trading-sec">'+x(c[1])+'</span>'
+      +'<span>'+x(c[2])+'</span>'
+      +'<b class="mk-trading-val">'+x(c[3])+'</b>'
+      +'<span class="mk-trading-note">'+x(c[4])+'</span></div>';
+  });
+  document.getElementById('ipo-trading').innerHTML=th;
+
+  document.getElementById('count-ipo').textContent=MOTION.length+WATCH.length+TRADING.length;
+}
+
+function switchTab(tab){
+  document.querySelectorAll('.mk-tab').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.mk-view').forEach(function(v){v.classList.remove('active');});
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.getElementById('view-'+tab).classList.add('active');
+  history.replaceState(null,'',location.pathname+'#'+tab);
+}
+
+// Hash routing on load
+var hash=(location.hash||'').replace('#','');
+renderCalendar();
+renderIPO();
+if(hash==='ipo') switchTab('ipo');
+
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/private/sw.js');}
+</script>
+</body>
+</html>
