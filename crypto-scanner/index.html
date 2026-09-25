@@ -34,6 +34,17 @@
   --color-accent-800: #7c1405;
   --color-accent-900: #4d170e;
   --font: "Archivo", system-ui, sans-serif;
+  /* move colours — mono (default) */
+  --color-up: #201e1d;
+  --color-dn: #ae1800;
+  --color-bar-up: #ec3013;
+  --color-bar-dn: #ec3013;
+}
+[data-color-mode="green"] {
+  --color-up: oklch(0.50 0.13 150);
+  --color-dn: oklch(0.48 0.18 25);
+  --color-bar-up: oklch(0.60 0.14 150);
+  --color-bar-dn: oklch(0.55 0.20 25);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--color-bg);color:var(--color-text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;height:100vh;overflow:hidden;display:flex;}
@@ -235,9 +246,17 @@ a{text-decoration:none;color:inherit;}
 .fund-bar{position:absolute;top:0;height:14px;}
 
 /* ── COLORS ── */
-.up{color:var(--color-text);}
-.dn{color:var(--color-accent-700);}
+.up{color:var(--color-up);}
+.dn{color:var(--color-dn);}
 .neu{color:var(--color-neutral-600);}
+
+/* ── COLOR MODE TOGGLE ── */
+.color-toggle{display:flex;border:1px solid var(--color-divider);overflow:hidden;margin-bottom:12px;}
+.color-toggle-btn{all:unset;box-sizing:border-box;flex:1;cursor:pointer;padding:6px 8px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-align:center;color:var(--color-neutral-700);}
+.color-toggle-btn:hover{background:var(--color-neutral-200);}
+.color-toggle-btn.active{background:var(--color-text);color:var(--color-bg);}
+.color-toggle-swatch{display:inline-flex;gap:3px;margin-right:5px;vertical-align:middle;}
+.color-toggle-swatch span{display:inline-block;width:7px;height:7px;}
 
 /* ── PAGE FOOTER ── */
 .page-footer{margin-top:48px;padding-top:14px;border-top:2px solid var(--color-divider);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
@@ -272,6 +291,11 @@ a{text-decoration:none;color:inherit;}
     <div class="sb-item" onclick="showView('largecap',this)"><span class="sb-item-num">05</span><span>Large Cap</span></div>
   </nav>
   <div class="sb-footer">
+    <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:6px;font-weight:400;">Move colours</div>
+    <div class="color-toggle">
+      <button class="color-toggle-btn active" id="btn-mono" onclick="setColorMode('mono')"><span class="color-toggle-swatch"><span style="background:#201e1d;"></span><span style="background:#ae1800;"></span></span>Mono</button>
+      <button class="color-toggle-btn" id="btn-green" onclick="setColorMode('green')"><span class="color-toggle-swatch"><span style="background:oklch(0.5 0.13 150);"></span><span style="background:oklch(0.48 0.18 25);"></span></span>Green</button>
+    </div>
     <div class="sb-clock" id="sbClock">Updated —</div>
     <a class="sb-hub" href="/private/">← Research Hub</a>
   </div>
@@ -542,7 +566,7 @@ const px = p => {
   return '$'+p.toPrecision(3);
 };
 const cls  = v => v>0?'up':v<0?'dn':'neu';
-const barBg = v => v>=0?'var(--color-text)':'var(--color-accent)';
+const barBg = v => v>=0?'var(--color-bar-up)':'var(--color-bar-dn)';
 
 function setEl(id,html,color){
   const el=document.getElementById(id); if(!el) return;
@@ -559,6 +583,25 @@ function showView(id,el){
   if(el) el.classList.add('active');
   document.querySelector('.content').scrollTop=0;
 }
+
+// ═══════════════════════════════════════
+// COLOR MODE
+// ═══════════════════════════════════════
+function setColorMode(mode){
+  document.documentElement.dataset.colorMode = mode==='green'?'green':'';
+  document.getElementById('btn-mono').classList.toggle('active', mode==='mono');
+  document.getElementById('btn-green').classList.toggle('active', mode==='green');
+  try{ localStorage.setItem('cs-color-mode',mode); }catch(_){}
+  // re-render data-driven colour elements
+  renderTreemap(catData);
+  renderMomentumStrip();
+}
+(function(){
+  try{
+    const saved=localStorage.getItem('cs-color-mode');
+    if(saved==='green') setColorMode('green');
+  }catch(_){}
+})();
 
 // ═══════════════════════════════════════
 // CLOCK
@@ -685,8 +728,8 @@ async function fetchGlobal(){
   const mcap=g.total_market_cap.usd, mcapC=g.market_cap_change_percentage_24h_usd;
   const btcd=g.market_cap_percentage.btc, vol=g.total_volume.usd;
 
-  setEl('ov-mcap',big(mcap)); setEl('ov-mcap-chg',pct(mcapC),mcapC>=0?'var(--color-text)':'var(--color-accent-700)');
-  setEl('s-mcap',big(mcap)); setEl('s-mcap-chg',pct(mcapC),mcapC>=0?'var(--color-text)':'var(--color-accent-700)');
+  setEl('ov-mcap',big(mcap)); setEl('ov-mcap-chg',pct(mcapC),mcapC>=0?'var(--color-up)':'var(--color-dn)');
+  setEl('s-mcap',big(mcap)); setEl('s-mcap-chg',pct(mcapC),mcapC>=0?'var(--color-up)':'var(--color-dn)');
   setEl('ov-btcd',f2(btcd)+'%'); setEl('s-btcd',f2(btcd)+'%');
   setEl('ov-vol',big(vol));
 
@@ -710,7 +753,7 @@ async function fetchMovers(){
   coins.forEach(c=>{
     const s=MAP[c.id]; if(!s) return;
     setEl('s-'+s,px(c.current_price));
-    setEl('s-'+s+'-chg',pct(c.price_change_percentage_24h),c.price_change_percentage_24h>=0?'var(--color-text)':'var(--color-accent-700)');
+    setEl('s-'+s+'-chg',pct(c.price_change_percentage_24h),c.price_change_percentage_24h>=0?'var(--color-up)':'var(--color-dn)');
   });
 
   // Majors
@@ -887,7 +930,7 @@ async function fetchBybit(){
   const oiEl=document.getElementById('oiList');
   if(oiEl) oiEl.innerHTML=topOI.map((t,i)=>{
     const bw=Math.round(t.oi/maxOI*100);
-    const bg=i<3?'var(--color-text)':'var(--color-neutral-600)';
+    const bg=i<3?'var(--color-bar-up)':'var(--color-neutral-600)';
     return `<div class="oi-row">
       <span class="lc-i">${i+1}</span><b style="font-weight:800;">${t.sym}</b>
       <div class="oi-bar-bg"><div class="oi-bar" style="width:${bw}%;background:${bg};"></div></div>
@@ -905,7 +948,7 @@ async function fetchBybit(){
     const apr=(Math.abs(f)*3*365).toFixed(1)+'%';
     return `<div class="fund-row">
       <b style="font-weight:800;">${t.sym}</b>
-      <div class="fund-bar-wrap"><div class="fund-zero"></div><div class="fund-bar" style="left:${left};width:${bw}%;background:${f>=0?'var(--color-text)':'var(--color-accent)'};"></div></div>
+      <div class="fund-bar-wrap"><div class="fund-zero"></div><div class="fund-bar" style="left:${left};width:${bw}%;background:${f>=0?'var(--color-bar-up)':'var(--color-bar-dn)'};"></div></div>
       <b style="text-align:right;font-weight:800;" class="${cls(f)}">${f>0?'+':''}${f.toFixed(4)}%</b>
       <span style="text-align:right;color:var(--color-neutral-700);">${apr}</span>
     </div>`;
@@ -923,8 +966,8 @@ async function fetchDefiLlama(){
   const topChains=chains.filter(c=>c.tvl>0).sort((a,b)=>b.tvl-a.tvl).slice(0,10);
   const totalTVL=topChains.reduce((s,c)=>s+c.tvl,0), maxTVL=topChains[0]?.tvl||1;
   const tvlChg=topChains[0]?.change_1d||0;
-  setEl('s-tvl',big(totalTVL)); setEl('s-tvl-chg',pct(tvlChg),tvlChg>=0?'var(--color-text)':'var(--color-accent-700)');
-  setEl('df-tvl',big(totalTVL)); setEl('df-chg',pct(tvlChg),tvlChg>=0?'var(--color-text)':'var(--color-accent-700)');
+  setEl('s-tvl',big(totalTVL)); setEl('s-tvl-chg',pct(tvlChg),tvlChg>=0?'var(--color-up)':'var(--color-dn)');
+  setEl('df-tvl',big(totalTVL)); setEl('df-chg',pct(tvlChg),tvlChg>=0?'var(--color-up)':'var(--color-dn)');
 
   const series=walk(90,totalTVL,0.018,Math.round(totalTVL/1e8));
   const {mn,mx}=buildChart('tvlChartSvg',series);
@@ -936,7 +979,7 @@ async function fetchDefiLlama(){
     const chg=c.change_1d||0, bw=Math.round(c.tvl/maxTVL*100);
     const bg=c===topChains[0]?'var(--color-text)':'var(--color-neutral-700)';
     return `<div class="chain-row">
-      <div class="chain-row-top"><b>${c.name}</b><span style="display:flex;gap:12px;"><span>${big(c.tvl)}</span><b style="min-width:52px;text-align:right;color:${chg>=0?'var(--color-text)':'var(--color-accent-700)'};">${pct(chg)}</b></span></div>
+      <div class="chain-row-top"><b>${c.name}</b><span style="display:flex;gap:12px;"><span>${big(c.tvl)}</span><b style="min-width:52px;text-align:right;color:${chg>=0?'var(--color-up)':'var(--color-dn)'};">${pct(chg)}</b></span></div>
       <div class="chain-bar-bg"><div class="chain-bar" style="width:${bw}%;background:${bg};"></div></div>
     </div>`;
   }).join('');
@@ -972,7 +1015,7 @@ function renderProtoTable(){
       <b class="tc-r">${big(p.tvl)}</b>
       <b class="tc-r ${cls(d1)}">${pct(d1)}</b>
       <b class="tc-r ${cls(d7)}">${pct(d7)}</b>
-      <div class="tc" style="display:flex;align-items:center;gap:8px;"><div style="flex:1;height:6px;background:var(--color-neutral-200);"><div style="height:6px;width:${bw}%;background:var(--color-text);"></div></div><span style="font-size:12px;min-width:40px;text-align:right;color:var(--color-neutral-700);">${share}</span></div>
+      <div class="tc" style="display:flex;align-items:center;gap:8px;"><div style="flex:1;height:6px;background:var(--color-neutral-200);"><div style="height:6px;width:${bw}%;background:var(--color-neutral-800);"></div></div><span style="font-size:12px;min-width:40px;text-align:right;color:var(--color-neutral-700);">${share}</span></div>
     </div>`;
   }).join('');
 }
