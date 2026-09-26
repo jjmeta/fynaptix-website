@@ -291,6 +291,7 @@ a{text-decoration:none;color:inherit;}
     <div class="sb-item" onclick="showView('ai',this)"><span class="sb-item-num">06</span><span>AI Sector</span></div>
     <div class="sb-item" onclick="showView('rwa',this)"><span class="sb-item-num">07</span><span>RWA Protocol</span></div>
     <div class="sb-item" onclick="showView('sui',this)"><span class="sb-item-num">08</span><span>Sui Ecosystem</span></div>
+    <div class="sb-item" onclick="showView('privacy',this)"><span class="sb-item-num">09</span><span>Privacy</span></div>
     <div class="sb-item" onclick="showView('defi',this)"><span class="sb-item-num">03</span><span>DeFi On-Chain</span></div>
     <div class="sb-item" onclick="showView('hotspots',this)"><span class="sb-item-num">04</span><span>Hot Spots</span></div>
     <div class="sb-item" onclick="showView('largecap',this)"><span class="sb-item-num">05</span><span>Large Cap</span></div>
@@ -547,6 +548,61 @@ a{text-decoration:none;color:inherit;}
             <button class="tbl-hdr-btn sort-active" onclick="sortSui('mcap',this)">Mcap ↓</button>
           </div>
           <div id="suiTblBody"><div style="padding:24px 0;color:var(--color-neutral-600);">Loading…</div></div>
+        </div></div>
+
+        <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ 09 PRIVACY ═══ -->
+    <div class="view" id="view-privacy">
+      <div class="page-header">
+        <div><div class="page-kicker">09 · PRIVACY BLOCKCHAINS &amp; PROTOCOLS</div><h1 class="page-title">Privacy</h1></div>
+        <div class="page-source">SOURCE · COINGECKO /COINS/MARKETS?CATEGORY=PRIVACY-BLOCKCHAIN · PRIVACY</div>
+      </div>
+      <div class="vbody">
+
+        <!-- Sub-category tabs -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:24px 0 16px;">
+          <div class="chain-tabs" id="privCatTabs">
+            <button class="chain-tab priv-cat-btn active" data-cat="all" onclick="switchPrivCat('all',this)" style="background:var(--color-text);color:var(--color-bg);">All Privacy</button>
+            <button class="chain-tab priv-cat-btn" data-cat="blockchain" onclick="switchPrivCat('blockchain',this)" style="background:var(--color-bg);color:var(--color-text);">Privacy Blockchain</button>
+            <button class="chain-tab priv-cat-btn" data-cat="coins" onclick="switchPrivCat('coins',this)" style="background:var(--color-bg);color:var(--color-text);">Privacy Coins</button>
+          </div>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;">Source · CoinGecko categories</span>
+        </div>
+
+        <!-- Stat row -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--color-divider);border-top:2px solid var(--color-text);border-bottom:2px solid var(--color-divider);">
+          <div id="priv-stat-mcap" style="background:var(--color-bg);padding:22px 24px 22px 0;"><div class="stat-cell-lbl">Market cap</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">—</div></div>
+          <div id="priv-stat-vol" style="background:var(--color-bg);padding:22px 24px 22px 0;"><div class="stat-cell-lbl">24h volume</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">—</div></div>
+          <div style="background:var(--color-bg);padding:22px 24px 22px 0;">
+            <div class="stat-cell-lbl" style="color:var(--color-accent-700);">🔥 Trending</div>
+            <div id="priv-trending" style="margin-top:4px;"></div>
+          </div>
+          <div style="background:var(--color-bg);padding:22px 0 22px 24px;">
+            <div class="stat-cell-lbl">🚀 Top gainers</div>
+            <div id="priv-gainers" style="margin-top:4px;"></div>
+          </div>
+        </div>
+
+        <!-- Token table -->
+        <div class="sec-hdr">
+          <h3 class="sec-title" id="priv-tbl-title">Privacy · tokens</h3>
+          <span class="sec-sub" id="priv-tbl-count">Loading…</span>
+        </div>
+        <div class="tbl-wrap"><div style="min-width:940px;">
+          <div class="gai tbl-hdr-row" id="privTblHdr">
+            <button class="tbl-hdr-btn tbl-hdr-left" onclick="sortPriv('rank',this)">#</button>
+            <button class="tbl-hdr-btn tbl-hdr-left" onclick="sortPriv('name',this)">Coin</button>
+            <button class="tbl-hdr-btn" onclick="sortPriv('price',this)">Price</button>
+            <button class="tbl-hdr-btn" onclick="sortPriv('h1',this)">1h</button>
+            <button class="tbl-hdr-btn" onclick="sortPriv('h24',this)">24h</button>
+            <button class="tbl-hdr-btn" onclick="sortPriv('d7',this)">7d</button>
+            <button class="tbl-hdr-btn" onclick="sortPriv('vol',this)">Volume</button>
+            <button class="tbl-hdr-btn sort-active" onclick="sortPriv('mcap',this)">Mcap ↓</button>
+          </div>
+          <div id="privTblBody"><div style="padding:24px 0;color:var(--color-neutral-600);">Loading…</div></div>
         </div></div>
 
         <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
@@ -1500,13 +1556,116 @@ function renderSuiTable(){
 }
 
 // ═══════════════════════════════════════
+// PRIVACY
+// ═══════════════════════════════════════
+let privTokens={blockchain:[],coins:[]};
+let privCat='all';
+let privSortKey='mcap';
+let privSortDir=-1;
+
+const PRIV_CAT_LABELS={all:'All Privacy',blockchain:'Privacy Blockchain',coins:'Privacy Coins'};
+
+async function fetchPrivacy(){
+  try{
+    const [rB,rC]=await Promise.all([
+      fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=privacy-blockchain&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h,24h,7d'),
+      fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=privacy&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h,24h,7d'),
+    ]);
+    const [dB,dC]=await Promise.all([rB.json(),rC.json()]);
+    if(Array.isArray(dB)) privTokens.blockchain=dB;
+    if(Array.isArray(dC)) privTokens.coins=dC;
+    renderPrivacy();
+  }catch(_){}
+}
+
+function switchPrivCat(id,btn){
+  privCat=id; privSortKey='mcap'; privSortDir=-1;
+  document.querySelectorAll('.priv-cat-btn').forEach(b=>{
+    const a=b.dataset.cat===id;
+    b.style.background=a?'var(--color-text)':'var(--color-bg)';
+    b.style.color=a?'var(--color-bg)':'var(--color-text)';
+    b.classList.toggle('active',a);
+  });
+  document.querySelectorAll('#privTblHdr .tbl-hdr-btn').forEach(b=>{b.classList.remove('sort-active');b.textContent=b.textContent.replace(/[ ↑↓]$/,'');});
+  const mcapBtn=document.querySelector('#privTblHdr .tbl-hdr-btn:last-child');
+  if(mcapBtn){mcapBtn.classList.add('sort-active');mcapBtn.textContent+=' ↓';}
+  renderPrivacy();
+}
+
+function sortPriv(key,btn){
+  if(privSortKey===key) privSortDir*=-1; else{privSortKey=key;privSortDir=key==='name'?1:-1;}
+  document.querySelectorAll('#privTblHdr .tbl-hdr-btn').forEach(b=>{b.classList.remove('sort-active');b.textContent=b.textContent.replace(/[ ↑↓]$/,'');});
+  btn.classList.add('sort-active'); btn.textContent+=privSortDir>0?' ↑':' ↓';
+  renderPrivTable();
+}
+
+function privRows(){
+  if(privCat==='blockchain') return privTokens.blockchain;
+  if(privCat==='coins') return privTokens.coins;
+  // All: merge and dedupe by id, sort by mcap
+  const seen=new Set(); const merged=[];
+  for(const c of [...privTokens.blockchain,...privTokens.coins]){
+    if(!seen.has(c.id)){seen.add(c.id);merged.push(c);}
+  }
+  return merged.sort((a,b)=>(b.market_cap||0)-(a.market_cap||0));
+}
+
+function renderPrivacy(){
+  const rows=privRows();
+  const catId=privCat==='blockchain'?'privacy-blockchain':privCat==='coins'?'privacy':null;
+  const catObj=catId?catData.find(c=>c.id===catId):null;
+  const mcap=catObj?catObj.market_cap:rows.reduce((s,c)=>s+(c.market_cap||0),0);
+  const mcapChg=catObj?catObj.market_cap_change_24h:null;
+  const vol=catObj?catObj.volume_24h:rows.reduce((s,c)=>s+(c.total_volume||0),0);
+  const label=PRIV_CAT_LABELS[privCat];
+
+  const trending=[...rows].sort((a,b)=>(b.total_volume||0)-(a.total_volume||0)).slice(0,3);
+  const gainers=[...rows].sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0)).slice(0,3);
+
+  const chgHtml=mcapChg!=null?`<span style="font-size:13px;font-weight:800;" class="${cls(mcapChg)}">${pct(mcapChg)}</span>`:'';
+  setEl('priv-stat-mcap',`<div class="stat-cell-lbl">${label} · market cap</div><div style="display:flex;align-items:baseline;gap:10px;margin-top:6px;"><span style="font-size:34px;font-weight:800;letter-spacing:-0.03em;">${big(mcap)}</span>${chgHtml}</div>`);
+  setEl('priv-stat-vol',`<div class="stat-cell-lbl">24h volume</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">${big(vol)}</div>`);
+  setEl('priv-trending',trending.map(t=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px;"><b>${(t.symbol||'').toUpperCase()}</b><span class="${cls(t.price_change_percentage_24h||0)}">${pct(t.price_change_percentage_24h||0)}</span></div>`).join(''));
+  setEl('priv-gainers',gainers.map(t=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px;"><b>${(t.symbol||'').toUpperCase()}</b><span class="${cls(t.price_change_percentage_24h||0)}">${pct(t.price_change_percentage_24h||0)}</span></div>`).join(''));
+  setEl('priv-tbl-title',`${label} · tokens`);
+  setEl('priv-tbl-count',`${rows.length} coins`);
+  renderPrivTable();
+}
+
+function renderPrivTable(){
+  const fieldMap={rank:null,name:null,price:'current_price',h1:'price_change_percentage_1h_in_currency',h24:'price_change_percentage_24h',d7:'price_change_percentage_7d_in_currency',vol:'total_volume',mcap:'market_cap'};
+  const sorted=[...privRows()].sort((a,b)=>{
+    if(privSortKey==='name') return privSortDir*(a.name||'').localeCompare(b.name||'');
+    const f=fieldMap[privSortKey]||'market_cap';
+    return privSortDir*((b[f]||0)-(a[f]||0));
+  });
+  const el=document.getElementById('privTblBody'); if(!el) return;
+  if(!sorted.length){el.innerHTML='<div style="padding:24px 0;color:var(--color-neutral-600);">No data — check back shortly.</div>';return;}
+  el.innerHTML=sorted.map((c,i)=>{
+    const h1=c.price_change_percentage_1h_in_currency||0;
+    const h24=c.price_change_percentage_24h||0;
+    const d7=c.price_change_percentage_7d_in_currency||0;
+    return `<div class="gai tbl-data-row">
+      <span class="tc-i">${i+1}</span>
+      <div class="tc" style="display:flex;flex-direction:column;min-width:0;"><b>${(c.symbol||'').toUpperCase()}</b><span style="font-size:12px;color:var(--color-neutral-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${c.name||''}</span></div>
+      <span class="tc-r">${px(c.current_price)}</span>
+      <span class="tc-r ${cls(h1)}">${pct(h1)}</span>
+      <b class="tc-r ${cls(h24)}">${pct(h24)}</b>
+      <span class="tc-r ${cls(d7)}">${pct(d7)}</span>
+      <span class="tc-r">${big(c.total_volume)}</span>
+      <span class="tc-r">${big(c.market_cap)}</span>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════
 // MAIN
 // ═══════════════════════════════════════
 async function fetchAll(){
   await Promise.allSettled([
     fetchGlobal(), fetchMovers(), fetchBybit(),
     fetchDefiLlama(), fetchFearGreed(), fetchCategories(), fetchDexscreener(),
-    fetchAiSector(), fetchRwa(), fetchSui(),
+    fetchAiSector(), fetchRwa(), fetchSui(), fetchPrivacy(),
   ]);
 }
 fetchAll();
