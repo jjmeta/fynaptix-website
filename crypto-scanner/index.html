@@ -289,6 +289,7 @@ a{text-decoration:none;color:inherit;}
     <div class="sb-item active" onclick="showView('overview',this)"><span class="sb-item-num">01</span><span>Overview</span></div>
     <div class="sb-item" onclick="showView('narratives',this)"><span class="sb-item-num">02</span><span>Narratives</span></div>
     <div class="sb-item" onclick="showView('ai',this)"><span class="sb-item-num">06</span><span>AI Sector</span></div>
+    <div class="sb-item" onclick="showView('rwa',this)"><span class="sb-item-num">07</span><span>RWA Protocol</span></div>
     <div class="sb-item" onclick="showView('defi',this)"><span class="sb-item-num">03</span><span>DeFi On-Chain</span></div>
     <div class="sb-item" onclick="showView('hotspots',this)"><span class="sb-item-num">04</span><span>Hot Spots</span></div>
     <div class="sb-item" onclick="showView('largecap',this)"><span class="sb-item-num">05</span><span>Large Cap</span></div>
@@ -455,6 +456,51 @@ a{text-decoration:none;color:inherit;}
             <button class="tbl-hdr-btn" onclick="sortAi('mcap',this)">Mcap</button>
           </div>
           <div id="aiTblBody"><div style="padding:24px 0;color:var(--color-neutral-600);">Loading…</div></div>
+        </div></div>
+
+        <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ 07 RWA PROTOCOL ═══ -->
+    <div class="view" id="view-rwa">
+      <div class="page-header">
+        <div><div class="page-kicker">07 · TOKENISED REAL-WORLD ASSETS</div><h1 class="page-title">RWA Protocol</h1></div>
+        <div class="page-source">SOURCE · COINGECKO /COINS/MARKETS?CATEGORY=RWA-PROTOCOL</div>
+      </div>
+      <div class="vbody">
+
+        <!-- Stat row -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--color-divider);border-top:2px solid var(--color-text);border-bottom:2px solid var(--color-divider);margin-top:24px;">
+          <div id="rwa-stat-mcap" style="background:var(--color-bg);padding:22px 24px 22px 0;"><div class="stat-cell-lbl">RWA Protocol · market cap</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">—</div></div>
+          <div id="rwa-stat-vol" style="background:var(--color-bg);padding:22px 24px 22px 0;"><div class="stat-cell-lbl">24h volume</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">—</div></div>
+          <div style="background:var(--color-bg);padding:22px 24px 22px 0;">
+            <div class="stat-cell-lbl" style="color:var(--color-accent-700);">🔥 Trending</div>
+            <div id="rwa-trending" style="margin-top:4px;"></div>
+          </div>
+          <div style="background:var(--color-bg);padding:22px 0 22px 24px;">
+            <div class="stat-cell-lbl">🚀 Top gainers</div>
+            <div id="rwa-gainers" style="margin-top:4px;"></div>
+          </div>
+        </div>
+
+        <!-- Token table -->
+        <div class="sec-hdr">
+          <h3 class="sec-title">RWA Protocol · tokens</h3>
+          <span class="sec-sub" id="rwa-tbl-count">Loading…</span>
+        </div>
+        <div class="tbl-wrap"><div style="min-width:940px;">
+          <div class="gai tbl-hdr-row" id="rwaTblHdr">
+            <button class="tbl-hdr-btn tbl-hdr-left" onclick="sortRwa('rank',this)">#</button>
+            <button class="tbl-hdr-btn tbl-hdr-left" onclick="sortRwa('name',this)">Coin</button>
+            <button class="tbl-hdr-btn" onclick="sortRwa('price',this)">Price</button>
+            <button class="tbl-hdr-btn" onclick="sortRwa('h1',this)">1h</button>
+            <button class="tbl-hdr-btn" onclick="sortRwa('h24',this)">24h</button>
+            <button class="tbl-hdr-btn" onclick="sortRwa('d7',this)">7d</button>
+            <button class="tbl-hdr-btn" onclick="sortRwa('vol',this)">Volume</button>
+            <button class="tbl-hdr-btn sort-active" onclick="sortRwa('mcap',this)">Mcap ↓</button>
+          </div>
+          <div id="rwaTblBody"><div style="padding:24px 0;color:var(--color-neutral-600);">Loading…</div></div>
         </div></div>
 
         <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
@@ -1274,13 +1320,80 @@ function renderAi(){
 }
 
 // ═══════════════════════════════════════
+// RWA PROTOCOL
+// ═══════════════════════════════════════
+let rwaTokens=[];
+let rwaSortKey='mcap';
+let rwaSortDir=-1;
+
+async function fetchRwa(){
+  try{
+    const r=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=rwa-protocol&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h,24h,7d');
+    const d=await r.json();
+    if(Array.isArray(d)){ rwaTokens=d; renderRwa(); }
+  }catch(_){}
+}
+
+function sortRwa(key,btn){
+  if(rwaSortKey===key) rwaSortDir*=-1; else{rwaSortKey=key;rwaSortDir=key==='name'?1:-1;}
+  document.querySelectorAll('#rwaTblHdr .tbl-hdr-btn').forEach(b=>{b.classList.remove('sort-active');b.textContent=b.textContent.replace(/[ ↑↓]$/,'');});
+  btn.classList.add('sort-active'); btn.textContent+=rwaSortDir>0?' ↑':' ↓';
+  renderRwaTable();
+}
+
+function renderRwa(){
+  const rows=rwaTokens;
+  const catObj=catData.find(c=>c.id==='rwa-protocol');
+  const mcap=catObj?catObj.market_cap:rows.reduce((s,c)=>s+(c.market_cap||0),0);
+  const mcapChg=catObj?catObj.market_cap_change_24h:null;
+  const vol=catObj?catObj.volume_24h:rows.reduce((s,c)=>s+(c.total_volume||0),0);
+
+  const trending=[...rows].sort((a,b)=>(b.total_volume||0)-(a.total_volume||0)).slice(0,3);
+  const gainers=[...rows].sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0)).slice(0,3);
+
+  const chgHtml=mcapChg!=null?`<span style="font-size:13px;font-weight:800;" class="${cls(mcapChg)}">${pct(mcapChg)}</span>`:'';
+  setEl('rwa-stat-mcap',`<div class="stat-cell-lbl">RWA Protocol · market cap</div><div style="display:flex;align-items:baseline;gap:10px;margin-top:6px;"><span style="font-size:34px;font-weight:800;letter-spacing:-0.03em;">${big(mcap)}</span>${chgHtml}</div>`);
+  setEl('rwa-stat-vol',`<div class="stat-cell-lbl">24h volume</div><div style="font-size:34px;font-weight:800;letter-spacing:-0.03em;margin-top:6px;">${big(vol)}</div>`);
+  setEl('rwa-trending',trending.map(t=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px;"><b>${(t.symbol||'').toUpperCase()}</b><span class="${cls(t.price_change_percentage_24h||0)}">${pct(t.price_change_percentage_24h||0)}</span></div>`).join(''));
+  setEl('rwa-gainers',gainers.map(t=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;font-size:13px;"><b>${(t.symbol||'').toUpperCase()}</b><span class="${cls(t.price_change_percentage_24h||0)}">${pct(t.price_change_percentage_24h||0)}</span></div>`).join(''));
+  setEl('rwa-tbl-count',`Top ${rows.length} by market cap`);
+  renderRwaTable();
+}
+
+function renderRwaTable(){
+  const fieldMap={rank:null,name:null,price:'current_price',h1:'price_change_percentage_1h_in_currency',h24:'price_change_percentage_24h',d7:'price_change_percentage_7d_in_currency',vol:'total_volume',mcap:'market_cap'};
+  const sorted=[...rwaTokens].sort((a,b)=>{
+    if(rwaSortKey==='name') return rwaSortDir*(a.name||'').localeCompare(b.name||'');
+    const f=fieldMap[rwaSortKey]||'market_cap';
+    return rwaSortDir*((b[f]||0)-(a[f]||0));
+  });
+  const el=document.getElementById('rwaTblBody'); if(!el) return;
+  if(!sorted.length){el.innerHTML='<div style="padding:24px 0;color:var(--color-neutral-600);">No data — check back shortly.</div>';return;}
+  el.innerHTML=sorted.map((c,i)=>{
+    const h1=c.price_change_percentage_1h_in_currency||0;
+    const h24=c.price_change_percentage_24h||0;
+    const d7=c.price_change_percentage_7d_in_currency||0;
+    return `<div class="gai tbl-data-row">
+      <span class="tc-i">${i+1}</span>
+      <div class="tc" style="display:flex;flex-direction:column;min-width:0;"><b>${(c.symbol||'').toUpperCase()}</b><span style="font-size:12px;color:var(--color-neutral-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${c.name||''}</span></div>
+      <span class="tc-r">${px(c.current_price)}</span>
+      <span class="tc-r ${cls(h1)}">${pct(h1)}</span>
+      <b class="tc-r ${cls(h24)}">${pct(h24)}</b>
+      <span class="tc-r ${cls(d7)}">${pct(d7)}</span>
+      <span class="tc-r">${big(c.total_volume)}</span>
+      <span class="tc-r">${big(c.market_cap)}</span>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════
 // MAIN
 // ═══════════════════════════════════════
 async function fetchAll(){
   await Promise.allSettled([
     fetchGlobal(), fetchMovers(), fetchBybit(),
     fetchDefiLlama(), fetchFearGreed(), fetchCategories(), fetchDexscreener(),
-    fetchAiSector(),
+    fetchAiSector(), fetchRwa(),
   ]);
 }
 fetchAll();
