@@ -876,12 +876,24 @@ function setEl(id,html,color){
 // ═══════════════════════════════════════
 // NAV
 // ═══════════════════════════════════════
+// Views that need their own fetch, triggered lazily on first open
+const LAZY_FETCHERS={
+  ai:fetchAiSector, rwa:fetchRwa, sui:fetchSui,
+  ton:fetchTon, privacy:fetchPrivacy, trending:fetchTrending,
+  defi:fetchDefiLlama, hotspots:fetchDexscreener,
+};
+const viewLoaded=new Set();
+
 function showView(id,el){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.sb-item').forEach(b=>b.classList.remove('active'));
   document.getElementById('view-'+id).classList.add('active');
   if(el) el.classList.add('active');
   document.querySelector('.content').scrollTop=0;
+  if(LAZY_FETCHERS[id]&&!viewLoaded.has(id)){
+    viewLoaded.add(id);
+    LAZY_FETCHERS[id]();
+  }
 }
 
 // ═══════════════════════════════════════
@@ -1969,12 +1981,13 @@ function bigNum(n){
 // MAIN
 // ═══════════════════════════════════════
 async function fetchAll(){
-  await Promise.allSettled([
-    fetchGlobal(), fetchMovers(), fetchBybit(),
-    fetchDefiLlama(), fetchFearGreed(), fetchCategories(), fetchDexscreener(),
-    fetchAiSector(), fetchRwa(), fetchSui(), fetchPrivacy(),
-    fetchTon(), fetchTrending(),
-  ]);
+  // Core data: always refresh (powers Overview, Narratives, Large Cap)
+  const core=[fetchGlobal(), fetchMovers(), fetchBybit(), fetchFearGreed(), fetchCategories()];
+  // Lazy views: only refresh if the user has already opened them
+  const lazy=Object.entries(LAZY_FETCHERS)
+    .filter(([id])=>viewLoaded.has(id))
+    .map(([,fn])=>fn());
+  await Promise.allSettled([...core,...lazy]);
 }
 fetchAll();
 setInterval(fetchAll,180000);
