@@ -1989,7 +1989,20 @@ async function fetchAll(){
     .map(([,fn])=>fn());
   await Promise.allSettled([...core,...lazy]);
 }
-fetchAll();
+// After core data loads, silently pre-fetch each category view one at a time
+// so data is ready before the user clicks. 2s gap avoids rate-limit bursts.
+async function prewarmViews(){
+  const order=['ai','rwa','sui','ton','privacy','trending','defi','hotspots'];
+  for(const id of order){
+    if(!viewLoaded.has(id)&&LAZY_FETCHERS[id]){
+      viewLoaded.add(id);
+      LAZY_FETCHERS[id]();
+      await new Promise(r=>setTimeout(r,2000));
+    }
+  }
+}
+
+fetchAll().then(()=>setTimeout(prewarmViews,1000));
 setInterval(fetchAll,180000);
 </script>
 </body>
