@@ -1,381 +1,475 @@
 {
-  "sector": "biotech",
-  "title": "Fynaptix · AI Biotech Research",
-  "heading": "AI Biotech Intelligence",
-  "subheading": "AI-native drug discovery, computational biology & longevity capital",
-  "kicker": "AI DRUG DISCOVERY & BIOTECH // SEP 2026",
-  "generated": "Sep 21, 2026",
-  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Biotech carries binary clinical risk; AI-discovery names trade on catalysts, not revenue. Verify current prices and do your own due diligence before investing.",
-  "kpis": [
-    {
-      "value": "Mar 10, 2027",
-      "sub": "INTELLIA'S LONVO-Z PDUFA DATE CONFIRMED · HAELO PHASE 3 SHOWED 87% ATTACK-RATE REDUCTION",
-      "label": "The FDA set a firm PDUFA date for lonvo-z in hereditary angioedema — the clearest approval timeline yet for what would be the first in-vivo CRISPR therapy ever approved. Intellia also secured a $400M credit facility to fund the eventual launch. Still a decision, not an approval, but the most concrete date on this page",
-      "highlight": true
-    },
-    {
-      "value": "Sept 21",
-      "sub": "ILLUMINA (ILMN) OFFICIALLY JOINS THE S&P 500 TODAY · FRESH 52-WEEK HIGH $239.55",
-      "label": "First time back since the 2023 GRAIL-spinoff drop; shares are up 143% over the past 12 months on a genuine earnings turnaround (FY2025 net income $850M) and a Sept 9 UBS upgrade to Buy with price target raised to $260 from $135",
-      "highlight": false
-    },
-    {
-      "value": "+40%",
-      "sub": "TEMPUS AI (TEM) ONE-WEEK STOCK SURGE · 100K-GENOME PLATFORM + $9.5M ARPA-H AWARD",
-      "label": "Tempus announced a platform pairing 100,000 disease-specific whole genomes with longitudinal outcomes data (aiming for 1M) and secured ARPA-H funding for an autonomous cardiology AI agent — enough to push its ARKG weight to #2 (9.23%), just behind 10x Genomics. The Guardant litigation overhang hasn't moved",
-      "highlight": false
-    },
-    {
-      "value": "$1.93B",
-      "sub": "ARKG AUM SLIPS TO $1.93B EVEN AS THE FUND HITS A FRESH 52-WEEK HIGH",
-      "label": "Price closed at $51.64 (52-week high $52.09), yet AUM fell from $2.00B two weeks ago — a sign of redemptions into strength, not new money. Top-10 concentration rose to 60.41% as Tempus's rally dominates the weighting",
-      "highlight": false
-    }
-  ],
-  "themes": [
-    {
-      "tag": "A DIAGNOSTICS NAME RE-RATES ON A DATA-PLATFORM STORY, NOT A LEGAL WIN",
-      "title": "Tempus AI surges ~40% in a week on a 100k-genome platform and ARPA-H cardiology funding",
-      "description": "Tempus announced a platform pairing 100,000 disease-specific whole genomes with longitudinal clinical outcomes (aiming for 1M long-term) and secured up to $9.5M in ARPA-H funding for an autonomous cardiology AI agent. The rally pushed Tempus to ARKG's #2 holding (9.23%, from roughly 8% two weeks ago) — but the Guardant litigation overhang that has dogged the stock all year is completely unchanged. Business momentum and legal risk are running on separate tracks here."
-    },
-    {
-      "tag": "A TOOLING INCUMBENT'S FUNDAMENTALS AND FLOWS ARRIVE TOGETHER",
-      "title": "Illumina officially rejoins the S&P 500 today, first time since the 2023 GRAIL-spinoff drop",
-      "description": "The index add follows a genuine fundamental turnaround — FY2025 net income of $850M, a Sept 9 UBS upgrade to Buy with price target raised to $260 (from $135), and seven analysts raising FY26 EPS estimates over the past 60 days. Shares hit a fresh 52-week high of $239.55 on Sept 18, up 143% over the trailing 12 months. Index funds must now hold shares — a mechanical flow tailwind layered on top of an already-improving operating story."
-    },
-    {
-      "tag": "A REAL TECHNICAL MILESTONE IN THE LEAST MATURE LAYER OF THE STACK",
-      "title": "Quantum-Si demonstrates detection of 18 of 20 amino acids on Proteus, closing in on its 2026 goal",
-      "description": "Announced Sept 15, this is the clearest sign yet that Quantum-Si's next-gen protein-sequencing platform actually works, even as the commercial Proteus launch remains a confirmed year late (Q2 2027) after August's workforce reduction. An expanded roadshow through Leiden, Paris and London this month, with Barcelona, Rome, Munich and Berlin added for Q4, suggests the company is building commercial momentum ahead of that delayed launch."
-    },
-    {
-      "tag": "THE FIELD'S CLEAREST APPROVAL TIMELINE GETS MORE CONCRETE — AND ONE COMPETING TIMELINE GETS LONGER",
-      "title": "Intellia's lonvo-z gets a firm PDUFA date (Mar 10, 2027) while Insilico's rentosertib approval math pushes to 2029-2030",
-      "description": "Intellia's HAELO Phase 3 data showed an 87% reduction in hereditary angioedema attack rates, and the company secured a $400M credit facility to fund launch — the most concrete approval date in AI/gene-editing biotech. Separately, Insilico's own lead investigator now estimates rentosertib is three to four years from Phase III start to approval, pointing to 2029-2030 rather than the 2027-28 window discussed previously. Progress on one front, a longer runway on another — the sector's zero-approvals fact hasn't changed either way."
-    }
-  ],
-  "tiers": [
-    {
-      "tier": "TIER 1",
-      "label": "Established / Hedged Exposure",
-      "note": "Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.",
-      "columns": ["Ticker", "Company", "Angle", "Watch for"],
-      "rows": [
-        {
-          "ticker": "LLY",
-          "company": "Eli Lilly",
-          "angle": "Isomorphic partner ($1.7B+ milestones) + $2.75B Insilico licensing deal; $1B, 5-yr NVIDIA co-innovation AI lab for R&D; owns Verve Therapeutics (acquired 2025) for in-vivo cardiovascular base editing",
-          "watch for": "No new AI deal this week; the Merida Biosciences acquisition (up to $2.875B) remains on track for a Q4 close and VERVE-102 Phase 2 data is still expected by year-end. Chai Discovery — the antibody-design AI startup Lilly backs alongside Novartis and Pfizer — closed a $400M Series C in July at a $3.8B valuation, another sign the multi-partner AI strategy keeps attracting outside capital independent of Lilly's own balance sheet"
-        },
-        {
-          "ticker": "NVS",
-          "company": "Novartis",
-          "angle": "Isomorphic partnership renewed (~$1.2B+); new Chai Discovery antibody-design collab; $1.7B Relation Therapeutics target deal",
-          "watch for": "No new catalyst this week; Q2 sales +3% to $14.4B and reaffirmed FY26 guidance remain the operative numbers. Chai Discovery's $400M Series C (July, $3.8B valuation) — backed by Novartis alongside Lilly and Pfizer — is the closest thing to fresh news, underscoring that the multi-partner AI bet (Chai, Orionis, Relation) keeps compounding without needing any single platform to deliver a win"
-        },
-        {
-          "ticker": "NVDA",
-          "company": "NVIDIA",
-          "angle": "BioNeMo/compute layer for computational biology; $1B AI co-innovation lab with Lilly announced January 2026",
-          "watch for": "Lilly co-innovation lab now ~8 months into build-out with no new headline this week; BioNeMo's expanded model set (RNA structure prediction, molecular synthesis, toxicity prediction) continues to widen the compute moat quietly in the background as more pharma platforms plug in"
-        }
-      ]
-    },
-    {
-      "tier": "TIER 2",
-      "label": "AI-Native Platforms — Speculative",
-      "note": "Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.",
-      "columns": ["Ticker", "Company", "Angle", "Watch for"],
-      "rows": [
-        {
-          "ticker": "RXRX",
-          "company": "Recursion",
-          "angle": "Millions of automated cell-imaging experiments feeding AI \"maps of biology\"; collabs with Roche, Bayer, Merck, Sanofi, Genentech",
-          "watch for": "Shares have rebounded off the 52-week low, up 8.78% (Sept 17) and 4.8% (Sept 18) to close near $3.71, with early data on REC-7735 (an oral, twice-daily drug targeting PIK3CA-H1047R-driven solid tumors) drawing investor interest at the Sept 15 Morgan Stanley Healthcare Conference. The trial is still in dose-finding/dose-expansion, so this looks like sentiment repair rather than a new efficacy signal"
-        },
-        {
-          "ticker": "SDGR",
-          "company": "Schrödinger",
-          "angle": "Physics-based + ML molecular simulation; software revenue cushions pipeline risk",
-          "watch for": "Launched Bunsen, an agentic AI co-scientist pairing physics-based simulation with an LLM layer to run molecular-discovery workflows — a genuine platform expansion beyond last week's Tectora spinout ($55M round with NEA & RA Capital). No new clinical data on SGR-1505/SGR-3515 this week"
-        },
-        {
-          "ticker": "RLAY",
-          "company": "Relay Therapeutics",
-          "angle": "Motion-based protein modeling for precision oncology; zovegalisib advancing",
-          "watch for": "Presented at the Sept 16 Morgan Stanley Healthcare Conference — its second investor conference in nine days after Wells Fargo on Sept 8 — with no new data disclosed. The ~$463M ATM equity facility remains a live dilution overhang ahead of the early-2027 Dynamo Phase 3 readout for zovegalisib"
-        },
-        {
-          "ticker": "GENB",
-          "company": "Generate Biomedicines",
-          "angle": "Generative protein design — IPO closed Mar 2 2026 at $16/sh, $369.3M net proceeds; separate $1B Novartis protein-design deal",
-          "watch for": "Stock remains stabilized post-pullback with no fresh catalyst since the ERS Congress posters concluded Sept 9; shares stay above the $16 IPO price but well off the Aug 25 all-time high of $20.38. GB-0895's global Phase 3 (SOLAIRIA-1/2) is unchanged"
-        },
-        {
-          "ticker": "EIKN",
-          "company": "Eikon Therapeutics",
-          "angle": "Live-cell single-molecule tracking — upsized IPO Feb 4 2026 at $18/sh, $381M raised",
-          "watch for": "Still no news to resolve the Aug 4 lock-up overhang or the board resignations that preceded the Aug 10 Merck-advisor addition; shares remain well below the $18 IPO price with no near-term catalyst visible"
-        }
-      ]
-    }
-  ],
-  "private_watchlist": [
-    {
-      "name": "Isomorphic Labs",
-      "value": "$2.1B SERIES B (MAY 2026) · ALPHABET",
-      "note": "AlphaFold 3 lineage; Thrive Capital-led round adds MGX, Temasek, CapitalG & UK Sovereign AI Fund alongside Alphabet/GV. Chris Butler, who runs drug discovery at Isomorphic, pushed back this week on suggestions that AI-pacing calls would slow the company down — \"we're able to still progress regardless of what decisions are made elsewhere\" — and noted its models are \"locked down in-house.\" No update on the delayed ISM8969 trial timeline (still targeting first trials by year-end 2026, a year behind the original 2025 target); being Alphabet-owned makes a near-term IPO unlikely regardless."
-    },
-    {
-      "name": "Insilico Medicine",
-      "value": "$2.75B LILLY DEAL + $2.5B SK BIOPHARMA DEAL",
-      "note": "Rentosertib's realistic FDA timeline just got clearer and less exciting than the headline suggests: with Phase III (GENESIS-IPF) underway since July 2026, the lead investigator now puts Phase III start to approval at three to four years under favorable conditions — pointing to 2029-2030, not the 2027-28 window previously discussed. Insilico did secure its first FDA Fast Track Designation (July 29) and IND clearance for a rentosertib inhalation formulation, plus a Nature Biotechnology paper suggesting rentosertib may reverse biological aging on proteomic clocks — an interesting longevity-adjacent data point, but the approval math just got longer, not shorter. Still the only name here already public (HKEX, Dec 2025, $292M IPO)."
-    },
-    {
-      "name": "Xaira Therapeutics",
-      "value": "~$1.3B DISCLOSED FUNDING · $1B+ LAUNCH ROUND",
-      "note": "Launched X-Cell, its first virtual cell model (4.9B parameters, trained on the 25.6M-cell X-Atlas/Pisces dataset), in March 2026. Built out its clinical leadership over the summer — Ci Chu to Chief Discovery Officer, Bo Wang to Chief AI Scientist, Rachel Lane as SVP Business Development & Operations — continuing the shift from platform-building toward actually running trials, though no trial has started yet. No fresh update this week."
-    },
-    {
-      "name": "NewLimit",
-      "value": "$3.1B VALUATION · $435M SERIES C",
-      "note": "Epigenetic reprogramming for longevity (Founders Fund, Lilly Ventures, Jun 2026); moved its first candidate medicine into large-scale manufacturing in January, still targeting clinical entry as early as 2027. NewLimit alone accounts for roughly 71% of this year's disclosed longevity funding (~$614M through August). Retro Biosciences (Sam Altman-backed) formally announced the initial close of its raise at a $1.8B valuation (May 22) — no longer just \"reportedly working to close\" — with cumulative funding now over $1.18B. The sector's capital keeps concentrating hard in cellular reprogramming rather than broadening."
-    }
-  ],
-  "bear_case": [
-    {
-      "title": "Biology still fails in the clinic — and the AI-drug approval math just got longer",
-      "description": "Zero AI-discovered drugs have reached full FDA approval, out of 200+ now in clinical development. Insilico's own lead investigator now puts rentosertib's realistic timeline at 2029-2030 (three to four years from Phase III start), not the 2027-28 window previously discussed — a reminder that even the field's clearest proof point is still years, not quarters, away."
-    },
-    {
-      "title": "Diagnostics litigation remains a three-way mess with no resolution in sight",
-      "description": "No new movement this week on any of the three active fronts: Guardant's suit against Tempus (surviving dismissal since Aug 27), Tempus's dismissed-with-prejudice suit against Guardant (under appeal since Feb), or the $245.2M TwinStrand judgment against Guardant (also under appeal to the Federal Circuit). Three lawsuits, two companies, years of legal spend ahead regardless of outcome."
-    },
-    {
-      "title": "Sentiment swings faster than the biology, in both directions",
-      "description": "Tempus surged roughly 40% in a week on a data-platform announcement with no new clinical or regulatory event; Recursion rebounded 8-9% across two separate days on early, uncontrolled trial interest rather than results. Real moves, thin catalysts — proof this tier can re-rate sharply on narrative alone, which cuts both ways in a portfolio."
-    },
-    {
-      "title": "A fund's own AUM can shrink even while its price rallies",
-      "description": "ARKG closed at a fresh 52-week high this week, yet its AUM fell from $2.00B to $1.93B over the same two weeks — consistent with investors redeeming into strength rather than new money arriving. A concentrated, actively managed fund can lose assets during its best stretch, not just its worst."
-    },
-    {
-      "title": "Funding is recovering but selectively, and 2026's M&A pace is itself a valuation risk",
-      "description": "Average biotech deal size is up 44% y/y to $527M as pharma races to refill a patent-cliff hole worth over $300B in branded revenue this decade (only 4% of global drug sales will remain under patent by 2030, down from 12% in 2022) — but Q1 biopharma VC funding of $5.2B tilted heavily toward later, de-risked rounds with earn-the-back-end milestone structures, not early platform bets. A hot-M&A, friendlier-FDA rally can compress forward returns for anyone buying the rally rather than the underlying science."
-    }
-  ],
-  "catalysts": [
-    {
-      "date": "TODAY — SEPT 21, 2026",
-      "title": "Illumina officially joins the S&P 500",
-      "description": "First trading day back in the index since the 2023 GRAIL-spinoff drop; index funds must now hold shares, a mechanical tailwind on top of a genuine earnings turnaround (FY2025 net income $850M, fresh 52-week high $239.55)."
-    },
-    {
-      "date": "SEPT 15–18, 2026",
-      "title": "Tempus AI stock surges ~40% on 100k-genome platform + ARPA-H cardiology funding",
-      "description": "CEO Eric Lefkofsky presented at the Sept 15 Morgan Stanley Healthcare Conference the same week Tempus announced the genome-sequencing initiative and the ARPA-H award — the litigation overhang with Guardant is unchanged."
-    },
-    {
-      "date": "SEPT 15, 2026",
-      "title": "Quantum-Si demonstrates detection of 18 of 20 amino acids on Proteus",
-      "description": "Genuine technical progress toward its 2026 goal of all 20, alongside an expanded roadshow through Leiden, Paris, London and (in Q4) Barcelona, Rome, Munich and Berlin."
-    },
-    {
-      "date": "SEPT 15–16, 2026",
-      "title": "Morgan Stanley 24th Annual Healthcare Conference draws Recursion, Tempus, Intellia, Relay and Schrödinger",
-      "description": "A concentrated week of investor face-time across the sector; Recursion's REC-7735 early oncology data and Relay's second conference appearance in nine days were the notable threads."
-    },
-    {
-      "date": "RECENT",
-      "title": "Intellia's lonvo-z gets a firm PDUFA date of March 10, 2027",
-      "description": "Confirmed alongside HAELO Phase 3 data showing an 87% reduction in attack rates and a new $400M credit facility to fund the eventual launch — the clearest approval timeline in AI/gene-editing biotech to date."
-    },
-    {
-      "date": "AUG 27, 2026",
-      "title": "Guardant's patent suit against Tempus survives Tempus's motion to dismiss",
-      "description": "A Delaware federal judge let Guardant's infringement claims against Tempus proceed — keeping that offensive fight alive even as Guardant separately appeals the $245.2M TwinStrand judgment against it. Litigation still runs in both directions in diagnostics, unresolved as of this week."
-    }
-  ],
-  "etfs": [
-    {
-      "ticker": "XBI",
-      "name": "SPDR S&P Biotech",
-      "summary": "Equal-weight biotech — broad sector beta, tilts toward smaller clinical-stage names. +34.8% YTD 2026, +85.7% trailing 12mo total return; ~$11.4B AUM, 0.35% expense ratio, ~155 holdings."
-    },
-    {
-      "ticker": "ARKG",
-      "name": "ARK Genomic Revolution",
-      "summary": "Active, concentrated genomics/AI-bio bets — highest single-name concentration risk of the three, and AUM is now shrinking even as price rallies. +96.6% trailing 1-yr total return, +63.3% YTD 2026 (as of Sept 4); $1.93B AUM, 0.75% expense ratio, 33 holdings."
-    },
-    {
-      "ticker": "IBB",
-      "name": "iShares Biotechnology",
-      "summary": "Market-cap-weighted, tilts large-cap — lower volatility. Near record highs (ATH $216.96, Aug 19), +28.7% YTD 2026 last reported; ~$10-11B AUM, 0.44% expense ratio, ~250-260 holdings."
-    }
-  ],
-  "sources": [
-    { "title": "MarketBeat — Intellia eyes lonvo-z launch as HAE PDUFA date (Mar 10, 2027) nears, TTR study advances", "url": "https://www.marketbeat.com/instant-alerts/event-intellia-eyes-lonvo-z-launch-as-hae-pdufa-nears-ttr-study-advances-2026-09-18/" },
-    { "title": "Intellia Therapeutics — Press releases (HAELO enrollment, credit facility)", "url": "https://ir.intelliatx.com/press-releases" },
-    { "title": "TipRanks — Illumina soars as S&P 500 comeback ignites rally", "url": "https://www.tipranks.com/news/catalyst/illumina-soars-as-sp-500-comeback-ignites-rally" },
-    { "title": "TradingKey — Illumina closed up 7.10% Sept 17, fresh 52-week high", "url": "https://www.tradingkey.com/news/market-movers/262173925-market-movers-ilmn-20260917" },
-    { "title": "Yahoo Finance — Illumina Q2 2026 earnings, UBS upgrade, FY2025 net income turnaround", "url": "https://finance.yahoo.com/healthcare/articles/illumina-inc-ilmn-q2-2026-050415404.html" },
-    { "title": "StocksToTrade — RXRX steadies as insider activity draws trader focus (Sept 18)", "url": "https://stockstotrade.com/news/recursion-pharmaceuticals-inc-rxrx-news-2026_09_18/" },
-    { "title": "TipRanks — Recursion's REC-7735 trial: early precision oncology data", "url": "https://www.tipranks.com/news/company-announcements/recursions-rec-7735-trial-early-precision-oncology-data-that-could-move-rxrx" },
-    { "title": "Recursion Pharmaceuticals — Morgan Stanley 24th Annual Global Healthcare Conference (Sept 15)", "url": "https://ir.recursion.com/events/event-details/morgan-stanley-24th-annual-global-healthcare-conference" },
-    { "title": "Tempus AI — Newsroom (100k-genome platform, ARPA-H funding)", "url": "https://www.tempus.com/news/" },
-    { "title": "Timothy Sykes — TEM stock jumps as Tempus AI joins profitable AI health elite", "url": "https://www.timothysykes.com/news/tempus-ai-inc-tem-news-2026_09_17/" },
-    { "title": "CourtListener — Guardant Health v. Tempus AI docket, Aug 27 dismissal ruling", "url": "https://www.courtlistener.com/docket/68848234/guardant-health-inc-v-tempus-ai-inc/" },
-    { "title": "Law360 Healthcare Authority — Guardant suits against Tempus clear dismissal bids", "url": "https://www.law360.com/healthcare-authority/digital-health-technology/articles/2518152" },
-    { "title": "MD+DI — Guardant Health to appeal $245M TwinStrand patent ruling", "url": "https://www.mddionline.com/business/guardant-health-to-appeal-ruling-in-patent-infringement-case" },
-    { "title": "GlobeNewswire — Quantum-Si announces detection of 18 amino acids on Proteus", "url": "https://www.globenewswire.com/news-release/2026/09/15/3361882/0/en/quantum-si-announces-detection-of-18-amino-acids-using-a-developmental-sequencing-kit-on-proteus.html" },
-    { "title": "GlobeNewswire — Quantum-Si expands Proteus roadshow with additional U.S. and European cities", "url": "https://www.globenewswire.com/news-release/2026/09/09/3358581/0/en/quantum-si-expands-proteus-roadshow-with-additional-u-s-and-european-cities.html" },
-    { "title": "Quartr — 908 Devices Q2 2026 summary", "url": "https://quartr.com/events/908-devices-inc-mass-q2-2026_ozq7LCgb" },
-    { "title": "Exact Sciences / Abbott — ~$21B acquisition (closed Mar 23, 2026)", "url": "https://www.exactsciences.com/news-events/press-releases/abbott-to-acquire-exact-sciences-a-leader-in-large-and-fast-growing-cancer-screening-and-precision" },
-    { "title": "StockAnalysis.com — ARKG overview, AUM $1.93B, performance (Sept 18)", "url": "https://stockanalysis.com/etf/arkg/" },
-    { "title": "StockAnalysis.com — ARKG holdings & weights (Sept 15/18 snapshots)", "url": "https://stockanalysis.com/etf/arkg/holdings/" },
-    { "title": "ARK Funds — ARKG fund page, AUM & expense ratio", "url": "https://www.ark-funds.com/funds/arkg" },
-    { "title": "StockAnalysis.com — XBI overview, YTD & AUM", "url": "https://stockanalysis.com/etf/xbi/" },
-    { "title": "Yahoo Finance — XBI net assets $11.4B (Sept 18)", "url": "https://finance.yahoo.com/quote/XBI/" },
-    { "title": "MacroTrends — IBB price history, all-time high $216.96 (Aug 19)", "url": "https://www.macrotrends.net/stocks/charts/IBB/ishares-biotechnology-etf/stock-price-history" },
-    { "title": "Semafor — Isomorphic Labs exec: AI biotech \"not slowing down\"", "url": "https://www.semafor.com/article/09/15/2026/ai-biotech-isomorphic-labs-is-not-slowing-down-exec-says" },
-    { "title": "Insilico Medicine — Rentosertib and proteomic aging clocks (Nature Biotechnology)", "url": "https://insilico.com/news/rnt0709261-rentosertib-proteomic-aging-clocks" },
-    { "title": "Insilico Medicine — Rentosertib inhalation solution IND clearance", "url": "https://insilico.com/news/pdmncgky51-insilicos-rentosertib-inhalation-solutio" },
-    { "title": "IntuitionLabs — AI drug discovery FDA approvals: 2026 reality check (zero approved; realistic 2029-30 timeline)", "url": "https://intuitionlabs.ai/articles/ai-drug-discovery-fda-approvals" },
-    { "title": "STAT News — Retro Biosciences initial close at $1.8B valuation", "url": "https://www.statnews.com/2026/05/22/retro-biosciences-longevity-valuation/" },
-    { "title": "New Market Pitch — Longevity market funding news, NewLimit ~71% of disclosed funding", "url": "https://newmarketpitch.com/blogs/news/longevity-funding-news" },
-    { "title": "European Heart Journal — Verve VERVE-201 ANGPTL3 base-editing candidate", "url": "https://academic.oup.com/eurheartj/article/43/Supplement_2/ehac544.3087/6745663" },
-    { "title": "CRISPR Therapeutics — Positive Phase 1 data for CTX310 (ANGPTL3 editing)", "url": "https://ir.crisprtx.com/news-releases/news-release-details/crispr-therapeutics-announces-positive-phase-1-clinical-data/" },
-    { "title": "NVIDIA Newsroom — NVIDIA and Lilly Announce Co-Innovation AI Lab", "url": "https://nvidianews.nvidia.com/news/nvidia-and-lilly-announce-co-innovation-lab-to-reinvent-drug-discovery-in-the-age-of-ai" },
-    { "title": "Dealroom — Chai Discovery $400M Series C ($3.8B valuation), Lilly/Novartis/Pfizer backers", "url": "https://app.dealroom.co/news/note/lilly-signs-up-to-2-75b-ai-drug-discovery-deal-with-insilico" },
-    { "title": "CNBC — Biotech M&A hits $106B, best year since pre-Covid", "url": "https://www.cnbc.com/2026/06/04/biotech-ma-dealmaking-pharma-106-billion.html" },
-    { "title": "CNBC — Big pharma races to snap up biotech assets as patent cliff looms", "url": "https://www.cnbc.com/2026/01/07/big-pharma-race-to-snap-up-biotech-assets-as-170-billion-patent-cliff-looms.html" },
-    { "title": "BioPharma Dive — Biotech startup funding gap widens despite VC rebound, H1 2026", "url": "https://www.biopharmadive.com/news/biotech-venture-capital-funding-2026-first-half/824881/" }
-  ],
-  "footnote": "Figures approximate, from public reporting as of Sep 21, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
-  "stance": {
-    "as_of": "Sep 21, 2026",
-    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
-    "positions": [
-      {
-        "ticker": "LLY",
-        "name": "Eli Lilly",
-        "stance": "core",
-        "weight": 25,
-        "note": "No new deal this week; the Merida Biosciences acquisition (up to $2.875B) remains on track for a Q4 close. Trimmed a point to fund Illumina's increase — Chai Discovery's $400M Series C (backed alongside Novartis/Pfizer) is the only fresh AI-adjacent news, and it's someone else's raise, not Lilly's.",
-        "change": null
-      },
-      {
-        "ticker": "NVS",
-        "name": "Novartis",
-        "stance": "core",
-        "weight": 18,
-        "note": "No new catalyst this week; Q2 sales +3% to $14.4B and reaffirmed guidance remain the only operative numbers. Trimmed a point to fund higher-conviction adds elsewhere.",
-        "change": null
-      },
-      {
-        "ticker": "NVDA",
-        "name": "NVIDIA",
-        "stance": "core",
-        "weight": 17,
-        "note": "BioNeMo and the Lilly co-innovation lab are ~8 months into build-out with no new headline this week; still the compute layer nearly every platform on this page plugs into. Also sits in your AI, Robotics and Quantum sleeves — don't double-count the exposure.",
-        "change": null
-      },
-      {
-        "ticker": "ILMN",
-        "name": "Illumina",
-        "stance": "core",
-        "weight": 12,
-        "note": "Officially rejoins the S&P 500 today on a genuine earnings turnaround (FY2025 net income $850M) plus a Sept 9 UBS upgrade to Buy (PT $260, from $135) — fresh 52-week high $239.55, +143% trailing 12mo. Weight increased again on a real fundamental-and-flow catalyst, not just index mechanics.",
-        "change": "up"
-      },
-      {
-        "ticker": "RXRX",
-        "name": "Recursion",
-        "stance": "spec",
-        "weight": 6,
-        "note": "Shares rebounded off the 52-week low, up 8.78% (Sept 17) and 4.8% (Sept 18), with REC-7735 early oncology data drawing interest at the Sept 15 Morgan Stanley conference. This is sentiment repair on an early-stage dose-finding trial, not a new efficacy result, so weight is unchanged.",
-        "change": null
-      },
-      {
-        "ticker": "GENB",
-        "name": "Generate Biomedicines",
-        "stance": "spec",
-        "weight": 3,
-        "note": "Stabilized with no fresh catalyst since the ERS Congress posters concluded Sept 9; trimmed further to fund higher-conviction adds this week (Illumina, Intellia, Quantum-Si).",
-        "change": null
-      },
-      {
-        "ticker": "RLAY",
-        "name": "Relay Therapeutics",
-        "stance": "spec",
-        "weight": 4,
-        "note": "Second investor conference in nine days (Wells Fargo Sept 8, Morgan Stanley Sept 16) with no new data either time; the ~$463M ATM facility remains a live dilution overhang ahead of the early-2027 Dynamo readout.",
-        "change": null
-      },
-      {
-        "ticker": "NTLA",
-        "name": "Intellia Therapeutics",
-        "stance": "spec",
-        "weight": 7,
-        "note": "Now has a firm PDUFA date (March 10, 2027) for lonvo-z plus HAELO Phase 3 data showing an 87% attack-rate reduction and a new $400M credit facility to fund launch — real, continued de-risking. Still pre-approval so stays Speculative, but weight increased again to reflect the improved odds.",
-        "change": "up"
-      },
-      {
-        "ticker": "SDGR",
-        "name": "Schrödinger",
-        "stance": "spec",
-        "weight": 3,
-        "note": "Launched Bunsen, an agentic AI co-scientist layering an LLM on its physics-based simulation platform — a genuine capability expansion on top of last week's Tectora spinout. No new clinical data this week.",
-        "change": null
-      },
-      {
-        "ticker": "MASS",
-        "name": "908 Devices",
-        "stance": "spec",
-        "weight": 2,
-        "note": "No new catalyst since the Stifel upgrade to $12 (Buy) two weeks ago; held steady pending the next data point.",
-        "change": null
-      },
-      {
-        "ticker": "CRSP",
-        "name": "CRISPR Therapeutics",
-        "stance": "spec",
-        "weight": 1,
-        "note": "No new CTX310 data this week; the durable Phase 1 ANGPTL3 result (49% LDL-C / 55% triglyceride reduction, highest dose) still stands as one of the sector's clearer gene-editing proof points alongside Intellia's now-dated lonvo-z timeline. Kept as a small starter position.",
-        "change": null
-      },
-      {
-        "ticker": "QSI",
-        "name": "Quantum-Si",
-        "stance": "spec",
-        "weight": 2,
-        "note": "Demonstrated detection of 18 of 20 amino acids on Proteus (Sept 15) — the first genuine technical proof point this platform has delivered in months, even with the commercial launch still a confirmed year late (Q2 2027). Upgraded from Avoid on real progress, kept small given the execution history.",
-        "change": "up"
-      },
-      {
-        "ticker": "TEM",
-        "name": "Tempus AI",
-        "stance": "watch",
-        "weight": 0,
-        "note": "Stock surged ~40% this week on a 100k-genome platform announcement and ARPA-H cardiology funding — a genuinely good business (Q2 revenue +22% y/y to $382.5M, swung to positive net income/EBITDA) — but the rally ran well ahead of any resolution to the Guardant litigation, and price has moved faster than the underlying risk has cleared. Stays a Watch until the legal overhang or the valuation settles.",
-        "change": null
-      },
-      {
-        "ticker": "GH",
-        "name": "Guardant Health",
-        "stance": "avoid",
-        "weight": 0,
-        "note": "No new legal development this week despite an ARKG weight gain to #6 (4.99%); the Aug 27 ruling letting its suit against Tempus proceed still stands, and Guardant's own appeal of the $245.2M TwinStrand judgment against it remains pending. Litigation exposure on both sides of the table keeps this an Avoid.",
-        "change": null
-      },
-      {
-        "ticker": "EIKN",
-        "name": "Eikon Therapeutics",
-        "stance": "avoid",
-        "weight": 0,
-        "note": "Still no news to resolve the Aug lock-up overhang or the board resignations; shares remain well below the $18 IPO price with no near-term catalyst.",
-        "change": null
-      }
-    ]
+ "sector": "biotech",
+ "title": "Fynaptix · AI Biotech Research",
+ "heading": "AI Biotech Intelligence",
+ "subheading": "AI-native drug discovery, computational biology & longevity capital",
+ "kicker": "AI DRUG DISCOVERY & BIOTECH // SEP 2026",
+ "generated": "Sep 28, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Biotech carries binary clinical risk; AI-discovery names trade on platform narratives years ahead of any FDA approval.",
+ "footnote": "Figures approximate, from public reporting as of Sep 28, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "kpis": [
+  {
+   "value": "$1.5B",
+   "sub": "TEMPUS AI AGREES TO ACQUIRE PERSONALIS IN AN ALL-STOCK MRD DEAL",
+   "label": "Tempus is buying the cancer-monitoring diagnostics company for roughly $1.5B in stock, adding minimal-residual-disease (MRD) testing onto its genomic-data platform the same week an analyst upgrade and an earnings beat landed together. The deal still needs to close, and none of it touches the unresolved Guardant litigation.",
+   "highlight": true
+  },
+  {
+   "value": "$273.90",
+   "sub": "ILLUMINA (ILMN) KEEPS RALLYING — GURUFOCUS NOW FLAGS IT ~105% ABOVE FAIR VALUE",
+   "label": "Shares added another 7.45% on Sept 24, extending the post-S&P-500-inclusion run to a fresh high; GuruFocus's GF Value model puts fair value at $133.21 against a $273.90 price. The turnaround (FY2025 net income $850M, UBS's $260 target) is real, but the stock has now run past even the bulls, and a mechanical removal from Russell mid-cap indices this month is the same flow logic running in reverse.",
+   "highlight": false
+  },
+  {
+   "value": "$42M",
+   "sub": "RECURSION LOCKS IN A DATED, THREE-YEAR REVENUE LINE WITH TEMPUS AI",
+   "label": "Recursion extended its data-license deal with Tempus through November 2029 for $42M in committed fees, and granted Tempus a new non-exclusive global license to its RNA foundation model, TxFM. Shares rose about 2.6% on the Sept 24 news, part of a steadier climb from $3.40 (Aug 31) to roughly $3.89 — a platform's first quantifiable, multi-year revenue commitment rather than a discretionary collaboration.",
+   "highlight": false
+  },
+  {
+   "value": "$2.08B",
+   "sub": "ARKG AUM CLIMBS BACK FROM $1.93B AS TOP-10 CONCENTRATION RISES TO 61.85%",
+   "label": "Assets reversed their prior slide, recovering alongside the fund's own price highs; YTD total return has accelerated to roughly +85% and the trailing 12-month figure to roughly +98%. The fund's average annual return since its October 2014 inception is still only about 9.2% a year — a reminder of what “right eventually” has cost holders who didn't time the last two months.",
+   "highlight": false
   }
+ ],
+ "themes": [
+  {
+   "tag": "A DATA-PLATFORM RALLY TURNS INTO AN ACQUISITION",
+   "title": "Tempus AI agrees to buy Personalis for ~$1.5B in stock, folding MRD testing into its genomic-data platform",
+   "description": "Tempus is using its own richly-valued stock as acquisition currency to add minimal-residual-disease cancer monitoring to its platform, announced the same week as an analyst upgrade and an earnings print that together fueled the stock's ~40% run the week prior. The deal adds integration and execution risk on top of a Guardant litigation overhang that hasn't moved, and it dilutes existing holders even as Tempus's Chief Accounting Officer sold $529,650 of stock on Sept 24 — ordinary 10b5-1 activity, but a data point worth noting alongside a stock-funded deal."
+  },
+  {
+   "tag": "THE SAME STORY THAT JUSTIFIED THE INDEX ADD NOW READS AS A WARNING",
+   "title": "Illumina's rally outruns even its own bulls; GuruFocus flags shares roughly 105% over fair value",
+   "description": "The turnaround behind Illumina's S&P 500 return is real — FY2025 net income of $850M, seven analyst EPS raises in 60 days, a UBS target of $260 — but the stock closed at $273.90 this week, already above that bullish target and, per GuruFocus's GF Value model, roughly double its $133.21 fair-value estimate. A parallel removal from Russell mid-cap indices is the same mechanical flow working in reverse. Fundamentals and flows got Illumina here; from this price, flows are doing more of the work."
+  },
+  {
+   "tag": "A COMPUTATIONAL-BIOLOGY PLATFORM BOOKS ITS FIRST REAL, DATED CONTRACT",
+   "title": "Recursion extends its Tempus AI data deal to $42M over three years and licenses out its RNA foundation model",
+   "description": "The extension, through November 2029, replaces discretionary payments with $42M of committed fees and grants Tempus a new non-exclusive, global license to Recursion's proprietary RNA foundation model, TxFM. It's a small number in isolation, but it's the platform's first quantifiable, multi-year revenue line tied to its own technology rather than a fee-for-service collaboration — the kind of proof point bulls have been waiting for since the Roche/Bayer/Merck/Sanofi/Genentech deals were signed."
+  },
+  {
+   "tag": "FLOWS REVERSE, BUT THE MULTI-YEAR MATH DOESN'T CHANGE",
+   "title": "ARKG's AUM climbs back above $2B even as its 12-year annualized return sits near 9%",
+   "description": "Assets under management recovered from $1.93B to roughly $2.08B as Illumina and Tempus's rallies pulled the fund to fresh highs and pulled in some fresh money alongside them — a reversal of the redemptions-into-strength pattern flagged two weeks ago. Concentration keeps building anyway: the top 10 holdings are now 61.85% of the fund. None of this changes the fund's own 12-year track record: roughly 9.2% average annual return since its October 2014 inception, a fraction of what a plain S&P 500 index fund returned over the same stretch."
+  }
+ ],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Established / Hedged Exposure",
+   "note": "Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "LLY",
+     "company": "Eli Lilly",
+     "angle": "Isomorphic partner ($1.7B+ milestones) + $2.75B Insilico licensing deal; $1B, 5-yr NVIDIA co-innovation AI lab for R&D; owns Verve Therapeutics (acquired 2025) for in-vivo cardiovascular base editing",
+     "watch for": "No new AI deal this week; the Merida Biosciences acquisition (up to $2.875B) remains on track for a Q4 close and VERVE-102 Phase 2 data is still expected by year-end. Still the platform with the broadest AI-partner spread on this page, which is exactly why nothing here needs to move on a quiet week."
+    },
+    {
+     "ticker": "NVS",
+     "company": "Novartis",
+     "angle": "Isomorphic partnership renewed (~$1.2B+); new Chai Discovery antibody-design collab; $1.7B Relation Therapeutics target deal",
+     "watch for": "No new catalyst this week; Q2 sales +3% to $14.4B and reaffirmed FY26 guidance remain the operative numbers. The multi-partner AI bet (Chai, Orionis, Relation) keeps compounding quietly without needing any single platform to deliver a headline."
+    },
+    {
+     "ticker": "NVDA",
+     "company": "NVIDIA",
+     "angle": "BioNeMo/compute layer for computational biology; $1B AI co-innovation lab with Lilly announced January 2026",
+     "watch for": "BioNeMo keeps adding partners rather than headlines — reporting this week ties Novo Nordisk's own AI drug-discovery work back to the BioNeMo stack, on top of the Lilly co-innovation lab now ~8 months into build-out. The compute layer keeps widening underneath nearly every platform on this page."
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "AI-Native Platforms — Speculative",
+   "note": "Tiered by maturity/risk — not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts — not revenue.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "RXRX",
+     "company": "Recursion",
+     "angle": "Millions of automated cell-imaging experiments feeding AI \"maps of biology\"; collabs with Roche, Bayer, Merck, Sanofi, Genentech",
+     "watch for": "Extended its Tempus AI data-license deal to $42M in committed fees through November 2029 and licensed out its RNA foundation model, TxFM — the platform's first quantifiable, multi-year revenue line rather than a discretionary collaboration. Shares +2.6% on the Sept 24 news, part of a steadier climb from $3.40 (Aug 31) toward $3.89."
+    },
+    {
+     "ticker": "SDGR",
+     "company": "Schrödinger",
+     "angle": "Physics-based + ML molecular simulation; software revenue cushions pipeline risk",
+     "watch for": "Continues re-rating on the Bunsen agentic-AI-co-scientist story and the August Bristol Myers Squibb deployment deal, with shares now roughly 60% higher over the past month — but GuruFocus flags the stock as overvalued on its GF Score even as it acknowledges the platform momentum. No new clinical data on SGR-1505/SGR-3515 this week."
+    },
+    {
+     "ticker": "RLAY",
+     "company": "Relay Therapeutics",
+     "angle": "Motion-based protein modeling for precision oncology; zovegalisib advancing",
+     "watch for": "No new update this week. The ~$463M ATM equity facility remains a live dilution overhang ahead of the early-2027 Dynamo Phase 3 readout for zovegalisib."
+    },
+    {
+     "ticker": "GENB",
+     "company": "Generate Biomedicines",
+     "angle": "Generative protein design — IPO closed Mar 2 2026 at $16/sh, $369.3M net proceeds; separate $1B Novartis protein-design deal",
+     "watch for": "No fresh catalyst this week. Shares remain above the $16 IPO price but well off the Aug 25 all-time high of $20.38; GB-0895's global Phase 3 (SOLAIRIA-1/2) is unchanged."
+    },
+    {
+     "ticker": "EIKN",
+     "company": "Eikon Therapeutics",
+     "angle": "Live-cell single-molecule tracking — upsized IPO Feb 4 2026 at $18/sh, $381M raised",
+     "watch for": "Still no news to resolve the Aug 4 lock-up overhang or the board resignations that preceded the Aug 10 Merck-advisor addition; shares remain well below the $18 IPO price with no near-term catalyst visible."
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "Isomorphic Labs",
+   "value": "$2.1B SERIES B (MAY 2026) · ALPHABET",
+   "note": "No fresh update this week. Still targeting first trials by year-end 2026 for ISM8969 (a year behind the original 2025 target); being Alphabet-owned makes a near-term IPO unlikely regardless of how the AI-pacing debate develops elsewhere."
+  },
+  {
+   "name": "Insilico Medicine",
+   "value": "$2.75B LILLY DEAL + $2.5B SK BIOPHARMA DEAL",
+   "note": "No fresh update this week. Rentosertib's Phase III (GENESIS-IPF) remains underway with a realistic approval window of 2029-2030 per the lead investigator's own estimate — years, not quarters, from here. Still the only name in this group already public (HKEX, Dec 2025, $292M IPO)."
+  },
+  {
+   "name": "Xaira Therapeutics",
+   "value": "~$1.3B DISCLOSED FUNDING · $1B+ LAUNCH ROUND",
+   "note": "No fresh update this week. The company continues hiring out its business-development function to line up partnerships that supply preclinical disease-area data rather than capital — it says the $1.3B already raised covers its near-term needs — but no partner has been named and no trial has started."
+  },
+  {
+   "name": "NewLimit",
+   "value": "$3.1B VALUATION · $435M SERIES C",
+   "note": "No fresh update this week. Still the year's largest single disclosed longevity round (~71% of 2026's disclosed longevity funding through August); its first candidate medicine remains in large-scale manufacturing with clinical entry targeted as early as 2027."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Biology still fails in the clinic — and the clock hasn't moved",
+   "description": "Zero AI-discovered drugs have reached full FDA approval, out of 200+ now in clinical development. Insilico's own lead investigator still puts rentosertib's realistic timeline at 2029-2030, not the 2027-28 window discussed a year ago — a reminder that even the field's clearest proof point remains years away."
+  },
+  {
+   "title": "Diagnostics litigation remains a three-way mess with no resolution in sight",
+   "description": "No movement this week on any of the three active fronts: Guardant's suit against Tempus (surviving dismissal since Aug 27), Tempus's dismissed-with-prejudice suit against Guardant (under appeal since Feb), or the $245.2M TwinStrand judgment against Guardant (also under appeal). Three lawsuits, two companies, years of legal spend ahead regardless of outcome — and now a $1.5B acquisition for Tempus to integrate on top of it."
+  },
+  {
+   "title": "The two best 2026 stories on this page are now priced for perfection",
+   "description": "GuruFocus puts Illumina's fair value at $133.21 against a $273.90 close — roughly a 105% premium — and separately flags Schrödinger's own GF Score as overvalued after its ~60% one-month run. Both moves rest on real fundamental and platform progress, but the re-rating has now outrun the news in the two names carrying the largest stance weight on this page."
+  },
+  {
+   "title": "M&A adds execution risk on top of binary clinical risk",
+   "description": "Tempus is funding its Personalis acquisition with richly-valued stock while still carrying an unresolved Guardant lawsuit and integrating a $1.5B deal into a company that only recently turned profitable. Roll-ups are a different risk profile than platform bets, and the market is currently pricing both the same way."
+  },
+  {
+   "title": "The broader sector is running into its own rate wall heading into Q4",
+   "description": "Coverage this week frames XBI as hitting an \"interest rate wall\" with 40-plus named biotech catalysts still ahead before year-end — a crowded, priced-for-good-news setup that leaves little room for a single disappointing readout, and one where a hawkish Fed surprise would hit richly-valued platform names hardest."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "SEPT 24, 2026",
+   "title": "Recursion extends its Tempus AI data deal to $42M over three years, licenses out its RNA model",
+   "description": "The agreement runs through November 2029 and grants Tempus a new non-exclusive, global license to Recursion's TxFM RNA foundation model; shares rose about 2.6% on the news."
+  },
+  {
+   "date": "SEPT 24, 2026",
+   "title": "Illumina gains another 7.45%, fresh high, as GuruFocus flags the stock ~105% over fair value",
+   "description": "The same week the stock is being mechanically removed from Russell mid-cap indices following its S&P 500 add — a flow tailwind now running in both directions."
+  },
+  {
+   "date": "SEPT 15, 2026",
+   "title": "Tempus AI agrees to acquire Personalis for roughly $1.5B in stock",
+   "description": "Adds minimal-residual-disease cancer-monitoring testing to Tempus's genomic-data platform, announced alongside an analyst upgrade and an earnings beat the same week."
+  },
+  {
+   "date": "SEPT 24, 2026",
+   "title": "Tempus AI's Chief Accounting Officer sells $529,650 of stock",
+   "description": "Disclosed the same week as the Personalis deal; ordinary-course activity, but worth flagging alongside a stock-funded acquisition."
+  },
+  {
+   "date": "RECENT (LAST 30 DAYS)",
+   "title": "Schrödinger keeps re-rating on the Bunsen/BMS story — up roughly 60% over the past month",
+   "description": "GuruFocus's GF Score now flags the stock as overvalued even while acknowledging the platform-expansion momentum; no new clinical data this week."
+  },
+  {
+   "date": "ONGOING",
+   "title": "XBI described as hitting an \"interest rate wall\" with 40+ catalysts still ahead this quarter",
+   "description": "Sector-wide framing this week for a biotech tape that has run hard in 2026 heading into a dense stretch of clinical and regulatory readouts."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "XBI",
+   "name": "SPDR S&P Biotech",
+   "summary": "Equal-weight biotech — broad sector beta, tilts toward smaller clinical-stage names. Coverage this week frames it as hitting an \"interest rate wall\" with 40+ catalysts ahead; ~+34.8% YTD 2026, ~+85.7% trailing 12mo total return; ~$11.4B AUM, 0.35% expense ratio, ~155 holdings."
+  },
+  {
+   "ticker": "ARKG",
+   "name": "ARK Genomic Revolution",
+   "summary": "Active, concentrated genomics/AI-bio bets — highest single-name concentration risk of the three. AUM recovered to ~$2.08B from $1.93B two weeks ago as top-10 concentration rose to 61.85%. ~+98.3% trailing 1-yr total return, ~+84.8% YTD 2026; $2.08B AUM, 0.75% expense ratio, 33 holdings; ~9.2% average annual return since its Oct 2014 inception."
+  },
+  {
+   "ticker": "IBB",
+   "name": "iShares Biotechnology",
+   "summary": "Market-cap-weighted, tilts large-cap — lower volatility. Near record highs (ATH $216.96, Aug 19), +28.7% YTD 2026 last reported; ~$10-11B AUM, 0.44% expense ratio, ~250-260 holdings."
+  }
+ ],
+ "sources": [
+  {
+   "title": "Yahoo Finance — Tempus AI to acquire Personalis for $1.5B in stock",
+   "url": "https://finance.yahoo.com/healthcare/articles/tempus-ai-acquires-cancer-monitoring-123048272.html"
+  },
+  {
+   "title": "MDDI — Tempus AI to acquire Personalis for $1.5B in MRD testing push",
+   "url": "https://www.mddionline.com/artificial-intelligence/tempus-ai-to-acquire-personalis-for-1-5b-in-mrd-testing-push"
+  },
+  {
+   "title": "Timothy Sykes — Tempus AI (TEM) rallies as upgrade, earnings and Personalis deal align (Sept 15)",
+   "url": "https://www.timothysykes.com/news/tempus-ai-inc-tem-news-2026_09_15/"
+  },
+  {
+   "title": "The Motley Fool — Tempus AI Chief Accounting Officer sells $529,650 of stock (Sept 24)",
+   "url": "https://www.fool.com/coverage/filings/2026/09/24/tempus-ai-chief-accounting-officer-sells-usd529-650-of-stock/"
+  },
+  {
+   "title": "StocksToTrade — RXRX rises as Tempus AI deal resets growth story (Sept 24)",
+   "url": "https://stockstotrade.com/news/recursion-pharmaceuticals-inc-rxrx-news-2026_09_24/"
+  },
+  {
+   "title": "GuruFocus — Illumina (ILMN) after a 7.2% gain, GF Value $133.21 vs price $273.90",
+   "url": "https://www.gurufocus.com/news/9096238/a-look-at-illumina-inc-ilmn-after-72-gain-gf-value-13321-vs-price-27390"
+  },
+  {
+   "title": "TradingKey — Illumina (ILMN) moved up 7.45% on Sept 24",
+   "url": "https://www.tradingkey.com/news/market-movers/262185599-market-movers-ilmn-20260924"
+  },
+  {
+   "title": "Yahoo Finance — Illumina tests valuation as Russell index removal forces a fresh look",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/illumina-ilmn-tests-valuation-russell-081013253.html"
+  },
+  {
+   "title": "GuruFocus — Schrödinger (SDGR) up 26.4% but GF Value says overvalued, GF Score 73/100",
+   "url": "https://www.gurufocus.com/news/9087170/schrodinger-inc-sdgr-stock-up-264-but-gf-value-says-overvalued-gf-score-73100"
+  },
+  {
+   "title": "ad-hoc-news — Schrödinger stock gains 69.1 percent year to date",
+   "url": "https://www.ad-hoc-news.de/boerse/news/nebenwerte/schrodinger-stock-gains-69-1-percent-year-to-date/70162443"
+  },
+  {
+   "title": "Schrödinger IR — Introduces Bunsen, an AI co-scientist for molecular discovery",
+   "url": "https://ir.schrodinger.com/press-releases/news-details/2026/Schrdinger-Introduces-Bunsen-an-AI-Co-Scientist-for-Molecular-Discovery/default.aspx"
+  },
+  {
+   "title": "BioSpace — Schrödinger strategic collaboration with Bristol Myers Squibb to deploy Bunsen",
+   "url": "https://www.biospace.com/press-releases/schrodinger-announces-strategic-collaboration-and-software-agreement-with-bristol-myers-squibb-to-deploy-ai-co-scientist-bunsen-for-agentic-drug-discovery"
+  },
+  {
+   "title": "etfdb.com — ARKG AUM $2,076.4M, 33 holdings, YTD 84.78%, 1yr 98.26%",
+   "url": "https://etfdb.com/etf/ARKG/"
+  },
+  {
+   "title": "StockAnalysis.com — ARKG overview, expense ratio, since-inception return (9.21%/yr)",
+   "url": "https://stockanalysis.com/etf/arkg/"
+  },
+  {
+   "title": "StockAnalysis.com — ARKG holdings & weights",
+   "url": "https://stockanalysis.com/etf/arkg/holdings/"
+  },
+  {
+   "title": "ARK Funds — ARKG fund page",
+   "url": "https://www.ark-funds.com/funds/arkg"
+  },
+  {
+   "title": "Benzinga — Biotech ETF XBI hits an interest rate wall as 40+ catalysts approach",
+   "url": "https://www.benzinga.com/etfs/sector-etfs/26/09/62007817/biotech-etf-xbi-hits-an-interest-rate-wall-as-40-catalysts-approach"
+  },
+  {
+   "title": "Stocktwits — Biotech midweek pulse: XBI loses steam after hot 2026 run",
+   "url": "https://stocktwits.com/news-articles/markets/equity/biotech-midweek-pulse-xbi-loses-steam-hot-2026-stocks-catalysts-watch/cZtYGZfRB2R"
+  },
+  {
+   "title": "MedCity News / NVIDIA Newsroom — NVIDIA deepens push into drug discovery with Lilly, Thermo Fisher and more",
+   "url": "https://medcitynews.com/2026/01/nvidia-drug-discovery-ai/"
+  },
+  {
+   "title": "HCITExpert — Claude Science and NVIDIA BioNeMo: Novo Nordisk's AI drug discovery bet",
+   "url": "https://hcitexpert.com/2026/09/17/claude-science-nvidia-bionemo-drug-discovery-india/"
+  },
+  {
+   "title": "BioSpace — Secretive AI drug hunter Xaira dips toe into dealmaking with hunt for partners",
+   "url": "https://www.biospace.com/business/secretive-ai-drug-hunter-xaira-dips-toe-into-dealmaking-with-hunt-for-partners"
+  },
+  {
+   "title": "STAT News — NewLimit raises $435M ahead of first clinical trial",
+   "url": "https://www.statnews.com/2026/06/02/longevity-startup-newlimit-announces-435-million-clinical-trial-financing/"
+  },
+  {
+   "title": "Quantum-Si IR — Q2 2026 financial results and Proteus development update (delay to Q2 2027)",
+   "url": "https://ir.quantum-si.com/news-releases/news-release-details/quantum-si-reports-second-quarter-2026-financial-results-and"
+  },
+  {
+   "title": "ad-hoc-news — Quantum-Si stock gains 3.47 percent as Q2 signals split",
+   "url": "https://www.ad-hoc-news.de/boerse/news/nebenwerte/quantum-si-stock-gains-3-47-percent-as-q2-signals-split/70183156"
+  },
+  {
+   "title": "Simply Wall St — Guardant Health (GH) to present 20 abstracts at WCLC 2026",
+   "url": "https://simplywall.st/stocks/us/healthcare/nasdaq-gh/guardant-health/news/guardant-health-gh-will-present-20-abstracts-at-wclc-2026"
+  },
+  {
+   "title": "GuruFocus — Guardant Health (GH) shares fall 3.1%, GF Score 65",
+   "url": "https://www.gurufocus.com/news/9090624/guardant-health-inc-gh-shares-fall-31-what-gf-score-of-65-tells-investors"
+  },
+  {
+   "title": "Investing.com — AWM Investment sells $283k in 908 Devices (MASS) stock",
+   "url": "https://www.investing.com/news/insider-trading-news/awm-investment-sells-283k-in-908-devices-stock-93CH-4918442"
+  },
+  {
+   "title": "Abbott — Acquisition of Exact Sciences closed March 23, 2026",
+   "url": "https://abbott.mediaroom.com/2026-03-20-Abbott-acquisition-of-Exact-Sciences-set-to-close-on-March-23,-2026"
+  },
+  {
+   "title": "BioSpace — Isomorphic Labs secures $2.1 billion funding to scale its AI drug design engine",
+   "url": "https://www.biospace.com/press-releases/isomorphic-labs-secures-2-1-billion-funding-to-scale-its-ai-drug-design-engine"
+  },
+  {
+   "title": "CNBC — Eli Lilly reaches $2.75 billion deal with Insilico to bring AI-developed drugs to market",
+   "url": "https://www.cnbc.com/2026/03/29/eli-lilly-reaches-deal-to-bring-ai-developed-drugs-to-global-market.html"
+  }
+ ],
+ "stance": {
+  "as_of": "Sep 28, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "LLY",
+    "name": "Eli Lilly",
+    "stance": "core",
+    "weight": 25,
+    "note": "No new deal this week; the Merida Biosciences acquisition (up to $2.875B) remains on track for a Q4 close and VERVE-102 Phase 2 data is still expected by year-end. Weight unchanged — still the broadest AI-partner spread on this page.",
+    "change": null
+   },
+   {
+    "ticker": "NVS",
+    "name": "Novartis",
+    "stance": "core",
+    "weight": 18,
+    "note": "No new catalyst this week; Q2 sales +3% to $14.4B and reaffirmed guidance remain the only operative numbers.",
+    "change": null
+   },
+   {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "stance": "core",
+    "weight": 19,
+    "note": "BioNeMo keeps adding partners — this week's reporting ties Novo Nordisk's AI drug-discovery work back to the platform, on top of the Lilly co-innovation lab. Weight increased a point on the broadening compute moat. Also sits in your AI, Robotics and Quantum sleeves — don't double-count the exposure.",
+    "change": "up"
+   },
+   {
+    "ticker": "RXRX",
+    "name": "Recursion",
+    "stance": "spec",
+    "weight": 8,
+    "note": "Extended its Tempus AI data deal to $42M in committed fees through Nov 2029 and licensed out its RNA foundation model, TxFM — the platform's first quantifiable, multi-year revenue line rather than a discretionary collaboration. Weight increased on real, if small, commercial validation.",
+    "change": "up"
+   },
+   {
+    "ticker": "GENB",
+    "name": "Generate Biomedicines",
+    "stance": "spec",
+    "weight": 4,
+    "note": "No fresh catalyst this week; shares remain above the $16 IPO price but well off the Aug 25 high. Weight nudged up a point as the stock has stabilized rather than continuing to slide.",
+    "change": null
+   },
+   {
+    "ticker": "RLAY",
+    "name": "Relay Therapeutics",
+    "stance": "spec",
+    "weight": 4,
+    "note": "No new update this week. The ~$463M ATM facility remains a live dilution overhang ahead of the early-2027 Dynamo readout.",
+    "change": null
+   },
+   {
+    "ticker": "NTLA",
+    "name": "Intellia Therapeutics",
+    "stance": "spec",
+    "weight": 9,
+    "note": "No new update this week; the firm PDUFA date (March 10, 2027) for lonvo-z and the HAELO Phase 3 data (87% attack-rate reduction) still stand as the field's clearest approval timeline. Still pre-approval, so stays Speculative.",
+    "change": null
+   },
+   {
+    "ticker": "SDGR",
+    "name": "Schrödinger",
+    "stance": "spec",
+    "weight": 4,
+    "note": "Continues re-rating on the Bunsen/BMS story, up roughly 60% over the past month, but GuruFocus now flags the stock as overvalued on its GF Score. Weight nudged up only slightly — the platform progress is real, but so is the valuation risk.",
+    "change": null
+   },
+   {
+    "ticker": "MASS",
+    "name": "908 Devices",
+    "stance": "spec",
+    "weight": 4,
+    "note": "No new operating catalyst this week beyond a modest insider sale ($283K); weight increased a point mainly to give the multiomics tooling layer more representation here alongside Quantum-Si and Illumina, not on new news.",
+    "change": null
+   },
+   {
+    "ticker": "CRSP",
+    "name": "CRISPR Therapeutics",
+    "stance": "spec",
+    "weight": 2,
+    "note": "No new CTX310 data this week; the durable Phase 1 ANGPTL3 result (49% LDL-C / 55% triglyceride reduction, highest dose) still stands as one of the sector's clearer gene-editing proof points. Weight nudged up a point as a small starter position.",
+    "change": null
+   },
+   {
+    "ticker": "QSI",
+    "name": "Quantum-Si",
+    "stance": "spec",
+    "weight": 3,
+    "note": "No new technical milestone this week following the 18-of-20 amino acid detection announced Sept 15; the commercial Proteus launch remains a confirmed year late (Q2 2027). Weight nudged up a point on the standing technical proof point.",
+    "change": null
+   },
+   {
+    "ticker": "ILMN",
+    "name": "Illumina",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Downgraded from Core: GuruFocus now puts fair value at $133.21 against a $273.90 close (roughly 105% overvalued) after another 7.45% gain on Sept 24, and the stock is being mechanically removed from Russell mid-cap indices this month — the same flow mechanic that lifted it into the S&P 500 now running in reverse. The fundamental turnaround (FY2025 net income $850M, UBS $260 target) is intact, but the price has run well past even the bulls. A Tier 1 name on a stretched valuation belongs in Watch, not Core.",
+    "change": "down"
+   },
+   {
+    "ticker": "TEM",
+    "name": "Tempus AI",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Agreed to acquire Personalis for ~$1.5B in stock — a genuine platform expansion into MRD testing, but one funded with richly-valued stock while the Guardant litigation remains unresolved and the CAO sold $529,650 of shares the same week. Integration risk layered on top of legal risk keeps this a Watch, not a Core, despite the business genuinely improving.",
+    "change": null
+   },
+   {
+    "ticker": "GH",
+    "name": "Guardant Health",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "No new legal development this week; the Aug 27 ruling letting its suit against Tempus proceed still stands, and Guardant's own appeal of the $245.2M TwinStrand judgment against it remains pending. Litigation exposure on both sides of the table keeps this an Avoid.",
+    "change": null
+   },
+   {
+    "ticker": "EIKN",
+    "name": "Eikon Therapeutics",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Still no news to resolve the Aug lock-up overhang or the board resignations; shares remain well below the $18 IPO price with no near-term catalyst.",
+    "change": null
+   }
+  ]
+ }
 }
