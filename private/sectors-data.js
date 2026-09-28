@@ -94,52 +94,52 @@ quantum:{n:'09',kicker:'Deep tech',title:'Quantum',sub:'Pure-plays, hedged giant
 // Weekly Brief data — updated each Monday by the research pipeline
 window.FYN_BRIEF = {
   strip:[
-    ['S&P 500','5,738','+0.21%'],
-    ['Nasdaq','18,210','+0.40%'],
-    ['VIX','16.2','−3.1%'],
-    ['US 10Y','4.18%','−0.02'],
-    ['BTC','$112,480','+1.12%'],
-    ['ETH','$4,182','+0.86%'],
+    ['S&P 500','5,850','+1.2%'],
+    ['Nasdaq','19,610','+1.4%'],
+    ['VIX','14.5','−2.0%'],
+    ['US 10Y','5.18%','+0.23'],
+    ['BTC','$84,000','−3.5%'],
+    ['ETH','$2,690','−3.1%'],
     ['Fed funds','3.75–4.00%','Held']
   ],
   // [id, name, tag, raised[], cut[], story, check]
   sect:[
-    ['ai','AI & Compute','Mixed',[],[],'Amodei’s “Pace the Frontier” essay sank chips and lifted hyperscalers; Broadcom’s 3.5GW TPU deal for Anthropic diversifies compute away from Nvidia.','$3–4T committed against ~$50–150B/yr of AI revenue is still the central tension. Oracle’s beat keeps the demand case intact.'],
-    ['robotics','Robotics','Bifurcated',['VPG','J&J Ottava'],[],'Vishay Precision’s target nearly doubles on a humanoid vendor nomination; J&J’s Ottava earns a speculative starter.','Symbotic cut again despite a profitable $721M quarter; Unitree still ~54% below its August peak.'],
-    ['defense','Defense Tech','Constructive',['KTOS'],['AVAV'],'Anduril’s FQ-44A Fury wins Air Force CCA production work (~$5B); BAE holds its recovery on a record £84.0B backlog.','AeroVironment falls further despite its $464.8M laser win — 9 EPS cuts in 30 days; Rheinmetall’s €80.5B backlog meets a slide to ~€993 on execution concerns.'],
-    ['nuclear','Nuclear & SMRs','Bifurcated',['LEU'],[],'Centrus signs the first dated commercial HALEU contract; UK opens a design review of X-energy’s Xe-100.','Holtec pulls its ~$900M IPO — a revenue-generating operator stepping back is the reality check on SMR enthusiasm.'],
-    ['minerals','Critical Minerals','Crosscurrents',['UUUU'],[],'Xi’s first White House visit in 11 years puts rare-earth licensing on the table, 47 days before the Nov 10 expiry.','MP −4.3% as Beijing moves on its Chinese shareholder; lithium slides to $19,750/t.'],
-    ['space','Space Economy','Most active',['RKLB','LHX','LUNR','PL'],['RDW'],'Iridium stockholders clear Rocket Lab’s merger (99.6% of votes) and L3Harris lands a $4.7B PAC-3 propulsion award — the sector’s biggest win of the week.','Redwire’s NITE STAR slot carries no guaranteed revenue and insider selling continues; Starship Flight 14, the first true orbital attempt, flies today after three prior slips.'],
-    ['storage','Energy Storage','Mixed',['EOSE'],['NRGV'],'Eos firms a 10MW/100MWh Google contract; an $87M DOE advance funds its second line.','Fluence cuts its FY26 guide to ~$2.4B, discloses an SEC probe and falls 15.4% in a session.'],
-    ['biotech','AI Biotech','Constructive',['RXRX','NVDA'],['ILMN'],'Tempus AI agrees to buy Personalis for ~$1.5B; Recursion books a $42M, three-year Tempus data deal.','Illumina and Schrödinger both get flagged overvalued by GuruFocus after huge runs; zero AI-discovered drugs are still FDA-approved.'],
-    ['quantum','Quantum','Extreme spec',['IBM','NVDA','IONQ'],['GOOGL','RGTI','Quantinuum'],'IBM’s Anderon lands the largest quantum CHIPS award yet ($1B, matched); NVIDIA’s busiest quantum week in a month.','Every pure-play rallied, yet Rigetti (missed DARPA Stage B) and Quantinuum were trimmed on valuation.']
+    ['ai','AI & Compute','Mixed',[],[],'No stance changes registered this week — the sector’s own review is now 7 days old — but Amodei’s “Pace the Frontier” essay and Broadcom’s 3.5GW Anthropic TPU deal are still setting the tone.','OpenAI is in talks for a $1.2T+ round (vs. Anthropic’s $2.0–2.3T IPO target); the $3–4T capex-vs-$50–150B/yr-revenue gap is still the central tension.'],
+    ['robotics','Robotics','Bifurcated',['SYM','DE'],[],'Symbotic upgraded to Core on its first GAAP-profitable quarter ($9M net income, $676M revenue, ~$22.6B backlog); Deere’s autonomous 9RX tractors add a new Watch-tier option.','Tesla’s Optimus output ramped ~10x from Q2 to ~500 units/week, but AI generalization past supervised tasks is still unresolved.'],
+    ['defense','Defense Tech','Constructive',['KTOS'],['AVAV','RHM.DE'],'Anduril’s Fury wins the Air Force’s ~$5B CCA production contract, lifting Kratos on the engine read-through — but AeroVironment and Rheinmetall were both trimmed despite record backlogs.','Palantir’s bull/bear split widens (~$214 vs ~$159) near $183; Gauntlet II again favored private newcomers over listed pure-plays.'],
+    ['nuclear','Nuclear & SMRs','Bifurcated',[],['BWXT'],'BWX Technologies cut to Watch after a third straight week of 52-week lows — despite a fresh investment-grade rating and new Army/DOE awards.','Westinghouse is reportedly targeting a $50B+ IPO, up from ~$30B; still zero operating commercial SMRs.'],
+    ['minerals','Critical Minerals','Crosscurrents',['UUUU','LAC'],['FCX'],'Energy Fuels and Lithium Americas both sized up on real deals, while Freeport was trimmed to Watch as its record copper run leaves essentially zero implied upside to target.','Xi’s Washington visit delivered “relief, not resolution” — tariff cuts on ~$30B of goods, but China’s rare-earth export-licensing regime stands untouched.'],
+    ['space','Space Economy','Most active',['RKLB','PL'],['RDW'],'Rocket Lab raised as Iridium shareholders clear the merger (99.6% approval) and Planet Labs adds on its first profitable quarter, while Redwire was cut to Watch pending an explanation for $1.15B of insider selling.','Starship Flight 14 — SpaceX’s first true orbital attempt — is NET today after three prior slips; SPCX remains ~26% below its post-IPO high.'],
+    ['storage','Energy Storage','Mixed',['EOSE'],[],'Eos Energy raised on a firmed-up 10MW/100MWh Google/MN8 deal and an $87M DOE loan advance for its second production line.','Fluence’s SEC probe and slashed FY26 guidance keep weighing on how the market reads the whole storage stack; GE Vernova’s backlog holds at $176B.'],
+    ['biotech','AI Biotech','Constructive',['NVDA','RXRX'],['ILMN'],'NVIDIA and Recursion both raised — BioNeMo keeps adding partners and Recursion locked in its first dated, multi-year revenue line — while Illumina was cut to Watch as GuruFocus flags it ~105% over fair value.','Tempus AI’s $1.5B all-stock Personalis deal expands its MRD footprint even as the Guardant litigation stays unresolved.'],
+    ['quantum','Quantum','Extreme spec',['GOOGL','IONQ'],[],'Alphabet raised on a genuine logical-qubit stability milestone; IonQ raised on its FY26 guidance hike to $450–460M, cutting forward P/S to ~40x from ~73x.','Quantinuum (−9%) and Pasqal (−12%) fell despite real partnership news — a bifurcated week, not a broad rally.']
   ],
   // valuation heat scores 0-10
   heat:{ai:8.5,robotics:7,defense:5.5,nuclear:8,minerals:4,space:7.5,storage:5,biotech:6.5,quantum:9.5},
   // [kicker, headline, body]
   themes:[
-    ['AI slowdown','A safety essay moved more than a week of earnings','Amodei’s Sept 12 essay, backed by Altman and Hassabis, sent chips lower and hyperscalers higher. Skeptics: a ~$2T IPO candidate asking rivals to slow down is also a moat argument.'],
-    ['Upgrades','Every raise this week had a proof point behind it','17 names raised across seven sectors — each on a converting contract, a regulatory step or a partner-validated milestone, not a story alone.'],
-    ['Downgrades','Cuts share a missed proof point, not a scandal','Missed leaderboards, insider selling, a confirmed DARPA exclusion, or a market cap outrunning unchanged guidance.'],
-    ['Speculation repricing','Holtec pulls a $900M IPO from a real business','A $564M-revenue operator stepping back — with Unitree −54% and Planet −67% from peaks — is the clearest tell 2026’s froth is still repricing.'],
-    ['Policy as price-setter','Washington and Beijing keep setting the terms','IBM’s $1B CHIPS award, the Pentagon’s first laser production contract and Xi’s visit moved prices more than any single earnings print.']
+    ['Conviction moves','The stance board turned over 18 positions this week','Symbotic, Deere, Kratos, Energy Fuels, Lithium Americas, Rocket Lab, Planet Labs, Eos, NVIDIA, Recursion, Alphabet and IonQ were all raised or added on a converting contract, a regulatory step or a partner-validated milestone; AeroVironment, Rheinmetall, BWX Technologies, Freeport, Redwire and Illumina were cut — mostly on a missed proof point or a valuation that outran the news, not a scandal.'],
+    ['Records, no upside left','Great tape, priced-in stock','Freeport hit a fresh copper record but trades at essentially zero implied upside to target; Illumina rallied another 7.45% into a GuruFocus fair-value gap of ~105%. Both were cut to Watch this week for the same reason: the news was real, the price had already run past it.'],
+    ['Backlogs vs. price','Order books keep growing faster than the stocks that hold them','BWX Technologies, Rheinmetall and AeroVironment all posted genuine backlog or contract wins this week, and all three were either cut or kept falling — the market wants execution proof now, not just a bigger order book.'],
+    ['Policy as price-setter','Diplomacy delivered relief, not resolution','Xi’s Washington visit produced tariff cuts on ~$30B of goods but left China’s rare-earth export-licensing regime untouched; the same pattern shows up in AI (safety rhetoric without a slowdown) and defense (Golden Dome’s funding still needs a reconciliation bill).'],
+    ['Rates','The 10-year broke a 19-year ceiling','Treasury yields touched 5.1% on Sept 23 — the highest since 2007 — as markets price in another possible Fed hike on top of AI-linked debt issuance; long-duration names across quantum, nuclear SMRs and pre-revenue biotech feel it first.']
   ],
   // [date, sector-tag, headline, summary]
   news:[
-    ['Sep 12','AI','Amodei calls for the industry to “pace the frontier”','Backed by Altman and Hassabis; chips sold off while Meta, Alphabet and Microsoft rose.'],
-    ['Sep 16–18','Nuclear','Holtec pulls its ~$900M Nasdaq IPO','“Market conditions,” days after targeting a $10.2B valuation — despite $564M of trailing revenue.'],
-    ['Sep 16','Quantum','IBM’s Anderon finalizes a $1B CHIPS Act award','Matched by $1B from IBM; September’s federal quantum commitment reaches ~$1.4B.'],
-    ['Sep 18','Minerals','MP Materials −4.3% as Beijing moves on its shareholder','China Rare Earth Group in talks to acquire Shenghe, days before Xi’s White House visit.'],
-    ['Sep 26','Defense','Anduril’s Fury wins Air Force CCA production contract','~$5B split with General Atomics across 150 initial airframes; AeroVironment’s own laser win hasn’t stopped its stock falling ~40% over 12 months.']
+    ['Sep 24','Space','Iridium stockholders approve Rocket Lab’s merger','99.6% of votes cast; an FCC review is next, with closing now guided to mid-2027 — Rocket Lab raised to Core on the de-risking.'],
+    ['Sep 26','Defense','Anduril’s Fury wins a ~$5B Air Force CCA production contract','Split with General Atomics across 150 initial airframes; lifts Kratos’s engine read-through even as AeroVironment and Rheinmetall get cut on execution concerns.'],
+    ['Sep 24–25','Minerals','Xi’s Washington visit ends in “relief, not resolution” on rare earths','Tariff cuts on ~$30B of goods, but China’s export-licensing regime stands unchanged; Freeport cut to Watch as copper’s record run leaves no implied upside.'],
+    ['Sep 15','Biotech','Tempus AI agrees to buy Personalis for ~$1.5B','All-stock MRD deal expands the genomic-data platform; Illumina cut to Watch the same week GuruFocus flags it ~105% over fair value.'],
+    ['Sep 17','Quantum','IonQ raises FY26 guidance 60% to $450–460M','The SkyWater foundry deal cuts forward P/S to ~40x from ~73x; shares +16% to $45.48, upgraded within Speculative alongside Alphabet’s logical-qubit milestone.']
   ],
   // [date, headline, body, accent?]
   ahead:[
-    ['Sep 22','Richmond Fed & 2-yr auction','First data since the Sept 16 hike to 3.75–4%.',false],
-    ['Sep 23','Flash PMIs','First broad read on the post-hike economy.',false],
-    ['Sep 24–25','Xi in Washington','Rare-earth licensing on the agenda.',true],
-    ['Sep 25','Micron earnings','The week’s key AI supply-chain print.',true],
-    ['Sep 28','Starship Flight 14','Slipped three times in three weeks.',false],
-    ['~Sep 30','Anduril’s ~$100B round','Markets floating a $112.5B close.',false],
-    ['Oct','Anthropic IPO pricing','~$2.0–2.3T target, before the midterms.',false]
+    ['Sep 29','JOLTS & Case-Shiller','First labor-market read since the Sept 16 hike to 3.75–4%.',false],
+    ['Sep 29–30','BWXT Investor Day','Management makes its growth case after a third straight week of 52-week lows.',true],
+    ['Sep 30','ADP, GDP final & PCE','The Fed’s preferred inflation gauge alongside a growth revision.',true],
+    ['Oct 1','ISM Manufacturing PMI','First broad read on how the economy is absorbing a 5.1%+ 10-year and a fresh hike.',false],
+    ['Oct 2','September jobs report','The week’s single biggest data point for the Fed’s next move.',true],
+    ['Oct','Anthropic IPO pricing','Pre-roadshow meetings underway; ~$2.0–2.3T target before the midterms.',false],
+    ['~Sep 30','Anduril’s ~$100B round','Still unclosed roughly ten weeks after first being reported.',false]
   ]
 };
