@@ -670,7 +670,7 @@ a{text-decoration:none;color:inherit;}
     <div class="view" id="view-trending">
       <div class="page-header">
         <div><div class="page-kicker">10 · EARLY NARRATIVE SIGNALS</div><h1 class="page-title">Trending</h1></div>
-        <div class="page-source">SOURCE · COINGECKO /SEARCH/TRENDING · REFRESHES ~10 MIN</div>
+        <div class="page-source">SOURCE · COINGECKO TRENDING + MARKETS · BINANCE FUTURES OI · REFRESHES ~10 MIN</div>
       </div>
       <div class="vbody">
 
@@ -1767,7 +1767,11 @@ function renderPrivTable(){
 // ═══════════════════════════════════════
 // 10 TRENDING
 // ═══════════════════════════════════════
-let trendingData={coins:[],nfts:[],categories:[]};
+let trendingData={
+  coins:[],nfts:[],categories:[],
+  marketData:{},  // coin_id → CoinGecko markets row (total_volume, market_cap, …)
+  oiData:{}       // SYMBOL → {oi, change4h} | null (null = no futures)
+};
 
 // ═══════════════════════════════════════
 // 11 TON ECOSYSTEM
@@ -1880,7 +1884,54 @@ async function fetchTrending(){
     if(d.nfts) trendingData.nfts=d.nfts;
     if(d.categories) trendingData.categories=d.categories;
     renderTrending();
+    if(trendingData.coins.length){
+      const ids=trendingData.coins.map(c=>c.id).filter(Boolean).join(',');
+      fetchTrendingMarkets(ids);
+      fetchTrendingOI(trendingData.coins);
+    }
   }catch(_){}
+}
+
+async function fetchTrendingMarkets(ids){
+  try{
+    const r=await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}&order=market_cap_desc&per_page=25&sparkline=false`);
+    if(!r.ok) return;
+    const data=await r.json();
+    if(Array.isArray(data)){
+      data.forEach(c=>{trendingData.marketData[c.id]=c;});
+      renderTrendCoins();
+    }
+  }catch(_){}
+}
+
+async function fetchTrendingOI(coins){
+  // Binance Futures public endpoint — no API key, CORS-enabled
+  const jobs=coins.slice(0,12).map(async coin=>{
+    const sym=(coin.symbol||'').toUpperCase()+'USDT';
+    const key=(coin.symbol||'').toUpperCase();
+    try{
+      const r=await fetch(`https://fapi.binance.com/fapi/v1/openInterestHist?symbol=${sym}&period=4h&limit=2`);
+      if(!r.ok){trendingData.oiData[key]=null;return;}
+      const hist=await r.json();
+      if(!Array.isArray(hist)||hist.length<1){trendingData.oiData[key]=null;return;}
+      const latest=hist[hist.length-1];
+      const prev=hist.length>=2?hist[hist.length-2]:null;
+      const oiNow=parseFloat(latest.sumOpenInterestValue);
+      const change4h=prev?((oiNow-parseFloat(prev.sumOpenInterestValue))/parseFloat(prev.sumOpenInterestValue))*100:null;
+      trendingData.oiData[key]={oi:oiNow,change4h};
+    }catch(e){trendingData.oiData[key]=null;}
+  });
+  await Promise.allSettled(jobs);
+  renderTrendCoins();
+}
+
+// Composite signal score: trending rank + V/MC ratio + OI change
+function trendSignalScore(rank,vmc,oiChange4h){
+  let s=0;
+  if(rank<=5)s+=3;else if(rank<=10)s+=2;else s+=1;
+  if(vmc!=null){if(vmc>=15)s+=3;else if(vmc>=8)s+=2;else if(vmc>=3)s+=1;}
+  if(oiChange4h!=null){if(oiChange4h>=5)s+=3;else if(oiChange4h>=2)s+=2;else if(oiChange4h>=0)s+=1;}
+  return s;
 }
 
 function renderTrending(){
@@ -1900,22 +1951,69 @@ function renderTrendCoins(){
     const chgStr=chg!=null?(chg>=0?'+':'')+chg.toFixed(2)+'%':'—';
     const priceStr=c.data&&c.data.price?c.data.price:'—';
     const rankStr=c.market_cap_rank?'#'+c.market_cap_rank:'—';
-    const spark=c.data&&c.data.sparkline?`<img src="${c.data.sparkline}" style="height:36px;width:100px;object-fit:contain;margin-top:4px;" alt="" onerror="this.style.display='none'">`:'';
-    return `<div style="background:var(--color-bg);padding:18px 20px;display:flex;flex-direction:column;gap:4px;">
+    const spark=c.data&&c.data.sparkline?`<img src="${c.data.sparkline}" style="height:32px;width:88px;object-fit:contain;" alt="" onerror="this.style.display='none'">`:'';
+    const sym=(c.symbol||'').toUpperCase();
+
+    // ── V/MCap ratio ──────────────────────────────────────────────────────
+    const mkt=trendingData.marketData[c.id];
+    let vmcStr='…';let vmcCls='';let vmcNum=null;
+    if(mkt&&mkt.total_volume&&mkt.market_cap){
+      vmcNum=(mkt.total_volume/mkt.market_cap)*100;
+      vmcStr=vmcNum.toFixed(1)+'%';
+      vmcCls=vmcNum>=15?'up':vmcNum>=8?'':'';
+    }
+
+    // ── OI 4h change (Binance Futures) ────────────────────────────────────
+    const oiEntry=trendingData.oiData[sym]; // undefined=loading, null=no futures, obj=data
+    let oiStr,oiCls='',oiNum=null;
+    if(oiEntry===undefined){oiStr='…';}
+    else if(oiEntry===null){oiStr='Spot';}
+    else{
+      oiNum=oiEntry.change4h;
+      if(oiNum!=null){
+        oiStr=(oiNum>=0?'+':'')+oiNum.toFixed(1)+'%';
+        oiCls=oiNum>0?'up':oiNum<0?'dn':'';
+      }else{oiStr='—';}
+    }
+
+    // ── Signal badge ──────────────────────────────────────────────────────
+    const score=trendSignalScore(i+1,vmcNum,oiNum);
+    let badge='';
+    if(oiEntry!==undefined&&mkt){
+      if(score>=7) badge=`<span style="padding:2px 7px;font-size:9px;font-weight:800;letter-spacing:.1em;background:var(--color-bar-up);color:#fff;">STRONG</span>`;
+      else if(score>=4) badge=`<span style="padding:2px 7px;font-size:9px;font-weight:800;letter-spacing:.1em;background:#b45309;color:#fff;">ELEVATED</span>`;
+      else badge=`<span style="padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.08em;border:1px solid var(--color-divider);color:var(--color-neutral-600);">WATCH</span>`;
+    }
+
+    return `<div style="background:var(--color-bg);padding:16px 20px;display:flex;flex-direction:column;gap:0;">
+      <!-- Row 1: identity + price -->
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="font-size:18px;font-weight:800;color:var(--color-accent-700);min-width:22px;">${i+1}</span>
         ${c.thumb?`<img src="${c.thumb}" style="width:24px;height:24px;border-radius:0;" alt="" onerror="this.style.display='none'">`:''}
         <div style="display:flex;flex-direction:column;min-width:0;">
-          <b style="font-size:14px;">${(c.symbol||'').toUpperCase()}</b>
-          <span style="font-size:12px;color:var(--color-neutral-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px;">${c.name||''}</span>
+          <b style="font-size:14px;">${sym}</b>
+          <span style="font-size:12px;color:var(--color-neutral-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px;">${c.name||''}</span>
         </div>
         <div style="margin-left:auto;text-align:right;">
           <div style="font-size:14px;font-weight:800;">${priceStr}</div>
           <div style="font-size:12px;font-weight:800;" class="${chgCls}">${chgStr}</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:4px;">
-        <span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-600);">Rank ${rankStr}</span>
+      <!-- Row 2: V/MC + OI signals -->
+      <div style="display:flex;align-items:center;gap:0;padding:8px 0 6px;border-top:1px solid var(--color-divider);margin-top:10px;">
+        <div style="flex:1;display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500);">Vol/MCap 24h</span>
+          <b style="font-size:13px;" class="${vmcCls}">${vmcStr}</b>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--color-divider);padding-left:12px;">
+          <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500);">OI 4h (Binance)</span>
+          <b style="font-size:13px;" class="${oiCls}">${oiStr}</b>
+        </div>
+        <div style="margin-left:auto;padding-left:10px;">${badge}</div>
+      </div>
+      <!-- Row 3: rank + sparkline -->
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-600);">Rank ${rankStr} · ${mkt?big(mkt.market_cap)+' MCap':'MCap …'}</span>
         ${spark}
       </div>
     </div>`;
