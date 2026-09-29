@@ -670,7 +670,7 @@ a{text-decoration:none;color:inherit;}
     <div class="view" id="view-trending">
       <div class="page-header">
         <div><div class="page-kicker">10 · EARLY NARRATIVE SIGNALS</div><h1 class="page-title">Trending</h1></div>
-        <div class="page-source">SOURCE · COINGECKO TRENDING + MARKETS · BINANCE FUTURES OI · REFRESHES ~10 MIN</div>
+        <div class="page-source">SOURCE · COINGECKO TRENDING + MARKETS · BYBIT OI · REFRESHES ~10 MIN</div>
       </div>
       <div class="vbody">
 
@@ -1905,19 +1905,20 @@ async function fetchTrendingMarkets(ids){
 }
 
 async function fetchTrendingOI(coins){
-  // Binance Futures public endpoint — no API key, CORS-enabled
+  // Bybit linear perps — CORS-enabled public endpoint, no API key
   const jobs=coins.slice(0,12).map(async coin=>{
     const sym=(coin.symbol||'').toUpperCase()+'USDT';
     const key=(coin.symbol||'').toUpperCase();
     try{
-      const r=await fetch(`https://fapi.binance.com/fapi/v1/openInterestHist?symbol=${sym}&period=4h&limit=2`);
+      const r=await fetch(`https://api.bybit.com/v5/market/open-interest?category=linear&symbol=${sym}&intervalTime=4h&limit=2`);
       if(!r.ok){trendingData.oiData[key]=null;return;}
-      const hist=await r.json();
-      if(!Array.isArray(hist)||hist.length<1){trendingData.oiData[key]=null;return;}
-      const latest=hist[hist.length-1];
-      const prev=hist.length>=2?hist[hist.length-2]:null;
-      const oiNow=parseFloat(latest.sumOpenInterestValue);
-      const change4h=prev?((oiNow-parseFloat(prev.sumOpenInterestValue))/parseFloat(prev.sumOpenInterestValue))*100:null;
+      const d=await r.json();
+      const list=d?.result?.list;
+      if(!Array.isArray(list)||list.length<1){trendingData.oiData[key]=null;return;}
+      // list[0] = most recent, list[1] = 4h prior
+      const oiNow=parseFloat(list[0].openInterest);
+      const oiPrev=list.length>=2?parseFloat(list[1].openInterest):null;
+      const change4h=oiPrev&&oiPrev>0?((oiNow-oiPrev)/oiPrev)*100:null;
       trendingData.oiData[key]={oi:oiNow,change4h};
     }catch(e){trendingData.oiData[key]=null;}
   });
@@ -2006,7 +2007,7 @@ function renderTrendCoins(){
           <b style="font-size:13px;" class="${vmcCls}">${vmcStr}</b>
         </div>
         <div style="flex:1;display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--color-divider);padding-left:12px;">
-          <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500);">OI 4h (Binance)</span>
+          <span style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500);">OI 4h (Bybit)</span>
           <b style="font-size:13px;" class="${oiCls}">${oiStr}</b>
         </div>
         <div style="margin-left:auto;padding-left:10px;">${badge}</div>
