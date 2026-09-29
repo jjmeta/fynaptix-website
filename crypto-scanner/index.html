@@ -2207,28 +2207,49 @@ let botsPeriod='all';let botsFilter='all';
 async function fetchBots(){
   if(!_sb){renderBots();return;}
   try{
-    const{data,error}=await _sb.from('trades').select('*').order('opened_at',{ascending:false}).limit(200);
-    if(!error&&data&&data.length){
-      TRADES_LIVE=data.map(t=>({
-        botId:'gate-etf-01',
-        symbol:t.underlying_pair,
-        dir:t.direction==='long'?'LONG':'SHORT',
-        entry:t.entry_price,
-        exit:t.exit_price||null,
-        pnlUsd:t.pnl_usdt||null,
-        pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,
-        date:(t.opened_at||'').slice(0,10),
-        status:t.closed_at?'closed':'open',
-        confidence:t.confidence,
-        etfPair:t.etf_pair,
-      }));
-      // Update live open positions on the Gate.io bot card
-      const open=TRADES_LIVE.filter(t=>t.status==='open').length;
-      const todayStr=new Date().toISOString().slice(0,10);
-      const todayPnl=TRADES_LIVE.filter(t=>t.date===todayStr&&t.pnlUsd!=null).reduce((s,t)=>s+t.pnlUsd,0);
-      const gateBot=BOTS_MOCK.find(b=>b.id==='gate-etf-01');
-      if(gateBot){gateBot.openPositions=open;gateBot.todayPnl=todayPnl;gateBot.status=open>0?'paper':'paper';}
-    }
+    // Gate.io trades
+    const{data:gateData,error:gateErr}=await _sb.from('trades').select('*').order('opened_at',{ascending:false}).limit(200);
+    const gateTrades=(!gateErr&&gateData)?gateData.map(t=>({
+      botId:'gate-etf-01',
+      symbol:t.underlying_pair,
+      dir:t.direction==='long'?'LONG':'SHORT',
+      entry:t.entry_price,
+      exit:t.exit_price||null,
+      pnlUsd:t.pnl_usdt||null,
+      pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,
+      date:(t.opened_at||'').slice(0,10),
+      status:t.closed_at?'closed':'open',
+      confidence:t.confidence,
+      etfPair:t.etf_pair,
+    })):[];
+
+    // Bybit trades
+    const{data:bybitData,error:bybitErr}=await _sb.from('bybit_trades').select('*').order('opened_at',{ascending:false}).limit(200);
+    const bybitTrades=(!bybitErr&&bybitData)?bybitData.map(t=>({
+      botId:'bybit-mom-01',
+      symbol:t.pair,
+      dir:t.direction==='long'?'LONG':'SHORT',
+      entry:t.entry_price,
+      exit:t.exit_price||null,
+      pnlUsd:t.pnl_usdt||null,
+      pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,
+      date:(t.opened_at||'').slice(0,10),
+      status:t.closed_at?'closed':'open',
+      confidence:t.confidence,
+      leverage:t.leverage,
+    })):[];
+
+    TRADES_LIVE=[...gateTrades,...bybitTrades];
+
+    // Update bot cards with live stats
+    const todayStr=new Date().toISOString().slice(0,10);
+    ['gate-etf-01','bybit-mom-01'].forEach(id=>{
+      const bot=BOTS_MOCK.find(b=>b.id===id);
+      if(!bot) return;
+      const bt=TRADES_LIVE.filter(t=>t.botId===id);
+      bot.openPositions=bt.filter(t=>t.status==='open').length;
+      bot.todayPnl=bt.filter(t=>t.date===todayStr&&t.pnlUsd!=null).reduce((s,t)=>s+t.pnlUsd,0);
+    });
   }catch(e){console.warn('Supabase fetch failed:',e);}
   renderBots();
 }
