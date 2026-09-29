@@ -2190,8 +2190,8 @@ setInterval(fetchAll,180000);
 // 12 AI BOTS
 // ═══════════════════════════════════════
 const BOTS_MOCK=[
-  {id:'gate-etf-01',name:'Gate.io Leveraged ETF',exchange:'Gate.io',status:'paper',enabled:true,maxTrades:3,pctPerTrade:4.0,pairs:['SOL/USDT','SUI/USDT','DOGE/USDT','XRP/USDT'],openPositions:0,todayPnl:0,description:'EMA8/21 crossover · Bybit OI filter · Claude AI confirmation · routes to 5L/5S ETF tokens'},
-  {id:'bybit-mom-01',name:'Bybit Leveraged Perps',exchange:'Bybit',status:'paper',enabled:true,maxTrades:3,pctPerTrade:5.0,pairs:[],openPositions:0,todayPnl:0,description:'RSI momentum cross · EMA50 trend filter · 2x leverage on top-50 linear perps · native SL/TP'},
+  {id:'gate-etf-01',name:'Gate.io Leveraged ETF',exchange:'Gate.io',status:'paper',enabled:true,maxTrades:3,pctPerTrade:10.0,capitalUsdt:1000,minConfidence:65,apiKey:'',apiSecret:'',pairs:['SOL/USDT','SUI/USDT','DOGE/USDT','XRP/USDT'],openPositions:0,todayPnl:0,description:'EMA8/21 crossover · Bybit OI filter · Claude AI confirmation · routes to 5L/5S ETF tokens'},
+  {id:'bybit-mom-01',name:'Bybit Leveraged Perps',exchange:'Bybit',status:'paper',enabled:true,maxTrades:3,pctPerTrade:10.0,capitalUsdt:1000,minConfidence:70,apiKey:'',apiSecret:'',pairs:[],openPositions:0,todayPnl:0,description:'RSI momentum cross · EMA50 trend filter · 2x leverage on top-50 linear perps · native SL/TP'},
 ];
 
 // Live trade data from Supabase — populated by fetchBots()
@@ -2273,6 +2273,7 @@ function renderBots(){
     const sl=statusMap[bot.status]||bot.status.toUpperCase();
     const sc=statusColor[bot.status]||'var(--color-neutral-600)';
     const apiKey=bot.status==='not_configured'?'Not set':'••••••••'+bot.id.slice(-4);
+    const hasSecret=bot.apiSecret&&bot.apiSecret.length>0;
     return `<div style="background:var(--color-bg);padding:22px 24px;display:flex;flex-direction:column;gap:14px;">
       <!-- Header -->
       <div style="display:flex;align-items:flex-start;gap:12px;">
@@ -2290,27 +2291,42 @@ function renderBots(){
         </label>
       </div>
       <!-- Config -->
-      <div style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
-        <div>
-          <div class="bot-cfg-lbl">Max concurrent</div>
-          <input class="bot-cfg-input" type="number" value="${bot.maxTrades}" min="1" max="20" style="width:64px;" onchange="updateBotConfig('${bot.id}','maxTrades',this.value)">
-        </div>
-        <div>
-          <div class="bot-cfg-lbl">% per trade</div>
-          <div style="display:flex;align-items:center;gap:0;">
-            <input class="bot-cfg-input" type="number" value="${bot.pctPerTrade}" step="0.5" min="0.5" max="20" style="width:64px;" onchange="updateBotConfig('${bot.id}','pctPerTrade',this.value)">
-            <span style="font-size:11px;color:var(--color-neutral-600);margin-left:4px;">%</span>
-          </div>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;padding:14px 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
         <div>
           <div class="bot-cfg-lbl">Exchange</div>
-          <select class="bot-cfg-select" onchange="updateBotConfig('${bot.id}','exchange',this.value)">
+          <select class="bot-cfg-select" style="width:100%;" onchange="updateBotConfig('${bot.id}','exchange',this.value)">
             ${['Gate.io','Bybit','Binance','OKX'].map(e=>`<option${e===bot.exchange?' selected':''}>${e}</option>`).join('')}
           </select>
         </div>
-        <div style="margin-left:auto;">
+        <div>
+          <div class="bot-cfg-lbl">Capital (USDT)</div>
+          <input class="bot-cfg-input" type="number" value="${bot.capitalUsdt||1000}" min="100" step="100" style="width:100%;" onchange="updateBotConfig('${bot.id}','capitalUsdt',this.value)">
+        </div>
+        <div>
+          <div class="bot-cfg-lbl">Max concurrent</div>
+          <input class="bot-cfg-input" type="number" value="${bot.maxTrades}" min="1" max="20" style="width:100%;" onchange="updateBotConfig('${bot.id}','maxTrades',this.value)">
+        </div>
+        <div>
+          <div class="bot-cfg-lbl">% per trade</div>
+          <div style="display:flex;align-items:center;gap:4px;">
+            <input class="bot-cfg-input" type="number" value="${bot.pctPerTrade}" step="0.5" min="0.5" max="100" style="width:100%;" onchange="updateBotConfig('${bot.id}','pctPerTrade',this.value)">
+            <span style="font-size:11px;color:var(--color-neutral-600);">%</span>
+          </div>
+        </div>
+        <div>
+          <div class="bot-cfg-lbl">Min score</div>
+          <div style="display:flex;align-items:center;gap:4px;">
+            <input class="bot-cfg-input" type="number" value="${bot.minConfidence||70}" min="50" max="99" step="1" style="width:100%;" onchange="updateBotConfig('${bot.id}','minConfidence',this.value)">
+            <span style="font-size:11px;color:var(--color-neutral-600);">%</span>
+          </div>
+        </div>
+        <div>
           <div class="bot-cfg-lbl">API key</div>
-          <button onclick="promptApiKey('${bot.id}')" style="font-size:12px;font-weight:700;font-family:inherit;padding:6px 12px;background:var(--color-neutral-100);border:1px solid var(--color-divider);cursor:pointer;color:var(--color-text);">${apiKey}</button>
+          <button onclick="promptApiKey('${bot.id}')" style="font-size:11px;font-weight:700;font-family:inherit;padding:6px 8px;background:var(--color-neutral-100);border:1px solid var(--color-divider);cursor:pointer;color:var(--color-text);width:100%;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${apiKey}</button>
+        </div>
+        <div>
+          <div class="bot-cfg-lbl">API secret</div>
+          <button onclick="promptApiSecret('${bot.id}')" style="font-size:11px;font-weight:700;font-family:inherit;padding:6px 8px;background:var(--color-neutral-100);border:1px solid var(--color-divider);cursor:pointer;color:var(--color-text);width:100%;text-align:left;">${hasSecret?'••••••••••••':'Not set'}</button>
         </div>
       </div>
       <!-- Stats -->
@@ -2433,8 +2449,14 @@ function updateBotConfig(id,field,val){
 }
 
 function promptApiKey(botId){
-  const key=prompt(`Enter API key for ${BOTS_MOCK.find(b=>b.id===botId)?.name||botId}\n(Stored locally until Supabase is connected)`);
-  if(key) console.log(`API key set for ${botId} — will encrypt and sync to Supabase when connected`);
+  const bot=BOTS_MOCK.find(b=>b.id===botId); if(!bot) return;
+  const key=prompt(`Enter API key for ${bot.name}\n(Will be encrypted and stored in Supabase when auth is connected)`);
+  if(key){ bot.apiKey=key; renderBots(); console.log(`API key updated for ${botId}`); }
+}
+function promptApiSecret(botId){
+  const bot=BOTS_MOCK.find(b=>b.id===botId); if(!bot) return;
+  const secret=prompt(`Enter API secret for ${bot.name}\n(Will be encrypted and stored in Supabase when auth is connected)`);
+  if(secret){ bot.apiSecret=secret; renderBots(); console.log(`API secret updated for ${botId}`); }
 }
 </script>
 </body>
