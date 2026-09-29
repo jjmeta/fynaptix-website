@@ -271,6 +271,24 @@ a{text-decoration:none;color:inherit;}
   .hero-num{font-size:56px;}
   .page-title{font-size:42px;}
 }
+/* ─── AI Bots view ─────────────────────────────────── */
+.bot-toggle{position:relative;display:inline-flex;align-items:center;cursor:pointer;flex-shrink:0;}
+.bot-toggle input{opacity:0;width:0;height:0;position:absolute;}
+.bot-toggle-track{display:block;width:40px;height:22px;background:var(--color-neutral-300);border-radius:11px;transition:background .2s;position:relative;}
+.bot-toggle input:checked~.bot-toggle-track{background:var(--color-up);}
+.bot-toggle-knob{position:absolute;width:16px;height:16px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .2s;}
+.bot-toggle input:checked~.bot-toggle-track .bot-toggle-knob{left:21px;}
+.perf-tab{padding:5px 14px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:none;border:none;border-right:1px solid var(--color-divider);cursor:pointer;color:var(--color-neutral-600);font-family:inherit;}
+.perf-tab:last-child{border-right:none;}
+.perf-tab.active{background:var(--color-text);color:var(--color-bg);}
+.bot-cfg-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:3px;}
+.bot-cfg-input{font-size:13px;font-weight:600;font-family:inherit;background:var(--color-neutral-100);border:1px solid var(--color-divider);padding:5px 8px;color:var(--color-text);width:72px;}
+.bot-cfg-select{font-size:13px;font-weight:600;font-family:inherit;background:var(--color-neutral-100);border:1px solid var(--color-divider);padding:5px 8px;color:var(--color-text);}
+.bot-stat-cell{flex:1;padding:12px 16px;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--color-divider);}
+.bot-stat-cell:last-child{border-right:none;}
+.bot-stat-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600);}
+.bot-stat-val{font-size:18px;font-weight:800;letter-spacing:-0.02em;}
+.pair-chip{display:inline-block;padding:2px 8px;font-size:10px;font-weight:700;letter-spacing:.06em;border:1px solid var(--color-divider);color:var(--color-neutral-700);margin-right:4px;}
 </style>
 </head>
 <body>
@@ -297,6 +315,7 @@ a{text-decoration:none;color:inherit;}
     <div class="sb-item" onclick="showView('defi',this)"><span class="sb-item-num">03</span><span>DeFi On-Chain</span></div>
     <div class="sb-item" onclick="showView('hotspots',this)"><span class="sb-item-num">04</span><span>Memes on Chain</span></div>
     <div class="sb-item" onclick="showView('largecap',this)"><span class="sb-item-num">05</span><span>Large Cap</span></div>
+    <div class="sb-item" onclick="showView('bots',this)"><span class="sb-item-num">12</span><span>AI Bots</span></div>
   </nav>
   <div class="sb-footer">
     <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:6px;font-weight:400;">Move colours</div>
@@ -835,6 +854,68 @@ a{text-decoration:none;color:inherit;}
       </div>
     </div>
 
+    <!-- ═══ 12 AI BOTS ═══ -->
+    <div class="view" id="view-bots">
+      <div class="page-header">
+        <div><div class="page-kicker">12 · BOT MANAGEMENT</div><h1 class="page-title">AI Bots</h1></div>
+        <div class="page-source">PAPER MODE · SUPABASE SYNC PENDING · LIVE ON CONNECT</div>
+      </div>
+      <div class="vbody">
+
+        <!-- Bot Cards -->
+        <div style="padding:24px 0 16px;">
+          <h2 style="font-size:18px;font-weight:800;letter-spacing:.01em;text-transform:uppercase;margin-bottom:16px;">Bots <span style="font-size:12px;letter-spacing:.1em;color:var(--color-neutral-600);font-weight:400;">MANAGE · CONFIGURE · MONITOR</span></h2>
+          <div id="bot-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:1px;background:var(--color-divider);border-top:2px solid var(--color-text);border-bottom:2px solid var(--color-divider);"></div>
+        </div>
+
+        <!-- Performance -->
+        <div style="padding:24px 0 16px;border-top:2px solid var(--color-divider);">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <h2 style="font-size:18px;font-weight:800;letter-spacing:.01em;text-transform:uppercase;margin:0;">Performance</h2>
+            <div style="display:flex;border:1px solid var(--color-divider);">
+              <button class="perf-tab active" onclick="setPerfPeriod('1d',this)">Today</button>
+              <button class="perf-tab" onclick="setPerfPeriod('7d',this)">7D</button>
+              <button class="perf-tab" onclick="setPerfPeriod('30d',this)">30D</button>
+              <button class="perf-tab" onclick="setPerfPeriod('all',this)">All</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-divider);border-top:2px solid var(--color-text);">
+            <div id="pm-pnl" style="background:var(--color-bg);padding:20px;"></div>
+            <div id="pm-winrate" style="background:var(--color-bg);padding:20px;"></div>
+            <div id="pm-trades" style="background:var(--color-bg);padding:20px;"></div>
+            <div id="pm-rr" style="background:var(--color-bg);padding:20px;"></div>
+          </div>
+          <div style="background:var(--color-bg);border-top:1px solid var(--color-divider);border-bottom:2px solid var(--color-divider);padding:12px 20px 16px;">
+            <div style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:6px;">Cumulative P&amp;L</div>
+            <svg id="pnl-svg" width="100%" height="120" viewBox="0 0 1000 120" preserveAspectRatio="none" style="display:block;"></svg>
+          </div>
+        </div>
+
+        <!-- Trade Log -->
+        <div style="padding:24px 0 16px;border-top:2px solid var(--color-divider);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h2 style="font-size:18px;font-weight:800;letter-spacing:.01em;text-transform:uppercase;margin:0;">Trade Log</h2>
+            <div id="trade-filter-tabs" style="display:flex;border:1px solid var(--color-divider);"></div>
+          </div>
+          <div class="tbl-wrap"><div style="min-width:720px;">
+            <div class="gp tbl-hdr-row" style="grid-template-columns:130px 90px 60px 90px 90px 80px 70px 100px;">
+              <span class="tbl-hdr-btn tbl-hdr-left">Bot</span>
+              <span class="tbl-hdr-btn tbl-hdr-left">Symbol</span>
+              <span class="tbl-hdr-btn">Dir</span>
+              <span class="tbl-hdr-btn">Entry</span>
+              <span class="tbl-hdr-btn">Exit</span>
+              <span class="tbl-hdr-btn">P&amp;L $</span>
+              <span class="tbl-hdr-btn">P&amp;L %</span>
+              <span class="tbl-hdr-btn tbl-hdr-left">Date</span>
+            </div>
+            <div id="trade-log-body"></div>
+          </div></div>
+        </div>
+
+        <div class="page-footer"><span>© 2026 Fynaptix · AI Bots</span><span>Paper mode · Not financial advice</span></div>
+      </div>
+    </div>
+
   </div><!-- /content -->
 </div><!-- /main-wrap -->
 
@@ -880,7 +961,7 @@ function setEl(id,html,color){
 const LAZY_FETCHERS={
   ai:fetchAiSector, rwa:fetchRwa, sui:fetchSui,
   ton:fetchTon, privacy:fetchPrivacy, trending:fetchTrending,
-  defi:fetchDefiLlama, hotspots:fetchDexscreener,
+  defi:fetchDefiLlama, hotspots:fetchDexscreener, bots:fetchBots,
 };
 const viewLoaded=new Set();
 
@@ -2103,6 +2184,234 @@ async function prewarmViews(){
 
 fetchAll().then(()=>setTimeout(prewarmViews,1000));
 setInterval(fetchAll,180000);
+
+// ═══════════════════════════════════════
+// 12 AI BOTS
+// ═══════════════════════════════════════
+const BOTS_MOCK=[
+  {id:'gate-etf-01',name:'Gate.io Leveraged ETF',exchange:'Gate.io',status:'paper',enabled:true,maxTrades:3,pctPerTrade:4.0,pairs:['SOL/USDT','SUI/USDT','DOGE/USDT','XRP/USDT'],openPositions:1,todayPnl:16.00,description:'ML SignalClassifier on OHLCV · routes to 5L/5S ETF tokens · 72%+ confidence gate'},
+  {id:'bybit-mom-01',name:'Bybit Momentum Bot',exchange:'Bybit',status:'not_configured',enabled:false,maxTrades:2,pctPerTrade:3.0,pairs:[],openPositions:0,todayPnl:0,description:'Planned — trend-following on top-20 by volume · OI expansion filter'},
+];
+
+const TRADES_MOCK=[
+  {botId:'gate-etf-01',symbol:'SOL/USDT',dir:'LONG',entry:147.20,exit:null,pnlUsd:null,pnlPct:null,date:'2026-09-29',status:'open'},
+  {botId:'gate-etf-01',symbol:'SOL/USDT',dir:'LONG',entry:142.30,exit:148.90,pnlUsd:26.40,pnlPct:4.64,date:'2026-09-28',status:'closed'},
+  {botId:'gate-etf-01',symbol:'SUI/USDT',dir:'SHORT',entry:3.82,exit:3.95,pnlUsd:-10.40,pnlPct:-3.40,date:'2026-09-28',status:'closed'},
+  {botId:'gate-etf-01',symbol:'XRP/USDT',dir:'LONG',entry:0.5830,exit:0.6120,pnlUsd:18.60,pnlPct:4.97,date:'2026-09-27',status:'closed'},
+  {botId:'gate-etf-01',symbol:'DOGE/USDT',dir:'LONG',entry:0.1234,exit:0.1198,pnlUsd:-11.70,pnlPct:-2.92,date:'2026-09-27',status:'closed'},
+  {botId:'gate-etf-01',symbol:'SOL/USDT',dir:'SHORT',entry:151.20,exit:146.80,pnlUsd:17.60,pnlPct:2.91,date:'2026-09-26',status:'closed'},
+  {botId:'gate-etf-01',symbol:'SUI/USDT',dir:'LONG',entry:3.67,exit:3.89,pnlUsd:22.00,pnlPct:5.99,date:'2026-09-25',status:'closed'},
+  {botId:'gate-etf-01',symbol:'XRP/USDT',dir:'SHORT',entry:0.6240,exit:0.6310,pnlUsd:-8.40,pnlPct:-1.12,date:'2026-09-24',status:'closed'},
+  {botId:'gate-etf-01',symbol:'SOL/USDT',dir:'LONG',entry:138.50,exit:144.20,pnlUsd:22.80,pnlPct:4.12,date:'2026-09-23',status:'closed'},
+  {botId:'gate-etf-01',symbol:'DOGE/USDT',dir:'SHORT',entry:0.1420,exit:0.1380,pnlUsd:12.80,pnlPct:2.82,date:'2026-09-22',status:'closed'},
+  {botId:'gate-etf-01',symbol:'SUI/USDT',dir:'LONG',entry:3.45,exit:3.32,pnlUsd:-13.00,pnlPct:-3.77,date:'2026-09-22',status:'closed'},
+];
+
+let botsPeriod='all';let botsFilter='all';
+
+function fetchBots(){ renderBots(); }
+
+// ── helpers ─────────────────────────────────────────────────────────────────
+function filteredTrades(period,botId){
+  const now=new Date('2026-09-29');
+  const cutoff={
+    '1d':new Date(now.getTime()-86400000),
+    '7d':new Date(now.getTime()-7*86400000),
+    '30d':new Date(now.getTime()-30*86400000),
+    'all':new Date('2000-01-01'),
+  }[period]||new Date('2000-01-01');
+  return TRADES_MOCK.filter(t=>{
+    if(t.status!=='closed') return false;
+    if(botId!=='all'&&t.botId!==botId) return false;
+    return new Date(t.date)>=cutoff;
+  });
+}
+
+function botMetrics(trades){
+  const closed=trades.filter(t=>t.pnlUsd!=null);
+  const pnl=closed.reduce((s,t)=>s+(t.pnlUsd||0),0);
+  const wins=closed.filter(t=>t.pnlUsd>0);
+  const losses=closed.filter(t=>t.pnlUsd<0);
+  const winRate=closed.length?wins.length/closed.length*100:0;
+  const avgWin=wins.length?wins.reduce((s,t)=>s+t.pnlPct,0)/wins.length:0;
+  const avgLoss=losses.length?Math.abs(losses.reduce((s,t)=>s+t.pnlPct,0)/losses.length):0;
+  const rr=avgLoss>0?avgWin/avgLoss:0;
+  return {pnl,winRate,count:closed.length,rr};
+}
+
+// ── bot cards ────────────────────────────────────────────────────────────────
+function renderBots(){
+  const el=document.getElementById('bot-cards'); if(!el) return;
+  el.innerHTML=BOTS_MOCK.map(bot=>{
+    const trades=filteredTrades('all',bot.id);
+    const m=botMetrics(trades);
+    const statusMap={paper:'PAPER',active:'LIVE',paused:'PAUSED',not_configured:'NOT CONFIGURED',error:'ERROR'};
+    const statusColor={paper:'#b45309',active:'var(--color-up)',paused:'var(--color-neutral-600)',not_configured:'var(--color-neutral-500)',error:'var(--color-dn)'};
+    const sl=statusMap[bot.status]||bot.status.toUpperCase();
+    const sc=statusColor[bot.status]||'var(--color-neutral-600)';
+    const apiKey=bot.status==='not_configured'?'Not set':'••••••••'+bot.id.slice(-4);
+    return `<div style="background:var(--color-bg);padding:22px 24px;display:flex;flex-direction:column;gap:14px;">
+      <!-- Header -->
+      <div style="display:flex;align-items:flex-start;gap:12px;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+            <b style="font-size:15px;">${bot.name}</b>
+            <span style="padding:2px 7px;font-size:9px;font-weight:800;letter-spacing:.1em;border:1px solid var(--color-divider);color:var(--color-neutral-700);">${bot.exchange.toUpperCase()}</span>
+            <span style="padding:2px 7px;font-size:9px;font-weight:800;letter-spacing:.1em;color:${sc};border:1px solid currentColor;">${sl}</span>
+          </div>
+          <p style="font-size:12px;color:var(--color-neutral-600);margin:0;">${bot.description}</p>
+        </div>
+        <label class="bot-toggle" title="${bot.enabled?'Enabled — click to pause':'Paused — click to enable'}">
+          <input type="checkbox" ${bot.enabled?'checked':''} onchange="toggleBot('${bot.id}',this)">
+          <span class="bot-toggle-track"><span class="bot-toggle-knob"></span></span>
+        </label>
+      </div>
+      <!-- Config -->
+      <div style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);">
+        <div>
+          <div class="bot-cfg-lbl">Max concurrent</div>
+          <input class="bot-cfg-input" type="number" value="${bot.maxTrades}" min="1" max="20" style="width:64px;" onchange="updateBotConfig('${bot.id}','maxTrades',this.value)">
+        </div>
+        <div>
+          <div class="bot-cfg-lbl">% per trade</div>
+          <div style="display:flex;align-items:center;gap:0;">
+            <input class="bot-cfg-input" type="number" value="${bot.pctPerTrade}" step="0.5" min="0.5" max="20" style="width:64px;" onchange="updateBotConfig('${bot.id}','pctPerTrade',this.value)">
+            <span style="font-size:11px;color:var(--color-neutral-600);margin-left:4px;">%</span>
+          </div>
+        </div>
+        <div>
+          <div class="bot-cfg-lbl">Exchange</div>
+          <select class="bot-cfg-select" onchange="updateBotConfig('${bot.id}','exchange',this.value)">
+            ${['Gate.io','Bybit','Binance','OKX'].map(e=>`<option${e===bot.exchange?' selected':''}>${e}</option>`).join('')}
+          </select>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="bot-cfg-lbl">API key</div>
+          <button onclick="promptApiKey('${bot.id}')" style="font-size:12px;font-weight:700;font-family:inherit;padding:6px 12px;background:var(--color-neutral-100);border:1px solid var(--color-divider);cursor:pointer;color:var(--color-text);">${apiKey}</button>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div style="display:flex;border:1px solid var(--color-divider);">
+        <div class="bot-stat-cell">
+          <span class="bot-stat-lbl">Open positions</span>
+          <span class="bot-stat-val">${bot.openPositions} <span style="font-size:11px;color:var(--color-neutral-600);font-weight:400;">/ ${bot.maxTrades}</span></span>
+        </div>
+        <div class="bot-stat-cell">
+          <span class="bot-stat-lbl">All-time P&amp;L</span>
+          <span class="bot-stat-val ${m.pnl>=0?'up':'dn'}">${m.pnl>=0?'+':''}$${Math.abs(m.pnl).toFixed(2)}</span>
+        </div>
+        <div class="bot-stat-cell">
+          <span class="bot-stat-lbl">Win rate</span>
+          <span class="bot-stat-val">${m.count?m.winRate.toFixed(0)+'%':'—'}</span>
+        </div>
+        <div class="bot-stat-cell">
+          <span class="bot-stat-lbl">Trades</span>
+          <span class="bot-stat-val">${m.count}</span>
+        </div>
+      </div>
+      <!-- Pairs -->
+      ${bot.pairs.length?`<div style="display:flex;flex-wrap:wrap;gap:4px;">${bot.pairs.map(p=>`<span class="pair-chip">${p}</span>`).join('')}</div>`:'<span style="font-size:12px;color:var(--color-neutral-500);">No pairs configured</span>'}
+    </div>`;
+  }).join('');
+  renderPerfMetrics();
+  renderPerfChart();
+  renderTradeLog();
+  renderTradeFilterTabs();
+}
+
+// ── performance ──────────────────────────────────────────────────────────────
+function setPerfPeriod(p,btn){
+  botsPeriod=p;
+  document.querySelectorAll('.perf-tab').forEach(b=>{b.classList.remove('active');});
+  btn.classList.add('active');
+  renderPerfMetrics(); renderPerfChart();
+}
+
+function renderPerfMetrics(){
+  const trades=filteredTrades(botsPeriod,'all');
+  const m=botMetrics(trades);
+  const metricHtml=(lbl,val,cls='')=>`<div class="bot-stat-lbl">${lbl}</div><div class="bot-stat-val ${cls}" style="font-size:26px;margin-top:6px;">${val}</div>`;
+  setEl('pm-pnl',metricHtml('P&L',`${m.pnl>=0?'+':''}$${Math.abs(m.pnl).toFixed(2)}`,m.pnl>=0?'up':'dn'));
+  setEl('pm-winrate',metricHtml('Win rate',m.count?m.winRate.toFixed(0)+'%':'—'));
+  setEl('pm-trades',metricHtml('Trades',m.count));
+  setEl('pm-rr',metricHtml('Avg R:R',m.rr?m.rr.toFixed(2)+'x':'—'));
+}
+
+function renderPerfChart(){
+  const svg=document.getElementById('pnl-svg'); if(!svg) return;
+  const trades=[...filteredTrades(botsPeriod,'all')].sort((a,b)=>a.date.localeCompare(b.date));
+  if(!trades.length){svg.innerHTML='<text x="500" y="70" text-anchor="middle" fill="var(--color-neutral-400)" font-size="24">No trades in period</text>';return;}
+  // Build cumulative series
+  let cum=0; const pts=[{x:0,y:0}];
+  trades.forEach((t,i)=>{cum+=(t.pnlUsd||0);pts.push({x:i+1,y:cum});});
+  const maxX=pts.length-1;
+  const maxY=Math.max(...pts.map(p=>p.y),0.01);
+  const minY=Math.min(...pts.map(p=>p.y),0);
+  const range=maxY-minY||1;
+  const toX=x=>x/maxX*1000;
+  const toY=y=>110-(y-minY)/range*100;
+  const zero=toY(0);
+  const polyline=pts.map(p=>`${toX(p.x).toFixed(1)},${toY(p.y).toFixed(1)}`).join(' ');
+  const area=`${toX(0)},${zero} `+pts.map(p=>`${toX(p.x).toFixed(1)},${toY(p.y).toFixed(1)}`).join(' ')+` ${toX(maxX)},${zero}`;
+  const lineColor=cum>=0?'var(--color-up)':'var(--color-dn)';
+  const fillColor=cum>=0?'oklch(0.5 0.13 150 / 0.12)':'oklch(0.48 0.18 25 / 0.12)';
+  svg.innerHTML=`<polygon points="${area}" fill="${fillColor}"/>
+<polyline points="${polyline}" fill="none" stroke="${lineColor}" stroke-width="2.5"/>
+<line x1="0" y1="${zero.toFixed(1)}" x2="1000" y2="${zero.toFixed(1)}" stroke="var(--color-divider)" stroke-width="1" stroke-dasharray="4,4"/>`;
+}
+
+// ── trade log ────────────────────────────────────────────────────────────────
+function renderTradeFilterTabs(){
+  const el=document.getElementById('trade-filter-tabs'); if(!el) return;
+  const bots=[{id:'all',label:'All'},...BOTS_MOCK.map(b=>({id:b.id,label:b.exchange}))];
+  el.innerHTML=bots.map(b=>`<button class="perf-tab${b.id===botsFilter?' active':''}" onclick="setBotsFilter('${b.id}',this)">${b.label}</button>`).join('');
+}
+
+function setBotsFilter(id,btn){
+  botsFilter=id;
+  document.querySelectorAll('#trade-filter-tabs .perf-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTradeLog();
+}
+
+function renderTradeLog(){
+  const el=document.getElementById('trade-log-body'); if(!el) return;
+  const rows=TRADES_MOCK.filter(t=>botsFilter==='all'||t.botId===botsFilter);
+  if(!rows.length){el.innerHTML='<div style="padding:24px;color:var(--color-neutral-600);">No trades</div>';return;}
+  const botName=id=>BOTS_MOCK.find(b=>b.id===id)?.exchange||id;
+  el.innerHTML=rows.map(t=>{
+    const isOpen=t.status==='open';
+    const pnlCls=t.pnlUsd!=null?(t.pnlUsd>=0?'up':'dn'):'';
+    return `<div class="gai tbl-data-row" style="grid-template-columns:130px 90px 60px 90px 90px 80px 70px 100px;">
+      <span class="tc" style="font-size:11px;">${botName(t.botId)}</span>
+      <span class="tc"><b>${t.symbol}</b></span>
+      <span class="tc-r" style="color:${t.dir==='LONG'?'var(--color-up)':'var(--color-dn)'};">${t.dir}</span>
+      <span class="tc-r">${px(t.entry)}</span>
+      <span class="tc-r">${isOpen?'<span style="font-size:10px;color:var(--color-neutral-600);">OPEN</span>':px(t.exit)}</span>
+      <b class="tc-r ${pnlCls}">${t.pnlUsd!=null?(t.pnlUsd>=0?'+':'')+t.pnlUsd.toFixed(2):'—'}</b>
+      <span class="tc-r ${pnlCls}">${t.pnlPct!=null?(t.pnlPct>=0?'+':'')+t.pnlPct.toFixed(2)+'%':'—'}</span>
+      <span class="tc" style="font-size:11px;color:var(--color-neutral-600);">${t.date}</span>
+    </div>`;
+  }).join('');
+}
+
+// ── actions ──────────────────────────────────────────────────────────────────
+function toggleBot(id,el){
+  const bot=BOTS_MOCK.find(b=>b.id===id); if(!bot) return;
+  bot.enabled=el.checked;
+  console.log(`Bot ${id} ${bot.enabled?'enabled':'disabled'} — will sync to Supabase when connected`);
+}
+
+function updateBotConfig(id,field,val){
+  const bot=BOTS_MOCK.find(b=>b.id===id); if(!bot) return;
+  bot[field]=isNaN(+val)?val:+val;
+  console.log(`Bot ${id} config update: ${field}=${bot[field]} — will sync to Supabase when connected`);
+}
+
+function promptApiKey(botId){
+  const key=prompt(`Enter API key for ${BOTS_MOCK.find(b=>b.id===botId)?.name||botId}\n(Stored locally until Supabase is connected)`);
+  if(key) console.log(`API key set for ${botId} — will encrypt and sync to Supabase when connected`);
+}
 </script>
 </body>
 </html>
