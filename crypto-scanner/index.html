@@ -898,7 +898,7 @@ a{text-decoration:none;color:inherit;}
             <div id="trade-filter-tabs" style="display:flex;border:1px solid var(--color-divider);"></div>
           </div>
           <div class="tbl-wrap"><div style="min-width:720px;">
-            <div class="gp tbl-hdr-row" style="grid-template-columns:130px 90px 60px 90px 90px 80px 70px 100px;">
+            <div class="gp tbl-hdr-row" style="grid-template-columns:90px 140px 72px 90px 90px 80px 70px 100px 100px;column-gap:4px;">
               <span class="tbl-hdr-btn tbl-hdr-left">Bot</span>
               <span class="tbl-hdr-btn tbl-hdr-left">Symbol</span>
               <span class="tbl-hdr-btn">Dir</span>
@@ -906,6 +906,7 @@ a{text-decoration:none;color:inherit;}
               <span class="tbl-hdr-btn">Exit</span>
               <span class="tbl-hdr-btn">P&amp;L $</span>
               <span class="tbl-hdr-btn">P&amp;L %</span>
+              <span class="tbl-hdr-btn tbl-hdr-left">Narrative</span>
               <span class="tbl-hdr-btn tbl-hdr-left">Date</span>
             </div>
             <div id="trade-log-body"></div>
@@ -2192,6 +2193,7 @@ setInterval(fetchAll,180000);
 const BOTS_MOCK=[
   {id:'gate-etf-01',name:'Gate.io Leveraged ETF',exchange:'Gate.io',status:'paper',enabled:true,maxTrades:3,pctPerTrade:10.0,capitalUsdt:1000,minConfidence:65,apiKey:'',apiSecret:'',pairs:['SOL/USDT','SUI/USDT','DOGE/USDT','XRP/USDT','AVAX/USDT','UNI/USDT'],openPositions:0,todayPnl:0,description:'EMA8/21 crossover · Bybit OI filter · Claude AI confirmation · routes to 5L/5S ETF tokens'},
   {id:'bybit-mom-01',name:'Bybit Leveraged Perps',exchange:'Bybit',status:'paper',enabled:true,maxTrades:3,pctPerTrade:10.0,capitalUsdt:1000,minConfidence:70,apiKey:'',apiSecret:'',pairs:[],openPositions:0,todayPnl:0,description:'RSI momentum cross · EMA50 trend filter · 2x leverage on top-50 linear perps · native SL/TP'},
+  {id:'mexc-trend-01',name:'MEXC CoinGecko Trend',exchange:'MEXC',status:'paper',enabled:true,maxTrades:5,pctPerTrade:7.0,capitalUsdt:1000,minConfidence:55,apiKey:'',apiSecret:'',pairs:[],openPositions:0,todayPnl:0,description:'CoinGecko narrative scoring · trending rank + vol/mcap + category momentum · spot only · TA gate on entry'},
 ];
 
 // Live trade data from Supabase — populated by fetchBots()
@@ -2239,11 +2241,28 @@ async function fetchBots(){
       leverage:t.leverage,
     })):[];
 
-    TRADES_LIVE=[...gateTrades,...bybitTrades];
+    // MEXC CoinGecko Trend trades
+    const{data:mexcData,error:mexcErr}=await _sb.from('mexc_trades').select('*').order('opened_at',{ascending:false}).limit(200);
+    const mexcTrades=(!mexcErr&&mexcData)?mexcData.map(t=>({
+      botId:'mexc-trend-01',
+      symbol:t.pair,
+      dir:'LONG',
+      entry:t.entry_price,
+      exit:t.exit_price||null,
+      pnlUsd:t.pnl_usdt||null,
+      pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,
+      date:(t.opened_at||'').slice(0,10),
+      status:t.closed_at?'closed':'open',
+      confidence:t.confidence,
+      narrative:t.narrative,
+      cgScore:t.cg_score,
+    })):[];
+
+    TRADES_LIVE=[...gateTrades,...bybitTrades,...mexcTrades];
 
     // Update bot cards with live stats
     const todayStr=new Date().toISOString().slice(0,10);
-    ['gate-etf-01','bybit-mom-01'].forEach(id=>{
+    ['gate-etf-01','bybit-mom-01','mexc-trend-01'].forEach(id=>{
       const bot=BOTS_MOCK.find(b=>b.id===id);
       if(!bot) return;
       const bt=TRADES_LIVE.filter(t=>t.botId===id);
@@ -2443,14 +2462,17 @@ function renderTradeLog(){
   el.innerHTML=rows.map(t=>{
     const isOpen=t.status==='open';
     const pnlCls=t.pnlUsd!=null?(t.pnlUsd>=0?'up':'dn'):'';
-    return `<div class="gai tbl-data-row" style="grid-template-columns:130px 90px 60px 90px 90px 80px 70px 100px;">
-      <span class="tc" style="font-size:11px;">${botName(t.botId)}</span>
-      <span class="tc"><b>${t.symbol}</b></span>
+    const displaySym=(t.symbol||'').replace(/:USDT$/i,'');
+    const narrativeChip=t.narrative?`<span style="font-size:9px;font-weight:700;letter-spacing:.06em;padding:1px 5px;border:1px solid var(--color-divider);color:var(--color-neutral-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px;display:inline-block;">${t.narrative.replace(/-/g,' ').toUpperCase()}</span>`:'';
+    return `<div class="gai tbl-data-row" style="grid-template-columns:90px 140px 72px 90px 90px 80px 70px 100px 100px;column-gap:4px;">
+      <span class="tc" style="font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${botName(t.botId)}</span>
+      <span class="tc" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><b>${displaySym}</b></span>
       <span class="tc-r" style="color:${t.dir==='LONG'?'var(--color-up)':'var(--color-dn)'};">${t.dir}</span>
       <span class="tc-r">${px(t.entry)}</span>
       <span class="tc-r">${isOpen?'<span style="font-size:10px;color:var(--color-neutral-600);">OPEN</span>':px(t.exit)}</span>
       <b class="tc-r ${pnlCls}">${t.pnlUsd!=null?(t.pnlUsd>=0?'+':'')+t.pnlUsd.toFixed(2):'—'}</b>
       <span class="tc-r ${pnlCls}">${t.pnlPct!=null?(t.pnlPct>=0?'+':'')+t.pnlPct.toFixed(2)+'%':'—'}</span>
+      <span class="tc" style="font-size:11px;">${narrativeChip}</span>
       <span class="tc" style="font-size:11px;color:var(--color-neutral-600);">${t.date}</span>
     </div>`;
   }).join('');
