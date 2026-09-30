@@ -992,10 +992,21 @@ async function signIn(){
   const password = (document.getElementById('auth-password').value||'');
   if(!email||!password) return;
   const btn = document.getElementById('auth-btn');
+  const msg  = document.getElementById('auth-msg');
   btn.disabled = true; btn.textContent = 'Signing in…';
-  const {error} = await _sb.auth.signInWithPassword({ email, password });
-  if(error){
-    document.getElementById('auth-msg').textContent = error.message;
+  try {
+    const {data, error} = await _sb.auth.signInWithPassword({ email, password });
+    if(error){
+      msg.textContent = error.message;
+      btn.disabled = false; btn.textContent = 'Sign in →';
+    } else if(data?.session){
+      _showApp();
+    } else {
+      msg.textContent = 'No session returned — check Supabase auth settings.';
+      btn.disabled = false; btn.textContent = 'Sign in →';
+    }
+  } catch(e){
+    msg.textContent = 'Error: '+(e.message||e);
     btn.disabled = false; btn.textContent = 'Sign in →';
   }
 }
