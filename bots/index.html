@@ -319,12 +319,15 @@ a{text-decoration:none;color:inherit;}
       <div id="auth-form">
         <div class="auth-lbl">Email</div>
         <input id="auth-email" class="auth-input" type="email" placeholder="you@example.com" autocomplete="email"
-          onkeydown="if(event.key==='Enter')sendMagicLink()">
-        <button id="auth-btn" class="auth-btn" onclick="sendMagicLink()">Send magic link →</button>
+          onkeydown="if(event.key==='Enter')signIn()">
+        <div class="auth-lbl" style="margin-top:14px;">Password</div>
+        <input id="auth-password" class="auth-input" type="password" placeholder="••••••••" autocomplete="current-password"
+          onkeydown="if(event.key==='Enter')signIn()">
+        <button id="auth-btn" class="auth-btn" onclick="signIn()">Sign in →</button>
       </div>
       <div id="auth-msg" class="auth-msg"></div>
     </div>
-    <div class="auth-ftr">Enter your email · we'll send a one-click sign-in link · no password needed</div>
+    <div class="auth-ftr">Private access · Fynaptix bots dashboard</div>
   </div>
 </div>
 
@@ -984,21 +987,16 @@ function _showWall(){
   if(_appRoot)  _appRoot.hidden  = true;
 }
 
-async function sendMagicLink(){
-  const email = (document.getElementById('auth-email').value||'').trim();
-  if(!email) return;
+async function signIn(){
+  const email    = (document.getElementById('auth-email').value||'').trim();
+  const password = (document.getElementById('auth-password').value||'');
+  if(!email||!password) return;
   const btn = document.getElementById('auth-btn');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  const {error} = await _sb.auth.signInWithOtp({
-    email,
-    options:{ emailRedirectTo: window.location.origin+'/bots/' }
-  });
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  const {error} = await _sb.auth.signInWithPassword({ email, password });
   if(error){
     document.getElementById('auth-msg').textContent = error.message;
-    btn.disabled = false; btn.textContent = 'Send magic link →';
-  } else {
-    document.getElementById('auth-msg').textContent = 'Link sent to '+email+' — check your inbox.';
-    document.getElementById('auth-form').hidden = true;
+    btn.disabled = false; btn.textContent = 'Sign in →';
   }
 }
 
@@ -1006,7 +1004,6 @@ async function signOut(){
   await _sb?.auth.signOut();
 }
 
-// Handle magic-link callback and session changes
 _sb?.auth.onAuthStateChange((event,session)=>{
   if(event==='SIGNED_IN'&&session)  _showApp();
   if(event==='SIGNED_OUT')          _showWall();
