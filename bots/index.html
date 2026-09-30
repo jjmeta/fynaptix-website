@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta http-equiv="refresh" content="0;url=/bots/"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Fynaptix · Crypto Scanner</title>
+<title>Fynaptix · Bots</title>
 <meta name="robots" content="noindex,nofollow"/>
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -264,6 +263,21 @@ a{text-decoration:none;color:inherit;}
 /* ── PAGE FOOTER ── */
 .page-footer{margin-top:48px;padding-top:14px;border-top:2px solid var(--color-divider);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
 
+/* ── AUTH WALL ── */
+#auth-wall{position:fixed;inset:0;z-index:9999;background:var(--color-bg);display:flex;align-items:center;justify-content:center;padding:24px;}
+.auth-box{width:100%;max-width:400px;border:2px solid var(--color-text);}
+.auth-box-hdr{padding:24px 28px 20px;border-bottom:2px solid var(--color-text);}
+.auth-kicker{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);font-weight:400;margin-bottom:6px;}
+.auth-title{font-size:32px;font-weight:800;line-height:1;letter-spacing:-0.03em;}
+.auth-body{padding:28px;}
+.auth-lbl{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;margin-bottom:6px;}
+.auth-input{display:block;width:100%;font-family:var(--font);font-size:14px;font-weight:600;padding:11px 12px;background:var(--color-neutral-100);border:1px solid var(--color-divider);color:var(--color-text);outline:none;}
+.auth-input:focus{border-color:var(--color-text);}
+.auth-btn{display:block;width:100%;margin-top:12px;font-family:var(--font);font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:13px 16px;background:var(--color-text);color:var(--color-bg);border:none;cursor:pointer;}
+.auth-btn:disabled{opacity:0.5;cursor:not-allowed;}
+.auth-msg{margin-top:14px;font-size:13px;color:var(--color-neutral-700);min-height:20px;}
+.auth-ftr{padding:16px 28px;border-top:1px solid var(--color-divider);font-size:11px;letter-spacing:0.06em;color:var(--color-neutral-600);}
+
 @media(max-width:768px){
   body{flex-direction:column;height:auto;overflow:auto;}
   .sidebar{width:100%;height:auto;border-right:none;border-bottom:2px solid var(--color-text);}
@@ -293,6 +307,29 @@ a{text-decoration:none;color:inherit;}
 </style>
 </head>
 <body>
+
+<!-- AUTH WALL — hidden once session is confirmed -->
+<div id="auth-wall">
+  <div class="auth-box">
+    <div class="auth-box-hdr">
+      <div class="auth-kicker">FYNAPTIX · PRIVATE</div>
+      <div class="auth-title">Bots</div>
+    </div>
+    <div class="auth-body">
+      <div id="auth-form">
+        <div class="auth-lbl">Email</div>
+        <input id="auth-email" class="auth-input" type="email" placeholder="you@example.com" autocomplete="email"
+          onkeydown="if(event.key==='Enter')sendMagicLink()">
+        <button id="auth-btn" class="auth-btn" onclick="sendMagicLink()">Send magic link →</button>
+      </div>
+      <div id="auth-msg" class="auth-msg"></div>
+    </div>
+    <div class="auth-ftr">Enter your email · we'll send a one-click sign-in link · no password needed</div>
+  </div>
+</div>
+
+<!-- APP — shown after auth, hidden initially -->
+<div id="app-root" hidden>
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
@@ -325,7 +362,8 @@ a{text-decoration:none;color:inherit;}
       <button class="color-toggle-btn" id="btn-green" onclick="setColorMode('green')"><span class="color-toggle-swatch"><span style="background:oklch(0.5 0.13 150);"></span><span style="background:oklch(0.48 0.18 25);"></span></span>Green</button>
     </div>
     <div class="sb-clock" id="sbClock">Updated —</div>
-    <a class="sb-hub" href="/private/">← Research Hub</a>
+    <a class="sb-hub" href="/">← Fynaptix</a>
+    <button onclick="signOut()" style="all:unset;box-sizing:border-box;display:block;margin-top:10px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-600);cursor:pointer;font-family:var(--font);font-weight:600;">Sign out</button>
   </div>
 </aside>
 
@@ -921,8 +959,66 @@ a{text-decoration:none;color:inherit;}
   </div><!-- /content -->
 </div><!-- /main-wrap -->
 
+</div><!-- /app-root -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
+// ═══════════════════════════════════════
+// SUPABASE CLIENT + AUTH
+// ═══════════════════════════════════════
+const SUPABASE_URL  = 'https://msnzqkpfznomvykqjvlw.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_jiygKolou9OsebservgR-w_cc5EQY_b';
+const _sb = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+const _authWall = document.getElementById('auth-wall');
+const _appRoot  = document.getElementById('app-root');
+
+function _showApp(){
+  if(_authWall) _authWall.hidden = true;
+  if(_appRoot)  _appRoot.hidden  = false;
+  fetchAll().then(()=>setTimeout(prewarmViews,1000));
+  setInterval(fetchAll,180000);
+}
+function _showWall(){
+  if(_authWall) _authWall.hidden = false;
+  if(_appRoot)  _appRoot.hidden  = true;
+}
+
+async function sendMagicLink(){
+  const email = (document.getElementById('auth-email').value||'').trim();
+  if(!email) return;
+  const btn = document.getElementById('auth-btn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  const {error} = await _sb.auth.signInWithOtp({
+    email,
+    options:{ emailRedirectTo: window.location.origin+'/bots/' }
+  });
+  if(error){
+    document.getElementById('auth-msg').textContent = error.message;
+    btn.disabled = false; btn.textContent = 'Send magic link →';
+  } else {
+    document.getElementById('auth-msg').textContent = 'Link sent to '+email+' — check your inbox.';
+    document.getElementById('auth-form').hidden = true;
+  }
+}
+
+async function signOut(){
+  await _sb?.auth.signOut();
+}
+
+// Handle magic-link callback and session changes
+_sb?.auth.onAuthStateChange((event,session)=>{
+  if(event==='SIGNED_IN'&&session)  _showApp();
+  if(event==='SIGNED_OUT')          _showWall();
+});
+
+// Check existing session on page load
+(async()=>{
+  if(!_sb){ _showApp(); return; }
+  const {data:{session}} = await _sb.auth.getSession();
+  if(session) _showApp(); else _showWall();
+})();
+
 // ═══════════════════════════════════════
 // CONFIG
 // ═══════════════════════════════════════
@@ -2185,8 +2281,7 @@ async function prewarmViews(){
   }
 }
 
-fetchAll().then(()=>setTimeout(prewarmViews,1000));
-setInterval(fetchAll,180000);
+// fetchAll() and setInterval are triggered by _showApp() after auth
 
 // ═══════════════════════════════════════
 // 12 AI BOTS
@@ -2199,11 +2294,6 @@ const BOTS_MOCK=[
 
 // Live trade data from Supabase — populated by fetchBots()
 let TRADES_LIVE=[];
-
-const _sb=window.supabase?.createClient(
-  'https://msnzqkpfznomvykqjvlw.supabase.co',
-  'sb_publishable_jiygKolou9OsebservgR-w_cc5EQY_b'
-);
 
 let botsPeriod='all';let botsFilter='all';
 
