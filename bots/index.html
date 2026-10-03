@@ -444,17 +444,11 @@ function updateClock(){
 
 // ─── BOT DEFS ───
 const BOT_DEFS=[
-  {id:'gate-etf-01', name:'Gate.io Leveraged ETF', exchange:'Gate.io', status:'paper',
-   desc:'EMA 8/21 crossover · Bybit OI filter · Claude AI confirmation · routes to 5L/5S ETF tokens'},
-  {id:'bybit-mom-01', name:'Bybit Momentum Perps', exchange:'Bybit', status:'paper',
-   desc:'RSI momentum cross · EMA50 trend filter · 2× leverage on top-50 linear perps · native SL/TP'},
-  {id:'mexc-trend-01', name:'MEXC CoinGecko Trend', exchange:'MEXC', status:'paper',
-   desc:'CoinGecko narrative scoring · trending rank + vol/mcap + category momentum · spot only'},
   {id:'finora-01', name:'Finora Signal Bot', exchange:'Gate.io Perps', status:'paper',
    desc:'Shitfinder SMC signals via Finora Premium · FVG entries · R-based sizing · TP scale-out 40/40/20 · 67.8% verified Sep win rate · 1,400+ perp pairs'},
 ];
 
-const BOT_LABEL={'gate-etf-01':'Gate.io','bybit-mom-01':'Bybit','mexc-trend-01':'MEXC','finora-01':'Finora'};
+const BOT_LABEL={'finora-01':'Finora'};
 
 // ─── STATE ───
 let ALL_TRADES=[];
@@ -465,17 +459,9 @@ let activeView='all';
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
-    const[gR,bR,mR,fR]=await Promise.all([
-      _sb.from('trades').select('*').order('opened_at',{ascending:false}).limit(300),
-      _sb.from('bybit_trades').select('*').order('opened_at',{ascending:false}).limit(300),
-      _sb.from('mexc_trades').select('*').order('opened_at',{ascending:false}).limit(300),
-      _sb.from('finora_trades').select('*').eq('user_id',_currentUserId||'').order('opened_at',{ascending:false}).limit(300),
-    ]);
-    const gt=(gR.data||[]).map(normGate);
-    const bt=(bR.data||[]).map(normBybit);
-    const mt=(mR.data||[]).map(normMexc);
+    const fR=await _sb.from('finora_trades').select('*').eq('user_id',_currentUserId||'').order('opened_at',{ascending:false}).limit(300);
     const ft=(fR.data||[]).map(normFinora);
-    ALL_TRADES=[...gt,...bt,...mt,...ft].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    ALL_TRADES=[...ft].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
 }
