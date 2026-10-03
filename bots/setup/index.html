@@ -124,30 +124,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
 </head>
 <body>
 
-<!-- AUTH WALL -->
-<div id="auth-wall">
-  <div class="auth-box">
-    <div class="auth-hdr">
-      <div class="auth-kicker">Fynaptix · Private</div>
-      <div class="auth-title">Bot Setup</div>
-    </div>
-    <div class="auth-body">
-      <div class="auth-lbl">Email</div>
-      <input id="auth-email" class="auth-input" type="email" placeholder="you@example.com"
-        autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('auth-password').focus()">
-      <div class="auth-gap"></div>
-      <div class="auth-lbl">Password</div>
-      <input id="auth-password" class="auth-input" type="password" placeholder="••••••••"
-        autocomplete="current-password" onkeydown="if(event.key==='Enter')signIn()">
-      <button id="auth-btn" class="auth-btn" onclick="signIn()">Sign in →</button>
-      <div id="auth-err" class="auth-err"></div>
-    </div>
-    <div class="auth-ftr">Private access · Fynaptix bots dashboard</div>
-  </div>
-</div>
-
 <!-- APP -->
-<div id="app-root" hidden>
+<div id="app-root">
 
   <div class="page-header">
     <div class="page-nav">
@@ -314,38 +292,18 @@ const EXCHANGE_LABELS = {
 function _showApp(userId, email) {
   _userId    = userId;
   _userEmail = email || '';
-  document.getElementById('auth-wall').hidden = true;
-  document.getElementById('app-root').hidden  = false;
   if (_userEmail) document.getElementById('account-email').value = _userEmail;
-  loadConfig();
-}
-function _showWall() {
-  document.getElementById('auth-wall').hidden = false;
-  document.getElementById('app-root').hidden  = true;
-}
-
-async function signIn() {
-  const email    = (document.getElementById('auth-email').value || '').trim();
-  const password = document.getElementById('auth-password').value || '';
-  if (!email || !password) return;
-  const btn = document.getElementById('auth-btn');
-  const err = document.getElementById('auth-err');
-  btn.disabled = true; btn.textContent = 'Signing in…'; err.textContent = '';
-  try {
-    const { data, error } = await _sb.auth.signInWithPassword({ email, password });
-    if (error) { err.textContent = error.message; btn.disabled = false; btn.textContent = 'Sign in →'; }
-    else if (data?.session) { _showApp(data.session.user.id, data.session.user.email); }
-  } catch(e) { err.textContent = 'Error: ' + (e.message || e); btn.disabled = false; btn.textContent = 'Sign in →'; }
+  if (_userId) loadConfig();
 }
 
 _sb?.auth.onAuthStateChange((event, session) => {
   if (event === 'SIGNED_IN' && session) _showApp(session.user.id, session.user.email);
-  if (event === 'SIGNED_OUT') _showWall();
+  if (event === 'SIGNED_OUT') { _userId = null; _userEmail = null; }
 });
 (async () => {
-  if (!_sb) { _showApp(null, ''); return; }
+  if (!_sb) return;
   const { data: { session } } = await _sb.auth.getSession();
-  if (session) _showApp(session.user.id, session.user.email); else _showWall();
+  if (session) _showApp(session.user.id, session.user.email);
 })();
 
 // ── Exchange selection ──
@@ -401,7 +359,13 @@ async function loadConfig() {
 
 // ── Save ──
 async function saveConfig() {
-  if (!_sb || !_userId) return;
+  if (!_sb || !_userId) {
+    const status = document.getElementById('save-status');
+    status.style.color = 'var(--accent)';
+    status.textContent = 'Please sign in to save your configuration.';
+    document.getElementById('save-status').scrollIntoView({behavior:'smooth', block:'nearest'});
+    return;
+  }
 
   const apiKey    = document.getElementById('api-key').value.trim();
   const apiSecret = document.getElementById('api-secret').value.trim();
