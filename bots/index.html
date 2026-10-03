@@ -243,8 +243,16 @@ canvas{display:block;width:100%;height:120px;}
       <div><div class="sb-bot-name">MEXC Trend</div><div class="sb-bot-exch">MEXC</div></div>
     </div>
 
+    <div class="sb-section">Signals</div>
+    <div class="sb-bot" onclick="showView('finora-01',this)">
+      <div class="sb-dot running pulse"></div>
+      <div><div class="sb-bot-name">Finora</div><div class="sb-bot-exch">Bybit · Perps</div></div>
+    </div>
+
     <div class="sb-footer">
       <div class="sb-time" id="sb-time">—</div>
+      <div id="sb-user" style="font-size:11px;font-weight:700;color:var(--n700);margin-bottom:6px;letter-spacing:.03em;"></div>
+      <a class="sb-link" href="/bots/setup/">⚙ Bot Setup</a>
       <a class="sb-link" href="/">← Fynaptix</a>
       <a class="sb-link" href="/crypto-scanner/">Crypto Scanner</a>
       <button class="sb-signout" onclick="signOut()">Sign out</button>
@@ -291,7 +299,7 @@ canvas{display:block;width:100%;height:120px;}
         <div class="banner-left">
           <div class="banner-eyebrow">Paper Trading · All Systems Running</div>
           <div class="banner-title">Bot Dashboard</div>
-          <div class="banner-desc">Three autonomous strategies running in parallel — Gate.io Leveraged ETF, Bybit Momentum Perps, and MEXC CoinGecko Trend.</div>
+          <div class="banner-desc">Four strategies running in parallel — Gate.io Leveraged ETF, Bybit Momentum Perps, MEXC CoinGecko Trend, and Finora SMC Signal Bot.</div>
         </div>
         <div class="banner-right">
           <div class="banner-stat">
@@ -353,6 +361,7 @@ canvas{display:block;width:100%;height:120px;}
           <button class="filter-btn" onclick="setFilter('gate-etf-01',this)">Gate.io</button>
           <button class="filter-btn" onclick="setFilter('bybit-mom-01',this)">Bybit</button>
           <button class="filter-btn" onclick="setFilter('mexc-trend-01',this)">MEXC</button>
+          <button class="filter-btn" onclick="setFilter('finora-01',this)">Finora</button>
           <button class="filter-btn" onclick="setFilter('open',this)">Open</button>
         </div>
         <div class="trade-table-wrap">
@@ -373,13 +382,29 @@ const SUPABASE_URL  = 'https://msnzqkpfznomvykqjvlw.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zbnpxa3Bmem5vbXZ5a3Fqdmx3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2NDE4NjIsImV4cCI6MjEwNjIxNzg2Mn0.Xt8wRZv-p5lkSFm7dNg6wNwokQ8yxAx5u9doRcuSRzk';
 const _sb = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-function _showApp(){
+let _currentUserId = null;
+
+function _showApp(session){
+  _currentUserId = session?.user?.id || null;
   document.getElementById('auth-wall').hidden = true;
   document.getElementById('app-root').hidden  = false;
   loadData();
+  loadUserProfile();
   setInterval(loadData,120000);
   setInterval(updateClock,1000);
   updateClock();
+}
+
+async function loadUserProfile(){
+  if(!_sb||!_currentUserId) return;
+  try{
+    const{data}=await _sb.from('bot_users')
+      .select('display_name,exchange,paper_trading')
+      .eq('user_id',_currentUserId).maybeSingle();
+    const name=data?.display_name||(await _sb.auth.getUser())?.data?.user?.email||'';
+    const el=document.getElementById('sb-user');
+    if(el) el.textContent=name;
+  }catch(e){}
 }
 function _showWall(){
   document.getElementById('auth-wall').hidden = false;
@@ -403,13 +428,13 @@ async function signIn(){
 async function signOut(){ await _sb?.auth.signOut(); }
 
 _sb?.auth.onAuthStateChange((event,session)=>{
-  if(event==='SIGNED_IN'&&session) _showApp();
+  if(event==='SIGNED_IN'&&session) _showApp(session);
   if(event==='SIGNED_OUT')         _showWall();
 });
 (async()=>{
-  if(!_sb){_showApp();return;}
+  if(!_sb){_showApp(null);return;}
   const{data:{session}}=await _sb.auth.getSession();
-  if(session)_showApp();else _showWall();
+  if(session)_showApp(session);else _showWall();
 })();
 
 function updateClock(){
@@ -425,9 +450,11 @@ const BOT_DEFS=[
    desc:'RSI momentum cross · EMA50 trend filter · 2× leverage on top-50 linear perps · native SL/TP'},
   {id:'mexc-trend-01', name:'MEXC CoinGecko Trend', exchange:'MEXC', status:'paper',
    desc:'CoinGecko narrative scoring · trending rank + vol/mcap + category momentum · spot only'},
+  {id:'finora-01', name:'Finora Signal Bot', exchange:'Gate.io Perps', status:'paper',
+   desc:'Shitfinder SMC signals via Finora Premium · FVG entries · R-based sizing · TP scale-out 40/40/20 · 67.8% verified Sep win rate · 1,400+ perp pairs'},
 ];
 
-const BOT_LABEL={'gate-etf-01':'Gate.io','bybit-mom-01':'Bybit','mexc-trend-01':'MEXC'};
+const BOT_LABEL={'gate-etf-01':'Gate.io','bybit-mom-01':'Bybit','mexc-trend-01':'MEXC','finora-01':'Finora'};
 
 // ─── STATE ───
 let ALL_TRADES=[];
@@ -438,19 +465,22 @@ let activeView='all';
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
-    const[gR,bR,mR]=await Promise.all([
+    const[gR,bR,mR,fR]=await Promise.all([
       _sb.from('trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('bybit_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('mexc_trades').select('*').order('opened_at',{ascending:false}).limit(300),
+      _sb.from('finora_trades').select('*').eq('user_id',_currentUserId||'').order('opened_at',{ascending:false}).limit(300),
     ]);
     const gt=(gR.data||[]).map(normGate);
     const bt=(bR.data||[]).map(normBybit);
     const mt=(mR.data||[]).map(normMexc);
-    ALL_TRADES=[...gt,...bt,...mt].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    const ft=(fR.data||[]).map(normFinora);
+    ALL_TRADES=[...gt,...bt,...mt,...ft].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
 }
 
+function normFinora(t){return{botId:'finora-01',symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null};}
 function normGate(t){return{botId:'gate-etf-01',symbol:t.underlying_pair||t.etf_pair||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open'};}
 function normBybit(t){return{botId:'bybit-mom-01',symbol:t.pair||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open'};}
 function normMexc(t){return{botId:'mexc-trend-01',symbol:t.pair||'—',dir:'LONG',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open'};}

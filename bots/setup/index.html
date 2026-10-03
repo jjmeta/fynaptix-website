@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bot Setup</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f3f2f2;
+  --text:#201e1d;
+  --accent:#ec3013;
+  --n100:#f8f4f4;
+  --n200:#eae7e7;
+  --n300:#d7d3d3;
+  --n500:#9b9797;
+  --n600:#7d7979;
+  --n700:#605d5d;
+  --n800:#444141;
+  --green:#1a6e40;
+  --green-bg:#e8f5ee;
+  --red:#ae1800;
+  --font:"Archivo",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+}
+
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;padding:0 16px;}
+
+/* AUTH WALL */
+#auth-wall{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;}
+.auth-box{width:100%;max-width:380px;border:2px solid var(--text);}
+.auth-hdr{padding:24px 28px 18px;border-bottom:2px solid var(--text);}
+.auth-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:400;margin-bottom:4px;}
+.auth-title{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1;}
+.auth-body{padding:24px 28px;}
+.auth-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--n700);margin-bottom:5px;}
+.auth-input{display:block;width:100%;font-family:var(--font);font-size:14px;font-weight:600;padding:10px 12px;background:var(--n100);border:1px solid var(--n300);color:var(--text);outline:none;transition:border-color .12s;}
+.auth-input:focus{border-color:var(--text);}
+.auth-gap{height:14px;}
+.auth-btn{display:block;width:100%;margin-top:16px;font-family:var(--font);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:13px 16px;background:var(--text);color:var(--bg);border:none;cursor:pointer;}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed;}
+.auth-err{margin-top:10px;font-size:12px;color:var(--accent);min-height:18px;}
+.auth-ftr{padding:14px 28px;border-top:1px solid var(--n300);font-size:11px;letter-spacing:.05em;color:var(--n600);}
+
+/* PAGE */
+#app-root{max-width:680px;margin:0 auto;padding:40px 0 80px;}
+
+.page-header{margin-bottom:32px;}
+.page-nav{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.nav-back{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--n600);text-decoration:none;}
+.nav-back:hover{color:var(--text);}
+.nav-sep{color:var(--n500);font-size:11px;}
+.nav-current{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--n700);}
+.page-kicker{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.page-title{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.05;}
+.page-sub{font-size:13px;color:var(--n600);margin-top:8px;line-height:1.6;}
+
+/* STATUS BANNER */
+.status-banner{padding:12px 16px;border:1.5px solid;margin-bottom:24px;font-size:12px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:10px;}
+.status-banner.configured{border-color:var(--green);background:var(--green-bg);color:var(--green);}
+.status-banner.unconfigured{border-color:var(--n300);background:var(--n100);color:var(--n700);}
+.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.status-dot.on{background:var(--green);}
+.status-dot.off{background:var(--n400);}
+
+/* FORM SECTIONS */
+.form-section{background:white;border:1.5px solid var(--n300);margin-bottom:16px;}
+.form-section-head{padding:14px 20px 12px;border-bottom:1px solid var(--n200);display:flex;align-items:baseline;justify-content:space-between;}
+.form-section-title{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;}
+.form-section-desc{font-size:11px;color:var(--n600);}
+.form-body{padding:20px;}
+.form-row{margin-bottom:16px;}
+.form-row:last-child{margin-bottom:0;}
+.form-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--n700);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.form-hint{font-size:10px;color:var(--n500);font-weight:400;letter-spacing:.02em;text-transform:none;}
+.form-input{display:block;width:100%;font-family:var(--mono);font-size:13px;padding:10px 12px;background:var(--n100);border:1px solid var(--n300);color:var(--text);outline:none;transition:border-color .12s;}
+.form-input:focus{border-color:var(--text);}
+.form-select{display:block;width:100%;font-family:var(--font);font-size:13px;font-weight:600;padding:10px 12px;background:var(--n100);border:1px solid var(--n300);color:var(--text);outline:none;appearance:none;cursor:pointer;}
+.form-select:focus{border-color:var(--text);}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-number{display:block;width:100%;font-family:var(--mono);font-size:13px;padding:10px 12px;background:var(--n100);border:1px solid var(--n300);color:var(--text);outline:none;}
+.form-number:focus{border-color:var(--text);}
+
+/* TOGGLE */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+.toggle-label{font-size:13px;font-weight:600;}
+.toggle-sub{font-size:11px;color:var(--n600);margin-top:2px;}
+.toggle-wrap{position:relative;width:44px;height:24px;flex-shrink:0;}
+.toggle-input{opacity:0;width:0;height:0;position:absolute;}
+.toggle-slider{position:absolute;inset:0;background:var(--n300);cursor:pointer;transition:background .2s;}
+.toggle-slider:before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:white;transition:transform .2s;}
+.toggle-input:checked + .toggle-slider{background:var(--green);}
+.toggle-input:checked + .toggle-slider:before{transform:translateX(20px);}
+
+/* WARNING BOX */
+.warning-box{padding:14px 16px;border:1.5px solid #b45309;background:#fffbeb;margin-bottom:16px;}
+.warning-title{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#b45309;margin-bottom:5px;}
+.warning-text{font-size:12px;color:#78350f;line-height:1.6;}
+
+/* SAVE AREA */
+.save-area{display:flex;align-items:center;gap:16px;margin-top:24px;}
+.save-btn{font-family:var(--font);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;background:var(--text);color:var(--bg);border:none;cursor:pointer;flex-shrink:0;}
+.save-btn:disabled{opacity:.5;cursor:not-allowed;}
+.save-status{font-size:12px;color:var(--n600);min-height:18px;}
+.save-status.ok{color:var(--green);}
+.save-status.err{color:var(--red);}
+
+/* EXCHANGE PILLS */
+.exchange-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.exchange-pill{border:1.5px solid var(--n300);padding:12px 8px;cursor:pointer;text-align:center;transition:border-color .12s,background .12s;}
+.exchange-pill:hover{border-color:var(--n500);}
+.exchange-pill.selected{border-color:var(--text);background:var(--n100);}
+.exchange-pill input{display:none;}
+.exchange-name{font-size:12px;font-weight:800;letter-spacing:.02em;}
+.exchange-type{font-size:10px;color:var(--n500);margin-top:2px;}
+</style>
+</head>
+<body>
+
+<!-- AUTH WALL -->
+<div id="auth-wall">
+  <div class="auth-box">
+    <div class="auth-hdr">
+      <div class="auth-kicker">Fynaptix · Private</div>
+      <div class="auth-title">Bot Setup</div>
+    </div>
+    <div class="auth-body">
+      <div class="auth-lbl">Email</div>
+      <input id="auth-email" class="auth-input" type="email" placeholder="you@example.com"
+        autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('auth-password').focus()">
+      <div class="auth-gap"></div>
+      <div class="auth-lbl">Password</div>
+      <input id="auth-password" class="auth-input" type="password" placeholder="••••••••"
+        autocomplete="current-password" onkeydown="if(event.key==='Enter')signIn()">
+      <button id="auth-btn" class="auth-btn" onclick="signIn()">Sign in →</button>
+      <div id="auth-err" class="auth-err"></div>
+    </div>
+    <div class="auth-ftr">Private access · Fynaptix bots dashboard</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app-root" hidden>
+
+  <div class="page-header">
+    <div class="page-nav">
+      <a class="nav-back" href="/bots/">← Dashboard</a>
+      <span class="nav-sep">/</span>
+      <span class="nav-current">Setup</span>
+    </div>
+    <div class="page-kicker">Fynaptix · Bot Configuration</div>
+    <div class="page-title">Your Bot Setup</div>
+    <div class="page-sub">Connect your exchange account to start receiving Finora signal trades.<br>Your API keys are stored encrypted and never shared.</div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="form-section">
+    <div class="form-section-head">
+      <span class="form-section-title">Profile</span>
+      <span class="form-section-desc">How you appear on the dashboard</span>
+    </div>
+    <div class="form-body">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0">
+          <div class="form-lbl">Display name</div>
+          <input id="display-name" class="form-input" type="text" placeholder="e.g. Jeremy" autocomplete="name" style="font-family:var(--font);font-size:13px;font-weight:600;"/>
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <div class="form-lbl">Account email <span class="form-hint">read-only</span></div>
+          <input id="account-email" class="form-input" type="email" readonly style="opacity:.6;cursor:default;"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="status-banner" class="status-banner unconfigured">
+    <div class="status-dot off" id="status-dot"></div>
+    <span id="status-text">Not configured — complete setup below to activate your bot.</span>
+  </div>
+
+  <div class="warning-box">
+    <div class="warning-title">API Key Permissions</div>
+    <div class="warning-text">
+      Create a <strong>trading-only</strong> API key on your exchange — enable <strong>Futures/Derivatives trading</strong> only.
+      Do <strong>not</strong> enable withdrawals or transfers. Restrict the key to your IP address if your exchange supports it.
+    </div>
+  </div>
+
+  <!-- EXCHANGE SELECTION -->
+  <div class="form-section">
+    <div class="form-section-head">
+      <span class="form-section-title">Exchange</span>
+      <span class="form-section-desc">Which exchange do you want to trade on?</span>
+    </div>
+    <div class="form-body">
+      <div class="exchange-grid" id="exchange-grid">
+        <label class="exchange-pill selected" onclick="selectExchange('gateio_perp',this)">
+          <input type="radio" name="exchange" value="gateio_perp" checked>
+          <div class="exchange-name">Gate.io</div>
+          <div class="exchange-type">Perps · 1,400+</div>
+        </label>
+        <label class="exchange-pill" onclick="selectExchange('bybit',this)">
+          <input type="radio" name="exchange" value="bybit">
+          <div class="exchange-name">Bybit</div>
+          <div class="exchange-type">Linear Perps</div>
+        </label>
+        <label class="exchange-pill" onclick="selectExchange('mexc',this)">
+          <input type="radio" name="exchange" value="mexc">
+          <div class="exchange-name">MEXC</div>
+          <div class="exchange-type">Spot · Long only</div>
+        </label>
+        <label class="exchange-pill" onclick="selectExchange('binance',this)">
+          <input type="radio" name="exchange" value="binance">
+          <div class="exchange-name">Binance</div>
+          <div class="exchange-type">USDM Futures</div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- API KEYS -->
+  <div class="form-section">
+    <div class="form-section-head">
+      <span class="form-section-title">API Credentials</span>
+      <span class="form-section-desc">Used to place orders on your behalf</span>
+    </div>
+    <div class="form-body">
+      <div class="form-row">
+        <div class="form-lbl">API Key <span class="form-hint">from your exchange → API Management</span></div>
+        <input id="api-key" class="form-input" type="password" placeholder="Paste your API key" autocomplete="off" spellcheck="false"/>
+      </div>
+      <div class="form-row">
+        <div class="form-lbl">API Secret <span class="form-hint">shown once at creation — keep a copy</span></div>
+        <input id="api-secret" class="form-input" type="password" placeholder="Paste your API secret" autocomplete="off" spellcheck="false"/>
+      </div>
+      <div class="form-row" style="margin-top:4px;">
+        <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--n600);cursor:pointer;">
+          <input type="checkbox" id="show-keys" onchange="toggleKeyVisibility(this.checked)">
+          Show keys in plain text
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- RISK SETTINGS -->
+  <div class="form-section">
+    <div class="form-section-head">
+      <span class="form-section-title">Risk Settings</span>
+      <span class="form-section-desc">Applied to every signal trade</span>
+    </div>
+    <div class="form-body">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0">
+          <div class="form-lbl">Risk per trade (%) <span class="form-hint">of account balance</span></div>
+          <input id="risk-pct" class="form-number" type="number" min="0.1" max="10" step="0.1" value="1.0"/>
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <div class="form-lbl">Max open positions</div>
+          <input id="max-positions" class="form-number" type="number" min="1" max="20" step="1" value="3"/>
+        </div>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="toggle-row" style="border-top:1px solid var(--n200);padding-top:14px;">
+        <div>
+          <div class="toggle-label">Paper trading mode</div>
+          <div class="toggle-sub">Simulate trades without placing real orders. Disable when ready to go live.</div>
+        </div>
+        <div class="toggle-wrap">
+          <input type="checkbox" id="paper-toggle" class="toggle-input" checked>
+          <span class="toggle-slider"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="save-area">
+    <button class="save-btn" id="save-btn" onclick="saveConfig()">Save Configuration →</button>
+    <div class="save-status" id="save-status"></div>
+  </div>
+
+  <div style="height:32px;"></div>
+  <div style="font-size:11px;color:var(--n500);line-height:1.7;">
+    Your API keys are stored in Supabase (AES-256 encryption at rest) and are only accessed by the Finora listener bot to place orders.
+    Keys are never logged, displayed in plain text after saving, or accessible to other users.
+    You can update or revoke them at any time by returning to this page.
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL  = 'https://msnzqkpfznomvykqjvlw.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zbnpxa3Bmem5vbXZ5a3Fqdmx3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2NDE4NjIsImV4cCI6MjEwNjIxNzg2Mn0.Xt8wRZv-p5lkSFm7dNg6wNwokQ8yxAx5u9doRcuSRzk';
+const _sb = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let _userId    = null;
+let _userEmail = null;
+let _selectedExchange = 'gateio_perp';
+
+const EXCHANGE_LABELS = {
+  'gateio_perp': 'Gate.io Perps',
+  'bybit':       'Bybit',
+  'mexc':        'MEXC',
+  'binance':     'Binance',
+};
+
+function _showApp(userId, email) {
+  _userId    = userId;
+  _userEmail = email || '';
+  document.getElementById('auth-wall').hidden = true;
+  document.getElementById('app-root').hidden  = false;
+  if (_userEmail) document.getElementById('account-email').value = _userEmail;
+  loadConfig();
+}
+function _showWall() {
+  document.getElementById('auth-wall').hidden = false;
+  document.getElementById('app-root').hidden  = true;
+}
+
+async function signIn() {
+  const email    = (document.getElementById('auth-email').value || '').trim();
+  const password = document.getElementById('auth-password').value || '';
+  if (!email || !password) return;
+  const btn = document.getElementById('auth-btn');
+  const err = document.getElementById('auth-err');
+  btn.disabled = true; btn.textContent = 'Signing in…'; err.textContent = '';
+  try {
+    const { data, error } = await _sb.auth.signInWithPassword({ email, password });
+    if (error) { err.textContent = error.message; btn.disabled = false; btn.textContent = 'Sign in →'; }
+    else if (data?.session) { _showApp(data.session.user.id, data.session.user.email); }
+  } catch(e) { err.textContent = 'Error: ' + (e.message || e); btn.disabled = false; btn.textContent = 'Sign in →'; }
+}
+
+_sb?.auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_IN' && session) _showApp(session.user.id, session.user.email);
+  if (event === 'SIGNED_OUT') _showWall();
+});
+(async () => {
+  if (!_sb) { _showApp(null, ''); return; }
+  const { data: { session } } = await _sb.auth.getSession();
+  if (session) _showApp(session.user.id, session.user.email); else _showWall();
+})();
+
+// ── Exchange selection ──
+function selectExchange(val, el) {
+  _selectedExchange = val;
+  document.querySelectorAll('.exchange-pill').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function toggleKeyVisibility(show) {
+  ['api-key', 'api-secret'].forEach(id => {
+    document.getElementById(id).type = show ? 'text' : 'password';
+  });
+}
+
+// ── Load existing config ──
+async function loadConfig() {
+  if (!_sb || !_userId) return;
+  try {
+    const { data } = await _sb.from('bot_users')
+      .select('exchange,risk_pct,max_positions,paper_trading,active,updated_at')
+      .eq('user_id', _userId)
+      .maybeSingle();
+
+    if (data) {
+      // Mark as configured
+      const banner = document.getElementById('status-banner');
+      banner.className = 'status-banner configured';
+      document.getElementById('status-dot').className = 'status-dot on';
+      const ts = data.updated_at ? new Date(data.updated_at).toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric'}) : '';
+      document.getElementById('status-text').textContent =
+        `Bot configured · ${EXCHANGE_LABELS[data.exchange] || data.exchange} · ${data.paper_trading ? 'Paper mode' : 'Live'} · Last updated ${ts}`;
+
+      // Pre-fill display name
+      if (data.display_name) document.getElementById('display-name').value = data.display_name;
+
+      // Pre-fill form (keys not returned for security)
+      _selectedExchange = data.exchange || 'gateio_perp';
+      document.querySelectorAll('.exchange-pill').forEach(p => {
+        const val = p.querySelector('input')?.value;
+        p.classList.toggle('selected', val === _selectedExchange);
+      });
+      document.getElementById('risk-pct').value      = data.risk_pct ?? 1.0;
+      document.getElementById('max-positions').value = data.max_positions ?? 3;
+      document.getElementById('paper-toggle').checked = data.paper_trading !== false;
+
+      // Key fields show placeholder indicating keys are saved
+      document.getElementById('api-key').placeholder    = '••••••• (saved — paste to replace)';
+      document.getElementById('api-secret').placeholder = '••••••• (saved — paste to replace)';
+    }
+  } catch(e) { console.warn('loadConfig:', e); }
+}
+
+// ── Save ──
+async function saveConfig() {
+  if (!_sb || !_userId) return;
+
+  const apiKey    = document.getElementById('api-key').value.trim();
+  const apiSecret = document.getElementById('api-secret').value.trim();
+  const riskPct   = parseFloat(document.getElementById('risk-pct').value) || 1.0;
+  const maxPos    = parseInt(document.getElementById('max-positions').value, 10) || 3;
+  const paper     = document.getElementById('paper-toggle').checked;
+
+  const btn    = document.getElementById('save-btn');
+  const status = document.getElementById('save-status');
+  btn.disabled = true; btn.textContent = 'Saving…'; status.textContent = '';
+
+  try {
+    // Check if row exists
+    const { data: existing } = await _sb.from('bot_users')
+      .select('id').eq('user_id', _userId).maybeSingle();
+
+    const displayName = document.getElementById('display-name').value.trim();
+
+    const payload = {
+      user_id:       _userId,
+      exchange:      _selectedExchange,
+      risk_pct:      riskPct,
+      max_positions: maxPos,
+      paper_trading: paper,
+      display_name:  displayName || null,
+      active:        true,
+      updated_at:    new Date().toISOString(),
+    };
+    // Only include keys if the user actually typed something
+    if (apiKey)    payload.api_key    = apiKey;
+    if (apiSecret) payload.api_secret = apiSecret;
+
+    let err;
+    if (existing) {
+      ({ error: err } = await _sb.from('bot_users').update(payload).eq('user_id', _userId));
+    } else {
+      if (!apiKey || !apiSecret) {
+        status.className = 'save-status err';
+        status.textContent = 'API key and secret are required for first setup.';
+        btn.disabled = false; btn.textContent = 'Save Configuration →';
+        return;
+      }
+      ({ error: err } = await _sb.from('bot_users').insert(payload));
+    }
+
+    if (err) throw err;
+
+    status.className = 'save-status ok';
+    status.textContent = '✓ Saved — your bot configuration is active.';
+
+    // Update banner
+    const banner = document.getElementById('status-banner');
+    banner.className = 'status-banner configured';
+    document.getElementById('status-dot').className = 'status-dot on';
+    document.getElementById('status-text').textContent =
+      `Bot configured · ${EXCHANGE_LABELS[_selectedExchange] || _selectedExchange} · ${paper ? 'Paper mode' : 'Live'} · Just updated`;
+
+    // Clear key fields after save
+    document.getElementById('api-key').value    = '';
+    document.getElementById('api-secret').value = '';
+    document.getElementById('api-key').placeholder    = '••••••• (saved — paste to replace)';
+    document.getElementById('api-secret').placeholder = '••••••• (saved — paste to replace)';
+
+  } catch(e) {
+    status.className = 'save-status err';
+    status.textContent = 'Error: ' + (e.message || JSON.stringify(e));
+  }
+
+  btn.disabled = false; btn.textContent = 'Save Configuration →';
+}
+</script>
+</body>
+</html>
