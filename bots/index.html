@@ -230,23 +230,15 @@ canvas{display:block;width:100%;height:120px;}
       <div class="sb-dot running pulse"></div>
       <div><div class="sb-bot-name">All Bots</div><div class="sb-bot-exch">Overview</div></div>
     </div>
-    <div class="sb-bot" onclick="showView('gate-etf-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Gate.io ETF</div><div class="sb-bot-exch">Gate.io</div></div>
-    </div>
-    <div class="sb-bot" onclick="showView('bybit-mom-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Bybit Perps</div><div class="sb-bot-exch">Bybit</div></div>
-    </div>
-    <div class="sb-bot" onclick="showView('mexc-trend-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">MEXC Trend</div><div class="sb-bot-exch">MEXC</div></div>
-    </div>
 
     <div class="sb-section">Signals</div>
     <div class="sb-bot" onclick="showView('finora-01',this)">
       <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Finora</div><div class="sb-bot-exch">Bybit · Perps</div></div>
+      <div><div class="sb-bot-name">Finora Signals</div><div class="sb-bot-exch">Gate.io · Perps</div></div>
+    </div>
+    <div class="sb-bot" onclick="showView('pump-01',this)">
+      <div class="sb-dot running pulse"></div>
+      <div><div class="sb-bot-name">Pump Bot</div><div class="sb-bot-exch">Gate.io · Perps</div></div>
     </div>
 
     <div class="sb-footer">
@@ -299,7 +291,7 @@ canvas{display:block;width:100%;height:120px;}
         <div class="banner-left">
           <div class="banner-eyebrow">Paper Trading · All Systems Running</div>
           <div class="banner-title">Bot Dashboard</div>
-          <div class="banner-desc">Four strategies running in parallel — Gate.io Leveraged ETF, Bybit Momentum Perps, MEXC CoinGecko Trend, and Finora SMC Signal Bot.</div>
+          <div class="banner-desc">Two strategies running in paper mode — Finora Signals (Shitfinder SMC entries via Gate.io perps) and Pump Bot (FinoraEN volume spike alerts with AI TA analysis).</div>
         </div>
         <div class="banner-right">
           <div class="banner-stat">
@@ -358,10 +350,8 @@ canvas{display:block;width:100%;height:120px;}
         </div>
         <div class="trade-toolbar">
           <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-          <button class="filter-btn" onclick="setFilter('gate-etf-01',this)">Gate.io</button>
-          <button class="filter-btn" onclick="setFilter('bybit-mom-01',this)">Bybit</button>
-          <button class="filter-btn" onclick="setFilter('mexc-trend-01',this)">MEXC</button>
-          <button class="filter-btn" onclick="setFilter('finora-01',this)">Finora</button>
+          <button class="filter-btn" onclick="setFilter('finora-01',this)">Finora Signals</button>
+          <button class="filter-btn" onclick="setFilter('pump-01',this)">Pump Bot</button>
           <button class="filter-btn" onclick="setFilter('open',this)">Open</button>
         </div>
         <div class="trade-table-wrap">
@@ -446,9 +436,11 @@ function updateClock(){
 const BOT_DEFS=[
   {id:'finora-01', name:'Finora Signal Bot', exchange:'Gate.io Perps', status:'paper',
    desc:'Shitfinder SMC signals via Finora Premium · FVG entries · R-based sizing · TP scale-out 40/40/20 · 67.8% verified Sep win rate · 1,400+ perp pairs'},
+  {id:'pump-01', name:'Pump Bot', exchange:'Gate.io Perps', status:'paper',
+   desc:'FinoraEN volume spike alerts · AI TA analysis · exact entry zones from Finora · 0.5% risk per trade · futures only · spike ≥2x filter'},
 ];
 
-const BOT_LABEL={'finora-01':'Finora'};
+const BOT_LABEL={'finora-01':'Finora','pump-01':'Pump Bot'};
 
 // ─── STATE ───
 let ALL_TRADES=[];
@@ -459,17 +451,20 @@ let activeView='all';
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
-    const fR=await _sb.from('finora_trades').select('*').eq('user_id',_currentUserId||'').order('opened_at',{ascending:false}).limit(300);
+    const uid=_currentUserId||'';
+    const [fR,pR]=await Promise.all([
+      _sb.from('finora_trades').select('*').eq('user_id',uid).order('opened_at',{ascending:false}).limit(300),
+      _sb.from('pump_trades').select('*').eq('user_id',uid).order('opened_at',{ascending:false}).limit(300),
+    ]);
     const ft=(fR.data||[]).map(normFinora);
-    ALL_TRADES=[...ft].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    const pt=(pR.data||[]).map(normPump);
+    ALL_TRADES=[...ft,...pt].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
 }
 
 function normFinora(t){return{botId:'finora-01',symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null};}
-function normGate(t){return{botId:'gate-etf-01',symbol:t.underlying_pair||t.etf_pair||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open'};}
-function normBybit(t){return{botId:'bybit-mom-01',symbol:t.pair||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open'};}
-function normMexc(t){return{botId:'mexc-trend-01',symbol:t.pair||'—',dir:'LONG',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open'};}
+function normPump(t){return{botId:'pump-01',symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null};}
 
 // ─── RENDER ALL ───
 function renderAll(trades){
