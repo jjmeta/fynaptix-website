@@ -246,6 +246,10 @@ canvas{display:block;width:100%;height:120px;}
       <div class="sb-dot running pulse"></div>
       <div><div class="sb-bot-name">Overextension</div><div class="sb-bot-exch">Gate.io · Perps · Short</div></div>
     </div>
+    <div class="sb-bot" onclick="showView('ma30-bounce-01',this)">
+      <div class="sb-dot running pulse"></div>
+      <div><div class="sb-bot-name">MA30 Bounce</div><div class="sb-bot-exch">Gate.io · Perps · Long</div></div>
+    </div>
 
     <div class="sb-footer">
       <div class="sb-time" id="sb-time">—</div>
@@ -297,7 +301,7 @@ canvas{display:block;width:100%;height:120px;}
         <div class="banner-left">
           <div class="banner-eyebrow">Paper Trading · All Systems Running</div>
           <div class="banner-title">Bot Dashboard</div>
-          <div class="banner-desc">Three strategies running in paper mode — Finora Signals (SMC entries), Pump Bot (volume spike alerts), and Overextension Short (6 green candles + 100% run → short at 3× leverage).</div>
+          <div class="banner-desc">Four strategies running in paper mode — Finora Signals (SMC entries), Pump Bot (volume spike alerts), Overextension Short (6 green candles + 100% run → short 3×), and MA30 Bounce (red 4H candle at MA30 → long 3×).</div>
         </div>
         <div class="banner-right">
           <div class="banner-stat">
@@ -359,6 +363,7 @@ canvas{display:block;width:100%;height:120px;}
           <button class="filter-btn" onclick="setFilter('finora-01',this)">Finora Signals</button>
           <button class="filter-btn" onclick="setFilter('pump-01',this)">Pump Bot</button>
           <button class="filter-btn" onclick="setFilter('overextension-01',this)">Overextension</button>
+          <button class="filter-btn" onclick="setFilter('ma30-bounce-01',this)">MA30 Bounce</button>
           <button class="filter-btn" onclick="setFilter('open',this)">Open</button>
         </div>
         <div class="trade-table-wrap">
@@ -447,9 +452,11 @@ const BOT_DEFS=[
    desc:'FinoraEN volume spike alerts · AI TA analysis · exact entry zones from Finora · 0.5% risk per trade · futures only · spike ≥2x filter'},
   {id:'overextension-01', name:'Overextension Short', exchange:'Gate.io Perps · 3×', status:'paper',
    desc:'6 consecutive green daily candles + ≥100% cumulative run → SHORT at day-7 open · 3× leverage · SL +10% above entry · trailing stop 10% · TP target −50% · max 3 concurrent'},
+  {id:'ma30-bounce-01', name:'MA30 Bounce', exchange:'Gate.io Perps · 3×', status:'paper',
+   desc:'Red 4H candle closes 0–2% above 30-day daily MA → LONG · 3× leverage · SL −10% below entry · trailing stop 10% · TP target +50% · runs every 4H · max 3 concurrent'},
 ];
 
-const BOT_LABEL={'finora-01':'Finora','pump-01':'Pump Bot','overextension-01':'Overext'};
+const BOT_LABEL={'finora-01':'Finora','pump-01':'Pump Bot','overextension-01':'Overext','ma30-bounce-01':'MA30'};
 
 // ─── STATE ───
 let ALL_TRADES=[];
@@ -461,15 +468,17 @@ async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
     const uid=_currentUserId||'';
-    const [fR,pR,oR]=await Promise.all([
+    const [fR,pR,oR,mR]=await Promise.all([
       _sb.from('finora_trades').select('*').eq('user_id',uid).order('opened_at',{ascending:false}).limit(300),
       _sb.from('pump_trades').select('*').eq('user_id',uid).order('opened_at',{ascending:false}).limit(300),
       _sb.from('overextension_trades').select('*').order('opened_at',{ascending:false}).limit(300),
+      _sb.from('ma30_bounce_trades').select('*').order('opened_at',{ascending:false}).limit(300),
     ]);
     const ft=(fR.data||[]).map(normFinora);
     const pt=(pR.data||[]).map(normPump);
     const ot=(oR.data||[]).map(normOverext);
-    ALL_TRADES=[...ft,...pt,...ot].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    const mt=(mR.data||[]).map(normMA30);
+    ALL_TRADES=[...ft,...pt,...ot,...mt].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
 }
@@ -477,6 +486,7 @@ async function loadData(){
 function normFinora(t){return{botId:'finora-01',symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null};}
 function normPump(t){return{botId:'pump-01',symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null};}
 function normOverext(t){return{botId:'overextension-01',symbol:t.symbol||'—',dir:'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:null};}
+function normMA30(t){return{botId:'ma30-bounce-01',symbol:t.symbol||'—',dir:'LONG',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:null};}
 
 // ─── RENDER ALL ───
 function renderAll(trades){
