@@ -843,6 +843,9 @@ a{text-decoration:none;color:inherit;}
 // CONFIG
 // ═══════════════════════════════════════
 const COINALYZE_KEY = '';
+// CoinGecko changed their CORS policy — browser requests from custom domains are
+// blocked. Intercept all CoinGecko fetches and route through corsproxy.io.
+(()=>{const _f=window.fetch.bind(window);window.fetch=(u,...a)=>{if(typeof u==='string'&&u.startsWith('https://api.coingecko.com/'))u='https://corsproxy.io/?'+encodeURIComponent(u);return _f(u,...a);};})();
 
 // ═══════════════════════════════════════
 // FORMATTERS
