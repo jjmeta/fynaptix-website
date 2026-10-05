@@ -1,0 +1,365 @@
+{
+ "sector": "defense",
+ "title": "Fynaptix \u00b7 Defense Tech Research",
+ "heading": "Defense Technology Intelligence",
+ "subheading": "AI battlefield software, drones, autonomy & European rearmament",
+ "kicker": "DEFENSE TECH & AUTONOMY // OCT 2026",
+ "generated": "Oct 4, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Defense names carry policy, program-concentration, and valuation risk. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "~$2.89T",
+   "sub": "2025 \u00b7 GLOBAL MILITARY SPENDING (SIPRI)",
+   "label": "European allies pledged at The Hague to reach 3.5% of GDP core defence spending by 2035; Germany is targeting 2029 on a \u20ac108B 2026 defence budget (+25% YoY), so the European demand runway is intact even as listed European names de-rate on execution",
+   "highlight": false
+  },
+  {
+   "value": "$35.6B+",
+   "sub": "2026 YTD \u00b7 DEFENSE TECH VC, PAST 2025'S $9.6B FULL-YEAR RECORD",
+   "label": "Early-stage rounds are pricing at 17x-50x revenue; Anduril's raise at ~$100B (first reported Jul 24, vs. a $61B mark set about two months earlier) is still unclosed roughly ten weeks on, with one proposed structure tying a later, higher valuation to financial benchmarks",
+   "highlight": false
+  },
+  {
+   "value": "Dec 11",
+   "sub": "CONTINUING RESOLUTION EXPIRY \u00b7 150+ PROGRAMS DELAYED",
+   "label": "The stopgap blocks new program starts: Golden Dome has under $400M of base-budget authority with ~$17.1B of its $17.5B request dependent on a reconciliation bill, and the $54.6B FY27 DAWG drone line cannot begin; Pentagon leadership has warned of a $500B-$700B gap between plans and likely appropriations",
+   "highlight": true
+  },
+  {
+   "value": "~$5B",
+   "sub": "ANDURIL'S AIR FORCE CCA PRODUCTION AWARD \u00b7 SEP 26",
+   "label": "The Air Force named Anduril's FQ-44A Fury and General Atomics' FQ-42A Vengeance for CCA production \u2014 150 airframes initially, scaling toward 500 by 2032 at roughly $20M/unit, split between the two \u2014 a production milestone that supports an eventual Anduril IPO regardless of when its private round closes",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Established / Software & Primes",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "PLTR",
+     "company": "Palantir",
+     "angle": "Shares near $188.77 (Oct 2) sit between a ~$219 bull case and a ~$170 bear case; Q2 revenue grew 92.8% to $1.935B (U.S. commercial +149%) and full-year guidance implies ~82% growth, but at ~85x forward earnings the consensus target of ~$196 implies only modest upside",
+     "watch for": "A 160x trailing P/E, ~$265M of quarterly stock-based compensation and government-contract termination risk; CEO Alex Karp's Sep 17 comment that leading AI labs may need to be nationalized remains a regulatory-risk thread, and the stock is ~9% below its $207.52 high"
+    },
+    {
+     "ticker": "RHM.DE",
+     "company": "Rheinmetall",
+     "angle": "Shares closed at \u20ac959.80 (Oct 2) \u2014 down ~38% year-to-date and less than half the \u20ac2,007 high set in October 2025 \u2014 even as the order backlog stands at \u20ac80.5B; CEO Armin Papperger bought \u20ac499K of stock this week and a supervisory-board-linked foundation also bought, a mildly constructive signal",
+     "watch for": "Q3 results on Nov 5 will test backlog quality and cash conversion; delivery delays on wheeled vehicles and Skyranger, suspected plate quality issues, negative operating free cash flow and July's loss of the \u20ac12.8B F126 frigate program all remain unresolved"
+    },
+    {
+     "ticker": "LHX",
+     "company": "L3Harris",
+     "angle": "Shares at $236.64 (Oct 2) trade near the bottom of a $234-$379 52-week range, ~22% down YTD on ~19.9x forward earnings; a seven-year, ~$6B Lockheed Martin THAAD propulsion contract (undefinitized) and a $1B Pentagon convertible investment in the Missile Solutions unit (IPO now mid-2027) support the case",
+     "watch for": "The CR freezes new starts including $921.9M of THAAD production, Golden Dome is largely suspended, and the Kubasik exit (replaced by CEO Sam Mehta in August after a conduct review) is still not fully explained; consensus target ~$356 implies large upside only if funding resumes"
+    },
+    {
+     "ticker": "BA.L",
+     "company": "BAE Systems",
+     "angle": "No fresh price data could be confirmed this week; last confirmed, shares were holding a September recovery in the mid-2,000s pence range, backed by a record \u00a384.0B H1 order backlog and July's raised full-year guidance (8-10% sales growth, 11-13% EPS growth)",
+     "watch for": "Roughly half of revenue is U.S.-linked, so the CR and FY27 appropriations fight matters; H2 execution against raised guidance is unproven and the market has stopped rewarding order announcements on their own"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "High-Growth Autonomy Pure-Plays",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "AVAV",
+     "company": "AeroVironment",
+     "angle": "Shares at $140.31 (Oct 1) trade below both the 50-day ($158.54) and 200-day ($171.12) averages and are ~42% down YTD, despite the Sep 9 quarterly beat ($0.59 EPS vs. $0.22 expected; $480.5M revenue vs. $452M) and the $464.8M Army LOCUST laser award; consensus target ~$232",
+     "watch for": "Stifel and Piper Sandler recently cut targets (to $220 and $235), the earlier BADGER/SCAR cancellation and goodwill impairment still weigh, and the CR delays new autonomy program starts the growth story depends on"
+    },
+    {
+     "ticker": "KTOS",
+     "company": "Kratos Defense",
+     "angle": "Shares around $51 after a ~$35M hardware award; the Orbit Communications acquisition closed in August, JDAM-ER propulsion and a Marine Corps unmanned deal add breadth, and the CCA production decision keeps engine optionality (GE GEK800) alive; the popular fair-value narrative of ~$105 depends on ambitious growth and margin assumptions",
+     "watch for": "At ~6.3x sales versus an industry average of ~4.6x, the stock needs backlog-to-revenue conversion; Kratos again did not place on the Gauntlet II leaderboard, and the CR delays new starts"
+    },
+    {
+     "ticker": "RCAT",
+     "company": "Red Cat Holdings",
+     "angle": "Shares are ~20% down YTD, the least bad of the big three drone names, but H1 revenue was only $35.7M against a $150M full-year target \u2014 Red Cat needs a very steep H2 ramp, with the U.S. Army roughly half of H1 sales; Teal Drones missed the top five in Gauntlet II, where private Neros took a ~$100M, 14,000-drone order",
+     "watch for": "Revenue conversion from the Blue Ops/Havoc maritime and Apium swarm stories, further insider sales, and the next Gauntlet round"
+    },
+    {
+     "ticker": "ONDS",
+     "company": "Ondas Holdings",
+     "angle": "Shares are ~26% down YTD even though management raised its 2026 revenue outlook and cites a pro forma backlog of ~$757M (partly acquired); Ascent Aerosystems missed the Gauntlet II Deep Strike top five, but counter-UAS and loitering-munitions work continues",
+     "watch for": "The H2 ramp needed to hit the raised outlook, dilution/insider sales (a Form 144 filing and the Q2 EPS miss of -$0.19 vs. -$0.13), and reliance on acquired backlog"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "Anduril",
+   "value": "~$100B VALUATION (STILL IN TALKS, ~10 WEEKS UNCLOSED)",
+   "note": "Talks first reported Jul 24 (following a $5B round at $61B led by Thrive and a16z about two months earlier) remain unclosed; one proposed structure would commit investors to a later, higher-valued round tied to financial benchmarks. 2025 revenue was $2.2B, and the Sep 26 CCA production award (up to ~$5B split with General Atomics) is real production revenue regardless of when the round closes."
+  },
+  {
+   "name": "Shield AI",
+   "value": "~$12.7B VALUATION",
+   "note": "No new financing this period; still marked by the ~$2B round at $12.7B. Competes for the Navy's up-to-$800M ISR task-order pool with V-BAT alongside NATO eastern-flank orders."
+  },
+  {
+   "name": "Saronic",
+   "value": "~$9.25B VALUATION",
+   "note": "No new financing this period; still marked by the $1.75B Series D plus an early-September add-on. Building out its Port of Gulfport site toward 20+ autonomous surface vessels a year by 2027."
+  },
+  {
+   "name": "Helsing",
+   "value": "~$18B VALUATION",
+   "note": "No new financing this period; still marked by the $1.8B round closed Jul 13, the largest defence-tech round in European history. Continues fielding the HX-2 strike drone in Ukraine."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "The stopgap budget freezes the programs the growth stories depend on",
+   "description": "The continuing resolution runs to Dec 11 and blocks new starts for 150+ programs; Golden Dome has under $400M of base-budget authority against a $17.5B request (~$17.1B needs reconciliation), the $54.6B DAWG drone line cannot begin, and Pentagon leadership has flagged a $500B-$700B gap between plans and likely appropriations.",
+   "counter": "Congress has historically backfilled priority programs after a CR, and the reconciliation route could still deliver Golden Dome funding."
+  },
+  {
+   "title": "Public-market valuations remain stretched",
+   "description": "Palantir at ~$189 trades near 85x forward earnings (160x trailing) and the S&P Aerospace & Defense sub-index sits near 32x forward earnings versus roughly 20x for the S&P 500 \u2014 a premium the sector has to keep earning.",
+   "counter": "Palantir's 92.8% revenue growth and rising EPS estimates are far faster than higher-multiple software peers."
+  },
+  {
+   "title": "Private-market valuations are drawing bubble comparisons of their own",
+   "description": "Early-stage rounds price at 17x-50x revenue, Anduril's ~$100B target remains unclosed ten weeks on, and the Bank for International Settlements has compared the sector's pricing to the AI-infrastructure buildout it already calls bubble-like.",
+   "counter": ""
+  },
+  {
+   "title": "The Pentagon's drone competitions keep favoring private newcomers over listed pure-plays",
+   "description": "Gauntlet II leaders Neros and Perennial Autonomy won real orders (Neros: ~$100M for 14,000+ FPV drones on Oct 1), while Red Cat's Teal Drones, Ondas's Ascent Aerosystems and Kratos all missed the top five.",
+   "counter": ""
+  },
+  {
+   "title": "Contract wins and beats aren't rescuing the pure-play stocks",
+   "description": "AeroVironment beat Q2 estimates ($0.59 vs. $0.22 EPS) and won a $464.8M laser award yet trades at $140, ~42% down YTD and below its 50- and 200-day averages after Stifel and Piper Sandler cut targets.",
+   "counter": "The ~$232 consensus target implies substantial upside if backlog converts to earnings."
+  },
+  {
+   "title": "Rheinmetall's backlog no longer moves the stock \u2014 execution does",
+   "description": "A \u20ac80.5B backlog hasn't stopped a ~38% YTD slide to \u20ac959.80; delivery delays, quality concerns, negative operating free cash flow and the F126 loss are the focus ahead of Nov 5 Q3 results.",
+   "counter": "CEO and board-linked insider purchases this week suggest management sees the de-rating as overdone."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "OCT 1",
+   "title": "Pentagon awards Neros ~$100M for 14,000+ FPV drones after Gauntlet II",
+   "description": "A private company, not a listed pure-play, captured the first big production order from the Drone Dominance Program; Red Cat, Ondas and Kratos missed the top five."
+  },
+  {
+   "date": "EARLY OCT",
+   "title": "Continuing resolution to Dec 11 delays 150+ new programs",
+   "description": "Golden Dome (~$17.1B reconciliation-dependent) and the $54.6B DAWG drone line cannot start; THAAD production ($921.9M) and M-SHORAD Inc. 4 are among frozen new starts."
+  },
+  {
+   "date": "EARLY OCT",
+   "title": "L3Harris lands ~$6B seven-year THAAD propulsion contract from Lockheed Martin",
+   "description": "Undefinitized, with terms due by late 2026; the Pentagon also holds a $1B convertible stake in the Missile Solutions unit, whose IPO has slipped to mid-2027."
+  },
+  {
+   "date": "SEP 26",
+   "title": "Anduril's FQ-44A Fury wins Air Force CCA production",
+   "description": "Up to ~$5B split with General Atomics across 150 initial airframes (scaling to 500 by 2032), plus a separate autonomy-software award."
+  },
+  {
+   "date": "THIS WEEK",
+   "title": "Rheinmetall CEO and board-linked foundation buy stock",
+   "description": "Papperger bought 525 shares (~\u20ac499K) with shares at ~\u20ac960, down ~38% YTD; a new Nordic site and a U.S. Army mounts order also announced."
+  },
+  {
+   "date": "NOV 5",
+   "title": "Upcoming: Rheinmetall Q3 2026 results",
+   "description": "Investors will scrutinize backlog composition and cash conversion after months of execution concerns."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "SHLD",
+   "name": "Global X Defense Tech",
+   "summary": "~$6.6B AUM, 0.50% expense ratio, ~0.7% yield; ~15% technology / 85% industrials with Palantir and Planet Labs among holdings; stronger 3-year return than ITA but a deeper 3-year max drawdown (-25.4% vs. -17.3%)"
+  },
+  {
+   "ticker": "ITA",
+   "name": "iShares US Aerospace & Defense",
+   "summary": "~$12.3B AUM, 0.37% expense ratio, ~0.3% yield, ~98% industrials (GE Aerospace, RTX, Boeing); the lower-cost, steadier broad-primes option, closed near $207.79 on Oct 2"
+  },
+  {
+   "ticker": "PPA",
+   "name": "Invesco Aerospace & Defense",
+   "summary": "Last confirmed ~$8.4B AUM and 0.58% expense ratio (not refreshed this week); a broader commercial-aerospace tilt tempers pure-play defense-tech volatility"
+  },
+  {
+   "ticker": "EUAD",
+   "name": "Select STOXX Europe Defense",
+   "summary": "Last confirmed ~$1.2B AUM across 23 holdings and 0.50% expense ratio (not refreshed this week); the pure European play, caught between BAE's steadier tape and Rheinmetall's execution concerns"
+  }
+ ],
+ "sources": [
+  {
+   "title": "Industrial Base Alpha \u2014 Over 150 military programs delayed as Pentagon enters continuing resolution through December",
+   "url": "https://industrialbasealpha.com/article/over-150-military-programs-delayed-as-pentagon-enters-continuing-resolution-thro"
+  },
+  {
+   "title": "The Defense Post \u2014 Neros wins Pentagon order for 14,000 FPV drones after Gauntlet 2",
+   "url": "https://thedefensepost.com/2026/10/01/neros-pentagon-fpv-drones/"
+  },
+  {
+   "title": "MarketBeat \u2014 L3Harris' $6 Billion THAAD Win Comes at a Crucial Moment for the Stock",
+   "url": "https://www.marketbeat.com/articles/l3harris-6-billion-thaad-win-comes-at-a-crucial-moment-for-the-stock/"
+  },
+  {
+   "title": "MarketBeat \u2014 AeroVironment (NASDAQ:AVAV) Stock Falls 1.3%",
+   "url": "https://www.marketbeat.com/instant-alerts/price-aerovironment-nasdaq-avav-stock-falls-13-should-you-sell-2026-10-01/"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 Palantir's Growth Could Justify a Much Higher Stock Price",
+   "url": "https://247wallst.com/investing/2026/10/02/palantirs-growth-could-justify-a-much-higher-stock-price/"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 Which Drone Stock Is Dominating in 2026: Red Cat, Ondas, or AeroVironment?",
+   "url": "https://247wallst.com/investing/2026/10/02/which-drone-stock-is-dominating-in-2026-red-cat-ondas-or-aerovironment/"
+  },
+  {
+   "title": "ad-hoc-news \u2014 Rheinmetall Insiders Buy In as Defense Group Pushes Nordic Base and U.S. Army Work",
+   "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/rheinmetall-insiders-buy-in-as-defense-group-pushes-nordic-base-and-u-s-army-work/70221664"
+  },
+  {
+   "title": "Simply Wall St \u2014 Kratos (KTOS) Lands $35 Million Award As Fair Value Debate Builds",
+   "url": "https://simplywall.st/stocks/us/capital-goods/nasdaq-ktos/kratos-defense-security-solutions/news/kratos-defense-security-solutions-ktos-lands-35-million-awar/amp"
+  },
+  {
+   "title": "The Motley Fool \u2014 Aerospace ETF Showdown: iShares ITA vs. Global X SHLD",
+   "url": "https://www.fool.com/coverage/etfs/2026/10/01/aerospace-etf-showdown-for-defense-investors-ishares-ita-vs-global-x-shld/"
+  },
+  {
+   "title": "Janus Henderson \u2014 European defense stocks: the magnitude of Europe's rearmament remains underappreciated",
+   "url": "https://www.janushenderson.com/en-us/investor/article/european-defense-stocks-the-magnitude-of-europes-rearmament-remains-underappreciated/"
+  },
+  {
+   "title": "Defense News \u2014 Anduril in talks to raise funding at about $100 billion valuation",
+   "url": "https://www.defensenews.com/industry/techwatch/2026/07/24/anduril-in-talks-to-raise-funding-at-about-100-billion-valuation/"
+  },
+  {
+   "title": "Air & Space Forces Magazine \u2014 Air Force Selects General Atomics and Anduril for CCA Production",
+   "url": "https://www.airandspaceforces.com/air-force-general-atomics-anduril-cca-production-contracts/"
+  },
+  {
+   "title": "CNBC \u2014 Helsing raises $1.8 billion at $18 billion valuation",
+   "url": "https://www.cnbc.com/2026/07/13/helsing-fund-raise-defense-18-billion.html"
+  },
+  {
+   "title": "Crunchbase News \u2014 Defense Startup Venture Funding All-Time Record",
+   "url": "https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/"
+  },
+  {
+   "title": "Tectonic Defense \u2014 Defense Tech Funding is Breaking Records, with $35.6B Invested YTD",
+   "url": "https://www.tectonicdefense.com/defense-tech-funding-is-breaking-records-with-35-6b-invested-ytd/"
+  },
+  {
+   "title": "DefenseScoop \u2014 Guetlein: Golden Dome in jeopardy due to 2027 funding uncertainty",
+   "url": "https://defensescoop.com/2026/08/12/guetlein-golden-dome-in-jeopardy-due-to-2027-funding-uncertainty/"
+  },
+  {
+   "title": "CNBC \u2014 Global military spending jumps to $2.89 trillion",
+   "url": "https://www.cnbc.com/2026/04/27/global-military-spending-record-2025-europe-asia-ukraine-sipri.html"
+  },
+  {
+   "title": "DroneXL \u2014 Pentagon Requests $75 Billion For Drones In FY27, DAWG Gets Largest Boost",
+   "url": "https://dronexl.co/2026/04/21/pentagon-fy27-75-billion-drone-budget-dawg-largest-boost/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Oct 4, 2026. Refreshed weekly. Always confirm current prices/valuations independently. Fresh BAE Systems and EUAD/PPA price data could not be confirmed this week; those entries carry forward last week's figures.",
+ "stance": {
+  "as_of": "Oct 4, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "BA.L",
+    "name": "BAE Systems",
+    "stance": "core",
+    "weight": 50,
+    "note": "No fresh price could be confirmed this week, but the record \u00a384.0B H1 backlog and raised full-year guidance are unchanged and nothing this week contradicts the thesis \u2014 still the least-disputed name here, with the watch-point being roughly half of revenue tied to a U.S. budget stuck in a CR. Directly accessible on UK platforms with no wrapper needed.",
+    "change": null
+   },
+   {
+    "ticker": "KTOS",
+    "name": "Kratos Defense",
+    "stance": "spec",
+    "weight": 35,
+    "note": "The Sep 26 CCA production award keeps GE GEK800 engine optionality alive and the ~$35M award and Orbit deal add breadth, but at ~6.3x sales versus 4.6x for the industry, ~$51 shares still need backlog conversion, Kratos again missed the Gauntlet II board, and the Dec 11 CR delays new starts. Also sits in the Robotics sleeve \u2014 don't double-count. Needs a US wrapper.",
+    "change": null
+   },
+   {
+    "ticker": "AVAV",
+    "name": "AeroVironment",
+    "stance": "spec",
+    "weight": 15,
+    "note": "A Sep 9 beat ($0.59 vs. $0.22 EPS) and the $464.8M laser award haven't stopped a slide to $140.31 (~42% down YTD, below both moving averages) as Stifel and Piper cut targets \u2014 small size only until execution shows up. Also sits in the Robotics sleeve \u2014 don't double-count. Needs a US wrapper.",
+    "change": null
+   },
+   {
+    "ticker": "LHX",
+    "name": "L3Harris",
+    "stance": "watch",
+    "weight": 0,
+    "note": "At $236.64 (~19.9x forward earnings, ~22% down YTD) the valuation has genuinely reset and the ~$6B THAAD propulsion contract is real, but the CR freezes new THAAD production starts and Golden Dome funding, and the Kubasik exit is still not fully explained \u2014 a price worth watching, not yet a thesis that's confirmed. Also sits in the Space sleeve via satellite work \u2014 don't double-count. Needs a US wrapper.",
+    "change": null
+   },
+   {
+    "ticker": "RHM.DE",
+    "name": "Rheinmetall",
+    "stance": "watch",
+    "weight": 0,
+    "note": "CEO Papperger's ~\u20ac499K purchase at ~\u20ac960 (down ~38% YTD) is a mildly constructive signal, but delivery delays, negative free cash flow and the F126 loss are unresolved until Q3 results on Nov 5 \u2014 wait for evidence. Directly accessible from the UK without a wrapper.",
+    "change": null
+   },
+   {
+    "ticker": "PLTR",
+    "name": "Palantir",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Growth is exceptional (Q2 revenue +92.8%, U.S. commercial +149%) but at ~$189 and ~85x forward earnings, with consensus targets only ~4% above the price, the stock is priced for perfection. Also anchors the AI sleeve \u2014 don't double-count. Needs a US wrapper.",
+    "change": null
+   },
+   {
+    "ticker": "ONDS",
+    "name": "Ondas Holdings",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Management raised 2026 guidance and cites a ~$757M pro forma backlog, but much of it is acquired, the stock is ~26% down YTD and Ascent Aerosystems missed the Gauntlet II top five \u2014 the evidence still doesn't support owning it here. Needs a US wrapper.",
+    "change": null
+   },
+   {
+    "ticker": "RCAT",
+    "name": "Red Cat Holdings",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "H1 revenue of $35.7M against a $150M full-year target needs an unusually steep H2 ramp, and Teal Drones missed the Gauntlet II podium while private Neros took a ~$100M, 14,000-drone order \u2014 the research doesn't support owning it here. Needs a US wrapper.",
+    "change": null
+   }
+  ]
+ }
+}

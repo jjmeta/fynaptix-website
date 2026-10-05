@@ -1,0 +1,346 @@
+{
+ "sector": "nuclear",
+ "title": "Fynaptix \u00b7 Nuclear & SMR Research",
+ "heading": "Nuclear Energy Intelligence",
+ "subheading": "Small modular reactors, uranium & the AI power-demand trade",
+ "kicker": "NUCLEAR & SMRS // OCT 2026",
+ "generated": "Oct 4, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. SMR developers are pre-revenue with long regulatory timelines; verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "300 MW",
+   "sub": "NRC ISSUES TVA CLINCH RIVER BWRX-300 CONSTRUCTION PERMIT",
+   "label": "The NRC approved a construction permit (Sep 29-30) for TVA's 300 MW GE Vernova Hitachi BWRX-300 at Clinch River, TN \u2014 completed in 14 months, four months ahead of schedule, and only the second US advanced-reactor construction permit in a decade after TerraPower's Natrium (Mar 2026); but it authorizes construction only, TVA has disclosed no cost, start date or financing partner, and the only timeline is a 2032 operating target",
+   "highlight": true
+  },
+  {
+   "value": "690 MW",
+   "sub": "CONSTELLATION\u2013AMAZON 20-YEAR CALVERT CLIFFS PPA",
+   "label": "Announced Sep 30: a 20-year agreement covering 690 MW from Calvert Cliffs (Maryland), supporting about $3B of upgrades that add roughly 190 MW of new capacity between 2030 and 2032 and underpin a 20-year licence extension \u2014 contracted, priced cash flow from an existing fleet rather than a framework agreement",
+   "highlight": false
+  },
+  {
+   "value": "$96/lb",
+   "sub": "TERM URANIUM PRICE HITS A 19-YEAR HIGH",
+   "label": "The long-term contract price passed 2007's $95/lb peak (spot ~$88/lb), yet nuclear equities kept falling: through Oct 2 Oklo is down ~50% YTD, NuScale ~45%, Cameco ~7% and the VanEck NLR ETF ~16%, as utilities balk at sticker prices (term contracting volume down ~15% YoY to just over 38M lb through Aug 31) and hyperscalers want megawatts in 2027, not gigawatts in 2037",
+   "highlight": false
+  },
+  {
+   "value": "0",
+   "sub": "OPERATING COMMERCIAL SMR PLANTS \u2014 STILL",
+   "label": "The Clinch River permit moves the first US grid-scale SMR from 'pending' to 'permitted', but nothing is under construction yet and TVA reportedly still needs a co-investor; the earliest operating target remains 2032, so the gap between a licence and a delivered reactor is unchanged this week",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Operating / Cash-Generating Exposure",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "CEG",
+     "company": "Constellation Energy",
+     "angle": "Largest US nuclear fleet operator (55 GW post-Calpine); direct data-center PPAs with Microsoft, Meta, Walmart, now Amazon",
+     "watch for": "Shares closed Oct 2 at $257.49 (market cap ~$92.5B; 52-week range $228.63\u2013$412.70) after the Sep 30 Amazon deal \u2014 a 20-year, 690 MW Calvert Cliffs PPA backing ~$3B of upgrades and ~190 MW of new capacity by 2030\u201332; shares jumped as much as 6.4% on Oct 1 before paring to ~+2%; Q2 adjusted EPS $2.55 with full-year guidance raised to $11.50\u2013$12.50, and the 22-analyst consensus target of $347.28 implies ~35% upside; Crane (TMI-1) restart still targeted for 2027"
+    },
+    {
+     "ticker": "CCJ",
+     "company": "Cameco",
+     "angle": "Major Western uranium producer + 49% of Westinghouse",
+     "watch for": "Shares closed Oct 2 at $85.18 (down ~7% YTD, ~37% below the $135.24 high) even as the long-term uranium price hit a record $96/lb; the squeeze is on valuation and timing \u2014 trailing P/E ~149, forward ~52, Q1 realized price only $65.45/lb, utilities hesitant to sign new term contracts, a $559M Canadian tax dispute and possible US tariffs; the Westinghouse IPO remains undated, with reports pointing to a public filing as early as October and valuation estimates still ranging from ~$22B to $50B+"
+    },
+    {
+     "ticker": "BWXT",
+     "company": "BWX Technologies",
+     "angle": "Nuclear components, naval reactors, advanced reactor work",
+     "watch for": "Investor Day (Sep 29) set 2030 targets of $5.5\u2013$6.0B revenue (from ~$3.8B in 2026), $1.1\u2013$1.2B adjusted EBITDA (~20% margin) and $525\u2013$575M free cash flow, on an $8.4B backlog (up from ~$4B) that includes a $1.63B depleted-uranium contract and a $1.5B enrichment initiative; shares were ~$137 on Oct 1, still ~43% below the $241.82 high, and Northland trimmed its FY27 EPS estimate to $5.02 from $5.17 (Outperform, $220 target) on Sep 30 \u2014 the market has not yet rewarded the targets"
+    },
+    {
+     "ticker": "GEV",
+     "company": "GE Vernova",
+     "angle": "Grid equipment + BWRX-300 SMR design via GE Vernova Hitachi Nuclear Energy",
+     "watch for": "Shares closed at $962.49 on Sep 29 (+6% over the month) as the NRC issued the first US construction permit for the BWRX-300 at TVA's Clinch River site \u2014 14 months from application, four months early; TVA still needs a co-investor (possibly a data-center operator) to fund construction, and nuclear remains a small slice of a company priced mainly on grid and gas-turbine demand; GEV is also held in the Energy Storage sleeve, so avoid double-counting"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Pre-Revenue SMR Developers \u2014 Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "OKLO",
+     "company": "Oklo",
+     "angle": "Fast reactors using recycled waste; Sam Altman-backed; deals directly with AI/data-center customers",
+     "watch for": "Shares closed Oct 2 at $37.94 (+2%; down ~50% YTD), well below the $77 area the stock traded at in May after the NRC approved its Aurora principal design criteria; Q2 delivered the company's first revenue ($1.2M) while the ~$1B at-the-market program remains a dilution overhang, and the Eielson AFB microreactor selection and ~2,100MW of mostly non-binding customer pipeline are validation rather than contracted revenue; first deployments are guided to late 2027 or 2028"
+    },
+    {
+     "ticker": "SMR",
+     "company": "NuScale Power",
+     "angle": "Only SMR design with NRC formal approval; utility-focused; 6 GW TVA/ENTRA1 framework (non-binding)",
+     "watch for": "Shares rose ~4% to $8.07 on Oct 2 (down ~45% YTD) but the underlying story is dilution: the company has sold ~90M shares for nearly $985M via at-the-market programs, authorized a new program of up to $750M, and its diluted share count is up ~173% YoY (~133M to ~365M); Q2 ended with ~$1.9B of cash and investments, but there is still no binding TVA power purchase agreement (management targets year-end 2026) and the Clinch River permit this week went to GE's BWRX-300, not NuScale's design; RoPower (Romania) is the other near-term catalyst"
+    },
+    {
+     "ticker": "LEU",
+     "company": "Centrus Energy",
+     "angle": "HALEU enrichment \u2014 fuel for advanced reactors",
+     "watch for": "Shares closed Oct 2 at $139.27, within ~3% of the $135.75 52-week low (the high was $464.25) and down ~53% in market cap to ~$2.85B; contract backlog is $3.0B (up from $2.3B at year-end 2025) against 2025 revenue of ~$449M, and the 19-analyst consensus target of ~$247 sits ~78% above the price; HALEU deliveries under the Radiant and Antares contracts do not begin until 2030 and a GAO report found no national-security mission requiring 'unobligated' HALEU"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "TerraPower",
+   "value": "GATES-BACKED \u00b7 NATRIUM",
+   "note": "No new Kemmerer milestone this week; the Bechtel split (Sep 21) means the next-phase EPC contract is being rebid, with ~200 Bechtel layoffs effective around Nov 16, while both sides say the 2030 construction-complete / 2031 commercial-operation schedule is unaffected; the March 2026 Natrium permit is now the only precedent for the Clinch River approval."
+  },
+  {
+   "name": "X-energy",
+   "value": "PUBLIC (XE) \u00b7 POST-IPO",
+   "note": "Shares trade around $14, roughly 40% below the $23 April IPO price, at ~19x projected 2026 sales of $212M against a projected $430M net loss; Amazon, Dow and Energy Northwest are anchor customers, but commercial reactors are not expected before the early 2030s and TRISO fuel supply remains the gating item. Listed in the stance chart as Watch."
+  },
+  {
+   "name": "Kairos Power",
+   "value": "GOOGLE-BACKED \u00b7 FLEET DEAL",
+   "note": "No new update found this week. Google's agreement for up to 500 MW across 6-7 units targets a first commercial Hermes unit by 2030 and the full fleet by 2035; Hermes 2 construction continues at Oak Ridge."
+  },
+  {
+   "name": "Commonwealth Fusion",
+   "value": "FUSION \u00b7 SPARC / ARC",
+   "note": "Reported Oct 2: CFS ordered more than 10,000 km of high-temperature superconducting tape from Fujikura for its ARC power plants, the first planned for Virginia \u2014 a supply-chain commitment ahead of the targeted 2027 SPARC breakeven (Q>1) run; total capital raised stands at ~$4B."
+  },
+  {
+   "name": "Helion",
+   "value": "FUSION \u00b7 MICROSOFT + OPENAI TALKS",
+   "note": "No new commercial announcement this week beyond a founder/CEO interview on its roadmap. The Microsoft PPA (50 MW by 2029 via the Orion plant) stands, OpenAI was previously reported in talks for up to 5GW by 2030, and Polaris has demonstrated measurable D-T fusion; none of it is yet delivered power."
+  },
+  {
+   "name": "Holtec Nuclear",
+   "value": "IPO PULLED \u00b7 CITES MARKET CONDITIONS",
+   "note": "No new update found this week. The ~$900M Nasdaq listing (HNUC) remains suspended since Sep 16 after a $10.2B valuation target was floated; the S-1 stays on file with no new pricing date. Underlying business: $564M trailing revenue anchored by the Palisades restart and the SMR-300 program."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Record uranium prices, falling nuclear stocks",
+   "description": "The term uranium price broke a 19-year record at $96/lb, yet Oklo is down ~50% YTD, NuScale ~45%, and even Cameco ~7% \u2014 the fuel-price thesis is working while the equity thesis is not. Utilities are reluctant to contract at these prices (term volume -15% YoY), so higher prices may be delaying demand rather than confirming it. Counter: a record term price means producers' realized prices (Cameco's was only $65.45/lb in Q1) have room to catch up."
+  },
+  {
+   "title": "A permit is not a reactor",
+   "description": "The Clinch River approval obligates TVA to build nothing: no cost, start date or financing partner has been disclosed, a co-investor is still needed, and the only timeline is a 2032 operating target. TVA spent hundreds of millions on a Clinch River breeder reactor from the 1970s that was never completed. Counter: the NRC finished the review four months early, which is a genuine improvement in licensing speed."
+  },
+  {
+   "title": "Dilution is funding the story",
+   "description": "NuScale's diluted share count is up ~173% in a year, with a new $750M at-the-market program on top of ~$985M already raised; Oklo carries a ~$1B program against $1.2M of first-ever revenue. Holders are being diluted to pay for commercialization that is years away. Counter: NuScale reports ~$1.9B of cash and investments, which removes near-term financing risk."
+  },
+  {
+   "title": "Timing mismatch with hyperscaler demand",
+   "description": "Data-center operators need megawatts in 2027, but new SMRs are a 2030s story; Amazon's Calvert Cliffs deal (190 MW of new capacity only by 2030\u201332) shows even the best-positioned operator is selling existing output and uprates. Counter: those uprate and restart deals (Crane 2027) are the near-term supply and are going to the operators, not the pre-revenue developers."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "OCT 3, 2026",
+   "title": "Term uranium price hits a 19-year high of $96/lb",
+   "description": "The long-term contract price passed 2007's $95 record (spot ~$88), while nuclear equities kept falling; Cameco's Q1 realized price was only $65.45/lb, so the gap to market is the thesis."
+  },
+  {
+   "date": "OCT 2, 2026",
+   "title": "NuScale's new $750M at-the-market program in focus",
+   "description": "Shares rose ~4% to $8.07 on Oct 2 as coverage highlighted the new program and a ~173% YoY rise in the diluted share count; the TVA PPA (targeted by year-end) and RoPower remain the catalysts."
+  },
+  {
+   "date": "OCT 1, 2026",
+   "title": "Constellation shares jump on the Amazon PPA",
+   "description": "Up as much as 6.4% intraday before paring to ~2%, following the Sep 30 announcement of a 20-year, 690 MW Calvert Cliffs agreement and ~$3B of upgrades."
+  },
+  {
+   "date": "SEP 30, 2026",
+   "title": "Constellation and Amazon sign a 20-year, 690 MW Calvert Cliffs PPA",
+   "description": "Adds ~190 MW of new capacity between 2030 and 2032 and supports a 20-year relicensing; includes a retail supply deal across 13 PJM states."
+  },
+  {
+   "date": "SEP 29, 2026",
+   "title": "NRC issues construction permit for TVA's Clinch River BWRX-300",
+   "description": "The first US construction permit for the GE Vernova Hitachi design (300 MW) came 14 months after application, four months early; construction only \u2014 no cost, start date or partner disclosed."
+  },
+  {
+   "date": "SEP 29, 2026",
+   "title": "BWX Technologies Investor Day sets 2030 targets",
+   "description": "$5.5\u2013$6.0B revenue, $1.1\u2013$1.2B adjusted EBITDA, $525\u2013$575M free cash flow and an $8.4B backlog; Northland trimmed FY27 EPS to $5.02 the next day."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "URA",
+   "name": "Global X Uranium",
+   "summary": "Uranium miners + fuel cycle \u00b7 closed Oct 2 at $39.79, inside a 52-week range of $37.18\u2013$62.28 and below both its 50-day ($43.25) and 200-day ($48.16) averages, with RSI near 38 \u2014 a clear downtrend that has not responded to the record term uranium price"
+  },
+  {
+   "ticker": "NLR",
+   "name": "VanEck Uranium & Nuclear",
+   "summary": "Utilities + miners + SMR developers blend \u00b7 closed Oct 2 at $102.74, down ~23% over 12 months; $3.66B AUM led by Constellation (8.3%), Cameco (8.0%) and PSEG (7.8%) across 28 holdings, the least miner-heavy of the three"
+  },
+  {
+   "ticker": "URNM",
+   "name": "Sprott Uranium Miners",
+   "summary": "Pure miner exposure, higher beta \u00b7 closed Oct 2 at $47.42, down ~18% over 12 months and ~44% below its $84.95 52-week high; $1.88B AUM concentrated in Cameco (20.3%), Sprott Physical Uranium Trust (15.7%) and NexGen (12.9%) \u2014 nearly 80% in three holdings"
+  }
+ ],
+ "sources": [
+  {
+   "title": "MGRID \u2014 NRC Clears TVA to Build a 300 MW BWRX-300 at Clinch River, With No Cost, Start Date or Partner Deal",
+   "url": "https://mgrid.org/2026/10/01/nrc-clears-tva-to-build-a-300-mw-bwrx-300-at-clinch-river-with-no-cost-start-date-or-partner-deal/"
+  },
+  {
+   "title": "Wilmington Biz \u2014 Regulators issue first U.S. construction permit for GE Vernova Hitachi reactor",
+   "url": "https://www.wilmingtonbiz.com/government/2026/09/29/regulators_issue_first_us_construction_permit_for_ge_vernova_hitachi_reactor/27883"
+  },
+  {
+   "title": "Parameter \u2014 GE Vernova (GEV) Stock Climbs Following NRC Approval for Tennessee Nuclear Reactor",
+   "url": "https://parameter.io/ge-vernova-gev-stock-climbs-following-nrc-approval-for-tennessee-nuclear-reactor/"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 Uranium Prices Just Broke a 19-Year Record, but Nuclear Stocks Are Collapsing Anyway",
+   "url": "https://247wallst.com/investing/2026/10/03/uranium-prices-just-broke-a-19-year-record-but-nuclear-stocks-are-collapsing-anyway"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Constellation and Amazon Announce 20-Year Power Purchase Agreement at Calvert Cliffs",
+   "url": "https://finance.yahoo.com/energy/articles/constellation-amazon-announce-20-power-200000338.html"
+  },
+  {
+   "title": "The Motley Fool \u2014 Why Constellation Energy Stock Is Rising Today",
+   "url": "https://www.fool.com/investing/2026/10/01/why-constellation-energy-stock-is-rising-today/"
+  },
+  {
+   "title": "ad-hoc-news \u2014 Constellation Energy stock trades at USD 257.49 after Amazon deal",
+   "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/constellation-energy-stock-trades-at-usd-257-49-after-amazon-deal/70224437"
+  },
+  {
+   "title": "MarketBeat \u2014 BWX Technologies Targets $6B Revenue by 2030 as Nuclear Backlog Surges",
+   "url": "https://www.marketbeat.com/instant-alerts/event-bwx-technologies-targets-6b-revenue-by-2030-as-nuclear-backlog-surges-2026-10-01/"
+  },
+  {
+   "title": "ad-hoc-news \u2014 Northland cuts BWXT estimate as BWX Technologies stock sits 43.37 percent below its high",
+   "url": "https://www.ad-hoc-news.de/boerse/news/nebenwerte/northland-cuts-bwxt-estimate-as-bwx-technologies-stock-sits-43-37-percent-below-its-high/70211725"
+  },
+  {
+   "title": "Foreign Policy Journal \u2014 NuScale Climbs 4% as $750 Million Share Program Stokes Dilution Fears",
+   "url": "https://www.foreignpolicyjournal.com/2026/10/02/nuscale-power-nyse-smr-climbs-4-as-750-million-share-program-stokes-dilution-fears-oklo-nyse-oklo-and-uranium-energy-nyse-uec-also-advance/"
+  },
+  {
+   "title": "Foreign Policy Journal \u2014 Centrus Energy Emerges as the Smarter Nuclear Investment Over Oklo and NuScale",
+   "url": "https://www.foreignpolicyjournal.com/2026/10/03/centrus-energy-nyse-leu-emerges-as-the-smarter-nuclear-investment-over-oklo-and-nuscale/"
+  },
+  {
+   "title": "The Motley Fool \u2014 X-Energy Just Went Public in 2026. Here's How It Stacks Up",
+   "url": "https://www.fool.com/investing/2026/10/01/x-energy-just-went-public-in-2026-heres-how-it-sta/"
+  },
+  {
+   "title": "ANS / Nuclear Newswire \u2014 TerraPower, Bechtel Part Ways on Natrium Project",
+   "url": "https://ans.org/news/article-8417/terrapower-bechtel-part-ways-on-natrium-project"
+  },
+  {
+   "title": "The Fusion Report \u2014 This Week's Fusion News: October 2, 2026",
+   "url": "https://thefusionreport.substack.com/p/this-weeks-fusion-news-october-2"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Oklo Advances 12% on NRC Aurora Approval",
+   "url": "https://finance.yahoo.com/sectors/energy/articles/oklo-advances-12-nrc-aurora-172643927.html"
+  },
+  {
+   "title": "heygotrade \u2014 Global X Uranium ETF (URA) Oct 2 Close",
+   "url": "https://www.heygotrade.com/en/us-stock/ura/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 NLR, URNM and LEU Overviews",
+   "url": "https://stockanalysis.com/etf/nlr/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Oct 4, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Oct 4, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "CCJ",
+    "name": "Cameco",
+    "stance": "core",
+    "weight": 48,
+    "note": "The long-term uranium price hit a record $96/lb (above 2007's $95) while shares fell to $85.18, so the operating thesis is working at the contract level \u2014 but a ~52x forward P/E and utilities' reluctance to sign term deals (volume -15% YoY) mean no reason to add.",
+    "change": null
+   },
+   {
+    "ticker": "CEG",
+    "name": "Constellation Energy",
+    "stance": "core",
+    "weight": 35,
+    "note": "The Sep 30 Amazon deal (20 years, 690 MW at Calvert Cliffs, ~$3B of upgrades adding ~190 MW by 2030\u201332) is contracted cash flow from existing reactors, and at $257.49 the stock sits ~38% below its $412.70 high with a ~35%-upside consensus.",
+    "change": null
+   },
+   {
+    "ticker": "BWXT",
+    "name": "BWX Technologies",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Investor Day targets of $5.5\u2013$6.0B 2030 revenue and an $8.4B backlog (double the prior ~$4B) are strong, but shares at ~$137 are still ~43% below the high and Northland trimmed FY27 EPS to $5.02 \u2014 stay Watch until the market stops selling good news.",
+    "change": null
+   },
+   {
+    "ticker": "GEV",
+    "name": "GE Vernova",
+    "stance": "watch",
+    "weight": 0,
+    "note": "The NRC's Clinch River BWRX-300 construction permit (Sep 29) validates the design, but TVA still needs a co-investor and nuclear is a small slice of a ~$960 stock; GEV also sits in the Energy Storage sleeve, so do not double-count it.",
+    "change": null
+   },
+   {
+    "ticker": "OKLO",
+    "name": "Oklo",
+    "stance": "spec",
+    "weight": 8,
+    "note": "At $37.94 and down ~50% YTD with a ~$1B at-the-market program against just $1.2M of first revenue and no deployment before late 2027, it is a small call option with a real chance of zero.",
+    "change": null
+   },
+   {
+    "ticker": "LEU",
+    "name": "Centrus Energy",
+    "stance": "spec",
+    "weight": 9,
+    "note": "Backlog of $3.0B (up from $2.3B at year-end) is real, but shares at $139 sit near the $135.75 52-week low and Radiant/Antares HALEU deliveries do not start until 2030, so it stays a small speculative position.",
+    "change": null
+   },
+   {
+    "ticker": "SMR",
+    "name": "NuScale Power",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "A new $750M at-the-market program on top of ~$985M already raised (diluted shares +173% YoY) and still no binding TVA PPA \u2014 while the permit issued this week went to GE's BWRX-300, not NuScale's design \u2014 keeps it at Avoid.",
+    "change": null
+   },
+   {
+    "ticker": "XE",
+    "name": "X-energy",
+    "stance": "watch",
+    "weight": 0,
+    "note": "At ~$14, about 40% below the $23 IPO price, it trades near 19x projected 2026 sales ($212M) with a ~$430M projected loss and no commercial reactor before the early 2030s \u2014 interesting technology, wrong price.",
+    "change": null
+   }
+  ]
+ }
+}
