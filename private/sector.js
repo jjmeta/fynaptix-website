@@ -37,6 +37,13 @@ function toneStyle(tag){
   if(t==='bifurcated'||t==='crosscurrents')return 'background:transparent;color:var(--color-text);box-shadow:inset 0 0 0 1px var(--color-text);';
   return 'background:var(--n200);color:var(--color-text);box-shadow:inset 0 0 0 1px var(--n400);';
 }
+function fmtAsOf(D,fallback){
+  if(!D||!D.asOf)return fallback;
+  var d=new Date(D.asOf+'T12:00:00Z');if(isNaN(d))return fallback;
+  var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getUTCMonth()];
+  var w=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getUTCDay()];
+  return {short:m+' '+d.getUTCDate()+' · '+w,long:m+' '+d.getUTCDate()+', '+d.getUTCFullYear()};
+}
 function stanceStyle(s){
   if(s==='Core')return 'background:var(--color-text);color:var(--color-bg);box-shadow:inset 0 0 0 1px var(--color-text);';
   if(s==='Hold')return 'background:var(--n200);color:var(--color-text);box-shadow:inset 0 0 0 1px var(--n400);';
@@ -206,7 +213,7 @@ function buildSources(D){
     +'<div class="hub-section-num">Sources</div><h2 class="hub-section-h2">'+x(D.srcCount)+' this edition</h2></div>'
     +'<div class="hub-section-content" style="display:flex;flex-direction:column;gap:10px;">'
     +'<div style="display:flex;flex-wrap:wrap;gap:6px;">'+tags+'</div>'
-    +'<span style="font-size:12px;color:var(--n700);">Figures approximate, from public reporting as of Sep 21, 2026. Always confirm independently.</span>'
+    +'<span style="font-size:12px;color:var(--n700);">Figures approximate, from public reporting as of '+(D.asOf?fmtAsOf(D).long:'Sep 21, 2026')+'. Always confirm independently.</span>'
     +'</div></section>';
 }
 
@@ -222,7 +229,7 @@ function buildMain(D){
     +'<div class="hub-readout">'
     +'<div class="hub-readout-cell"><div class="hub-readout-label">Momentum</div><b class="hub-readout-val">'+x(D.momentum)+'</b></div>'
     +'<div class="hub-readout-cell"><div class="hub-readout-label">Valuation heat</div><b class="hub-readout-val" style="color:'+hc+';">'+D.heat.toFixed(1)+' / 10</b></div>'
-    +'<div class="hub-readout-cell"><div class="hub-readout-label">Generated</div><b class="hub-readout-val">Sep 21 · Mon</b></div>'
+    +'<div class="hub-readout-cell"><div class="hub-readout-label">Generated</div><b class="hub-readout-val">'+(D.asOf?fmtAsOf(D).short:'Sep 21 · Mon')+'</b></div>'
     +'</div></div>'
     +buildStatBand(D)
     +buildAtAGlance(D)
