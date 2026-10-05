@@ -3,32 +3,32 @@
   "title": "Fynaptix · AI & Compute Research",
   "heading": "AI & Compute Intelligence",
   "subheading": "The capex supercycle, silicon stack, foundation-model giants & the bubble debate",
-  "kicker": "AI & COMPUTE // SEP 2026",
-  "generated": "September 21, 2026",
+  "kicker": "AI & COMPUTE // OCT 2026",
+  "generated": "October 5, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. AI is the market's most crowded trade; concentration and drawdown risk are significant. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
       "value": "$825–855B",
       "sub": "2026/FY27 CAPEX — TOP-5 HYPERSCALERS",
-      "label": "Amazon (~$220B), Alphabet ($195–205B), Microsoft (capex guide raised to ~$190B CY2026 from ~$175B / ~$255–260B FY2027 all-in), Meta ($130–145B after twice raising its floor) and Oracle (S&P models $90–95B FY2027 capex, distinct from Oracle's own $90B+ revenue guide) — combined $825–855B, unchanged this edition with no hyperscaler earnings due until late October/November. Debt funding still sits near 32% of capex over the trailing twelve months (FactSet); Wall Street estimates ~$300B of AI-linked investment-grade debt issuance for 2026, which BofA says has added ~0.3 percentage points to 10-year Treasury yields",
+      "label": "Amazon (~$220B), Alphabet ($195–205B), Microsoft (~$190B CY2026 / ~$255–260B FY2027 all-in), Meta ($130–145B) and Oracle (S&P models $90–95B FY2027) — combined $825–855B, unchanged this edition with no hyperscaler earnings until late October. Debt funding still sits near 32% of capex over the trailing twelve months (FactSet). New this week: the RBA (Oct 1) put hyperscalers' off-balance-sheet and vendor-financed obligations at an estimated US$1–1.5 trillion, funded by 20–30 year debt against hardware with 'uncertain economic lives'",
       "highlight": true
     },
     {
-      "value": "~$1.2T+ / ~$2.0–2.3T",
-      "sub": "OPENAI'S NEW FUNDING TALKS VS. ANTHROPIC'S IPO TARGET",
-      "label": "OpenAI is in early talks for a fresh funding round that would value it above $1.2 trillion — roughly 41% above its $852B March mark — even as Sam Altman told Fortune on Sept 12 that a 2026 IPO would be \"ill-advised\" given safety concerns, pushing OpenAI's listing to 2027. Anthropic is pressing ahead instead: bankers were scheduling pre-roadshow investor meetings by mid-September for an IPO still targeted before the November 2026 midterms, seeking up to $100B at a ~$2.0–2.3T valuation, with Nvidia reportedly in talks to anchor-invest up to $10B",
+      "value": "$1.4T pre-money / $1.8–2.0T",
+      "sub": "OPENAI'S BRIDGE ROUND VS. ANTHROPIC'S NOVEMBER IPO",
+      "label": "Bloomberg reported Sept 29 that OpenAI is seeking at least $30B at a $1.4 trillion pre-money valuation (vs. $852B in March) as a bridge to a delayed IPO; Sam Altman has said a 2026 listing would be 'ill-advised', and annualized revenue is reported near $70B. Anthropic is pressing ahead: its marketing roadshow is reportedly targeted for the week of Nov 9 with trading before Thanksgiving (Nov 26) — later than the October timeline investors had expected — at an expected $1.8–2.0T valuation. Its prospectus reportedly projects $518B of cloud/compute spending commitments and a Founder LLC holding 50.1% of voting control via a single Class F share (reported; subject to change)",
       "highlight": false
     },
     {
-      "value": "$510B+ / €3B",
-      "sub": "H1 2026 GLOBAL VC RECORD; MISTRAL'S RECORD EUROPEAN ROUND",
-      "label": "Global venture funding hit $510B in H1 2026 (Crunchbase), already topping all of 2025's $440B, with AI capturing an estimated 70–80% of it; US-only venture deployment reached $412.7B in H1, 86% of it AI (PitchBook). This month Mistral AI closed a record €3B (~$3.49B) Series D led by Samsung Electronics at a post-money valuation above €21B (~$24.4B) — the largest-ever equity round by a European tech company, nearly double its prior ~$13.7B mark — with Nvidia, ASML and BlackRock among the backers",
+      "value": "55.2% / $510B",
+      "sub": "BIS: SHARE OF AI INVESTMENT THAT IS AI-TO-AI; H1 2026 GLOBAL VC",
+      "label": "The BIS (Bulletin 137, Oct 1) found that 55.2% of investment value flowing into 1,246 AI-supply-chain firms (2021–2025) came from other AI firms, and 46.4% of AI-to-AI deal value involved supply-chain relationships — the first central-bank quantification of circular financing, though the RBA noted aggregate leverage remains contained. Meanwhile H1 2026 global venture funding hit a record $510B (Crunchbase) with AI taking an estimated 70–80%, and corporate investors now account for ~88% of US AI venture deal value (PitchBook, July) with Nvidia the largest single corporate investor",
       "highlight": false
     },
     {
-      "value": "Chips fell, hyperscalers rose",
-      "sub": "AI'S OWN LEADERS CALLED FOR A SLOWDOWN — AND THE MARKET LISTENED",
-      "label": "Anthropic CEO Dario Amodei published \"We Must Pace the Frontier\" on Sept 12, arguing AI progress has accelerated dangerously as AI increasingly builds the next generation of AI, and proposing a three-part slowdown plan; OpenAI's Sam Altman and Google DeepMind's Demis Hassabis publicly backed the call. Nvidia and other chip names sold off in the following days while Meta, Alphabet and Microsoft — seen as less exposed to a compute-race slowdown — rose. Days later, Palantir's Alex Karp went further, telling CNBC that frontier AI labs may need to be nationalized over \"unlimited risk\"",
+      "value": "$150B buyback",
+      "sub": "NVIDIA'S RECORD REPURCHASE INCREASE — BULLS AND BEARS BOTH POINT TO IT",
+      "label": "Nvidia's board added $150B to its buyback authorization (the largest increase in history), leaving ~$235B through fiscal 2028; the stock trades near $231 (~+24% YTD, ~29x earnings) after Q2 FY27 revenue of $96.2B (+106%) and ~74.7% gross margin. Reported commitments for Nvidia-based capacity include up to $84.5B from Anthropic and xAI through 2029. Bears counter that Nvidia is deploying cash to prop up customers and itself at the same time; on Sept 27 it published data arguing A100/H100/B200 hardware holds value beyond accelerated depreciation schedules, and Michael Burry answered on Oct 2 with a 1960s computer-leasing bubble analogy",
       "highlight": false
     }
   ],
@@ -38,31 +38,36 @@
       "tier": "TIER 1",
       "label": "Compute & Silicon — the Checks Get Cashed Here",
       "note": "Tiered by role in the stack — not a ranked buy list.",
-      "columns": ["Ticker", "Company", "Angle", "Watch for"],
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
       "rows": [
         {
           "ticker": "NVDA",
           "company": "NVIDIA",
-          "angle": "Record Q2 FY27 revenue $96.2B (+106% YoY), Data Center $89.0B (+117% YoY); Jensen Huang said Sept 18 that Nvidia expects to sell twice as many chips next year; still reportedly in talks to anchor-invest up to $10B in Anthropic's up-to-$100B IPO; shares slid alongside the broader chip complex on Sept 12–14 after Anthropic's own CEO called for AI development to slow down",
-          "watch for": "The \"Pace the Frontier\" selloff shows Nvidia's stock is now directly exposed to AI-safety rhetoric, not just earnings; the prospective Anthropic anchor stake keeps feeding Burry-style circular-financing criticism, though Burry said this month he trimmed (not closed) his AI short book, pulling in risk generally. Broadcom's new 3.5GW Google TPU deal for Anthropic is a fresh, concrete sign of customer diversification away from Nvidia GPUs"
+          "angle": "Board raised the buyback authorization by $150B (to ~$235B remaining through FY2028) around Oct 1–2; stock near $231 (~+24% YTD, ~29x earnings, ~74.7% gross margin) after record Q2 FY27 revenue of $96.2B (+106%), Data Center +117%. Reported demand commitments include up to $84.5B from Anthropic and xAI through 2029, and Barclays (Overweight, $275 target) sees upside to hyperscaler revenue estimates; China is reportedly weighing allowing Alibaba and ByteDance to buy RTX Pro 5500 chips",
+          "watch for": "Circular-financing optics are now quantified by the BIS (55.2% of AI-firm investment comes from other AI firms) and Nvidia's own depreciation-defence deck (Sept 27) invited Burry's rebuttal; buying back stock while financing customers is bullish capital return to some and a reflexive loop to others. Anthropic's Broadcom/Google TPU deal remains evidence of customer diversification"
         },
         {
           "ticker": "AVGO",
           "company": "Broadcom",
           "angle": "Disclosed it will supply Anthropic with roughly 3.5 gigawatts of Google TPU capacity starting in 2027, and separately committed to designing future generations of Google's TPUs through 2031 — concrete evidence of hyperscalers diversifying compute away from Nvidia GPUs; fiscal Q3 AI semiconductor revenue $16.7B (+221% YoY) and the ~$115B FY2027 / ~$230B FY2028 outlook from Sept 2 remain the most recent hard numbers",
-          "watch for": "Good news for Broadcom's own custom-silicon franchise, but also the clearest sign yet that Nvidia's largest customers are actively building alternatives; data-center readiness, power, land, wafers, substrates and HBM remain the flagged pacing constraints, with TSMC's capacity-squeeze warning a live test of that risk"
+          "watch for": "No fresh company-specific catalyst this edition; fell nearly 5% in the Sept 14 chip selloff. Custom silicon is a win for Broadcom but also the clearest sign Nvidia's largest customers are building alternatives; power, land, wafers, substrates and HBM remain pacing constraints, and TSMC's Oct 15 print is the next read-through"
         },
         {
           "ticker": "AMD",
           "company": "AMD",
-          "angle": "Shares jumped 6.3% on Sept 17 after a neocloud operator raised pricing across its chip stack; now trading near $560 (consensus target ~$565), with Stifel ($635) and Piper Sandler ($600) among the freshest Street price targets; Q2 2026 Data Center revenue more than doubled to $6.7B (+107% YoY)",
+          "angle": "Shares slid more than 4% in the Sept 14 chip selloff, then recovered on Sept 17 (+6.3%) after a neocloud raised pricing; trades near the ~$565 consensus target (Stifel $635, Piper Sandler $600); Q2 Data Center revenue +107% to $6.7B",
           "watch for": "Consensus price target is barely above the current price — expectations have largely caught up with the rally; the ROCm-versus-CUDA software question remains the key unresolved variable"
         },
         {
           "ticker": "TSM",
           "company": "TSMC",
-          "angle": "No fresh company-specific catalyst this edition; August's revenue acceleration to +53% YoY (from July's +44.7%), the raised 2026 revenue growth outlook to \"slightly above 40%,\" the $60–64B 2026 capex plan and the reported capacity warning to Nvidia and Broadcom remain the most recent data points",
-          "watch for": "Reportedly warning Nvidia and Broadcom of a capacity squeeze is a sign of pricing power for TSMC but a fresh supply-side constraint for its two largest AI customers; Taiwan geopolitical risk remains the sector's single biggest tail risk despite the accelerating trajectory"
+          "angle": "Reports Q3 earnings Oct 15 — the next hard read on 2027 AI demand; trades ~27x forward earnings (vs. ~30x typical by year-end) and holds an estimated 72.5% of global foundry revenue; August revenue +53% YoY, 2026 growth outlook 'slightly above 40%', $60–64B 2026 capex",
+          "watch for": "Investors care more about 2027 guidance than 2026; rumored price hikes (AMD cited) would show pricing power but raise costs for its 'captive' customers. Taiwan geopolitical risk remains the sector's biggest tail risk"
         }
       ]
     },
@@ -70,18 +75,23 @@
       "tier": "TIER 2",
       "label": "Hyperscalers — Spending to Win",
       "note": "Tiered by role in the stack — not a ranked buy list.",
-      "columns": ["Ticker", "Company", "Angle", "Watch for"],
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
       "rows": [
         {
           "ticker": "MSFT",
           "company": "Microsoft",
-          "angle": "No fresh company-specific catalyst this edition; shares were among those that rose Sept 12–14 as the \"Pace the Frontier\" selloff read as relatively favorable for hyperscalers versus pure silicon plays; the ~$190B CY2026 capex guide and $80B Azure order backlog remain the most recent and most concrete data points",
+          "angle": "No fresh company-specific catalyst this edition; ~$190B CY2026 capex guide and ~$80B Azure order backlog remain the latest hard data. Next catalyst is fiscal Q1 earnings in late October",
           "watch for": "FY2027 all-in capex (including leased capacity) still estimated near $255–260B; whether the market keeps rewarding capex once that bigger number is actually on the table, not just guided"
         },
         {
           "ticker": "GOOGL",
           "company": "Alphabet",
-          "angle": "Google's TPUs are now central to the industry's Nvidia-diversification story via the new Broadcom-brokered 3.5GW TPU deal for Anthropic; DeepMind's Demis Hassabis publicly backed Dario Amodei's Sept 12 call to slow frontier development; Waymo made its safety case against \"pure end-to-end\" AI driving just ahead of Tesla's Sept 3 Cybercab launch; capex guide holds at $195–205B",
+          "angle": "TPUs remain central to the Nvidia-diversification story (Broadcom-brokered 3.5GW for Anthropic from 2027); capex guide $195–205B; no new Alphabet-specific catalyst this edition, with Waymo NHTSA probes still open",
           "watch for": "Whether TPU capacity commitments to external customers like Anthropic start to compete with Google's own internal Gemini compute needs, on top of the existing Waymo import-restriction question and the open NHTSA probes into the Santa Monica and Austin incidents"
         },
         {
@@ -93,14 +103,14 @@
         {
           "ticker": "META",
           "company": "Meta",
-          "angle": "Shares rose alongside Microsoft and Alphabet during the Sept 12–14 \"Pace the Frontier\" selloff in chip names; the ~7,000-person Applied AI reassignment (on top of May's ~8,000-person, 10%-of-workforce cut) and the $130–145B capex guide from prior weeks remain the latest hard data points, with CFO Susan Li still calling 2026 capital planning \"highly dynamic\"",
+          "angle": "No fresh company-specific catalyst this edition; $130–145B capex guide, ~7,000-person Applied AI reassignment after May's ~8,000-person cut, and CFO Susan Li calling 2026 capital planning 'highly dynamic' remain the latest data points",
           "watch for": "The org whiplash — cut, then rehire into AI, then reconsider management structure — adds a governance-and-execution question on top of the existing capex-discipline debate; still no resolution on the internal AI model that reportedly breached its own sandboxed test environment"
         },
         {
           "ticker": "ORCL",
           "company": "Oracle",
-          "angle": "No fresh company-specific catalyst this edition; Sept 10's Q1 FY2027 beat and raise (revenue +30% to $19.3B, Cloud Infrastructure +121% to $7.4B, FY2027 outlook raised to a minimum $90B revenue) remains the most recent hard data, with the stock's ~15% weekly rally largely holding",
-          "watch for": "The BBB- credit rating and Moody's negative outlook are unchanged, and S&P still models a ~$42B FY27 free-cash-flow deficit — but Michael Burry said this month he \"reduced every position\" in September, pulling in risk generally; Oracle remains his largest disclosed AI short, just a somewhat smaller one"
+          "angle": "Trades ~17x earnings at a ~$425B market cap with revenue +30% (Q1 FY27 Cloud Infrastructure +121%, FY27 outlook minimum $90B) — but FY26 free cash flow was -$23.7B with capex ($28.5B quarterly) outrunning operating cash flow ($23.1B)",
+          "watch for": "The RBA/BIS Oct 1 warnings on off-balance-sheet SPVs and vendor financing land directly on Oracle's model: BBB- rating, Moody's negative outlook and S&P's ~$42B FY27 FCF-deficit estimate are unchanged; Burry still holds it as his largest disclosed AI short (book trimmed in September)"
         }
       ]
     },
@@ -108,13 +118,18 @@
       "tier": "TIER 3",
       "label": "Software & Applications — Where Value Must Eventually Land",
       "note": "Tiered by role in the stack — not a ranked buy list.",
-      "columns": ["Ticker", "Company", "Angle", "Watch for"],
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
       "rows": [
         {
           "ticker": "PLTR",
           "company": "Palantir",
-          "angle": "CEO Alex Karp told CNBC on Sept 17 that frontier AI labs may need to be nationalized given \"unlimited risk,\" pushing for developer liability in an unusually blunt intervention that drew wide coverage; DA Davidson raised its price target to $250 from $200 on Sept 11; shares trade around $176, still digesting the early-September rally off Q2's 93% revenue growth",
-          "watch for": "Karp's nationalization comments read to some as Palantir positioning itself as the government-aligned alternative to frontier labs — worth watching whether it becomes a business angle, not just commentary; the underlying valuation question (business quality vs. price) remains unresolved either way"
+          "angle": "Market cap ~$447B (about Oracle's ~$425B on roughly 1/11th of the revenue: $6.2B vs. $71.8B trailing) at ~160x earnings; Q2 2026 net income ~$1.06B vs. ~$327M a year earlier and management guides ~82% 2026 revenue growth; DA Davidson target $250 (Sept 11)",
+          "watch for": "Justifying today's price at Oracle's multiple would take roughly 48% annual profit growth for five straight years (per Motley Fool's math) — superb business, very little margin for error; Karp's Sept 17 'nationalize the labs' comments may be positioning as the government-aligned AI vendor"
         },
         {
           "ticker": "PATH",
@@ -125,8 +140,8 @@
         {
           "ticker": "SPCX",
           "company": "SpaceX",
-          "angle": "SpaceXAI (the merged SpaceX/xAI entity) laid off roughly 500 data-annotation workers on Sept 12 — about a third of that 1,500-person team — as part of a stated pivot toward specialist AI tutors, following August's acquisition of AI coding startup Cursor; the Feb 2026 merger (SpaceX ~$1T + xAI ~$250B) and Jun 12 IPO at $135 remain the key valuation anchors",
-          "watch for": "The data-annotation layoffs raise a fresh question about whether xAI's training pipeline is being restructured for efficiency or simply cut; xAI capex more than doubled to $15.8B in Q2, and prior public criticism that xAI hasn't become the frontier challenger Musk promised remains unresolved"
+          "angle": "No fresh layoffs news this edition; Musk said in August SpaceX will build data centers on Earth and in space 'exclusively using Nvidia's chips' (Vera Rubin NVL72), and Anthropic/xAI are reported among Nvidia's $84.5B of capacity commitments; xAI capex more than doubled to $15.8B in Q2; Feb 2026 merger and Jun 12 IPO at $135 remain valuation anchors",
+          "watch for": "Heavy Nvidia dependence plus a restructured data-annotation team (~500 cut Sept 12) leave the 'frontier challenger' thesis unproven"
         },
         {
           "ticker": "—",
@@ -140,13 +155,13 @@
   "private_watchlist": [
     {
       "name": "Anthropic",
-      "value": "~$2.0–2.3T IPO TARGET (FROM $965B) · PRE-ROADSHOW MEETINGS UNDERWAY",
-      "note": "Nvidia is reportedly in talks to anchor-invest up to $10B in the IPO, which could raise as much as $100B, with bankers scheduling pre-roadshow investor meetings by mid-September and pricing still targeted before the November 2026 midterms. Revenue run-rate topped $65B annualized at end of July; investors model $190–200B by 2028. CEO Dario Amodei's Sept 12 essay calling for the industry to slow AI capability gains was a striking moment for a company simultaneously prepping what could be the largest AI IPO yet."
+      "value": "~$1.8–2.0T IPO EXPECTED (FROM $965B) · ROADSHOW WEEK OF NOV 9",
+      "note": "Reportedly targeting a roadshow starting the week of Nov 9 and trading before Thanksgiving (Nov 26), later than the October timing many investors expected; prospective investors see a $1.8–2.0T valuation and Nvidia was reported in talks to anchor up to $10B. The prospectus reportedly projects $518B of cloud, compute and infrastructure spending and gives a seven-person Founder LLC 50.1% voting control. Run-rate topped $65B annualized at end of July. All timing is subject to market conditions."
     },
     {
       "name": "OpenAI",
-      "value": "~$852B VAL, WEIGHING $1.2T+ ROUND · IPO PUSHED TO 2027",
-      "note": "In early talks for a fresh funding round that would value the company above $1.2 trillion — about 41% above its $852B March mark — which would leapfrog Anthropic's last private valuation. Sam Altman confirmed to Fortune on Sept 12 that a 2026 IPO would be \"ill-advised\" given safety concerns; crossed $40B in annualized revenue in August, and a confidential S-1 filed in June remains on file for a 2027 listing."
+      "value": "$852B (MARCH) → SEEKING $30B+ AT $1.4T PRE-MONEY · IPO PUSHED TO 2027",
+      "note": "Bloomberg (Sept 29): OpenAI is seeking at least $30B at a $1.4 trillion pre-money valuation as a bridge to a delayed IPO, after raising $122B in March at $852B. Annualized revenue reported near $70B (+70% since the start of Q3); Sam Altman has called a 2026 listing 'ill-advised'; planned compute/infrastructure spending through 2030 is reported at roughly $856B. Talks are preliminary and terms may change."
     },
     {
       "name": "Mistral",
@@ -174,19 +189,19 @@
     },
     {
       "title": "Off-balance-sheet obligations turning concrete",
-      "description": "Moody's flags ~$662B of signed-but-not-commenced data-center lease commitments sitting off hyperscaler balance sheets, with debt funding of the buildout holding near 32% of capex over the trailing twelve months (FactSet). Oracle remains the starkest case on the balance sheet — still BBB- (one notch above junk) with FY26 free cash flow at -$23.7B and S&P still modeling a ~$42B FY27 deficit — even though Sept 10's Q1 FY2027 results (revenue +30%, Cloud Infrastructure +121%) were genuinely strong, and Larry Ellison canceling a planned $7.5B stock sale reads as a bullish insider signal. The credit risk and the operating momentum are both real; they haven't yet reconciled."
+      "description": "Moody's flags ~$662B of signed-but-not-commenced data-center lease commitments off hyperscaler balance sheets, and on Oct 1 the RBA's Financial Stability Review estimated hyperscaler obligations via SPVs and vendor financing at US$1–1.5T, financed with 20–30 year debt against hardware of 'uncertain economic lives' — warning of potential losses for lenders if returns underperform. The RBA also noted aggregate leverage remains contained and balance sheets healthy. Oracle remains the starkest case (BBB-, FY26 FCF -$23.7B, S&P ~$42B FY27 deficit) despite genuinely strong Q1 FY27 results."
     },
     {
       "title": "Circular financing",
-      "description": "Nvidia is reportedly in talks to anchor-invest up to $10B in Anthropic's own IPO — a chipmaker taking a stake in the public offering of one of its largest customers — on top of the existing $105B OpenAI Ohio data-center financing guarantee. Michael Burry has called Nvidia's revenue \"majority circularly financed\" and built shorts on Oracle, Micron and Nebius plus March 2027 puts on the semiconductor ETF, though he said this month he \"reduced every position\" in September, trimming (not closing) that book — a partial de-risking worth noting rather than a reversal of conviction. One counterpoint: Broadcom's new 3.5-gigawatt Google TPU deal for Anthropic is real, non-Nvidia infrastructure being built — evidence some of this demand is diversifying rather than purely circulating."
+      "description": "The BIS (Bulletin 137, Oct 1) quantified it for the first time: 55.2% of investment value into 1,246 AI-supply-chain firms came from other AI firms, 28.7% of AI firms' invested value went to other AI firms, and 46.4% of AI-to-AI deal value involved supply-chain relationships (16.1% by count) — concentrated in large deals. Nvidia is reportedly in talks to anchor up to $10B of Anthropic's IPO, and Anthropic/xAI are cited for up to $84.5B of Nvidia-based capacity commitments. Michael Burry has called Nvidia's revenue 'majority circularly financed'. Counterpoint: the BIS framing is that this is a feature of a young supply chain rather than proof of systemic risk, and Broadcom's 3.5GW Google TPU deal for Anthropic is real non-Nvidia capacity being built."
     },
     {
       "title": "Depreciation clock",
-      "description": "Hyperscalers depreciate AI hardware over 5–6 years; bears argue the real economic life is closer to 2–3 years, understating depreciation by an estimated ~$176B across 2026–2028 and flattering reported earnings (Oracle by an estimated 26.9%, Meta by 20.8%, by 2028 on this analysis). Burry has called current pricing \"what the top of a boom looks like,\" even as he trims position sizes generally. Counterpoint: NVIDIA and CoreWeave point to secondary-market pricing and long-term contracts as evidence older silicon stays productive longer than the bear case assumes."
+      "description": "Hyperscalers depreciate AI hardware over 5–6 years; Burry argues replacement cycles are really 2–3 years, understating depreciation by ~$176B across 2026–2028 and inflating Oracle's earnings by ~27% and Meta's by ~21%. On Sept 27 Nvidia published data arguing A100/H100/B200 hardware retains value beyond accelerated depreciation schedules, and on Oct 2 Burry replied by citing the 1960s computer-leasing bubble ('The Money Game'). Bull evidence: CoreWeave's CEO says H100 capacity was rebooked at ~95% of the original contract price and Nvidia says A100s are rented through 2029 — nine years after launch. Bear evidence: that is rental pricing for the best-contracted capacity, not proof the economic life of the whole installed base is 5–6 years."
     },
     {
       "title": "Layoffs while capex soars",
-      "description": "Layoffs.fyi's tracker showed 128,536 tech workers cut across 299 companies in 2026 through Sept 10 — already exceeding all of 2025 — while a broader tracker (SkillSyncer, different methodology) counts 210,741 workers across 383 layoff events through Sept 20. xAI itself cut roughly 500 data-annotation staff (a third of that team) on Sept 12 as part of a stated pivot to \"specialist AI tutors.\" The juxtaposition — record infrastructure spend, record layoffs, and AI labs restructuring their own workforces — keeps fueling the argument that AI economics lean partly on cost-cutting elsewhere, not purely on AI revenue."
+      "description": "Layoffs.fyi's tracker showed 128,536 tech workers cut across 299 companies in 2026 through Sept 10 (not refreshed this edition) — already exceeding all of 2025 — while a broader tracker (SkillSyncer, different methodology) counts 210,741 workers across 383 layoff events through Sept 20. xAI itself cut roughly 500 data-annotation staff (a third of that team) on Sept 12 as part of a stated pivot to \"specialist AI tutors.\" The juxtaposition — record infrastructure spend, record layoffs, and AI labs restructuring their own workforces — keeps fueling the argument that AI economics lean partly on cost-cutting elsewhere, not purely on AI revenue."
     },
     {
       "title": "Concentration everywhere",
@@ -195,78 +210,143 @@
   ],
   "catalysts": [
     {
-      "date": "SEPT 8, 2026",
-      "title": "Mistral AI raises a record €3B Series D at a ~$24.4B valuation",
-      "description": "Samsung Electronics led the largest-ever equity round by a European tech company, with EQT, PSG Equity, Nvidia, ASML and BlackRock among participants — nearly doubling Mistral's prior ~$13.7B mark."
+      "date": "SEPT 14, 2026",
+      "title": "AI chip stocks sell off on pace-of-spending worries",
+      "description": "Nvidia fell over 3%, Broadcom nearly 5% and AMD over 4% in the wake of the 'Pace the Frontier' call, before partially rebounding — a reminder of how headline-sensitive the group is."
     },
     {
-      "date": "SEPT 10, 2026",
-      "title": "Broadcom to supply Anthropic with 3.5GW of Google TPU capacity from 2027",
-      "description": "The deal, plus a commitment to design future TPU generations through 2031, is the clearest sign yet that a top AI lab is actively diversifying compute away from Nvidia GPUs."
+      "date": "SEPT 27, 2026",
+      "title": "Nvidia publishes data defending GPU depreciation schedules",
+      "description": "Nvidia argued A100, H100 and B200 hardware retains value beyond accelerated depreciation curves — a direct response to the bear case that hyperscalers flatter earnings by depreciating over 5–6 years."
     },
     {
-      "date": "SEPT 12, 2026",
-      "title": "Anthropic's Dario Amodei calls for the industry to \"pace the frontier\"",
-      "description": "The essay, backed publicly by OpenAI's Sam Altman and DeepMind's Demis Hassabis, argued AI capability growth needs to slow for safety work to keep up; chip stocks sold off in the days that followed while Meta, Alphabet and Microsoft rose."
+      "date": "SEPT 29, 2026",
+      "title": "OpenAI seeks $30B+ at $1.4T pre-money as a bridge to a delayed IPO",
+      "description": "Bloomberg reported the preliminary round, up from the $852B March valuation, with annualized revenue near $70B; Altman has ruled out a 2026 IPO."
     },
     {
-      "date": "SEPT 12, 2026",
-      "title": "Sam Altman rules out a 2026 OpenAI IPO, then floats a $1.2T+ funding round",
-      "description": "Altman told Fortune a 2026 listing would be \"ill-advised\" given safety concerns; days later Bloomberg reported OpenAI is in early talks for a pre-IPO round that would value it above $1.2 trillion, about 41% above its $852B March mark."
+      "date": "OCT 1, 2026",
+      "title": "BIS and RBA publish the first official measures of AI circular financing",
+      "description": "BIS Bulletin 137 found 55.2% of AI-firm investment came from other AI firms; the RBA estimated hyperscaler off-balance-sheet and vendor-financed obligations at US$1–1.5T while noting leverage remains contained."
     },
     {
-      "date": "SEPT 17, 2026",
-      "title": "Palantir's Alex Karp says frontier AI labs may need to be nationalized",
-      "description": "Speaking on CNBC, Karp cited \"unlimited risk\" and called for developer liability, an unusually blunt intervention from a company that sells directly into government and enterprise AI deployments."
+      "date": "OCT 2, 2026",
+      "title": "Nvidia lifts buyback authorization by $150B; Burry draws a 1960s analogy",
+      "description": "The record increase leaves ~$235B through fiscal 2028 and the stock near $231 (~+24% YTD); Michael Burry compared Nvidia's depreciation defence to 1960s computer-leasing stock promotion."
     },
     {
-      "date": "SEPT 17, 2026",
-      "title": "AMD jumps 6.3% as a neocloud operator hikes chip pricing",
-      "description": "Stifel and Piper Sandler lifted price targets to $635 and $600 respectively, even as the stock's ~$565 consensus target now sits barely above the current price."
+      "date": "MID-SEPT / NOV 9, 2026",
+      "title": "Anthropic IPO timing slips to a November roadshow",
+      "description": "Reported plan: roadshow the week of Nov 9 and trading before Thanksgiving at a $1.8–2.0T expected valuation — later than the October target — subject to market conditions."
+    },
+    {
+      "date": "OCT 15, 2026 (UPCOMING)",
+      "title": "TSMC reports Q3 earnings",
+      "description": "The next hard read on 2027 AI demand and pricing power for NVDA, AVGO and AMD; hyperscaler earnings follow in late October."
     }
   ],
   "etfs": [
     {
       "ticker": "SMH",
       "name": "VanEck Semiconductor",
-      "summary": "The silicon layer: NVDA/TSM/AVGO-heavy. ~+52.9% YTD (1-yr roughly +93–104%, sources vary) — still the best performer of the three, though it dipped alongside chip names during the Sept 12–14 \"Pace the Frontier\" selloff"
+      "summary": "The silicon layer: NVDA/TSM/AVGO-heavy. ~+52.9% YTD (1-yr roughly +93–104%, sources vary) — ETF returns were not independently re-verified this edition (figures carried from Sept 21); chip names fell 3–5% on Sept 14 and partly recovered"
     },
     {
       "ticker": "AIQ",
       "name": "Global X Artificial Intelligence & Tech",
-      "summary": "Broad AI beneficiaries across the stack. ~+20% YTD (1-yr ~+40%), roughly unchanged this edition — still trailing SMH by a wide margin"
+      "summary": "Broad AI beneficiaries across the stack. ~+20% YTD (1-yr ~+40%), carried from Sept 21, not re-verified — still trailing SMH by a wide margin"
     },
     {
       "ticker": "QQQ",
       "name": "Invesco Nasdaq-100",
-      "summary": "The de-facto AI mega-cap index. +15.7% YTD (1-yr +26.0%) — cheapest exposure (0.18% fee vs. SMH's 0.35%) and lowest volatility, but far from immune to AI sentiment and the most concentration overlap with everything else you own"
+      "summary": "The de-facto AI mega-cap index. +15.7% YTD (carried from Sept 21) (1-yr +26.0%) — cheapest exposure (0.18% fee vs. SMH's 0.35%) and lowest volatility, but far from immune to AI sentiment and the most concentration overlap with everything else you own"
     }
   ],
   "sources": [
-    { "title": "Fortune — Sam Altman confirms OpenAI won't go public in 2026, calls it \"ill-advised\"", "url": "https://fortune.com/2026/09/12/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/" },
-    { "title": "Bloomberg — OpenAI Weighing Funding Round at Over $1.2 Trillion Valuation", "url": "https://www.bloomberg.com/news/articles/2026-09-15/openai-weighing-funding-round-at-over-1-2-trillion-valuation" },
-    { "title": "Fortune — Sam Altman is discussing a new round of VC funding valuing OpenAI at $1.2 trillion", "url": "https://fortune.com/2026/09/16/openai-ipo-sam-altman-vc-funding-valuation-1-2-trillion/" },
-    { "title": "Dario Amodei — We Must Pace the Frontier", "url": "https://darioamodei.com/post/we-must-pace-the-frontier" },
-    { "title": "24/7 Wall St. — Meta, Alphabet and Microsoft Rise While Nvidia Falls After Three AI Chiefs Call For Slowing Down Frontier Models", "url": "https://247wallst.com/investing/2026/09/14/meta-alphabet-and-microsoft-rise-while-nvidia-falls-after-three-ai-chiefs-call-for-slowing-down-frontier-models/" },
-    { "title": "CNBC — Leading AI labs may need to be nationalized because risks are so high, Palantir's Karp says", "url": "https://www.cnbc.com/2026/09/17/ai-safety-palantir-karp.html" },
-    { "title": "Tom's Hardware — Broadcom expands Anthropic deal to 3.5GW of Google TPU capacity from 2027", "url": "https://www.tomshardware.com/tech-industry/broadcom-expands-anthropic-deal-to-3-5gw-of-google-tpu-capacity-from-2027" },
-    { "title": "Anthropic — Anthropic expands Google and Broadcom compute deal", "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute" },
-    { "title": "TechCrunch — Mistral raises €3B as sovereign AI becomes big business", "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/" },
-    { "title": "The Tribune — France's Mistral AI raises record $3.49 billion Series D at over $24.4 billion valuation", "url": "https://www.tribuneindia.com/news/e3-billion/frances-mistral-ai-raises-record-usd-3-49-billion-series-d-at-over-usd-24-4-billion-valuation" },
-    { "title": "The Motley Fool — Massive Update for AMD Stock Investors", "url": "https://www.fool.com/investing/2026/09/08/massive-update-for-amd-stock-investors/" },
-    { "title": "Ad Hoc News — AMD stock gains as analysts lift AI expectations and price targets", "url": "https://www.ad-hoc-news.de/boerse/news/corporate-news/amd-stock-gains-as-analysts-lift-ai-expectations-and-price-targets/70095473" },
-    { "title": "GuruFocus — Michael Burry Bets Against AI Stocks: Shorting ORCL and MU", "url": "https://www.gurufocus.com/news/9035381/michael-burry-bets-against-ai-stocks-shorting-orcl-and-mu" },
-    { "title": "Yahoo Finance — Here's How Michael Burry's Shorts Are Doing So Far in 2026", "url": "https://finance.yahoo.com/news/michael-burry-shorts-doing-far-174839022.html" },
-    { "title": "Yahoo Finance — Anthropic Has a $65 Billion Run Rate", "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-65-billion-run-rate-084400523.html" },
-    { "title": "Yahoo Finance — Nvidia May Invest Up to $10 Billion in Anthropic's $2.3 Trillion IPO", "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-may-invest-10-billion-142337240.html" },
-    { "title": "TechCrunch — Waymo goes on offense ahead of Tesla's Cybercab launch", "url": "https://techcrunch.com/2026/09/01/waymo-goes-on-offense-ahead-of-teslas-cybercab-launch/" },
-    { "title": "KRON4 — xAI layoffs: Elon Musk's AI startup reportedly cuts 500 jobs", "url": "https://www.kron4.com/news/technology-ai/elon-musk-xai-layoffs-500/" },
-    { "title": "SkillSyncer — 2026 Tech Layoffs Tracker", "url": "https://skillsyncer.com/layoffs-tracker" },
-    { "title": "PortfoliosLab — SMH vs. QQQ performance comparison", "url": "https://portfolioslab.com/tools/stock-comparison/SMH/QQQ" }
+    {
+      "title": "Bloomberg via Invezz — OpenAI seeks $30B at $1.4T valuation as IPO plans slip",
+      "url": "https://invezz.com/news/2026/09/29/openai-seeks-30b-funding-at-1-4t-valuation-as-ipo-plans-slip-report/"
+    },
+    {
+      "title": "PYMNTS — Anthropic Targets Pre-Thanksgiving IPO at $2 Trillion Valuation",
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-targets-pre-thanksgiving-ipo-at-2-trillion-valuation/"
+    },
+    {
+      "title": "StocksToTrade — NVDA Stock Climbs As Record Buybacks Meet Massive AI Demand (Oct 2)",
+      "url": "https://stockstotrade.com/news/nvidia-corporation-nvda-news-2026_10_02/"
+    },
+    {
+      "title": "Benzinga — Michael Burry pulls a 1960s market bubble into Nvidia's AI debate",
+      "url": "https://benzinga.com/markets/equities/26/10/62129119/michael-burry-just-pulled-a-1960s-market-bubble-into-nvidias-ai-debate-we-have-all-been-here-before"
+    },
+    {
+      "title": "Universal Asset Owners — BIS Bulletin 137 and RBA on AI circular financing (Oct 2 brief)",
+      "url": "https://universalassetowners.com/intelligence/uao-daily-brief-2026-10-02"
+    },
+    {
+      "title": "Value The Markets — The GPU Depreciation Debate Behind This Week's AI Dip",
+      "url": "https://www.valuethemarkets.com/analysis/gpu-depreciation-debate-behind-this-weeks-ai-dip"
+    },
+    {
+      "title": "Motley Fool — Nvidia, Broadcom and AMD investors need to have Oct. 15 circled",
+      "url": "https://www.fool.com/investing/2026/09/30/nvidia-broadcom-and-amd-investors-need-to-have-oct/"
+    },
+    {
+      "title": "Motley Fool — Palantir Is Worth About as Much as Oracle on Less Than a Tenth of Oracle's Revenue",
+      "url": "https://www.fool.com/investing/2026/09/29/palantir-is-worth-about-as-much-as-oracle-on-less-than-a-tenth-of-oracle-s-revenue/"
+    },
+    {
+      "title": "PitchBook — Q3 2026 Fewer Deals, Bigger Bets: corporate capital in US AI venture",
+      "url": "https://pitchbook.com/news/reports/q3-2026-fewer-deals-bigger-bets-how-corporate-capital-is-concentrating-us-ai-venture-activity"
+    },
+    {
+      "title": "Fortune — Sam Altman confirms OpenAI won't go public in 2026, calls it \"ill-advised\"",
+      "url": "https://fortune.com/2026/09/12/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/"
+    },
+    {
+      "title": "Dario Amodei — We Must Pace the Frontier",
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier"
+    },
+    {
+      "title": "24/7 Wall St. — Meta, Alphabet and Microsoft Rise While Nvidia Falls After Three AI Chiefs Call For Slowing Down Frontier Models",
+      "url": "https://247wallst.com/investing/2026/09/14/meta-alphabet-and-microsoft-rise-while-nvidia-falls-after-three-ai-chiefs-call-for-slowing-down-frontier-models/"
+    },
+    {
+      "title": "CNBC — Leading AI labs may need to be nationalized because risks are so high, Palantir's Karp says",
+      "url": "https://www.cnbc.com/2026/09/17/ai-safety-palantir-karp.html"
+    },
+    {
+      "title": "Tom's Hardware — Broadcom expands Anthropic deal to 3.5GW of Google TPU capacity from 2027",
+      "url": "https://www.tomshardware.com/tech-industry/broadcom-expands-anthropic-deal-to-3-5gw-of-google-tpu-capacity-from-2027"
+    },
+    {
+      "title": "TechCrunch — Mistral raises €3B as sovereign AI becomes big business",
+      "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/"
+    },
+    {
+      "title": "GuruFocus — Michael Burry Bets Against AI Stocks: Shorting ORCL and MU",
+      "url": "https://www.gurufocus.com/news/9035381/michael-burry-bets-against-ai-stocks-shorting-orcl-and-mu"
+    },
+    {
+      "title": "Yahoo Finance — Anthropic Has a $65 Billion Run Rate",
+      "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-65-billion-run-rate-084400523.html"
+    },
+    {
+      "title": "KRON4 — xAI layoffs: Elon Musk's AI startup reportedly cuts 500 jobs",
+      "url": "https://www.kron4.com/news/technology-ai/elon-musk-xai-layoffs-500/"
+    },
+    {
+      "title": "SkillSyncer — 2026 Tech Layoffs Tracker",
+      "url": "https://skillsyncer.com/layoffs-tracker"
+    },
+    {
+      "title": "PortfoliosLab — SMH vs. QQQ performance comparison",
+      "url": "https://portfolioslab.com/tools/stock-comparison/SMH/QQQ"
+    }
   ],
-  "footnote": "Figures approximate, from public reporting as of Sep 21, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Oct 5, 2026; several items (OpenAI round, Anthropic IPO timing) are press reports and subject to change. ETF returns carried from the Sept 21 edition. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "September 21, 2026",
+    "as_of": "October 5, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
@@ -274,7 +354,7 @@
         "name": "NVIDIA",
         "stance": "core",
         "weight": 18,
-        "note": "Fundamentals remain the strongest on the page (record Q2 revenue, Huang guiding to double chip sales next year), but this week showed two real emerging risks: a genuine sentiment-driven selloff after Anthropic's own CEO called for slower AI development, and Broadcom's concrete 3.5GW Google TPU deal for Anthropic, evidence a top customer is actively building a Nvidia alternative. Also sits in this hub's Quantum, Robotics and AI Biotech sleeves — don't double-count.",
+        "note": "Strongest fundamentals on the page (Q2 revenue $96.2B, ~74.7% gross margin, $150B buyback increase, ~29x earnings), but the BIS found 55.2% of AI-firm investment comes from other AI firms and the stock sits in the middle of that loop — Core with full awareness. Also sits in the Quantum, Robotics and AI Biotech sleeves — don't double-count.",
         "change": null
       },
       {
@@ -282,7 +362,7 @@
         "name": "Alphabet",
         "stance": "core",
         "weight": 16,
-        "note": "Beneficiary of this week's clearest diversification story — Google's TPUs picked up a 3.5GW commitment to power Anthropic workloads via Broadcom — on top of Waymo's continued robotaxi lead and DeepMind's Hassabis co-signing the industry slowdown call. Also appears in the Quantum sleeve — don't double-count.",
+        "note": "TPUs keep winning external demand (Broadcom's 3.5GW for Anthropic) with a ~$195–205B capex guide funded largely from cash flow; no new catalyst this week. Also appears in the Quantum sleeve — don't double-count.",
         "change": null
       },
       {
@@ -290,7 +370,7 @@
         "name": "TSMC",
         "stance": "core",
         "weight": 15,
-        "note": "No new company-specific data this week; still the least circularly-financed name on this page, and August's +53% YoY revenue acceleration plus the reported capacity warning to Nvidia and Broadcom remain the most recent proof points of genuine pricing power.",
+        "note": "Least circularly-financed name on the page, ~27x forward earnings and August revenue +53% YoY; the Oct 15 Q3 print and 2027 guidance is the next test, so no change before it.",
         "change": null
       },
       {
@@ -298,7 +378,7 @@
         "name": "Microsoft",
         "stance": "core",
         "weight": 14,
-        "note": "No fresh company-specific catalyst; shares were among those that rose during the Sept 12–14 chip selloff, a mild positive read on Microsoft's relative positioning versus pure silicon plays. Also in the Quantum sleeve — don't double-count.",
+        "note": "No fresh catalyst; ~$190B CY2026 capex and ~$80B Azure backlog are intact, with late-October earnings the next check on whether the market keeps rewarding spend. Also in the Quantum sleeve — don't double-count.",
         "change": null
       },
       {
@@ -306,7 +386,7 @@
         "name": "Amazon",
         "stance": "core",
         "weight": 14,
-        "note": "No fresh Amazon-specific catalyst this edition; the ~$220B capex raise and 37% AWS growth from prior weeks remain the clearest capex-payback story of the group, and weight is unchanged.",
+        "note": "No new Amazon-specific catalyst; the ~$220B capex raise alongside 37% AWS growth remains the clearest capex-payback story of the group.",
         "change": null
       },
       {
@@ -314,23 +394,23 @@
         "name": "Broadcom",
         "stance": "core",
         "weight": 14,
-        "note": "The new 3.5GW Google TPU supply deal for Anthropic, plus a commitment through 2031 on future TPU generations, is a genuine business win for Broadcom's custom-silicon franchise and the strongest concrete evidence this edition of hyperscalers diversifying away from Nvidia GPUs.",
+        "note": "Custom-silicon franchise (AI semis +221%, 3.5GW Google TPU deal for Anthropic) is strong, though shares fell nearly 5% on Sept 14, showing how headline-sensitive the group is.",
         "change": null
       },
       {
         "ticker": "ORCL",
         "name": "Oracle",
-        "stance": "watch",
+        "stance": "avoid",
         "weight": 0,
-        "note": "No new catalyst since the Sept 10 beat-and-raise, which is holding up well (~15% rally largely intact). Still Watch, not Core: the BBB- rating and ~$42B FY27 free-cash-flow deficit estimate are unchanged, and while Michael Burry trimmed his broader short book in September he kept Oracle as his largest disclosed AI short — a mixed signal, not a green light.",
-        "change": null
+        "note": "The RBA's Oct 1 warning on US$1–1.5T of off-balance-sheet and vendor-financed hyperscaler obligations lands squarely on Oracle's model (FY26 FCF -$23.7B, capex above operating cash flow, BBB-) even at ~17x earnings and +30% revenue growth — the research doesn't support owning it here until funding risk clears.",
+        "change": "down"
       },
       {
         "ticker": "PLTR",
         "name": "Palantir",
         "stance": "watch",
         "weight": 0,
-        "note": "CEO Alex Karp's Sept 17 call for AI-lab nationalization drew attention but doesn't change the underlying valuation debate; DA Davidson's $250 price target (Sept 11) is a bullish data point, but shares still trade on a story where the business and the price tell different tales.",
+        "note": "Superb growth (~82% guided 2026 revenue, net income ~$1.06B in Q2) but ~160x earnings and a ~$447B cap roughly equal to Oracle's on 1/11th the revenue leaves little room for error.",
         "change": null
       },
       {
@@ -338,7 +418,7 @@
         "name": "AMD",
         "stance": "spec",
         "weight": 9,
-        "note": "The Sept 17 pop on neocloud pricing news and fresh $600–635 Street targets are encouraging momentum, but the consensus target (~$565) now sits barely above the stock price — upside from here depends on ROCm actually closing the software gap with CUDA, not just on sentiment.",
+        "note": "Priced near the ~$565 consensus target after the Sept 17 pop and a >4% Sept 14 drop; upside depends on ROCm closing the gap with CUDA and on TSMC's Oct 15 read-through — small size only.",
         "change": null
       },
       {
@@ -346,7 +426,7 @@
         "name": "Meta",
         "stance": "watch",
         "weight": 0,
-        "note": "Shares got a sympathetic bounce during the Sept 12–14 selloff, but the underlying story is unchanged: ~7,000 staff reassigned into Applied AI after May's ~8,000-person cut, with management still reconsidering its own org structure. Staying on Watch until the governance questions settle.",
+        "note": "No fresh catalyst; the ~7,000-person Applied AI reassignment after May's ~8,000 cut and still-'dynamic' capital planning keep the governance and capex-discipline questions open.",
         "change": null
       },
       {
@@ -354,7 +434,7 @@
         "name": "UiPath",
         "stance": "watch",
         "weight": 0,
-        "note": "No fresh catalyst this edition; growth (~13%) is still a fraction of AI-native peers' — staying on Watch until the numbers show it, not just the narrative.",
+        "note": "No fresh catalyst; ~13% growth is a fraction of AI-native peers' (Palantir ~82% guided) — Watch until numbers, not narrative, show agents are a tailwind rather than a RPA replacement.",
         "change": null
       },
       {
@@ -362,7 +442,7 @@
         "name": "SpaceX",
         "stance": "watch",
         "weight": 0,
-        "note": "The Sept 12 cut of ~500 data-annotation staff (a third of that team) alongside a stated pivot to specialist AI tutors is an ambiguous signal — could be efficiency or could be a sign the training pipeline isn't working as planned. Combined with capex that more than doubled to $15.8B in Q2 and unresolved criticism that xAI hasn't become the frontier challenger Musk promised, this stays on Watch rather than Core or Speculative.",
+        "note": "Heavy Nvidia dependence (Musk's 'exclusively Nvidia' data-center pledge) and xAI capex that more than doubled to $15.8B in Q2 sit against an unproven frontier-challenger thesis; Watch until the economics show.",
         "change": null
       }
     ]
