@@ -1,0 +1,299 @@
+{
+  "sector": "space",
+  "title": "Fynaptix · Space Economy Research",
+  "heading": "Space Economy Intelligence",
+  "subheading": "Launch, satellites, constellations & the post-SpaceX-IPO landscape",
+  "kicker": "SPACE ECONOMY // OCT 2026",
+  "generated": "October 5, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Space is capital-intensive with heavy government-customer concentration. Verify current prices and do your own due diligence before investing.",
+  "kpis": [
+    {
+      "value": "$1.8T",
+      "sub": "BY 2035 (MCKINSEY & GOLDMAN SACHS)",
+      "label": "Global space economy estimated at ~$626B in 2026 and projected to reach $1.8T by 2035; private space-startup funding was last reported at a record $20.3B year to date.",
+      "highlight": false
+    },
+    {
+      "value": "~$159",
+      "sub": "SPCX · +7.4% OCT 2 · ~$2.2T MARKET CAP",
+      "label": "SpaceX closed near $158.96 on Oct 2 after Starship Flight 14 put 26 Starlink V3 satellites in orbit; still above the $135 IPO price but well below the $225.64 52-week high, with up to 1.3B lockup shares unlocking after Q3 earnings.",
+      "highlight": true
+    },
+    {
+      "value": "$1.94B",
+      "sub": "ROCKET LAB EQUITY RAISE FOR IRIDIUM",
+      "label": "Rocket Lab sold ~29.3M shares at ~$66 (about 5% dilution) and terminated its $3.6B bridge loan; Iridium holders' shares at closing (mid-2027) could lift total dilution to ~12%, and RKLB trades above 40x annualized revenue.",
+      "highlight": false
+    },
+    {
+      "value": "12M",
+      "sub": "STARLINK SUBSCRIBERS · ARPU $66/MO",
+      "label": "Starlink doubled subscribers year over year to 12.0M with a record 1.7M Q2 net adds, but average revenue per user fell to $66 a month from $85 as the base broadened.",
+      "highlight": false
+    }
+  ],
+  "themes": [],
+  "tiers": [
+    {
+      "tier": "TIER 1",
+      "label": "Scale Players",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "SPCX",
+          "company": "SpaceX",
+          "angle": "Starship Flight 14 on Sept 28 was the first true orbital flight, deploying all 26 Starlink V3 satellites despite an engine shutdown on ascent; Starlink has 12.0M subscribers, Anthropic pays $1.25B a month through May 2029 and Google $920M a month from October; shares ~$159 (+7.4% Oct 2), ~$2.2T market cap.",
+          "watch for": "Q3 earnings, which start the clock on up to 1.3B lockup shares becoming tradable two full trading days later; falling Starlink ARPU ($66 vs $85) and $23.6B of H1 AI capex."
+        },
+        {
+          "ticker": "RKLB",
+          "company": "Rocket Lab",
+          "angle": "Completed a $1.94B at-the-market sale (~$66 average) to fund the $8B Iridium deal and dropped the $3.6B bridge loan; won a slot on the Space Force NITE-STAR vehicle (up to $981M pooled ceiling) and flew its 97th Electron, the 18th launch of 2026.",
+          "watch for": "FCC review of Iridium with closing guided to mid-2027, Neutron's maiden launch (13,000 kg to LEO) slipping, and a valuation above 40x annualized revenue on a $49.3M Q2 net loss."
+        },
+        {
+          "ticker": "LHX",
+          "company": "L3Harris",
+          "angle": "Took $955M of the SDA's $1.75B award for 36 Golden Dome missile-tracking satellites (18 hypersonic and ballistic tracking variants), alongside the $4.7B PAC-3 propulsion award; also in the Defense sleeve.",
+          "watch for": "Conversion of awards into margin, with launches of this batch not expected until 2028; don't double-count with the Defense sleeve."
+        }
+      ]
+    },
+    {
+      "tier": "TIER 2",
+      "label": "Growth / Speculative",
+      "note": "Tiered by maturity/risk — not a ranked buy list.",
+      "columns": [
+        "Ticker",
+        "Company",
+        "Angle",
+        "Watch for"
+      ],
+      "rows": [
+        {
+          "ticker": "ASTS",
+          "company": "AST SpaceMobile",
+          "angle": "BlueBirds 11-13 launched successfully and BlueBirds 14, 15 and 16 have shipped to Cape Canaveral; spacecraft production has reached BlueBird 50 and the CEO is pushing for broader FCC spectrum access.",
+          "watch for": "B.Riley cut to Neutral (target $65 from $85) on MNO uptake and pricing data still to come, plus Viasat and Space42's Equatys competing for the same direct-to-device market."
+        },
+        {
+          "ticker": "LUNR",
+          "company": "Intuitive Machines",
+          "angle": "Delivered its 13th SiriusXM satellite and reports a record $1.8B backlog.",
+          "watch for": "Net insider selling of roughly $259M over 12 months and whether the backlog converts to recognized revenue."
+        },
+        {
+          "ticker": "PL",
+          "company": "Planet Labs",
+          "angle": "Secured a German government contract worth up to $29M over five years and is scaling Pelican output with a new Berlin facility.",
+          "watch for": "Dependence on SpaceX rideshare capacity, which tightens by 2028, and founder stock sales."
+        },
+        {
+          "ticker": "RDW",
+          "company": "Redwire",
+          "angle": "One of 15 vendors on the Space Force NITE STAR IDIQ (ceiling over $980M) and still carrying a record ~$542M backlog; closed around $10.88 on Oct 2.",
+          "watch for": "NITE STAR has no guaranteed revenue, and the $1.15B of net insider selling over 12 months remains unexplained."
+        }
+      ]
+    }
+  ],
+  "private_watchlist": [
+    {
+      "name": "Blue Origin",
+      "value": "BEZOS-FUNDED",
+      "note": "New Glenn exploded during a static hot fire at LC-36 on May 28, destroying the transporter-erector at its only pad; CEO Dave Limp is still targeting another launch before the end of 2026, which looks ambitious for the repair work involved."
+    },
+    {
+      "name": "Firefly Aerospace",
+      "value": "NASDAQ: FLY",
+      "note": "Signed a lunar AI-computing deal with Starcloud and opened a new cleanroom on Sept 22 to scale spacecraft production; Alpha Block 2's debut remains slated for Q4 2026."
+    },
+    {
+      "name": "Stoke Space",
+      "value": "~$10B VALUATION",
+      "note": "No fresh update this week beyond the $1B Series E (total raised $2.3B, ~$10B valuation); Nova Block 2, a 15-metric-ton fully reusable design, is still targeted for 2029."
+    }
+  ],
+  "bear_case": [
+    {
+      "title": "Capital intensity",
+      "description": "Rocket Lab just raised $1.94B of equity (~$66 a share) with a $49.3M quarterly net loss and could reach ~12% dilution after the Iridium close; AST SpaceMobile carries a $1.15B convertible plus ~$610M of quarterly capex; SpaceX itself spent $23.6B on AI capex in H1."
+    },
+    {
+      "title": "Government concentration",
+      "description": "The SDA's $1.75B Tranche 3 award was split between L3Harris ($955M) and Sierra Space ($798M), and NITE-STAR is a pooled vehicle with no guaranteed revenue for any of its vendors; Golden Dome spending is large but spread thin across many bidders."
+    },
+    {
+      "title": "SpaceX absorbs the value / lockups",
+      "description": "At ~$2.2T SpaceX is priced for flawless execution, Starlink ARPU is already falling, and up to 1.3B lockup shares can trade after Q3 earnings; its launch cost and cadence keep compressing everyone else's margins."
+    },
+    {
+      "title": "Binary mission risk",
+      "description": "Flight 14 reached orbit but still lost an engine on ascent; Neutron's maiden launch is exposed to slipping into 2027; Blue Origin's only pad was wrecked in May; and a failure in any of these resets sector sentiment quickly."
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "OCT 2",
+      "title": "SpaceX +7.4% to ~$159 after a run of wins",
+      "description": "Starship Flight 14, NASA's Crew-13 launch and Alphabet's Project Suncatcher prototype all landed within a week; analysts' average target is $235."
+    },
+    {
+      "date": "OCT 1–2",
+      "title": "B.Riley cuts AST SpaceMobile to Neutral",
+      "description": "Target lowered to $65 from $85 on MNO pricing and subscriber uncertainty; BlueBirds 14-16 shipped to Cape Canaveral and shares were roughly flat at ~$57."
+    },
+    {
+      "date": "SEP 28",
+      "title": "Starship Flight 14 reaches orbit",
+      "description": "First true orbital flight, deploying all 26 Starlink V3 satellites despite an engine shutdown during ascent."
+    },
+    {
+      "date": "LATE SEP",
+      "title": "Rocket Lab fully funds Iridium",
+      "description": "$1.94B at-the-market sale at ~$66 average, bridge loan terminated, plus a NITE-STAR slot and the 97th Electron launch; closing guided to mid-2027."
+    },
+    {
+      "date": "LATE SEP",
+      "title": "Smaller names pick up contracts",
+      "description": "Planet Labs won a German contract worth up to $29M over five years and Intuitive Machines delivered its 13th SiriusXM satellite."
+    },
+    {
+      "date": "UPCOMING",
+      "title": "SpaceX Q3 earnings and lockup release",
+      "description": "Up to 1.3B shares become tradable two full trading days after the release (date not yet confirmed); Blue Origin targets New Glenn's return to flight before year-end."
+    }
+  ],
+  "etfs": [
+    {
+      "ticker": "UFO",
+      "name": "Procure Space",
+      "summary": "Pure-play, revenue-weighted (RKLB, PL, ASTS among top holdings); up roughly 23% over the trailing 12 months as last reported Sept 28, with no fresh figure this week."
+    },
+    {
+      "ticker": "ARKX",
+      "name": "ARK Space Exploration",
+      "summary": "Actively managed with broader tech adjacency; up roughly 18% trailing 12 months as last reported, and ARK has been adding RKLB."
+    },
+    {
+      "ticker": "ROKT",
+      "name": "SPDR Kensho Final Frontiers",
+      "summary": "Equal-weight space, defense and deep-sea blend; up roughly 42% trailing 12 months as last reported, the strongest of the three."
+    }
+  ],
+  "sources": [
+    {
+      "title": "TipRanks — Why SpaceX Stock (SPCX) Is Surging Today (Oct 2, 2026)",
+      "url": "https://www.tipranks.com/news/why-spacex-stock-spcx-is-surging-today-october-2-2026"
+    },
+    {
+      "title": "Motley Fool — SpaceX's Third Quarter Just Ended: 3 Numbers That Matter",
+      "url": "https://www.fool.com/investing/2026/10/02/spacex-s-third-quarter-just-ended-here-are-the-3-numbers-that-matter-most-for-the-stock/"
+    },
+    {
+      "title": "TradingView — Key facts: Rocket Lab wins NITE-STAR; $8B Iridium OK; Neutron",
+      "url": "https://www.tradingview.com/news/tradingview:7f912ccf738e1:0-key-facts-rocket-lab-rklb-wins-nite-star-8b-iridium-ok-neutron/"
+    },
+    {
+      "title": "Motley Fool — Rocket Lab Sold $1.9 Billion of New Stock to Pay for Iridium",
+      "url": "https://www.fool.com/investing/2026/09/22/rocket-lab-sold-usd1-9-billion-of-new-stock-to-pay-for-iridium-here-s-the-dilution-math/"
+    },
+    {
+      "title": "Benzinga — AST SpaceMobile Trades Flat Following B.Riley Price Target Cut to $65",
+      "url": "https://benzinga.com/trading-ideas/movers/26/10/62132342/ast-spacemobile-stock-trades-flat-following-b-riley-price-target-cut-to-65"
+    },
+    {
+      "title": "StockTwits — What Lit Up Space Stocks This Week",
+      "url": "https://stocktwits.com/news-articles/markets/equity/rklb-asts-voyg-lunr-steal-spacex-thunder-what-lit-up-space-stocks-this-week/cZtuNpRRB3O"
+    },
+    {
+      "title": "Eurasia Review — Contract Awards Accelerate Golden Dome Satellite Development",
+      "url": "https://www.eurasiareview.com/21092026-contract-awards-accelerate-golden-dome-satellite-development/"
+    },
+    {
+      "title": "Space.com — Blue Origin says New Glenn will launch again before the end of the year",
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/blue-origin-says-new-glenn-rocket-will-launch-again-before-the-end-of-the-year-after-explosion"
+    },
+    {
+      "title": "HeyGoTrade — Redwire (RDW) Oct 2 close",
+      "url": "https://www.heygotrade.com/en/us-stock/rdw/"
+    }
+  ],
+  "footnote": "Figures approximate, from public reporting as of Oct 5, 2026. ETF returns are as last reported Sept 28. Refreshed weekly. Always confirm current prices/valuations independently.",
+  "stance": {
+    "as_of": "October 5, 2026",
+    "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+    "positions": [
+      {
+        "ticker": "RKLB",
+        "name": "Rocket Lab",
+        "stance": "core",
+        "weight": 32,
+        "note": "Fully funded the $8B Iridium deal with a $1.94B at-the-market sale (~$66 average, ~5% dilution) and killed the $3.6B bridge loan, but at ~$69 it trades above 40x annualized revenue with a $49.3M Q2 net loss, so the weight holds rather than grows.",
+        "change": null
+      },
+      {
+        "ticker": "LHX",
+        "name": "L3Harris",
+        "stance": "core",
+        "weight": 25,
+        "note": "Won $955M of the SDA's $1.75B Tranche 3 tracking-layer award (18 satellites) on top of the $4.7B PAC-3 propulsion award, so the backlog thesis is intact even with no new catalyst this week; also sits in the Defense sleeve, so don't double-count it.",
+        "change": null
+      },
+      {
+        "ticker": "ASTS",
+        "name": "AST SpaceMobile",
+        "stance": "spec",
+        "weight": 18,
+        "note": "B.Riley cut it to Neutral and slashed its target to $65 from $85 (stock ~$57) on MNO pricing and subscriber uncertainty plus rivals like Viasat and Space42's Equatys, even as BlueBirds 14-16 shipped to Cape Canaveral; weight trimmed, stance held.",
+        "change": null
+      },
+      {
+        "ticker": "LUNR",
+        "name": "Intuitive Machines",
+        "stance": "spec",
+        "weight": 15,
+        "note": "Delivered its 13th SiriusXM satellite and still reports a record $1.8B backlog, but heavy net insider selling (~$259M over 12 months) and unproven backlog conversion keep it small.",
+        "change": null
+      },
+      {
+        "ticker": "PL",
+        "name": "Planet Labs",
+        "stance": "spec",
+        "weight": 10,
+        "note": "Added a German government contract worth up to $29M over five years (+3% on the week), a real but small proof point for a business still dependent on SpaceX rideshare capacity.",
+        "change": null
+      },
+      {
+        "ticker": "SPCX",
+        "name": "SpaceX",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Starship Flight 14 finally reached orbit Sept 28 with all 26 Starlink V3 satellites and shares jumped 7.4% to ~$159 on Oct 2, but a ~$2.2T market cap, Starlink ARPU down to $66 from $85 and up to 1.3B lockup shares unlocking after Q3 earnings keep it on Watch; UK investors wanting indirect exposure can use Scottish Mortgage (SMT, covered on the Baillie Gifford page).",
+        "change": null
+      },
+      {
+        "ticker": "RDW",
+        "name": "Redwire",
+        "stance": "watch",
+        "weight": 0,
+        "note": "Closed around $10.88 on Oct 2 with the NITE STAR IDIQ slot still carrying no guaranteed revenue and the $1.15B of net insider selling over 12 months still unexplained, so nothing this week earns it a place in the sleeve.",
+        "change": null
+      },
+      {
+        "ticker": "IRDM",
+        "name": "Iridium Communications",
+        "stance": "avoid",
+        "weight": 0,
+        "note": "Shareholders already approved the Rocket Lab deal (99.6% of votes), leaving only FCC review before a mid-2027 close, so the standalone stock is just a spread on RKLB's share price and RKLB is the cleaner way to hold the view.",
+        "change": null
+      }
+    ]
+  }
+}
