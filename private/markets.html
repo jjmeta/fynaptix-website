@@ -119,7 +119,7 @@
           </div>
           <div class="hub-meta">
             <span>Every dated event, one view</span>
-            <span>Updated Sep 28 · refreshes Mondays</span>
+            <span>Updated Oct 5 · refreshes Mondays</span>
             <span style="color:var(--color-accent-700);">Dates shift — verify before trading</span>
           </div>
         </div>
@@ -162,7 +162,7 @@
           </div>
           <div class="hub-meta">
             <span>The moment they become investable</span>
-            <span>Updated Sep 28 · refreshes Mondays</span>
+            <span>Updated Oct 5 · refreshes Mondays</span>
             <span style="color:var(--color-accent-700);">Rumoured listings may never happen</span>
           </div>
         </div>
@@ -210,60 +210,59 @@
 
 <script>
 var IMMINENT=[
-  ['SEP 28 (NET)','SPACE','Starship Flight 14 — first true orbital attempt','Third target date after two prior slips; carries 26 upgraded Starlink V3 satellites.',true],
-  ['SEP 29','MACRO','JOLTS job openings & Case-Shiller home prices','First labor-market read since the Sept 16 hike to 3.75–4%.',false],
-  ['SEP 29–30','NUCLEAR','BWXT Investor Day & William Blair meeting','Management makes its growth case after a third straight week of 52-week lows despite a fresh investment-grade rating.',true],
-  ['SEP 30','MACRO','ADP employment, Q2 GDP (final) & personal income/spending','The Fed’s preferred inflation gauge alongside a growth revision.',false],
-  ['SEP 30','MINERALS','Lynas’ CEO transition-support window closes','Interim chief Pol Le Roux’s search passes three months with no permanent hire named.',false],
-  ['~SEP 30','DEFENSE','Anduril’s ~$100B round still unclosed','First reported Jul 24; still not confirmed roughly ten weeks later even as the company lands real production contracts.',false],
-  ['OCT 1','MACRO','ISM Manufacturing PMI & jobless claims','First broad read on how the economy is absorbing a 5.1%+ 10-year and a fresh hike.',false],
-  ['OCT 2','MACRO','September jobs report','The week’s single biggest data point for the Fed’s next move.',true],
-  ['OCT 2026','AI & COMPUTE','Anthropic IPO (targeted)','Pre-roadshow meetings underway; seeking up to $100B at a ~$2.0–2.3T valuation before the November midterms.',true],
-  ['OCT 20','AI BIOTECH','Guardant/Tempus patent Markman hearing','Follow-on to the $245.2M TwinStrand judgment, under appeal.',false],
-  ['OCT 2026','STORAGE','GE Vernova Q3 print','Tests the $176B AI-power backlog thesis; CEO points to $200B in early 2027.',false]
+  ["OCT 7", "MACRO", "FOMC minutes", "First detailed look at the Sept 16 hike debate, now that October-hike odds have fallen to ~14% after a +29,000 jobs print.", true],
+  ["THIS WEEK", "MACRO", "Treasury auctions", "Supply into a ~5.2% 10-year after the soft jobs report.", false],
+  ["OCT 8–9", "MACRO", "Jobless claims & consumer sentiment", "A quiet tier-one data calendar before Q3 earnings season accelerates.", false],
+  ["UNTIL DEC 11", "DEFENSE", "Continuing resolution in force", "150+ new programs frozen, including Golden Dome (~$17.1B, reconciliation-dependent) and the $54.6B DAWG drone line.", false],
+  ["OCT 2026", "AI & COMPUTE", "Anthropic roadshow prep", "Reported plan: roadshow the week of Nov 9 and trading before Thanksgiving at $1.8–2.0T, later than the earlier October target.", true],
+  ["OCT 20", "AI BIOTECH", "Guardant/Tempus patent Markman hearing", "Follow-on to the $245.2M TwinStrand judgment, under appeal.", false],
+  ["MID–LATE OCT", "STORAGE", "Tesla Q3 energy margin & GE Vernova Q3 print", "Tesla’s full Q3 storage margin follows the 13.7 GWh deployment; GE Vernova tests the $176B backlog thesis (CEO points to $200B in early 2027).", false],
+  ["LATE OCT", "AI & COMPUTE", "Hyperscaler Q3 earnings", "First capex updates since the BIS/RBA financing warnings; top-five capex currently $825–855B.", true],
+  ["AFTER Q3 PRINT", "SPACE", "SpaceX lockup expiry", "Up to 1.3B shares unlock after Q3 earnings with SPCX at ~$2.2T.", false]
 ];
 var HORIZON=[
-  ['SUSPENDED','NUCLEAR','Holtec Nuclear IPO (HNUC)','Pulled Sept 16–18; S-1 remains on file with no new pricing date.'],
-  ['H2 2026','NUCLEAR','Westinghouse eyes a $50B+ IPO','Bloomberg reports the target jumped from ~$30B floated weeks earlier; Cameco’s 49% stake would be worth ~$24.5B — nearly two-thirds of Cameco’s own market cap.'],
-  ['H2 2026','ROBOTICS','Agility Robotics SPAC completion','First US-listed pure-play humanoid; ~$620M+ gross proceeds incl. $200M Foxconn PIPE.'],
-  ['H2 2026','ROBOTICS','LimX & Agibot confidential HK listings','LimX at $2.2B; Agibot targeting a HK$40–50bn IPO.'],
-  ['H2 2026 → 2027','AI & COMPUTE','OpenAI IPO','Pushed to 2027 on safety grounds; in talks for a $1.2T+ pre-IPO round instead (~41% above its $852B March mark).'],
-  ['MID–LATE 2026','ROBOTICS','ABB–SoftBank robotics deal close','~$5.4B EV divestment awaiting regulatory clearance.'],
-  ['MID-2027','SPACE','Rocket Lab × Iridium merger closes','Stockholders approved Sept 24 (99.6% of votes, ~81% of shares); an FCC review is the remaining step, with Neutron’s pad delivery still tracking Q4 2026.'],
-  ['WEEKS (PER TVA)','NUCLEAR','Clinch River construction-permit decision','TVA said Sept 9 it expects an NRC decision on the GE Vernova BWRX-300 project imminently — the next hard SMR milestone against zero operating commercial SMRs.'],
-  ['DEC 11, 2026','DEFENSE / MACRO','Government funding CR deadline','98% of Golden Dome’s $17.5–17.9B FY27 ask needs a reconciliation bill.'],
-  ['NOV 10, 2026','MINERALS','China rare-earth export reprieve expires','Untouched by Xi’s Sept 24–25 Washington visit, which delivered tariff cuts but no change to the export-licensing regime.'],
-  ['NOV 27, 2026','MINERALS / MACRO','Busan-truce deadline','A second trade deadline bracketing the rare-earth question.'],
-  ['END 2026','DEFENSE','Anduril Arsenal-1 full ramp','6,000 tactical rocket motors/yr target.'],
-  ['H2 2026','QUANTUM','Remaining CHIPS quantum LOIs finalize','GlobalFoundries, Atom Computing and Diraq still to convert; PsiQuantum’s own $100M award finalized Sept 8.'],
-  ['H2 2026–2029','NUCLEAR','X-energy’s Xe-100 UK design assessment','Three-year review opened this week (Sept 22–25) behind a 6GW plan.'],
-  ['FY27 CYCLE','DEFENSE','Pentagon autonomy appropriations','~$75B unmanned/counter-drone request incl. the $54.6B DAWG line.']
+  ["SUSPENDED", "NUCLEAR", "Holtec Nuclear IPO (HNUC)", "Pulled Sept 16–18; S-1 remains on file with no new pricing date."],
+  ["H2 2026", "NUCLEAR", "Westinghouse eyes a $50B+ IPO", "Bloomberg reports the target jumped from ~$30B floated weeks earlier; Cameco’s 49% stake would be worth ~$24.5B — nearly two-thirds of Cameco’s own market cap."],
+  ["H2 2026", "ROBOTICS", "Agility Robotics SPAC completion", "First US-listed pure-play humanoid; ~$620M+ gross proceeds incl. $200M Foxconn PIPE."],
+  ["H2 2026", "ROBOTICS", "LimX & Agibot confidential HK listings", "LimX at $2.2B; Agibot targeting a HK$40–50bn IPO."],
+  ["H2 2026 → 2027", "AI & COMPUTE", "OpenAI IPO", "Altman has ruled out a 2026 listing; Bloomberg reports a $30B+ bridge round at a $1.4T pre-money (vs $852B in March) with annualized revenue near $70B."],
+  ["MID–LATE 2026", "ROBOTICS", "ABB–SoftBank robotics deal close", "~$5.4B EV divestment awaiting regulatory clearance."],
+  ["MID-2027", "SPACE", "Rocket Lab × Iridium merger closes", "Stockholders approved Sept 24; an FCC review is the remaining step, with the deal now fully funded by a $1.94B at-the-market sale and Neutron’s pad delivery tracking Q4 2026."],
+  ["Q4 2026", "NUCLEAR", "TVA Clinch River BWRX-300 next steps", "NRC construction permit issued Sept 29–30; TVA has yet to disclose cost, start date or a financing partner."],
+  ["NOV 10, 2026", "MINERALS", "China rare-earth export reprieve expires", "Untouched by the Sept Washington visit, which delivered tariff cuts but no change to the export-licensing regime."],
+  ["NOV 27, 2026", "MINERALS / MACRO", "Busan-truce deadline", "A second trade deadline bracketing the rare-earth question."],
+  ["DEC 11, 2026", "DEFENSE / MACRO", "Government funding CR deadline", "98% of Golden Dome’s $17.5–17.9B FY27 ask needs a reconciliation bill; 150+ new starts are frozen until then."],
+  ["END 2026", "DEFENSE", "Anduril Arsenal-1 full ramp", "6,000 tactical rocket motors/yr target."],
+  ["H2 2026", "QUANTUM", "Remaining CHIPS quantum LOIs finalize", "GlobalFoundries, Atom Computing and Diraq still to convert; PsiQuantum’s own $100M award finalized Sept 8."],
+  ["H2 2026–2029", "NUCLEAR", "X-energy’s Xe-100 UK design assessment", "Three-year review opened in late September behind a 6GW plan."],
+  ["FY27 CYCLE", "DEFENSE", "Pentagon autonomy appropriations", "~$75B unmanned/counter-drone request incl. the $54.6B DAWG line."]
 ];
 var MOTION=[
-  ['Anthropic','AI & Compute','Pre-roadshow meetings','~$2.0–2.3T','Bankers scheduling pre-roadshow investor meetings by mid-September; still targeted before the Nov midterms. Nvidia reportedly in talks to anchor up to $10B.'],
-  ['OpenAI','AI & Compute','In talks for new round','~$852B (in talks $1.2T+)','Altman called a 2026 listing “ill-advised” given safety concerns; now in early talks for a pre-IPO round ~41% above its March mark, pushing any listing to 2027.'],
-  ['Westinghouse','Nuclear','Reported IPO prep','~$50B+ (was ~$30B)','Bloomberg reported Sept 18 the target jumped sharply; Cameco’s 49% stake alone would be worth ~$24.5B, nearly two-thirds of Cameco’s own market cap.'],
-  ['Holtec Nuclear','Nuclear','IPO suspended (HNUC)','~$2.0B (was $10.2B)','Pulled Sept 16–18 citing market conditions; S-1 stays on file.'],
-  ['Agility Robotics','Robotics','SPAC announced','~$2.5B','Confidential S-4 filed; ~$620M+ proceeds incl. a $200M Foxconn PIPE.'],
-  ['LimX Dynamics','Robotics','Pre-IPO closed','~$2.2B','Closed a $200M round; prepping a confidential HK listing.'],
-  ['Agibot','Robotics','Planned','~$5.1–6.4B','Targeting a HK$40–50bn Hong Kong listing in 2026.'],
-  ['European defense wave','Defense','Ongoing','Various','Anduril’s ~$5B Air Force CCA production win adds a real production data point on top of Helsing’s $1.8B round (demand exceeded allocation).']
+  ["Anthropic", "AI & Compute", "Roadshow slated for Nov 9 week", "~$1.8–2.0T (reported)", "Reported plan: roadshow the week of Nov 9 with trading before Thanksgiving — later than the earlier October target; a confidential S-1 was reportedly submitted in June after the $965B Series H."],
+  ["OpenAI", "AI & Compute", "Bridge round, IPO delayed", "~$852B → $1.4T pre-money (talks)", "Altman has ruled out a 2026 IPO; Bloomberg reported Sept 29 a $30B+ preliminary round at $1.4T pre-money with annualized revenue near $70B."],
+  ["Westinghouse", "Nuclear", "Reported IPO prep", "~$50B+ (was ~$30B)", "Bloomberg reported Sept 18 the target jumped sharply; Cameco’s 49% stake alone would be worth ~$24.5B, nearly two-thirds of Cameco’s own market cap."],
+  ["Holtec Nuclear", "Nuclear", "IPO suspended (HNUC)", "~$2.0B (was $10.2B)", "Pulled Sept 16–18 citing market conditions; S-1 stays on file."],
+  ["Agility Robotics", "Robotics", "SPAC announced", "~$2.5B", "Confidential S-4 filed; ~$620M+ proceeds incl. a $200M Foxconn PIPE."],
+  ["LimX Dynamics", "Robotics", "Pre-IPO closed", "~$2.2B", "Closed a $200M round; prepping a confidential HK listing."],
+  ["Agibot", "Robotics", "Planned", "~$5.1–6.4B", "Targeting a HK$40–50bn Hong Kong listing in 2026."],
+  ["European defense wave", "Defense", "Ongoing", "Various", "Helsing’s $1.8B round (demand exceeded allocation) and Anduril’s ~$5B CCA production win keep private defense ahead of listed pure-plays; Neros’s ~$100M drone order is the latest example."]
 ];
 var WATCH=[
-  ['Anduril','Defense','~$100B (talks)','Round unclosed ~10 weeks since first reported Jul 24; wins a ~$5B Air Force CCA production contract with General Atomics regardless.'],
-  ['Figure AI','Robotics','~$39B','Most-funded humanoid; ~150 robots shipped in 2025 vs the valuation.'],
-  ['Blue Origin','Space','—','New Glenn anomaly’s root cause identified; next flight targets first-ever booster reuse plus a Vandenberg debut — no confirmed date yet.'],
-  ['1X Technologies','Robotics','Seeking $10B+','Full-scale NEO production under way in Hayward, CA.'],
-  ['Helsing','Defense','~$18B','$1.8B round closed with demand exceeding allocation; no filing yet.']
+  ["Anduril", "Defense", "~$100B (talks)", "Round still unclosed more than ten weeks since first reported Jul 24; won a ~$5B Air Force CCA production contract with General Atomics regardless."],
+  ["Figure AI", "Robotics", "~$39B", "Most-funded humanoid; ~150 robots shipped in 2025 vs the valuation."],
+  ["Blue Origin", "Space", "—", "New Glenn anomaly’s root cause identified; next flight targets first-ever booster reuse plus a Vandenberg debut — no confirmed date yet."],
+  ["1X Technologies", "Robotics", "Seeking $10B+", "Full-scale NEO production under way in Hayward, CA."],
+  ["Helsing", "Defense", "~$18B", "$1.8B round closed with demand exceeding allocation; no filing yet."],
+  ["Neros", "Defense", "Private", "Won ~$100M Pentagon FPV-drone order (14,000+ units) after Gauntlet II."]
 ];
 var TRADING=[
-  ['Pasqal','Quantum','Aug 2026 (SPAC)','~$6.99 (−12% wk)','Fell to a fresh post-IPO low this week; first reporting quarter as a listed company.'],
-  ['Unitree','Robotics','Aug 2026 (688836)','~$30.3B','Stabilised ~54% below its $66B peak after the G1+ launch; FCC import ban still in force.'],
-  ['SpaceX','Space','Jun 2026','~$148–149 (~26% below high)','Starship Flight 14 — the first true orbital attempt — targets today after three prior slips.'],
-  ['Quantinuum','Quantum','Jun 2026 (QNT)','~$49.53 (−9% wk)','Fell despite new Oracle and Quanta partnerships — execution risk still weighs more than the news.'],
-  ['X-energy','Nuclear','Apr 2026 (XE)','~$1B raised','UK opened a formal 3-year design assessment of its Xe-100 this week.'],
-  ['Generate Biomedicines','AI Biotech','Feb 2026','$400M raised','GB-0895 Phase 3 recruitment complete across all six regions.'],
-  ['Eikon Therapeutics','AI Biotech','Feb 2026','$381M raised','Shares remain below the $18 IPO price after the lock-up expiry.']
+  ["Pasqal", "Quantum", "Aug 2026 (SPAC)", "~$6.99 (last check)", "Fresh post-IPO low in the prior week; first reporting quarter as a listed company."],
+  ["Unitree", "Robotics", "Aug 2026 (688836)", "~$30.3B (last check)", "Stabilised ~54% below its $66B peak after the G1+ launch; FCC import ban still in force."],
+  ["SpaceX", "Space", "Jun 2026 (SPCX)", "~$159 (+7.4% Oct 2)", "Above the $135 IPO price after Starship Flight 14 reached orbit; up to 1.3B lockup shares unlock after Q3 earnings."],
+  ["Quantinuum", "Quantum", "Jun 2026 (QNT)", "~$46.08 (52-week low)", "Hit $46.42 on Oct 1 after ~$8M quarterly revenue and an EPS miss; moved to Watch on the stance board."],
+  ["X-energy", "Nuclear", "Apr 2026 (XE)", "~$1B raised", "UK three-year design assessment of its Xe-100 under way."],
+  ["Generate Biomedicines", "AI Biotech", "Feb 2026", "$400M raised", "GB-0895 Phase 3 recruitment complete across all six regions."],
+  ["Eikon Therapeutics", "AI Biotech", "Feb 2026", "$381M raised", "Shares remain below the $18 IPO price after the lock-up expiry."]
 ];
 
 function x(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}

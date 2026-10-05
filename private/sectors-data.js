@@ -94,52 +94,52 @@ quantum:{n:'09',kicker:'Deep tech',title:'Quantum',sub:'Pure-plays, hedged giant
 // Weekly Brief data — updated each Monday by the research pipeline
 window.FYN_BRIEF = {
   strip:[
-    ['S&P 500','5,850','+1.2%'],
-    ['Nasdaq','19,610','+1.4%'],
-    ['VIX','14.5','−2.0%'],
-    ['US 10Y','5.18%','+0.23'],
-    ['BTC','$84,000','−3.5%'],
-    ['ETH','$2,690','−3.1%'],
-    ['Fed funds','3.75–4.00%','Held']
+    ["S&P 500", "7,666", "+0.19%"],
+    ["Nasdaq", "26,872", "+0.04%"],
+    ["VIX", "15.6", "−4.9%"],
+    ["US 10Y", "5.18%", "−0.05"],
+    ["BTC", "$84,000", "—"],
+    ["ETH", "$2,690", "—"],
+    ["Fed funds", "3.75–4.00%", "Held"]
   ],
   // [id, name, tag, raised[], cut[], story, check]
   sect:[
-    ['ai','AI & Compute','Mixed',[],[],'No stance changes registered this week — the sector’s own review is now 7 days old — but Amodei’s “Pace the Frontier” essay and Broadcom’s 3.5GW Anthropic TPU deal are still setting the tone.','OpenAI is in talks for a $1.2T+ round (vs. Anthropic’s $2.0–2.3T IPO target); the $3–4T capex-vs-$50–150B/yr-revenue gap is still the central tension.'],
-    ['robotics','Robotics','Bifurcated',['SYM','DE'],[],'Symbotic upgraded to Core on its first GAAP-profitable quarter ($9M net income, $676M revenue, ~$22.6B backlog); Deere’s autonomous 9RX tractors add a new Watch-tier option.','Tesla’s Optimus output ramped ~10x from Q2 to ~500 units/week, but AI generalization past supervised tasks is still unresolved.'],
-    ['defense','Defense Tech','Constructive',['KTOS'],['AVAV','RHM.DE'],'Anduril’s Fury wins the Air Force’s ~$5B CCA production contract, lifting Kratos on the engine read-through — but AeroVironment and Rheinmetall were both trimmed despite record backlogs.','Palantir’s bull/bear split widens (~$214 vs ~$159) near $183; Gauntlet II again favored private newcomers over listed pure-plays.'],
-    ['nuclear','Nuclear & SMRs','Bifurcated',[],[],'No stance changes this week: the NRC permitted TVA’s Clinch River BWRX-300 and Constellation signed a 690 MW Amazon PPA, but NuScale’s new $750M ATM and Oklo’s ~50% YTD drawdown keep the pre-revenue names at the edges.','Term uranium hit a 19-year high of $96/lb while nuclear equities kept falling — still zero operating commercial SMRs, and the Clinch River permit carries no cost, start date or partner.'],
-    ['minerals','Critical Minerals','Crosscurrents',['UUUU','LAC'],['FCX'],'Energy Fuels and Lithium Americas both sized up on real deals, while Freeport was trimmed to Watch as its record copper run leaves essentially zero implied upside to target.','Xi’s Washington visit delivered “relief, not resolution” — tariff cuts on ~$30B of goods, but China’s rare-earth export-licensing regime stands untouched.'],
-    ['space','Space Economy','Most active',[],[],'Starship Flight 14 reached orbit with all 26 Starlink V3 satellites and SPCX jumped 7.4% to ~$159, while Rocket Lab fully funded Iridium with a $1.94B equity raise and B.Riley cut AST SpaceMobile to Neutral; no stance changes this week.','Up to 1.3B SpaceX lockup shares unlock after Q3 earnings, with SPCX at ~$2.2T and Starlink ARPU down to $66 from $85; RKLB trades above 40x annualized revenue.'],
-    ['storage','Energy Storage','Mixed',['EOSE'],[],'Eos Energy raised on a firmed-up 10MW/100MWh Google/MN8 deal and an $87M DOE loan advance for its second production line.','Fluence’s SEC probe and slashed FY26 guidance keep weighing on how the market reads the whole storage stack; GE Vernova’s backlog holds at $176B.'],
-    ['biotech','AI Biotech','Constructive',['NVDA','RXRX'],['ILMN'],'NVIDIA and Recursion both raised — BioNeMo keeps adding partners and Recursion locked in its first dated, multi-year revenue line — while Illumina was cut to Watch as GuruFocus flags it ~105% over fair value.','Tempus AI’s $1.5B all-stock Personalis deal expands its MRD footprint even as the Guardant litigation stays unresolved.'],
-    ['quantum','Quantum','Extreme spec',['GOOGL','IONQ'],[],'Alphabet raised on a genuine logical-qubit stability milestone; IonQ raised on its FY26 guidance hike to $450–460M, cutting forward P/S to ~40x from ~73x.','Quantinuum (−9%) and Pasqal (−12%) fell despite real partnership news — a bifurcated week, not a broad rally.']
+    ["ai", "AI & Compute", "Mixed", [], ["ORCL"], "Oracle was cut from Watch to Avoid after the BIS and RBA put the first official numbers on AI circular financing (55.2% of AI-firm investment funded by other AI firms; US$1–1.5T of off-balance-sheet hyperscaler obligations), while Nvidia lifted its buyback by $150B.", "OpenAI is seeking $30B+ at a $1.4T pre-money as a bridge to a delayed IPO; the $825–855B top-five capex bill is now being measured by regulators, not just bears."],
+    ["robotics", "Robotics", "Bifurcated", [], ["TER"], "Teradyne dropped from Core to Watch after a +8% day to ~$449 on a ~200% 12-month run — good business, wrong price — while Tesla’s Giga Texas Optimus plant reached ~40% steel completion and Musk halved AI5 memory to free supply for Optimus.", "Optimus is still a late-2027 limited-production story, and industrial-automation leaders are being priced ahead of the evidence."],
+    ["defense", "Defense Tech", "Constructive", [], [], "No stance changes. The Pentagon gave Neros ~$100M for 14,000+ FPV drones after Gauntlet II (again a private winner), L3Harris landed a ~$6B THAAD propulsion contract, and a continuing resolution to Dec 11 freezes 150+ new programs.", "Demand is intact (~$2.89T global spend, Europe heading to 3.5% of GDP), but Golden Dome and the $54.6B DAWG line cannot start under the CR."],
+    ["nuclear", "Nuclear & SMRs", "Bifurcated", [], [], "No stance changes. Term uranium hit a 19-year high of $96/lb while nuclear equities kept falling; the NRC permitted TVA’s Clinch River BWRX-300, Constellation signed a 690 MW Amazon PPA, and NuScale put a $750M ATM in focus.", "Cameco’s Q1 realized price was only $65.45/lb vs $96 term — the gap is the thesis — but there are still zero operating commercial SMRs and Clinch River carries no disclosed cost, start date or partner."],
+    ["minerals", "Critical Minerals", "Crosscurrents", [], ["CRML"], "Critical Metals was added at Avoid (~$1.1B market cap on ~$2M of exploration revenue) as thaw hopes drained the scarcity premium: MP Materials −15.8% in 30 days, REMX −17%, USA Rare Earth −23%.", "The sell-off prices a US-China thaw while the Nov 10 export-reprieve cliff stands untouched; Glencore and Mercuria’s $1B into the VaultCo stockpile shows floors only reach projects that exist."],
+    ["space", "Space Economy", "Constructive", [], [], "No stance changes. Starship Flight 14 reached orbit with all 26 Starlink V3 satellites and SPCX rose 7.4% to ~$159; Rocket Lab fully funded Iridium with a $1.94B at-the-market sale and B.Riley cut AST SpaceMobile to Neutral.", "Up to 1.3B SpaceX lockup shares unlock after Q3 earnings with SPCX at ~$2.2T, and RKLB trades above 40x annualized revenue."],
+    ["storage", "Energy Storage", "Mixed", [], [], "No stance changes. Tesla deployed 13.7 GWh of storage in Q3 (second-best quarter ever) with the margin print still ahead, and Enphase began domestic production of AI data-center power modules.", "Fluence’s guidance cut (~$2.4B revenue, ~−$200M adj. EBITDA), SEC probe and class action keep weighing on the stack; GE Vernova (~$939) needs its backlog to reach $200B in early 2027."],
+    ["biotech", "AI Biotech", "Constructive", [], [], "No stance changes. Tempus AI closed at $76.63, ~10% above the average target, with its $1.5B all-stock Personalis deal still unclosed; Illumina is up ~108% YTD at $273 against a Hold consensus; the FDA accepted Intellia’s BLA for lonvo-z.", "The Guardant/Tempus litigation (Markman hearing Oct 20) is unresolved, and Recursion sits at $4.19 with 33% short interest."],
+    ["quantum", "Quantum", "Extreme spec", [], ["QNT"], "Quantinuum moved from Speculative to Watch after a fresh 52-week low ($46.42) on ~$8M of quarterly revenue and an EPS miss at ~528× trailing sales, while IonQ unveiled a real-time error-correction decoder benchmarked to 408 logical qubits.", "The pure-plays gave back more of September’s bounce (IonQ −3.8%, Rigetti −8.5%, D-Wave −9.4%); a Benchmark analyst sizes 2026 industry revenue at only ~$1.5B."]
   ],
   // valuation heat scores 0-10
-  heat:{ai:8.5,robotics:7,defense:5.5,nuclear:8,minerals:4,space:7.5,storage:5,biotech:6.5,quantum:9.5},
+  heat:{"ai": 9.0, "robotics": 7.5, "defense": 5.5, "nuclear": 8.0, "minerals": 4.0, "space": 7.5, "storage": 5.0, "biotech": 6.5, "quantum": 9.5},
   // [kicker, headline, body]
   themes:[
-    ['Conviction moves','The stance board turned over 18 positions this week','Symbotic, Deere, Kratos, Energy Fuels, Lithium Americas, Rocket Lab, Planet Labs, Eos, NVIDIA, Recursion, Alphabet and IonQ were all raised or added on a converting contract, a regulatory step or a partner-validated milestone; AeroVironment, Rheinmetall, BWX Technologies, Freeport, Redwire and Illumina were cut — mostly on a missed proof point or a valuation that outran the news, not a scandal.'],
-    ['Records, no upside left','Great tape, priced-in stock','Freeport hit a fresh copper record but trades at essentially zero implied upside to target; Illumina rallied another 7.45% into a GuruFocus fair-value gap of ~105%. Both were cut to Watch this week for the same reason: the news was real, the price had already run past it.'],
-    ['Backlogs vs. price','Order books keep growing faster than the stocks that hold them','BWX Technologies, Rheinmetall and AeroVironment all posted genuine backlog or contract wins this week, and all three were either cut or kept falling — the market wants execution proof now, not just a bigger order book.'],
-    ['Policy as price-setter','Diplomacy delivered relief, not resolution','Xi’s Washington visit produced tariff cuts on ~$30B of goods but left China’s rare-earth export-licensing regime untouched; the same pattern shows up in AI (safety rhetoric without a slowdown) and defense (Golden Dome’s funding still needs a reconciliation bill).'],
-    ['Rates','The 10-year broke a 19-year ceiling','Treasury yields touched 5.1% on Sept 23 — the highest since 2007 — as markets price in another possible Fed hike on top of AI-linked debt issuance; long-duration names across quantum, nuclear SMRs and pre-revenue biotech feel it first.']
+    ["Conviction moves", "Four moves across nine sectors — every one a cut", "Oracle (Watch to Avoid), Teradyne (Core to Watch), Quantinuum (Speculative to Watch) and the newly added Critical Metals (Avoid) were the only stance changes, and there were no upgrades. Each is a real business or a credible technology whose price had outrun the evidence."],
+    ["Financing", "Regulators put numbers on AI circularity", "The BIS found 55.2% of AI-firm investment comes from other AI firms, and the RBA sized hyperscaler off-balance-sheet obligations at US$1–1.5T. Oracle (FY26 FCF −$23.7B, BBB−) took the cut; Nvidia’s $150B buyback increase and depreciation defence are the other side of the argument."],
+    ["Rates", "A weak jobs print eased the squeeze — for now", "September payrolls added just 29,000 (consensus ~84,000) with unemployment up to 4.2%; October-hike odds fell to ~14% from ~70% and the 10-year eased to 5.18%. That is still near 2007 highs, which keeps pressure on long-duration pre-revenue names in quantum, SMRs and biotech."],
+    ["Good news, wrong price", "The news is real; the market is trading something else", "Term uranium hit a 19-year high while nuclear equities kept falling, and Western rare-earth names lost 16–23% on thaw hopes with China’s licensing regime unchanged. In Teradyne’s and Quantinuum’s cases the opposite held: the price ran ahead of the evidence."],
+    ["Policy as price-setter", "The calendar is the catalyst", "A continuing resolution to Dec 11 freezes 150+ new defense starts including Golden Dome, China’s rare-earth reprieve expires Nov 10, and Anthropic’s roadshow is reportedly slated for the week of Nov 9 — policy dates, not earnings, set the next leg."]
   ],
   // [date, sector-tag, headline, summary]
   news:[
-    ['Sep 24','Space','Iridium stockholders approve Rocket Lab’s merger','99.6% of votes cast; an FCC review is next, with closing now guided to mid-2027 — Rocket Lab raised to Core on the de-risking.'],
-    ['Sep 26','Defense','Anduril’s Fury wins a ~$5B Air Force CCA production contract','Split with General Atomics across 150 initial airframes; lifts Kratos’s engine read-through even as AeroVironment and Rheinmetall get cut on execution concerns.'],
-    ['Sep 24–25','Minerals','Xi’s Washington visit ends in “relief, not resolution” on rare earths','Tariff cuts on ~$30B of goods, but China’s export-licensing regime stands unchanged; Freeport cut to Watch as copper’s record run leaves no implied upside.'],
-    ['Sep 15','Biotech','Tempus AI agrees to buy Personalis for ~$1.5B','All-stock MRD deal expands the genomic-data platform; Illumina cut to Watch the same week GuruFocus flags it ~105% over fair value.'],
-    ['Sep 17','Quantum','IonQ raises FY26 guidance 60% to $450–460M','The SkyWater foundry deal cuts forward P/S to ~40x from ~73x; shares +16% to $45.48, upgraded within Speculative alongside Alphabet’s logical-qubit milestone.']
+    ["Oct 2", "Macro", "September payrolls miss badly: +29,000 vs ~84,000 expected", "Unemployment rose to 4.2% and CME FedWatch odds of an October hike collapsed to ~14% from ~70%; the 10-year fell to 5.18% and equities caught a bid."],
+    ["Oct 1", "AI & Compute", "BIS and RBA publish the first official measures of AI circular financing", "BIS Bulletin 137: 55.2% of AI-firm investment came from other AI firms; the RBA put hyperscaler off-balance-sheet and vendor-financed obligations at US$1–1.5T. Oracle was cut to Avoid."],
+    ["Sep 28–Oct 2", "Space", "Starship Flight 14 reaches orbit; SpaceX +7.4% to ~$159", "All 26 Starlink V3 satellites deployed despite an ascent engine shutdown; Crew-13 launched and Alphabet’s Project Suncatcher prototype landed the same week. Analysts’ average target is $235."],
+    ["Sep 29–30", "Nuclear", "NRC issues TVA’s Clinch River BWRX-300 construction permit", "Completed in 14 months, four months early, and only the second US advanced-reactor construction permit in a decade — but TVA has disclosed no cost, start date or financing partner."],
+    ["Oct 1", "Defense", "Pentagon awards Neros ~$100M for 14,000+ FPV drones", "The first big Drone Dominance production order went to a private company; Red Cat, Ondas and Kratos missed the top five."]
   ],
   // [date, headline, body, accent?]
   ahead:[
-    ['Sep 29','JOLTS & Case-Shiller','First labor-market read since the Sept 16 hike to 3.75–4%.',false],
-    ['Sep 29–30','BWXT Investor Day','Management makes its growth case after a third straight week of 52-week lows.',true],
-    ['Sep 30','ADP, GDP final & PCE','The Fed’s preferred inflation gauge alongside a growth revision.',true],
-    ['Oct 1','ISM Manufacturing PMI','First broad read on how the economy is absorbing a 5.1%+ 10-year and a fresh hike.',false],
-    ['Oct 2','September jobs report','The week’s single biggest data point for the Fed’s next move.',true],
-    ['Oct','Anthropic IPO pricing','Pre-roadshow meetings underway; ~$2.0–2.3T target before the midterms.',false],
-    ['~Sep 30','Anduril’s ~$100B round','Still unclosed roughly ten weeks after first being reported.',false]
+    ["Oct 7", "FOMC minutes", "First detailed look at the Sept 16 hike debate, now that October-hike odds have fallen to ~14%.", true],
+    ["This week", "Treasury auctions", "Supply into a ~5.2% 10-year after the soft jobs print.", false],
+    ["Oct 8–9", "Jobless claims & consumer sentiment", "A quiet tier-one data calendar; pre-announcements ahead of Q3 earnings start to matter.", false],
+    ["Oct 20", "Guardant/Tempus Markman hearing", "Follow-on to the $245.2M TwinStrand judgment, under appeal.", false],
+    ["Mid–late Oct", "Q3 earnings & Tesla energy margin", "Hyperscaler results, GE Vernova’s backlog test and Tesla’s full Q3 energy-segment margin all land in the back half of the month.", true],
+    ["Nov 9", "Anthropic roadshow (reported)", "Reported plan: roadshow the week of Nov 9, trading before Thanksgiving at $1.8–2.0T — later than the earlier October target.", false],
+    ["Nov 10", "China rare-earth reprieve expires", "Untouched by the Sept Washington visit; the next hard test for the minerals complex.", true]
   ]
 };
