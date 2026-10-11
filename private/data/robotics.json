@@ -4,7 +4,7 @@
  "heading": "Robotics",
  "subheading": "Humanoids, warehouse automation, surgical systems, defense autonomy and the component supply chain.",
  "kicker": "Physical AI",
- "generated": "Oct 4, 2026",
+ "generated": "Oct 11, 2026",
  "disclaimer": "Research and educational content only — not personalized investment advice. Figures are approximate, drawn from public reporting, and should be verified independently before acting on them.",
  "kpis": [
   {
@@ -15,19 +15,19 @@
   },
   {
    "value": "~$56B",
-   "sub": "Roughly double 2025's full-year record (Dealroom) — figure carried from last week, not re-verified.",
+   "sub": "Roughly double 2025's full-year record (Dealroom) — figure carried forward, not re-verified this week.",
    "label": "Global robotics startup funding, 2026 YTD",
    "highlight": false
   },
   {
-   "value": "~40%",
-   "sub": "Steel-structure completion of Tesla's 7M+ sq ft Giga Texas Optimus plant as of Oct 1; limited production targeted late 2027. Musk also halved AI5 memory to 72GB to free supply for Optimus.",
-   "label": "Tesla Optimus Gen 4 plant progress",
+   "value": "$372.72",
+   "sub": "TSLA fell ~1.4% on Oct 8 as Barron's questioned Optimus' commercial progress; 2026 capex guided above $25B vs $8.28B spent in H1. Optimus plant ~40% through steel, limited production late 2027.",
+   "label": "Tesla share price (Optimus proof gap)",
    "highlight": true
   },
   {
-   "value": "$449",
-   "sub": "Teradyne +8% on Oct 2 to ~$70B market cap; shares up ~200% in a year — the stretched end of the industrial-automation trade.",
+   "value": "~$403",
+   "sub": "Teradyne pulled back from ~$449 (Oct 2) to ~$402.68 by Oct 10; P/S ~14, P/E >55 — still the stretched end of the automation trade after a ~200% 12-month run.",
    "label": "Teradyne share price",
    "highlight": false
   },
@@ -42,22 +42,22 @@
   {
    "tag": "Humanoids",
    "title": "The humanoid platform race",
-   "description": "Tesla's Optimus Gen 4 plant in Texas is only ~40% through steel assembly (limited production late 2027) and Musk is trimming chip memory to get volume; meanwhile Figure retired its F.02 fleet, Boston Dynamics gave Atlas four-finger hands, and Chinese makers (UBTECH, Galbot, Unitree) compete on price and volume."
+   "description": "Nvidia is reportedly weighing another ~$1B into Figure at a ~$38B pre-money valuation (unconfirmed, Oct 8), while Barron's questions Optimus' commercial progress and Tesla's plant is only ~40% through steel (limited production late 2027). Chinese makers (UBTECH, Galbot, Unitree) compete on price and volume."
   },
   {
    "tag": "Industrial",
    "title": "Reshoring keeps the automation base humming",
-   "description": "Teradyne jumped 8% to ~$449 and Rockwell gained 2.7% to ~$454 on Oct 2; the reshoring-and-AI cycle keeps lifting automation names, but Teradyne's ~200% 12-month run now prices a lot of it in. Fanuc reports Oct 22."
+   "description": "Teradyne retreated from ~$449 to ~$403 (Oct 10) and Rockwell held near $450s; the reshoring-and-AI cycle still lifts automation names, but Teradyne's ~200% run prices a lot in. Fanuc reports Oct 22."
   },
   {
    "tag": "Logistics",
    "title": "Warehouse automation is already profitable",
-   "description": "Symbotic turned GAAP-profitable last quarter on a ~$22.6B backlog — evidence that warehouse robotics, unlike humanoids, is already being paid for at scale by large retail and logistics customers."
+   "description": "Symbotic's $22.5B backlog is >30x quarterly revenue and consensus targets (~$62.86) sit ~45% above its ~$43 price, yet the stock is down ~33% YTD — warehouse robotics is paid for at scale, but sentiment lags."
   },
   {
    "tag": "Surgical",
    "title": "Da Vinci's monopoly is ending",
-   "description": "J&J's Ottava and Medtronic's Hugo are no longer paper competitors: Ottava got a flattering CNBC feature this month and Hugo keeps adding FDA-cleared indications, while Intuitive shares sit ~34% off their highs even after a fresh EU approval."
+   "description": "J&J's Ottava (FDA-cleared for ten general-surgery procedures) is the first credible soft-tissue challenger; Intuitive is ~30% down YTD (~$424 on Oct 10 vs a $328.57 low) with Q3 results due late October — U.S. procedure growth (12% in Q2) is the tell."
   },
   {
    "tag": "Defense",
@@ -193,7 +193,7 @@
      "company": "Tesla (Optimus)",
      "sub-sector": "Humanoids",
      "angle": "Gen 4 Optimus plant in Texas ~40% through steel (limited production late 2027); Musk halved AI5 memory to 72GB to secure volume.",
-     "watch for": "Every unit still internal; production timelines keep moving and the autonomy problem is unresolved."
+     "watch for": "Barron's-style scrutiny of Optimus operating evidence; plant ~40% done, limited production late 2027."
     },
     {
      "ticker": "GXO",
@@ -306,8 +306,8 @@
  "private_watchlist": [
   {
    "name": "Figure AI",
-   "value": "~$39B",
-   "note": "Last priced Sep 2025; Nscale compute deal ($3.5B initial commitment, >$6B intended). Helix 2.5 hit 56% zero-shot success across 30 unseen homes (vs 9%); retired F.02 on Sep 30, F.03 scaling."
+   "value": "~$38–39B",
+   "note": "Reportedly seeking ~$1B more from Nvidia at ~$38B pre-money (The Information via eWeek, Oct 8; unconfirmed, vs $39B post-money Sep 2025 Series C). Nscale compute deal $3.5B initial (>$6B planned); >350 third-gen robots delivered."
   },
   {
    "name": "Skild AI",
@@ -356,7 +356,7 @@
   },
   {
    "title": "Optimus's own maker has walked back its timeline twice",
-   "description": "Optimus' own plant is ~40% through steel with limited production now late 2027, and Musk is cutting AI5 memory (to 72GB) just to get volume. Timelines keep sliding; generalization past supervised tasks is unproven."
+   "description": "Optimus' plant is ~40% through steel with limited production late 2027, Barron's (Oct 8) flagged limited operating evidence, and Musk is cutting AI5 memory just to get volume; timelines keep sliding."
   },
   {
    "title": "China's humanoid boom is drawing its own bubble warnings",
@@ -364,7 +364,7 @@
   },
   {
    "title": "Profitable names get cut anyway",
-   "description": "Symbotic is GAAP-profitable with a ~$22.6B backlog yet Barclays rates it Underweight ($38) and Needham trimmed its target — sentiment and fundamentals can diverge."
+   "description": "Symbotic is GAAP-profitable with a $22.5B backlog yet is down ~33% YTD and Barclays rates it Underweight ($38) — sentiment and fundamentals can diverge."
   },
   {
    "title": "Revenue today is still the boring parts of robotics",
@@ -380,19 +380,38 @@
   },
   {
    "title": "Teradyne's ~200% run leaves no cushion",
-   "description": "Shares at ~$449 (~$70B cap) after another +8% day; a product-cycle stumble would hurt far more than it would have a year ago — why it moves to Watch this week."
+   "description": "Shares swung from ~$449 to ~$403 in a week (once -9.8% on AI-capex worries); P/E >55 means a product-cycle stumble hurts far more than it would have a year ago — Watch."
+  },
+  {
+   "title": "Capex gap: robots must earn their keep",
+   "description": "Tesla's 2026 capex tops $25B against $8.28B spent in H1 while Optimus shows no paying customers — investors are paying now for robot profits that are hard to measure."
   }
  ],
  "catalysts": [
   {
-   "date": "Oct 3, 2026",
-   "title": "Tesla's Giga Texas Optimus plant ~40% through steel",
-   "description": "7M+ sq ft Gen 4 facility; limited production late 2027, long-term ceiling ~10M robots/yr (drone-footage tracking)."
+   "date": "Oct 11, 2026",
+   "title": "Symbotic's $22.5B backlog highlighted",
+   "description": "Backlog >30x quarterly revenue; consensus target ~$62.86 vs ~$43 price; revenue seen ~$2.8B this year, ~$3.6B next."
+  },
+  {
+   "date": "Oct 10, 2026",
+   "title": "Teradyne ~$403, ISRG ~$424 on robotics-theme coverage",
+   "description": "Motley Fool 'next robotics boom' piece: SYM $42.63, TER $402.68, ISRG $423.96, ABBNY $96.00."
+  },
+  {
+   "date": "Oct 8, 2026",
+   "title": "Nvidia reportedly eyes ~$1B more in Figure AI",
+   "description": "~$38B pre-money, per The Information; unconfirmed. Follows Figure's $3.5B Nscale compute commitment (Sep)."
+  },
+  {
+   "date": "Oct 8, 2026",
+   "title": "Tesla -1.4% to ~$373 as Barron's questions Optimus",
+   "description": "2026 capex guided >$25B; investors want repeatable factory work and paying customers."
   },
   {
    "date": "Oct 2, 2026",
-   "title": "Musk halves AI5 memory to 72GB to free supply for Optimus",
-   "description": "'The only way to get enough volume for Optimus production' (Benzinga)."
+   "title": "Teradyne Iris 100 launch; Gen 7 cobot platform",
+   "description": "Shares +8% intraday to ~$449 before fading."
   },
   {
    "date": "Oct 2, 2026",
@@ -413,16 +432,6 @@
    "date": "Sep 2026",
    "title": "FieldAI signs term sheet for $700M at $10B valuation",
    "description": "~5x prior-year valuation, >$135M revenue/contracts; not yet closed."
-  },
-  {
-   "date": "Sep 21, 2026",
-   "title": "Boston Dynamics opens RMAC; targets 30K units/yr",
-   "description": "Hyundai plans 25,000 Atlas units across its plants."
-  },
-  {
-   "date": "Sep 17, 2026",
-   "title": "Figure Helix 2.5: 56% zero-shot success across 30 unseen homes",
-   "description": "Up from 9%, still failing roughly 44% of the time."
   }
  ],
  "etfs": [
@@ -511,11 +520,31 @@
   {
    "title": "TechTarget — Humanoid buildup overlooks factory robots",
    "url": "https://techtarget.com/ai/news/366651418/Humanoid-buildup-overlooks-the-robots-already-running-factories"
+  },
+  {
+   "title": "eWeek — Nvidia eyes another $1B in Figure AI",
+   "url": "https://eweek.com/news/nvidia-figure-ai-1-billion-investment-humanoid-robots"
+  },
+  {
+   "title": "Yahoo Finance — Tesla falls as AI capex gap demands Optimus proof",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-stocks-fall-1-4-204645384.html"
+  },
+  {
+   "title": "Yahoo Finance — Symbotic $22.5B backlog",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/symbotic-22-5-billion-backlog-103500834.html"
+  },
+  {
+   "title": "Motley Fool — 5 companies fighting for the next robotics boom",
+   "url": "https://fool.com/investing/2026/10/10/5-companies-fighting-for-control-of-the-next-robot"
+  },
+  {
+   "title": "StocksToTrade — Teradyne news Oct 2",
+   "url": "https://stockstotrade.com/news/teradyne-inc-ter-news-2026_10_02/"
   }
  ],
- "footnote": "Figures approximate, drawn from public reporting as of Oct 4, 2026. Always confirm independently before acting.",
+ "footnote": "Figures approximate, drawn from public reporting as of Oct 11, 2026. Always confirm independently before acting.",
  "stance": {
-  "as_of": "Oct 4, 2026",
+  "as_of": "Oct 11, 2026",
   "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
   "positions": [
    {
@@ -523,7 +552,7 @@
     "name": "NVIDIA",
     "stance": "core",
     "weight": 27,
-    "note": "Jetson Thor shipping and the open Isaac GR00T reference humanoid keep it the default robotics compute stack; also sits in your AI, Quantum and Biotech sleeves — don't double-count.",
+    "note": "Jetson Thor and Isaac GR00T keep it the default robotics compute stack, and it is reportedly weighing ~$1B more into Figure (Oct 8, unconfirmed); also in your AI, Quantum and Biotech sleeves — don't double-count.",
     "change": null
    },
    {
@@ -539,8 +568,8 @@
     "name": "Teradyne",
     "stance": "watch",
     "weight": 0,
-    "note": "Gen 7 cobots and a first $100M robotics quarter are real, but a +8% day to ~$449 (~$70B cap) after a ~200% 12-month run puts a stretched valuation ahead of the evidence — good business, wrong price.",
-    "change": "down"
+    "note": "Gen 7 cobots and the Iris 100 launch are real, but ~$403 (down from ~$449 a week ago, P/S ~14, P/E >55) after a ~200% 12-month run still prices in the evidence — good business, wrong price.",
+    "change": null
    },
    {
     "ticker": "MP",
@@ -563,7 +592,7 @@
     "name": "Symbotic",
     "stance": "core",
     "weight": 12,
-    "note": "GAAP-profitable with a ~$22.6B backlog, but Barclays is Underweight ($38) and Needham trimmed its target — fundamentals are working, sentiment hasn't caught up, so held at core.",
+    "note": "GAAP-profitable with a $22.5B backlog (>30x quarterly revenue) and Walmart as anchor customer; ~$43 is ~45% below the $62.86 consensus target, though Barclays stays Underweight ($38) — held at core.",
     "change": null
    },
    {
@@ -595,7 +624,7 @@
     "name": "Intuitive Surgical",
     "stance": "watch",
     "weight": 0,
-    "note": "Shares ~$394, ~30% down YTD after the Jul 16 non-raise and J&J Ottava's FDA clearance; Q3 U.S. procedure growth (12% in Q2) decides whether this is timing or structural.",
+    "note": "~$424 (Oct 10), ~30% down YTD after J&J Ottava's FDA clearance; Q3 results due late October — U.S. procedure growth (12% in Q2 vs 14% in Q1) decides whether this is timing or structural.",
     "change": null
    },
    {
@@ -659,7 +688,7 @@
     "name": "Tesla",
     "stance": "avoid",
     "weight": 0,
-    "note": "Optimus' Texas plant is only ~40% through steel with limited production late 2027 and Musk is halving AI5 memory for volume — the robotics story is years from revenue.",
+    "note": "Barron's (Oct 8) flagged limited Optimus operating evidence, shares ~$373 sit ~11% above GuruFocus' $335 value, and the plant is ~40% through steel with limited production late 2027 — years from revenue.",
     "change": null
    },
    {
