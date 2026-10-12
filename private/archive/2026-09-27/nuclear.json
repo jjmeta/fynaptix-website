@@ -1,0 +1,322 @@
+{
+ "sector": "nuclear",
+ "title": "Fynaptix \u00b7 Nuclear & SMR Research",
+ "heading": "Nuclear Energy Intelligence",
+ "subheading": "Small modular reactors, uranium & the AI power-demand trade",
+ "kicker": "NUCLEAR & SMRS // SEP 2026",
+ "generated": "Sep 27, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. SMR developers are pre-revenue with long regulatory timelines; verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "$50B+",
+   "sub": "WESTINGHOUSE IPO TARGET \u00b7 CAMECO STAKE ~$24.5B",
+   "label": "Bloomberg reported Sep 18 that Westinghouse (49%-owned by Cameco) is now targeting a $50B+ US IPO valuation, up sharply from the ~$30B floated just weeks earlier; Cameco's stake alone would be worth roughly $24.5B \u2014 nearly two-thirds of Cameco's own $38.4B market cap \u2014 making this one of the most concrete, dated re-rating catalysts anywhere on this page",
+   "highlight": true
+  },
+  {
+   "value": "417-3",
+   "sub": "HOUSE PASSES RATEPAYER PROTECTION ACT",
+   "label": "The House passed the bill Sep 16 requiring data centers over 100MW to fund their own new power and transmission infrastructure rather than socializing costs to ratepayers; Oklo and NuScale jumped 13% and 10% intraday on the news, then gave back most of it within two trading days once traders registered that a 417-3 House vote is a headline, not a Senate-passed law or a signed contract",
+   "highlight": false
+  },
+  {
+   "value": "$90/lb",
+   "sub": "URANIUM SPOT \u00b7 CONSOLIDATING",
+   "label": "Spot traded in a tight $89.85-$90.05/lb band the week of Sep 22 \u2014 up from $86.36 at the end of July but well off the year's highs \u2014 with analysts flagging $99/lb on the futures curve as the level that would confirm a genuine breakout rather than continued range-bound consolidation",
+   "highlight": false
+  },
+  {
+   "value": "0",
+   "sub": "OPERATING COMMERCIAL SMR PLANTS",
+   "label": "Still zero, but TVA said Sep 9 it expects an NRC construction-permit decision on the Clinch River BWRX-300 \"within weeks\" \u2014 the most concrete near-term step toward an actual SMR groundbreaking \u2014 even as NuScale drew a fresh securities-fraud investor alert (Pomerantz, Sep 22) over ENTRA1 disclosures, a reminder that permitting progress and investor confidence aren't moving together",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Operating / Cash-Generating Exposure",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "CEG",
+     "company": "Constellation Energy",
+     "angle": "Largest US nuclear fleet operator (55 GW post-Calpine); direct data-center PPAs with Microsoft, Meta, Walmart",
+     "watch for": "Shares recovered from last week's six-day, 13% slide to close at $263.27 (Sep 25), up ~3% on the week, while management kept actively reshaping the portfolio \u2014 a $715M deal to buy the Rhode Island State Energy Center from Shell, and an $860M sale of a Texas gas plant to LS Power \u2014 rather than just riding the AI-power narrative; Morgan Stanley's price target now sits at $369 and the average analyst target is $347.28 (+32% implied upside) against FY26 guidance of $11.50-$12.50/share"
+    },
+    {
+     "ticker": "CCJ",
+     "company": "Cameco",
+     "angle": "Major Western uranium producer + Westinghouse stake",
+     "watch for": "Shares slid further to $88.07 even as Bloomberg reported Sep 18 that Westinghouse (49%-owned by Cameco) is now targeting a $50B+ IPO valuation, up from ~$30B floated weeks earlier \u2014 Cameco's stake alone would be worth roughly $24.5B; 2025 revenue of $3.48B (+11% YoY) and net income of $589.6M (+243%) underpin the still-Buy-rated 21-analyst consensus with a $127.77 target (+45% upside)"
+    },
+    {
+     "ticker": "BWXT",
+     "company": "BWX Technologies",
+     "angle": "Nuclear components, naval reactors, advanced reactor work",
+     "watch for": "Shares hit a third straight week of new 52-week lows ($138.47, down from $147.52), even after Fitch awarded BWXT its first-ever investment-grade rating (BBB, Stable) and it won a US Army Janus program contract plus a DOE lithium-processing-facility design award; management gets two chances to make its case in three days \u2014 a broader Investor Day Sep 29 and a William Blair investor meeting in New York Sep 30 \u2014 with consensus still Buy at an average $222.07 target (+60% upside) and ARK Invest adding $7.64M of shares this week"
+    },
+    {
+     "ticker": "GEV",
+     "company": "GE Vernova",
+     "angle": "Grid equipment + BWRX-300 SMR design via GE Hitachi Nuclear Energy",
+     "watch for": "Shares held a $940-$960 range (closing $957.63 Sep 25, still up 49% over the past year) on a steady drip of international nuclear news rather than one big catalyst: GE Vernova Hitachi and Samsung C&T were selected for a 1.2 GW Swedish nuclear project, South Korea is being floated as a partner on US nuclear construction, and SHINE joined a GEV-led ARPA-E fuel-recycling initiative; nuclear remains a small slice of a $255B market cap that's still primarily a grid/gas-equipment story"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Pre-Revenue SMR Developers \u2014 Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "OKLO",
+     "company": "Oklo",
+     "angle": "Fast reactors using recycled waste; Sam Altman-backed; deals directly with AI/data-center customers",
+     "watch for": "Shares slipped to $38.04, a 63.5% market-cap decline from 52-week highs near $193.84, after UBS cut its own price target to $41 from $55 this week even as Piper Sandler's Overweight/$55 call from Sep 10 remains in play; shares gave back most of their House-bill pop within two days (-5% to $37.57 on Sep 18), and the ~$1B ATM equity program from early September remains a live dilution overhang against Q2's first-ever revenue ($1.2M, beat by >1,000%) and a widened ~$48.5M net loss, though cash still stands near $1.64B"
+    },
+    {
+     "ticker": "SMR",
+     "company": "NuScale Power",
+     "angle": "Only SMR design with NRC formal approval; utility-focused; 6 GW TVA/ENTRA1 collaboration announced",
+     "watch for": "Shares fell further to $8.42 (52-week range $7.21-$57.42, market cap down 31.9% from highs), confirming UBS's Sep 10 Sell/$6 call after a prior 12.5% single-day drop; a fresh securities-fraud investor alert from Pomerantz Law Firm on Sep 22 over ENTRA1-related disclosures adds legal risk on top of the still-unresolved question of whether the 6 GW TVA/ENTRA1 program becomes a firm, priced agreement, while a rival design (GE Vernova's BWRX-300 at Clinch River) looks closer to an actual NRC construction permit"
+    },
+    {
+     "ticker": "LEU",
+     "company": "Centrus Energy",
+     "angle": "HALEU enrichment \u2014 fuel for advanced reactors",
+     "watch for": "Centrus added a second dated HALEU supply contract this month \u2014 Radiant, alongside the existing Antares deal, both including customer prepayments and deliveries starting before year-end \u2014 and raised FY26 revenue guidance to $450-500M; shares closed at $147.07, still down ~40% from their 52-week high of $464.25, with a 19-analyst Buy consensus averaging a $247.40 target (+68% upside) against Jefferies' more cautious Hold/$169 call"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "TerraPower",
+   "value": "GATES-BACKED \u00b7 NATRIUM",
+   "note": "Bechtel and TerraPower split on the next construction phase of the Kemmerer Unit 1 Natrium demonstration plant (reported Sep 18-19); Bechtel filed a WARN notice for ~200 Reston, VA positions, though it says most staff will be redeployed to other nuclear projects rather than laid off, and TerraPower says the site transition is designed to protect the existing construction schedule with no anticipated changes. TerraPower's CEO told Reuters (Sep 10) that Natrium reactors could begin generating power in the UK, its first market outside the US, by 2034."
+  },
+  {
+   "name": "X-energy",
+   "value": "PUBLIC (XE) \u00b7 POST-IPO",
+   "note": "Shares fell 4.1% to $15.08 (52-week range $13.29-$37.10, market cap $6.13B) even as TRISO-X completed vertical construction at its TX-1 HALEU fuel fabrication facility in Oak Ridge this week \u2014 real physical progress on the fuel side of the business. Analyst views remain wide apart: a 9-analyst Buy consensus averages a $34.38 target (+128% upside), directly at odds with Piper Sandler's earlier Sell/$9 call. TRISO-X president Joel Duling is retiring effective Nov 20 after 40+ years with the company; DOE is separately backing X-energy's Texas Xe-100 project with up to $1B."
+  },
+  {
+   "name": "Kairos Power",
+   "value": "GOOGLE-BACKED \u00b7 FLEET DEAL",
+   "note": "No new update this week. Google's first-ever corporate agreement to develop a US SMR fleet remains up to 500 MW across 6-7 units, targeting a first commercial Hermes unit by 2030 and full fleet by 2035; the Hermes 2 demonstration plant at Oak Ridge, which broke ground in April 2026, continues construction."
+  },
+  {
+   "name": "Commonwealth Fusion",
+   "value": "FUSION \u00b7 SPARC",
+   "note": "The cryogenic system for the SPARC tokamak in Devens, MA reached its full 8-kelvin operating temperature this month, chilling the toroidal-field magnets colder than the surface of Pluto \u2014 a key hardware milestone ahead of the targeted 2027 scientific-breakeven (Q>1) run. Total capital raised still stands at $4B following the $1B round that closed Jul 30."
+  },
+  {
+   "name": "Helion",
+   "value": "FUSION \u00b7 MICROSOFT + OPENAI TALKS",
+   "note": "Helion's Polaris prototype demonstrated measurable deuterium-tritium fusion and hit a plasma temperature of 150 million\u00b0C this month, a meaningful technical milestone. OpenAI remains reportedly in talks to buy power from Helion (potentially up to 5GW by 2030) alongside the existing Microsoft PPA (50MW by 2029 via the Orion plant, under construction); no new dated news on either commercial deal this week."
+  },
+  {
+   "name": "Holtec Nuclear",
+   "value": "IPO PULLED \u00b7 CITES MARKET CONDITIONS",
+   "note": "Holtec suspended its planned ~$900M Nasdaq listing (ticker HNUC) on Sep 16, per Bloomberg, after targeting a $10.2B valuation just over a week earlier; the CEO cited \"a perfect storm\" as sentiment turned against AI-data-center-linked investments. The S-1 remains on file but no new pricing date has been set. Underlying business is unchanged: $564M trailing revenue anchored by the Palisades restart and the SMR-300 microreactor program."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "A $50B Westinghouse valuation doesn't change that zero SMRs are operating",
+   "description": "Even the sector's biggest, most concrete near-term catalyst \u2014 a possible $50B+ Westinghouse IPO \u2014 sits on top of an industry where the operating-commercial-SMR count is still zero. Permitting timelines, construction execution, and financing risk for the pre-revenue developers haven't moved just because a 68-year-old reactor-services business is getting a rich valuation."
+  },
+  {
+   "title": "The House-bill rally evaporated within two trading days",
+   "description": "Oklo and NuScale jumped 13% and 10% intraday on the Ratepayer Protection Act's passage, then gave back most of it by the next session (-5% and -7%) once traders registered that a 417-3 House vote needs the Senate and a presidential signature before it changes anyone's cash flows. Policy-driven pops in this sector keep proving to be trading events, not investment theses."
+  },
+  {
+   "title": "NuScale now carries a securities-fraud investigation on top of a non-binding flagship deal",
+   "description": "Pomerantz's Sep 22 investor alert over ENTRA1-related disclosures adds a legal and governance overhang to a stock whose entire long-term case still rests on the 6 GW TVA/ENTRA1 program becoming a firm, priced agreement rather than a framework collaboration. Shares confirming UBS's Sell call at $8.42 suggest the market isn't waiting for that resolution."
+  },
+  {
+   "title": "Analyst targets on the same stock now span $9 to $34",
+   "description": "X-energy's Piper Sandler Sell/$9 call versus a 9-analyst Buy consensus averaging $34.38 is one of the widest analyst dispersions in the sector \u2014 a sign that even professional coverage can't agree whether these valuations are supported by anything firmer than a total-addressable-market story, regardless of real construction progress like TRISO-X's completed TX-1 shell."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "SEP 22, 2026",
+   "title": "Pomerantz Law Firm opens a securities-fraud investor alert into NuScale",
+   "description": "The investigation centers on alleged misrepresentations tied to the ENTRA1 collaboration and adds to an existing securities-fraud class action over the same issues."
+  },
+  {
+   "date": "SEP 18, 2026",
+   "title": "Westinghouse reportedly targets a $50B+ IPO valuation",
+   "description": "Bloomberg reported the target is up sharply from the ~$30B floated weeks earlier; Cameco's 49% stake would be worth roughly $24.5B, nearly two-thirds of Cameco's own market cap."
+  },
+  {
+   "date": "SEP 16-18, 2026",
+   "title": "Oklo and NuScale give back most of their Ratepayer Protection Act rally",
+   "description": "Both stocks jumped double digits intraday on the House vote, then fell -5% and -7% respectively by Sep 18 as Holtec's pulled IPO weighed on broader sector sentiment."
+  },
+  {
+   "date": "SEP 16, 2026",
+   "title": "House passes the Ratepayer Protection Act, 417-3",
+   "description": "The bill requires data centers over 100MW to fund their own new power and transmission infrastructure rather than passing costs to other ratepayers; it still needs Senate passage and a presidential signature."
+  },
+  {
+   "date": "SEP 9, 2026",
+   "title": "TVA expects an NRC construction-permit decision on Clinch River \"within weeks\"",
+   "description": "The GE Vernova BWRX-300 project would be a landmark step toward an actual SMR groundbreaking under the NRC's streamlined licensing process."
+  },
+  {
+   "date": "SEP 22-25, 2026",
+   "title": "X-energy's TRISO-X completes vertical construction at its TX-1 fuel facility",
+   "description": "The Oak Ridge, TN HALEU fuel fabrication plant advances toward interior buildout, concrete progress on the fuel-supply side even as the stock fell on the week."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "URA",
+   "name": "Global X Uranium",
+   "summary": "Uranium miners + fuel cycle \u00b7 fell ~1.8% this week to $40.91 as broad nuclear-equity weakness spread from the SMR developers into the miners; $6.1B AUM, 5.1% yield, still led by Cameco (21.8%) and Sprott Physical Uranium Trust (6.8%)"
+  },
+  {
+   "ticker": "NLR",
+   "name": "VanEck Uranium & Nuclear",
+   "summary": "Utilities + miners + SMR developers blend \u00b7 slid ~1.8% to $105.78, still the most levered of the three to CEG/CCJ/BWXT, all of which traded lower into Friday's close; $3.9B AUM"
+  },
+  {
+   "ticker": "URNM",
+   "name": "Sprott Uranium Miners",
+   "summary": "Pure miner exposure, higher beta \u00b7 gave back last week's gain, down ~4.9% to $49.13, even as uranium spot itself held a tight $89.85-$90.05/lb consolidation band \u2014 equities diverging from the underlying commodity"
+  }
+ ],
+ "sources": [
+  {
+   "title": "The Motley Fool \u2014 The House Passes Bill to Shield Consumers From Data Center Costs. These Nuclear Stocks Should Win",
+   "url": "https://www.fool.com/investing/2026/09/18/the-house-passes-bill-to-shield-consumers-from-data-center-costs-these-nuclear-stocks-should-win/"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 NuScale Power Drops 7% as Nuclear Stocks Hand Back the Vote Rally; Oklo Falls 5%, Centrus Energy Slides 3%",
+   "url": "https://247wallst.com/investing/2026/09/18/nuscale-power-drops-7-as-nuclear-stocks-hand-back-the-vote-rally-oklo-falls-5-centrus-energy-slides-3/"
+  },
+  {
+   "title": "Yahoo Finance / The Motley Fool \u2014 Westinghouse Could IPO at a $50 Billion Valuation. Cameco's Stake Alone Would Be Worth $24.5 Billion.",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/westinghouse-could-ipo-50-billion-130501237.html"
+  },
+  {
+   "title": "GlobeNewswire \u2014 Investor Alert: Pomerantz Law Firm Investigates Claims on Behalf of Investors of NuScale Power Corporation (SMR)",
+   "url": "https://www.globenewswire.com/news-release/2026/09/22/3366928/1087/en/investor-alert-pomerantz-law-firm-investigates-claims-on-behalf-of-investors-of-nuscale-power-corporation-smr.html"
+  },
+  {
+   "title": "Chattanooga Times Free Press \u2014 TVA Expects Historic Permit to Build Small Modular Reactor Within Weeks",
+   "url": "https://www.timesfreepress.com/news/2026/sep/09/tva-expects-license-to-build-small-modular/"
+  },
+  {
+   "title": "Discovery Alert \u2014 Uranium Mining Stocks: The Price Levels That Define Each Trade (September 2026)",
+   "url": "https://discoveryalert.com/analysis/uranium-mining-stocks-price-levels-september-2026/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 Oklo Inc. (OKLO) Stock Overview",
+   "url": "https://stockanalysis.com/stocks/oklo/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 NuScale Power Corporation (SMR) Stock Overview",
+   "url": "https://stockanalysis.com/stocks/smr/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 Cameco Corporation (CCJ) Stock Overview",
+   "url": "https://stockanalysis.com/stocks/ccj/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 X-Energy (XE) Stock Overview",
+   "url": "https://stockanalysis.com/stocks/xe/"
+  },
+  {
+   "title": "The Motley Fool \u2014 The Nuclear Energy Boom: Where the Industry Really Stands Heading Into Q4 2026",
+   "url": "https://www.fool.com/investing/2026/09/02/the-nuclear-energy-boom-where-the-industry-really/"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Sep 27, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Sep 27, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "CCJ",
+    "name": "Cameco",
+    "stance": "core",
+    "weight": 48,
+    "note": "Shares slid further to $88.07 even as Bloomberg reported Westinghouse (49%-owned by Cameco) is now targeting a $50B+ IPO valuation, up from ~$30B floated weeks ago \u2014 Cameco's stake alone would be worth ~$24.5B, nearly two-thirds of Cameco's own $38.4B market cap; sizing up further as the embedded-value catalyst gets more concrete while the operating uranium business (2025 revenue +11%, net income +243%) is unchanged.",
+    "change": null
+   },
+   {
+    "ticker": "CEG",
+    "name": "Constellation Energy",
+    "stance": "core",
+    "weight": 32,
+    "note": "Shares recovered from last week's six-day slide to close at $263.27, up ~3% on the week, while management kept reshaping the portfolio (a $715M Rhode Island plant purchase, an $860M Texas gas-plant sale) rather than just riding the AI-power story; sizing up modestly as the pullback looks fully digested and Morgan Stanley's $369 target still implies real upside.",
+    "change": null
+   },
+   {
+    "ticker": "BWXT",
+    "name": "BWX Technologies",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Shares hit a third straight week of new 52-week lows ($138.47, from $147.52) even after Fitch awarded BWXT its first-ever investment-grade rating and it won new Army and DOE contract awards; moving off Core to Watch until the Sep 29-30 Investor Day and William Blair meeting explain why a fundamentally improving, newly-rated business keeps getting sold.",
+    "change": "down"
+   },
+   {
+    "ticker": "GEV",
+    "name": "GE Vernova",
+    "stance": "watch",
+    "weight": 0,
+    "note": "A steady drip of small international nuclear wins (a 1.2GW Swedish BWRX-300 project, South Korea floated as a US construction partner) kept shares in a $940-$960 range, but nuclear still isn't a big enough piece of a $255B, largely grid/gas-equipment market cap to justify more than Watch. Also sits in the Energy Storage sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "OKLO",
+    "name": "Oklo",
+    "stance": "spec",
+    "weight": 8,
+    "note": "Shares held near $38 even as UBS cut its own target to $41 from $55 this week and the stock gave back most of its 13% Ratepayer Protection Act pop within two trading days; a modest increase reflects the ~$1.64B cash cushion and first-ever quarterly revenue beat, but the ~$1B ATM program keeps this sized as a call option, not a core holding.",
+    "change": null
+   },
+   {
+    "ticker": "LEU",
+    "name": "Centrus Energy",
+    "stance": "spec",
+    "weight": 12,
+    "note": "Centrus added a second dated HALEU customer this month (Radiant, alongside Antares, both with prepayments and deliveries before year-end) and raised FY26 revenue guidance to $450-500M; sizing up from 5% to 12% on two concrete commercial contracts stacked on the existing $900M+ DOE Piketon award, while keeping it Speculative given shares are still down ~40% from their 52-week high and EPS fell YoY even as revenue grew.",
+    "change": null
+   },
+   {
+    "ticker": "SMR",
+    "name": "NuScale Power",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Shares fell again to $8.42, confirming UBS's Sep 10 Sell/$6 call, and a Sep 22 Pomerantz investor alert opened a securities-fraud angle over ENTRA1 disclosures on top of the still-non-binding 6GW TVA/ENTRA1 program; nothing here argues for anything but Avoid.",
+    "change": null
+   },
+   {
+    "ticker": "XE",
+    "name": "X-energy",
+    "stance": "watch",
+    "weight": 0,
+    "note": "TRISO-X completed vertical construction at its TX-1 fuel facility this week \u2014 real physical progress \u2014 but shares still fell 4% on the day and analyst targets range from Piper Sandler's $9 Sell to a $34.38 Buy consensus; that dispersion is exactly why this stays Watch rather than a funded position.",
+    "change": null
+   }
+  ]
+ }
+}
