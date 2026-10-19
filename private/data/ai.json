@@ -10,7 +10,7 @@
     {
       "value": "$825–855B",
       "sub": "2026/FY27 CAPEX — TOP-5 HYPERSCALERS",
-      "label": "Amazon (~$220B), Alphabet ($195–205B), Microsoft (~$190B CY2026 / ~$255–260B FY2027 all-in), Meta ($130–145B) and Oracle (S&P models $90–95B FY2027) — combined $825–855B, unchanged: no hyperscaler has reported since the last edition. Goldman Sachs estimates the five AI hyperscalers will spend ~$1.2T next year. The test is this week and next: Meta reports this week, Microsoft and Alphabet on Oct 28 (same week as the Oct 27–28 FOMC), Amazon in late October. The binding constraint this week was financing, not demand: the 10-year yield sat ~5.05–5.25% (24-year highs) and the Broadcom CEO said financing could be a bigger obstacle to AI expansion than chips or power",
+      "label": "Amazon (~$220B), Alphabet ($195–205B), Microsoft (~$190B CY2026 / ~$255–260B FY2027 all-in), Meta ($130–145B) and Oracle (S&P models $90–95B FY2027) — combined $825–855B, unchanged: no hyperscaler has reported since the last edition. Goldman Sachs estimates the five AI hyperscalers will spend ~$1.2T next year. The test is this week and next: Meta reports Wed Oct 21 after the close (confirmed), Microsoft and Alphabet on Oct 28 (same week as the Oct 27–28 FOMC), Amazon in late October. The binding constraint this week was financing, not demand: the 10-year yield sat ~5.05–5.25% (24-year highs) and the Broadcom CEO said financing could be a bigger obstacle to AI expansion than chips or power. Alphabet, Amazon, Meta and Oracle had issued more than $228B of bonds by Oct 13 (CNBC), which is why funding costs matter so much",
       "highlight": true
     },
     {
@@ -22,13 +22,13 @@
     {
       "value": "−12.7% / >$1T",
       "sub": "SOXX 8-DAY LOSING STREAK; AI/CHIP MARKET CAP LOST",
-      "label": "The iShares Semiconductor ETF (SOXX) fell eight straight sessions through Oct 15 — about −12.7% cumulatively and the longest losing streak in its 11-year history (Dow Jones Market Data) — and the top-20 global AI/semiconductor stocks lost over $1 trillion (CNBC). Triggers: a hot September CPI (raising bets on more Fed hikes), Treasury yields above 5%, the Anthropic growth deceleration, CoreWeave's debt (~$46–50B net debt, bonds yielding near 15%), Intel and Broadcom CEO financing warnings, and China memory-chip competition (CXMT). Nasdaq closed −1.88% on Oct 15 at 26,693 and fell again Oct 16 (~26,140 per one tally), S&P 500 ~7,659, roughly 1% below its record; SK Hynix fell 10%+ and Samsung ~9% in Asia. SOXX is −8% for October but still up 60%+ in 2026",
+      "label": "The iShares Semiconductor ETF (SOXX) fell eight straight sessions through Oct 15 — about −12.7% cumulatively and the longest losing streak in its 11-year history (Dow Jones Market Data) — and the top-20 global AI/semiconductor stocks lost over $1 trillion (CNBC). Triggers: a hot September CPI (raising bets on more Fed hikes), Treasury yields above 5%, the Anthropic growth deceleration, CoreWeave's debt (~$46–50B net debt, bonds yielding near 15%), Intel and Broadcom CEO financing warnings, and China memory-chip competition (CXMT). Nasdaq closed −1.88% on Oct 15 at 26,693 and fell again Oct 16 (~26,140 per one tally), S&P 500 ~7,659, roughly 1% below its record; SK Hynix fell 10%+ and Samsung ~9% in Asia. SOXX is −8% for October but still up 60%+ in 2026. By Oct 16 CoreWeave had slipped another ~7% (shares ~−15% on the week), its bonds briefly yielded above 16% and 5-year CDS topped 1,000bp (Roic/Reuters); Fed Chair Warsh said the AI spending surge is adding to inflation",
       "highlight": false
     },
     {
       "value": "~$214 vs $243 record",
       "sub": "NVIDIA: ~−12% FROM THE OCT 6 HIGH",
-      "label": "Nvidia closed near $214 on Oct 15–16 (data sources conflict slightly), about 12% below its Oct 6 intraday record of $243.37, after sliding with the chip complex despite no company-specific bad news; CEO Jensen Huang said Nvidia did not need to endorse CoreWeave, sparking a neocloud rebound (CRWV +5.9% on Oct 15 after −16% the day before). Q2 FY27 revenue was $96.2B (+106%, Data Center $89.0B) at ~75% gross margin; Q3 guide ~$108B ±2% (~+89%, a slowing rate of growth); $150B buyback increase leaves ~$235B through FY2028. Bulls (Dan Ives) call the selloff 'a financing issue, not a demand issue'; bears point to Nvidia underwriting its customers (OpenAI, Anthropic, xAI, CoreWeave) while buying back stock. Q3 FY27 results are expected in November",
+      "label": "Nvidia closed near $214 on Oct 15–16 (data sources conflict slightly), about 12% below its Oct 6 intraday record of $243.37, after sliding with the chip complex despite no company-specific bad news; CEO Jensen Huang said Nvidia did not need to endorse CoreWeave, sparking a neocloud rebound (CRWV +5.9% on Oct 15 after −16% the day before). Q2 FY27 revenue was $96.2B (+106%, Data Center $89.0B) at ~75% gross margin; Q3 guide ~$108B ±2% (~+89%, a slowing rate of growth); $150B buyback increase leaves ~$235B through FY2028. Bulls (Dan Ives) call the selloff 'a financing issue, not a demand issue'; bears point to Nvidia underwriting its customers (OpenAI, Anthropic, xAI, CoreWeave) while buying back stock. Q3 FY27 results are expected in November. Separately, IDC data show Nvidia's China AI-accelerator share fell to 34% in H1 2026 (shipments −44% YoY) as Huawei rose to 28%",
       "highlight": false
     }
   ],
@@ -49,7 +49,7 @@
           "ticker": "NVDA",
           "company": "NVIDIA",
           "angle": "Closed near $214 on Oct 15–16 (−12% from the $243.37 record of Oct 6) in the eight-day chip selloff, with no company-specific bad news. Record Q2 FY27 revenue $96.2B (+106%), Data Center $89.0B, ~75% gross margin; Q3 guide ~$108B ±2% (~+89%). $150B buyback increase leaves ~$235B through FY2028; reported capacity commitments include up to $84.5B from Anthropic and xAI through 2029, and Nvidia is reportedly in talks to anchor up to $10B of Anthropic's IPO. Huang declined to 'endorse' CoreWeave on Oct 15",
-          "watch for": "Customer funding is the live risk: Anthropic's Q3 growth slowed to ~+50% QoQ, OpenAI's run-rate reset to ~$50B, and CoreWeave's bonds yield near 15% — all Nvidia customers or channel partners. Circular-financing optics (BIS: 55.2% of AI-firm investment comes from other AI firms) persist. TSMC's 'no sign of a slowdown' commentary is the offsetting demand signal; Nvidia reports in November"
+          "watch for": "Customer funding is the live risk: Anthropic's Q3 growth slowed to ~+50% QoQ, OpenAI's run-rate reset to ~$50B, and CoreWeave's bonds yield near 15% — all Nvidia customers or channel partners. Circular-financing optics (BIS: 55.2% of AI-firm investment comes from other AI firms) persist. TSMC's 'no sign of a slowdown' commentary is the offsetting demand signal; Nvidia reports in November. China is a second pressure point: IDC puts Nvidia's H1 2026 China share at 34% versus Huawei's 28%"
         },
         {
           "ticker": "AVGO",
@@ -103,13 +103,13 @@
         {
           "ticker": "META",
           "company": "Meta",
-          "angle": "Market cap ~$1.9T; shares have risen recently after launching its Muse AI assistant (CNBC). $130–145B capex guide, ~7,000-person Applied AI reassignment after May's ~8,000-person cut, and CFO Susan Li calling 2026 capital planning 'highly dynamic'. Reports this week",
+          "angle": "Market cap ~$1.9T; shares have risen recently after launching its Muse AI assistant (CNBC). $130–145B capex guide, ~7,000-person Applied AI reassignment after May's ~8,000-person cut, and CFO Susan Li calling 2026 capital planning 'highly dynamic'. Reports Wed Oct 21 after the close (confirmed)",
           "watch for": "Whether the capex guide rises again at current funding costs, and whether Muse monetizes; the org whiplash (cut, rehire into AI, reconsider structure) keeps an execution question alive"
         },
         {
           "ticker": "ORCL",
           "company": "Oracle",
-          "angle": "Fell −4.6% on Oct 15 amid the AI-financing rout (after −5.5% on Oct 8 and a partial rebound to ~$141 on Oct 9). Largest OpenAI-dependent backlog of the group (RPO $664B in fiscal Q1 FY27; net debt ~$132B), revenue +30% and Cloud Infrastructure +121%, but FY26 free cash flow was −$23.7B with capex outrunning operating cash flow",
+          "angle": "Fell −4.6% on Oct 15 amid the AI-financing rout (after −5.5% on Oct 8 and a partial rebound to ~$141 on Oct 9). Largest OpenAI-dependent backlog of the group (RPO $664B in fiscal Q1 FY27; net debt ~$132B), revenue +30% and Cloud Infrastructure +121%, but FY26 free cash flow was −$23.7B with capex outrunning operating cash flow. One tally had the stock down nearly 9% in a single session earlier in the week, with its Nov 2032 notes yielding ~7.2%",
           "watch for": "Funding is the test: BBB- rating, Moody's negative outlook, S&P's ~$42B FY27 FCF-deficit estimate and a 5%+ long-yield backdrop all raise Oracle's cost of financing OpenAI's buildout. Burry still holds Oracle as his largest disclosed AI short"
         }
       ]
@@ -156,7 +156,7 @@
     {
       "name": "Anthropic",
       "value": "~$1.5–2T IPO TALK · Q3 REVENUE $16.8B (+50% QOQ) · REGISTRATION PENDING",
-      "note": "At an Oct 14 private investor meeting Anthropic reportedly disclosed Q3 revenue of $16.8B (FT) — growth of ~50% QoQ versus ~140% in Q2 — plus positive cash flow, adjusted profitability and an 85% GAAP gross margin (per a Bloomberg reporter). Markets had wanted faster growth; IPO valuation chatter has drifted from $2T+ toward ~$1.5T–$2T (~30x annualized Q3 at $2T). The leaked S-1 (Sept 29) showed 2025 revenue ~$4.6B, a $42B 2025 net loss and $518B of compute commitments ~80% non-cancellable; reports have said a roadshow the week of Nov 9 and up to $100B raised, but the registration statement was still pending as of Oct 16 after two delays. All figures are press reports and subject to change."
+      "note": "At an Oct 14 private investor meeting Anthropic reportedly disclosed Q3 revenue of $16.8B (FT) — growth of ~50% QoQ versus ~140% in Q2 — plus positive cash flow, adjusted profitability and an 85% GAAP gross margin (per a Bloomberg reporter). Markets had wanted faster growth; IPO valuation chatter has drifted from $2T+ toward ~$1.5T–$2T (~30x annualized Q3 at $2T). The leaked S-1 (Sept 29) showed 2025 revenue ~$4.6B, a $42B 2025 net loss and $518B of compute commitments ~80% non-cancellable; reports have said a roadshow the week of Nov 9 and up to $100B raised, but the registration statement was still pending as of Oct 16 after two delays. All figures are press reports and subject to change. Last confirmed private mark is $965B (Series H, May 28); on Oct 16 some current and prospective investors were reportedly weighing a lower IPO valuation."
     },
     {
       "name": "OpenAI",
@@ -185,7 +185,7 @@
     },
     {
       "title": "Rates and financing are now the transmission mechanism",
-      "description": "A hot September CPI (Oct 14) raised bets on further Fed hikes (one tally: ~69% odds of a December hike; FOMC Oct 27–28), with the 10-year at ~5.05–5.25% and the 30-year ~5.6% near 24-year highs. SOXX fell eight straight sessions (−12.7%, longest streak in its history) and >$1T of AI/chip market value was lost. CoreWeave (~$46–50B net debt, ~8x trailing EBITDA) saw bonds yield near 15% and shares drop 16% on Oct 14; Broadcom's Hock Tan and Intel's CEO warned financing may be the real constraint. Counterpoint: the S&P 500 sits only ~1% from its record, defensives rotated up, TSMC and ASML posted record results, and Nvidia's CEO says he is 'optimistic'."
+      "description": "A hot September CPI (Oct 14) raised bets on further Fed hikes (one tally: ~69% odds of a December hike; FOMC Oct 27–28), with the 10-year at ~5.05–5.25% and the 30-year ~5.6% near 24-year highs. SOXX fell eight straight sessions (−12.7%, longest streak in its history) and >$1T of AI/chip market value was lost. CoreWeave (~$46–50B net debt, ~8x trailing EBITDA) saw bonds yield near 15% and shares drop 16% on Oct 14; Broadcom's Hock Tan and Intel's CEO warned financing may be the real constraint. Counterpoint: the S&P 500 sits only ~1% from its record, defensives rotated up, TSMC and ASML posted record results, and Nvidia's CEO says he is 'optimistic'. Update Oct 16: CoreWeave bonds briefly yielded >16% with 5-year CDS above 1,000bp, though a credit analyst stressed it is not an imminent-default signal; Fed hike odds for October were only ~17% (CME) with December still debated, and IG's Axel Rudolph framed the rout as about construction financing rather than collapsing demand."
     },
     {
       "title": "Off-balance-sheet obligations turning concrete",
@@ -205,7 +205,7 @@
     },
     {
       "title": "Concentration everywhere",
-      "description": "AI is simultaneously the market's largest index weight, VC's largest allocation (OpenAI and Anthropic alone took over 40% of a record $510B global H1 2026 venture total, and AI took 86% of all US venture dollars in H1 per PitchBook), and this hub's connective thread — a drawdown would hit robotics, nuclear, storage and quantum sentiment at once. NVIDIA now sits at the center of deals spanning chips (TSMC, Broadcom), model hosting (Hugging Face), enterprise software (Palantir) and a potential anchor stake in Anthropic's IPO — a single company's balance sheet increasingly touches nearly every layer of this page, even as customers like Anthropic simultaneously build Google TPU alternatives. Counterpoint: infrastructure vendors keep posting record quarters and Oracle's Sept 10 beat is a live example — some strategists call the bear case premature given actual demand signals."
+      "description": "AI is simultaneously the market's largest index weight, VC's largest allocation (OpenAI and Anthropic alone took over 40% of a record $510B global H1 2026 venture total, and AI took 86% of all US venture dollars in H1 per PitchBook), and this hub's connective thread — a drawdown would hit robotics, nuclear, storage and quantum sentiment at once. NVIDIA now sits at the center of deals spanning chips (TSMC, Broadcom), model hosting (Hugging Face), enterprise software (Palantir) and a potential anchor stake in Anthropic's IPO — a single company's balance sheet increasingly touches nearly every layer of this page, even as customers like Anthropic simultaneously build Google TPU alternatives. Counterpoint: infrastructure vendors keep posting record quarters and Oracle's Sept 10 beat is a live example — some strategists call the bear case premature given actual demand signals. Crunchbase puts Q3 2026 global venture at $159B (−25% vs Q2), with AI taking 64% ($102B) and a record 27 billion-dollar rounds (Databricks and SSI $5B each; Crusoe, Moonshot AI and Mistral $3B+) — fewer, bigger bets."
     }
   ],
   "catalysts": [
@@ -227,12 +227,12 @@
     {
       "date": "OCT 16, 2026",
       "title": "Software joins the selloff",
-      "description": "Palantir (−5% to ~$190), ServiceNow (−5%), Salesforce (−4%) and IGV (−4%) fell on AI-financing worries; Nasdaq fell again to ~26,140 and the S&P 500 closed ~1% below its record."
+      "description": "Palantir (−5% to ~$190), ServiceNow (−5%), Salesforce (−4%) and IGV (−4%) fell on AI-financing worries; Nasdaq fell again to ~26,140 and the S&P 500 closed ~1% below its record. CoreWeave fell another ~7% with bond yields above 16%; reports said some Anthropic IPO investors were weighing a lower valuation."
     },
     {
-      "date": "OCT 21–22, 2026 (UPCOMING)",
-      "title": "Meta, Lam Research and Texas Instruments report",
-      "description": "Lam and TI report Wednesday Oct 21; Meta reports this week (date unconfirmed). The question is whether hyperscaler profits can outgrow capex; Tesla and Netflix also report."
+      "date": "OCT 21, 2026 (UPCOMING)",
+      "title": "Meta reports Wednesday; Lam Research and Texas Instruments also due",
+      "description": "Meta reports after the close Wed Oct 21 (call 4:30pm ET, confirmed); Lam and TI are expected the same week (dates not re-verified). The question is whether hyperscaler profits can outgrow capex at current funding costs."
     },
     {
       "date": "OCT 27–28, 2026 (UPCOMING)",
@@ -353,9 +353,33 @@
     {
       "title": "TechCrunch — Mistral raises €3B as sovereign AI becomes big business",
       "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/"
+    },
+    {
+      "title": "Roic News — CoreWeave shares tumble as leverage fears return (Oct 16)",
+      "url": "https://www.roic.ai/news/coreweave-shares-tumble-69-as-leverage-fears-return-to-haunt-ai-darling-10-16-2026"
+    },
+    {
+      "title": "Roic News — AI financing shock hits tech stocks as debt costs bite (Oct 15)",
+      "url": "https://www.roic.ai/news/ai-financing-shock-hits-tech-stocks-as-debt-costs-bite-10-15-2026"
+    },
+    {
+      "title": "Yahoo Finance — Wall Street tumbles as worries about AI trade and high oil prices weigh (Oct 16)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-st-futures-mixed-tech-110701262.html"
+    },
+    {
+      "title": "Yahoo Finance / IDC — Nvidia's China AI-chip share drops to 34% as Huawei gains",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-stock-falls-china-ai-155212666.html"
+    },
+    {
+      "title": "Meta Investor Relations — Meta to announce Q3 2026 results (Oct 21)",
+      "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Third-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "title": "Value Add VC (Crunchbase data) — AI startups took 64% of Q3's record $159B",
+      "url": "https://valueaddvc.com/pulse/ai-startups-64-percent-record-q3-funding-2026"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Oct 19, 2026; several items (OpenAI round and revenue, Anthropic Q3 figures, S-1 and IPO timing, CoreWeave debt) are press reports and subject to change, and some secondary sources conflict on exact closing prices and index levels. ETF YTD returns carried from Sept 21 and not re-verified. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Oct 19, 2026; several items (OpenAI round and revenue, Anthropic Q3 figures, S-1 and IPO timing, CoreWeave debt) are press reports and subject to change, and some secondary sources conflict on exact closing prices and index levels. ETF YTD returns carried from Sept 21 and not re-verified. Venture totals per Crunchbase via secondary reporting. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
     "as_of": "October 19, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
@@ -389,7 +413,7 @@
         "name": "NVIDIA",
         "stance": "core",
         "weight": 18,
-        "note": "Best fundamentals on the page (Q3 guide ~$108B, ~75% margin) but ~12% off its $243 record at ~$214 as its customers' funding (OpenAI ~$50B run-rate, CoreWeave bonds near 15%) comes under scrutiny. Also sits in the Quantum, Robotics and AI Biotech sleeves — don't double-count.",
+        "note": "Best fundamentals on the page (China share down to 34% per IDC) (Q3 guide ~$108B, ~75% margin) but ~12% off its $243 record at ~$214 as its customers' funding (OpenAI ~$50B run-rate, CoreWeave bonds near 15%) comes under scrutiny. Also sits in the Quantum, Robotics and AI Biotech sleeves — don't double-count.",
         "change": null
       },
       {
@@ -406,7 +430,7 @@
         "stance": "watch",
         "weight": 0,
         "note": "Moved down from Core: CEO Hock Tan himself warned on Oct 12 that financing may constrain AI expansion, and growth now rests on two cash-burning labs (~$161B of Anthropic lease contracts, $50B+ of financing for OpenAI chips) as Anthropic's growth slowed to +50% QoQ.",
-        "change": "down"
+        "change": null
       },
       {
         "ticker": "AMD",
@@ -429,8 +453,8 @@
         "name": "CoreWeave",
         "stance": "avoid",
         "weight": 0,
-        "note": "Bonds yield near 15% with ~$46–50B of net debt (~8x trailing EBITDA) and the stock fell ~16% on Oct 14 — the cleanest read on AI credit stress, and a name whose business rests on GPU residual values.",
-        "change": "new"
+        "note": "Bonds yield near 15% with ~$46–50B of net debt (~8x trailing EBITDA) and the stock fell ~16% on Oct 14 and ~7% more on Oct 16 (CDS >1,000bp) — the cleanest read on AI credit stress, and a name whose business rests on GPU residual values.",
+        "change": null
       },
       {
         "ticker": "PLTR",
