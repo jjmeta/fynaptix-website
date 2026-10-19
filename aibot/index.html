@@ -901,7 +901,7 @@ if(chartEl){
 const fP=n=>n>=1000?'$'+n.toLocaleString(undefined,{maximumFractionDigits:0}):n>=100?'$'+n.toFixed(2):'$'+n.toFixed(3);
 
 // ── Live crypto prices via CoinGecko ──────────────
-fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,chainlink,injective-protocol,avalanche-2,render-token,bittensor&vs_currencies=usd&include_24hr_change=true')
+fetch('/api/cg?path=%2Fsimple%2Fprice&ids=bitcoin,ethereum,solana,chainlink,injective-protocol,avalanche-2,render-token,bittensor&vs_currencies=usd&include_24hr_change=true')
   .then(r=>r.json()).then(d=>{
     const set=(id,val,chg)=>{
       const cls=chg>0?'t-up':chg<0?'t-dn':'t-neu';

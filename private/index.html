@@ -512,14 +512,14 @@ const $=id=>document.getElementById(id);
 const fP=n=>n>=1000?'$'+n.toLocaleString(undefined,{maximumFractionDigits:0}):'$'+n.toFixed(2);
 const fC=n=>(n>=0?'+':'')+n.toFixed(1)+'%';
 
-fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true')
+fetch('/api/cg?path=%2Fsimple%2Fprice&ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true')
   .then(r=>r.json()).then(d=>{
     const b=d.bitcoin,e=d.ethereum;
     if(b){$('btc-p').textContent=fP(b.usd);const c=$('btc-c');c.textContent=fC(b.usd_24h_change)+' 24H';c.className='mkt-chg'+(b.usd_24h_change>=0?' pos':'');}
     if(e){$('eth-p').textContent=fP(e.usd);const c=$('eth-c');c.textContent=fC(e.usd_24h_change)+' 24H';c.className='mkt-chg'+(e.usd_24h_change>=0?' pos':'');}
   }).catch(()=>{});
 
-fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=180&interval=weekly')
+fetch('/api/cg?path=%2Fcoins%2Fbitcoin%2Fmarket_chart&vs_currency=usd&days=180&interval=weekly')
   .then(r=>r.json()).then(d=>{
     if(d.prices&&d.prices.length>=2){const f=d.prices[0][1],l=d.prices[d.prices.length-1][1],p=((l-f)/f*100);const el=$('btc-6m');if(el)el.textContent=(p>=0?'+':'')+p.toFixed(1)+'%';}
   }).catch(()=>{});

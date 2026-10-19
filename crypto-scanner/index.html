@@ -843,9 +843,9 @@ a{text-decoration:none;color:inherit;}
 // CONFIG
 // ═══════════════════════════════════════
 const COINALYZE_KEY = '';
-// CoinGecko changed their CORS policy — browser requests from custom domains are
-// blocked. Intercept all CoinGecko fetches and route through corsproxy.io.
-(()=>{const _f=window.fetch.bind(window);window.fetch=(u,...a)=>{if(typeof u==='string'&&u.startsWith('https://api.coingecko.com/'))u='https://api.allorigins.win/raw?url='+encodeURIComponent(u);return _f(u,...a);};})();
+// CoinGecko calls are routed through /api/cg, a server-side proxy that adds the paid
+// Pro API key (kept in a Vercel env var) and CDN-caches responses.
+(()=>{const _f=window.fetch.bind(window);const P='https://api.coingecko.com/api/v3';window.fetch=(u,...a)=>{if(typeof u==='string'&&u.startsWith(P)){const x=new URL(u);u='/api/cg?path='+encodeURIComponent(x.pathname.slice('/api/v3'.length))+(x.search?'&'+x.search.slice(1):'');}return _f(u,...a);};})();
 
 // ═══════════════════════════════════════
 // FORMATTERS
