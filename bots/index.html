@@ -428,7 +428,7 @@ async function signIn(){
   try{
     const{data,error}=await _sb.auth.signInWithPassword({email,password});
     if(error){ err.textContent=error.message; btn.disabled=false; btn.textContent='Sign in →'; }
-    else if(data?.session){ _showApp(); }
+    else if(data?.session){ _showApp(data.session); }
     else{ err.textContent='No session returned.'; btn.disabled=false; btn.textContent='Sign in →'; }
   }catch(e){ err.textContent='Error: '+(e.message||e); btn.disabled=false; btn.textContent='Sign in →'; }
 }
@@ -461,6 +461,8 @@ const BOT_DEFS=[
    desc:'Red 4H candle closes 0–2% above 30-day daily MA → LONG · 3× leverage · SL −10% below entry · trailing stop 10% · TP target +50% · runs every 4H · max 3 concurrent'},
   {id:'ma30-cross-01', name:'EMA30 Cross', exchange:'Gate.io Perps', status:'paper',
    desc:'Top 100 tokens by volume · price crosses above 30-period EMA on 15m chart with green close → LONG · SL −10% · TP +30% · 1% risk per trade · scans every 60s · max 5 concurrent'},
+  {id:'gecko-01', name:'Gecko Scanner', exchange:'Gate.io Perps · CoinGecko Pro', status:'paper',
+   desc:'CoinGecko Pro · narrative rotation + volume acceleration + trending attention · Claude scout decides entry/sl/tp directly · OHLC structure · ~33k API calls/month · paper-only'},
 ];
 
 const BOT_LABEL={'finora-01':'Finora','pump-01':'Pump Bot','overextension-01':'Overext','ma30-bounce-01':'MA30','ma30-cross-01':'EMA30X'};
