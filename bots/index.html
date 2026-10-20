@@ -122,8 +122,10 @@ a{text-decoration:none;color:inherit;}
 .wl-bar-loss{background:var(--red);height:100%;transition:width .6s ease;}
 .wl-bar-open{background:var(--n400);height:100%;transition:width .6s ease;}
 
-/* ─── BOT CARDS ─── */
-.bots-section{padding:20px 24px;}
+/* ─── BOT CARDS + CHART ROW ─── */
+.strategies-chart-row{display:flex;align-items:flex-start;gap:0;border-top:1.5px solid var(--n300);}
+.bots-section{padding:20px 24px;flex:0 0 auto;width:300px;border-right:1.5px solid var(--n300);}
+.chart-section{flex:1;min-width:0;}
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
 .section-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--n600);font-weight:600;flex-shrink:0;}
 .section-rule{flex:1;height:1px;background:var(--n300);}
@@ -156,7 +158,7 @@ a{text-decoration:none;color:inherit;}
 .bot-card-desc{padding:0 16px 14px;font-size:11px;color:var(--n600);line-height:1.6;border-top:1px solid var(--n200);padding-top:10px;}
 
 /* ─── PNL CHART ─── */
-.chart-section{padding:0 24px 20px;}
+.chart-section{padding:20px 24px 20px;}
 .chart-wrap{background:white;border:1.5px solid var(--n300);padding:16px;}
 .chart-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;}
 .chart-title{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--n600);font-weight:600;}
@@ -226,9 +228,17 @@ canvas{display:block;width:100%;height:120px;}
     </div>
 
     <div class="sb-section">Scanner</div>
-    <div class="sb-bot active" onclick="showView('gecko-01',this)">
+    <div class="sb-bot active" onclick="showView('all',this)">
       <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Gecko Scanner</div><div class="sb-bot-exch">Gate.io · CoinGecko Pro</div></div>
+      <div><div class="sb-bot-name">All Bots</div><div class="sb-bot-exch">Combined view</div></div>
+    </div>
+    <div class="sb-bot" onclick="showView('gecko-01',this)">
+      <div class="sb-dot running pulse"></div>
+      <div><div class="sb-bot-name">Gecko Perps</div><div class="sb-bot-exch">Gate.io Perps · Long &amp; Short</div></div>
+    </div>
+    <div class="sb-bot" onclick="showView('gecko-spot',this)">
+      <div class="sb-dot running pulse"></div>
+      <div><div class="sb-bot-name">Gecko Spot</div><div class="sb-bot-exch">Gate.io Spot · Long Only</div></div>
     </div>
 
     <div class="sb-footer">
@@ -308,27 +318,28 @@ canvas{display:block;width:100%;height:120px;}
         </div>
       </div>
 
-      <!-- BOT CARDS -->
-      <div class="bots-section">
-        <div class="section-head">
-          <span class="section-label">Strategies</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="bots-grid" id="bots-grid"></div>
-      </div>
-
-      <!-- P&L CHART -->
-      <div class="chart-section">
-        <div class="section-head">
-          <span class="section-label">Cumulative P&amp;L</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="chart-wrap">
-          <div class="chart-head">
-            <div class="chart-title">Running total across all closed trades</div>
-            <div class="chart-subtitle" id="chart-sub">—</div>
+      <!-- BOT CARDS + P&L CHART (side by side) -->
+      <div class="strategies-chart-row">
+        <div class="bots-section">
+          <div class="section-head">
+            <span class="section-label">Strategies</span>
+            <span class="section-rule"></span>
           </div>
-          <canvas id="pnl-chart" height="120"></canvas>
+          <div class="bots-grid" id="bots-grid"></div>
+        </div>
+
+        <div class="chart-section">
+          <div class="section-head">
+            <span class="section-label">Cumulative P&amp;L</span>
+            <span class="section-rule"></span>
+          </div>
+          <div class="chart-wrap">
+            <div class="chart-head">
+              <div class="chart-title">Running total across all closed trades</div>
+              <div class="chart-subtitle" id="chart-sub">—</div>
+            </div>
+            <canvas id="pnl-chart" height="120"></canvas>
+          </div>
         </div>
       </div>
 
@@ -423,33 +434,41 @@ function updateClock(){
 
 // ─── BOT DEFS ───
 const BOT_DEFS=[
-  {id:'gecko-01', name:'Gecko Scanner', exchange:'Gate.io Perps · CoinGecko Pro', status:'paper',
-   desc:'CoinGecko Pro · narrative rotation + volume acceleration + trending attention · Claude scout decides entry/sl/tp directly · OHLC structure · ~33k API calls/month · paper-only'},
+  {id:'gecko-01', name:'Gecko Perps', exchange:'Gate.io Perps · CoinGecko Pro', status:'paper',
+   desc:'Long & short · up to 3× leverage · narrative rotation + volume acceleration · Claude scout sets entry/sl/tp · paper-only'},
+  {id:'gecko-spot', name:'Gecko Spot', exchange:'Gate.io Spot · CoinGecko Pro', status:'paper',
+   desc:'Long only · no leverage (1×) · same CoinGecko signals as Perps · running in parallel for 2-week comparison · paper-only'},
 ];
 
-const BOT_LABEL={'gecko-01':'Gecko'};
+const BOT_LABEL={'gecko-01':'Perps','gecko-spot':'Spot'};
 
 // ─── STATE ───
 let ALL_TRADES=[];
 let activeFilter='all';
-let activeView='gecko-01';
+let activeView='all';
 
 // ─── LOAD ───
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
-    const{data,error}=await _sb.from('gecko_trades').select('*').order('opened_at',{ascending:false}).limit(300);
-    if(error) throw error;
-    ALL_TRADES=(data||[]).map(normGecko).sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    const[r1,r2]=await Promise.all([
+      _sb.from('gecko_trades').select('*').order('opened_at',{ascending:false}).limit(300),
+      _sb.from('gecko_spot_trades').select('*').order('opened_at',{ascending:false}).limit(300),
+    ]);
+    if(r1.error) throw r1.error;
+    if(r2.error) throw r2.error;
+    const perps=(r1.data||[]).map(t=>normGecko(t,'gecko-01'));
+    const spot=(r2.data||[]).map(t=>normGecko(t,'gecko-spot'));
+    ALL_TRADES=[...perps,...spot].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
 }
 
-function normGecko(t){return{botId:'gecko-01',symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null,narrative:t.narrative||'',thesis:t.thesis||'',conviction:t.conviction??null};}
+function normGecko(t,botId){return{botId,symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null,narrative:t.narrative||'',thesis:t.thesis||'',conviction:t.conviction??null};}
 
 // ─── RENDER ALL ───
 function renderAll(trades){
-  const view=trades;
+  const view=activeView==='all'?trades:trades.filter(t=>t.botId===activeView);
   renderMetrics(view);
   renderBanner(view);
   renderWinLoss(view);
