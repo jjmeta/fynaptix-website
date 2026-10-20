@@ -483,7 +483,7 @@ function renderMetrics(trades){
   document.getElementById('m-pnl-sub').textContent=closed.length?`${wins}W · ${losses}L`:'';
 
   document.getElementById('m-trades').textContent=closed.length||'0';
-  document.getElementById('m-trades-sub').textContent=closed.length?`across ${BOT_DEFS.length} bots`:'no closed trades';
+  document.getElementById('m-trades-sub').textContent=closed.length?`gecko scanner`:'no closed trades';
 
   document.getElementById('m-winrate').textContent=wr!=null?wr+'%':'—';
   document.getElementById('m-winrate-sub').textContent=wr!=null?`${wins} of ${closed.length} trades`:'';
