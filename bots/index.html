@@ -279,9 +279,9 @@ canvas{display:block;width:100%;height:120px;}
       <!-- BANNER -->
       <div class="banner" id="banner">
         <div class="banner-left">
-          <div class="banner-eyebrow">Paper Trading · All Systems Running</div>
-          <div class="banner-title">Bot Dashboard</div>
-          <div class="banner-desc">Four strategies running in paper mode — Finora Signals (SMC entries), Pump Bot (volume spike alerts), Overextension Short (6 green candles + 100% run → short 3×), and MA30 Bounce (red 4H candle at MA30 → long 3×).</div>
+          <div class="banner-eyebrow">Paper Trading · Running</div>
+          <div class="banner-title">Gecko Scanner</div>
+          <div class="banner-desc">CoinGecko Pro · narrative rotation + volume acceleration + trending attention · Claude scout decides entry/sl/tp directly · OHLC structure · paper-only.</div>
         </div>
         <div class="banner-right">
           <div class="banner-stat">
@@ -340,12 +340,8 @@ canvas{display:block;width:100%;height:120px;}
         </div>
         <div class="trade-toolbar">
           <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-          <button class="filter-btn" onclick="setFilter('finora-01',this)">Finora Signals</button>
-          <button class="filter-btn" onclick="setFilter('pump-01',this)">Pump Bot</button>
-          <button class="filter-btn" onclick="setFilter('overextension-01',this)">Overextension</button>
-          <button class="filter-btn" onclick="setFilter('ma30-bounce-01',this)">MA30 Bounce</button>
-          <button class="filter-btn" onclick="setFilter('ma30-cross-01',this)">EMA30 Cross</button>
           <button class="filter-btn" onclick="setFilter('open',this)">Open</button>
+          <button class="filter-btn" onclick="setFilter('closed',this)">Closed</button>
         </div>
         <div class="trade-table-wrap">
           <div id="trade-log-body">
@@ -431,7 +427,7 @@ const BOT_DEFS=[
    desc:'CoinGecko Pro · narrative rotation + volume acceleration + trending attention · Claude scout decides entry/sl/tp directly · OHLC structure · ~33k API calls/month · paper-only'},
 ];
 
-const BOT_LABEL={'finora-01':'Finora','pump-01':'Pump Bot','overextension-01':'Overext','ma30-bounce-01':'MA30','ma30-cross-01':'EMA30X'};
+const BOT_LABEL={'gecko-01':'Gecko'};
 
 // ─── STATE ───
 let ALL_TRADES=[];
@@ -453,7 +449,7 @@ function normGecko(t){return{botId:'gecko-01',symbol:t.symbol||'—',dir:t.direc
 
 // ─── RENDER ALL ───
 function renderAll(trades){
-  const view=activeView==='all'?trades:trades.filter(t=>t.botId===activeView);
+  const view=trades;
   renderMetrics(view);
   renderBanner(view);
   renderWinLoss(view);
@@ -658,8 +654,8 @@ function setFilter(f,el){
 function renderTradeLog(trades,filter){
   const filtered=filter==='open'
     ?trades.filter(t=>t.status==='open')
-    :filter==='all'?trades
-    :trades.filter(t=>t.botId===filter);
+    :filter==='closed'?trades.filter(t=>t.status==='closed')
+    :trades;
 
   const body=document.getElementById('trade-log-body');
   if(!filtered.length){
