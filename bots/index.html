@@ -225,34 +225,10 @@ canvas{display:block;width:100%;height:120px;}
       <div class="sb-sub">Trading Dashboard</div>
     </div>
 
-    <div class="sb-section">Bots</div>
-    <div class="sb-bot active" onclick="showView('all',this)">
+    <div class="sb-section">Scanner</div>
+    <div class="sb-bot active" onclick="showView('gecko-01',this)">
       <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">All Bots</div><div class="sb-bot-exch">Overview</div></div>
-    </div>
-
-    <div class="sb-section">Signals</div>
-    <div class="sb-bot" onclick="showView('finora-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Finora Signals</div><div class="sb-bot-exch">Gate.io · Perps</div></div>
-    </div>
-    <div class="sb-bot" onclick="showView('pump-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Pump Bot</div><div class="sb-bot-exch">Gate.io · Perps</div></div>
-    </div>
-
-    <div class="sb-section">Systematic</div>
-    <div class="sb-bot" onclick="showView('overextension-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">Overextension</div><div class="sb-bot-exch">Gate.io · Perps · Short</div></div>
-    </div>
-    <div class="sb-bot" onclick="showView('ma30-bounce-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">MA30 Bounce</div><div class="sb-bot-exch">Gate.io · Perps · Long</div></div>
-    </div>
-    <div class="sb-bot" onclick="showView('ma30-cross-01',this)">
-      <div class="sb-dot running pulse"></div>
-      <div><div class="sb-bot-name">EMA30 Cross</div><div class="sb-bot-exch">Gate.io · Perps · Long</div></div>
+      <div><div class="sb-bot-name">Gecko Scanner</div><div class="sb-bot-exch">Gate.io · CoinGecko Pro</div></div>
     </div>
 
     <div class="sb-footer">
@@ -460,7 +436,7 @@ const BOT_LABEL={'finora-01':'Finora','pump-01':'Pump Bot','overextension-01':'O
 // ─── STATE ───
 let ALL_TRADES=[];
 let activeFilter='all';
-let activeView='all';
+let activeView='gecko-01';
 
 // ─── LOAD ───
 async function loadData(){
