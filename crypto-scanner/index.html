@@ -181,7 +181,9 @@ a{text-decoration:none;color:inherit;}
 .mom-tbl td{padding:7px 12px;border-bottom:1px solid var(--color-divider);font-size:12px;white-space:nowrap;}
 .mom-tbl td.r{text-align:right;}
 .mom-tbl tr:last-child td{border-bottom:none;}
+.mom-tbl tbody tr{cursor:pointer;}
 .mom-tbl tr:hover td{background:var(--color-neutral-100);}
+.mom-tbl .m-arrow{color:var(--color-neutral-400);font-size:11px;padding-left:4px;}
 .mom-tbl .m-num{font-size:11px;color:var(--color-neutral-500);width:28px;}
 .mom-tbl .m-name{font-weight:600;max-width:220px;overflow:hidden;text-overflow:ellipsis;}
 .mom-tbl .m-mcap{color:var(--color-neutral-700);}
@@ -1227,9 +1229,11 @@ function renderMomentumStrip(){
     const chg=c.market_cap_change_24h||0;
     const volPct=Math.round((c.volume_24h||0)/maxVol*100);
     const name=shortName(c.name);
-    return `<tr>
+    const safeId=c.id.replace(/'/g,"\\'");
+    const safeName=name.replace(/'/g,"\\'");
+    return `<tr onclick="drillCategory('${safeId}','${safeName}',${chg},${c.market_cap||0},${c.volume_24h||0})" title="Click to see tokens in ${name}">
       <td class="m-num">${i+1}</td>
-      <td class="m-name">${name}</td>
+      <td class="m-name">${name}<span class="m-arrow">↗</span></td>
       <td class="r m-mcap">${big(c.market_cap)}</td>
       <td class="r"><b class="${cls(chg)}">${pct(chg)}</b></td>
       <td class="r m-mcap">${big(c.volume_24h||0)}</td>
