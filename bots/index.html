@@ -556,10 +556,10 @@ function renderTradeFeed(bodyId,openTrades,segs,type){
     const color=segs[i]?.color||SEG_COLORS[i%SEG_COLORS.length];
     const initials=t.symbol.replace('/USDT','').replace('USDT','').slice(0,3);
     let pnlStr,pnlCls;
-    if(t.livePnlPct!=null){ pnlStr=(t.livePnlPct>=0?'+':'')+t.livePnlPct.toFixed(2)+'%'; pnlCls=t.livePnlPct>=0?'tf-pct-live':'tf-pct-neg'; }
+    if(t.livePnlPct!=null){ pnlStr=(t.livePnlPct>=0?'+':'')+t.livePnlPct.toFixed(2)+'%'; pnlCls=t.livePnlPct>=0?'tf-pct-pos':'tf-pct-neg'; }
     else { pnlStr='—'; pnlCls='tf-pct-nil'; }
     const col2=type==='spot'
-      ?`<td class="${t.livePnlUsd==null?'tf-pct-nil':t.livePnlUsd>=0?'tf-pct-live':'tf-pct-neg'}">${t.livePnlUsd!=null?(t.livePnlUsd>=0?'+':'')+'$'+t.livePnlUsd.toFixed(2):'—'}</td>`
+      ?`<td class="${t.livePnlUsd==null?'tf-pct-nil':t.livePnlUsd>=0?'tf-pct-pos':'tf-pct-neg'}">${t.livePnlUsd!=null?(t.livePnlUsd>=0?'+':'')+'$'+t.livePnlUsd.toFixed(2):'—'}</td>`
       :`<td class="${pnlCls}">${pnlStr}</td>`;
     return`<tr><td><div class="tf-asset"><div class="tf-icon" style="background:${color}">${escH(initials)}</div><div><div class="tf-sym">${escH(t.symbol)}</div><div class="tf-dir">${t.dir==='LONG'?'Long':'Short'}</div></div></div></td>${col2}<td>${sparkline(t)}</td></tr>`;
   }).join('');
