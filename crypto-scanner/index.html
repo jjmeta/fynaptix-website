@@ -147,15 +147,23 @@ a{text-decoration:none;color:inherit;}
 .tm-swatch{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-neutral-700);}
 .tm-sq{width:12px;height:12px;flex-shrink:0;}
 
-/* ── MOMENTUM STRIP ── */
-.momentum-strip{display:flex;overflow-x:auto;gap:1px;background:var(--color-divider);border-bottom:2px solid var(--color-divider);scrollbar-width:none;}
-.momentum-strip::-webkit-scrollbar{display:none;}
-.mom-cell{flex:0 0 148px;background:var(--color-bg);padding:14px 14px 12px;}
-.mom-rank{font-size:10px;letter-spacing:0.14em;color:var(--color-neutral-700);font-weight:400;margin-bottom:4px;}
-.mom-name{font-size:12px;font-weight:600;line-height:1.2;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.mom-pct{font-size:20px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;margin-bottom:8px;}
-.mom-bar-bg{height:4px;background:var(--color-neutral-200);}
-.mom-bar{height:4px;}
+/* ── MOMENTUM TABLE ── */
+.mom-tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+.mom-tbl thead tr{border-bottom:1px solid var(--color-divider);}
+.mom-tbl th{text-align:left;font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-600);padding:8px 12px;white-space:nowrap;}
+.mom-tbl th.r{text-align:right;}
+.mom-tbl td{padding:7px 12px;border-bottom:1px solid var(--color-divider);font-size:12px;white-space:nowrap;}
+.mom-tbl td.r{text-align:right;}
+.mom-tbl tr:last-child td{border-bottom:none;}
+.mom-tbl tr:hover td{background:var(--color-neutral-100);}
+.mom-tbl .m-num{font-size:11px;color:var(--color-neutral-500);width:28px;}
+.mom-tbl .m-name{font-weight:600;max-width:220px;overflow:hidden;text-overflow:ellipsis;}
+.mom-tbl .m-mcap{color:var(--color-neutral-700);}
+.mom-bar-cell{width:200px;min-width:140px;}
+.mom-bar-wrap{display:flex;align-items:center;gap:8px;}
+.mom-bar-track{flex:1;height:8px;background:var(--color-neutral-200);overflow:hidden;}
+.mom-bar-fill{height:100%;transition:width .4s ease;}
+.mom-hint{font-size:10px;color:var(--color-neutral-500);letter-spacing:0.04em;}
 
 /* ── TOP 3 NARRATIVES ── */
 .top3-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--color-divider);border-bottom:2px solid var(--color-divider);overflow:hidden;}
@@ -375,8 +383,11 @@ a{text-decoration:none;color:inherit;}
         </div>
         <div class="treemap-wrap" id="treemap"><div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-neutral-600);">Loading…</div></div>
 
-        <div class="sec-hdr" style="margin-top:32px;"><h3 class="sec-title">Category Momentum</h3><span class="sec-sub">Sorted by 24h</span></div>
-        <div class="momentum-strip" id="momentumStrip"><div class="mom-cell"><div class="strip-lbl">Loading…</div></div></div>
+        <div class="sec-hdr" style="margin-top:32px;">
+          <h3 class="sec-title">Category Momentum</h3>
+          <span class="sec-sub mom-hint">bar length = 24h volume share · color = 24h move · sorted by 24h desc</span>
+        </div>
+        <div id="momentumStrip"><div style="padding:16px;color:var(--color-neutral-600);font-size:13px;">Loading…</div></div>
 
         <div class="page-footer"><span>© 2026 Fynaptix · Crypto Scanner</span><span>Not financial advice</span></div>
       </div>
@@ -1173,17 +1184,39 @@ function renderMomentumStrip(){
   if(!catData.length) return;
   const el=document.getElementById('momentumStrip'); if(!el) return;
   const sorted=[...catData].filter(c=>c.market_cap>5e7).sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0)).slice(0,30);
-  const maxA=Math.max(...sorted.map(c=>Math.abs(c.market_cap_change_24h||0)),1);
-  el.innerHTML=sorted.map((c,i)=>{
-    const chg=c.market_cap_change_24h||0, bw=Math.round(Math.abs(chg)/maxA*100);
-    const name=c.name.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFT');
-    return `<div class="mom-cell">
-      <div class="mom-rank">${String(i+1).padStart(2,'0')}</div>
-      <div class="mom-name">${name}</div>
-      <div class="mom-pct ${cls(chg)}">${pct(chg)}</div>
-      <div class="mom-bar-bg"><div class="mom-bar" style="width:${bw}%;background:${barBg(chg)};"></div></div>
-    </div>`;
+  const maxVol=Math.max(...sorted.map(c=>c.volume_24h||0),1);
+  const shortName=n=>n.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFT').replace('Non-Fungible Token','NFT').replace('Decentralized Exchange','DEX').replace('Centralized Exchange','CEX');
+  const barColor=chg=>{
+    if(chg>=5)  return '#0d5c30';
+    if(chg>=2)  return '#1a6e40';
+    if(chg>=0)  return '#4caf78';
+    if(chg>=-2) return '#e07070';
+    if(chg>=-5) return '#c0392b';
+    return '#8b0000';
+  };
+  const rows=sorted.map((c,i)=>{
+    const chg=c.market_cap_change_24h||0;
+    const volPct=Math.round((c.volume_24h||0)/maxVol*100);
+    const name=shortName(c.name);
+    return `<tr>
+      <td class="m-num">${i+1}</td>
+      <td class="m-name">${name}</td>
+      <td class="r m-mcap">${big(c.market_cap)}</td>
+      <td class="r"><b class="${cls(chg)}">${pct(chg)}</b></td>
+      <td class="r m-mcap">${big(c.volume_24h||0)}</td>
+      <td class="mom-bar-cell">
+        <div class="mom-bar-wrap">
+          <div class="mom-bar-track"><div class="mom-bar-fill" style="width:${volPct}%;background:${barColor(chg)};"></div></div>
+        </div>
+      </td>
+    </tr>`;
   }).join('');
+  el.innerHTML=`<table class="mom-tbl">
+    <thead><tr>
+      <th>#</th><th>Category</th><th class="r">MCAP</th><th class="r">24H ↓</th><th class="r">Volume</th><th>Volume / momentum</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
 }
 
 function catSparkPath(cat){
