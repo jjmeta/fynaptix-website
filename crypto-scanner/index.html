@@ -138,11 +138,37 @@ a{text-decoration:none;color:inherit;}
 
 /* ── TREEMAP ── */
 .treemap-wrap{position:relative;height:440px;overflow:hidden;}
-.tm-tile{position:absolute;overflow:hidden;background:var(--color-bg);}
-.tm-tile-inner{position:absolute;inset:2px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:4px;}
+.tm-tile{position:absolute;overflow:hidden;background:var(--color-bg);cursor:pointer;}
+.tm-tile:hover .tm-tile-inner{filter:brightness(0.92);}
+.tm-tile-inner{position:absolute;inset:2px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:4px;transition:filter .1s;}
 .tm-name{font-weight:800;line-height:1.1;}
 .tm-pct{font-weight:800;font-variant-numeric:tabular-nums;}
 .tm-mcap{font-weight:400;}
+
+/* ── SECTOR DRILL DRAWER ── */
+.sd-backdrop{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .22s;}
+.sd-backdrop.open{opacity:1;pointer-events:all;}
+.sd-drawer{position:fixed;bottom:0;left:0;right:0;z-index:801;background:var(--color-bg);border-top:2px solid var(--color-text);max-height:78vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .26s cubic-bezier(.4,0,.2,1);}
+.sd-drawer.open{transform:translateY(0);}
+.sd-head{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid var(--color-divider);flex-shrink:0;}
+.sd-head-info{flex:1;min-width:0;}
+.sd-head-name{font-size:20px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sd-head-meta{font-size:12px;color:var(--color-neutral-600);margin-top:2px;display:flex;gap:14px;flex-wrap:wrap;}
+.sd-head-stat{display:flex;flex-direction:column;}
+.sd-head-stat-val{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;}
+.sd-close{font-size:22px;font-weight:300;background:none;border:none;cursor:pointer;color:var(--color-neutral-600);padding:4px 8px;line-height:1;flex-shrink:0;}
+.sd-close:hover{color:var(--color-text);}
+.sd-body{overflow-y:auto;flex:1;}
+.sd-tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+.sd-tbl th{text-align:right;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-600);padding:8px 14px;border-bottom:1px solid var(--color-divider);white-space:nowrap;position:sticky;top:0;background:var(--color-bg);}
+.sd-tbl th.l{text-align:left;}
+.sd-tbl td{padding:8px 14px;border-bottom:1px solid var(--color-divider);font-size:13px;}
+.sd-tbl td.l{text-align:left;}
+.sd-tbl td.r{text-align:right;}
+.sd-tbl tr:last-child td{border-bottom:none;}
+.sd-tbl tr:hover td{background:var(--color-neutral-100);}
+.sd-coin-name{font-size:11px;color:var(--color-neutral-600);}
+.sd-loading{padding:40px;text-align:center;color:var(--color-neutral-500);font-size:13px;}
 .tm-legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-left:auto;}
 .tm-swatch{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-neutral-700);}
 .tm-sq{width:12px;height:12px;flex-shrink:0;}
@@ -1020,10 +1046,12 @@ function tmLayout(items,x,y,w,h){
 function renderTreemap(cats){
   const el=document.getElementById('treemap'); if(!el) return;
   const SKIP=['stablecoin','usd coin','tether','dai'];
+  const shortName=n=>n.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi');
   const items=cats.filter(c=>c.market_cap>1e8&&!SKIP.some(s=>c.name.toLowerCase().includes(s)))
     .slice(0,20).map(c=>({
-      name:c.name.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA').replace('Decentralized Finance','DeFi'),
-      mcap:c.market_cap,h24:c.market_cap_change_24h||0,a:Math.sqrt(c.market_cap),
+      id:c.id, name:shortName(c.name), fullName:c.name,
+      mcap:c.market_cap, h24:c.market_cap_change_24h||0, vol:c.volume_24h||0,
+      a:Math.sqrt(c.market_cap),
     }));
   if(!items.length){el.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-neutral-600);">No data</div>';return;}
   const tot=items.reduce((s,i)=>s+i.a,0);
@@ -1035,7 +1063,8 @@ function renderTreemap(cats){
     const w=t.w,h=t.h,minD=Math.min(w,h*1.4);
     const fs=minD>=160?24:minD>=110?17:12;
     const showAll=w>=110&&h>=72;
-    return `<div class="tm-tile" style="left:${t.x.toFixed(1)}px;top:${t.y.toFixed(1)}px;width:${w.toFixed(1)}px;height:${h.toFixed(1)}px;" title="${t.name} ${pct(t.h24)}">
+    const esc=s=>s.replace(/'/g,"\\'");
+    return `<div class="tm-tile" style="left:${t.x.toFixed(1)}px;top:${t.y.toFixed(1)}px;width:${w.toFixed(1)}px;height:${h.toFixed(1)}px;" title="${t.name} ${pct(t.h24)} — click to drill in" onclick="drillCategory('${esc(t.id)}','${esc(t.fullName)}',${t.h24},${t.mcap},${t.vol})">
       <div class="tm-tile-inner" style="background:${bg};">
         ${showAll?`<div class="tm-name" style="font-size:${fs}px;color:${fg};">${t.name}</div>`:''}
         ${w>=44&&h>=20?`<div class="tm-pct" style="font-size:${Math.min(fs,16)}px;color:${fg};">${pct(t.h24)}</div>`:''}
@@ -2140,6 +2169,96 @@ async function prewarmViews(){
 fetchAll().then(()=>setTimeout(prewarmViews,1000));
 setInterval(fetchAll,180000);
 
+// ═══════════════════════════════════════
+// SECTOR DRILL-DOWN
+// ═══════════════════════════════════════
+const _sectorCache=new Map();
+
+async function drillCategory(id,displayName,h24,mcap,vol){
+  const backdrop=document.getElementById('sd-backdrop');
+  const drawer=document.getElementById('sd-drawer');
+  const body=document.getElementById('sd-body');
+  const nameEl=document.getElementById('sd-name');
+  const metaEl=document.getElementById('sd-meta');
+
+  nameEl.textContent=displayName;
+  metaEl.innerHTML=
+    `<span>24H: <b class="${h24>=0?'color-up':'color-dn'}" style="color:${h24>=0?'var(--color-up)':'var(--color-dn)'}">${pct(h24)}</b></span>`+
+    `<span>MCap: <b>${big(mcap)}</b></span>`+
+    `<span>Vol 24H: <b>${big(vol)}</b></span>`;
+  body.innerHTML='<div class="sd-loading">Loading tokens…</div>';
+
+  backdrop.classList.add('open');
+  drawer.classList.add('open');
+  document.body.style.overflow='hidden';
+
+  try{
+    let coins=_sectorCache.get(id);
+    if(!coins){
+      const r=await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=${encodeURIComponent(id)}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h,24h,7d`);
+      coins=await r.json();
+      if(Array.isArray(coins)) _sectorCache.set(id,coins);
+    }
+    if(!Array.isArray(coins)||!coins.length){body.innerHTML='<div class="sd-loading">No token data found.</div>';return;}
+
+    const fmtP=n=>n==null?'—':`<span style="color:${n>=0?'var(--color-up)':'var(--color-dn)'};font-weight:700;">${n>=0?'+':''}${n.toFixed(2)}%</span>`;
+    const fmtPrice=n=>{
+      if(n==null) return '—';
+      if(n>=1000) return '$'+n.toLocaleString(undefined,{maximumFractionDigits:0});
+      if(n>=1) return '$'+n.toFixed(2);
+      if(n>=0.01) return '$'+n.toFixed(4);
+      return '$'+n.toPrecision(3);
+    };
+    const rows=coins.map((c,i)=>`<tr>
+      <td class="r" style="color:var(--color-neutral-500);font-size:11px;">${i+1}</td>
+      <td class="l">
+        <div style="display:flex;align-items:center;gap:8px;">
+          ${c.image?`<img src="${c.image}" style="width:20px;height:20px;border-radius:50%;" loading="lazy" onerror="this.style.display='none'">`:''}
+          <div>
+            <div style="font-weight:700;">${c.symbol.toUpperCase()}</div>
+            <div class="sd-coin-name">${c.name}</div>
+          </div>
+        </div>
+      </td>
+      <td class="r" style="font-weight:600;">${fmtPrice(c.current_price)}</td>
+      <td class="r">${fmtP(c.price_change_percentage_1h_in_currency)}</td>
+      <td class="r">${fmtP(c.price_change_percentage_24h_in_currency)}</td>
+      <td class="r">${fmtP(c.price_change_percentage_7d_in_currency)}</td>
+      <td class="r">${big(c.market_cap)}</td>
+      <td class="r">${big(c.total_volume)}</td>
+    </tr>`).join('');
+    body.innerHTML=`<table class="sd-tbl">
+      <thead><tr>
+        <th class="r">#</th><th class="l">Token</th><th class="r">Price</th>
+        <th class="r">1H</th><th class="r">24H</th><th class="r">7D</th>
+        <th class="r">MCap</th><th class="r">Volume</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }catch(e){
+    body.innerHTML=`<div class="sd-loading">Failed to load: ${e.message}</div>`;
+  }
+}
+
+function closeSectorDrill(){
+  document.getElementById('sd-backdrop').classList.remove('open');
+  document.getElementById('sd-drawer').classList.remove('open');
+  document.body.style.overflow='';
+}
 </script>
+
+<!-- ── SECTOR DRILL DRAWER ── -->
+<div class="sd-backdrop" id="sd-backdrop" onclick="closeSectorDrill()"></div>
+<div class="sd-drawer" id="sd-drawer">
+  <div class="sd-head">
+    <div class="sd-head-info">
+      <div class="sd-head-name" id="sd-name">—</div>
+      <div class="sd-head-meta" id="sd-meta"></div>
+    </div>
+    <button class="sd-close" onclick="closeSectorDrill()">✕</button>
+  </div>
+  <div class="sd-body" id="sd-body"></div>
+</div>
+
 </body>
 </html>
