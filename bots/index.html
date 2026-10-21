@@ -79,7 +79,7 @@ a{text-decoration:none;color:inherit;}
 .content{max-width:1400px;margin:0 auto;width:100%;padding:22px 32px 36px;}
 
 /* ─── CARD GRID ─── */
-.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
 
 /* ─── BOT CARD ─── */
 .bot-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;display:flex;flex-direction:column;}
@@ -294,6 +294,39 @@ canvas.donut-c{display:block;}
         </div>
       </div>
 
+      <!-- ── GECKO SPOT FAST CARD ── -->
+      <div class="bot-card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-name">Gecko Spot Fast</div>
+            <div class="card-sub">Gate.io Spot · Momentum Plays</div>
+          </div>
+          <span class="active-badge">ACTIVE</span>
+        </div>
+
+        <div class="donut-wrap">
+          <canvas id="donut-fast" class="donut-c"></canvas>
+          <div class="donut-center">
+            <div class="dc-pct" id="dc-fast-pct">—</div>
+            <div class="dc-usd" id="dc-fast-usd">$0.00</div>
+          </div>
+        </div>
+
+        <div class="tf-section">
+          <div class="tf-title">Trade Feed</div>
+          <div class="tf-sub">Short-term momentum positions</div>
+          <div class="tf-scroll">
+            <div id="feed-fast-body"><div class="tf-empty">Loading…</div></div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="cf-stat"><div class="cf-lbl">Realized today</div><div class="cf-val" id="cf-fast-today">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Closed</div><div class="cf-val" id="cf-fast-closed">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Win rate</div><div class="cf-val" id="cf-fast-wr">—</div></div>
+        </div>
+      </div>
+
     </div><!-- /card-grid -->
 
     <!-- STRATEGY EXPLORER -->
@@ -373,15 +406,18 @@ let ALL_TRADES=[];
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
-    const[r1,r2]=await Promise.all([
+    const[r1,r2,r3]=await Promise.all([
       _sb.from('gecko_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('gecko_spot_trades').select('*').order('opened_at',{ascending:false}).limit(300),
+      _sb.from('gecko_spot_fast_trades').select('*').order('opened_at',{ascending:false}).limit(300),
     ]);
     if(r1.error) throw r1.error;
     if(r2.error) throw r2.error;
+    // r3 may not exist yet — silently ignore if table missing
     const perps=(r1.data||[]).map(t=>normGecko(t,'gecko-01'));
     const spot=(r2.data||[]).map(t=>normGecko(t,'gecko-spot'));
-    ALL_TRADES=[...perps,...spot].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    const fast=r3.error?[]:(r3.data||[]).map(t=>normGecko(t,'gecko-fast'));
+    ALL_TRADES=[...perps,...spot,...fast].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     await enrichLivePnl(ALL_TRADES);
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
@@ -425,6 +461,7 @@ function renderAll(trades){
   renderTopMetrics(trades);
   renderBotCard(trades.filter(t=>t.botId==='gecko-01'),'perps','perps');
   renderBotCard(trades.filter(t=>t.botId==='gecko-spot'),'spot','spot');
+  renderBotCard(trades.filter(t=>t.botId==='gecko-fast'),'fast','spot');
   renderStrategyCard(trades);
   renderThoughtFeed(trades);
 }
