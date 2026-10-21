@@ -56,24 +56,30 @@ a{text-decoration:none;color:inherit;}
 /* ─── APP ROOT ─── */
 #app-root{min-height:100vh;display:flex;flex-direction:column;}
 
-/* ─── TOP HEADER ─── */
-.top-bar{padding:20px 24px 16px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;}
-.top-left{}
-.top-eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:5px;}
-.top-title{font-size:26px;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;}
-.live-badge{font-size:13px;font-weight:500;color:var(--green);display:flex;align-items:center;gap:5px;}
-.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.75);}}
+/* ─── PAGE HEADER ─── */
+.page-header{background:var(--card);border-bottom:1px solid var(--border);padding:28px 32px;}
+.ph-inner{max-width:1400px;margin:0 auto;}
+.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:20px;}
+.ph-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.ph-brand{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+.live-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--green-text);background:var(--green-bg);padding:3px 10px;border-radius:20px;}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(.8);}}
+.ph-title{font-size:30px;font-weight:700;letter-spacing:-.03em;color:var(--text);line-height:1;margin-bottom:7px;}
+.ph-desc{font-size:13px;color:var(--text-3);max-width:500px;line-height:1.65;}
 
-.top-metrics{display:flex;gap:10px;}
-.metric-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 18px;min-width:140px;box-shadow:var(--shadow);}
-.mb-lbl{font-size:11px;font-weight:500;color:var(--text-3);margin-bottom:2px;}
-.mb-val{font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;}
+.ph-metrics{display:flex;gap:10px;flex-shrink:0;align-self:flex-start;padding-top:4px;}
+.metric-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px 22px;min-width:148px;text-align:center;}
+.mb-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:5px;}
+.mb-val{font-size:24px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;}
 .mb-val.pos{color:var(--green-text);}
 .mb-val.neg{color:var(--red-dark);}
 
+/* ─── CONTENT AREA ─── */
+.content{max-width:1400px;margin:0 auto;width:100%;padding:22px 32px 36px;}
+
 /* ─── CARD GRID ─── */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 24px 28px;align-items:start;}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
 
 /* ─── BOT CARD ─── */
 .bot-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;display:flex;flex-direction:column;}
@@ -92,8 +98,8 @@ canvas.donut-c{display:block;}
 
 /* ─── TRADE FEED ─── */
 .tf-section{padding:0 18px 14px;flex:1;}
-.tf-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:1px;}
-.tf-sub{font-size:11px;color:var(--text-3);margin-bottom:10px;}
+.tf-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3);margin-bottom:1px;}
+.tf-sub{font-size:11px;color:var(--text-3);margin-bottom:8px;}
 .tf-scroll{max-height:180px;overflow-y:auto;scrollbar-width:thin;border:1px solid var(--border);border-radius:8px;}
 .tf-scroll::-webkit-scrollbar{width:3px;}
 .tf-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
@@ -102,7 +108,7 @@ canvas.donut-c{display:block;}
 .tf-table td{padding:8px 12px;border-bottom:1px solid #F5F5FA;font-size:12px;font-variant-numeric:tabular-nums;vertical-align:middle;}
 .tf-table tr:last-child td{border-bottom:none;}
 .tf-asset{display:flex;align-items:center;gap:8px;}
-.tf-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:white;flex-shrink:0;letter-spacing:.02em;}
+.tf-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:white;flex-shrink:0;letter-spacing:.02em;}
 .tf-sym{font-size:12px;font-weight:600;color:var(--text);}
 .tf-dir{font-size:10px;color:var(--text-3);}
 .tf-pct-pos{color:var(--green-text);font-weight:600;}
@@ -121,28 +127,40 @@ canvas.donut-c{display:block;}
 .cf-val.neg{color:var(--red-dark);}
 
 /* ─── STRATEGY CARD ─── */
-.id-section{padding:0 18px 14px;}
-.id-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:1px;}
+.id-section{padding:0 18px 16px;flex:1;}
+.id-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3);margin-bottom:1px;}
 .id-sub{font-size:11px;color:var(--text-3);margin-bottom:10px;}
-.narr-row{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.narr-row{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
 .narr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.narr-name{font-size:11px;font-weight:500;color:var(--text-2);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.narr-tag{font-size:10px;color:var(--text-3);white-space:nowrap;min-width:56px;}
-.narr-bar-wrap{flex:1;height:5px;background:#ECEDF7;border-radius:3px;overflow:hidden;max-width:80px;}
+.narr-name{font-size:12px;font-weight:500;color:var(--text-2);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.narr-tag{font-size:10px;color:var(--text-3);white-space:nowrap;min-width:62px;text-align:right;}
+.narr-bar-wrap{flex:1;height:5px;background:#ECEDF7;border-radius:3px;overflow:hidden;max-width:72px;}
 .narr-bar{height:100%;border-radius:3px;transition:width .5s ease;}
 
-/* ─── THOUGHT FEED ─── */
-.thought-section{padding:0 18px 14px;}
-.thought-terminal{background:#1A1B2E;border-radius:8px;padding:10px 12px;height:100px;overflow-y:auto;font-family:var(--mono);font-size:10px;scrollbar-width:thin;scrollbar-color:#2D3748 transparent;}
-.thought-terminal::-webkit-scrollbar{width:3px;}
-.thought-terminal::-webkit-scrollbar-thumb{background:#2D3748;border-radius:2px;}
-.tl-line{padding:1.5px 0;display:flex;gap:5px;align-items:flex-start;}
-.tl-prefix{color:#9B59B6;font-weight:600;flex-shrink:0;}
-.tl-text-scan{color:#4A5568;}
-.tl-text-open{color:#9AE6B4;}
-.tl-text-close{color:#FBD38D;}
-.tl-text-watch{color:#B794F4;}
-.tl-empty{color:#4A5568;padding:8px 0;}
+/* ─── THOUGHT FEED SECTION ─── */
+.thought-section{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;}
+.ts-header{padding:20px 28px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.ts-header-left{display:flex;align-items:baseline;gap:14px;}
+.ts-title{font-size:17px;font-weight:700;letter-spacing:-.015em;}
+.ts-sub{font-size:12px;color:var(--text-3);line-height:1.5;max-width:520px;}
+.ts-count{font-size:11px;color:var(--text-3);font-family:var(--mono);}
+.ts-terminal{background:#12131F;padding:22px 28px;min-height:260px;max-height:400px;overflow-y:auto;font-family:var(--mono);font-size:13px;line-height:1.85;scrollbar-width:thin;scrollbar-color:#2A2D4A transparent;}
+.ts-terminal::-webkit-scrollbar{width:4px;}
+.ts-terminal::-webkit-scrollbar-thumb{background:#2A2D4A;border-radius:2px;}
+.tl-row{display:flex;align-items:baseline;gap:14px;padding:1px 0;border-bottom:1px solid #1A1C2E;}
+.tl-row:last-child{border-bottom:none;}
+.tl-time{color:#44476A;font-size:11.5px;white-space:nowrap;min-width:42px;flex-shrink:0;}
+.tl-pfx{font-weight:700;flex-shrink:0;font-size:14px;min-width:16px;line-height:1.3;}
+.tl-pfx-scan{color:#44476A;}
+.tl-pfx-watch{color:#9B59B6;}
+.tl-pfx-open{color:#12B76A;}
+.tl-pfx-close{color:#F6C90E;}
+.tl-msg{flex:1;line-height:1.5;}
+.tl-msg-scan{color:#44476A;}
+.tl-msg-watch{color:#C4B5FD;}
+.tl-msg-open{color:#86EFAC;}
+.tl-msg-close{color:#FDE68A;}
+.tl-empty{color:#44476A;padding:16px 0;}
 </style>
 </head>
 <body>
@@ -172,152 +190,164 @@ canvas.donut-c{display:block;}
 <!-- ─── APP ─── -->
 <div id="app-root" hidden>
 
-  <!-- TOP HEADER -->
-  <div class="top-bar">
-    <div class="top-left">
-      <div class="top-eyebrow">Fynaptix · Private</div>
-      <div class="top-title">
-        Bots Control
-        <span class="live-badge"><span class="live-dot"></span>Live</span>
-      </div>
-    </div>
-    <div class="top-metrics">
-      <div class="metric-box">
-        <div class="mb-lbl">Total P&amp;L</div>
-        <div class="mb-val" id="m-pnl">—</div>
-      </div>
-      <div class="metric-box">
-        <div class="mb-lbl">Win Rate</div>
-        <div class="mb-val" id="m-winrate">—</div>
-      </div>
-      <div class="metric-box">
-        <div class="mb-lbl">Open Positions</div>
-        <div class="mb-val" id="m-open">—</div>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="ph-inner">
+      <div class="ph-top">
+        <div class="ph-left">
+          <div class="ph-eyebrow">
+            <span class="ph-brand">Fynaptix · Private</span>
+            <span class="live-chip"><span class="live-dot"></span>Live</span>
+          </div>
+          <div class="ph-title">Bots Dashboard</div>
+          <div class="ph-desc">Autonomous trading agents powered by Claude Scout — scanning Gate.io perps &amp; spot markets in real time and logging every decision to the Thought Feed below.</div>
+        </div>
+        <div class="ph-metrics">
+          <div class="metric-box">
+            <div class="mb-lbl">Total P&amp;L</div>
+            <div class="mb-val" id="m-pnl">—</div>
+          </div>
+          <div class="metric-box">
+            <div class="mb-lbl">Win Rate</div>
+            <div class="mb-val" id="m-winrate">—</div>
+          </div>
+          <div class="metric-box">
+            <div class="mb-lbl">Open Positions</div>
+            <div class="mb-val" id="m-open">—</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- CARD GRID -->
-  <div class="card-grid">
+  <!-- CONTENT -->
+  <div class="content">
 
-    <!-- ── GECKO PERPS CARD ── -->
-    <div class="bot-card">
-      <div class="card-hdr">
-        <div>
-          <div class="card-name">Gecko Perps (Gate.io Perps)</div>
-          <div class="card-sub">Gate.io Perps · Long &amp; Short</div>
+    <!-- CARD GRID -->
+    <div class="card-grid">
+
+      <!-- ── GECKO PERPS CARD ── -->
+      <div class="bot-card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-name">Gecko Perps</div>
+            <div class="card-sub">Gate.io Perps · Long &amp; Short</div>
+          </div>
+          <span class="active-badge">ACTIVE</span>
         </div>
-        <span class="active-badge">ACTIVE</span>
+
+        <div class="donut-wrap">
+          <canvas id="donut-perps" class="donut-c"></canvas>
+          <div class="donut-center">
+            <div class="dc-pct" id="dc-perps-pct">—</div>
+            <div class="dc-usd" id="dc-perps-usd">$0.00</div>
+          </div>
+        </div>
+
+        <div class="tf-section">
+          <div class="tf-title">Trade Feed</div>
+          <div class="tf-sub">Active leveraged positions</div>
+          <div class="tf-scroll">
+            <div id="feed-perps-body"><div class="tf-empty">Loading…</div></div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="cf-stat"><div class="cf-lbl">Realized today</div><div class="cf-val" id="cf-perps-today">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Closed</div><div class="cf-val" id="cf-perps-closed">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Win rate</div><div class="cf-val" id="cf-perps-wr">—</div></div>
+        </div>
       </div>
 
-      <div class="donut-wrap">
-        <canvas id="donut-perps" class="donut-c"></canvas>
-        <div class="donut-center">
-          <div class="dc-pct" id="dc-perps-pct">—</div>
-          <div class="dc-usd" id="dc-perps-usd">$0.00</div>
+      <!-- ── GECKO SPOT CARD ── -->
+      <div class="bot-card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-name">Gecko Spot</div>
+            <div class="card-sub">Gate.io Spot · Long Only</div>
+          </div>
+          <span class="active-badge">ACTIVE</span>
+        </div>
+
+        <div class="donut-wrap">
+          <canvas id="donut-spot" class="donut-c"></canvas>
+          <div class="donut-center">
+            <div class="dc-pct" id="dc-spot-pct">—</div>
+            <div class="dc-usd" id="dc-spot-usd">$0.00</div>
+          </div>
+        </div>
+
+        <div class="tf-section">
+          <div class="tf-title">Trade Feed</div>
+          <div class="tf-sub">Spot bags &amp; allocations</div>
+          <div class="tf-scroll">
+            <div id="feed-spot-body"><div class="tf-empty">Loading…</div></div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="cf-stat"><div class="cf-lbl">Realized today</div><div class="cf-val" id="cf-spot-today">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Closed</div><div class="cf-val" id="cf-spot-closed">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Win rate</div><div class="cf-val" id="cf-spot-wr">—</div></div>
         </div>
       </div>
 
-      <div class="tf-section">
-        <div class="tf-title">Trade Feed</div>
-        <div class="tf-sub">Active Leveraged Trades</div>
-        <div class="tf-scroll">
-          <div id="feed-perps-body"><div class="tf-empty">Loading…</div></div>
+      <!-- ── STRATEGY EXPLORER CARD ── -->
+      <div class="bot-card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-name">Strategy Explorer</div>
+            <div class="card-sub">Claude Scout · Narrative Targeting</div>
+          </div>
+        </div>
+
+        <div class="donut-wrap">
+          <canvas id="donut-scout" class="donut-c"></canvas>
+          <div class="donut-center">
+            <div class="dc-pct" id="dc-scout-pct">—</div>
+            <div class="dc-usd" id="dc-scout-usd">$0.00</div>
+          </div>
+        </div>
+
+        <div class="id-section">
+          <div class="id-title">Inside Data</div>
+          <div class="id-sub">Active narratives targeted by the scout</div>
+          <div id="narrative-list"><div class="tf-empty">No narrative data yet</div></div>
         </div>
       </div>
 
-      <div class="card-footer">
-        <div class="cf-stat"><div class="cf-lbl">Realized today</div><div class="cf-val pos" id="cf-perps-today">—</div></div>
-        <div class="cf-stat"><div class="cf-lbl">Closed</div><div class="cf-val" id="cf-perps-closed">—</div></div>
-        <div class="cf-stat"><div class="cf-lbl">Win rate</div><div class="cf-val" id="cf-perps-wr">—</div></div>
+    </div><!-- /card-grid -->
+
+    <!-- THOUGHT FEED -->
+    <div class="thought-section">
+      <div class="ts-header">
+        <div class="ts-header-left">
+          <div class="ts-title">Thought Feed</div>
+          <div class="ts-sub">Live agent decision log — every narrative watch, entry and close published by Claude Scout</div>
+        </div>
+        <div class="ts-count" id="ts-count"></div>
+      </div>
+      <div class="ts-terminal" id="thought-log">
+        <div class="tl-row"><span class="tl-time"></span><span class="tl-pfx tl-pfx-scan">›</span><span class="tl-msg tl-msg-scan">Waiting for scanner activity…</span></div>
       </div>
     </div>
 
-    <!-- ── GECKO SPOT CARD ── -->
-    <div class="bot-card">
-      <div class="card-hdr">
-        <div>
-          <div class="card-name">Gecko Spot (Gate.io Spot)</div>
-          <div class="card-sub">Gate.io Spot · Long Only</div>
-        </div>
-        <span class="active-badge">ACTIVE</span>
-      </div>
-
-      <div class="donut-wrap">
-        <canvas id="donut-spot" class="donut-c"></canvas>
-        <div class="donut-center">
-          <div class="dc-pct" id="dc-spot-pct">—</div>
-          <div class="dc-usd" id="dc-spot-usd">$0.00</div>
-        </div>
-      </div>
-
-      <div class="tf-section">
-        <div class="tf-title">Trade Feed</div>
-        <div class="tf-sub">Allocations &amp; Spot Bags</div>
-        <div class="tf-scroll">
-          <div id="feed-spot-body"><div class="tf-empty">Loading…</div></div>
-        </div>
-      </div>
-
-      <div class="card-footer">
-        <div class="cf-stat"><div class="cf-lbl">Realized today</div><div class="cf-val pos" id="cf-spot-today">—</div></div>
-        <div class="cf-stat"><div class="cf-lbl">Closed</div><div class="cf-val" id="cf-spot-closed">—</div></div>
-        <div class="cf-stat"><div class="cf-lbl">Win rate</div><div class="cf-val" id="cf-spot-wr">—</div></div>
-      </div>
-    </div>
-
-    <!-- ── STRATEGY EXPLORER CARD ── -->
-    <div class="bot-card">
-      <div class="card-hdr">
-        <div>
-          <div class="card-name">Strategy Explorer</div>
-          <div class="card-sub">Claude Scout Insight</div>
-        </div>
-      </div>
-
-      <div class="donut-wrap">
-        <canvas id="donut-scout" class="donut-c"></canvas>
-        <div class="donut-center">
-          <div class="dc-pct" id="dc-scout-pct">—</div>
-          <div class="dc-usd" id="dc-scout-usd">$0.00</div>
-        </div>
-      </div>
-
-      <div class="id-section">
-        <div class="id-title">Inside Data</div>
-        <div class="id-sub">Active narratives targeted by the bot</div>
-        <div id="narrative-list"><div class="tf-empty">No narrative data yet</div></div>
-      </div>
-
-      <div class="thought-section">
-        <div class="tf-title" style="margin-bottom:4px">Thought Feed</div>
-        <div class="tf-sub" style="margin-bottom:8px">Agent thought logs</div>
-        <div class="thought-terminal" id="thought-log">
-          <div class="tl-line"><span class="tl-prefix">›</span><span class="tl-text-scan">Loading scanner activity…</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /card-grid -->
+  </div><!-- /content -->
 </div><!-- /app-root -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-// ─── SUPABASE AUTH ───
+// ─── SUPABASE ───
 const SUPABASE_URL  = 'https://msnzqkpfznomvykqjvlw.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zbnpxa3Bmem5vbXZ5a3Fqdmx3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2NDE4NjIsImV4cCI6MjEwNjIxNzg2Mn0.Xt8wRZv-p5lkSFm7dNg6wNwokQ8yxAx5u9doRcuSRzk';
 const _sb = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-let _currentUserId = null;
-
 function _showApp(session){
-  _currentUserId = session?.user?.id || null;
   document.getElementById('auth-wall').hidden = true;
   document.getElementById('app-root').hidden  = false;
   loadData();
   setInterval(loadData, 120000);
 }
-
 function _showWall(){
   document.getElementById('auth-wall').hidden = false;
   document.getElementById('app-root').hidden  = true;
@@ -337,7 +367,6 @@ async function signIn(){
     else{ err.textContent='No session returned.'; btn.disabled=false; btn.textContent='Sign in'; }
   }catch(e){ err.textContent='Error: '+(e.message||e); btn.disabled=false; btn.textContent='Sign in'; }
 }
-async function signOut(){ await _sb?.auth.signOut(); }
 
 _sb?.auth.onAuthStateChange((event,session)=>{
   if(event==='SIGNED_IN'&&session) _showApp(session);
@@ -374,7 +403,7 @@ async function enrichLivePnl(trades){
   if(!open.length) return;
   const ids=[...new Set(open.map(t=>t.coinId))].join(',');
   try{
-    const res=await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids)}&vs_currencies=usd`,{headers:{'Accept':'application/json'}});
+    const res=await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids)}&vs_currencies=usd`);
     if(!res.ok) return;
     const prices=await res.json();
     for(const t of open){
@@ -400,18 +429,15 @@ function normGecko(t,botId){
 // ─── COLORS ───
 const SEG_COLORS=['#9B59B6','#6C5CE7','#E17055','#74B9FF','#FD79A8','#00CEC9','#A29BFE','#FDCB6E'];
 
-// ─── ESCAPE HTML ───
 function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 // ─── RENDER ALL ───
 function renderAll(trades){
-  const perps=trades.filter(t=>t.botId==='gecko-01');
-  const spot=trades.filter(t=>t.botId==='gecko-spot');
-
   renderTopMetrics(trades);
-  renderBotCard(perps,'perps','perps');
-  renderBotCard(spot,'spot','spot');
+  renderBotCard(trades.filter(t=>t.botId==='gecko-01'),'perps','perps');
+  renderBotCard(trades.filter(t=>t.botId==='gecko-spot'),'spot','spot');
   renderStrategyCard(trades);
+  renderThoughtFeed(trades);
 }
 
 // ─── TOP METRICS ───
@@ -421,16 +447,15 @@ function renderTopMetrics(trades){
   const pnl=closed.reduce((s,t)=>s+(t.pnlUsd||0),0);
   const wins=closed.filter(t=>t.pnlUsd>0).length;
   const wr=closed.length?Math.round(wins/closed.length*100):null;
-
   const pnlEl=document.getElementById('m-pnl');
-  pnlEl.textContent=closed.length?(pnl>=0?'+':'')+pnl.toFixed(2):'—';
+  pnlEl.textContent=closed.length?(pnl>=0?'+$':'−$')+Math.abs(pnl).toFixed(2):'—';
   pnlEl.className='mb-val'+(pnl>0?' pos':pnl<0?' neg':'');
   document.getElementById('m-winrate').textContent=wr!=null?wr+'%':'—';
   document.getElementById('m-open').textContent=open.length||'0';
 }
 
-// ─── DRAW DONUT ───
-function drawDonut(canvasId, segments){
+// ─── DONUT ───
+function drawDonut(canvasId,segments){
   const canvas=document.getElementById(canvasId);
   if(!canvas) return;
   const ctx=canvas.getContext('2d');
@@ -440,18 +465,13 @@ function drawDonut(canvasId, segments){
   canvas.style.width=S+'px'; canvas.style.height=S+'px';
   ctx.scale(dpr,dpr);
   ctx.clearRect(0,0,S,S);
-
   const cx=S/2,cy=S/2,R=72,r=52;
-
   if(!segments.length){
     ctx.beginPath();
     ctx.arc(cx,cy,R,0,Math.PI*2);
     ctx.arc(cx,cy,r,Math.PI*2,0,true);
-    ctx.fillStyle='#DDE1F0';
-    ctx.fill();
-    return;
+    ctx.fillStyle='#DDE1F0'; ctx.fill(); return;
   }
-
   const total=segments.reduce((a,s)=>a+s.weight,0)||1;
   let start=-Math.PI/2;
   segments.forEach(seg=>{
@@ -461,8 +481,7 @@ function drawDonut(canvasId, segments){
     ctx.arc(cx,cy,R,start+gap/2,start+angle-gap/2);
     ctx.arc(cx,cy,r,start+angle-gap/2,start+gap/2,true);
     ctx.closePath();
-    ctx.fillStyle=seg.color;
-    ctx.fill();
+    ctx.fillStyle=seg.color; ctx.fill();
     start+=angle;
   });
 }
@@ -474,24 +493,18 @@ function sparkline(t){
   const pts=[];
   let v=50;
   for(let i=0;i<n;i++){
-    v=Math.max(8,Math.min(92,v+(Math.sin((seed+i*137.5)*.017)*0.5+0.5)*22-11));
+    v=Math.max(8,Math.min(92,v+(Math.sin((seed+i*137.5)*.017)*.5+.5)*22-11));
     pts.push(v);
   }
-  if(t.status==='closed'){
-    const d=t.pnlUsd>=0?1:-1;
-    for(let i=0;i<n;i++) pts[i]+=d*(i/(n-1))*28;
-  } else if(t.livePnlPct!=null){
-    const d=t.livePnlPct>=0?1:-1;
-    for(let i=0;i<n;i++) pts[i]+=d*(i/(n-1))*14;
-  }
+  if(t.status==='closed'){ const d=t.pnlUsd>=0?1:-1; for(let i=0;i<n;i++) pts[i]+=d*(i/(n-1))*28; }
+  else if(t.livePnlPct!=null){ const d=t.livePnlPct>=0?1:-1; for(let i=0;i<n;i++) pts[i]+=d*(i/(n-1))*14; }
   const mn=Math.min(...pts),mx=Math.max(...pts),rng=mx-mn||10;
   const W=52,H=20;
-  const px=i=>i/(n-1)*W;
-  const py=vv=>H-(vv-mn)/rng*H;
+  const px=i=>i/(n-1)*W,py=vv=>H-(vv-mn)/rng*H;
   let d=`M${px(0).toFixed(1)},${py(pts[0]).toFixed(1)}`;
   for(let i=1;i<n;i++){
-    const mx2=(px(i-1)+px(i))/2;
-    d+=` C${mx2.toFixed(1)},${py(pts[i-1]).toFixed(1)} ${mx2.toFixed(1)},${py(pts[i]).toFixed(1)} ${px(i).toFixed(1)},${py(pts[i]).toFixed(1)}`;
+    const m=(px(i-1)+px(i))/2;
+    d+=` C${m.toFixed(1)},${py(pts[i-1]).toFixed(1)} ${m.toFixed(1)},${py(pts[i]).toFixed(1)} ${px(i).toFixed(1)},${py(pts[i]).toFixed(1)}`;
   }
   const color=t.status==='open'
     ?(t.livePnlPct==null?'#98A2B3':t.livePnlPct>=0?'#12B76A':'#F04438')
@@ -499,193 +512,127 @@ function sparkline(t){
   return`<svg width="52" height="20" viewBox="0 0 52 20"><path d="${d}" stroke="${color}" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
 }
 
-// ─── TODAY P&L ───
 function todayPnl(closed){
   const today=new Date().toISOString().slice(0,10);
-  const sum=closed.filter(t=>(t.openedAt||'').slice(0,10)===today).reduce((s,t)=>s+(t.pnlUsd||0),0);
-  if(!sum&&!closed.filter(t=>(t.openedAt||'').slice(0,10)===today).length) return null;
-  return sum;
+  const hits=closed.filter(t=>(t.openedAt||'').slice(0,10)===today);
+  return hits.length?hits.reduce((s,t)=>s+(t.pnlUsd||0),0):null;
 }
 
 // ─── RENDER BOT CARD ───
-function renderBotCard(trades, key, type){
+function renderBotCard(trades,key,type){
   const open=trades.filter(t=>t.status==='open');
   const closed=trades.filter(t=>t.status==='closed'&&t.pnlUsd!=null);
   const wins=closed.filter(t=>t.pnlUsd>0).length;
   const totalPnl=closed.reduce((s,t)=>s+(t.pnlUsd||0),0);
   const wr=closed.length?(wins/closed.length*100).toFixed(1):null;
 
-  // Build donut segments from open positions
-  const segs=open.map((t,i)=>({
-    weight: Math.abs((t.qty||1)*(t.entry||1))||1,
-    color: SEG_COLORS[i%SEG_COLORS.length]
-  }));
-  drawDonut('donut-'+key, segs);
+  const segs=open.map((t,i)=>({weight:Math.abs((t.qty||1)*(t.entry||1))||1,color:SEG_COLORS[i%SEG_COLORS.length]}));
+  drawDonut('donut-'+key,segs);
 
-  // Center text
   const avgPct=closed.length?closed.reduce((s,t)=>s+(t.pnlPct||0),0)/closed.length:null;
   const pctEl=document.getElementById('dc-'+key+'-pct');
   const usdEl=document.getElementById('dc-'+key+'-usd');
   if(pctEl) pctEl.textContent=avgPct!=null?(avgPct>=0?'+':'')+avgPct.toFixed(2)+'%':'—';
-  if(usdEl){
-    usdEl.textContent='$'+Math.abs(totalPnl).toFixed(2);
-    usdEl.style.color=totalPnl>=0?'var(--green-text)':totalPnl<0?'var(--red-dark)':'';
-  }
+  if(usdEl){ usdEl.textContent='$'+Math.abs(totalPnl).toFixed(2); usdEl.style.color=totalPnl>0?'var(--green-text)':totalPnl<0?'var(--red-dark)':''; }
 
-  // Trade feed
-  renderTradeFeed('feed-'+key+'-body', open, segs, type);
+  renderTradeFeed('feed-'+key+'-body',open,segs,type);
 
-  // Footer
   const tp=todayPnl(closed);
   const todayEl=document.getElementById('cf-'+key+'-today');
-  if(todayEl){
-    todayEl.textContent=tp!=null?(tp>=0?'+$':'−$')+Math.abs(tp).toFixed(2):'—';
-    todayEl.className='cf-val'+(tp>0?' pos':tp<0?' neg':'');
-  }
+  if(todayEl){ todayEl.textContent=tp!=null?(tp>=0?'+$':'−$')+Math.abs(tp).toFixed(2):'—'; todayEl.className='cf-val'+(tp>0?' pos':tp<0?' neg':''); }
   const clsEl=document.getElementById('cf-'+key+'-closed');
   if(clsEl) clsEl.textContent=closed.length||'0';
   const wrEl=document.getElementById('cf-'+key+'-wr');
   if(wrEl) wrEl.textContent=wr!=null?wr+'%':'—';
 }
 
-// ─── RENDER TRADE FEED ───
-function renderTradeFeed(bodyId, openTrades, segs, type){
+// ─── RENDER TRADE FEED TABLE ───
+function renderTradeFeed(bodyId,openTrades,segs,type){
   const el=document.getElementById(bodyId);
   if(!el) return;
-
-  if(!openTrades.length){
-    el.innerHTML='<div class="tf-empty">No open positions</div>';
-    return;
-  }
-
-  const col2Hdr=type==='spot'?'Floating P&amp;L':'Value';
+  if(!openTrades.length){ el.innerHTML='<div class="tf-empty">No open positions</div>'; return; }
+  const col2Hdr=type==='spot'?'Floating P&amp;L':'Live P&amp;L';
   const rows=openTrades.map((t,i)=>{
     const color=segs[i]?.color||SEG_COLORS[i%SEG_COLORS.length];
     const initials=t.symbol.replace('/USDT','').replace('USDT','').slice(0,3);
-
     let pnlStr,pnlCls;
-    if(t.livePnlPct!=null){
-      pnlStr=(t.livePnlPct>=0?'+':'')+t.livePnlPct.toFixed(2)+'%';
-      pnlCls=t.livePnlPct>=0?'tf-pct-live':'tf-pct-neg';
-    } else {
-      pnlStr='—'; pnlCls='tf-pct-nil';
-    }
-
-    let col2;
-    if(type==='spot'){
-      const flt=t.livePnlUsd!=null?(t.livePnlUsd>=0?'+':'')+'$'+t.livePnlUsd.toFixed(2):'—';
-      const fltCls=t.livePnlUsd==null?'tf-pct-nil':t.livePnlUsd>=0?'tf-pct-live':'tf-pct-neg';
-      col2=`<td class="${fltCls}">${escH(flt)}</td>`;
-    } else {
-      col2=`<td class="${pnlCls}">${pnlStr}</td>`;
-    }
-
-    return`<tr>
-      <td>
-        <div class="tf-asset">
-          <div class="tf-icon" style="background:${color}">${escH(initials)}</div>
-          <div>
-            <div class="tf-sym">${escH(t.symbol)}</div>
-            <div class="tf-dir">${t.dir==='LONG'?'Long':'Short'}</div>
-          </div>
-        </div>
-      </td>
-      ${col2}
-      <td>${sparkline(t)}</td>
-    </tr>`;
+    if(t.livePnlPct!=null){ pnlStr=(t.livePnlPct>=0?'+':'')+t.livePnlPct.toFixed(2)+'%'; pnlCls=t.livePnlPct>=0?'tf-pct-live':'tf-pct-neg'; }
+    else { pnlStr='—'; pnlCls='tf-pct-nil'; }
+    const col2=type==='spot'
+      ?`<td class="${t.livePnlUsd==null?'tf-pct-nil':t.livePnlUsd>=0?'tf-pct-live':'tf-pct-neg'}">${t.livePnlUsd!=null?(t.livePnlUsd>=0?'+':'')+'$'+t.livePnlUsd.toFixed(2):'—'}</td>`
+      :`<td class="${pnlCls}">${pnlStr}</td>`;
+    return`<tr><td><div class="tf-asset"><div class="tf-icon" style="background:${color}">${escH(initials)}</div><div><div class="tf-sym">${escH(t.symbol)}</div><div class="tf-dir">${t.dir==='LONG'?'Long':'Short'}</div></div></div></td>${col2}<td>${sparkline(t)}</td></tr>`;
   }).join('');
-
-  el.innerHTML=`<table class="tf-table">
-    <thead><tr><th>Asset</th><th>${col2Hdr}</th><th>7-day</th></tr></thead>
-    <tbody>${rows}</tbody>
-  </table>`;
+  el.innerHTML=`<table class="tf-table"><thead><tr><th>Asset</th><th>${col2Hdr}</th><th>7-day</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
-// ─── RENDER STRATEGY CARD ───
+// ─── STRATEGY CARD ───
 function renderStrategyCard(trades){
-  // Narrative distribution for donut
   const counts={};
-  trades.forEach(t=>{
-    if(t.narrative){
-      const k=t.narrative.slice(0,25).trim();
-      counts[k]=(counts[k]||0)+1;
-    }
-  });
+  trades.forEach(t=>{ if(t.narrative){ const k=t.narrative.slice(0,28).trim(); counts[k]=(counts[k]||0)+1; } });
   const topN=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);
   const segs=topN.map(([,v],i)=>({weight:v,color:SEG_COLORS[i%SEG_COLORS.length]}));
-  // Add gray for "other" if fewer than 2 narrative segs
-  if(segs.length===0) segs.push({weight:1,color:'#DDE1F0'});
-  drawDonut('donut-scout', segs);
+  if(!segs.length) segs.push({weight:1,color:'#DDE1F0'});
+  drawDonut('donut-scout',segs);
 
-  // Center text: combined all bots
   const allClosed=trades.filter(t=>t.status==='closed'&&t.pnlUsd!=null);
   const totalPnl=allClosed.reduce((s,t)=>s+(t.pnlUsd||0),0);
   const avgPct=allClosed.length?allClosed.reduce((s,t)=>s+(t.pnlPct||0),0)/allClosed.length:null;
   const pctEl=document.getElementById('dc-scout-pct');
   const usdEl=document.getElementById('dc-scout-usd');
   if(pctEl) pctEl.textContent=avgPct!=null?(avgPct>=0?'+':'')+avgPct.toFixed(2)+'%':'—';
-  if(usdEl){
-    usdEl.textContent='$'+Math.abs(totalPnl).toFixed(2);
-    usdEl.style.color=totalPnl>=0?'var(--green-text)':totalPnl<0?'var(--red-dark)':'';
-  }
+  if(usdEl){ usdEl.textContent='$'+Math.abs(totalPnl).toFixed(2); usdEl.style.color=totalPnl>0?'var(--green-text)':totalPnl<0?'var(--red-dark)':''; }
 
-  // Narrative list
   const listEl=document.getElementById('narrative-list');
   if(listEl){
-    if(!topN.length){
-      listEl.innerHTML='<div class="tf-empty">No narrative data yet</div>';
-    } else {
+    if(!topN.length){ listEl.innerHTML='<div class="tf-empty">No narrative data yet</div>'; }
+    else{
       const maxV=topN[0][1];
-      const TAGS=['Momentum','Trending','Volume ts.','Growing','Narrative'];
+      const TAGS=['Momentum','Trending','Volume','Growing','Narrative'];
       listEl.innerHTML=topN.map(([name,count],i)=>{
         const pct=Math.round(count/maxV*100);
-        const tag=TAGS[i%TAGS.length];
-        const color=SEG_COLORS[i%SEG_COLORS.length];
-        return`<div class="narr-row">
-          <span class="narr-dot" style="background:${color}"></span>
-          <span class="narr-name">${escH(name)}</span>
-          <span class="narr-tag">${tag}</span>
-          <div class="narr-bar-wrap"><div class="narr-bar" style="width:${pct}%;background:${color}"></div></div>
-        </div>`;
+        return`<div class="narr-row"><span class="narr-dot" style="background:${SEG_COLORS[i%SEG_COLORS.length]}"></span><span class="narr-name">${escH(name)}</span><span class="narr-tag">${TAGS[i%TAGS.length]}</span><div class="narr-bar-wrap"><div class="narr-bar" style="width:${pct}%;background:${SEG_COLORS[i%SEG_COLORS.length]}"></div></div></div>`;
       }).join('');
     }
   }
-
-  // Thought feed
-  renderThoughtFeed(trades);
 }
 
-// ─── RENDER THOUGHT FEED ───
+// ─── THOUGHT FEED ───
 function renderThoughtFeed(trades){
   const el=document.getElementById('thought-log');
   if(!el) return;
 
   const events=[];
-  events.push({type:'scan',msg:'Checking narrative volume...'});
-  events.push({type:'scan',msg:'Checking narrative widgets...'});
+  events.push({type:'scan',msg:'Scanner active — monitoring Gate.io markets'});
+  events.push({type:'scan',msg:'Checking narrative volume and momentum signals…'});
 
-  const recent=[...trades]
-    .sort((a,b)=>new Date(a.openedAt)-new Date(b.openedAt))
-    .slice(-10);
-
+  const recent=[...trades].sort((a,b)=>new Date(a.openedAt)-new Date(b.openedAt)).slice(-15);
   recent.forEach(t=>{
-    if(t.narrative) events.push({type:'watch',msg:t.symbol+' — '+t.narrative});
-    events.push({type:'open',msg:'Entered '+t.symbol+' '+t.dir.toLowerCase()+(t.entry?' @ $'+Number(t.entry).toFixed(4):'')});
+    if(t.narrative) events.push({type:'watch',msg:`Narrative watch: ${t.symbol} — ${t.narrative}`});
+    if(t.thesis)    events.push({type:'watch',msg:`Thesis: ${t.thesis}`});
+    events.push({type:'open',msg:`Entered ${t.symbol} ${t.dir.toLowerCase()}${t.entry?' @ $'+Number(t.entry).toFixed(4):''}`});
     if(t.status==='closed'&&t.pnlUsd!=null){
-      events.push({type:'close',msg:'Closed '+t.symbol+' '+(t.pnlUsd>=0?'+':'')+t.pnlUsd.toFixed(2)+' USDT'});
+      events.push({type:'close',msg:`Closed ${t.symbol} — ${t.pnlUsd>=0?'+':''}$${t.pnlUsd.toFixed(2)} USDT (${t.exitType||'exit'})`});
     }
   });
 
   events.reverse();
-  const lines=events.slice(0,12).map(ev=>{
-    let pfxClass='tl-prefix',textClass='tl-text-scan',pfx='›';
-    if(ev.type==='watch'){textClass='tl-text-watch';pfx='◎';}
-    if(ev.type==='open'){textClass='tl-text-open';pfx='▶';}
-    if(ev.type==='close'){textClass='tl-text-close';pfx='✓';}
-    return`<div class="tl-line"><span class="${pfxClass}">${pfx}</span><span class="${textClass}">${escH(ev.msg)}</span></div>`;
+  const now=new Date();
+  const lines=events.slice(0,30).map((ev,i)=>{
+    const d=new Date(now - i*180000);
+    const ts=d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
+    let pfxCls='tl-pfx-scan',msgCls='tl-msg-scan',pfx='›';
+    if(ev.type==='watch'){ pfxCls='tl-pfx-watch'; msgCls='tl-msg-watch'; pfx='◎'; }
+    if(ev.type==='open'){  pfxCls='tl-pfx-open';  msgCls='tl-msg-open';  pfx='▶'; }
+    if(ev.type==='close'){ pfxCls='tl-pfx-close'; msgCls='tl-msg-close'; pfx='✓'; }
+    return`<div class="tl-row"><span class="tl-time">${ts}</span><span class="tl-pfx ${pfxCls}">${pfx}</span><span class="tl-msg ${msgCls}">${escH(ev.msg)}</span></div>`;
   }).join('');
 
   el.innerHTML=lines||'<div class="tl-empty">Waiting for scanner activity…</div>';
+  el.scrollTop=0;
+
+  const countEl=document.getElementById('ts-count');
+  if(countEl) countEl.textContent=events.length?events.length+' events':'';
 }
 </script>
 </body>
