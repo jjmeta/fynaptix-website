@@ -79,7 +79,7 @@ a{text-decoration:none;color:inherit;}
 .content{max-width:1400px;margin:0 auto;width:100%;padding:22px 32px 36px;}
 
 /* ─── CARD GRID ─── */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
 
 /* ─── BOT CARD ─── */
 .bot-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;display:flex;flex-direction:column;}
@@ -126,16 +126,18 @@ canvas.donut-c{display:block;}
 .cf-val.pos{color:var(--green-text);}
 .cf-val.neg{color:var(--red-dark);}
 
-/* ─── STRATEGY CARD ─── */
-.id-section{padding:0 18px 16px;flex:1;}
-.id-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3);margin-bottom:1px;}
-.id-sub{font-size:11px;color:var(--text-3);margin-bottom:10px;}
-.narr-row{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
-.narr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.narr-name{font-size:12px;font-weight:500;color:var(--text-2);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.narr-tag{font-size:10px;color:var(--text-3);white-space:nowrap;min-width:62px;text-align:right;}
-.narr-bar-wrap{flex:1;height:5px;background:#ECEDF7;border-radius:3px;overflow:hidden;max-width:72px;}
-.narr-bar{height:100%;border-radius:3px;transition:width .5s ease;}
+/* ─── STRATEGY SECTION (full-width, horizontal bars) ─── */
+.strat-section{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;margin-bottom:20px;}
+.ss-header{padding:20px 28px 18px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:16px;}
+.ss-title{font-size:17px;font-weight:700;letter-spacing:-.015em;}
+.ss-sub{font-size:12px;color:var(--text-3);}
+.ss-body{padding:22px 28px 26px;display:flex;flex-direction:column;gap:12px;}
+.narr-hbar-row{display:flex;align-items:center;gap:16px;}
+.narr-hbar-track{flex:1;height:11px;background:var(--bg);border-radius:6px;overflow:hidden;}
+.narr-hbar-fill{height:100%;border-radius:6px;transition:width .6s ease;min-width:4px;}
+.narr-hbar-label{display:flex;align-items:center;gap:10px;min-width:200px;max-width:260px;}
+.narr-hbar-name{font-size:13px;font-weight:500;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.narr-hbar-count{font-size:11px;color:var(--text-3);font-family:var(--mono);white-space:nowrap;}
 
 /* ─── THOUGHT FEED SECTION ─── */
 .thought-section{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;}
@@ -292,31 +294,18 @@ canvas.donut-c{display:block;}
         </div>
       </div>
 
-      <!-- ── STRATEGY EXPLORER CARD ── -->
-      <div class="bot-card">
-        <div class="card-hdr">
-          <div>
-            <div class="card-name">Strategy Explorer</div>
-            <div class="card-sub">Claude Scout · Narrative Targeting</div>
-          </div>
-        </div>
-
-        <div class="donut-wrap">
-          <canvas id="donut-scout" class="donut-c"></canvas>
-          <div class="donut-center">
-            <div class="dc-pct" id="dc-scout-pct">—</div>
-            <div class="dc-usd" id="dc-scout-usd">$0.00</div>
-          </div>
-        </div>
-
-        <div class="id-section">
-          <div class="id-title">Inside Data</div>
-          <div class="id-sub">Active narratives targeted by the scout</div>
-          <div id="narrative-list"><div class="tf-empty">No narrative data yet</div></div>
-        </div>
-      </div>
-
     </div><!-- /card-grid -->
+
+    <!-- STRATEGY EXPLORER -->
+    <div class="strat-section">
+      <div class="ss-header">
+        <div class="ss-title">Strategy Explorer</div>
+        <div class="ss-sub">Active narratives targeted by Claude Scout across all bots</div>
+      </div>
+      <div class="ss-body" id="narrative-bars">
+        <div class="tf-empty">No narrative data yet</div>
+      </div>
+    </div>
 
     <!-- THOUGHT FEED -->
     <div class="thought-section">
@@ -566,35 +555,24 @@ function renderTradeFeed(bodyId,openTrades,segs,type){
   el.innerHTML=`<table class="tf-table"><thead><tr><th>Asset</th><th>${col2Hdr}</th><th>7-day</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
-// ─── STRATEGY CARD ───
+// ─── STRATEGY EXPLORER (horizontal bars) ───
 function renderStrategyCard(trades){
   const counts={};
-  trades.forEach(t=>{ if(t.narrative){ const k=t.narrative.slice(0,28).trim(); counts[k]=(counts[k]||0)+1; } });
-  const topN=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);
-  const segs=topN.map(([,v],i)=>({weight:v,color:SEG_COLORS[i%SEG_COLORS.length]}));
-  if(!segs.length) segs.push({weight:1,color:'#DDE1F0'});
-  drawDonut('donut-scout',segs);
-
-  const allClosed=trades.filter(t=>t.status==='closed'&&t.pnlUsd!=null);
-  const totalPnl=allClosed.reduce((s,t)=>s+(t.pnlUsd||0),0);
-  const avgPct=allClosed.length?allClosed.reduce((s,t)=>s+(t.pnlPct||0),0)/allClosed.length:null;
-  const pctEl=document.getElementById('dc-scout-pct');
-  const usdEl=document.getElementById('dc-scout-usd');
-  if(pctEl) pctEl.textContent=avgPct!=null?(avgPct>=0?'+':'')+avgPct.toFixed(2)+'%':'—';
-  if(usdEl){ usdEl.textContent='$'+Math.abs(totalPnl).toFixed(2); usdEl.style.color=totalPnl>0?'var(--green-text)':totalPnl<0?'var(--red-dark)':''; }
-
-  const listEl=document.getElementById('narrative-list');
-  if(listEl){
-    if(!topN.length){ listEl.innerHTML='<div class="tf-empty">No narrative data yet</div>'; }
-    else{
-      const maxV=topN[0][1];
-      const TAGS=['Momentum','Trending','Volume','Growing','Narrative'];
-      listEl.innerHTML=topN.map(([name,count],i)=>{
-        const pct=Math.round(count/maxV*100);
-        return`<div class="narr-row"><span class="narr-dot" style="background:${SEG_COLORS[i%SEG_COLORS.length]}"></span><span class="narr-name">${escH(name)}</span><span class="narr-tag">${TAGS[i%TAGS.length]}</span><div class="narr-bar-wrap"><div class="narr-bar" style="width:${pct}%;background:${SEG_COLORS[i%SEG_COLORS.length]}"></div></div></div>`;
-      }).join('');
-    }
-  }
+  trades.forEach(t=>{ if(t.narrative){ const k=t.narrative.slice(0,40).trim(); counts[k]=(counts[k]||0)+1; } });
+  const topN=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,7);
+  const el=document.getElementById('narrative-bars');
+  if(!el) return;
+  if(!topN.length){ el.innerHTML='<div class="tf-empty">No narrative data yet</div>'; return; }
+  const maxV=topN[0][1];
+  el.innerHTML=topN.map(([name,count],i)=>{
+    const pct=Math.round(count/maxV*100);
+    const color=SEG_COLORS[i%SEG_COLORS.length];
+    const tradeWord=count===1?'trade':'trades';
+    return`<div class="narr-hbar-row">`+
+      `<div class="narr-hbar-track"><div class="narr-hbar-fill" style="width:${pct}%;background:${color}"></div></div>`+
+      `<div class="narr-hbar-label"><span class="narr-hbar-name">${escH(name)}</span><span class="narr-hbar-count">${count} ${tradeWord}</span></div>`+
+      `</div>`;
+  }).join('');
 }
 
 // ─── THOUGHT FEED ───
