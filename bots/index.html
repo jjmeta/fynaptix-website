@@ -186,6 +186,7 @@ canvas{display:block;width:100%;height:120px;}
 
 .open-tag{font-size:9px;font-weight:800;letter-spacing:.08em;color:var(--accent);}
 .closed-tag{font-size:9px;font-weight:600;letter-spacing:.06em;color:var(--n500);}
+.pnl-live{color:#b45309;font-weight:700;}
 
 .empty-state{text-align:center;padding:40px 24px;color:var(--n500);font-size:13px;}
 </style>
@@ -457,11 +458,30 @@ async function loadData(){
     const perps=(r1.data||[]).map(t=>normGecko(t,'gecko-01'));
     const spot=(r2.data||[]).map(t=>normGecko(t,'gecko-spot'));
     ALL_TRADES=[...perps,...spot].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    await enrichLivePnl(ALL_TRADES);
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
 }
 
-function normGecko(t,botId){return{botId,symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null,narrative:t.narrative||'',thesis:t.thesis||'',conviction:t.conviction??null};}
+async function enrichLivePnl(trades){
+  const open=trades.filter(t=>t.status==='open'&&t.coinId&&t.entry&&t.qty);
+  if(!open.length) return;
+  const ids=[...new Set(open.map(t=>t.coinId))].join(',');
+  try{
+    const res=await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids)}&vs_currencies=usd`,{headers:{'Accept':'application/json'}});
+    if(!res.ok) return;
+    const prices=await res.json();
+    for(const t of open){
+      const cur=prices[t.coinId]?.usd;
+      if(!cur||!t.entry) continue;
+      const sign=t.dir==='LONG'?1:-1;
+      t.livePnlPct=sign*(cur-t.entry)/t.entry*100;
+      t.livePnlUsd=sign*(cur-t.entry)*t.qty;
+    }
+  }catch(e){/* CG unreachable — leave live fields null */}
+}
+
+function normGecko(t,botId){return{botId,symbol:t.symbol||'—',dir:t.direction==='long'?'LONG':'SHORT',entry:t.entry_price,exit:t.exit_price||null,pnlUsd:t.pnl_usdt??null,pnlPct:t.pnl_pct!=null?t.pnl_pct*100:null,openedAt:t.opened_at||'',status:t.closed_at?'closed':'open',exitType:t.exit_type||null,narrative:t.narrative||'',thesis:t.thesis||'',conviction:t.conviction??null,coinId:t.coin_id||'',qty:t.qty??null,livePnlUsd:null,livePnlPct:null};}
 
 // ─── RENDER ALL ───
 function renderAll(trades){
@@ -679,9 +699,20 @@ function renderTradeLog(trades,filter){
     return;
   }
   const rows=filtered.map(t=>{
-    const pnlStr=t.pnlUsd!=null?(t.pnlUsd>=0?'+':'')+t.pnlUsd.toFixed(2):'—';
-    const pnlPct=t.pnlPct!=null?(t.pnlPct>=0?'+':'')+t.pnlPct.toFixed(2)+'%':'';
-    const pnlCls=t.pnlUsd==null?'pnl-nil':t.pnlUsd>0?'pnl-pos':'pnl-neg';
+    let pnlStr,pnlPct,pnlCls;
+    if(t.status==='open'){
+      if(t.livePnlUsd!=null){
+        pnlStr='~'+(t.livePnlUsd>=0?'+':'')+t.livePnlUsd.toFixed(2);
+        pnlPct=(t.livePnlPct>=0?'+':'')+t.livePnlPct.toFixed(2)+'%';
+        pnlCls='pnl-live';
+      }else{
+        pnlStr='—'; pnlPct=''; pnlCls='pnl-nil';
+      }
+    }else{
+      pnlStr=t.pnlUsd!=null?(t.pnlUsd>=0?'+':'')+t.pnlUsd.toFixed(2):'—';
+      pnlPct=t.pnlPct!=null?(t.pnlPct>=0?'+':'')+t.pnlPct.toFixed(2)+'%':'';
+      pnlCls=t.pnlUsd==null?'pnl-nil':t.pnlUsd>0?'pnl-pos':'pnl-neg';
+    }
     const dirCls=t.dir==='LONG'?'long':'short';
     const statusEl=t.status==='open'?'<span class="open-tag">OPEN</span>':'<span class="closed-tag">CLOSED</span>';
     return`<tr>
