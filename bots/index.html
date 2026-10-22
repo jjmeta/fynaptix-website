@@ -57,69 +57,84 @@ a{text-decoration:none;color:inherit;}
 #app-root{min-height:100vh;display:flex;flex-direction:column;}
 
 /* ─── PAGE HEADER ─── */
-.page-header{background:#FFFFFF;border-bottom:none;padding:26px 32px 0;position:relative;overflow:hidden;}
-/* dot-matrix texture */
+.page-header{background:#0A0C14;border-bottom:none;padding:22px 32px 0;position:relative;overflow:hidden;}
 .page-header::before{
   content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(circle,#CBD0E4 1.1px,transparent 1.1px);
-  background-size:22px 22px;opacity:.55;
+  background-image:radial-gradient(circle,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:24px 24px;
 }
 .ph-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1;}
 
-/* eyebrow breadcrumb */
-.ph-eyebrow{display:flex;align-items:center;gap:0;margin-bottom:20px;}
-.ph-brand{font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);font-family:var(--mono);}
-.live-chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;color:var(--green-text);background:var(--green-bg);border:1px solid rgba(18,183,106,.25);padding:2px 10px;border-radius:20px;margin-left:16px;}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0;}
+/* eyebrow */
+.ph-eyebrow{display:flex;align-items:center;margin-bottom:16px;}
+.ph-brand{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.32);font-family:var(--mono);}
+.live-chip{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#4ADE80;background:rgba(18,183,106,.15);border:1px solid rgba(18,183,106,.3);padding:2px 10px;border-radius:20px;margin-left:16px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:pulse 2s infinite;flex-shrink:0;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
 
-/* main row */
-.ph-top{display:flex;align-items:flex-start;gap:28px;justify-content:space-between;flex-wrap:wrap;}
-.ph-left{flex:1;min-width:280px;padding-bottom:20px;}
-.ph-title{font-size:46px;font-weight:700;letter-spacing:-.04em;color:var(--text);line-height:1;margin-bottom:14px;}
+/* main row: left | center | right */
+.ph-top{display:flex;align-items:flex-start;gap:24px;justify-content:space-between;flex-wrap:wrap;}
 
-/* telemetry row */
-.ph-telemetry{display:flex;align-items:center;gap:0;margin-bottom:14px;flex-wrap:wrap;}
-.tel-item{font-size:11px;font-family:var(--mono);color:var(--text-2);display:flex;align-items:center;gap:4px;padding-right:20px;border-right:1px solid var(--border);}
-.tel-item:last-child{border-right:none;}
-.tel-item+.tel-item{padding-left:18px;}
-.tel-lbl{color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;font-size:10px;}
-.tel-ok{color:#059669;font-weight:600;}
-.tel-bars{display:inline-flex;align-items:flex-end;gap:1.5px;height:10px;margin-left:3px;}
-.tel-bars span{display:block;width:2.5px;background:#059669;border-radius:1px;}
+/* left: title + desc */
+.ph-left{flex:0 0 auto;max-width:380px;padding-bottom:22px;}
+.ph-bullet{color:#4ADE80;margin-right:8px;font-size:22px;vertical-align:middle;line-height:1;}
+.ph-title{font-size:38px;font-weight:700;letter-spacing:-.03em;color:#FFFFFF;line-height:1;margin-bottom:12px;}
+.ph-desc{font-size:12.5px;color:rgba(255,255,255,.38);max-width:340px;line-height:1.75;}
 
-.ph-desc{font-size:13px;color:var(--text-3);max-width:440px;line-height:1.7;}
+/* center: telemetry + wave */
+.ph-center{flex:1;min-width:200px;padding-bottom:0;display:flex;flex-direction:column;gap:14px;}
+.ph-telemetry{display:flex;flex-direction:column;gap:5px;}
+.tel-item{font-size:11px;font-family:var(--mono);color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;}
+.tel-lbl{color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.09em;font-size:10px;}
+.tel-ok{color:#4ADE80;font-weight:600;}
+.tel-bars{display:inline-flex;align-items:flex-end;gap:1.5px;height:10px;margin-left:2px;}
+.tel-bars span{display:block;width:2.5px;background:#4ADE80;border-radius:1px;}
+.ph-wave-wrap{width:100%;height:50px;opacity:.55;}
 
-/* right column */
-.ph-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0;}
-.ph-metrics{display:flex;gap:10px;}
-.metric-box{border:1px solid var(--border);border-radius:12px;padding:14px 20px;min-width:134px;text-align:center;background:var(--card);transition:background .3s,border-color .3s;}
-.metric-box.pnl-pos{background:#F0FDF4;border-color:#BBF7D0;}
-.metric-box.pnl-neg{background:#FEF2F2;border-color:#FECACA;}
-.mb-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px;}
-.mb-val{font-size:22px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:var(--text);}
-.mb-val.pos{color:#059669;}
-.mb-val.neg{color:#DC2626;}
-.mb-sub{font-size:10px;color:var(--text-3);margin-top:4px;font-family:var(--mono);}
-
-/* wave signal visualization */
-.ph-wave-wrap{width:260px;height:68px;opacity:.45;flex-shrink:0;}
+/* KPI cards — glass on dark */
+.ph-right{display:flex;flex-direction:column;align-items:flex-end;gap:0;flex-shrink:0;padding-bottom:22px;}
+.ph-metrics{display:flex;gap:8px;}
+.metric-box{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 18px;min-width:124px;text-align:center;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);transition:background .3s,border-color .3s;}
+.metric-box.pnl-pos{background:rgba(240,253,244,.1);border-color:rgba(187,247,208,.25);}
+.metric-box.pnl-neg{background:rgba(254,242,242,.08);border-color:rgba(252,202,202,.25);}
+.mb-lbl{font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px;}
+.mb-val{font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:#FFFFFF;}
+.mb-val.pos{color:#4ADE80;}
+.mb-val.neg{color:#F87171;}
+.mb-sub{font-size:9.5px;color:rgba(255,255,255,.28);margin-top:4px;font-family:var(--mono);}
 
 /* teal separator */
-.ph-separator{height:2.5px;background:linear-gradient(90deg,#00D4AA 0%,#38BDF8 40%,transparent 72%);margin-top:0;}
+.ph-separator{height:2px;background:linear-gradient(90deg,#00D4AA 0%,#38BDF8 38%,transparent 68%);}
 
 /* ─── CONTENT AREA ─── */
 .content{max-width:1400px;margin:0 auto;width:100%;padding:22px 32px 36px;}
 
 /* ─── CARD GRID ─── */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+
+/* ─── LIVE CONSOLE CARD ─── */
+.console-section{padding:0 16px 6px;flex:1;display:flex;flex-direction:column;gap:0;}
+.console-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;}
+.console-log{background:#F8FAFC;border:1px solid var(--border);border-radius:8px;padding:9px 13px;min-height:96px;overflow-y:auto;font-family:var(--mono);font-size:10.5px;line-height:1.9;color:#475569;margin-bottom:8px;}
+.cl-line::before{content:'> ';color:#94A3B8;}
+.console-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.console-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:6px;border:1px solid;}
+.console-bars-wrap{display:flex;flex-direction:column;gap:5px;}
+.console-bar-row{display:flex;align-items:center;gap:8px;}
+.console-bar-lbl{font-size:10px;color:var(--text-3);min-width:96px;font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.console-bar-track{flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden;}
+.console-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#6C5CE7,#8B5CF6);}
+.console-ticker{padding:8px 16px 10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;margin-top:auto;}
+.console-ticker-sym{font-size:13px;font-weight:700;color:var(--text);font-family:var(--mono);}
+.console-ticker-px{font-size:11px;color:var(--text-3);font-family:var(--mono);}
+.console-ticker-dir{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:auto;}
 
 /* ─── BOT CARD ─── */
 .bot-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;display:flex;flex-direction:column;}
 
 .card-hdr{padding:18px 18px 0;display:flex;align-items:flex-start;justify-content:space-between;}
 .card-name{font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.2;}
-.card-sub{font-size:11px;color:var(--text-3);margin-top:3px;}
+.card-sub{font-size:11px;color:var(--text-3);margin-top:3px;font-style:italic;}
 .active-badge{font-size:10px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;background:var(--green-bg);color:var(--green-text);flex-shrink:0;margin-left:10px;margin-top:2px;}
 
 /* ─── DONUT ─── */
@@ -237,13 +252,17 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         <span class="live-chip"><span class="live-dot"></span>Live</span>
       </div>
 
-      <!-- main row -->
+      <!-- main row: left | center | right -->
       <div class="ph-top">
-        <!-- left: title + telemetry + desc -->
-        <div class="ph-left">
-          <div class="ph-title">Bots Dashboard</div>
 
-          <!-- telemetry micro-metrics -->
+        <!-- left: title + desc -->
+        <div class="ph-left">
+          <div class="ph-title"><span class="ph-bullet">●</span>Bots Dashboard</div>
+          <div class="ph-desc">Autonomous trading agents powered by Claude Scout — scanning Gate.io perps &amp; spot markets in real time.</div>
+        </div>
+
+        <!-- center: telemetry + wave -->
+        <div class="ph-center">
           <div class="ph-telemetry">
             <div class="tel-item">
               <span class="tel-lbl">Agent Health:</span>
@@ -262,12 +281,21 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
             </div>
           </div>
 
-          <div class="ph-desc">Autonomous trading agents powered by Claude Scout — scanning Gate.io perps &amp; spot markets in real time and logging every decision to the Thought Feed below.</div>
+          <!-- wave signal visualization -->
+          <svg class="ph-wave-wrap" viewBox="0 0 320 50" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M0,34 C20,34 24,14 44,22 C64,30 68,42 88,34 C108,26 112,10 132,20 C152,30 156,40 176,32 C196,24 200,10 220,18 C240,26 248,36 280,26 C296,21 308,18 320,18" stroke="rgba(74,222,128,.5)" stroke-width="1.5" fill="none"/>
+            <path d="M0,40 C16,40 30,26 48,32 C66,38 72,46 92,38 C112,30 116,14 136,24 C156,34 160,44 180,36 C200,28 204,12 224,22 C244,32 256,42 320,30" stroke="rgba(56,189,248,.35)" stroke-width="1" fill="none"/>
+            <path d="M0,28 C22,28 26,46 52,36 C78,26 82,14 108,24 C134,34 138,44 164,34 C190,24 194,10 220,20 C246,30 258,42 320,26" stroke="rgba(139,92,246,.3)" stroke-width="1" fill="none"/>
+            <circle cx="44" cy="22" r="2" fill="#4ADE80" opacity="0.7"/>
+            <circle cx="132" cy="20" r="2" fill="#4ADE80" opacity="0.7"/>
+            <circle cx="220" cy="18" r="2" fill="#4ADE80" opacity="0.7"/>
+            <circle cx="92" cy="38" r="1.5" fill="#38BDF8" opacity="0.6"/>
+            <circle cx="180" cy="36" r="1.5" fill="#38BDF8" opacity="0.6"/>
+          </svg>
         </div>
 
-        <!-- right: KPI cards + wave -->
+        <!-- right: KPI cards -->
         <div class="ph-right">
-          <!-- KPI cards -->
           <div class="ph-metrics">
             <div class="metric-box" id="m-pnl-box">
               <div class="mb-lbl">Total P&amp;L</div>
@@ -285,20 +313,8 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
               <div class="mb-sub" id="m-open-sub">—</div>
             </div>
           </div>
-
-          <!-- wave signal visualization -->
-          <svg class="ph-wave-wrap" viewBox="0 0 260 68" xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path d="M0,42 C18,42 22,18 40,28 C58,38 62,52 80,44 C98,36 102,20 120,30 C138,40 142,54 160,42 C178,30 182,16 200,26 C218,36 222,48 240,38 C252,31 256,28 260,28" stroke="#94A3B8" stroke-width="1.4" fill="none"/>
-            <path d="M0,50 C14,50 28,34 44,40 C60,46 66,58 84,50 C102,42 106,26 124,36 C142,46 146,56 164,48 C182,40 186,22 204,32 C222,42 232,52 260,44" stroke="#CBD5E1" stroke-width="1" fill="none" opacity="0.7"/>
-            <path d="M0,36 C20,36 24,56 48,46 C72,36 76,22 100,34 C124,46 128,58 152,46 C176,34 180,18 204,28 C228,38 240,54 260,36" stroke="#E2E8F0" stroke-width="1" fill="none" opacity="0.55"/>
-            <!-- sparkle dots at peaks -->
-            <circle cx="40" cy="28" r="2" fill="#6C5CE7" opacity="0.6"/>
-            <circle cx="120" cy="30" r="2" fill="#6C5CE7" opacity="0.6"/>
-            <circle cx="200" cy="26" r="2" fill="#6C5CE7" opacity="0.6"/>
-            <circle cx="84" cy="50" r="1.5" fill="#00CEC9" opacity="0.5"/>
-            <circle cx="164" cy="48" r="1.5" fill="#00CEC9" opacity="0.5"/>
-          </svg>
         </div>
+
       </div>
 
       <!-- teal separator -->
@@ -317,7 +333,7 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         <div class="card-hdr">
           <div>
             <div class="card-name">Gecko Perps</div>
-            <div class="card-sub">Gate.io Perps · Long &amp; Short</div>
+            <div class="card-sub">(Gate.io Perps)</div>
           </div>
           <span class="active-badge">ACTIVE</span>
         </div>
@@ -350,7 +366,7 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         <div class="card-hdr">
           <div>
             <div class="card-name">Gecko Spot</div>
-            <div class="card-sub">Gate.io Spot · Long Only</div>
+            <div class="card-sub">(Gate.io Spot)</div>
           </div>
           <span class="active-badge">ACTIVE</span>
         </div>
@@ -383,7 +399,7 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         <div class="card-hdr">
           <div>
             <div class="card-name">Gecko Spot Fast</div>
-            <div class="card-sub">Gate.io Spot · Momentum Plays</div>
+            <div class="card-sub">(Momentum Plays)</div>
           </div>
           <span class="active-badge">ACTIVE</span>
         </div>
@@ -411,12 +427,46 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         </div>
       </div>
 
+      <!-- ── LIVE AGENT CONSOLE CARD ── -->
+      <div class="bot-card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-name">Live Agent Console</div>
+            <div class="card-sub">(Scout Agent Console)</div>
+          </div>
+          <span class="active-badge">LIVE</span>
+        </div>
+
+        <div class="console-section">
+          <div class="console-lbl">Agent Thought Feed</div>
+          <div class="console-log" id="console-log">
+            <div class="cl-line">Initializing scanner…</div>
+          </div>
+          <div class="console-lbl">Active Narratives</div>
+          <div class="console-tags" id="console-tags">
+            <span class="console-tag" style="background:#F3F4F6;color:#6B7280;border-color:#E5E7EB">Loading…</span>
+          </div>
+          <div class="console-lbl">Signal Strength</div>
+          <div class="console-bars-wrap" id="console-bars">
+            <div class="console-bar-row">
+              <div class="console-bar-lbl">Narrative vol.</div>
+              <div class="console-bar-track"><div class="console-bar-fill" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="console-ticker" id="console-ticker">
+          <span class="console-ticker-sym">—</span>
+          <span class="console-ticker-px">No open trades</span>
+        </div>
+      </div>
+
       <!-- ── FINORA BOT CARD ── -->
       <div class="bot-card">
         <div class="card-hdr">
           <div>
             <div class="card-name">FinoraBot</div>
-            <div class="card-sub">Telegram Signals · Spot Paper</div>
+            <div class="card-sub">(Telegram Signals)</div>
           </div>
           <span class="active-badge">ACTIVE</span>
         </div>
@@ -596,6 +646,7 @@ function renderAll(trades){
   renderBotCard(trades.filter(t=>t.botId==='gecko-01'),'perps','perps');
   renderBotCard(trades.filter(t=>t.botId==='gecko-spot'),'spot','spot');
   renderBotCard(trades.filter(t=>t.botId==='gecko-fast'),'fast','spot');
+  renderLiveConsole(trades);
   renderFinoraCard(trades.filter(t=>t.botId==='finora'));
   renderStrategyCard(trades);
   renderThoughtFeed(trades);
@@ -751,7 +802,7 @@ function renderTradeFeed(bodyId,openTrades,segs,type){
     const col2=`<td class="${pnlCls}"><span class="tf-val-dot" style="background:${dotColor}"></span>${pnlStr}</td>`;
     return`<tr><td><div class="tf-asset"><div class="tf-icon" style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;flex-shrink:0;">${iconInner}</div><div><div class="tf-sym">${escH(t.symbol)}</div><div class="tf-dir">${escH(subLine)}</div></div></div></td>${col2}<td>${sparkline(t)}</td></tr>`;
   }).join('');
-  el.innerHTML=`<table class="tf-table"><thead><tr><th>Asset</th><th>Value</th><th>7-day</th></tr></thead><tbody>${rows}</tbody></table>`;
+  el.innerHTML=`<table class="tf-table"><thead><tr><th>Hero</th><th>Value</th><th>7-day</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 // ─── FINORA NORMALISER ───
@@ -811,6 +862,61 @@ function renderFinoraCard(trades){
   if(clsEl) clsEl.textContent=closed.length||'0';
   const wrEl=document.getElementById('cf-finora-wr');
   if(wrEl) wrEl.textContent=wr!=null?wr.toFixed(1)+'%':'—';
+}
+
+// ─── LIVE AGENT CONSOLE ───
+function renderLiveConsole(trades){
+  // Build log lines from open trades
+  const open=trades.filter(t=>t.status==='open');
+  const logEl=document.getElementById('console-log');
+  if(logEl){
+    const lines=[];
+    open.slice(0,2).forEach(t=>{
+      const sym=t.symbol.replace('/USDT','').replace('USDT','');
+      if(t.narrative) lines.push('Narrative: '+t.narrative.slice(0,36)+'…');
+      lines.push('Position open: '+sym+(t.entry?' @ $'+t.entry.toFixed(4):''));
+    });
+    if(!lines.length) lines.push('Scanning AI narratives…','Watching Gate.io order book…','Idle — no active signals');
+    else lines.unshift('Scanning AI narratives…');
+    logEl.innerHTML=lines.slice(0,5).map(m=>`<div class="cl-line">${escH(m)}</div>`).join('');
+  }
+
+  // Narrative tags (top 2)
+  const counts={};
+  trades.forEach(t=>{if(t.narrative){const k=t.narrative.slice(0,32).trim();counts[k]=(counts[k]||0)+1;}});
+  const top2=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,2);
+  const tagsEl=document.getElementById('console-tags');
+  if(tagsEl){
+    const palette=[['#FEF3C7','#D97706','#FDE68A'],['#EEF2FF','#6C5CE7','#C7D2FE']];
+    tagsEl.innerHTML=top2.map(([name],i)=>{
+      const[bg,col,brd]=palette[i];
+      return`<span class="console-tag" style="background:${bg};color:${col};border-color:${brd}">${escH(name.slice(0,20))}</span>`;
+    }).join('')||'<span class="console-tag" style="background:#F3F4F6;color:#6B7280;border-color:#E5E7EB">No narratives yet</span>';
+  }
+
+  // Signal bars
+  const barsEl=document.getElementById('console-bars');
+  if(barsEl&&top2.length){
+    const maxV=top2[0][1]||1;
+    barsEl.innerHTML=top2.map(([name,count])=>{
+      const pct=Math.round(count/maxV*100);
+      return`<div class="console-bar-row"><div class="console-bar-lbl">${escH(name.slice(0,14))}</div><div class="console-bar-track"><div class="console-bar-fill" style="width:${pct}%"></div></div></div>`;
+    }).join('');
+  }
+
+  // Recent ticker
+  const tickerEl=document.getElementById('console-ticker');
+  if(tickerEl){
+    const recent=open[0];
+    if(recent){
+      const sym=recent.symbol.replace('/USDT','').replace('USDT','');
+      const px=recent.livePrice?formatPrice(recent.livePrice):'—';
+      const dirColor=recent.dir==='LONG'?'background:#DCFCE7;color:#16A34A':'background:#FEE2E2;color:#DC2626';
+      tickerEl.innerHTML=`<span class="console-ticker-sym">${escH(sym)}</span><span class="console-ticker-px">${px}</span><span class="console-ticker-dir" style="${dirColor}">${recent.dir}</span>`;
+    } else {
+      tickerEl.innerHTML='<span class="console-ticker-sym">—</span><span class="console-ticker-px">No open trades</span>';
+    }
+  }
 }
 
 // ─── STRATEGY EXPLORER (horizontal bars) ───
