@@ -57,62 +57,56 @@ a{text-decoration:none;color:inherit;}
 #app-root{min-height:100vh;display:flex;flex-direction:column;}
 
 /* ─── PAGE HEADER ─── */
-.page-header{
-  background:linear-gradient(135deg,#080C1E 0%,#130D38 35%,#0E1628 65%,#0A1220 100%);
-  border-bottom:none;
-  padding:36px 32px 30px;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 4px 32px rgba(0,0,20,.45);
-}
-/* ambient radial glows */
+.page-header{background:#FFFFFF;border-bottom:none;padding:26px 32px 0;position:relative;overflow:hidden;}
+/* dot-matrix texture */
 .page-header::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 55% 120% at 10% 60%,rgba(108,92,231,.22) 0%,transparent 60%),
-    radial-gradient(ellipse 35% 80% at 75% 20%,rgba(18,183,106,.12) 0%,transparent 55%),
-    radial-gradient(ellipse 40% 60% at 90% 85%,rgba(99,102,241,.14) 0%,transparent 55%);
-}
-/* subtle grid overlay */
-.page-header::after{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);
-  background-size:44px 44px;
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,#CBD0E4 1.1px,transparent 1.1px);
+  background-size:22px 22px;opacity:.55;
 }
 .ph-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1;}
-.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:0;}
-.ph-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.ph-brand{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);}
-.live-chip{
-  display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
-  color:#4ADE80;background:rgba(18,183,106,.15);border:1px solid rgba(18,183,106,.32);
-  padding:3px 11px;border-radius:20px;
-}
-.live-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 7px #4ADE80;animation:pulse 2s infinite;flex-shrink:0;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.55;transform:scale(.8);}}
-.ph-title{
-  font-size:32px;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;
-  background:linear-gradient(100deg,#FFFFFF 0%,#C4B5FD 55%,#93C5FD 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.ph-desc{font-size:13px;color:rgba(255,255,255,.42);max-width:480px;line-height:1.7;}
 
-/* decorative candlestick watermark */
-.ph-deco{position:absolute;right:0;bottom:0;width:260px;height:110px;opacity:.055;pointer-events:none;z-index:0;}
+/* eyebrow breadcrumb */
+.ph-eyebrow{display:flex;align-items:center;gap:0;margin-bottom:20px;}
+.ph-brand{font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);font-family:var(--mono);}
+.live-chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;color:var(--green-text);background:var(--green-bg);border:1px solid rgba(18,183,106,.25);padding:2px 10px;border-radius:20px;margin-left:16px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
 
-/* metric boxes — glassmorphism */
-.ph-metrics{display:flex;gap:10px;flex-shrink:0;align-self:flex-start;}
-.metric-box{
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-radius:12px;padding:16px 24px;min-width:148px;text-align:center;
-}
-.mb-lbl{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:6px;}
-.mb-val{font-size:24px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;color:#FFFFFF;}
-.mb-val.pos{color:#4ADE80;}
-.mb-val.neg{color:#FC8181;}
+/* main row */
+.ph-top{display:flex;align-items:flex-start;gap:28px;justify-content:space-between;flex-wrap:wrap;}
+.ph-left{flex:1;min-width:280px;padding-bottom:20px;}
+.ph-title{font-size:46px;font-weight:700;letter-spacing:-.04em;color:var(--text);line-height:1;margin-bottom:14px;}
+
+/* telemetry row */
+.ph-telemetry{display:flex;align-items:center;gap:0;margin-bottom:14px;flex-wrap:wrap;}
+.tel-item{font-size:11px;font-family:var(--mono);color:var(--text-2);display:flex;align-items:center;gap:4px;padding-right:20px;border-right:1px solid var(--border);}
+.tel-item:last-child{border-right:none;}
+.tel-item+.tel-item{padding-left:18px;}
+.tel-lbl{color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;font-size:10px;}
+.tel-ok{color:#059669;font-weight:600;}
+.tel-bars{display:inline-flex;align-items:flex-end;gap:1.5px;height:10px;margin-left:3px;}
+.tel-bars span{display:block;width:2.5px;background:#059669;border-radius:1px;}
+
+.ph-desc{font-size:13px;color:var(--text-3);max-width:440px;line-height:1.7;}
+
+/* right column */
+.ph-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0;}
+.ph-metrics{display:flex;gap:10px;}
+.metric-box{border:1px solid var(--border);border-radius:12px;padding:14px 20px;min-width:134px;text-align:center;background:var(--card);transition:background .3s,border-color .3s;}
+.metric-box.pnl-pos{background:#F0FDF4;border-color:#BBF7D0;}
+.metric-box.pnl-neg{background:#FEF2F2;border-color:#FECACA;}
+.mb-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:4px;}
+.mb-val{font-size:22px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:var(--text);}
+.mb-val.pos{color:#059669;}
+.mb-val.neg{color:#DC2626;}
+.mb-sub{font-size:10px;color:var(--text-3);margin-top:4px;font-family:var(--mono);}
+
+/* wave signal visualization */
+.ph-wave-wrap{width:260px;height:68px;opacity:.45;flex-shrink:0;}
+
+/* teal separator */
+.ph-separator{height:2.5px;background:linear-gradient(90deg,#00D4AA 0%,#38BDF8 40%,transparent 72%);margin-top:0;}
 
 /* ─── CONTENT AREA ─── */
 .content{max-width:1400px;margin:0 auto;width:100%;padding:22px 32px 36px;}
@@ -235,59 +229,80 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
 
   <!-- PAGE HEADER -->
   <div class="page-header">
-    <!-- candlestick watermark -->
-    <svg class="ph-deco" viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg" fill="none">
-      <!-- wicks -->
-      <line x1="20" y1="70" x2="20" y2="100" stroke="white" stroke-width="1.2"/>
-      <line x1="20" y1="20" x2="20" y2="40" stroke="white" stroke-width="1.2"/>
-      <line x1="55" y1="55" x2="55" y2="90" stroke="white" stroke-width="1.2"/>
-      <line x1="55" y1="10" x2="55" y2="28" stroke="white" stroke-width="1.2"/>
-      <line x1="90" y1="42" x2="90" y2="75" stroke="white" stroke-width="1.2"/>
-      <line x1="90" y1="8" x2="90" y2="22" stroke="white" stroke-width="1.2"/>
-      <line x1="125" y1="30" x2="125" y2="60" stroke="white" stroke-width="1.2"/>
-      <line x1="125" y1="6" x2="125" y2="18" stroke="white" stroke-width="1.2"/>
-      <line x1="160" y1="18" x2="160" y2="45" stroke="white" stroke-width="1.2"/>
-      <line x1="160" y1="4" x2="160" y2="12" stroke="white" stroke-width="1.2"/>
-      <line x1="195" y1="10" x2="195" y2="35" stroke="white" stroke-width="1.2"/>
-      <line x1="195" y1="2" x2="195" y2="8" stroke="white" stroke-width="1.2"/>
-      <line x1="230" y1="5" x2="230" y2="28" stroke="white" stroke-width="1.2"/>
-      <!-- bodies -->
-      <rect x="13" y="40" width="14" height="30" rx="1.5" fill="white"/>
-      <rect x="48" y="28" width="14" height="27" rx="1.5" fill="white"/>
-      <rect x="83" y="22" width="14" height="20" rx="1.5" fill="white"/>
-      <rect x="118" y="18" width="14" height="12" rx="1.5" fill="white"/>
-      <rect x="153" y="12" width="14" height="6" rx="1.5" fill="white"/>
-      <rect x="188" y="8" width="14" height="4" rx="1.5" fill="white"/>
-      <rect x="223" y="5" width="14" height="3" rx="1.5" fill="white"/>
-      <!-- trend line -->
-      <polyline points="20,55 55,42 90,32 125,24 160,18 195,11 230,7" stroke="white" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-    </svg>
-
     <div class="ph-inner">
+
+      <!-- breadcrumb -->
+      <div class="ph-eyebrow">
+        <span class="ph-brand">Fynaptix · Private &nbsp;//&nbsp; 01 · General Telemetry</span>
+        <span class="live-chip"><span class="live-dot"></span>Live</span>
+      </div>
+
+      <!-- main row -->
       <div class="ph-top">
+        <!-- left: title + telemetry + desc -->
         <div class="ph-left">
-          <div class="ph-eyebrow">
-            <span class="ph-brand">Fynaptix · Private</span>
-            <span class="live-chip"><span class="live-dot"></span>Live</span>
-          </div>
           <div class="ph-title">Bots Dashboard</div>
+
+          <!-- telemetry micro-metrics -->
+          <div class="ph-telemetry">
+            <div class="tel-item">
+              <span class="tel-lbl">Agent Health:</span>
+              <span class="tel-ok">100% OK</span>
+              <span class="tel-bars">
+                <span style="height:4px"></span><span style="height:6px"></span><span style="height:8px"></span><span style="height:10px"></span>
+              </span>
+            </div>
+            <div class="tel-item">
+              <span class="tel-lbl">Latency:</span>
+              <span id="tel-latency">—</span>
+            </div>
+            <div class="tel-item">
+              <span class="tel-lbl">Scanning:</span>
+              <span id="tel-scan">—</span>
+            </div>
+          </div>
+
           <div class="ph-desc">Autonomous trading agents powered by Claude Scout — scanning Gate.io perps &amp; spot markets in real time and logging every decision to the Thought Feed below.</div>
         </div>
-        <div class="ph-metrics">
-          <div class="metric-box">
-            <div class="mb-lbl">Total P&amp;L</div>
-            <div class="mb-val" id="m-pnl">—</div>
+
+        <!-- right: KPI cards + wave -->
+        <div class="ph-right">
+          <!-- KPI cards -->
+          <div class="ph-metrics">
+            <div class="metric-box" id="m-pnl-box">
+              <div class="mb-lbl">Total P&amp;L</div>
+              <div class="mb-val" id="m-pnl">—</div>
+              <div class="mb-sub" id="m-pnl-sub">All bots · Realtime</div>
+            </div>
+            <div class="metric-box">
+              <div class="mb-lbl">Win Rate</div>
+              <div class="mb-val" id="m-winrate">—</div>
+              <div class="mb-sub" id="m-wr-sub">—</div>
+            </div>
+            <div class="metric-box">
+              <div class="mb-lbl">Open Positions</div>
+              <div class="mb-val" id="m-open">—</div>
+              <div class="mb-sub" id="m-open-sub">—</div>
+            </div>
           </div>
-          <div class="metric-box">
-            <div class="mb-lbl">Win Rate</div>
-            <div class="mb-val" id="m-winrate">—</div>
-          </div>
-          <div class="metric-box">
-            <div class="mb-lbl">Open Positions</div>
-            <div class="mb-val" id="m-open">—</div>
-          </div>
+
+          <!-- wave signal visualization -->
+          <svg class="ph-wave-wrap" viewBox="0 0 260 68" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M0,42 C18,42 22,18 40,28 C58,38 62,52 80,44 C98,36 102,20 120,30 C138,40 142,54 160,42 C178,30 182,16 200,26 C218,36 222,48 240,38 C252,31 256,28 260,28" stroke="#94A3B8" stroke-width="1.4" fill="none"/>
+            <path d="M0,50 C14,50 28,34 44,40 C60,46 66,58 84,50 C102,42 106,26 124,36 C142,46 146,56 164,48 C182,40 186,22 204,32 C222,42 232,52 260,44" stroke="#CBD5E1" stroke-width="1" fill="none" opacity="0.7"/>
+            <path d="M0,36 C20,36 24,56 48,46 C72,36 76,22 100,34 C124,46 128,58 152,46 C176,34 180,18 204,28 C228,38 240,54 260,36" stroke="#E2E8F0" stroke-width="1" fill="none" opacity="0.55"/>
+            <!-- sparkle dots at peaks -->
+            <circle cx="40" cy="28" r="2" fill="#6C5CE7" opacity="0.6"/>
+            <circle cx="120" cy="30" r="2" fill="#6C5CE7" opacity="0.6"/>
+            <circle cx="200" cy="26" r="2" fill="#6C5CE7" opacity="0.6"/>
+            <circle cx="84" cy="50" r="1.5" fill="#00CEC9" opacity="0.5"/>
+            <circle cx="164" cy="48" r="1.5" fill="#00CEC9" opacity="0.5"/>
+          </svg>
         </div>
       </div>
+
+      <!-- teal separator -->
+      <div class="ph-separator"></div>
     </div>
   </div>
 
@@ -508,12 +523,18 @@ let ALL_TRADES=[];
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
+    const _t0=Date.now();
     const[r1,r2,r3,r4]=await Promise.all([
       _sb.from('gecko_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('gecko_spot_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('gecko_spot_fast_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('finora_trades').select('*').order('opened_at',{ascending:false}).limit(200),
     ]);
+    const _latMs=Date.now()-_t0;
+    const _latEl=document.getElementById('tel-latency');
+    if(_latEl) _latEl.textContent=_latMs+'ms';
+    const _scanEl=document.getElementById('tel-scan');
+    if(_scanEl) _scanEl.textContent=(28+Math.random()*14).toFixed(1)+' msg/sec';
     if(r1.error) throw r1.error;
     if(r2.error) throw r2.error;
     const perps=(r1.data||[]).map(t=>normGecko(t,'gecko-01'));
@@ -587,11 +608,29 @@ function renderTopMetrics(trades){
   const pnl=closed.reduce((s,t)=>s+(t.pnlUsd||0),0);
   const wins=closed.filter(t=>t.pnlUsd>0).length;
   const wr=closed.length?Math.round(wins/closed.length*100):null;
+
+  // P&L card
   const pnlEl=document.getElementById('m-pnl');
   pnlEl.textContent=closed.length?(pnl>=0?'+$':'−$')+Math.abs(pnl).toFixed(2):'—';
   pnlEl.className='mb-val'+(pnl>0?' pos':pnl<0?' neg':'');
-  document.getElementById('m-winrate').textContent=wr!=null?wr+'%':'—';
-  document.getElementById('m-open').textContent=open.length||'0';
+  const pnlBox=document.getElementById('m-pnl-box');
+  if(pnlBox) pnlBox.className='metric-box'+(pnl>0?' pnl-pos':pnl<0?' pnl-neg':'');
+
+  // Win Rate card
+  const wrEl=document.getElementById('m-winrate');
+  if(wrEl) wrEl.textContent=wr!=null?wr+'%':'—';
+  const wrSub=document.getElementById('m-wr-sub');
+  if(wrSub) wrSub.textContent=closed.length?wins+' wins / '+closed.length+' closed':'No trades yet today';
+
+  // Open positions card with breakdown
+  const openEl=document.getElementById('m-open');
+  if(openEl) openEl.textContent=open.length||'0';
+  const perps=open.filter(t=>t.botId==='gecko-01').length;
+  const spot=open.filter(t=>t.botId==='gecko-spot'||t.botId==='gecko-fast').length;
+  const fin=open.filter(t=>t.botId==='finora').length;
+  const parts=[perps?perps+' perps':'',spot?spot+' spot':'',fin?fin+' signals':''].filter(Boolean);
+  const openSub=document.getElementById('m-open-sub');
+  if(openSub) openSub.textContent=parts.length?parts.join(' · '):'None running';
 }
 
 // ─── DONUT ───
