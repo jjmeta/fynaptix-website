@@ -300,27 +300,26 @@ a{text-decoration:none;color:inherit;}
 .page-footer{margin-top:48px;padding-top:14px;border-top:2px solid var(--color-divider);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
 
 /* ── OVERVIEW DARK HEADER ── */
-.ov-header{background:#09090B;padding:22px 32px 0;position:relative;overflow:hidden;border-bottom:none;}
-.ov-header::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:24px 24px;}
+.ov-header{background:var(--color-bg);padding:22px 32px 0;position:relative;overflow:hidden;border-bottom:none;}
 .ov-ph-inner{position:relative;z-index:1;display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;padding-bottom:20px;}
 .ov-ph-left{flex:0 0 auto;max-width:360px;}
-.ov-ph-title{font-size:38px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.ov-ph-heart{color:#4ADE80;font-size:26px;}
-.ov-ph-desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;max-width:300px;}
+.ov-ph-title{font-size:38px;font-weight:800;letter-spacing:-.03em;color:var(--color-text);line-height:1;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.ov-ph-heart{color:#2da84f;font-size:26px;}
+.ov-ph-desc{font-size:12px;color:var(--color-neutral-600);line-height:1.5;max-width:300px;}
 .ov-ph-tel{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;align-items:center;}
-.ov-tel-item{display:flex;align-items:center;gap:5px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.1);padding:3px 8px;border-radius:4px;}
+.ov-tel-item{display:flex;align-items:center;gap:5px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-600);border:1px solid var(--color-divider);padding:3px 8px;border-radius:4px;}
 .ov-tel-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.ov-tel-ok{background:#4ADE80;box-shadow:0 0 6px #4ADE80;}
+.ov-tel-ok{background:#2da84f;}
 .ov-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto;align-self:center;}
-.ov-mbox{border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 18px;min-width:130px;text-align:center;}
-.ov-mbox.mb-purple{background:rgba(108,92,231,.18);border-color:rgba(108,92,231,.4);}
-.ov-mbox.mb-teal{background:rgba(0,206,201,.14);border-color:rgba(0,206,201,.35);}
-.ov-mbox.mb-orange{background:rgba(253,203,110,.14);border-color:rgba(253,203,110,.35);}
-.ov-mb-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;}
-.ov-mb-val{font-size:22px;font-weight:800;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;}
-.ov-mb-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px;}
+.ov-mbox{border:1px solid var(--color-divider);border-radius:10px;padding:12px 18px;min-width:130px;text-align:center;background:var(--color-neutral-100);}
+.ov-mbox.mb-purple{background:rgba(108,92,231,.1);border-color:rgba(108,92,231,.3);}
+.ov-mbox.mb-teal{background:rgba(0,150,136,.08);border-color:rgba(0,150,136,.25);}
+.ov-mbox.mb-orange{background:rgba(194,120,0,.08);border-color:rgba(194,120,0,.25);}
+.ov-mb-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:4px;}
+.ov-mb-val{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--color-text);font-variant-numeric:tabular-nums;}
+.ov-mb-sub{font-size:10px;color:var(--color-neutral-600);margin-top:2px;}
 /* ── BENTO GRID ── */
-.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:20px 32px 20px;background:#09090B;}
+.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:20px 32px 20px;background:var(--color-bg);}
 .bento-card{background:#141418;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;}
 .bc-head{padding:14px 16px 10px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;}
 .bc-title{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em;}
@@ -356,7 +355,7 @@ a{text-decoration:none;color:inherit;}
 .bc-vol-fill{height:100%;background:#4ADE80;border-radius:3px;transition:width .4s;}
 .bc-agent-score{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:6px;font-size:12px;color:rgba(255,255,255,.7);}
 .bc-agent-num{font-size:18px;font-weight:800;color:#4ADE80;font-variant-numeric:tabular-nums;}
-.bento-border{background:#09090B;border-bottom:2px solid var(--color-text);}
+.bento-border{background:var(--color-bg);border-bottom:2px solid var(--color-text);}
 @media(max-width:1100px){.bento-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:768px){
   body{flex-direction:column;height:auto;overflow:auto;}
@@ -426,7 +425,7 @@ a{text-decoration:none;color:inherit;}
       <div class="ov-header">
         <div class="ov-ph-inner">
           <div class="ov-ph-left">
-            <div class="ov-ph-title"><span class="ov-ph-heart">♥</span>Crypto Scanner</div>
+            <div class="ov-ph-title"><span class="ov-ph-heart">♥</span>Overview</div>
             <div class="ov-ph-desc">AI-powered narrative rotation · OI squeeze detection · Real-time market intelligence</div>
             <div class="ov-ph-tel">
               <div class="ov-tel-item"><span class="ov-tel-dot ov-tel-ok"></span>CG PRO API</div>
