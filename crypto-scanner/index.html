@@ -136,6 +136,22 @@ a{text-decoration:none;color:inherit;}
 .cg-coin-price{font-size:13px;font-variant-numeric:tabular-nums;color:var(--color-neutral-700);}
 .cg-coin-chg{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;min-width:56px;text-align:right;}
 
+/* ── MARKET STATUS ── */
+.ms-inner-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--color-divider);margin-top:12px;}
+.ms-fg-card{grid-column:1;grid-row:1/3;border-right:1px solid var(--color-divider);padding:12px 14px;display:flex;flex-direction:column;}
+.ms-mc-card{grid-column:2;grid-row:1;padding:12px 14px;border-bottom:1px solid var(--color-divider);}
+.ms-top20-card{grid-column:2;grid-row:2;padding:12px 14px;}
+.ms-alt-card{grid-column:1;grid-row:3;padding:12px 14px;border-right:1px solid var(--color-divider);border-top:1px solid var(--color-divider);}
+.ms-etf-card{grid-column:2;grid-row:3;padding:12px 14px;border-top:1px solid var(--color-divider);}
+.ms-card-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:6px;}
+.ms-card-val{font-size:24px;font-weight:800;letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums;}
+.ms-card-chg{font-size:12px;font-weight:600;margin-top:4px;}
+.ms-fg-num{font-size:36px;font-weight:800;letter-spacing:-0.04em;line-height:1;margin-top:6px;}
+.ms-fg-badge{font-size:12px;font-weight:600;color:var(--color-neutral-600);margin-top:2px;}
+.ms-gauge{width:100%;max-width:160px;display:block;}
+.ms-alt-bar-wrap{height:5px;background:#eae7e7;margin-top:8px;overflow:hidden;}
+.ms-alt-bar{height:100%;background:linear-gradient(90deg,#e74c3c 0%,#f1c40f 50%,#2da84f 100%);transition:width .5s;}
+
 /* ── AREA CHART ── */
 .area-chart{position:relative;height:240px;margin-top:24px;cursor:crosshair;border-bottom:2px solid var(--color-text);}
 .area-chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
@@ -553,27 +569,35 @@ a{text-decoration:none;color:inherit;}
       <div class="bento-border"></div>
       <div class="vbody">
         <div class="cg-widget">
-          <!-- Left: Market Cap chart -->
-          <div class="cg-box">
-            <div class="cg-mcap-row">
-              <div class="cg-mcap-big" id="ov-mcap">—</div>
-              <div class="hero-chg" id="ov-mcap-chg"></div>
-              <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600);font-weight:400;">24H</div>
+          <!-- Left: Market Status widget -->
+          <div class="cg-box" style="display:flex;flex-direction:column;">
+            <div class="cg-box-title">Market Status <span style="font-weight:400;color:var(--color-neutral-500);">›</span></div>
+            <div class="ms-inner-grid">
+              <div class="ms-fg-card">
+                <div class="ms-card-lbl">Fear &amp; Greed</div>
+                <canvas id="ms-gauge" class="ms-gauge" width="160" height="85"></canvas>
+                <div class="ms-fg-num" id="ms-fg-num">—</div>
+                <div class="ms-fg-badge" id="ms-fg-badge">—</div>
+              </div>
+              <div class="ms-mc-card">
+                <div class="ms-card-lbl">Market Cap</div>
+                <div class="ms-card-val" id="ms-mc-val">—</div>
+                <div class="ms-card-chg" id="ms-mc-chg"></div>
+              </div>
+              <div class="ms-top20-card">
+                <div class="ms-card-lbl">Top 20 MCap</div>
+                <div class="ms-card-val" id="ms-top20-val">—</div>
+              </div>
+              <div class="ms-alt-card">
+                <div class="ms-card-lbl">Altcoin Season</div>
+                <div class="ms-card-val" id="ms-alt-val">—</div>
+                <div class="ms-alt-bar-wrap"><div class="ms-alt-bar" id="ms-alt-bar"></div></div>
+              </div>
+              <div class="ms-etf-card">
+                <div class="ms-card-lbl">ETF Flows 24h</div>
+                <div class="ms-card-val" id="ms-etf-val">—</div>
+              </div>
             </div>
-            <div class="cg-meta-lbl">Market Cap</div>
-            <div class="cg-vol-num" id="ov-vol">—</div>
-            <div class="cg-meta-lbl">24h Trading Volume</div>
-            <div class="area-chart" id="mcapChart" style="height:160px;">
-              <div class="chart-grid-line" style="top:0;"></div>
-              <div class="chart-grid-line" style="top:50%;"></div>
-              <div class="chart-hi" id="mcapChartHi"></div>
-              <div class="chart-lo" id="mcapChartLo"></div>
-              <svg id="mcapChartSvg" viewBox="0 0 1000 300" preserveAspectRatio="none"></svg>
-              <div class="chart-crosshair" id="mcapCross"></div>
-              <div class="chart-dot" id="mcapDot"></div>
-              <div class="chart-tooltip" id="mcapTip"><div class="chart-tooltip-time" id="mcapTipTime"></div><div class="chart-tooltip-val" id="mcapTipVal"></div></div>
-            </div>
-            <div class="chart-xticks"><span>24h ago</span><span>18h</span><span>12h</span><span>6h</span><span>Now</span></div>
           </div>
           <!-- Middle: Trending -->
           <div class="cg-box">
@@ -1283,6 +1307,15 @@ async function fetchGlobal(){
   const mcapChgEl=document.getElementById('ov-kpi-mcap-chg');
   if(mcapChgEl){mcapChgEl.textContent=pct(mcapC);mcapChgEl.style.color=mcapC>=0?'var(--color-up)':'var(--color-dn)';}
   setEl('ov-kpi-btcd',f2(btcd)+'%');
+  // Market Status widget
+  setEl('ms-mc-val',big(mcap));
+  const msMcChg=document.getElementById('ms-mc-chg');
+  if(msMcChg){msMcChg.textContent=pct(mcapC);msMcChg.style.color=mcapC>=0?'var(--color-up)':'var(--color-dn)';}
+  // Altcoin season proxy: higher BTC dom = lower alt season
+  const altSeason=Math.max(0,Math.min(100,Math.round((60-btcd)*2+50)));
+  setEl('ms-alt-val',String(altSeason));
+  const altBar=document.getElementById('ms-alt-bar');
+  if(altBar) altBar.style.width=altSeason+'%';
   // Fear & Greed from CoinGecko Pro /global
   const fg=g.fear_and_greed_index;
   if(fg){
@@ -1310,6 +1343,9 @@ async function fetchMovers(){
   renderBentoEcosystems();
   renderBentoConsole();
   renderCgGainers();
+  // Top 20 MCap for Market Status widget
+  const top20mcap=coins.slice(0,20).reduce((s,c)=>s+(c.market_cap||0),0);
+  setEl('ms-top20-val',big(top20mcap));
 
   const MAP={bitcoin:'btc',ethereum:'eth',solana:'sol'};
   coins.forEach(c=>{
@@ -1618,8 +1654,13 @@ function renderProtoTable(){
 async function fetchFearGreed(){
   const r=await fetch('https://api.alternative.me/fng/?limit=1');
   const d=await r.json();
-  setEl('ov-fg',String(parseInt(d.data[0].value)));
-  setEl('ov-fg-lbl',d.data[0].value_classification);
+  const val=parseInt(d.data[0].value);
+  const cls=d.data[0].value_classification;
+  setEl('ov-fg',String(val));
+  setEl('ov-fg-lbl',cls);
+  setEl('ms-fg-num',String(val));
+  setEl('ms-fg-badge',cls);
+  drawMsGauge(val);
 }
 
 // ═══════════════════════════════════════
@@ -2355,6 +2396,40 @@ function bigNum(n){
   if(n>=1e9) return (n/1e9).toFixed(2)+'B';
   if(n>=1e6) return (n/1e6).toFixed(2)+'M';
   return n.toLocaleString();
+}
+
+// ═══════════════════════════════════════
+// MARKET STATUS GAUGE
+// ═══════════════════════════════════════
+function drawMsGauge(value){
+  const canvas=document.getElementById('ms-gauge');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+  const cx=W/2,cy=H-2,r=Math.min(W/2-10,H-6);
+  const lw=9;
+  // background track
+  ctx.beginPath();ctx.arc(cx,cy,r,Math.PI,0,false);
+  ctx.lineWidth=lw;ctx.lineCap='butt';ctx.strokeStyle='#eae7e7';ctx.stroke();
+  // coloured segments
+  const segs=[
+    {v0:0,v1:25,c:'#e74c3c'},{v0:25,v1:45,c:'#e67e22'},
+    {v0:45,v1:55,c:'#f1c40f'},{v0:55,v1:75,c:'#7dcf99'},{v0:75,v1:100,c:'#2da84f'}
+  ];
+  const gap=0.04;
+  segs.forEach(s=>{
+    const a1=Math.PI*(1+s.v0/100)+(s.v0>0?gap:0);
+    const a2=Math.PI*(1+s.v1/100)-(s.v1<100?gap:0);
+    ctx.beginPath();ctx.arc(cx,cy,r,a1,a2,false);
+    ctx.lineWidth=lw;ctx.strokeStyle=s.c;ctx.stroke();
+  });
+  // needle dot
+  const a=Math.PI*(1+value/100);
+  const dx=cx+r*Math.cos(a),dy=cy+r*Math.sin(a);
+  ctx.beginPath();ctx.arc(dx,dy,6,0,Math.PI*2);
+  ctx.fillStyle='#fff';ctx.fill();
+  ctx.strokeStyle='#201e1d';ctx.lineWidth=2;ctx.stroke();
 }
 
 // ═══════════════════════════════════════
