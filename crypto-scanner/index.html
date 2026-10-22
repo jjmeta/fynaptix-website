@@ -120,6 +120,22 @@ a{text-decoration:none;color:inherit;}
 .stat-cell-val{font-size:40px;font-weight:800;letter-spacing:-0.035em;line-height:1;font-variant-numeric:tabular-nums;}
 .stat-cell-sub{font-size:13px;font-weight:600;margin-top:2px;}
 
+/* ── CG OVERVIEW WIDGET ── */
+.cg-widget{display:grid;grid-template-columns:1.3fr 1fr 1fr;border:2px solid var(--color-text);margin:24px 0 0;}
+.cg-box{background:var(--color-bg);padding:20px 22px;border-right:2px solid var(--color-text);min-width:0;overflow:hidden;}
+.cg-box:last-child{border-right:none;}
+.cg-box-title{font-size:15px;font-weight:700;margin-bottom:12px;letter-spacing:-0.01em;}
+.cg-mcap-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.cg-mcap-big{font-size:42px;font-weight:800;letter-spacing:-0.05em;line-height:1;font-variant-numeric:tabular-nums;}
+.cg-meta-lbl{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:3px;}
+.cg-vol-num{font-size:24px;font-weight:700;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;margin-top:14px;}
+.cg-coin-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--color-divider);}
+.cg-coin-row:last-child{border-bottom:none;}
+.cg-coin-logo{width:26px;height:26px;border-radius:50%;flex-shrink:0;background:var(--color-neutral-200);object-fit:cover;}
+.cg-coin-name{flex:1;font-weight:600;font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cg-coin-price{font-size:13px;font-variant-numeric:tabular-nums;color:var(--color-neutral-700);}
+.cg-coin-chg{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;min-width:56px;text-align:right;}
+
 /* ── AREA CHART ── */
 .area-chart{position:relative;height:240px;margin-top:24px;cursor:crosshair;border-bottom:2px solid var(--color-text);}
 .area-chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
@@ -536,15 +552,18 @@ a{text-decoration:none;color:inherit;}
       </div>
       <div class="bento-border"></div>
       <div class="vbody">
-        <div class="hero-pair">
-          <div class="hero-main">
-            <div class="hero-kicker">GLOBAL MARKET CAP</div>
-            <div class="hero-num-row">
-              <div class="hero-num" id="ov-mcap">—</div>
+        <div class="cg-widget">
+          <!-- Left: Market Cap chart -->
+          <div class="cg-box">
+            <div class="cg-mcap-row">
+              <div class="cg-mcap-big" id="ov-mcap">—</div>
               <div class="hero-chg" id="ov-mcap-chg"></div>
-              <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;">24H</div>
+              <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-600);font-weight:400;">24H</div>
             </div>
-            <div class="area-chart" id="mcapChart">
+            <div class="cg-meta-lbl">Market Cap</div>
+            <div class="cg-vol-num" id="ov-vol">—</div>
+            <div class="cg-meta-lbl">24h Trading Volume</div>
+            <div class="area-chart" id="mcapChart" style="height:160px;">
               <div class="chart-grid-line" style="top:0;"></div>
               <div class="chart-grid-line" style="top:50%;"></div>
               <div class="chart-hi" id="mcapChartHi"></div>
@@ -556,25 +575,17 @@ a{text-decoration:none;color:inherit;}
             </div>
             <div class="chart-xticks"><span>24h ago</span><span>18h</span><span>12h</span><span>6h</span><span>Now</span></div>
           </div>
-          <div class="hero-side">
-            <div class="hero-kpi-card">
-              <div class="hero-kpi-lbl">24H Volume</div>
-              <div class="hero-kpi-val" id="ov-vol">—</div>
-            </div>
-            <div class="hero-kpi-card">
-              <div class="hero-kpi-lbl">BTC Dominance</div>
-              <div class="hero-kpi-val" id="ov-btcd">—</div>
-            </div>
-            <div class="hero-kpi-card">
-              <div class="hero-kpi-lbl">Fear &amp; Greed</div>
-              <div class="hero-kpi-val" id="ov-fg">—</div>
-              <div class="hero-kpi-sub" id="ov-fg-lbl"></div>
-            </div>
+          <!-- Middle: Trending -->
+          <div class="cg-box">
+            <div class="cg-box-title">🔥 Trending</div>
+            <div id="cg-trending"><div style="color:var(--color-neutral-600);font-size:13px;">Loading…</div></div>
+          </div>
+          <!-- Right: Top Gainers -->
+          <div class="cg-box">
+            <div class="cg-box-title">🚀 Top Gainers</div>
+            <div id="cg-gainers"><div style="color:var(--color-neutral-600);font-size:13px;">Loading…</div></div>
           </div>
         </div>
-
-        <div class="sec-hdr"><h3 class="sec-title">Majors</h3><span class="sec-sub">BTC · ETH · SOL · Live</span></div>
-        <div class="majors" id="majorsGrid"><div class="major-cell"><div class="strip-lbl">Loading…</div></div></div>
 
         <div class="sec-hdr" style="margin-top:32px;">
           <h3 class="sec-title">Sectors</h3>
@@ -1298,6 +1309,7 @@ async function fetchMovers(){
   top100Coins=coins;
   renderBentoEcosystems();
   renderBentoConsole();
+  renderCgGainers();
 
   const MAP={bitcoin:'btc',ethereum:'eth',solana:'sol'};
   coins.forEach(c=>{
@@ -2151,6 +2163,7 @@ async function fetchTrending(){
     if(d.nfts) trendingData.nfts=d.nfts;
     if(d.categories) trendingData.categories=d.categories;
     renderTrending();
+    renderCgTrending();
     if(trendingData.coins.length){
       const ids=trendingData.coins.map(c=>c.id).filter(Boolean).join(',');
       fetchTrendingMarkets(ids);
@@ -2167,6 +2180,7 @@ async function fetchTrendingMarkets(ids){
     if(Array.isArray(data)){
       data.forEach(c=>{trendingData.marketData[c.id]=c;});
       renderTrendCoins();
+      renderCgTrending();
     }
   }catch(_){}
 }
@@ -2341,6 +2355,45 @@ function bigNum(n){
   if(n>=1e9) return (n/1e9).toFixed(2)+'B';
   if(n>=1e6) return (n/1e6).toFixed(2)+'M';
   return n.toLocaleString();
+}
+
+// ═══════════════════════════════════════
+// CG OVERVIEW WIDGET renderers
+// ═══════════════════════════════════════
+function renderCgTrending(){
+  const el=document.getElementById('cg-trending');
+  if(!el) return;
+  const coins=(trendingData.coins||[]).slice(0,5);
+  if(!coins.length){el.innerHTML='<div style="color:var(--color-neutral-600);font-size:13px;">Loading…</div>';return;}
+  el.innerHTML=coins.map(c=>{
+    const md=trendingData.marketData?.[c.id];
+    const price=md?.current_price??parseFloat(String(c.data?.price||'').replace(/[^0-9.]/g,''))||null;
+    const chg=md?.price_change_percentage_24h??c.data?.price_change_percentage_24h?.usd??null;
+    const chgCol=chg===null?'var(--color-neutral-700)':chg>=0?'var(--color-up)':'var(--color-dn)';
+    return `<div class="cg-coin-row">
+      <img class="cg-coin-logo" src="${c.thumb||''}" alt="${c.symbol}" onerror="this.style.display='none'">
+      <span class="cg-coin-name">${c.name}</span>
+      <span class="cg-coin-price">${price?px(price):'—'}</span>
+      <span class="cg-coin-chg" style="color:${chgCol}">${chg!==null?pct(chg):'—'}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderCgGainers(){
+  const el=document.getElementById('cg-gainers');
+  if(!el||!top100Coins.length) return;
+  const gainers=[...top100Coins]
+    .sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0))
+    .slice(0,5);
+  el.innerHTML=gainers.map(c=>{
+    const chg=c.price_change_percentage_24h||0;
+    return `<div class="cg-coin-row">
+      <img class="cg-coin-logo" src="${c.image||''}" alt="${c.symbol}" onerror="this.style.display='none'">
+      <span class="cg-coin-name">${c.name}</span>
+      <span class="cg-coin-price">${px(c.current_price)}</span>
+      <span class="cg-coin-chg" style="color:${chg>=0?'var(--color-up)':'var(--color-dn)'}">${pct(chg)}</span>
+    </div>`;
+  }).join('');
 }
 
 // ═══════════════════════════════════════
