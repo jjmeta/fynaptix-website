@@ -299,6 +299,65 @@ a{text-decoration:none;color:inherit;}
 /* ── PAGE FOOTER ── */
 .page-footer{margin-top:48px;padding-top:14px;border-top:2px solid var(--color-divider);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
 
+/* ── OVERVIEW DARK HEADER ── */
+.ov-header{background:#09090B;padding:22px 32px 0;position:relative;overflow:hidden;border-bottom:none;}
+.ov-header::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:24px 24px;}
+.ov-ph-inner{position:relative;z-index:1;display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap;padding-bottom:20px;}
+.ov-ph-left{flex:0 0 auto;max-width:360px;}
+.ov-ph-title{font-size:38px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.ov-ph-heart{color:#4ADE80;font-size:26px;}
+.ov-ph-desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;max-width:300px;}
+.ov-ph-tel{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;align-items:center;}
+.ov-tel-item{display:flex;align-items:center;gap:5px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.1);padding:3px 8px;border-radius:4px;}
+.ov-tel-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.ov-tel-ok{background:#4ADE80;box-shadow:0 0 6px #4ADE80;}
+.ov-metrics{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto;align-self:center;}
+.ov-mbox{border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 18px;min-width:130px;text-align:center;}
+.ov-mbox.mb-purple{background:rgba(108,92,231,.18);border-color:rgba(108,92,231,.4);}
+.ov-mbox.mb-teal{background:rgba(0,206,201,.14);border-color:rgba(0,206,201,.35);}
+.ov-mbox.mb-orange{background:rgba(253,203,110,.14);border-color:rgba(253,203,110,.35);}
+.ov-mb-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;}
+.ov-mb-val{font-size:22px;font-weight:800;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;}
+.ov-mb-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px;}
+/* ── BENTO GRID ── */
+.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:20px 32px 20px;background:#09090B;}
+.bento-card{background:#141418;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;}
+.bc-head{padding:14px 16px 10px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;}
+.bc-title{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em;}
+.bc-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-style:italic;}
+.bc-body{padding:12px 16px;flex:1;overflow:hidden;display:flex;flex-direction:column;}
+.bc-donut-row{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+.bc-donut-legend{display:flex;flex-direction:column;gap:4px;font-size:11px;flex:1;min-width:0;}
+.bc-leg-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bc-leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.bc-leg-val{margin-left:auto;font-variant-numeric:tabular-nums;padding-left:4px;}
+.bc-tbl{width:100%;border-collapse:collapse;font-size:11px;font-variant-numeric:tabular-nums;}
+.bc-tbl th{text-align:left;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);padding:4px 6px 6px;border-bottom:1px solid rgba(255,255,255,.07);}
+.bc-tbl th.r{text-align:right;}
+.bc-tbl td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8);}
+.bc-tbl td.r{text-align:right;}
+.bc-tbl tr:last-child td{border-bottom:none;}
+.bc-sym{font-weight:700;color:#fff;}
+.bc-danger-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;background:rgba(248,113,113,.18);border:1px solid rgba(248,113,113,.4);color:#F87171;padding:1px 5px;border-radius:3px;margin-left:4px;}
+.bc-footer{display:flex;justify-content:space-between;gap:4px;padding:8px 14px;border-top:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);font-size:10px;flex-wrap:wrap;flex-shrink:0;}
+.bc-footer-item{display:flex;flex-direction:column;align-items:center;gap:1px;}
+.bc-f-lbl{color:rgba(255,255,255,.3);letter-spacing:.07em;text-transform:uppercase;font-size:9px;}
+.bc-f-val{color:rgba(255,255,255,.85);font-weight:700;font-variant-numeric:tabular-nums;}
+.bc-terminal{background:#0D0D10;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:10px 12px;font-family:ui-monospace,monospace;font-size:11px;height:108px;overflow-y:auto;margin-bottom:8px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;}
+.bc-terminal::-webkit-scrollbar{width:4px;}
+.bc-terminal::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);}
+.bc-log-line{color:rgba(74,222,128,.85);line-height:1.7;}
+.bc-log-line.info{color:rgba(255,255,255,.45);}
+.bc-log-line.warn{color:#FDCB6E;}
+.bc-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+.bc-chip{font-size:10px;padding:3px 8px;border-radius:20px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);background:rgba(255,255,255,.04);}
+.bc-vol-bar-wrap{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.6);margin-bottom:6px;}
+.bc-vol-track{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.bc-vol-fill{height:100%;background:#4ADE80;border-radius:3px;transition:width .4s;}
+.bc-agent-score{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);border-radius:6px;font-size:12px;color:rgba(255,255,255,.7);}
+.bc-agent-num{font-size:18px;font-weight:800;color:#4ADE80;font-variant-numeric:tabular-nums;}
+.bento-border{background:#09090B;border-bottom:2px solid var(--color-text);}
+@media(max-width:1100px){.bento-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:768px){
   body{flex-direction:column;height:auto;overflow:auto;}
   .sidebar{width:100%;height:auto;border-right:none;border-bottom:2px solid var(--color-text);}
@@ -306,6 +365,9 @@ a{text-decoration:none;color:inherit;}
   .content{overflow:visible;}
   .hero-num{font-size:56px;}
   .page-title{font-size:42px;}
+  .bento-grid{grid-template-columns:1fr;padding:12px 16px 12px;}
+  .ov-header{padding:16px 16px 0;}
+  .ov-metrics{margin-left:0;}
 }
 </style>
 </head>
@@ -361,10 +423,112 @@ a{text-decoration:none;color:inherit;}
 
     <!-- ═══ 01 OVERVIEW ═══ -->
     <div class="view active" id="view-overview">
-      <div class="page-header">
-        <div><div class="page-kicker">01 · MARKET PULSE</div><h1 class="page-title">Overview</h1></div>
-        <div class="page-source">SOURCE · COINGECKO /GLOBAL · /COINS/MARKETS · /COINS/CATEGORIES</div>
+      <div class="ov-header">
+        <div class="ov-ph-inner">
+          <div class="ov-ph-left">
+            <div class="ov-ph-title"><span class="ov-ph-heart">♥</span>Crypto Scanner</div>
+            <div class="ov-ph-desc">AI-powered narrative rotation · OI squeeze detection · Real-time market intelligence</div>
+            <div class="ov-ph-tel">
+              <div class="ov-tel-item"><span class="ov-tel-dot ov-tel-ok"></span>CG PRO API</div>
+              <div class="ov-tel-item" id="ov-last-polled">POLLED —</div>
+              <div class="ov-tel-item" id="ov-scan-speed">SCAN —</div>
+            </div>
+          </div>
+          <div class="ov-metrics">
+            <div class="ov-mbox mb-purple">
+              <div class="ov-mb-lbl">Total Market Cap</div>
+              <div class="ov-mb-val" id="ov-kpi-mcap">—</div>
+              <div class="ov-mb-sub" id="ov-kpi-mcap-chg">—</div>
+            </div>
+            <div class="ov-mbox mb-teal">
+              <div class="ov-mb-lbl">BTC Dominance</div>
+              <div class="ov-mb-val" id="ov-kpi-btcd">—</div>
+              <div class="ov-mb-sub">Bitcoin share</div>
+            </div>
+            <div class="ov-mbox mb-orange">
+              <div class="ov-mb-lbl">OI Squeeze Risk</div>
+              <div class="ov-mb-val" id="ov-kpi-oi">—</div>
+              <div class="ov-mb-sub" id="ov-kpi-oi-sub">Loading…</div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="bc-head">
+            <div class="bc-title">Narrative Velocity</div>
+            <div class="bc-sub">(Rotation Edge)</div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-donut-row">
+              <canvas id="bc-donut-narr" width="80" height="80"></canvas>
+              <div class="bc-donut-legend" id="bc-narr-legend"><div style="color:rgba(255,255,255,.3);font-size:11px;">Loading…</div></div>
+            </div>
+            <table class="bc-tbl">
+              <thead><tr><th>Hero</th><th class="r">OI Velocity</th><th class="r">7-Day</th></tr></thead>
+              <tbody id="bc-narr-tbl"><tr><td colspan="3" style="color:rgba(255,255,255,.3);text-align:center;padding:12px;">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="bento-card">
+          <div class="bc-head">
+            <div class="bc-title">Squeeze &amp; Derivatives</div>
+            <div class="bc-sub">(Gecko Perps)</div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-donut-row">
+              <canvas id="bc-donut-sqz" width="80" height="80"></canvas>
+              <div class="bc-donut-legend" id="bc-sqz-legend"><div style="color:rgba(255,255,255,.3);font-size:11px;">Loading…</div></div>
+            </div>
+            <table class="bc-tbl">
+              <thead><tr><th>Hero</th><th class="r">OI</th><th class="r">Funding</th></tr></thead>
+              <tbody id="bc-sqz-tbl"><tr><td colspan="3" style="color:rgba(255,255,255,.3);text-align:center;padding:12px;">Loading…</td></tr></tbody>
+            </table>
+          </div>
+          <div class="bc-footer">
+            <div class="bc-footer-item"><div class="bc-f-lbl">Short Sqz Risk</div><div class="bc-f-val" id="bc-sqz-risk">—</div></div>
+            <div class="bc-footer-item"><div class="bc-f-lbl">Liq 24h</div><div class="bc-f-val" id="bc-sqz-liq">—</div></div>
+            <div class="bc-footer-item"><div class="bc-f-lbl">L/S Ratio</div><div class="bc-f-val" id="bc-sqz-ls">—</div></div>
+          </div>
+        </div>
+        <div class="bento-card">
+          <div class="bc-head">
+            <div class="bc-title">Ecosystems Investigated</div>
+            <div class="bc-sub">(MC/FDV Ratio Filters)</div>
+          </div>
+          <div class="bc-body">
+            <table class="bc-tbl">
+              <thead><tr><th>Hero</th><th class="r">MC/FDV</th><th class="r">MCap</th></tr></thead>
+              <tbody id="bc-eco-tbl"><tr><td colspan="3" style="color:rgba(255,255,255,.3);text-align:center;padding:12px;">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="bento-card">
+          <div class="bc-head" style="display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <div class="bc-title">Live Agent Console</div>
+              <div class="bc-sub">(AI thought feed)</div>
+            </div>
+            <span style="font-size:9px;font-weight:700;letter-spacing:.1em;padding:2px 7px;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);color:#4ADE80;border-radius:3px;">LIVE</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-terminal" id="bc-console-log"><div class="bc-log-line info">&gt; Initializing agent scan…</div></div>
+            <div class="bc-chips" id="bc-console-chips"></div>
+            <div class="bc-vol-bar-wrap">
+              <span style="font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.3);min-width:70px;">Vol Velocity</span>
+              <div class="bc-vol-track"><div class="bc-vol-fill" id="bc-vol-fill" style="width:0%"></div></div>
+              <span id="bc-vol-pct" style="min-width:38px;text-align:right;font-weight:700;color:#4ADE80;">—</span>
+            </div>
+            <div class="bc-agent-score">
+              <span>Agent Score</span>
+              <span class="bc-agent-num" id="bc-agent-score">—</span>
+              <span style="font-size:11px;color:rgba(255,255,255,.4);">/100</span>
+              <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.4);" id="bc-mcfdv-risk">MC/FDV —</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-border"></div>
       <div class="vbody">
         <div class="hero-pair">
           <div class="hero-main">
@@ -1089,6 +1253,11 @@ async function fetchGlobal(){
   setEl('s-mcap',big(mcap)); setEl('s-mcap-chg',pct(mcapC),mcapC>=0?'var(--color-up)':'var(--color-dn)');
   setEl('ov-btcd',f2(btcd)+'%'); setEl('s-btcd',f2(btcd)+'%');
   setEl('ov-vol',big(vol));
+  // KPI boxes in dark header
+  setEl('ov-kpi-mcap',big(mcap));
+  const mcapChgEl=document.getElementById('ov-kpi-mcap-chg');
+  if(mcapChgEl){mcapChgEl.textContent=pct(mcapC);mcapChgEl.style.color=mcapC>=0?'#4ADE80':'#F87171';}
+  setEl('ov-kpi-btcd',f2(btcd)+'%');
 
   const series=walk(96,mcap,0.008,Math.round(mcap/1e9));
   const {mn,mx}=buildChart('mcapChartSvg',series);
@@ -1105,6 +1274,9 @@ async function fetchMovers(){
   const r=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h,7d');
   const coins=await r.json();
   if(!Array.isArray(coins)) return;
+  top100Coins=coins;
+  renderBentoEcosystems();
+  renderBentoConsole();
 
   const MAP={bitcoin:'btc',ethereum:'eth',solana:'sol'};
   coins.forEach(c=>{
@@ -1157,6 +1329,7 @@ async function fetchMovers(){
 // COINGECKO CATEGORIES
 // ═══════════════════════════════════════
 let catData=[], catSortKey='h24', catSortDir=-1;
+let bybitTickers=[], top100Coins=[];
 
 async function enrichCat(cat){
   try {
@@ -1173,6 +1346,8 @@ async function fetchCategories(){
   catData=data;
   setEl('catCountLbl',`${data.length} tracked · click column to sort`);
   const s24=[...data].filter(c=>c.market_cap>5e7).sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0));
+  renderBentoNarratives();
+  renderBentoConsole();
   await Promise.all(s24.slice(0,3).map(enrichCat));
   renderTop3(); renderMomentumStrip();
   for(const cat of s24.slice(3,20)){ await enrichCat(cat); await new Promise(res=>setTimeout(res,150)); }
@@ -1306,6 +1481,8 @@ async function fetchBybit(){
     oi:parseFloat(t.openInterestValue)||0,
     funding:(parseFloat(t.fundingRate)||0)*100,
   })).filter(t=>t.oi>0);
+  bybitTickers=tickers;
+  renderBentoSqueeze();
 
   const topOI=[...tickers].sort((a,b)=>b.oi-a.oi).slice(0,15);
   const maxOI=topOI[0]?.oi||1;
@@ -2248,6 +2425,146 @@ function closeSectorDrill(){
   document.getElementById('sd-backdrop').classList.remove('open');
   document.getElementById('sd-drawer').classList.remove('open');
   document.body.style.overflow='';
+}
+
+// ═══════════════════════════════════════
+// BENTO CARDS
+// ═══════════════════════════════════════
+const BENTO_COLORS=['#9B59B6','#6C5CE7','#E17055','#74B9FF','#FD79A8','#00CEC9','#A29BFE','#FDCB6E'];
+
+function drawBentoDonut(canvasId,segs,colors){
+  const canvas=document.getElementById(canvasId); if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const cx=canvas.width/2,cy=canvas.height/2;
+  const R=Math.min(cx,cy)-3,hole=R*0.55;
+  const total=segs.reduce((s,v)=>s+v,0)||1;
+  let angle=-Math.PI/2;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  segs.forEach((v,i)=>{
+    const sweep=(v/total)*Math.PI*2;
+    ctx.beginPath();
+    ctx.arc(cx,cy,R,angle,angle+sweep);
+    ctx.arc(cx,cy,hole,angle+sweep,angle,true);
+    ctx.closePath();
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fill();
+    angle+=sweep;
+  });
+}
+
+function shortCatName(n){
+  return n.replace('Artificial Intelligence','AI').replace('Real World Assets','RWA')
+    .replace('Decentralized Finance','DeFi').replace('Non-Fungible Tokens','NFTs')
+    .replace('Non-Fungible Token','NFT').replace('Decentralized Exchange','DEX')
+    .replace('Decentralized Application','dApp');
+}
+
+// ── Narrative Velocity ────────────────────────────────────────────────────
+function renderBentoNarratives(){
+  if(!catData.length) return;
+  const top=[...catData].filter(c=>c.market_cap>5e7)
+    .sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0))
+    .slice(0,6);
+  const vals=top.map(c=>Math.max(0.1,Math.abs(c.market_cap_change_24h||0.1)));
+  drawBentoDonut('bc-donut-narr',vals.slice(0,5),BENTO_COLORS);
+  const legendEl=document.getElementById('bc-narr-legend');
+  if(legendEl) legendEl.innerHTML=top.slice(0,5).map((c,i)=>{
+    const chg=c.market_cap_change_24h||0;
+    return `<div class="bc-leg-item"><span class="bc-leg-dot" style="background:${BENTO_COLORS[i%BENTO_COLORS.length]}"></span><span style="overflow:hidden;text-overflow:ellipsis;flex:1">${shortCatName(c.name).slice(0,16)}</span><span class="bc-leg-val" style="color:${chg>=0?'#4ADE80':'#F87171'}">${chg>=0?'+':''}${f2(chg)}%</span></div>`;
+  }).join('');
+  const tblEl=document.getElementById('bc-narr-tbl');
+  if(tblEl) tblEl.innerHTML=top.slice(0,5).map(c=>{
+    const chg=c.market_cap_change_24h||0, chg7=c.market_cap_change_7d||0;
+    return `<tr><td class="bc-sym">${shortCatName(c.name).slice(0,14)}</td><td class="r" style="color:${chg>=0?'#4ADE80':'#F87171'}">${chg>=0?'+':''}${f2(chg)}%</td><td class="r" style="color:${chg7>=0?'rgba(74,222,128,.7)':'rgba(248,113,113,.7)'}">${chg7>=0?'+':''}${f2(chg7)}%</td></tr>`;
+  }).join('');
+  // telemetry
+  const now=new Date();
+  const t=`${String(now.getUTCHours()).padStart(2,'0')}:${String(now.getUTCMinutes()).padStart(2,'0')} UTC`;
+  setEl('ov-last-polled',`POLLED ${t}`);
+  setEl('ov-scan-speed',`${catData.length} CATS`);
+}
+
+// ── Squeeze & Derivatives ─────────────────────────────────────────────────
+function renderBentoSqueeze(){
+  if(!bybitTickers.length) return;
+  const topOI=[...bybitTickers].sort((a,b)=>b.oi-a.oi).slice(0,5);
+  const highFund=[...bybitTickers].filter(t=>t.funding>0).sort((a,b)=>b.funding-a.funding).slice(0,5);
+  drawBentoDonut('bc-donut-sqz',topOI.map(t=>t.oi),BENTO_COLORS);
+  const legendEl=document.getElementById('bc-sqz-legend');
+  if(legendEl) legendEl.innerHTML=topOI.map((t,i)=>`<div class="bc-leg-item"><span class="bc-leg-dot" style="background:${BENTO_COLORS[i]}"></span><span style="flex:1">${t.sym}</span><span class="bc-leg-val">${big(t.oi)}</span></div>`).join('');
+  const tblEl=document.getElementById('bc-sqz-tbl');
+  if(tblEl) tblEl.innerHTML=highFund.slice(0,5).map(t=>`<tr><td class="bc-sym">${t.sym}</td><td class="r">${big(t.oi)}</td><td class="r" style="color:${t.funding>0?'#F87171':'#4ADE80'}">${t.funding>0?'+':''}${t.funding.toFixed(4)}%</td></tr>`).join('');
+  const posCount=bybitTickers.filter(t=>t.funding>0.01).length;
+  const risk=Math.round((posCount/bybitTickers.length)*100);
+  setEl('bc-sqz-risk',risk+'%');
+  setEl('bc-sqz-liq','—');
+  setEl('bc-sqz-ls','—');
+  setEl('ov-kpi-oi',risk+'%');
+  setEl('ov-kpi-oi-sub',`${posCount} perps elevated`);
+}
+
+// ── Ecosystems Investigated ───────────────────────────────────────────────
+function renderBentoEcosystems(){
+  if(!top100Coins.length) return;
+  const filtered=top100Coins
+    .filter(c=>c.market_cap&&c.fully_diluted_valuation&&c.fully_diluted_valuation>0)
+    .map(c=>({sym:(c.symbol||'').toUpperCase(),mc:c.market_cap,fdv:c.fully_diluted_valuation,ratio:c.market_cap/c.fully_diluted_valuation}))
+    .filter(c=>c.ratio<0.9)
+    .sort((a,b)=>a.ratio-b.ratio)
+    .slice(0,8);
+  const tblEl=document.getElementById('bc-eco-tbl');
+  if(tblEl) tblEl.innerHTML=filtered.map(c=>{
+    const danger=c.ratio<0.10, warn=c.ratio<0.30;
+    const col=danger?'#F87171':warn?'#FDCB6E':'rgba(255,255,255,.8)';
+    return `<tr><td class="bc-sym">${c.sym}${danger?'<span class="bc-danger-tag">LOW FLOAT</span>':''}</td><td class="r" style="color:${col};font-weight:700;">${(c.ratio*100).toFixed(1)}%</td><td class="r">${big(c.mc)}</td></tr>`;
+  }).join('');
+}
+
+// ── Live Agent Console ────────────────────────────────────────────────────
+function renderBentoConsole(){
+  const logEl=document.getElementById('bc-console-log'); if(!logEl) return;
+  const lines=[];
+  if(catData.length){
+    const top=[...catData].filter(c=>c.market_cap>5e7).sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0));
+    if(top[0]){const n=shortCatName(top[0].name);lines.push({text:`&gt; ${n} +${f2(top[0].market_cap_change_24h||0)}% — rotation signal`,cls:''});}
+    if(top[1]){const n=shortCatName(top[1].name);lines.push({text:`&gt; ${n} narrative gaining momentum`,cls:''});}
+    lines.push({text:`&gt; Scanned ${catData.length} categories for momentum`,cls:'info'});
+  }
+  if(bybitTickers.length){
+    const hf=bybitTickers.filter(t=>t.funding>0.01).length;
+    lines.push({text:`&gt; ${hf} perps with elevated funding (&gt;0.01%)`,cls:hf>30?'warn':'info'});
+  }
+  if(top100Coins.length){
+    const lf=top100Coins.filter(c=>c.fully_diluted_valuation&&c.market_cap&&(c.market_cap/c.fully_diluted_valuation)<0.10).length;
+    if(lf>0) lines.push({text:`&gt; ${lf} low-float coins in top 100`,cls:'warn'});
+    lines.push({text:`&gt; MC/FDV scan: ${top100Coins.filter(c=>c.fully_diluted_valuation).length} coins analyzed`,cls:'info'});
+  }
+  lines.push({text:`&gt; Cycle complete ${new Date().toISOString().slice(11,19)} UTC`,cls:'info'});
+  logEl.innerHTML=lines.map(l=>`<div class="bc-log-line ${l.cls}">${l.text}</div>`).join('');
+  logEl.scrollTop=logEl.scrollHeight;
+  const chipsEl=document.getElementById('bc-console-chips');
+  if(chipsEl&&catData.length){
+    const top3=[...catData].filter(c=>c.market_cap>5e7).sort((a,b)=>(b.market_cap_change_24h||0)-(a.market_cap_change_24h||0)).slice(0,3);
+    const icons=['🔥','📊','⚡'];
+    chipsEl.innerHTML=top3.map((c,i)=>`<span class="bc-chip">${icons[i]} ${shortCatName(c.name).slice(0,14)}</span>`).join('');
+  }
+  if(catData.length){
+    const vols=catData.filter(c=>c.market_cap>5e7).map(c=>c.market_cap_change_24h||0);
+    const maxVel=vols.length?Math.max(...vols):0;
+    const fillPct=Math.min(100,Math.max(0,(maxVel+30)/60*100));
+    const velEl=document.getElementById('bc-vol-fill');
+    if(velEl) velEl.style.width=fillPct.toFixed(0)+'%';
+    setEl('bc-vol-pct',(maxVel>=0?'+':'')+f2(maxVel)+'%');
+    let score=50;
+    const posCount=catData.filter(c=>c.market_cap>5e7&&(c.market_cap_change_24h||0)>2).length;
+    const totalCats=catData.filter(c=>c.market_cap>5e7).length||1;
+    score=Math.min(100,Math.round(50+(posCount/totalCats)*50));
+    setEl('bc-agent-score',score.toString());
+  }
+  if(top100Coins.length){
+    const dangers=top100Coins.filter(c=>c.fully_diluted_valuation&&c.market_cap&&(c.market_cap/c.fully_diluted_valuation)<0.10).length;
+    setEl('bc-mcfdv-risk',`⚠ ${dangers} low-float`);
+  }
 }
 </script>
 
