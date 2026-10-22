@@ -97,15 +97,22 @@ a{text-decoration:none;color:inherit;}
 .sec-sub{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
 
 /* ── HERO PAIR ── */
-.hero-pair{display:flex;flex-wrap:wrap;gap:1px;background:var(--color-divider);border-bottom:2px solid var(--color-divider);margin-top:24px;}
-.hero-main{flex:3 1 520px;min-width:0;background:var(--color-bg);padding:24px 28px 16px 0;}
-.hero-side{flex:1 1 220px;min-width:0;background:var(--color-bg);padding:24px 0 16px 24px;}
+.hero-pair{display:flex;flex-wrap:nowrap;background:var(--color-bg);border-bottom:2px solid var(--color-text);margin-top:24px;align-items:stretch;}
+.hero-main{flex:1 1 0;min-width:0;background:var(--color-bg);padding:24px 28px 16px 0;border-right:2px solid var(--color-text);}
+.hero-side{flex:0 0 260px;min-width:0;display:flex;flex-direction:column;}
 .hero-kicker{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
 .hero-num{font-size:96px;font-weight:800;letter-spacing:-0.05em;line-height:1;font-variant-numeric:tabular-nums;}
 .hero-chg{font-size:22px;font-weight:800;}
 .hero-num-row{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:6px;}
 
-/* ── STAT CELLS ── */
+/* ── HERO KPI CARDS (right column of overview) ── */
+.hero-kpi-card{background:var(--color-bg);border-bottom:2px solid var(--color-text);flex:1;padding:18px 22px 14px;display:flex;flex-direction:column;justify-content:space-between;}
+.hero-kpi-card:last-child{border-bottom:none;}
+.hero-kpi-lbl{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;margin-bottom:8px;}
+.hero-kpi-val{font-size:38px;font-weight:800;letter-spacing:-0.04em;line-height:1;font-variant-numeric:tabular-nums;}
+.hero-kpi-sub{font-size:13px;font-weight:600;color:var(--color-neutral-700);margin-top:4px;}
+
+/* ── STAT CELLS (kept for other views) ── */
 .stat-cells{display:flex;flex-direction:column;height:100%;}
 .stat-cell{flex:1;padding:14px 0;border-bottom:1px solid var(--color-divider);}
 .stat-cell:last-child{border-bottom:none;}
@@ -550,10 +557,18 @@ a{text-decoration:none;color:inherit;}
             <div class="chart-xticks"><span>24h ago</span><span>18h</span><span>12h</span><span>6h</span><span>Now</span></div>
           </div>
           <div class="hero-side">
-            <div class="stat-cells">
-              <div class="stat-cell"><div class="stat-cell-lbl">24H Volume</div><div class="stat-cell-val" id="ov-vol">—</div></div>
-              <div class="stat-cell"><div class="stat-cell-lbl">BTC Dominance</div><div class="stat-cell-val" id="ov-btcd">—</div></div>
-              <div class="stat-cell"><div class="stat-cell-lbl">Fear &amp; Greed</div><div class="stat-cell-val" id="ov-fg">—</div><div class="stat-cell-sub" id="ov-fg-lbl" style="color:var(--color-neutral-700);"></div></div>
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-lbl">24H Volume</div>
+              <div class="hero-kpi-val" id="ov-vol">—</div>
+            </div>
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-lbl">BTC Dominance</div>
+              <div class="hero-kpi-val" id="ov-btcd">—</div>
+            </div>
+            <div class="hero-kpi-card">
+              <div class="hero-kpi-lbl">Fear &amp; Greed</div>
+              <div class="hero-kpi-val" id="ov-fg">—</div>
+              <div class="hero-kpi-sub" id="ov-fg-lbl"></div>
             </div>
           </div>
         </div>
@@ -1252,11 +1267,18 @@ async function fetchGlobal(){
   setEl('s-mcap',big(mcap)); setEl('s-mcap-chg',pct(mcapC),mcapC>=0?'var(--color-up)':'var(--color-dn)');
   setEl('ov-btcd',f2(btcd)+'%'); setEl('s-btcd',f2(btcd)+'%');
   setEl('ov-vol',big(vol));
-  // KPI boxes in dark header
+  // KPI boxes in overview header
   setEl('ov-kpi-mcap',big(mcap));
   const mcapChgEl=document.getElementById('ov-kpi-mcap-chg');
-  if(mcapChgEl){mcapChgEl.textContent=pct(mcapC);mcapChgEl.style.color=mcapC>=0?'#4ADE80':'#F87171';}
+  if(mcapChgEl){mcapChgEl.textContent=pct(mcapC);mcapChgEl.style.color=mcapC>=0?'var(--color-up)':'var(--color-dn)';}
   setEl('ov-kpi-btcd',f2(btcd)+'%');
+  // Fear & Greed from CoinGecko Pro /global
+  const fg=g.fear_and_greed_index;
+  if(fg){
+    setEl('ov-fg',String(fg.value??fg));
+    const fgLbl=document.getElementById('ov-fg-lbl');
+    if(fgLbl) fgLbl.textContent=fg.value_classification||'';
+  }
 
   const series=walk(96,mcap,0.008,Math.round(mcap/1e9));
   const {mn,mx}=buildChart('mcapChartSvg',series);
