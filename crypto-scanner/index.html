@@ -1652,15 +1652,20 @@ function renderProtoTable(){
 // FEAR & GREED
 // ═══════════════════════════════════════
 async function fetchFearGreed(){
-  const r=await fetch('https://api.alternative.me/fng/?limit=1');
-  const d=await r.json();
-  const val=parseInt(d.data[0].value);
-  const cls=d.data[0].value_classification;
-  setEl('ov-fg',String(val));
-  setEl('ov-fg-lbl',cls);
-  setEl('ms-fg-num',String(val));
-  setEl('ms-fg-badge',cls);
-  drawMsGauge(val);
+  try{
+    const r=await fetch('https://www.coingecko.com/etl2/fear_and_greed_index/max?locale=en');
+    const d=await r.json();
+    const series=d.series&&d.series[0]&&d.series[0].data;
+    if(!series||!series.length) return;
+    const last=series[series.length-1];
+    const val=Math.round(last[1]);
+    const cls=val>=75?'Extreme Greed':val>=56?'Greed':val>=46?'Neutral':val>=26?'Fear':'Extreme Fear';
+    setEl('ov-fg',String(val));
+    setEl('ov-fg-lbl',cls);
+    setEl('ms-fg-num',String(val));
+    setEl('ms-fg-badge',cls);
+    drawMsGauge(val);
+  }catch(e){console.warn('Fear&Greed fetch failed',e);}
 }
 
 // ═══════════════════════════════════════
