@@ -91,17 +91,22 @@ a{text-decoration:none;color:inherit;}
 .tel-bars span{display:block;width:2.5px;background:#4ADE80;border-radius:1px;}
 .ph-wave-wrap{width:100%;height:50px;opacity:.55;}
 
-/* KPI cards — glass on dark */
+/* KPI cards — glass on dark, tinted to match bot palette */
 .ph-right{display:flex;flex-direction:column;align-items:flex-end;gap:0;flex-shrink:0;padding-bottom:22px;}
 .ph-metrics{display:flex;gap:8px;}
-.metric-box{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 18px;min-width:124px;text-align:center;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);transition:background .3s,border-color .3s;}
-.metric-box.pnl-pos{background:rgba(240,253,244,.1);border-color:rgba(187,247,208,.25);}
-.metric-box.pnl-neg{background:rgba(254,242,242,.08);border-color:rgba(252,202,202,.25);}
-.mb-lbl{font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px;}
+.metric-box{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 18px;min-width:124px;text-align:center;backdrop-filter:blur(10px);transition:background .3s,border-color .3s;}
+/* per-card tints matching SEG_COLORS */
+.metric-box.mb-purple{background:rgba(108,92,231,.18);border-color:rgba(108,92,231,.4);}
+.metric-box.mb-teal  {background:rgba(0,206,201,.14);border-color:rgba(0,206,201,.35);}
+.metric-box.mb-blue  {background:rgba(116,185,255,.14);border-color:rgba(116,185,255,.35);}
+/* P&L overrides on positive/negative */
+.metric-box.mb-purple.pnl-pos{background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.3);}
+.metric-box.mb-purple.pnl-neg{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.3);}
+.mb-lbl{font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:5px;}
 .mb-val{font-size:20px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:#FFFFFF;}
 .mb-val.pos{color:#4ADE80;}
 .mb-val.neg{color:#F87171;}
-.mb-sub{font-size:9.5px;color:rgba(255,255,255,.28);margin-top:4px;font-family:var(--mono);}
+.mb-sub{font-size:9.5px;color:rgba(255,255,255,.32);margin-top:4px;font-family:var(--mono);}
 
 /* teal separator */
 .ph-separator{height:2px;background:linear-gradient(90deg,#00D4AA 0%,#38BDF8 38%,transparent 68%);}
@@ -305,17 +310,17 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         <!-- right: KPI cards -->
         <div class="ph-right">
           <div class="ph-metrics">
-            <div class="metric-box" id="m-pnl-box">
+            <div class="metric-box mb-purple" id="m-pnl-box">
               <div class="mb-lbl">Total P&amp;L</div>
               <div class="mb-val" id="m-pnl">—</div>
               <div class="mb-sub" id="m-pnl-sub">All bots · Realtime</div>
             </div>
-            <div class="metric-box">
+            <div class="metric-box mb-teal">
               <div class="mb-lbl">Win Rate</div>
               <div class="mb-val" id="m-winrate">—</div>
               <div class="mb-sub" id="m-wr-sub">—</div>
             </div>
-            <div class="metric-box">
+            <div class="metric-box mb-blue">
               <div class="mb-lbl">Open Positions</div>
               <div class="mb-val" id="m-open">—</div>
               <div class="mb-sub" id="m-open-sub">—</div>
@@ -683,7 +688,7 @@ function renderTopMetrics(trades){
   pnlEl.textContent=closed.length?(pnl>=0?'+$':'−$')+Math.abs(pnl).toFixed(2):'—';
   pnlEl.className='mb-val'+(pnl>0?' pos':pnl<0?' neg':'');
   const pnlBox=document.getElementById('m-pnl-box');
-  if(pnlBox) pnlBox.className='metric-box'+(pnl>0?' pnl-pos':pnl<0?' pnl-neg':'');
+  if(pnlBox) pnlBox.className='metric-box mb-purple'+(pnl>0?' pnl-pos':pnl<0?' pnl-neg':'');
 
   // Win Rate card
   const wrEl=document.getElementById('m-winrate');
