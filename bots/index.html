@@ -327,6 +327,39 @@ canvas.donut-c{display:block;}
         </div>
       </div>
 
+      <!-- ── FINORA BOT CARD ── -->
+      <div class="bot-card">
+        <div class="card-hdr">
+          <div>
+            <div class="card-name">FinoraBot</div>
+            <div class="card-sub">Telegram Signals · Spot Paper</div>
+          </div>
+          <span class="active-badge">ACTIVE</span>
+        </div>
+
+        <div class="donut-wrap">
+          <canvas id="donut-finora" class="donut-c"></canvas>
+          <div class="donut-center">
+            <div class="dc-pct" id="dc-finora-pct">—</div>
+            <div class="dc-usd" id="dc-finora-usd" style="font-size:10px">win rate</div>
+          </div>
+        </div>
+
+        <div class="tf-section">
+          <div class="tf-title">Signal Feed</div>
+          <div class="tf-sub">Finora signals processed by Claude</div>
+          <div class="tf-scroll">
+            <div id="feed-finora-body"><div class="tf-empty">Loading…</div></div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="cf-stat"><div class="cf-lbl">Avg P&amp;L</div><div class="cf-val" id="cf-finora-avg">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Closed</div><div class="cf-val" id="cf-finora-closed">—</div></div>
+          <div class="cf-stat"><div class="cf-lbl">Win rate</div><div class="cf-val" id="cf-finora-wr">—</div></div>
+        </div>
+      </div>
+
     </div><!-- /card-grid -->
 
     <!-- STRATEGY EXPLORER -->
@@ -406,18 +439,19 @@ let ALL_TRADES=[];
 async function loadData(){
   if(!_sb){renderAll([]);return;}
   try{
-    const[r1,r2,r3]=await Promise.all([
+    const[r1,r2,r3,r4]=await Promise.all([
       _sb.from('gecko_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('gecko_spot_trades').select('*').order('opened_at',{ascending:false}).limit(300),
       _sb.from('gecko_spot_fast_trades').select('*').order('opened_at',{ascending:false}).limit(300),
+      _sb.from('finora_trades').select('*').order('opened_at',{ascending:false}).limit(200),
     ]);
     if(r1.error) throw r1.error;
     if(r2.error) throw r2.error;
-    // r3 may not exist yet — silently ignore if table missing
     const perps=(r1.data||[]).map(t=>normGecko(t,'gecko-01'));
     const spot=(r2.data||[]).map(t=>normGecko(t,'gecko-spot'));
     const fast=r3.error?[]:(r3.data||[]).map(t=>normGecko(t,'gecko-fast'));
-    ALL_TRADES=[...perps,...spot,...fast].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
+    const finora=r4.error?[]:(r4.data||[]).map(normFinora);
+    ALL_TRADES=[...perps,...spot,...fast,...finora].sort((a,b)=>new Date(b.openedAt)-new Date(a.openedAt));
     await enrichLivePnl(ALL_TRADES);
     renderAll(ALL_TRADES);
   }catch(e){console.error(e);}
@@ -462,6 +496,7 @@ function renderAll(trades){
   renderBotCard(trades.filter(t=>t.botId==='gecko-01'),'perps','perps');
   renderBotCard(trades.filter(t=>t.botId==='gecko-spot'),'spot','spot');
   renderBotCard(trades.filter(t=>t.botId==='gecko-fast'),'fast','spot');
+  renderFinoraCard(trades.filter(t=>t.botId==='finora'));
   renderStrategyCard(trades);
   renderThoughtFeed(trades);
 }
@@ -590,6 +625,61 @@ function renderTradeFeed(bodyId,openTrades,segs,type){
     return`<tr><td><div class="tf-asset"><div class="tf-icon" style="background:${color}">${escH(initials)}</div><div><div class="tf-sym">${escH(t.symbol)}</div><div class="tf-dir">${t.dir==='LONG'?'Long':'Short'}</div></div></div></td>${col2}<td>${sparkline(t)}</td></tr>`;
   }).join('');
   el.innerHTML=`<table class="tf-table"><thead><tr><th>Asset</th><th>${col2Hdr}</th><th>7-day</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+// ─── FINORA NORMALISER ───
+function normFinora(t){
+  return{botId:'finora',symbol:t.pair||t.token||'—',dir:t.bias==='bullish'?'LONG':'SHORT',
+    entry:t.entry_price,exit:t.close_price||null,pnlUsd:null,
+    pnlPct:t.pnl_pct!=null?t.pnl_pct:null,  // already ×100 (e.g. 5.2 = +5.2%)
+    openedAt:t.opened_at||'',status:t.outcome==='open'?'open':'closed',
+    exitType:t.outcome||null,narrative:t.signal_quality||'',
+    thesis:t.recommendation||'',conviction:t.confluence_score??null,
+    coinId:'',qty:null,livePrice:null,livePnlUsd:null,livePnlPct:null,
+    // finora-specific extras
+    confluenceScore:t.confluence_score??null,token:t.token||''};
+}
+
+// ─── RENDER FINORA CARD ───
+function renderFinoraCard(trades){
+  const open=trades.filter(t=>t.status==='open');
+  const closed=trades.filter(t=>t.status==='closed'&&t.pnlPct!=null);
+  const wins=closed.filter(t=>t.pnlPct>0).length;
+  const wr=closed.length?(wins/closed.length*100):null;
+  const avgPnl=closed.length?closed.reduce((s,t)=>s+(t.pnlPct||0),0)/closed.length:null;
+
+  // donut: outcome distribution — win/stopped/expired/open
+  const outcomeColors={'open':'#9B59B6','win':'#12B76A','stopped':'#F04438','expired':'#F59E0B','loss':'#F04438'};
+  const counts={};
+  trades.forEach(t=>{ const k=t.exitType||'open'; counts[k]=(counts[k]||0)+1; });
+  const segs=Object.entries(counts).map(([k,v])=>({weight:v,color:outcomeColors[k]||'#98A2B3'}));
+  if(!segs.length) segs.push({weight:1,color:'#DDE1F0'});
+  drawDonut('donut-finora',segs);
+
+  const pctEl=document.getElementById('dc-finora-pct');
+  if(pctEl) pctEl.textContent=wr!=null?Math.round(wr)+'%':'—';
+
+  // signal feed table
+  const bodyEl=document.getElementById('feed-finora-body');
+  if(bodyEl){
+    if(!open.length){ bodyEl.innerHTML='<div class="tf-empty">No open signals</div>'; }
+    else{
+      const rows=open.map((t,i)=>{
+        const color=SEG_COLORS[i%SEG_COLORS.length];
+        const initials=(t.token||t.symbol).replace('/USDT','').slice(0,3);
+        const score=t.confluenceScore!=null?(t.confluenceScore*100).toFixed(0)+'%':'—';
+        return`<tr><td><div class="tf-asset"><div class="tf-icon" style="background:${color}">${escH(initials)}</div><div><div class="tf-sym">${escH(t.symbol)}</div><div class="tf-dir">${t.dir==='LONG'?'Long':'Short'}</div></div></div></td><td class="tf-pct-nil">${score}</td><td>${sparkline(t)}</td></tr>`;
+      }).join('');
+      bodyEl.innerHTML=`<table class="tf-table"><thead><tr><th>Signal</th><th>Score</th><th>Chart</th></tr></thead><tbody>${rows}</tbody></table>`;
+    }
+  }
+
+  const avgEl=document.getElementById('cf-finora-avg');
+  if(avgEl){ avgEl.textContent=avgPnl!=null?(avgPnl>=0?'+':'')+avgPnl.toFixed(1)+'%':'—'; avgEl.className='cf-val'+(avgPnl>0?' pos':avgPnl<0?' neg':''); }
+  const clsEl=document.getElementById('cf-finora-closed');
+  if(clsEl) clsEl.textContent=closed.length||'0';
+  const wrEl=document.getElementById('cf-finora-wr');
+  if(wrEl) wrEl.textContent=wr!=null?wr.toFixed(1)+'%':'—';
 }
 
 // ─── STRATEGY EXPLORER (horizontal bars) ───
