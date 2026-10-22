@@ -112,20 +112,28 @@ a{text-decoration:none;color:inherit;}
 /* ─── CARD GRID ─── */
 .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
 
-/* ─── LIVE CONSOLE CARD ─── */
-.console-section{padding:0 16px 6px;flex:1;display:flex;flex-direction:column;gap:0;}
-.console-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;}
-.console-log{background:#F8FAFC;border:1px solid var(--border);border-radius:8px;padding:9px 13px;min-height:96px;overflow-y:auto;font-family:var(--mono);font-size:10.5px;line-height:1.9;color:#475569;margin-bottom:8px;}
+/* ─── LIVE AGENT CONSOLE (wide horizontal) ─── */
+.console-wide{display:flex;gap:0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden;margin-bottom:20px;}
+.cw-col{padding:18px 20px;display:flex;flex-direction:column;}
+.cw-col-feed{flex:2;border-right:1px solid var(--border);}
+.cw-col-narr{flex:2;border-right:1px solid var(--border);}
+.cw-col-ticker{flex:1.2;min-width:160px;}
+.cw-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0;}
+.cw-title{font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.2;}
+.cw-sub{font-size:11px;color:var(--text-3);margin-top:3px;font-style:italic;}
+
+.console-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);}
+.console-log{background:#F8FAFC;border:1px solid var(--border);border-radius:8px;padding:9px 13px;min-height:80px;overflow-y:auto;font-family:var(--mono);font-size:10.5px;line-height:1.9;color:#475569;flex:1;}
 .cl-line::before{content:'> ';color:#94A3B8;}
-.console-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.console-tags{display:flex;gap:6px;flex-wrap:wrap;}
 .console-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:6px;border:1px solid;}
-.console-bars-wrap{display:flex;flex-direction:column;gap:5px;}
+.console-bars-wrap{display:flex;flex-direction:column;gap:6px;flex:1;}
 .console-bar-row{display:flex;align-items:center;gap:8px;}
 .console-bar-lbl{font-size:10px;color:var(--text-3);min-width:96px;font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .console-bar-track{flex:1;height:5px;background:var(--bg);border-radius:3px;overflow:hidden;}
 .console-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#6C5CE7,#8B5CF6);}
-.console-ticker{padding:8px 16px 10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;margin-top:auto;}
-.console-ticker-sym{font-size:13px;font-weight:700;color:var(--text);font-family:var(--mono);}
+.console-ticker{display:flex;align-items:center;gap:10px;}
+.console-ticker-sym{font-size:14px;font-weight:700;color:var(--text);font-family:var(--mono);}
 .console-ticker-px{font-size:11px;color:var(--text-3);font-family:var(--mono);}
 .console-ticker-dir{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;margin-left:auto;}
 
@@ -427,40 +435,6 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
         </div>
       </div>
 
-      <!-- ── LIVE AGENT CONSOLE CARD ── -->
-      <div class="bot-card">
-        <div class="card-hdr">
-          <div>
-            <div class="card-name">Live Agent Console</div>
-            <div class="card-sub">(Scout Agent Console)</div>
-          </div>
-          <span class="active-badge">LIVE</span>
-        </div>
-
-        <div class="console-section">
-          <div class="console-lbl">Agent Thought Feed</div>
-          <div class="console-log" id="console-log">
-            <div class="cl-line">Initializing scanner…</div>
-          </div>
-          <div class="console-lbl">Active Narratives</div>
-          <div class="console-tags" id="console-tags">
-            <span class="console-tag" style="background:#F3F4F6;color:#6B7280;border-color:#E5E7EB">Loading…</span>
-          </div>
-          <div class="console-lbl">Signal Strength</div>
-          <div class="console-bars-wrap" id="console-bars">
-            <div class="console-bar-row">
-              <div class="console-bar-lbl">Narrative vol.</div>
-              <div class="console-bar-track"><div class="console-bar-fill" style="width:0%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="console-ticker" id="console-ticker">
-          <span class="console-ticker-sym">—</span>
-          <span class="console-ticker-px">No open trades</span>
-        </div>
-      </div>
-
       <!-- ── FINORA BOT CARD ── -->
       <div class="bot-card">
         <div class="card-hdr">
@@ -495,6 +469,50 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
       </div>
 
     </div><!-- /card-grid -->
+
+    <!-- LIVE AGENT CONSOLE (wide horizontal) -->
+    <div class="console-wide">
+      <!-- left: header + thought feed -->
+      <div class="cw-col cw-col-feed">
+        <div class="cw-hdr">
+          <div>
+            <div class="cw-title">Live Agent Console</div>
+            <div class="cw-sub">(Scout Agent Console)</div>
+          </div>
+          <span class="active-badge" style="margin-top:0">LIVE</span>
+        </div>
+        <div class="console-lbl" style="margin:10px 0 5px">Agent Thought Feed</div>
+        <div class="console-log" id="console-log">
+          <div class="cl-line">Initializing scanner…</div>
+        </div>
+      </div>
+
+      <!-- center: active narratives + signal bars -->
+      <div class="cw-col cw-col-narr">
+        <div class="console-lbl" style="margin-bottom:8px">Active Narratives</div>
+        <div class="console-tags" id="console-tags">
+          <span class="console-tag" style="background:#F3F4F6;color:#6B7280;border-color:#E5E7EB">Loading…</span>
+        </div>
+        <div class="console-lbl" style="margin:14px 0 8px">Signal Strength</div>
+        <div class="console-bars-wrap" id="console-bars">
+          <div class="console-bar-row">
+            <div class="console-bar-lbl">Narrative vol.</div>
+            <div class="console-bar-track"><div class="console-bar-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right: recent ticker + open positions summary -->
+      <div class="cw-col cw-col-ticker">
+        <div class="console-lbl" style="margin-bottom:8px">Recent Position</div>
+        <div class="console-ticker" id="console-ticker" style="border-top:none;padding:0;margin-bottom:14px;">
+          <span class="console-ticker-sym">—</span>
+          <span class="console-ticker-px">No open trades</span>
+        </div>
+        <div class="console-lbl" style="margin-bottom:6px">All Open Positions</div>
+        <div id="console-open-summary" style="font-size:11px;color:var(--text-3);font-family:var(--mono);line-height:1.8;">—</div>
+      </div>
+    </div><!-- /console-wide -->
 
     <!-- STRATEGY EXPLORER -->
     <div class="strat-section">
@@ -915,6 +933,20 @@ function renderLiveConsole(trades){
       tickerEl.innerHTML=`<span class="console-ticker-sym">${escH(sym)}</span><span class="console-ticker-px">${px}</span><span class="console-ticker-dir" style="${dirColor}">${recent.dir}</span>`;
     } else {
       tickerEl.innerHTML='<span class="console-ticker-sym">—</span><span class="console-ticker-px">No open trades</span>';
+    }
+  }
+  // Open positions summary list
+  const summaryEl=document.getElementById('console-open-summary');
+  if(summaryEl){
+    if(open.length){
+      summaryEl.innerHTML=open.slice(0,6).map(t=>{
+        const sym=t.symbol.replace('/USDT','').replace('USDT','');
+        const pnl=t.livePnlPct!=null?(t.livePnlPct>=0?'+':'')+t.livePnlPct.toFixed(2)+'%':'—';
+        const col=t.livePnlPct==null?'var(--text-3)':t.livePnlPct>=0?'#16A34A':'#DC2626';
+        return`<div style="display:flex;justify-content:space-between;gap:8px"><span>${escH(sym)}</span><span style="color:${col}">${pnl}</span></div>`;
+      }).join('');
+    } else {
+      summaryEl.textContent='No open positions';
     }
   }
 }
