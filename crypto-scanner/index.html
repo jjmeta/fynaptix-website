@@ -2367,8 +2367,8 @@ function renderCgTrending(){
   if(!coins.length){el.innerHTML='<div style="color:var(--color-neutral-600);font-size:13px;">Loading…</div>';return;}
   el.innerHTML=coins.map(c=>{
     const md=trendingData.marketData?.[c.id];
-    const price=md?.current_price??parseFloat(String(c.data?.price||'').replace(/[^0-9.]/g,''))||null;
-    const chg=md?.price_change_percentage_24h??c.data?.price_change_percentage_24h?.usd??null;
+    const price=(md?.current_price ?? parseFloat(String(c.data?.price||'').replace(/[^0-9.]/g,''))) || null;
+    const chg=md?.price_change_percentage_24h ?? (c.data?.price_change_percentage_24h?.usd ?? null);
     const chgCol=chg===null?'var(--color-neutral-700)':chg>=0?'var(--color-up)':'var(--color-dn)';
     return `<div class="cg-coin-row">
       <img class="cg-coin-logo" src="${c.thumb||''}" alt="${c.symbol}" onerror="this.style.display='none'">
