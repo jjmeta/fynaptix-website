@@ -57,23 +57,62 @@ a{text-decoration:none;color:inherit;}
 #app-root{min-height:100vh;display:flex;flex-direction:column;}
 
 /* ─── PAGE HEADER ─── */
-.page-header{background:var(--card);border-bottom:1px solid var(--border);padding:28px 32px;}
-.ph-inner{max-width:1400px;margin:0 auto;}
-.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:20px;}
-.ph-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.ph-brand{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
-.live-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--green-text);background:var(--green-bg);padding:3px 10px;border-radius:20px;}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(.8);}}
-.ph-title{font-size:30px;font-weight:700;letter-spacing:-.03em;color:var(--text);line-height:1;margin-bottom:7px;}
-.ph-desc{font-size:13px;color:var(--text-3);max-width:500px;line-height:1.65;}
+.page-header{
+  background:linear-gradient(135deg,#080C1E 0%,#130D38 35%,#0E1628 65%,#0A1220 100%);
+  border-bottom:none;
+  padding:36px 32px 30px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 4px 32px rgba(0,0,20,.45);
+}
+/* ambient radial glows */
+.page-header::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 120% at 10% 60%,rgba(108,92,231,.22) 0%,transparent 60%),
+    radial-gradient(ellipse 35% 80% at 75% 20%,rgba(18,183,106,.12) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 60% at 90% 85%,rgba(99,102,241,.14) 0%,transparent 55%);
+}
+/* subtle grid overlay */
+.page-header::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.ph-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1;}
+.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:0;}
+.ph-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.ph-brand{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);}
+.live-chip{
+  display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  color:#4ADE80;background:rgba(18,183,106,.15);border:1px solid rgba(18,183,106,.32);
+  padding:3px 11px;border-radius:20px;
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 7px #4ADE80;animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.55;transform:scale(.8);}}
+.ph-title{
+  font-size:32px;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;
+  background:linear-gradient(100deg,#FFFFFF 0%,#C4B5FD 55%,#93C5FD 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ph-desc{font-size:13px;color:rgba(255,255,255,.42);max-width:480px;line-height:1.7;}
 
-.ph-metrics{display:flex;gap:10px;flex-shrink:0;align-self:flex-start;padding-top:4px;}
-.metric-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px 22px;min-width:148px;text-align:center;}
-.mb-lbl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:5px;}
-.mb-val{font-size:24px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;}
-.mb-val.pos{color:var(--green-text);}
-.mb-val.neg{color:var(--red-dark);}
+/* decorative candlestick watermark */
+.ph-deco{position:absolute;right:0;bottom:0;width:260px;height:110px;opacity:.055;pointer-events:none;z-index:0;}
+
+/* metric boxes — glassmorphism */
+.ph-metrics{display:flex;gap:10px;flex-shrink:0;align-self:flex-start;}
+.metric-box{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:12px;padding:16px 24px;min-width:148px;text-align:center;
+}
+.mb-lbl{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:6px;}
+.mb-val{font-size:24px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;color:#FFFFFF;}
+.mb-val.pos{color:#4ADE80;}
+.mb-val.neg{color:#FC8181;}
 
 /* ─── CONTENT AREA ─── */
 .content{max-width:1400px;margin:0 auto;width:100%;padding:22px 32px 36px;}
@@ -196,6 +235,34 @@ canvas.donut-c{display:block;filter:drop-shadow(0 5px 14px rgba(0,0,20,.18));}
 
   <!-- PAGE HEADER -->
   <div class="page-header">
+    <!-- candlestick watermark -->
+    <svg class="ph-deco" viewBox="0 0 260 110" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <!-- wicks -->
+      <line x1="20" y1="70" x2="20" y2="100" stroke="white" stroke-width="1.2"/>
+      <line x1="20" y1="20" x2="20" y2="40" stroke="white" stroke-width="1.2"/>
+      <line x1="55" y1="55" x2="55" y2="90" stroke="white" stroke-width="1.2"/>
+      <line x1="55" y1="10" x2="55" y2="28" stroke="white" stroke-width="1.2"/>
+      <line x1="90" y1="42" x2="90" y2="75" stroke="white" stroke-width="1.2"/>
+      <line x1="90" y1="8" x2="90" y2="22" stroke="white" stroke-width="1.2"/>
+      <line x1="125" y1="30" x2="125" y2="60" stroke="white" stroke-width="1.2"/>
+      <line x1="125" y1="6" x2="125" y2="18" stroke="white" stroke-width="1.2"/>
+      <line x1="160" y1="18" x2="160" y2="45" stroke="white" stroke-width="1.2"/>
+      <line x1="160" y1="4" x2="160" y2="12" stroke="white" stroke-width="1.2"/>
+      <line x1="195" y1="10" x2="195" y2="35" stroke="white" stroke-width="1.2"/>
+      <line x1="195" y1="2" x2="195" y2="8" stroke="white" stroke-width="1.2"/>
+      <line x1="230" y1="5" x2="230" y2="28" stroke="white" stroke-width="1.2"/>
+      <!-- bodies -->
+      <rect x="13" y="40" width="14" height="30" rx="1.5" fill="white"/>
+      <rect x="48" y="28" width="14" height="27" rx="1.5" fill="white"/>
+      <rect x="83" y="22" width="14" height="20" rx="1.5" fill="white"/>
+      <rect x="118" y="18" width="14" height="12" rx="1.5" fill="white"/>
+      <rect x="153" y="12" width="14" height="6" rx="1.5" fill="white"/>
+      <rect x="188" y="8" width="14" height="4" rx="1.5" fill="white"/>
+      <rect x="223" y="5" width="14" height="3" rx="1.5" fill="white"/>
+      <!-- trend line -->
+      <polyline points="20,55 55,42 90,32 125,24 160,18 195,11 230,7" stroke="white" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+    </svg>
+
     <div class="ph-inner">
       <div class="ph-top">
         <div class="ph-left">
@@ -550,9 +617,9 @@ function drawDonut(canvasId,segments){
   segments.forEach(seg=>{
     const angle=(seg.weight/total)*Math.PI*2;
     const gap=segments.length>1?0.055:0;
-    // inner edge ≈ 78% blended to white → full saturated color at outer edge
+    // inner edge gently lifted (+22% toward white) → full colour at outer edge
     const grad=ctx.createRadialGradient(cx,cy,r,cx,cy,R);
-    grad.addColorStop(0,_blendToWhite(seg.color,0.78));
+    grad.addColorStop(0,_blendToWhite(seg.color,0.22));
     grad.addColorStop(1,seg.color);
     ctx.beginPath();
     ctx.arc(cx,cy,R,start+gap/2,start+angle-gap/2);
