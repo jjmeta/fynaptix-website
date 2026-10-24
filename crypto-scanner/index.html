@@ -464,7 +464,7 @@ a{text-decoration:none;color:inherit;}
       <div class="ov-header">
         <div class="ov-ph-inner">
           <div class="ov-ph-left">
-            <div class="ov-ph-title"><span class="ov-ph-heart">♥</span>Overview</div>
+            <div class="ov-ph-title">Overview</div>
             <div class="ov-ph-desc">AI-powered narrative rotation · OI squeeze detection · Real-time market intelligence</div>
             <div class="ov-ph-tel">
               <div class="ov-tel-item"><span class="ov-tel-dot ov-tel-ok"></span>CG PRO API</div>
@@ -1653,7 +1653,7 @@ function renderProtoTable(){
 // ═══════════════════════════════════════
 async function fetchFearGreed(){
   try{
-    const r=await fetch('https://www.coingecko.com/etl2/fear_and_greed_index/max?locale=en');
+    const r=await fetch('/api/fg');
     const d=await r.json();
     const series=d.series&&d.series[0]&&d.series[0].data;
     if(!series||!series.length) return;
