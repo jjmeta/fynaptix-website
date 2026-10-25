@@ -11,6 +11,10 @@ const ALLOWED = [
   /^\/search\/trending$/,
   /^\/simple\/price$/,
   /^\/coins\/[a-z0-9-]+\/market_chart$/,
+  /^\/rwas\/markets$/,
+  /^\/rwas\/list$/,
+  /^\/rwas\/[a-z0-9-]+$/,
+  /^\/rwas\/issuers\/[a-z0-9-]+$/,
 ];
 
 function ttl(path) {

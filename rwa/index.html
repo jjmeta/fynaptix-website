@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Fynaptix · RWA Scanner</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --color-bg: #f3f2f2;
+  --color-text: #201e1d;
+  --color-accent: #ec3013;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+  --color-accent-700: #ae1800;
+  --color-up: #201e1d;
+  --color-dn: #ae1800;
+  --font: "Archivo", system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--color-bg);color:var(--color-text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;height:100vh;overflow:hidden;display:flex;}
+a{text-decoration:none;color:inherit;}
+
+/* ── SIDEBAR ── */
+.sidebar{width:232px;flex-shrink:0;display:flex;flex-direction:column;border-right:2px solid var(--color-text);height:100vh;overflow-y:auto;scrollbar-width:none;}
+.sidebar::-webkit-scrollbar{display:none;}
+.sb-brand{padding:20px 20px 16px;border-bottom:2px solid var(--color-text);}
+.sb-brand-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.sb-brand-sq{width:8px;height:8px;background:var(--color-accent);flex-shrink:0;}
+.sb-brand-kicker{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-700);font-weight:400;}
+.sb-brand-title{font-size:24px;font-weight:800;line-height:1;}
+.sb-group{padding:16px 20px 6px;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-neutral-600);font-weight:400;}
+.sb-item{display:grid;grid-template-columns:28px 1fr;align-items:center;padding:11px 20px;cursor:pointer;user-select:none;font-size:14px;font-weight:600;color:var(--color-neutral-700);transition:background .1s;border:none;background:none;width:100%;text-align:left;}
+.sb-item:hover{background:var(--color-neutral-200);}
+.sb-item.active{background:var(--color-neutral-200);box-shadow:inset 4px 0 0 var(--color-accent);color:var(--color-text);}
+.sb-item-num{font-size:11px;font-weight:400;color:var(--color-neutral-500);}
+.sb-item.active .sb-item-num{color:var(--color-accent-700);}
+.sb-footer{padding:16px 20px 20px;border-top:2px solid var(--color-text);margin-top:auto;}
+.sb-clock{font-size:11px;letter-spacing:0.08em;color:var(--color-neutral-700);margin-bottom:10px;font-weight:400;}
+.sb-hub{font-size:13px;font-weight:600;color:var(--color-neutral-700);display:block;}
+.sb-hub:hover{color:var(--color-text);}
+.sb-stat{padding:10px 20px 6px;border-top:1px solid var(--color-divider);}
+.sb-stat-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-600);margin-bottom:2px;}
+.sb-stat-val{font-size:18px;font-weight:800;letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums;}
+.sb-stat-chg{font-size:11px;font-weight:600;margin-top:1px;}
+
+/* ── MAIN ── */
+.main-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+
+/* ── STRIP ── */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-bottom:2px solid var(--color-text);flex-shrink:0;overflow:hidden;}
+.strip-cell{padding:10px 16px;outline:1px solid var(--color-divider);}
+.strip-lbl{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;margin-bottom:2px;}
+.strip-val{font-size:16px;font-weight:800;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;}
+.strip-chg{font-size:11px;font-weight:600;font-variant-numeric:tabular-nums;}
+
+/* ── CONTENT ── */
+.content{flex:1;overflow-y:auto;overflow-x:hidden;}
+
+/* ── PAGE HEADER ── */
+.page-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:32px 32px 24px;border-bottom:2px solid var(--color-text);flex-wrap:wrap;}
+.page-kicker{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-700);font-weight:400;margin-bottom:6px;}
+.page-title{font-size:64px;font-weight:800;line-height:0.92;letter-spacing:-0.04em;margin:0;}
+.page-source{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;text-align:right;}
+
+/* ── VBODY ── */
+.vbody{padding:0 32px 64px;}
+.sec-hdr{display:flex;align-items:baseline;justify-content:space-between;padding:32px 0 14px;}
+.sec-title{font-size:22px;font-weight:800;margin:0;}
+.sec-sub{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);font-weight:400;}
+
+/* ── FILTER TABS ── */
+.filter-bar{display:flex;gap:0;border:2px solid var(--color-text);margin-top:24px;overflow:hidden;}
+.filter-btn{padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--color-neutral-600);border-right:1px solid var(--color-divider);transition:background .1s,color .1s;flex:1;}
+.filter-btn:last-child{border-right:none;}
+.filter-btn:hover{background:var(--color-neutral-200);}
+.filter-btn.active{background:var(--color-text);color:var(--color-bg);}
+
+/* ── RWA TABLE ── */
+.rwa-tbl-wrap{border:2px solid var(--color-text);margin-top:0;overflow-x:auto;}
+.rwa-tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+.rwa-tbl th{text-align:right;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-600);padding:10px 14px;border-bottom:2px solid var(--color-text);white-space:nowrap;position:sticky;top:0;background:var(--color-bg);cursor:pointer;user-select:none;}
+.rwa-tbl th.l{text-align:left;}
+.rwa-tbl th:hover{color:var(--color-text);}
+.rwa-tbl th.sorted{color:var(--color-text);}
+.rwa-tbl td{padding:9px 14px;border-bottom:1px solid var(--color-divider);font-size:13px;}
+.rwa-tbl td.l{text-align:left;}
+.rwa-tbl td.r{text-align:right;}
+.rwa-tbl tr:last-child td{border-bottom:none;}
+.rwa-tbl tr:hover td{background:var(--color-neutral-100);}
+.rwa-rank{font-size:11px;color:var(--color-neutral-500);font-weight:400;}
+.rwa-logo{width:24px;height:24px;border-radius:50%;background:var(--color-neutral-200);object-fit:cover;flex-shrink:0;display:inline-block;vertical-align:middle;margin-right:8px;}
+.rwa-name-cell{display:flex;align-items:center;gap:8px;}
+.rwa-name{font-weight:700;font-size:13px;}
+.rwa-sym{font-size:11px;color:var(--color-neutral-600);font-weight:400;}
+.rwa-badge{display:inline-block;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:1px solid currentColor;}
+.rwa-badge-stock{color:#1a56b0;}
+.rwa-badge-commodity{color:#6b4f00;}
+.rwa-badge-etf{color:#2d6a4f;}
+.rwa-badge-preipo{color:var(--color-accent-700);border-color:var(--color-accent);}
+.rwa-issuer{font-size:11px;color:var(--color-neutral-600);}
+.sort-arrow{font-size:9px;margin-left:3px;opacity:0.4;}
+.sort-arrow.on{opacity:1;}
+
+/* ── PRE-IPO CARDS ── */
+.preipo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0;border:2px solid var(--color-text);margin-top:0;}
+.preipo-card{padding:18px 20px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);position:relative;}
+.preipo-card:hover{background:var(--color-neutral-100);}
+.preipo-card-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.preipo-card-logo{width:32px;height:32px;border-radius:50%;background:var(--color-neutral-200);object-fit:cover;flex-shrink:0;}
+.preipo-card-name{font-size:13px;font-weight:700;line-height:1.2;}
+.preipo-card-sym{font-size:10px;color:var(--color-neutral-600);}
+.preipo-card-price{font-size:32px;font-weight:800;letter-spacing:-0.04em;line-height:1;font-variant-numeric:tabular-nums;}
+.preipo-card-chg{font-size:12px;font-weight:700;margin-top:3px;}
+.preipo-card-mcap{font-size:11px;color:var(--color-neutral-600);margin-top:6px;}
+.preipo-card-issuers{margin-top:10px;padding-top:10px;border-top:1px solid var(--color-divider);}
+.preipo-issuer-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:11px;}
+.preipo-issuer-name{color:var(--color-neutral-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:55%;}
+.preipo-issuer-mcap{font-weight:600;font-size:11px;font-variant-numeric:tabular-nums;}
+
+/* ── LOADING ── */
+.loading-row td{color:var(--color-neutral-500);font-style:italic;text-align:center;padding:32px!important;}
+.page-footer{padding:32px 0 0;font-size:11px;color:var(--color-neutral-500);letter-spacing:0.06em;}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sb-brand">
+    <a href="/" class="sb-brand-top" style="text-decoration:none;color:inherit;">
+      <svg viewBox="0 0 40 24" width="28" height="17" aria-hidden="true">
+        <circle cx="13" cy="12" r="9.2" fill="none" stroke="#71717a" stroke-width="2.6"/>
+        <circle cx="27" cy="12" r="9.2" fill="none" stroke="#a1a1aa" stroke-width="2.6"/>
+      </svg>
+      <span style="font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;">Fynaptix</span>
+    </a>
+    <div class="sb-brand-kicker" style="margin-top:6px;">RWA Scanner</div>
+    <div class="sb-brand-title" style="font-size:18px;margin-top:2px;">Real World Assets</div>
+  </div>
+
+  <div class="sb-group">Asset Type</div>
+  <button class="sb-item active" data-filter="all" onclick="setFilter('all',this)">
+    <span class="sb-item-num">—</span><span>All Assets</span>
+  </button>
+  <button class="sb-item" data-filter="stock" onclick="setFilter('stock',this)">
+    <span class="sb-item-num" id="sb-count-stock">—</span><span>Stocks</span>
+  </button>
+  <button class="sb-item" data-filter="commodity" onclick="setFilter('commodity',this)">
+    <span class="sb-item-num" id="sb-count-commodity">—</span><span>Commodities</span>
+  </button>
+  <button class="sb-item" data-filter="etf" onclick="setFilter('etf',this)">
+    <span class="sb-item-num" id="sb-count-etf">—</span><span>ETFs</span>
+  </button>
+  <button class="sb-item" data-filter="pre-ipo" onclick="setFilter('pre-ipo',this)">
+    <span class="sb-item-num" id="sb-count-preipo">—</span><span>Pre-IPO</span>
+  </button>
+
+  <div class="sb-group" style="margin-top:auto;display:none;">Market</div>
+
+  <div class="sb-stat">
+    <div class="sb-stat-lbl">Total RWA MCap</div>
+    <div class="sb-stat-val" id="sb-total-mcap">—</div>
+  </div>
+  <div class="sb-stat">
+    <div class="sb-stat-lbl">24h Volume</div>
+    <div class="sb-stat-val" id="sb-total-vol">—</div>
+  </div>
+  <div class="sb-stat" style="margin-bottom:12px;">
+    <div class="sb-stat-lbl">Assets Tracked</div>
+    <div class="sb-stat-val" id="sb-total-count">—</div>
+  </div>
+
+  <div class="sb-footer">
+    <div class="sb-clock" id="sb-clock">—</div>
+    <a class="sb-hub" href="/crypto-scanner/">← Crypto Scanner</a>
+    <a class="sb-hub" href="/" style="margin-top:6px;">← Home</a>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<div class="main-wrap">
+
+  <!-- strip -->
+  <div class="strip">
+    <div class="strip-cell">
+      <div class="strip-lbl">Total MCap</div>
+      <div class="strip-val" id="st-mcap">—</div>
+      <div class="strip-chg" id="st-mcap-chg"></div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-lbl">24h Volume</div>
+      <div class="strip-val" id="st-vol">—</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-lbl">Stocks MCap</div>
+      <div class="strip-val" id="st-stocks-mcap">—</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-lbl">Commodities MCap</div>
+      <div class="strip-val" id="st-comm-mcap">—</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-lbl">ETFs MCap</div>
+      <div class="strip-val" id="st-etf-mcap">—</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-lbl">Pre-IPO Assets</div>
+      <div class="strip-val" id="st-preipo-count">—</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-lbl">Top Gainer 24h</div>
+      <div class="strip-val" id="st-top-gainer">—</div>
+      <div class="strip-chg" id="st-top-gainer-chg" style="color:var(--color-up)"></div>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="content">
+
+    <!-- page header -->
+    <div class="page-header">
+      <div>
+        <div class="page-kicker">CoinGecko Pro · Live</div>
+        <h1 class="page-title">RWA Scanner</h1>
+      </div>
+      <div class="page-source">
+        Tokenized Real World Assets<br/>
+        Stocks · Commodities · ETFs · Pre-IPO
+      </div>
+    </div>
+
+    <div class="vbody">
+
+      <!-- ── PRE-IPO SPOTLIGHT ── -->
+      <div class="sec-hdr">
+        <div class="sec-title">Pre-IPO Spotlight</div>
+        <div class="sec-sub" id="preipo-updated">Loading…</div>
+      </div>
+      <div class="preipo-grid" id="preipo-grid">
+        <!-- cards injected by JS -->
+      </div>
+
+      <!-- ── MAIN TABLE ── -->
+      <div class="sec-hdr" style="margin-top:40px;">
+        <div class="sec-title">All RWAs</div>
+        <div class="sec-sub" id="table-count">—</div>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">All</button>
+        <button class="filter-btn" data-filter="stock" onclick="setFilter('stock',this)">Stocks</button>
+        <button class="filter-btn" data-filter="commodity" onclick="setFilter('commodity',this)">Commodities</button>
+        <button class="filter-btn" data-filter="etf" onclick="setFilter('etf',this)">ETFs</button>
+        <button class="filter-btn" data-filter="pre-ipo" onclick="setFilter('pre-ipo',this)">Pre-IPO</button>
+      </div>
+
+      <div class="rwa-tbl-wrap">
+        <table class="rwa-tbl">
+          <thead>
+            <tr>
+              <th class="l" style="width:36px">#</th>
+              <th class="l">Asset</th>
+              <th class="l">Type</th>
+              <th onclick="sortBy('current_price')" id="th-price">Price<span class="sort-arrow" id="sa-price">▼</span></th>
+              <th onclick="sortBy('market_cap')" id="th-mcap">Market Cap<span class="sort-arrow on" id="sa-mcap">▼</span></th>
+              <th onclick="sortBy('total_volume')" id="th-vol">24h Volume<span class="sort-arrow" id="sa-vol">▼</span></th>
+              <th onclick="sortBy('price_change_percentage_24h')" id="th-24h">24h %<span class="sort-arrow" id="sa-24h">▼</span></th>
+              <th onclick="sortBy('price_change_percentage_7d_in_currency')" id="th-7d">7d %<span class="sort-arrow" id="sa-7d">▼</span></th>
+              <th class="l" style="min-width:110px;">Issuer</th>
+            </tr>
+          </thead>
+          <tbody id="rwa-tbody">
+            <tr class="loading-row"><td colspan="9">Loading RWA data…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="page-footer">
+        Data: CoinGecko Pro API · Prices in USD · Updated every 60s
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ── helpers ──────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+function setEl(id,v){const e=$(id);if(e)e.textContent=v;}
+
+function big(n){
+  if(n==null||isNaN(n)) return '—';
+  if(n>=1e12) return '$'+(n/1e12).toFixed(2)+'T';
+  if(n>=1e9)  return '$'+(n/1e9).toFixed(2)+'B';
+  if(n>=1e6)  return '$'+(n/1e6).toFixed(2)+'M';
+  if(n>=1e3)  return '$'+(n/1e3).toFixed(2)+'K';
+  return '$'+n.toFixed(2);
+}
+function px(n){
+  if(n==null||isNaN(n)) return '—';
+  if(n>=1000) return '$'+n.toLocaleString('en-US',{maximumFractionDigits:2});
+  if(n>=1)    return '$'+n.toFixed(2);
+  if(n>=0.01) return '$'+n.toFixed(4);
+  return '$'+n.toFixed(6);
+}
+function pct(n){
+  if(n==null||isNaN(n)) return '—';
+  return (n>=0?'+':'')+n.toFixed(2)+'%';
+}
+function chgCol(n){
+  return n>=0?'var(--color-up)':'var(--color-dn)';
+}
+
+// ── state ──────────────────────────────────────────────────
+let allRWAs = [];
+let preIPOCoins = [];
+let currentFilter = 'all';
+let sortKey = 'market_cap';
+let sortDir = -1; // -1=desc
+
+const TYPE_LABELS = {stock:'Stock',commodity:'Commodity',etf:'ETF','pre-ipo':'Pre-IPO'};
+const BADGE_CLASS = {stock:'rwa-badge-stock',commodity:'rwa-badge-commodity',etf:'rwa-badge-etf','pre-ipo':'rwa-badge-preipo'};
+
+// ── clock ──────────────────────────────────────────────────
+function tickClock(){
+  const now=new Date();
+  setEl('sb-clock',now.toUTCString().replace('GMT','UTC').slice(0,-4));
+}
+setInterval(tickClock,1000);
+tickClock();
+
+// ── fetch ──────────────────────────────────────────────────
+async function cg(path, extra=''){
+  const url = `/api/cg?path=${encodeURIComponent(path)}${extra?'&'+extra:''}`;
+  const r = await fetch(url);
+  if(!r.ok) throw new Error(`CG ${path} → ${r.status}`);
+  return r.json();
+}
+
+// fetch rwas/markets page by page (up to 500 results)
+async function fetchRWAMarkets(){
+  const p1 = await cg('/rwas/markets','per_page=250&page=1&price_change_percentage=24h,7d&order=market_cap_desc');
+  let rows = p1;
+  if(p1.length===250){
+    try{
+      const p2 = await cg('/rwas/markets','per_page=250&page=2&price_change_percentage=24h,7d&order=market_cap_desc');
+      rows = rows.concat(p2);
+    }catch(e){}
+  }
+  return rows;
+}
+
+async function fetchPreIPO(){
+  const coins = await cg('/coins/markets','vs_currency=usd&category=tokenized-pre-ipo-stocks&order=market_cap_desc&per_page=20&page=1&price_change_percentage=24h');
+  return coins;
+}
+
+// ── normalise ── map rwas/markets shape to flat rows
+function normalise(item){
+  const md = item.tokenized_market_data || {};
+  // asset_type from CG is e.g. "stock","commodity","etf"
+  let type = (item.asset_type||'').toLowerCase();
+  return {
+    id: item.id,
+    name: item.name,
+    symbol: item.symbol,
+    image: item.image,
+    type,
+    current_price: md.current_price ?? null,
+    market_cap: md.market_cap ?? null,
+    total_volume: md.total_volume ?? null,
+    price_change_percentage_24h: md.price_change_percentage_24h ?? null,
+    price_change_percentage_7d_in_currency: md.price_change_percentage_7d_in_currency ?? null,
+    // issuer info if available
+    issuers: item.issuers || [],
+  };
+}
+
+// ── filter + sort ──────────────────────────────────────────
+function getFiltered(){
+  let rows = allRWAs;
+  if(currentFilter==='pre-ipo'){
+    // show only pre-IPO coins mapped in
+    return preIPORows;
+  }
+  if(currentFilter!=='all') rows=rows.filter(r=>r.type===currentFilter);
+  return [...rows].sort((a,b)=>{
+    const av=a[sortKey]??-Infinity, bv=b[sortKey]??-Infinity;
+    return sortDir*(bv-av);
+  });
+}
+
+let preIPORows = [];
+
+// ── render table ──────────────────────────────────────────
+function renderTable(){
+  const rows = getFiltered();
+  const tbody = $('rwa-tbody');
+  if(!rows.length){
+    tbody.innerHTML='<tr class="loading-row"><td colspan="9">No data</td></tr>';
+    return;
+  }
+  setEl('table-count', rows.length+' assets');
+  tbody.innerHTML = rows.map((r,i) => {
+    const typeLabel = TYPE_LABELS[r.type] || r.type || '—';
+    const badgeClass = BADGE_CLASS[r.type] || '';
+    const chg24 = r.price_change_percentage_24h;
+    const chg7  = r.price_change_percentage_7d_in_currency;
+    const issuersStr = (r.issuers||[]).slice(0,2).map(iss=>iss.name||iss).join(', ');
+    return `<tr>
+      <td class="r rwa-rank">${i+1}</td>
+      <td class="l">
+        <div class="rwa-name-cell">
+          <img class="rwa-logo" src="${r.image||''}" alt="" onerror="this.style.visibility='hidden'">
+          <div>
+            <div class="rwa-name">${r.name}</div>
+            <div class="rwa-sym">${(r.symbol||'').toUpperCase()}</div>
+          </div>
+        </div>
+      </td>
+      <td class="l"><span class="rwa-badge ${badgeClass}">${typeLabel}</span></td>
+      <td class="r">${px(r.current_price)}</td>
+      <td class="r">${big(r.market_cap)}</td>
+      <td class="r">${big(r.total_volume)}</td>
+      <td class="r" style="color:${chg24!=null?chgCol(chg24):'inherit'}">${pct(chg24)}</td>
+      <td class="r" style="color:${chg7!=null?chgCol(chg7):'inherit'}">${pct(chg7)}</td>
+      <td class="l rwa-issuer">${issuersStr||'—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── render pre-IPO cards ──────────────────────────────────
+function renderPreIPO(){
+  const el=$('preipo-grid');
+  if(!preIPOCoins.length){el.innerHTML='<div style="padding:24px;color:var(--color-neutral-600)">Loading…</div>';return;}
+  setEl('preipo-updated', preIPOCoins.length+' companies');
+  el.innerHTML = preIPOCoins.map(c=>{
+    const chg=c.price_change_percentage_24h_in_currency??c.price_change_percentage_24h??null;
+    return `<div class="preipo-card">
+      <div class="preipo-card-hdr">
+        <img class="preipo-card-logo" src="${c.image||''}" alt="" onerror="this.style.visibility='hidden'">
+        <div>
+          <div class="preipo-card-name">${c.name.replace(/\(Pre-IPO\)/,'').replace(/\(.*Pre.*\)/,'').trim()}</div>
+          <div class="preipo-card-sym">${(c.symbol||'').toUpperCase()}</div>
+        </div>
+      </div>
+      <div class="preipo-card-price">${px(c.current_price)}</div>
+      <div class="preipo-card-chg" style="color:${chg!=null?chgCol(chg):'inherit'}">${pct(chg)}</div>
+      <div class="preipo-card-mcap">MCap ${big(c.market_cap)}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── sidebar counts + strip ────────────────────────────────
+function updateStats(){
+  const stocks = allRWAs.filter(r=>r.type==='stock');
+  const comms  = allRWAs.filter(r=>r.type==='commodity');
+  const etfs   = allRWAs.filter(r=>r.type==='etf');
+
+  setEl('sb-count-stock',    stocks.length||'—');
+  setEl('sb-count-commodity',comms.length||'—');
+  setEl('sb-count-etf',      etfs.length||'—');
+  setEl('sb-count-preipo',   preIPORows.length||'—');
+  setEl('sb-total-count',    allRWAs.length+preIPORows.length);
+
+  const sumMcap = r => r.reduce((s,x)=>s+(x.market_cap||0),0);
+  const sumVol  = r => r.reduce((s,x)=>s+(x.total_volume||0),0);
+
+  const totalMcap = sumMcap(allRWAs);
+  const totalVol  = sumVol(allRWAs);
+  const stocksMcap = sumMcap(stocks);
+  const commMcap   = sumMcap(comms);
+  const etfMcap    = sumMcap(etfs);
+
+  setEl('sb-total-mcap', big(totalMcap));
+  setEl('sb-total-vol',  big(totalVol));
+  setEl('st-mcap',       big(totalMcap));
+  setEl('st-vol',        big(totalVol));
+  setEl('st-stocks-mcap',big(stocksMcap));
+  setEl('st-comm-mcap',  big(commMcap));
+  setEl('st-etf-mcap',   big(etfMcap));
+  setEl('st-preipo-count', preIPORows.length);
+
+  // top gainer
+  const ranked = allRWAs.filter(r=>r.price_change_percentage_24h!=null)
+    .sort((a,b)=>(b.price_change_percentage_24h||0)-(a.price_change_percentage_24h||0));
+  if(ranked.length){
+    setEl('st-top-gainer', ranked[0].name.split(' ')[0]);
+    const chg=ranked[0].price_change_percentage_24h;
+    const el=$('st-top-gainer-chg');
+    if(el){el.textContent=pct(chg);el.style.color=chgCol(chg);}
+  }
+}
+
+// ── sort ──────────────────────────────────────────────────
+const SORT_KEYS=['price','mcap','vol','24h','7d'];
+function sortBy(key){
+  if(sortKey===key) sortDir*=-1;
+  else{sortKey=key;sortDir=-1;}
+  // update arrows
+  SORT_KEYS.forEach(k=>{
+    const sa=$('sa-'+k);
+    if(sa) sa.classList.remove('on');
+  });
+  const keyToId={current_price:'price',market_cap:'mcap',total_volume:'vol',price_change_percentage_24h:'24h',price_change_percentage_7d_in_currency:'7d'};
+  const arrowId=keyToId[key];
+  if(arrowId){
+    const sa=$('sa-'+arrowId);
+    if(sa){sa.textContent=sortDir===-1?'▼':'▲';sa.classList.add('on');}
+  }
+  renderTable();
+}
+
+// ── filter ────────────────────────────────────────────────
+function setFilter(filter, btn){
+  currentFilter=filter;
+  // sidebar buttons
+  document.querySelectorAll('.sb-item[data-filter]').forEach(b=>b.classList.remove('active'));
+  // filter bar buttons
+  document.querySelectorAll('.filter-btn[data-filter]').forEach(b=>b.classList.remove('active'));
+  // activate clicked (both sidebar and filter bar share same onclick)
+  if(btn.classList.contains('sb-item')){
+    btn.classList.add('active');
+    document.querySelectorAll('.filter-btn[data-filter="'+filter+'"]').forEach(b=>b.classList.add('active'));
+  } else {
+    btn.classList.add('active');
+    document.querySelectorAll('.sb-item[data-filter="'+filter+'"]').forEach(b=>b.classList.add('active'));
+  }
+  renderTable();
+}
+
+// ── main load ────────────────────────────────────────────
+async function load(){
+  try{
+    const [rwas, preipo] = await Promise.all([fetchRWAMarkets(), fetchPreIPO()]);
+
+    // normalize rwa markets rows
+    allRWAs = rwas.map(normalise);
+
+    // build preIPO rows from /coins/markets for the table
+    preIPOCoins = preipo;
+    preIPORows = preipo.map(c=>({
+      id: c.id,
+      name: c.name,
+      symbol: c.symbol,
+      image: c.image,
+      type: 'pre-ipo',
+      current_price: c.current_price,
+      market_cap: c.market_cap,
+      total_volume: c.total_volume,
+      price_change_percentage_24h: c.price_change_percentage_24h_in_currency??c.price_change_percentage_24h??null,
+      price_change_percentage_7d_in_currency: null,
+      issuers: [],
+    }));
+
+    updateStats();
+    renderPreIPO();
+    renderTable();
+  }catch(e){
+    console.error('RWA load failed',e);
+    $('rwa-tbody').innerHTML='<tr class="loading-row"><td colspan="9">Failed to load — check API key config</td></tr>';
+  }
+}
+
+// auto-refresh every 60s
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>
