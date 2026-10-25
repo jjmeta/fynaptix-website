@@ -171,6 +171,17 @@ a{text-decoration:none;color:inherit;}
     <div class="sb-brand-title" style="font-size:18px;margin-top:2px;">Real World Assets</div>
   </div>
 
+  <div class="sb-group">Sections</div>
+  <button class="sb-item" onclick="document.getElementById('section-preipo').scrollIntoView({behavior:'smooth'})">
+    <span class="sb-item-num">↓</span><span>Pre-IPO</span>
+  </button>
+  <button class="sb-item" onclick="document.getElementById('section-news').scrollIntoView({behavior:'smooth'})">
+    <span class="sb-item-num">↓</span><span>News</span>
+  </button>
+  <button class="sb-item" onclick="document.getElementById('section-markets').scrollIntoView({behavior:'smooth'})">
+    <span class="sb-item-num">↓</span><span>All RWAs</span>
+  </button>
+
   <div class="sb-group">Asset Type</div>
   <button class="sb-item active" data-filter="all" onclick="setFilter('all',this)">
     <span class="sb-item-num">—</span><span>All Assets</span>
@@ -265,7 +276,7 @@ a{text-decoration:none;color:inherit;}
     <div class="vbody">
 
       <!-- ── PRE-IPO SPOTLIGHT ── -->
-      <div class="sec-hdr">
+      <div class="sec-hdr" id="section-preipo">
         <div class="sec-title">Pre-IPO Spotlight</div>
         <div class="sec-sub" id="preipo-updated">Loading…</div>
       </div>
@@ -273,8 +284,24 @@ a{text-decoration:none;color:inherit;}
         <!-- cards injected by JS -->
       </div>
 
+      <!-- ── RWA NEWS ── -->
+      <div class="sec-hdr" style="margin-top:40px;" id="section-news">
+        <div class="sec-title">RWA News</div>
+        <div class="sec-sub" id="news-updated">Loading…</div>
+      </div>
+      <div class="news-filter-bar">
+        <button class="news-filter-btn active" data-source="all" onclick="setNewsFilter('all',this)">All Sources</button>
+        <button class="news-filter-btn" data-source="RWA Week" onclick="setNewsFilter('RWA Week',this)">RWA Week</button>
+        <button class="news-filter-btn" data-source="CryptoSlate" onclick="setNewsFilter('CryptoSlate',this)">CryptoSlate</button>
+        <button class="news-filter-btn" data-source="CoinDesk" onclick="setNewsFilter('CoinDesk',this)">CoinDesk</button>
+        <button class="news-filter-btn" data-source="The Block" onclick="setNewsFilter('The Block',this)">The Block</button>
+      </div>
+      <div class="news-grid" id="news-grid">
+        <div class="news-empty">Loading news…</div>
+      </div>
+
       <!-- ── MAIN TABLE ── -->
-      <div class="sec-hdr" style="margin-top:40px;">
+      <div class="sec-hdr" style="margin-top:40px;" id="section-markets">
         <div class="sec-title">All RWAs</div>
         <div class="sec-sub" id="table-count">—</div>
       </div>
@@ -306,22 +333,6 @@ a{text-decoration:none;color:inherit;}
             <tr class="loading-row"><td colspan="9">Loading RWA data…</td></tr>
           </tbody>
         </table>
-      </div>
-
-      <!-- ── RWA NEWS ── -->
-      <div class="sec-hdr" style="margin-top:40px;">
-        <div class="sec-title">RWA News</div>
-        <div class="sec-sub" id="news-updated">Loading…</div>
-      </div>
-      <div class="news-filter-bar">
-        <button class="news-filter-btn active" data-source="all" onclick="setNewsFilter('all',this)">All Sources</button>
-        <button class="news-filter-btn" data-source="RWA Week" onclick="setNewsFilter('RWA Week',this)">RWA Week</button>
-        <button class="news-filter-btn" data-source="CryptoSlate" onclick="setNewsFilter('CryptoSlate',this)">CryptoSlate</button>
-        <button class="news-filter-btn" data-source="CoinDesk" onclick="setNewsFilter('CoinDesk',this)">CoinDesk</button>
-        <button class="news-filter-btn" data-source="The Block" onclick="setNewsFilter('The Block',this)">The Block</button>
-      </div>
-      <div class="news-grid" id="news-grid">
-        <div class="news-empty">Loading news…</div>
       </div>
 
       <div class="page-footer">
