@@ -135,17 +135,24 @@ a{text-decoration:none;color:inherit;}
 .page-footer{padding:32px 0 0;font-size:11px;color:var(--color-neutral-500);letter-spacing:0.06em;}
 
 /* ── NEWS ── */
-.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0;border:2px solid var(--color-text);margin-top:0;}
-.news-card{padding:18px 20px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);display:flex;flex-direction:column;gap:6px;}
+.news-filter-bar{display:flex;gap:0;border:2px solid var(--color-text);border-bottom:none;margin-top:0;overflow:hidden;}
+.news-filter-btn{padding:8px 16px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;background:transparent;color:var(--color-neutral-600);border-right:1px solid var(--color-divider);transition:background .1s,color .1s;}
+.news-filter-btn:last-child{border-right:none;}
+.news-filter-btn:hover{background:var(--color-neutral-200);}
+.news-filter-btn.active{background:var(--color-text);color:var(--color-bg);}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0;border:2px solid var(--color-text);}
+.news-card{padding:18px 20px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);display:flex;flex-direction:column;gap:8px;cursor:pointer;}
 .news-card:hover{background:var(--color-neutral-100);}
-.news-card-meta{display:flex;align-items:center;gap:8px;}
-.news-source-badge{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--color-text);color:var(--color-text);}
-.news-date{font-size:11px;color:var(--color-neutral-500);}
-.news-title{font-size:14px;font-weight:700;line-height:1.35;color:var(--color-text);}
+.news-card-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.news-source-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.news-source-name{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+.news-date{font-size:11px;color:var(--color-neutral-500);margin-left:auto;}
+.news-title{font-size:13px;font-weight:700;line-height:1.4;color:var(--color-text);}
 .news-title a{color:inherit;text-decoration:none;}
 .news-title a:hover{text-decoration:underline;text-underline-offset:3px;}
-.news-desc{font-size:12px;color:var(--color-neutral-700);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.news-empty{padding:32px;text-align:center;color:var(--color-neutral-500);font-size:13px;}
+.news-desc{font-size:12px;color:var(--color-neutral-600);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.news-read-more{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-500);margin-top:auto;padding-top:4px;}
+.news-empty{padding:40px;text-align:center;color:var(--color-neutral-500);font-size:13px;grid-column:1/-1;}
 </style>
 </head>
 <body>
@@ -306,12 +313,19 @@ a{text-decoration:none;color:inherit;}
         <div class="sec-title">RWA News</div>
         <div class="sec-sub" id="news-updated">Loading…</div>
       </div>
+      <div class="news-filter-bar">
+        <button class="news-filter-btn active" data-source="all" onclick="setNewsFilter('all',this)">All Sources</button>
+        <button class="news-filter-btn" data-source="RWA Week" onclick="setNewsFilter('RWA Week',this)">RWA Week</button>
+        <button class="news-filter-btn" data-source="CryptoSlate" onclick="setNewsFilter('CryptoSlate',this)">CryptoSlate</button>
+        <button class="news-filter-btn" data-source="CoinDesk" onclick="setNewsFilter('CoinDesk',this)">CoinDesk</button>
+        <button class="news-filter-btn" data-source="The Block" onclick="setNewsFilter('The Block',this)">The Block</button>
+      </div>
       <div class="news-grid" id="news-grid">
         <div class="news-empty">Loading news…</div>
       </div>
 
       <div class="page-footer">
-        Market data: CoinGecko Pro API · News: CoinDesk, The Block, Decrypt · Updated every 20 min
+        Market data: CoinGecko Pro · News: RWA Week, CryptoSlate, CoinDesk, The Block · Refreshed every 20 min
       </div>
 
     </div>
@@ -598,9 +612,18 @@ async function load(){
 }
 
 // ── news ─────────────────────────────────────────────────
-const SOURCE_COLORS = {'CoinDesk':'#1c1c1c','The Block':'#0f4c81','Decrypt':'#6b21a8'};
+const SOURCE_COLORS = {
+  'RWA Week':   '#0f4c81',
+  'CryptoSlate':'#1c2b4a',
+  'CoinDesk':   '#2d5be3',
+  'The Block':  '#374151',
+};
+
+let allNewsItems = [];
+let newsFilter = 'all';
 
 function timeAgo(dateStr){
+  if(!dateStr) return '';
   const ms = Date.now() - new Date(dateStr).getTime();
   const h = Math.floor(ms/3600000);
   if(h<1) return Math.floor(ms/60000)+'m ago';
@@ -608,33 +631,46 @@ function timeAgo(dateStr){
   return Math.floor(h/24)+'d ago';
 }
 
+function setNewsFilter(source, btn){
+  newsFilter = source;
+  document.querySelectorAll('.news-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderNews();
+}
+
 async function fetchNews(){
   try{
     const r = await fetch('/api/rwa-news');
     const d = await r.json();
-    renderNews(d.items||[], d.fetched);
+    allNewsItems = d.items||[];
+    const ts = d.fetched ? 'Updated '+timeAgo(d.fetched) : '';
+    setEl('news-updated', ts);
+    renderNews();
   }catch(e){
     const el=$('news-grid');
-    if(el) el.innerHTML='<div class="news-empty">News unavailable</div>';
+    if(el) el.innerHTML='<div class="news-empty">News unavailable — check back shortly</div>';
   }
 }
 
-function renderNews(items, fetched){
+function renderNews(){
   const el=$('news-grid');
   if(!el) return;
-  if(!items.length){el.innerHTML='<div class="news-empty">No RWA news found</div>';return;}
-  const ts = fetched ? 'Updated '+timeAgo(fetched) : '';
-  setEl('news-updated', ts);
+  const items = newsFilter==='all' ? allNewsItems : allNewsItems.filter(i=>i.source===newsFilter);
+  if(!items.length){
+    el.innerHTML='<div class="news-empty">No articles found for this source</div>';
+    return;
+  }
   el.innerHTML = items.map(item=>{
-    const src = item.source||'';
-    const col = SOURCE_COLORS[src]||'var(--color-text)';
-    return `<div class="news-card">
+    const col = SOURCE_COLORS[item.source]||'#374151';
+    return `<div class="news-card" onclick="window.open('${item.link}','_blank','noopener')">
       <div class="news-card-meta">
-        <span class="news-source-badge" style="border-color:${col};color:${col}">${src}</span>
+        <span class="news-source-dot" style="background:${col}"></span>
+        <span class="news-source-name" style="color:${col}">${item.source}</span>
         <span class="news-date">${timeAgo(item.date)}</span>
       </div>
-      <div class="news-title"><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></div>
+      <div class="news-title"><a href="${item.link}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${item.title}</a></div>
       ${item.desc?`<div class="news-desc">${item.desc}</div>`:''}
+      <div class="news-read-more">Read →</div>
     </div>`;
   }).join('');
 }
