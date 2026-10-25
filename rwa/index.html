@@ -133,6 +133,19 @@ a{text-decoration:none;color:inherit;}
 /* ── LOADING ── */
 .loading-row td{color:var(--color-neutral-500);font-style:italic;text-align:center;padding:32px!important;}
 .page-footer{padding:32px 0 0;font-size:11px;color:var(--color-neutral-500);letter-spacing:0.06em;}
+
+/* ── NEWS ── */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0;border:2px solid var(--color-text);margin-top:0;}
+.news-card{padding:18px 20px;border-right:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);display:flex;flex-direction:column;gap:6px;}
+.news-card:hover{background:var(--color-neutral-100);}
+.news-card-meta{display:flex;align-items:center;gap:8px;}
+.news-source-badge{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--color-text);color:var(--color-text);}
+.news-date{font-size:11px;color:var(--color-neutral-500);}
+.news-title{font-size:14px;font-weight:700;line-height:1.35;color:var(--color-text);}
+.news-title a{color:inherit;text-decoration:none;}
+.news-title a:hover{text-decoration:underline;text-underline-offset:3px;}
+.news-desc{font-size:12px;color:var(--color-neutral-700);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.news-empty{padding:32px;text-align:center;color:var(--color-neutral-500);font-size:13px;}
 </style>
 </head>
 <body>
@@ -288,8 +301,17 @@ a{text-decoration:none;color:inherit;}
         </table>
       </div>
 
+      <!-- ── RWA NEWS ── -->
+      <div class="sec-hdr" style="margin-top:40px;">
+        <div class="sec-title">RWA News</div>
+        <div class="sec-sub" id="news-updated">Loading…</div>
+      </div>
+      <div class="news-grid" id="news-grid">
+        <div class="news-empty">Loading news…</div>
+      </div>
+
       <div class="page-footer">
-        Data: CoinGecko Pro API · Prices in USD · Updated every 60s
+        Market data: CoinGecko Pro API · News: CoinDesk, The Block, Decrypt · Updated every 20 min
       </div>
 
     </div>
@@ -575,9 +597,53 @@ async function load(){
   }
 }
 
+// ── news ─────────────────────────────────────────────────
+const SOURCE_COLORS = {'CoinDesk':'#1c1c1c','The Block':'#0f4c81','Decrypt':'#6b21a8'};
+
+function timeAgo(dateStr){
+  const ms = Date.now() - new Date(dateStr).getTime();
+  const h = Math.floor(ms/3600000);
+  if(h<1) return Math.floor(ms/60000)+'m ago';
+  if(h<24) return h+'h ago';
+  return Math.floor(h/24)+'d ago';
+}
+
+async function fetchNews(){
+  try{
+    const r = await fetch('/api/rwa-news');
+    const d = await r.json();
+    renderNews(d.items||[], d.fetched);
+  }catch(e){
+    const el=$('news-grid');
+    if(el) el.innerHTML='<div class="news-empty">News unavailable</div>';
+  }
+}
+
+function renderNews(items, fetched){
+  const el=$('news-grid');
+  if(!el) return;
+  if(!items.length){el.innerHTML='<div class="news-empty">No RWA news found</div>';return;}
+  const ts = fetched ? 'Updated '+timeAgo(fetched) : '';
+  setEl('news-updated', ts);
+  el.innerHTML = items.map(item=>{
+    const src = item.source||'';
+    const col = SOURCE_COLORS[src]||'var(--color-text)';
+    return `<div class="news-card">
+      <div class="news-card-meta">
+        <span class="news-source-badge" style="border-color:${col};color:${col}">${src}</span>
+        <span class="news-date">${timeAgo(item.date)}</span>
+      </div>
+      <div class="news-title"><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a></div>
+      ${item.desc?`<div class="news-desc">${item.desc}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
 // auto-refresh every 60s
 load();
+fetchNews();
 setInterval(load, 60000);
+setInterval(fetchNews, 20*60*1000);
 </script>
 </body>
 </html>
