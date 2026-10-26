@@ -1,0 +1,342 @@
+{
+ "sector": "space",
+ "title": "Fynaptix \u00b7 Space Economy Research",
+ "heading": "Space Economy Intelligence",
+ "subheading": "Launch, satellites, constellations & the post-SpaceX-IPO landscape",
+ "kicker": "SPACE ECONOMY // OCT 2026",
+ "generated": "October 26, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Space is capital-intensive with heavy government-customer concentration. Verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "$14.6B",
+   "sub": "SPACEX Q3 REVENUE (+161%) \u00b7 NET INCOME $4.4B",
+   "label": "SpaceX's first earnings after the June IPO beat ($12.7B consensus) as AI ('Super Intelligence') hit $7.56B, now ~52% of revenue, and Starlink connectivity grew 69% to $5.25B; but Q3 capex was $19.6B and Q4 is guided to $35\u201340B, mostly AI, so it is increasingly not a pure space story.",
+   "highlight": true
+  },
+  {
+   "value": "~$148",
+   "sub": "SPCX AFTER Q3 PRINT \u00b7 VS $225.64 JUNE HIGH \u00b7 LOCKUPS CONTINUE",
+   "label": "Shares jumped ~8\u201310% after the Oct 20 print (about $154 premarket Oct 22, ~$147.50 later) and Musk said SpaceX and Tesla have each formed special committees to study a merger; supply remains heavy, with a large post-earnings tranche eligible Oct 22, 328.4M shares Oct 24 and ~797.6M around Dec 8 (third-party schedule, verify against the prospectus).",
+   "highlight": false
+  },
+  {
+   "value": "$52.60",
+   "sub": "RKLB OCT 23 CLOSE \u00b7 ~40% BELOW APR 20 \u00b7 Q3 REPORT NOV 9",
+   "label": "Rocket Lab's Neutron debut slipped into 2027 (Oct 14); Q2 revenue was $234.1M (+62%) with a $2.36B backlog and Q3 guided to $250\u2013265M. Iridium beat its Q3 estimates (EPS $0.98 vs $0.34, revenue $245.7M) and holders approved the $8B deal, which is guided to close mid-2027.",
+   "highlight": false
+  },
+  {
+   "value": "$20.8B",
+   "sub": "Q3 2026 PRIVATE SPACE INVESTMENT \u00b7 RECORD QUARTER",
+   "label": "Seraphim counts 216 deals in Q3 (median $9.8M) versus $7.4B in Q2; Blue Origin's ~$10B round is nearly half the total, so excluding it the quarter is still ~$10.8B. Blue Origin said Oct 16 that Florida infrastructure investment has passed $3B.",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Scale Players",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "SPCX",
+     "company": "SpaceX",
+     "angle": "Q3 revenue $14.58B (+161%), net income $4.4B, adjusted EBITDA $8.8B; Starlink connectivity $5.25B (+69%) with ARPU about $69 and ~13.6M consumer subscribers (press reports); Starship flew its first revenue mission in September and Flight 15 is expected in November, attempting booster and ship catches.",
+     "watch for": "Q3 capex of $19.6B and a $35\u201340B Q4 guide (mostly AI), continued lockup supply (Oct 22, Oct 24, ~Dec 8), unresolved Tesla merger talks (no terms, shareholder vote needed) and Starshield political risk. Shares ~$148\u2013154 after the print."
+    },
+    {
+     "ticker": "RKLB",
+     "company": "Rocket Lab",
+     "angle": "Q2 revenue $234.1M (+62%), backlog $2.36B (+137%), Q3 revenue guided to $250\u2013265M; the $8B Iridium deal is approved by Iridium holders and guided to close mid-2027 (Iridium itself beat Q3 estimates on Oct 20).",
+     "watch for": "Neutron slipped to 2027 (at least the third delay); shares closed $52.60 on Oct 23, ~40% below Apr 20; Q3 results Nov 9 (adjusted EBITDA guided to a $17\u201323M loss), and FCC review of Iridium."
+    },
+    {
+     "ticker": "LHX",
+     "company": "L3Harris",
+     "angle": "Space and Mission Systems anchored by 18 of the 36 satellites in the SDA's $1.75B Tranche 3 tracking-layer award (July) and the $4.7B PAC-3 propulsion award; shares were ~$248 in mid-October.",
+     "watch for": "Q3 earnings Oct 29 (consensus EPS ~$3.01, revenue ~$5.86B); the market has not credited the awards since July. Also sits in the Defense sleeve \u2014 don't double-count exposure."
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Growth / Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "ASTS",
+     "company": "AST SpaceMobile",
+     "angle": "13 BlueBirds in orbit, ~45 targeted by early 2027; $1.3B contracted backlog and >$3.7B pro forma liquidity; Deutsche Bank upgraded to Buy (Oct 12) while Piper Sandler cut to Neutral (Oct 13, target $54).",
+     "watch for": "Q2 revenue $31.5M missed ($34.4M est.) with a $0.77 loss per share, including $125.9M tied to the BB7 launch incident; SpaceX's spectrum deal and direct-to-cell push are direct competition; shares ~$40, roughly half their Apr 20 level."
+    },
+    {
+     "ticker": "LUNR",
+     "company": "Intuitive Machines",
+     "angle": "Q2 revenue $206.2M (more than 4x), record ~$1.76B backlog and a reaffirmed $900M\u2013$1B 2026 revenue outlook; shares ~$10.5\u201311.1 after a +5% day on Oct 21.",
+     "watch for": "Net loss widened to $62.8M, equity is about \u2212$290M, ~$259M of net insider selling over 12 months, and backlog conversion; shares ~60% below Apr 20."
+    },
+    {
+     "ticker": "PL",
+     "company": "Planet Labs",
+     "angle": "Q2 revenue $116.05M (+58%, beat), fifth straight EPS beat, adjusted EBITDA $13.9M; part of Google's Project Suncatcher prototype and won a NASA Tanager task order.",
+     "watch for": "Shares ~$13.4\u201313.9, ~63% below Apr 20; Barclays' $17 target (Equal Weight) implies limited upside; dependence on SpaceX rideshare capacity and founder stock sales."
+    },
+    {
+     "ticker": "RDW",
+     "company": "Redwire",
+     "angle": "Q2 revenue $117.07M (beat), record $542M backlog, book-to-bill 1.42, 2026 revenue target $450\u2013500M; one of 15 NITE STAR vendors and a Roll-Out Solar Array supplier to Axiom.",
+     "watch for": "Adjusted EBITDA still \u2212$3.2M, NITE STAR carries no guaranteed revenue, Axiom's module is years out (2028), heavy insider selling; shares ~$8.4\u20138.6."
+    },
+    {
+     "ticker": "BKSY",
+     "company": "BlackSky",
+     "angle": "Q2 revenue $33.3M (+50%, beat) with positive adjusted EBITDA of $4.7M; geospatial intelligence tied to defense and intelligence demand.",
+     "watch for": "GAAP loss of $0.54 per share (miss) including a $10.5M derivatives loss; shares ~54% below Apr 20; full-year revenue against $130\u2013150M guidance."
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "Blue Origin",
+   "value": "~$130B VALUATION",
+   "note": "Reported ~$10B raise at a ~$130B valuation (its first outside round, described as oversubscribed). On Oct 16 it announced a $330M Rocket Park phase at Cape Canaveral with two more New Glenn pads, saying Florida investment has passed $3B; New Glenn returns to flight after the May pad explosion at LC-36 \u2014 year-end 2026 per some reports, early 2027 per Blue Origin's own update \u2014 with multi-vehicle operations targeted for summer 2027."
+  },
+  {
+   "name": "Firefly Aerospace",
+   "value": "NASDAQ: FLY (LISTED)",
+   "note": "Already public, so it is outside the private groups; no fresh company news found this week. Alpha Flight 7 succeeded in March after the 2025 failure, and analysts expected about $446M of 2026 sales with profits not before 2027. Not given a stance here for lack of current data."
+  },
+  {
+   "name": "Stoke Space",
+   "value": "~$10B VALUATION",
+   "note": "No new update this week beyond the earlier $1B Series E (total raised $2.3B); Nova Block 2, a fully reusable design, remains targeted for 2029."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Capital intensity",
+   "description": "SpaceX spent $19.6B of capex in Q3 and guides $35\u201340B for Q4, mostly for AI; Rocket Lab still guides to a $17\u201323M Q3 adjusted EBITDA loss while funding an $8B Iridium deal; Blue Origin needed a ~$10B raise. Funding is abundant now, but the sector depends on it staying that way."
+  },
+  {
+   "title": "Government concentration",
+   "description": "The SDA's Tranche 3 tracking awards ($1.75B across L3Harris and Sierra Space in July) and Redwire's NITE STAR slot (one of 15 vendors, no guaranteed revenue) show how much revenue hangs on a few federal programs. Starshield restrictions in Ukraine show a single operator's decisions can become a geopolitical issue."
+  },
+  {
+   "title": "SpaceX dominance and supply overhang",
+   "description": "SPCX is ~35% below its June high even after the earnings pop, with lockup tranches on Oct 22, Oct 24 and around Dec 8, and a possible Tesla merger adds uncertainty; its spectrum purchase and Starlink Mobile put it directly against AST SpaceMobile, and AI is now over half its revenue, so owning it is no longer a clean space exposure."
+  },
+  {
+   "title": "Binary mission risk and schedule slips",
+   "description": "Neutron's first launch slipped into 2027 (at least the third delay), AST had a BB7 launch incident and has 13 satellites against a ~45 target, New Glenn is grounded until year-end or early 2027, and Starship's catch and refuelling remain unproven (Flight 15 expected in November). Mid-cap space shares are 40\u201363% below their Apr 20 levels."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "OCT 13",
+   "title": "Piper Sandler cuts AST SpaceMobile to Neutral",
+   "description": "Cited SpaceX's direct-to-cell push and launch cadence; ASTS fell ~9% that day while Deutsche Bank upgraded to Buy a day earlier."
+  },
+  {
+   "date": "OCT 16",
+   "title": "Blue Origin outlines $330M Florida expansion",
+   "description": "Two more New Glenn pads and a customer integration facility; Florida investment passes $3B, with return to flight now guided to year-end or early 2027."
+  },
+  {
+   "date": "OCT 20",
+   "title": "SpaceX Q3: revenue $14.6B (+161%), net income $4.4B",
+   "description": "Beat on revenue and EPS ($0.35 vs $0.13 est.); AI segment $7.56B, Starlink connectivity $5.25B, Q4 capex guided to $35\u201340B. Shares rose ~8\u201310% and lifted LUNR, PL and RDW +4\u20135% on Oct 21."
+  },
+  {
+   "date": "OCT 20",
+   "title": "SpaceX and Tesla form merger special committees",
+   "description": "Musk said both boards formed independent committees to study a combination; no terms agreed and any deal needs shareholder approval."
+  },
+  {
+   "date": "OCT 20",
+   "title": "Iridium beats Q3 estimates",
+   "description": "EPS $0.98 vs $0.34 expected, revenue $245.7M (+8%), helped by the Aireon reacquisition; IRDM ~$44.40 and RKLB $52.60 on Oct 23, with the Rocket Lab deal guided to close mid-2027."
+  },
+  {
+   "date": "OCT 22\u201324",
+   "title": "SpaceX lockup tranches",
+   "description": "A post-earnings tranche became eligible Oct 22 and up to 328.4M shares on Oct 24, with ~797.6M more around Dec 8 (third-party schedule; verify against the prospectus)."
+  },
+  {
+   "date": "OCT 29 \u2013 NOV 9",
+   "title": "Upcoming: L3Harris, Rocket Lab earnings and Starship Flight 15",
+   "description": "L3Harris reports Q3 on Oct 29; Rocket Lab reports Q3 on Nov 9 after the close; SpaceX expects Starship Flight 15 in November, attempting booster and ship catches."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "UFO",
+   "name": "Procure Space",
+   "summary": "Pure-play, revenue-weighted (RKLB, PL, ASTS among top holdings); traded ~$40.7 on Oct 21 (+3% that day) and ~$39.9 later, tracking the weakness in the mid-cap names."
+  },
+  {
+   "ticker": "ARKX",
+   "name": "ARK Space Exploration",
+   "summary": "Actively managed with broader tech adjacency; ARK has commented that Neutron comes close to Falcon 9 on payload, and the fund's results depend heavily on a handful of high-beta holdings. No fresh fund data found this week."
+  },
+  {
+   "ticker": "ROKT",
+   "name": "SPDR Kensho Final Frontiers",
+   "summary": "Equal-weight blend of space, defense and deep-sea names; the defense-adjacent holdings (like L3Harris) cushion it versus pure-plays, though L3Harris itself has lagged since July. No fresh fund data found this week."
+  }
+ ],
+ "sources": [
+  {
+   "title": "KuCoin \u2014 SpaceX Q3 2026 earnings: revenue $14.6B, net income $4.4B",
+   "url": "https://www.kucoin.com/blog/spacex-q3-2026-earnings-revenue-profit-ai-starlink"
+  },
+  {
+   "title": "Yahoo Finance / Motley Fool \u2014 SpaceX Q3 sales rose 161%",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-q3-sales-rose-161-023500077.html"
+  },
+  {
+   "title": "CNBC \u2014 Musk says Tesla and SpaceX formed special committees: live updates",
+   "url": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 Space stocks rally as SpaceX results lift sector (Oct 21)",
+   "url": "https://247wallst.com/investing/2026/10/21/space-stocks-rally-as-spacex-results-lift-sector-intuitive-machines-advances-5-redwire-and-planet-labs-climb-4/"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 SpaceX rallied, but these 6 space stocks are still waiting for liftoff",
+   "url": "https://247wallst.com/investing/2026/10/22/spacex-rallied-but-these-6-space-stocks-are-still-waiting-for-liftoff/"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 AST SpaceMobile sinks 9% as Piper Sandler cuts to Neutral",
+   "url": "https://247wallst.com/investing/2026/10/13/ast-spacemobile-sinks-9-as-piper-sandler-cuts-to-neutral-on-spacex-direct-to-cell-threat-planet-labs-drops-4-rocket-lab-slips/"
+  },
+  {
+   "title": "Motley Fool \u2014 Rocket Lab is buying Iridium, which just beat earnings",
+   "url": "https://www.fool.com/investing/2026/10/24/rocket-lab-buying-iridium-which-just-beat-earnings/"
+  },
+  {
+   "title": "Rocket Lab IR \u2014 Q3 2026 results date (Nov 9)",
+   "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-announces-date-third-quarter-2026-financial-results"
+  },
+  {
+   "title": "Rocket Lab IR \u2014 Update on Neutron development and adjusted target launch timing",
+   "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-provides-update-neutron-development-and-adjusts"
+  },
+  {
+   "title": "Pure Power Picks \u2014 SpaceX lockup schedule",
+   "url": "https://purepowerpicks.com/spacex-lockup-schedule/"
+  },
+  {
+   "title": "SatNews \u2014 Blue Origin Florida infrastructure investment tops $3 billion",
+   "url": "https://satnews.com/2026/10/20/blue-origin-florida-infrastructure-investment-tops-3-billion-ahead-of-high-cadence-new-glenn-operations/"
+  },
+  {
+   "title": "CNBC \u2014 Blue Origin plans $330 million Florida expansion",
+   "url": "https://www.cnbc.com/2026/10/16/blue-origin-new-glenn-florida-expansion.html"
+  },
+  {
+   "title": "Seraphim \u2014 Q3 2026 private space investment (via New Space Economy)",
+   "url": "https://newspaceeconomy.ca/2026/10/14/seraphim-reports-20-8-billion-in-private-space-investment-3q-2026/?amp=1"
+  },
+  {
+   "title": "Air & Space Forces \u2014 SDA awards contracts for Golden Dome missile tracking satellites",
+   "url": "https://www.airandspaceforces.com/sda-awards-contracts-for-36-golden-dome-missile-tracking-satellites/"
+  },
+  {
+   "title": "Yahoo Finance \u2014 Why Firefly Aerospace stock popped (Alpha Flight 7)",
+   "url": "https://finance.yahoo.com/news/why-fly-aerospace-stock-popped-185500954.html"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Oct 21\u201324, 2026; some prices are from different dates and sources, and lockup figures come from a third-party schedule. Refreshed weekly. Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "October 26, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "RKLB",
+    "name": "Rocket Lab",
+    "stance": "core",
+    "weight": 35,
+    "note": "Neutron's slip into 2027 and a ~40% drawdown to $52.60 hurt sentiment, but Q2 revenue of $234.1M (+62%), a $2.36B backlog and Q3 guidance of $250\u2013265M (reported Nov 9) keep the Electron-led business intact.",
+    "change": null
+   },
+   {
+    "ticker": "LHX",
+    "name": "L3Harris",
+    "stance": "core",
+    "weight": 35,
+    "note": "18 of the 36 satellites in the SDA's $1.75B tracking award and the $4.7B PAC-3 propulsion award underpin the backlog, with Q3 earnings on Oct 29 the next test. Also sits in the Defense sleeve \u2014 don't double-count exposure.",
+    "change": null
+   },
+   {
+    "ticker": "PL",
+    "name": "Planet Labs",
+    "stance": "spec",
+    "weight": 18,
+    "note": "Q2 revenue of $116.05M (+58%), a fifth straight EPS beat and $13.9M adjusted EBITDA are the best fundamentals among the small caps, but ~$13.4 is still 63% below April and Barclays' $17 target shows limited upside.",
+    "change": null
+   },
+   {
+    "ticker": "LUNR",
+    "name": "Intuitive Machines",
+    "stance": "spec",
+    "weight": 12,
+    "note": "Q2 revenue of $206.2M and a $1.76B backlog are real, yet a $62.8M net loss, negative equity of about $290M and ~$259M of insider selling keep it small at ~$10.5.",
+    "change": null
+   },
+   {
+    "ticker": "ASTS",
+    "name": "AST SpaceMobile",
+    "stance": "watch",
+    "weight": 0,
+    "note": "A Q2 revenue miss ($31.5M vs $34.4M), a $125.9M loss tied to the BB7 launch incident, Piper Sandler's downgrade and SpaceX's spectrum push outweigh $1.3B of backlog at ~$40 \u2014 moved from speculative to watch.",
+    "change": "down"
+   },
+   {
+    "ticker": "RDW",
+    "name": "Redwire",
+    "stance": "watch",
+    "weight": 0,
+    "note": "A $542M record backlog and a Q2 beat ($117.1M revenue) are encouraging, but adjusted EBITDA is still \u2212$3.2M, NITE STAR carries no guaranteed revenue and insiders have been heavy sellers at ~$8.4.",
+    "change": null
+   },
+   {
+    "ticker": "BKSY",
+    "name": "BlackSky",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Q2 revenue of $33.3M (+50%) with positive adjusted EBITDA of $4.7M is good progress, but a GAAP loss of $0.54 per share and a ~54% drop since April leave the earnings quality unresolved.",
+    "change": "new"
+   },
+   {
+    "ticker": "SPCX",
+    "name": "SpaceX",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Q3 revenue of $14.6B (+161%) and $4.4B net income are strong, but AI is now over half of revenue, Q4 capex is guided to $35\u201340B and lockup tranches continue through Dec 8 at ~$148\u2013154. UK investors wanting indirect exposure can use Scottish Mortgage (SMT, covered on the Baillie Gifford page).",
+    "change": null
+   },
+   {
+    "ticker": "IRDM",
+    "name": "Iridium Communications",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Q3 EPS of $0.98 vs $0.34 expected was a clean beat, but at $44.40 the stock is pinned to Rocket Lab's slide with the deal not closing until mid-2027 \u2014 RKLB remains the cleaner way to express the view.",
+    "change": null
+   }
+  ]
+ }
+}
