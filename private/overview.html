@@ -34,7 +34,7 @@
       <!-- page header -->
       <div class="hub-page-header">
         <div>
-          <div class="hub-kicker">★ Weekly brief · Week of Oct 19, 2026</div>
+          <div class="hub-kicker">★ Weekly brief · Week of Oct 26, 2026</div>
           <h1 class="hub-h1">Emerging Tech<br>Weekly</h1>
         </div>
         <div class="hub-meta">
@@ -199,13 +199,13 @@ var cutTotal=SECT.reduce(function(a,s){return a+s[4].length;},0);
 var mostActive=SECT.reduce(function(a,s){var n=s[3].length+s[4].length;return n>a[0]?[n,s[1]]:a;},[0,'—']);
 document.getElementById('hub-band').innerHTML=
   '<div class="hub-band-cell accent-bg"><div class="hub-band-label">The one-line read</div>'
-  +'<b class="hub-band-read">One raise, three cuts: financing, not demand, is the pressure point.</b></div>'
-  +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Names raised</div>'
+  +'<b class="hub-band-read">Two cuts, two new Watch names: balance-sheet stress, not the story, moves conviction.</b></div>'
+  +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Names added / raised</div>'
   +'<span class="hub-band-big" style="color:var(--color-text);">'+raisedTotal+'</span>'
-  +'<span class="hub-band-note">Quantum: Quantinuum</span></div>'
+  +'<span class="hub-band-note">New to Watch: BlackSky, Infleqtion</span></div>'
   +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Names cut</div>'
   +'<span class="hub-band-big" style="color:var(--color-accent-700);">'+cutTotal+'</span>'
-  +'<span class="hub-band-note">Minerals, biotech (two)</span></div>'
+  +'<span class="hub-band-note">AST SpaceMobile, Stem</span></div>'
   +'<div class="hub-band-cell"><div class="hub-band-label" style="color:var(--n700);">Most active</div>'
   +'<span class="hub-band-big" style="font-size:32px;">'+x(mostActive[1])+'</span>'
   +'<span class="hub-band-note">Two names moved</span></div>';

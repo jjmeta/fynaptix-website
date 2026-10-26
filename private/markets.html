@@ -119,7 +119,7 @@
           </div>
           <div class="hub-meta">
             <span>Every dated event, one view</span>
-            <span>Updated Oct 19 · refreshes Mondays</span>
+            <span>Updated Oct 26 · refreshes Mondays</span>
             <span style="color:var(--color-accent-700);">Dates shift — verify before trading</span>
           </div>
         </div>
@@ -162,7 +162,7 @@
           </div>
           <div class="hub-meta">
             <span>The moment they become investable</span>
-            <span>Updated Oct 19 · refreshes Mondays</span>
+            <span>Updated Oct 26 · refreshes Mondays</span>
             <span style="color:var(--color-accent-700);">Rumoured listings may never happen</span>
           </div>
         </div>
@@ -210,63 +210,67 @@
 
 <script>
 var IMMINENT=[
-  ["OCT 20", "SPACE", "SpaceX Q3 results", "First print since the June listing at $135; the next lockup tranche (up to 1.3B shares) follows Oct 24-29, with SPCX near $149 vs a $225.64 high.", true],
-  ["OCT 20", "AI BIOTECH", "Guardant/Tempus patent Markman hearing", "Follow-on to the $245.2M TwinStrand judgment, under appeal.", false],
-  ["OCT 21", "AI & COMPUTE", "Meta Q3 earnings (after close)", "First hyperscaler capex update since the chip selloff; capex guide $130-145B, consensus EPS ~$6.35.", true],
-  ["OCT 21", "ROBOTICS / STORAGE", "Tesla Q3 earnings (after close)", "Consensus EPS ~$0.43 on ~$27.9B; Optimus and robotaxi outlook plus the energy-segment margin (31.4% in Q2) after a 13.7 GWh deployment miss. QuantumScape also reports.", true],
-  ["OCT 22", "ROBOTICS", "Fanuc earnings", "Q1 net profit was +35%; watch AI Welding Agent commentary and orders.", false],
-  ["OCT 22", "DEFENSE", "Lockheed Martin Q3 earnings", "Order-book read while the continuing resolution freezes new starts.", false],
-  ["OCT 24–29", "SPACE", "Next SpaceX lockup tranche and L3Harris earnings", "Supply overhang arrives right after the Oct 20 print.", false],
-  ["OCT 25", "MINERALS", "Lynas quarterly report", "Read on rare-earth pricing and the Meteoric Resources all-scrip takeover.", false],
-  ["OCT 27", "AI BIOTECH / STORAGE", "Novartis Q3; Enphase Q3", "Novartis (moved to Watch) for AI partnership commentary; Enphase for residential storage demand.", false],
-  ["OCT 27–28", "MACRO", "FOMC meeting", "Markets price ~17% odds of an October hike and ~89% for December after hot CPI and PPI; Chair Warsh gave no signal.", true],
-  ["OCT 28", "AI & COMPUTE / STORAGE", "Microsoft and Alphabet Q3; GE Vernova Q3", "Capex reads on the AI trade; GE Vernova tests its backlog thesis after a bear-market slide to $921.", true],
-  ["OCT 29", "AI BIOTECH", "Eli Lilly and Illumina Q3", "Test of the AI-biotech compute-layer thesis; ILMN ~49x trailing earnings.", false],
-  ["NOV 2", "ROBOTICS / NUCLEAR / BIOTECH", "Agility SPAC vote; BWXT and Tempus Q3", "Churchill Capital XI holders vote on Agility Robotics; BWXT and Tempus (Nov 2) report.", true],
-  ["NOV 4–5", "MINERALS / QUANTUM / NUCLEAR", "Albemarle, Schrodinger, NuScale, MP Materials and Rheinmetall", "Albemarle and Schrodinger Nov 4; MP Materials (after close), NuScale and Rheinmetall Q3 Nov 5.", false],
-  ["WEEK OF NOV 9", "AI & COMPUTE", "Anthropic roadshow (reported)", "Reports say a roadshow the week of Nov 9 and up to $100B raised, but the registration statement was still pending as of Oct 16 after two delays, and some investors were weighing a lower valuation.", true],
-  ["UNTIL DEC 11", "DEFENSE", "Continuing resolution in force", "150+ new programs frozen, including Golden Dome and the $54.6B DAWG drone line.", false]
+  ["OCT 27", "AI BIOTECH / STORAGE / MINERALS", "Novartis, Enphase, Freeport-McMoRan and Seagate Q3", "Novartis (on Watch) for AI partnership commentary after weak MS data; Enphase for residential storage demand under Underweight calls; FCX for copper.", false],
+  ["OCT 28", "MACRO", "FOMC decision (2:00pm ET) and UK Autumn Budget", "A hold at 3.75–4.00% is expected with Warsh's press conference at 2:30pm; the Budget is the test for BAE's 3% defence timetable.", true],
+  ["OCT 28", "AI & COMPUTE / STORAGE", "GE Vernova (pre-open); Microsoft and Alphabet (after close)", "Capex reads hours after the Fed after the Oct 22 chip rout; GEV (~$815) must defend its $176B backlog.", true],
+  ["OCT 29", "AI & COMPUTE", "Amazon and Intel Q3 (after close)", "Completes the hyperscaler capex read; Amazon is the largest spender at ~$220B.", true],
+  ["OCT 29", "AI BIOTECH", "Eli Lilly (pre-open) and Illumina (after close) Q3", "Test of the AI-biotech compute-layer thesis; ILMN at ~$269 sits about 8% above its average target.", false],
+  ["OCT 29", "SPACE / MINERALS / MACRO", "L3Harris Q3; Lynas quarterly; Q3 GDP and September PCE", "L3Harris is a Core Space and Defense name; Lynas is at a 52-week low; PCE feeds the December rate debate.", false],
+  ["OCT 30", "MACRO", "Employment Cost Index", "Wage-inflation read ahead of the December FOMC.", false],
+  ["NOV 2", "ROBOTICS / AI / NUCLEAR / BIOTECH", "Agility SPAC vote; Palantir, BWXT and Tempus Q3", "Churchill XI holders vote on Agility (AGLT); Palantir guided ~$2.16B (+83%); BWXT's first print since Investor Day.", true],
+  ["NOV 3", "AI & COMPUTE / MACRO", "AMD Q3 and US midterm elections", "AMD fell 8.1% in the Oct 22 chip rout; midterms frame the FY27 defense budget and tariff outlook.", false],
+  ["NOV 4", "MINERALS / BIOTECH", "Albemarle and Schrodinger Q3", "Lithium carbonate is down ~27% in a month; SDGR is on Watch.", false],
+  ["NOV 5", "QUANTUM / MINERALS / NUCLEAR / STORAGE", "IonQ, Quantinuum, MP Materials, NuScale, Centrus, Rheinmetall, Eos, Stem Q3", "IonQ (FY26 guide $450–460M) and Quantinuum report the same day; MP after the close; Eos and Stem are the balance-sheet stress tests; Guardant and Quantum-Si also report.", true],
+  ["NOV 6", "NUCLEAR / BIOTECH", "Oklo Q3; Generate and Eikon Q3", "Oklo's cash burn against a ~$1B at-the-market programme.", false],
+  ["NOV 9", "SPACE / NUCLEAR / BIOTECH", "Rocket Lab, Constellation and Recursion Q3", "Rocket Lab ($52.60) after Neutron's slip to 2027; Recursion date is an estimate; Anduril's employee tender also closes.", false],
+  ["WEEK OF NOV 9", "AI & COMPUTE", "Anthropic roadshow (reported)", "Reuters (Oct 22) points to a mid-November listing near $1.5T; the public S-1 was still unfiled as of Oct 24.", true],
+  ["NOV 10", "MINERALS / MACRO", "China's rare-earth control suspension lapses", "The 12-month suspension of the Oct 2025 controls ends with no renewal announced; Energy Vault also reports Q3.", true],
+  ["NOV (DATE TBC)", "SPACE", "Starship Flight 15", "SpaceX expects booster and ship catch attempts in November.", false],
+  ["LATE NOV", "STORAGE", "Fluence class-action lead-plaintiff deadline", "Shares are at $5.59 near the 52-week low after the Sept guide cut.", false]
 ];
 var HORIZON=[
-  ["SUSPENDED", "NUCLEAR", "Holtec Nuclear IPO (HNUC)", "Pulled Sept 16–18; S-1 remains on file with no new pricing date."],
-  ["H2 2026", "NUCLEAR", "Westinghouse eyes a $50B+ IPO", "Bloomberg reported the target jumped from ~$30B; Cameco’s 49% stake would be worth ~$24.5B. Not re-verified this week."],
-  ["H2 2026", "ROBOTICS", "Agility Robotics SPAC completion", "Vote Nov 2; first US-listed pure-play humanoid, ~$620M+ gross proceeds incl. a $200M Foxconn PIPE."],
-  ["H2 2026", "ROBOTICS", "LimX & Agibot confidential HK listings", "LimX at $2.2B; Agibot targeting a HK$40–50bn IPO."],
-  ["2027", "AI & COMPUTE", "OpenAI IPO", "Altman has ruled out a 2026 listing; a $30B+ round at a $1.4T pre-money is in talks with no lead investor, and the IPO is now 2027 or later."],
+  ["DEC 8", "SPACE", "Next SpaceX lockup tranche (~797.6M shares)", "Third-party schedule; verify against the prospectus."],
+  ["DEC 11, 2026", "DEFENSE / MACRO", "Government funding CR deadline", "150+ new starts are frozen, including Golden Dome, until the stopgap expires or is replaced."],
+  ["SUSPENDED", "NUCLEAR", "Holtec Nuclear IPO (HNUC)", "Pulled Sept 16–18; S-1 remains on file with no new pricing date. Not re-verified this week."],
+  ["H2 2026", "NUCLEAR", "Westinghouse eyes a $50B+ IPO", "Bloomberg reported the target jumped from ~$30B; Cameco's 49% stake would be worth ~$24.5B. Not re-verified this week."],
+  ["H2 2026", "NUCLEAR", "AEP/Amazon/X-energy 960 MW Xe-100 plant, Indiana", "Announced Oct 19: 12 units at the former Breed coal site, evaluation-stage with no final investment decision."],
+  ["H2 2026", "ROBOTICS", "LimX & Agibot confidential HK listings", "LimX at $2.2B; Agibot targeting a HK$40–50bn IPO. Not re-verified this week."],
+  ["2027+", "AI & COMPUTE", "OpenAI IPO", "Altman has ruled out a 2026 listing; CNBC (Oct 22) says the raise was repriced to up to $30B at $1.25T pre-money, below $1.4T talk."],
   ["MID–LATE 2026", "ROBOTICS", "ABB–SoftBank robotics deal close", "~$5.4B EV divestment awaiting regulatory clearance."],
-  ["MID-2027", "SPACE", "Rocket Lab × Iridium merger closes", "Stockholders approved Sept 24; FCC review remains. Neutron’s first launch slipped to 2027 (Oct 14)."],
-  ["Q4 2026", "NUCLEAR", "TVA Clinch River BWRX-300 next steps", "NRC construction permit issued Sept 29–30; TVA has yet to disclose cost, start date or a financing partner."],
-  ["DEC 11, 2026", "DEFENSE / MACRO", "Government funding CR deadline", "98% of Golden Dome’s $17.5–17.9B FY27 ask needs a reconciliation bill; 150+ new starts are frozen until then."],
-  ["JAN 10, 2027", "MINERALS / MACRO", "China rare-earth export-control suspension lapses", "The April 2025 seven-element licensing stays in force regardless; rare-earth equities are already pricing a thaw."],
-  ["MAR 10, 2027", "AI BIOTECH", "Intellia lonvo-z PDUFA date", "Gene editing for hereditary angioedema, not AI discovery, but a sector sentiment marker."],
+  ["MID-2027", "SPACE", "Rocket Lab × Iridium merger closes", "Holders approved Sept 24; FCC review remains; Neutron's first launch slipped to 2027."],
+  ["Q4 2026", "NUCLEAR", "TVA Clinch River BWRX-300 next steps", "NRC construction permit issued Sept 29–30; cost, start date and financing partner not yet disclosed."],
+  ["JAN 10, 2027", "MINERALS / MACRO", "US–China trade truce end date", "Extended Sept 28, but it is unclear whether it covers the rare-earth suspension that lapses Nov 10; April 2025 licensing stays regardless."],
+  ["JAN 1, 2027", "STORAGE", "China battery export tax rebate falls to zero", "Pressure on Chinese exporters' pricing and margins."],
+  ["MAR 10, 2027", "AI BIOTECH", "Intellia lonvo-z PDUFA date", "Priority Review; would be the first in-vivo CRISPR approval."],
   ["END 2026", "DEFENSE", "Anduril Arsenal-1 full ramp", "6,000 tactical rocket motors/yr target."],
   ["H2 2026", "QUANTUM", "Remaining CHIPS quantum LOIs finalize", "GlobalFoundries, Atom Computing and Diraq still to convert."],
-  ["H2 2026–2029", "NUCLEAR", "X-energy’s Xe-100 UK design assessment", "Three-year review opened in late September behind a 6GW plan."],
-  ["FY27 CYCLE", "DEFENSE", "Pentagon autonomy appropriations", "~$75B unmanned/counter-drone request incl. the $54.6B DAWG line."]
+  ["FY27 CYCLE", "DEFENSE", "Pentagon autonomy appropriations", "~$75B unmanned/counter-drone request, blocked from new starts until the CR ends."]
 ];
 var MOTION=[
-  ["Anthropic", "AI & Compute", "Roadshow reported for Nov 9 week", "~$1.5T talk (was $2T+)", "Confidential S-1 submitted June 1 after the $965B Series H; the leaked filing shows $518B of compute commitments. Registration still pending as of Oct 16 after two delays, with Nvidia reportedly weighing an anchor of up to $10B."],
-  ["OpenAI", "AI & Compute", "Round in talks, IPO 2027+", "~$852B → $1.4T pre-money (talks)", "Altman has ruled out a 2026 IPO; a $30B+ round has no lead investor, and an FT-reported ~$50B run-rate (vs ~$70B) pressured chips Oct 8."],
-  ["Westinghouse", "Nuclear", "Reported IPO prep", "~$50B+ (was ~$30B)", "Bloomberg-reported target; Cameco’s 49% stake alone would be worth ~$24.5B. Not re-verified this week."],
+  ["Anthropic", "AI & Compute", "Mid-Nov listing targeted (reported)", "~$1.5T (range $1.5–2T)", "Reuters (Oct 22): roadshow possibly the week of Nov 9; the public S-1 was still unfiled as of Oct 24. Q3 revenue $16.8B (+45–50% QoQ) with an 85% gross margin; confidential S-1 submitted June 1."],
+  ["OpenAI", "AI & Compute", "Raise repriced, IPO 2027+", "$1.25T pre-money (was $1.4T talk)", "CNBC (Oct 22): up to $30B with Coatue and UAE investors; Altman has ruled out a 2026 IPO."],
+  ["SpaceX × Tesla", "Space", "Merger study announced", "No terms", "Both boards formed special committees on Oct 20; any deal needs shareholder approval. SPCX ~$148 vs the $135 IPO price."],
+  ["Agility Robotics", "Robotics", "SPAC vote Nov 2", "~$2.5B", "Churchill Capital XI holders vote; S-4 effective Oct 13; ticker AGLT if approved; AGCO will pilot Digit in 2027 and orders exceed $300M."],
+  ["Westinghouse", "Nuclear", "Reported IPO prep", "~$50B+ (was ~$30B)", "Bloomberg-reported target; Cameco's 49% stake alone would be worth ~$24.5B. Not re-verified this week."],
   ["Holtec Nuclear", "Nuclear", "IPO suspended (HNUC)", "~$2.0B (was $10.2B)", "Pulled Sept 16–18 citing market conditions; S-1 stays on file."],
-  ["Agility Robotics", "Robotics", "SPAC vote Nov 2", "~$2.5B", "Churchill Capital XI holders vote; ~$620M+ proceeds incl. a $200M Foxconn PIPE."],
   ["LimX Dynamics", "Robotics", "Pre-IPO closed", "~$2.2B", "Closed a $200M round; prepping a confidential HK listing."],
-  ["Agibot", "Robotics", "Planned", "~$5.1–6.4B", "Targeting a HK$40–50bn Hong Kong listing in 2026."],
-  ["European defense wave", "Defense", "Ongoing", "Various", "Helsing’s $1.8B round and Anduril’s ~$1.3B employee tender at ~$90B keep private defense ahead of listed pure-plays."]
+  ["Agibot", "Robotics", "Planned", "~$5.1–6.4B", "Targeting a HK$40–50bn Hong Kong listing in 2026; reportedly ~RMB 50B valuation after an Oct round."],
+  ["European defense wave", "Defense", "Ongoing", "Various", "Helsing's $1.8B round and Anduril's ~$1.3B employee tender at ~$90B (closes Nov 9) keep private defense ahead of listed pure-plays."]
 ];
 var WATCH=[
-  ["Anduril", "Defense", "~$90–100B", "Opened a ~$1.3B employee tender at $94.80/share (~$90B); the larger round is still unclosed, and it won a ~$5B Air Force CCA production award regardless."],
+  ["Anduril", "Defense", "~$90–100B", "Opened a ~$1.3B employee tender at $94.80/share (~$90B, closes Nov 9); the larger round is still unclosed, and it won a ~$5B Air Force CCA production award regardless."],
   ["Figure AI", "Robotics", "~$38–39B", "Nvidia reportedly weighs ~$1B more at ~$38B pre-money (unconfirmed); ~150 robots shipped in 2025."],
-  ["Blue Origin", "Space", "~$130B (reported)", "Closed a $10B round, nearly half of Q3's record $20.8B private space investment; next New Glenn flight date unconfirmed."],
+  ["Blue Origin", "Space", "~$130B (reported)", "Closed a $10B round, nearly half of Q3's record $20.8B private space investment; outlined a $330M Florida expansion with return to flight guided to year-end or early 2027."],
   ["1X Technologies", "Robotics", "Seeking $10B+", "Full-scale NEO production under way in Hayward, CA."],
+  ["Suzhou Collaborative Robotics / Embodied Intelligence", "Robotics", "~$1.3–1.4B rounds", "Large China robotics rounds reported Oct 12–18 (per The Bon Cast); no listing filings."],
   ["Helsing", "Defense", "~$18B", "$1.8B round closed with demand exceeding allocation; no filing yet."],
   ["Neros", "Defense", "Private", "Won ~$100M Pentagon FPV-drone order (14,000+ units) after Gauntlet II."]
 ];
 var TRADING=[
-  ["Pasqal", "Quantum", "Aug 2026 (SPAC)", "~$6.99 (last check)", "Not re-quoted this week; first reporting quarter as a listed company still ahead."],
+  ["Pasqal", "Quantum", "Aug 2026 (SPAC)", "$5.56 (Oct 23)", "Down 2% on the week; law-firm investigation notices (Oct 12) and its first reporting quarter as a listed company still ahead."],
   ["Unitree", "Robotics", "Aug 2026 (688836)", "~¥182B cap (early Oct)", "Roughly 60% below its ¥1,100 52-week high per last quote; FCC import ban still in force. Not re-verified."],
-  ["SpaceX", "Space", "Jun 2026 (SPCX)", "$148.62 (Oct 15)", "Still above the $135 IPO price but ~34% below the $225.64 June high; Q3 results Oct 20, lockup tranche Oct 24–29."],
-  ["Quantinuum", "Quantum", "Jun 2026 (QNT)", "~$36.6 (Oct 16)", "Jumped ~11% on Morgan Stanley’s Overweight ($62 target); moved to Speculative on the stance board."],
+  ["SpaceX", "Space", "Jun 2026 (SPCX)", "~$148 (Oct 23)", "Jumped ~8–10% on the Oct 20 print (revenue $14.6B, +161%) but is ~34% below the $225.64 June high; lockup tranches continue and merger committees formed with Tesla."],
+  ["Quantinuum", "Quantum", "Jun 2026 (QNT)", "$36.50 (Oct 23)", "Flat on the week after a record 99.9995% logical-fidelity claim; Speculative on the stance board; reports Q3 Nov 5."],
   ["X-energy", "Nuclear", "Apr 2026 (XE)", "$10.36 (Oct 16)", "Fell 9.5% on Oct 16 to a fresh low; Morgan Stanley trimmed its target to $34."],
   ["Generate Biomedicines", "AI Biotech", "Feb 2026", "$400M raised", "Signed a Zealand Pharma AI-protein deal Oct 13; GB-0895 Phase 3 recruitment complete."],
   ["Eikon Therapeutics", "AI Biotech", "Feb 2026", "$381M raised", "Shares remain below the $18 IPO price after the lock-up expiry."]
