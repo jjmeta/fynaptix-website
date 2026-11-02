@@ -3,9 +3,9 @@
   "title": "Fynaptix · Quantum Computing Research",
   "heading": "Quantum Computing Intelligence",
   "subheading": "Pure-plays, hedged giants & the road to commercial advantage",
-  "kicker": "QUANTUM COMPUTING // OCT 2026",
-  "generated": "October 26, 2026",
-  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S ~54–418×), are funding themselves with heavy dilution and are highly speculative — position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
+  "kicker": "QUANTUM COMPUTING // NOV 2026",
+  "generated": "November 2, 2026",
+  "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. Quantum pure-plays trade at extreme valuations (P/S ~46–430×), are funding themselves with heavy dilution and are highly speculative — position sizing matters more here than anywhere else on this hub. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
       "value": "$97B",
@@ -14,21 +14,21 @@
       "highlight": false
     },
     {
-      "value": "≈ FLAT",
-      "sub": "WEEK OF OCT 19 – OCT 23",
-      "label": "After last week's dilution-driven crash, the group stalled near its lows: Oct 16→Oct 23 closes: IonQ $31.28→$31.27 (0%), Rigetti $11.80→$11.52 (−2%), D-Wave $11.78→$11.66 (−1%), Quantinuum $36.55→$36.50 (0%), Pasqal $5.67→$5.56 (−2%), QTUM $137.14→$136.20 (−1%). On Oct 22 an AI/chip selloff (Lam Research warned some December-quarter shipments could slip to March) erased a one-day rally: IonQ −3%, Quantinuum −7%, Rigetti −5%, D-Wave −4%. Over one month IonQ is −24%, D-Wave −35% and Rigetti −31%.",
+      "value": "DOWN AGAIN",
+      "sub": "WEEK OF OCT 26 – OCT 30",
+      "label": "Alphabet fell about 11% after its Q3 report (~Oct 29) and dragged AI and quantum names lower. IonQ closed $30.04 on Oct 30 (−5.3% on the day; $31.27 on Oct 23, so about −4% on the week). Latest quotes found for the rest are Oct 26 snapshots: Rigetti $11.44, D-Wave $11.54, Quantinuum $37.53, Pasqal $5.35 (a new 52-week low), Infleqtion $8.63; QTUM ~$140 (Oct 27 intraday). Fresher closes were not available this run, so weekly moves for those names are not computed.",
       "highlight": true
     },
     {
       "value": "NOV 5",
       "sub": "IONQ & QUANTINUUM Q3 REPORTS",
-      "label": "Both report on the same day. IonQ's FY26 guidance is $450–460M (consensus ~$455M, vs $130M in 2025) and it trades near 20× forward sales, just above a five-year low of 19× hit Oct 19; Q2 revenue was $80.05M. The $2B equity offering (Oct 14) is done and the all-stock Elisity deal (up to $1.3B, issue-price collar $33.07–$49.61) is expected to close in Q4, so further share issuance is still ahead.",
+      "label": "Both report this week. IonQ consensus is ~$141M revenue (+254% YoY) and a ~$0.38 loss per share, against FY26 guidance of $450–460M; the $2B raise (Oct 14) is done and the all-stock Elisity deal (up to $1.3B) is expected to close in Q4. Rigetti is estimated Nov 9 and D-Wave confirmed Nov 10; Infleqtion (~Nov 28) and Pasqal (~Dec 24) are estimates.",
       "highlight": false
     },
     {
-      "value": "54–418×",
-      "sub": "P/S RATIOS, TTM (OCT 23, 2026 CLOSE)",
-      "label": "IonQ $31.27 (~$13.43B mkt cap / $246.5M TTM revenue, P/S ~54×) / Rigetti $11.52 (~$3.85B / $13.35M, ~288×) / D-Wave $11.66 (~$4.34B / $12.43M, ~349×) / Quantinuum $36.50 (~$9.61B / $22.97M, ~418×); Infleqtion $8.75 (~$1.97B / $42.44M, ~46×); Pasqal $5.56 (~$1.18B mkt cap); Defiance Quantum ETF (QTUM) $136.20 (~$5.15B AUM), 20% below its 52-week high of $170. Ratios are computed from market cap and TTM revenue.",
+      "value": "46–430×",
+      "sub": "P/S RATIOS, TTM (LATEST QUOTES, OCT 26–30)",
+      "label": "IonQ $30.04 (~$12.90B mkt cap / $246.5M TTM revenue, ~52×) / Rigetti $11.44 (~$3.82B / $13.35M, ~286×) / D-Wave $11.54 (~$4.30B / $12.43M, ~346×) / Quantinuum $37.53 (~$9.88B / $22.97M, ~430×); Infleqtion $8.63 (~$1.94B / $42.44M, ~46×); Pasqal $5.35 (~$1.14B mkt cap; revenue is reported in EUR so P/S is not comparable). QTUM ~$140, about 18% below its 52-week high of $170. Ratios are computed from market cap and TTM revenue.",
       "highlight": false
     }
   ],
@@ -48,13 +48,13 @@
         {
           "ticker": "IBM",
           "company": "IBM",
-          "angle": "DARPA QBI Stage C (since Oct 7) is backed by the Oct 8 Pentagon package: ~$200M of new DARPA funding across the four new Stage C teams (IBM, IonQ, Atom Computing, Diraq). Builds on Nighthawk r2 and Anderon CHIPS foundry funding. No new IBM-specific quantum headline this week",
+          "angle": "DARPA QBI Stage C (since Oct 7) is backed by the Oct 8 Pentagon package: ~$200M of new DARPA funding across the four new Stage C teams (IBM, IonQ, Atom Computing, Diraq). Builds on Nighthawk r2 and Anderon CHIPS foundry funding. No new IBM-specific quantum headline Oct 26–30",
           "watch for": "Stage C award size for IBM (not disclosed); Albany 300mm foundry yield ramp; progress against the 2029 fault-tolerant Starling roadmap"
         },
         {
           "ticker": "GOOGL",
           "company": "Alphabet",
-          "angle": "No new hardware headline since the Sep 22 logical-qubit stability milestone; still a lab result, and Google is not in DARPA Stage C. Quantinuum's Oct 19 claim of logical fidelity ~100× better than Google's best published superconducting result (company-reported) sharpens the competitive comparison",
+          "angle": "Fell about 11% after its Q3 report (~Oct 29) on AI-spending worries, dragging quantum names with it; that is a market-wide AI move, not a quantum result. Last hardware headline is still the Sep 22 logical-qubit stability milestone; Google is not in DARPA Stage C, and Quantinuum claims ~100× better logical fidelity (company-reported)",
           "watch for": "Scaling stable logical qubits into larger arrays; any commercial Willow-class access; overlap with your AI-sleeve Alphabet exposure"
         },
         {
@@ -66,7 +66,7 @@
         {
           "ticker": "NVDA",
           "company": "NVIDIA",
-          "angle": "Oct 8: $1B five-year US science commitment (AI, quantum, healthcare, energy) and Genesis Mission collaborator; CUDA-Q and NVQLink tie quantum hardware to GPU systems. Caught in the Oct 22 AI/chip selloff alongside the quantum names",
+          "angle": "Oct 8: $1B five-year US science commitment (AI, quantum, healthcare, energy) and Genesis Mission collaborator; CUDA-Q and NVQLink tie quantum hardware to GPU systems. Moves with the AI/chip tape (Oct 22 selloff, Alphabet-led weakness Oct 29)",
           "watch for": "How much of the $1B reaches quantum; new NVQLink adopters; quantum remains immaterial to NVIDIA's revenue"
         }
       ]
@@ -85,38 +85,38 @@
         {
           "ticker": "IONQ",
           "company": "IonQ",
-          "angle": "Flat on the week at $31.27 (−24% over a month, −58% from the $73.65 high) after the Oct 14 $2B raise and Oct 12 all-stock Elisity deal (up to $1.3B). Offsets: DARPA Stage C (up to $300M through 2029, subject to appropriations), FY26 guidance $450–460M, ~20× forward sales",
-          "watch for": "Q3 results Nov 5 (organic vs SkyWater/inorganic mix, use of the $2B); Elisity close (Q4) and share issuance within the $33.07–$49.61 collar; ~54× TTM P/S"
+          "angle": "$30.04 on Oct 30 (−5.3% that day; about −59% from the $73.65 high, 52-week low $25.89) after the Oct 14 $2B raise and Oct 12 all-stock Elisity deal (up to $1.3B). New: $7.5M AFRL follow-on funding (Oct 27); BlackRock's stake fell below 5%. Offsets: DARPA Stage C (up to $300M through 2029, subject to appropriations), FY26 guidance $450–460M",
+          "watch for": "Q3 results Nov 5 (consensus ~$141M revenue; organic vs SkyWater mix, use of the $2B); Elisity close (Q4) and share issuance within the $33.07–$49.61 collar; ~52× TTM P/S"
         },
         {
           "ticker": "RGTI",
           "company": "Rigetti",
-          "angle": "$11.52 (−2% on the week, −31% over a month) with no company-specific news; sits just above its $11.11 52-week low (high $44.52). Holds a $100M CHIPS award with a Commerce minority equity stake and is not in Stage C",
-          "watch for": "Dilution from the government stake and any ATM raise; 108-qubit system progress; ~288× P/S; a break below $11.11"
+          "angle": "$11.44 on Oct 26 (latest quote found), just above its $11.11 52-week low (high $44.52), with no company-specific news. Holds a $100M CHIPS award with a Commerce minority equity stake and is not in Stage C",
+          "watch for": "Q3 report (estimated Nov 9); dilution from the government stake and any ATM raise; ~286× P/S; a break below $11.11"
         },
         {
           "ticker": "QBTS",
           "company": "D-Wave",
-          "angle": "TTM revenue is $12.43M, down 44% YoY, against a ~$4.34B market cap; $11.66 (−1% on the week, −35% over a month), ~3% above its $11.26 52-week low. Several law firms announced securities-fraud investigations after a ~9.5% one-day drop (investigations, not filed claims); delivered Italy's first annealing system and extended the SkyWater partnership",
-          "watch for": "Whether deliveries convert to bookings; Q3 report (date to be confirmed); CFO transition (retirement announced Aug 26); ~349× P/S"
+          "angle": "TTM revenue is $12.43M, down 44% YoY, against a ~$4.30B market cap; $11.54 on Oct 26, ~2% above its $11.26 52-week low. Law-firm notices now include a Kaplan Fox reminder citing a Dec 14, 2026 deadline (Oct 26), which points to a filed securities class action (allegations unproven); Q3 date confirmed Nov 10",
+          "watch for": "Q3 report Nov 10 and whether deliveries convert to bookings; class-action developments; CFO transition (retirement announced Aug 26); ~346× P/S"
         },
         {
           "ticker": "QNT",
           "company": "Quantinuum",
-          "angle": "Oct 19: company-reported record 99.9995% logical fidelity on Helios (~5 errors per million operations, color code with up to 37 physical qubits per logical qubit), reaffirming its 2029 universal fault-tolerance target. Held at $36.50 (flat on the week) after Morgan Stanley's Oct 16 Overweight ($62 target); ~58% below the $86.79 high. Q2 revenue ~$8M, ~$30M expected for 2026",
-          "watch for": "Q3 results Nov 5 (first real read on revenue ramp); independent validation of the fidelity claims; IPO lockup expiries; ~418× TTM P/S; $33.02 52-week low"
+          "angle": "$37.53 on Oct 26 (+2.8% that day), ~57% below the $86.79 high (52-week low $33.02). Oct 19–20: company-reported record 99.9995% logical fidelity on Helios, reaffirming a 2029 universal fault-tolerance target. Morgan Stanley Overweight ($62 target, Oct 16). TTM revenue $22.97M (+35%); ~$30M expected for 2026",
+          "watch for": "Q3 results Nov 5 (first real read on revenue ramp as a listed company); independent validation of the fidelity claims; IPO lockup expiries; ~430× TTM P/S"
         },
         {
           "ticker": "PSQL",
           "company": "Pasqal",
-          "angle": "$5.56 (−2% on the week), at its $5.55 52-week low and ~77% below the $24.69 high; law-firm investigation notices (Oct 12) and an ISO 27001 certification (Oct 15); TTM revenue ~27.8M (reported in EUR) up ~66%; StoneX and Needham initiated at Buy ($15/$16 targets) in late September",
-          "watch for": "First reported quarter as a listed company; neutral-atom competition from Atom Computing (Stage C) and Infleqtion; currency basis of reported revenue"
+          "angle": "$5.35 on Oct 26, a fresh 52-week low (−3.8% that day) and ~78% below the $24.69 high; no company headline since the Oct 15 ISO 27001 certification, after law-firm notices on Oct 12. TTM revenue ~27.8M (reported in EUR) up ~66%; StoneX and Needham initiated at Buy in late September",
+          "watch for": "First reported quarter as a listed company (estimated Dec 24); neutral-atom competition from Atom Computing (Stage C) and Infleqtion; currency basis of reported revenue"
         },
         {
           "ticker": "INFQ",
           "company": "Infleqtion",
-          "angle": "NYSE-listed neutral-atom and quantum-sensing company: $8.75 close, ~$1.97B market cap on $42.44M TTM revenue (+47%, ~46× P/S), just above its $8.38 52-week low (high $21.28). Morgan Stanley initiated at Equal Weight ($12 target) about Oct 13; BTIG Buy ($25); £9M Innovate UK award for quantum RF direction-finding",
-          "watch for": "Sensing revenue mix vs computing; whether 30 logical qubits (error detection rather than full correction) converts to bookings; analyst target dispersion ($12 to $25)"
+          "angle": "NYSE-listed neutral-atom and quantum-sensing company: $8.63 on Oct 26, ~$1.94B market cap on $42.44M TTM revenue (+47%, ~46× P/S), just above its $8.38 52-week low (high $21.28). Oct 30: ran its Tiqker optical atomic clock aboard a US Navy vessel for 2+ weeks (no financials). Morgan Stanley Equal Weight ($12 target); BTIG Buy ($25)",
+          "watch for": "Sensing revenue mix vs computing; whether 30 logical qubits (error detection rather than full correction) converts to bookings; Q3 report (estimated Nov 28); analyst target dispersion ($12 to $25)"
         }
       ]
     }
@@ -141,19 +141,19 @@
   "bear_case": [
     {
       "title": "Years from commercial advantage",
-      "description": "IonQ's ~$13.4B market cap sits on $246.5M of trailing revenue and roughly half of its FY26 guidance is inorganic (SkyWater). D-Wave's trailing revenue is $12.43M, down 44% YoY; Quantinuum booked about $8M last quarter, with ~$30M expected for 2026. Quantinuum's Oct 19 fidelity record is company-reported and a lab result, not revenue."
+      "description": "IonQ's ~$12.9B market cap sits on $246.5M of trailing revenue and roughly half of its FY26 guidance is inorganic (SkyWater). D-Wave's trailing revenue is $12.43M, down 44% YoY; Quantinuum booked about $8M last quarter, with ~$30M expected for 2026. Quantinuum's Oct 19 fidelity record is company-reported and a lab result, not revenue."
     },
     {
       "title": "Dilution is now the dominant story",
-      "description": "IonQ raised $2B in equity on Oct 14 two days after agreeing an all-stock Elisity deal of up to $1.3B, taking shares outstanding from ~405M toward 430M+ before the pre-funded warrants and deal shares; the Elisity shares are still to be issued. Commerce also holds minority equity stakes alongside $100M CHIPS awards to Rigetti, D-Wave and Quantinuum. A month on, IonQ is still −24%."
+      "description": "IonQ raised $2B in equity on Oct 14 two days after agreeing an all-stock Elisity deal of up to $1.3B, taking shares outstanding from ~405M toward 430M+ before the pre-funded warrants and deal shares; the Elisity shares are still to be issued. Commerce also holds minority equity stakes alongside $100M CHIPS awards to Rigetti, D-Wave and Quantinuum. IonQ is still down about 4% in the week after Oct 23 and a further leg of share issuance (Elisity) is still to come."
     },
     {
       "title": "Rates and the AI trade are the swing factor",
-      "description": "The Fed raised to 3.75–4.00% in September and meets again Oct 27–28 (last week's reporting put hike odds near 40%; sources differ). On Oct 22, supply-constraint comments from Lam Research alone knocked IonQ, Rigetti, D-Wave and Quantinuum 3–7% in a day with no company news; Rigetti and D-Wave have betas above 2."
+      "description": "The Fed held at 3.75–4.00% on Oct 28 in a 10–2 vote, with two members dissenting in favour of a hike, and markets now price a December hike (one source put the odds near 85%). Alphabet's ~11% drop after its Q3 report (~Oct 29) pulled IonQ, Rigetti and D-Wave lower with no quantum news; on Oct 22 a Lam Research supply warning did the same. Rigetti and D-Wave have betas above 2."
     },
     {
       "title": "Drawdowns remain brutal",
-      "description": "IonQ is ~58% below its 52-week high, Rigetti sits just above its $11.11 low (high $44.52), D-Wave is ~3% above its $11.26 low (high $37.62), Quantinuum is ~58% below its post-IPO high, Pasqal is at its low (~77% below its high) and Infleqtion is near its $8.38 low. Law-firm fraud investigations now touch D-Wave and Pasqal."
+      "description": "IonQ is ~59% below its 52-week high, Rigetti sits just above its $11.11 low (high $44.52), D-Wave is ~2% above its $11.26 low (high $37.62), Quantinuum is ~57% below its post-IPO high, Pasqal printed a new low at $5.35 (~78% below its high) and Infleqtion is near its $8.38 low. D-Wave now faces a law-firm class-action notice with a Dec 14 deadline, and Pasqal has investigation notices (allegations unproven)."
     },
     {
       "title": "The winner may not be listed or pure-play",
@@ -162,41 +162,41 @@
   ],
   "catalysts": [
     {
-      "date": "OCT 22, 2026",
-      "title": "AI/chip selloff erases the quantum bounce",
-      "description": "Lam Research warned supply constraints could push some December-quarter shipments into March; Quantinuum −7%, Rigetti −5%, D-Wave −4%, IonQ −3% with no company-specific news. IonQ's forward sales multiple fell back to ~20×, near its five-year low of 19×."
+      "date": "OCT 30, 2026",
+      "title": "IonQ −5% as Alphabet-led selloff and policy lobbying land together",
+      "description": "IonQ closed $30.04 (−5.3%) as Alphabet's ~11% post-earnings drop hit AI and quantum names. Same day, the Quantum Industry Coalition (IBM, Microsoft, Quantinuum, IonQ, D-Wave and others) urged Congress to pass the National Quantum Initiative Reauthorization Act this year via the 2027 NDAA; this is a lobbying letter, not enacted funding."
     },
     {
-      "date": "OCT 19, 2026",
+      "date": "OCT 28, 2026",
+      "title": "Fed holds at 3.75–4.00% in a 10–2 vote",
+      "description": "Two members dissented in favour of a hike and markets now price a December increase, which is a headwind for long-duration, pre-profit quantum multiples."
+    },
+    {
+      "date": "OCT 27, 2026",
+      "title": "IonQ wins $7.5M AFRL follow-on; D-Wave sets Nov 10 earnings",
+      "description": "A small federal award for IonQ (immaterial against a ~$12.9B market cap) and a confirmed D-Wave Q3 date; Kaplan Fox's Oct 26 notice cites a Dec 14 deadline for D-Wave investors."
+    },
+    {
+      "date": "OCT 19–20, 2026",
       "title": "Quantinuum reports record 99.9995% logical fidelity",
-      "description": "Company-reported result on Helios using a color code (about 5 logical errors per million operations, ~100× better than Google's best published superconducting result per Quantinuum); reaffirms universal fault tolerance by 2029. Shares stayed flat for the week at $36.50."
-    },
-    {
-      "date": "OCT 20–21, 2026",
-      "title": "Law firms announce D-Wave securities-fraud investigations",
-      "description": "Notices followed a ~9.5% one-day share drop; these are investigations, not filed claims. Pasqal faces similar notices (Oct 12)."
-    },
-    {
-      "date": "OCT 12–14, 2026",
-      "title": "IonQ: Elisity deal (up to $1.3B) and $2B equity raise",
-      "description": "All-stock zero-trust cybersecurity acquisition expected to close in Q4 (collar $33.07–$49.61), followed by a $2B offering of shares and pre-funded warrants; the whole group sold off 10–22% that week."
-    },
-    {
-      "date": "OCT 27–28, 2026",
-      "title": "Federal Reserve meeting (upcoming)",
-      "description": "Policy rate is 3.75–4.00% after September's hike; rate expectations have been the main driver of quantum multiple compression."
+      "description": "Company-reported result on Helios using a color code (about 5 logical errors per million operations, ~100× better than Google's best published superconducting result per Quantinuum); reaffirms universal fault tolerance by 2029."
     },
     {
       "date": "NOV 5, 2026",
       "title": "IonQ and Quantinuum report Q3 results (upcoming)",
-      "description": "First tests of IonQ's $450–460M FY26 guidance after the raise and Quantinuum's revenue ramp as a listed company."
+      "description": "IonQ consensus is ~$141M revenue (+254%) against $450–460M FY26 guidance; first read on Quantinuum's revenue ramp as a listed company."
+    },
+    {
+      "date": "NOV 9–10, 2026",
+      "title": "Rigetti (est. Nov 9) and D-Wave (Nov 10) report Q3 (upcoming)",
+      "description": "Both are valued at roughly 290–350× trailing sales; bookings and cash burn matter more than the headline revenue figure."
     }
   ],
   "etfs": [
     {
       "ticker": "QTUM",
       "name": "Defiance Quantum",
-      "summary": "Quantum + advanced computing basket (90 holdings, 0.40% fee) at $136.20 (Oct 23 close, −1% on the week); ~$5.15B AUM, 20% below its 52-week high of $170 (low $98.21); the standard diversified route"
+      "summary": "Quantum + advanced computing basket (90 holdings, 0.40% fee) at ~$140 (Oct 27 intraday); ~$5.15B AUM, about 18% below its 52-week high of $170 (low $98.21); the standard diversified route"
     },
     {
       "ticker": "SMH",
@@ -206,36 +206,40 @@
   ],
   "sources": [
     {
-      "title": "24/7 Wall St. — IonQ Is Now Down 24% in a Month (Oct 22)",
-      "url": "https://247wallst.com/investing/2026/10/22/ionq-is-now-down-24-in-a-month-is-ionq-a-toxic-stock-or-ready-for-a-recovery/"
+      "title": "StockAnalysis — IonQ quote page (Oct 30, 2026 close); Rigetti, D-Wave, Quantinuum, Pasqal, Infleqtion (Oct 26) and QTUM (Oct 27) pages",
+      "url": "https://stockanalysis.com/stocks/ionq/"
     },
     {
-      "title": "TIKR — Quantum Stocks Slide Again in Tech Selloff (Oct 22)",
-      "url": "https://www.tikr.com/blog/ionq-sinks-3-rigetti-down-5-d-wave-down-4-as-quantum-stocks-slide-again-in-tech-selloff"
+      "title": "Yahoo Finance — IonQ Q3 earnings on deck: what to expect",
+      "url": "https://finance.yahoo.com/technology/articles/ionq-q3-earnings-deck-expect-123510749.html"
+    },
+    {
+      "title": "Trefis — What sent Alphabet stock lower? (Oct 30)",
+      "url": "https://www.trefis.com/stock/googl/articles/621527/what-sent-alphabet-stock-lower/2026-10-30"
+    },
+    {
+      "title": "Baystreet — How Alphabet sent AI and quantum stocks lower",
+      "url": "https://baystreet.ca/stockstowatch/21912/How-Alphabet-Sent-AI-and-Quantum-Stocks-Lower"
+    },
+    {
+      "title": "Investinglive — FOMC decision Oct 28: rates left unchanged",
+      "url": "https://investinglive.com/central-banks/fomc-decision-oct-28/"
+    },
+    {
+      "title": "Admiral Markets — FOMC October 2026: Fed holds in a 10-2 vote",
+      "url": "https://admiralmarkets.com/analytics/traders-blog/fomc-october-2026-fed-holds-rates"
+    },
+    {
+      "title": "The Quantum Insider — Quantum Industry Coalition on NQI reauthorization (Oct 30)",
+      "url": "https://thequantuminsider.com/2026/10/30/quantum-industry-coalition-highlights-funding-priorities-for-the-national-quantum-initiative-reauthorization-act/"
+    },
+    {
+      "title": "The Quantum Insider — Infleqtion optical atomic clock Navy exercise (Oct 30)",
+      "url": "https://thequantuminsider.com/2026/10/30/infleqtion-optical-atomic-clock-navy-exercise/"
     },
     {
       "title": "Quantum Zeitgeist — Quantinuum cuts quantum errors 10x (Oct 19)",
       "url": "https://quantumzeitgeist.com/quantinuum-cuts-quantum-errors-10x/"
-    },
-    {
-      "title": "Quantinuum — Overcomes last major hurdle to fault-tolerant computers by 2029",
-      "url": "https://www.quantinuum.com/blog/quantinuum-overcomes-last-major-hurdle-to-deliver-scalable-universal-fault-tolerant-quantum-computers-by-2029"
-    },
-    {
-      "title": "IonQ — Form 8-K Exhibit 99.1: Elisity acquisition (Oct 12)",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001824920/000119312526419609/ionq-ex99_1.htm"
-    },
-    {
-      "title": "StockAnalysis — IonQ quote page (Oct 23, 2026 close); Rigetti, D-Wave, Quantinuum, Pasqal, Infleqtion and QTUM pages",
-      "url": "https://stockanalysis.com/stocks/ionq/"
-    },
-    {
-      "title": "Pomerantz — D-Wave Quantum (QBTS) investor investigation",
-      "url": "https://www.accessnewswire.com/newsroom/en/business-and-professional-services/investor-alert-pomerantz-law-firm-investigates-claims-on-behalf-1224055"
-    },
-    {
-      "title": "Coingape — Fed October 2026 meeting odds",
-      "url": "https://coingape.com/prediction-markets/will-the-fed-raise-interest-rates-after-the-october-2026-meeting-odds-split-50-50/"
     },
     {
       "title": "PostQuantum — Pentagon's $350 Million Quantum Push",
@@ -254,9 +258,9 @@
       "url": "https://thequantuminsider.com/"
     }
   ],
-  "footnote": "Figures approximate, from public reporting and quote pages as of Oct 23, 2026 close; P/S ratios are computed from market cap and TTM revenue. Fidelity and error-correction figures are company-reported. Fed hike odds differ by source. Policy context: executive orders 14412 and 14413 (Jun 22, 2026) cover post-quantum cryptography migration and quantum innovation. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting and quote pages: IonQ as of Oct 30, 2026 close; Rigetti, D-Wave, Quantinuum, Pasqal and Infleqtion as of Oct 26 closes; QTUM Oct 27 intraday. Weekly moves are not shown where a fresh close was unavailable. P/S ratios are computed from market cap and TTM revenue. Fidelity and error-correction figures are company-reported. Law-firm notices are allegations, not findings. Policy context: executive orders 14412 and 14413 (Jun 22, 2026) cover post-quantum cryptography migration and quantum innovation. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "October 26, 2026",
+    "as_of": "November 2, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
@@ -264,7 +268,7 @@
         "name": "IBM",
         "stance": "core",
         "weight": 33,
-        "note": "Stage C since Oct 7 under the Oct 8 Pentagon package (~$200M new DARPA money across four teams) plus the Albany 300mm foundry and Anderon CHIPS funding, at a valuation that does not depend on quantum.",
+        "note": "Stage C since Oct 7 under the Oct 8 Pentagon package (~$200M new DARPA money across four teams) plus the Albany 300mm foundry and Anderon CHIPS funding, at a valuation that does not depend on quantum; no new IBM quantum news Oct 26–30.",
         "change": null
       },
       {
@@ -272,7 +276,7 @@
         "name": "Alphabet",
         "stance": "core",
         "weight": 18,
-        "note": "Sep 22 logical-qubit milestone is a top result among hedged names, though Quantinuum now claims ~100x better logical fidelity (Oct 19, company-reported) and Google is not in Stage C; also a large AI-sleeve holding, so avoid double-counting.",
+        "note": "Sep 22 logical-qubit milestone is a top hedged-name result, but Quantinuum claims ~100x better logical fidelity (company-reported), Google is not in Stage C, and the stock fell ~11% after its Q3 report on AI spending worries; also a large AI-sleeve holding, so avoid double-counting.",
         "change": null
       },
       {
@@ -288,7 +292,7 @@
         "name": "NVIDIA",
         "stance": "core",
         "weight": 14,
-        "note": "Picks-and-shovels via CUDA-Q and NVQLink plus a $1B five-year US science pledge (Oct 8); quantum is immaterial to revenue, it fell with chips in the Oct 22 selloff and sits in the AI sleeve, so avoid double-counting.",
+        "note": "Picks-and-shovels via CUDA-Q and NVQLink plus a $1B five-year US science pledge (Oct 8); quantum is immaterial to revenue, it trades with the AI/chip tape, and it sits in the AI sleeve, so avoid double-counting.",
         "change": null
       },
       {
@@ -296,7 +300,7 @@
         "name": "IonQ",
         "stance": "spec",
         "weight": 8,
-        "note": "DARPA Stage C (up to $300M) and $450–460M guidance are real, but a $2B raise plus a $1.3B stock deal still to close, a 24% one-month drop to $31.27 and ~54x sales keep it a small spec ahead of the Nov 5 report.",
+        "note": "DARPA Stage C (up to $300M) and $450–460M guidance are real, but a $2B raise plus a $1.3B stock deal still to close, a −5.3% day to $30.04 on Oct 30 and ~52x sales keep it a small spec ahead of the Nov 5 report.",
         "change": null
       },
       {
@@ -304,7 +308,7 @@
         "name": "Rigetti",
         "stance": "spec",
         "weight": 2,
-        "note": "$11.52 and ~288x sales on $13.35M of TTM revenue, hugging its $11.11 low; the $100M CHIPS award brings a government equity stake and it is not in Stage C.",
+        "note": "$11.44 and ~286x sales on $13.35M of TTM revenue, hugging its $11.11 low; the $100M CHIPS award brings a government equity stake and it is not in Stage C.",
         "change": null
       },
       {
@@ -312,7 +316,7 @@
         "name": "Quantinuum",
         "stance": "spec",
         "weight": 5,
-        "note": "Oct 19 record 99.9995% logical fidelity (company-reported) and Morgan Stanley's Overweight ($62 target) back its error-correction lead, but ~418x trailing sales and ~$8M quarterly revenue mean small size only until the Nov 5 report.",
+        "note": "Record 99.9995% logical fidelity (company-reported) and Morgan Stanley's Overweight ($62 target) back its error-correction lead, but ~430x trailing sales and ~$8M quarterly revenue mean small size only until the Nov 5 report.",
         "change": null
       },
       {
@@ -320,7 +324,7 @@
         "name": "D-Wave",
         "stance": "avoid",
         "weight": 0,
-        "note": "Trailing revenue of $12.43M is down 44% YoY against a ~$4.34B market cap, and law firms have opened fraud investigations after a ~9.5% drop; the Italy delivery and SkyWater extension do not change the case.",
+        "note": "Trailing revenue of $12.43M is down 44% YoY against a ~$4.30B market cap, and a law-firm notice now cites a Dec 14 class-action deadline (allegations unproven); the Italy delivery and SkyWater extension do not change the case.",
         "change": null
       },
       {
@@ -328,7 +332,7 @@
         "name": "Pasqal",
         "stance": "avoid",
         "weight": 0,
-        "note": "At its $5.55 low with law-firm investigation notices and no reported quarter yet as a listed company; wait for results.",
+        "note": "Printed a fresh 52-week low of $5.35 (Oct 26) with law-firm investigation notices and no reported quarter yet as a listed company (first expected ~Dec 24); wait for results.",
         "change": null
       },
       {
@@ -337,7 +341,7 @@
         "stance": "watch",
         "weight": 0,
         "note": "Cheaper than peers at ~46x sales ($42.4M TTM revenue, +47%) and 30 logical qubits reported, but those rely on error detection, Morgan Stanley is only Equal Weight ($12 target) and it sits near its $8.38 low.",
-        "change": "new"
+        "change": null
       }
     ]
   }
