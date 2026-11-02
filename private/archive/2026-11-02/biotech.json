@@ -1,0 +1,469 @@
+{
+ "sector": "biotech",
+ "title": "Fynaptix \u00b7 AI Biotech Research",
+ "heading": "AI Biotech Intelligence",
+ "subheading": "AI-native drug discovery, computational biology & longevity capital",
+ "kicker": "AI DRUG DISCOVERY & BIOTECH // NOV 2026",
+ "generated": "Nov 2, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. Biotech carries binary clinical risk; AI-discovery names trade on platform narratives years ahead of any FDA approval.",
+ "footnote": "Figures approximate, from public quote pages. Oct 30 closes were available only for ILMN, TEM and NVDA; other prices are Oct 26 closes (Oct 23 for QSI and MASS, whose pages were not updated; Oct 27 intraday for GENB/NTLA/CRSP noted as such). ILMN's Oct 30 market cap is our arithmetic. Tempus reports Q3 before the open on Nov 2 and those results were not available when this page was built. ARKG holdings as of Oct 21; ARK trade list through Oct 30 (dollar values only, no share counts). Exact Sciences (EXAS) was acquired by Abbott and delisted Mar 23, 2026. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "kpis": [
+  {
+   "value": "$235.99",
+   "sub": "ILLUMINA (ILMN) FALLS 18.6% TO $235.99 ON OCT 30 DESPITE A Q3 BEAT AND RAISED GUIDANCE",
+   "label": "ILMN closed at $235.99 on Oct 30 (-18.64% on the day; $269.42 on Oct 23, so -12.4% on the week), after Q3 revenue of $1.13B (+4.2%) and non-GAAP EPS of $1.44 ex tariff refunds versus $1.36 consensus. FY26 guidance was raised (revenue $4.64-4.66B, EPS $5.40-5.45). Coverage blamed tariffs and AI worries after a ~157% run-up. Pre-earnings average target was $248.90 (21 analysts, Hold); JPMorgan cut to $300 from $320, Evercore to $275 from $290, Stifel raised to $300.",
+   "highlight": true
+  },
+  {
+   "value": "$72.22",
+   "sub": "TEMPUS AI (TEM) CLOSES $72.22 ON OCT 30 (-7.2% ON THE DAY, +6.8% ON THE WEEK); Q3 RESULTS DUE NOV 2 BEFORE THE OPEN",
+   "label": "TEM closed at $72.22 on Oct 30 (-7.22%; $77.84 the day before, $67.62 on Oct 23), market cap $13.03B, $75.06 average target (20 analysts, Buy), after-hours $70.10. TTM revenue $1.43B (+50%), net loss ~$254M. IVDR certification for its xR RNA sequencing assay (Oct 26). ARK bought about $4.4M of TEM on Oct 30. Q3 results were not available when this page was built.",
+   "highlight": false
+  },
+  {
+   "value": "~$24.4B",
+   "sub": "ELI LILLY Q3 REVENUE ~$24.4B (+39%); FY26 GUIDE RAISED TO $91-92B; SHARES ABOUT +6% ON THE REPORT",
+   "label": "Lilly's Q3 revenue was about $24.4B (+39%; volume +53%, realized prices -15%), GAAP EPS $7.22, and FY26 revenue guidance rose to $91-92B from $85-87B. About $900M of Q3 revenue was one-time (Jardiance milestones and rebate adjustments), and full-year EPS guidance slipped on acquired IPR&D charges (AtaiBeckley, Curevo; $4.57/share). Shares were up about 6% at midday on the report. No new AI deal this week; last close seen: $1,279.14 on Oct 26.",
+   "highlight": false
+  },
+  {
+   "value": "~$2.0B",
+   "sub": "ARKG CLOSES $48.72 ON OCT 26 (+1.2%); 35 HOLDINGS, TOP-10 ~58% (OCT 21); 1-YEAR RETURN ~52.8%",
+   "label": "ARKG closed at $48.72 on Oct 26 (latest close found), with 35 holdings, a 0.75% expense ratio, AUM $2.02B, a trailing 1-year total return of about 52.8% and roughly 8% a year since its Oct 31, 2014 inception (derived). Top 10 is 57.77% as of Oct 21 (10x Genomics 8.65%, Twist 8.14%, Tempus 8.11%). Latest ARK trades (through Oct 30): bought Tempus, Beam, Arcturus, Pacific Biosciences and Intellia; sold CareDx and Absci.",
+   "highlight": false
+  }
+ ],
+ "themes": [
+  {
+   "tag": "ILLUMINA: BEAT, RAISE, AND AN 18.6% DROP",
+   "title": "ILMN $235.99 on Oct 30 after Q3; guidance raised, stock sold on tariffs and AI worries",
+   "description": "Q3 revenue $1.13B (+4.2%; +4.7% ex tariff refunds), GAAP EPS $1.43, free cash flow $378M, cash $1.34B. FY26 revenue guidance went to $4.64-4.66B and non-GAAP EPS to $5.40-5.45. The stock still fell 18.64% in one day, taking it below the stale pre-earnings $248.90 average target. Investing.com cited a 12% drop (likely intraday); the 18.64% figure is from the price-history close. Stephens had downgraded to Equal Weight (~Oct 24)."
+  },
+  {
+   "tag": "TEMPUS: PRE-EARNINGS RUN, REPORT DUE NOV 2",
+   "title": "TEM $72.22 (-7.2% on Oct 30) ahead of Q3 before the open on Nov 2; IVDR cert for xR RNA assay",
+   "description": "Tempus rose to $77.84 before slipping on a broad tech sell-off on Oct 30, then traded $70.10 after hours. H.C. Wainwright lifted its target to $68. The BMS and Pathos AI collaborations from Oct 22-23 are the backdrop. Net loss ~$254M TTM means the multiple rests on 50% growth continuing."
+  },
+  {
+   "tag": "BIG PHARMA EARNINGS: LILLY STRONG, NOVARTIS MIXED",
+   "title": "Lilly guides revenue to $91-92B; Novartis raises core operating income guidance but profit falls on an impairment",
+   "description": "Lilly's beat came with caveats (one-time $900M, price erosion of 15%, EPS guide cut by IPR&D). Novartis Q3 (Oct 27): net sales $14.5B (+4%), core EPS $2.46 vs $2.25, FY core operating income guidance raised; shares +3.1% to about $153.81 on Oct 26 close. Neither report carried a new AI partnership; NVIDIA fell 4.2% to $204.64 on Oct 30 in a tech sell-off with no biotech headline."
+  },
+  {
+   "tag": "AI-NATIVE PLATFORMS: EIKON GAPS DOWN ON UPDATED DATA",
+   "title": "Eikon -23.7% to $5.54 on Oct 26 after updated EIK1001 data at ESMO; Recursion REC-4881 webinar Nov 3",
+   "description": "Eikon presented updated EIK1001 (TeLuRide-005) data at ESMO on Oct 26 and the stock fell 23.69% that day to a $300M market cap, 69% below its $18 IPO price; the cause was not stated on the page. Recursion ($3.80) schedules a Nov 3 webinar on updated REC-4881 FAP data; Schr\u00f6dinger reports Nov 4. Insilico's pan-TEAD inhibitor ISM6331 showed a 40% ORR at 130 mg in heavily pretreated mesothelioma at ESMO 2026 (company release)."
+  },
+  {
+   "tag": "DIAGNOSTICS AND PROTEOMICS: GUARDANT HOLDS GAINS",
+   "title": "Guardant $173.25 on Oct 26 with BTIG at $210; Q3 on Nov 5; Quantum-Si and 908 Devices quotes stale",
+   "description": "GH rose 2.5% to $173.25 on Oct 26 (consensus $201.64, Strong Buy, 26 analysts) with a BTIG raise to $210 and a Roth Buy initiation; the PTAB loss on its TwinStrand patent challenge still hangs over it. QSI ($1.40, Oct 23) and MASS ($11.49, Oct 23) pages were not refreshed, so no newer figures are asserted. Exact Sciences is no longer public."
+  },
+  {
+   "tag": "ARKG: BUYING TEMPUS, BEAM AND INTELLIA; SELLING CAREDX",
+   "title": "ARKG $48.72 (Oct 26), top-10 57.77% (Oct 21); trades through Oct 30 favor gene editing and Tempus",
+   "description": "Per Cathie's Ark trade data, ARKG bought Beam on four days (~$4.1M total), Tempus ($4.4M on Oct 30), Arcturus (~$1.3M), Pacific Biosciences and Intellia (~$0.46M), and sold CareDx ($4.4M on Oct 30) and Absci (~$0.76M on Oct 26). Values are dollar amounts, not share counts. The 12-year record (~8% a year) remains the honest context for a strong trailing year."
+  }
+ ],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Established / Hedged Exposure",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts \u2014 not revenue.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "LLY",
+     "company": "Eli Lilly",
+     "angle": "Isomorphic partner ($1.7B+ milestones) + $2.75B Insilico licensing deal; $1B, 5-yr NVIDIA co-innovation AI lab for R&D; owns Verve Therapeutics (acquired 2025) for in-vivo cardiovascular base editing",
+     "watch for": "Q3 revenue ~$24.4B (+39%); FY26 revenue guide raised to $91-92B (from $85-87B), EPS guide cut on IPR&D charges; ~$900M one-time items; shares ~+6% on the report. Last close found $1,279.14 (Oct 26). Isomorphic and Insilico ties and the NVIDIA lab are unchanged; Merida closing and VERVE-102 data still expected Q4."
+    },
+    {
+     "ticker": "NVS",
+     "company": "Novartis",
+     "angle": "Isomorphic partnership renewed (~$1.2B+); new Chai Discovery antibody-design collab; $1.7B Relation Therapeutics target deal",
+     "watch for": "Q3 (Oct 27): sales $14.5B (+4%), core EPS $2.46 vs $2.25, raised FY core operating income guidance, profit down on an impairment; shares +3.1%, $153.81 at the Oct 26 close vs a $154.65 target (Hold). No new AI partnership this week."
+    },
+    {
+     "ticker": "NVDA",
+     "company": "NVIDIA",
+     "angle": "BioNeMo/compute layer for computational biology; $1B AI co-innovation lab with Lilly announced January 2026",
+     "watch for": "Closed $204.64 on Oct 30 (-4.2% in a tech sell-off), market cap $4.94T, consensus target $328.95; next earnings Nov 17. No BioNeMo headline this week. Also held in your AI, Robotics and Quantum sleeves, so avoid double-counting."
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "AI-Native Platforms \u2014 Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list. Catalysts here are partnerships, IND filings, and readouts \u2014 not revenue.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "RXRX",
+     "company": "Recursion",
+     "angle": "Millions of automated cell-imaging experiments feeding AI \"maps of biology\"; collabs with Roche, Bayer, Merck, Sanofi, Genentech",
+     "watch for": "Closed $3.80 on Oct 26 (+2.7%), market cap $2.27B, 7-analyst average target $7.32; still above the $3.25 offering price. Webinar on updated REC-4881 (FAP) data Nov 3; Q3 earnings date listed Nov 2 by one source (earlier estimate Nov 9)."
+    },
+    {
+     "ticker": "SDGR",
+     "company": "Schr\u00f6dinger",
+     "angle": "Physics-based + ML molecular simulation; software revenue cushions pipeline risk",
+     "watch for": "Closed $24.50 on Oct 26 (+2.9%), market cap $1.83B, average target $25.86 (UBS $21 Neutral, KeyBanc $32, TD Cowen $31). Q3 results Nov 4 after the close."
+    },
+    {
+     "ticker": "RLAY",
+     "company": "Relay Therapeutics",
+     "angle": "Motion-based protein modeling for precision oncology; zovegalisib advancing",
+     "watch for": "Closed $18.12 on Oct 26 (-0.3%), market cap $3.97B vs a $27.58 average target (13 analysts, Strong Buy). No company news this week; first-line Phase 3 targeted early 2027. Q3 est. Nov 9."
+    },
+    {
+     "ticker": "GENB",
+     "company": "Generate Biomedicines",
+     "angle": "Generative protein design \u2014 IPO closed Mar 2 2026 at $16/sh, $369.3M net proceeds; separate $1B Novartis protein-design deal",
+     "watch for": "Closed $12.35 on Oct 26 and $12.88 intraday Oct 27, about 20-23% below the $16 IPO price, market cap ~$1.65B. Only news: November investor conferences (Oct 22). No approved drug. Q3 est. Nov 10."
+    },
+    {
+     "ticker": "EIKN",
+     "company": "Eikon Therapeutics",
+     "angle": "Live-cell single-molecule tracking \u2014 upsized IPO Feb 4 2026 at $18/sh, $381M raised",
+     "watch for": "Closed $5.54 on Oct 26 (-23.7% on the day) vs the $18 IPO price, market cap $300M, average target $24.33. Updated EIK1001 data at ESMO Oct 26 and PARP1/WRN data Oct 23; the cause of the drop was not stated. Q3 est. Nov 10."
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "Isomorphic Labs",
+   "value": "REPORTEDLY SEEKING \u2265$40B VALUATION (BLOOMBERG, OCT 8) \u00b7 ALPHABET",
+   "note": "No fresh update found this week beyond Bloomberg's Oct 8 report of preliminary talks at a valuation of at least $40B (possibly up to $50B); no deal is final. It closed a $2.1B Series B in May 2026 and still targets first trials by year-end 2026 for ISM8969."
+  },
+  {
+   "name": "Insilico Medicine",
+   "value": "$2.75B LILLY DEAL + $2.5B SK BIOPHARMA DEAL",
+   "note": "ESMO 2026 data for pan-TEAD inhibitor ISM6331: 40% ORR at 130 mg in heavily pretreated mesothelioma (company release, small early-phase cohort). Rentosertib's Phase III (GENESIS-IPF) remains underway with approval realistically 2029-2030. Public on HKEX since Dec 2025."
+  },
+  {
+   "name": "Xaira Therapeutics",
+   "value": "~$1.3B DISCLOSED FUNDING \u00b7 $1B+ LAUNCH ROUND",
+   "note": "No fresh update found this week. The company continues hiring out its business-development function to line up partnerships that supply preclinical disease-area data rather than capital \u2014 it says the $1.3B already raised covers its near-term needs \u2014 but no partner has been named and no trial has started."
+  },
+  {
+   "name": "NewLimit",
+   "value": "$3.1B VALUATION \u00b7 $435M SERIES C",
+   "note": "No fresh update found this week. Still the year's largest single disclosed longevity round (~71% of 2026's disclosed longevity funding through August); its first candidate medicine remains in large-scale manufacturing with clinical entry targeted as early as 2027."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Biology still fails in the clinic, and the clock hasn't moved",
+   "description": "Zero AI-discovered drugs have reached full FDA approval out of 200+ in clinical development. Insilico's lead investigator puts rentosertib's approval at 2029-2030. Intellia's lonvo-z (PDUFA Mar 10, 2027) is gene editing rather than AI discovery; Barclays is Underweight ($8) with NTLA near $11."
+  },
+  {
+   "title": "Even good prints can be sold: Illumina -18.6% on a beat-and-raise",
+   "description": "ILMN beat EPS and raised guidance yet fell 18.64% to $235.99 on Oct 30 after a ~157% run-up, on tariff and AI worries. Revenue growth is ~4%, so the multiple, not the quarter, was the issue. Tempus (+6.8% on the week, -7.2% Friday) enters its Nov 2 print with similar positioning."
+  },
+  {
+   "title": "Platform value is unproven and dilution is the funding model",
+   "description": "Recursion raised $200M at $3.25 (Oct 15) and trades at $3.80. Generate (~$12.4 vs $16 IPO) and Eikon ($5.54 vs $18, -23.7% in a day on ESMO data) show IPO-window names fading without an approved drug."
+  },
+  {
+   "title": "Diagnostics litigation and sub-scale proteomics",
+   "description": "Guardant's PTAB challenge to a core TwinStrand patent was rejected (~Oct 14) and the judgment appeal is open. Quantum-Si ($1.40 on Oct 23, last quote available) has TTM revenue of $1.61M (-53%) and no launch until Q2 2027."
+  },
+  {
+   "title": "Rate and macro sensitivity: tech sell-offs spill into biotech",
+   "description": "NVIDIA fell 4.2% on Oct 30 in a broad tech sell-off. XBI was $150.47 on Oct 26, below its $169.89 52-week high; a hawkish rates move or failed readout reverses rallies like this. Lilly's strong quarter included ~15% price erosion, a reminder that policy and pricing risk sits in the large caps too."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "OCT 27, 2026",
+   "title": "Novartis Q3: sales $14.5B, guidance raised",
+   "description": "Core EPS $2.46 vs $2.25; shares +3.1%."
+  },
+  {
+   "date": "OCT 29, 2026",
+   "title": "Illumina Q3 beat and raised guidance; Eli Lilly Q3 revenue ~$24.4B",
+   "description": "ILMN fell 18.64% on Oct 30 to $235.99; LLY raised FY revenue guidance to $91-92B and rose ~6%."
+  },
+  {
+   "date": "NOV 2, 2026",
+   "title": "Tempus AI Q3 results (before the open)",
+   "description": "TEM $72.22 on Oct 30; results not available when this page was built."
+  },
+  {
+   "date": "NOV 3-5, 2026",
+   "title": "Recursion REC-4881 webinar (Nov 3); Schr\u00f6dinger Q3 (Nov 4); Guardant and Quantum-Si Q3 (Nov 5)",
+   "description": "Recursion's own earnings date is listed as Nov 2 by one source and Nov 9 by another."
+  },
+  {
+   "date": "NOV 9-17, 2026",
+   "title": "Intellia, CRISPR, Relay, 908 Devices (est. Nov 9); Generate and Eikon (est. Nov 10); NVIDIA (Nov 17)",
+   "description": "Estimated dates from quote pages; confirm with company releases."
+  },
+  {
+   "date": "MAR 10, 2027",
+   "title": "PDUFA date for Intellia's lonvo-z in hereditary angioedema",
+   "description": "Priority Review; would be the first in-vivo CRISPR therapy approval."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "XBI",
+   "name": "SPDR S&P Biotech",
+   "summary": "Equal-weight biotech, broad sector beta tilted to smaller clinical-stage names. $150.47 on Oct 26 (+0.62%); 52-week range $106.30-$169.89; ~39.4% 1-year total return, $10.50B AUM, 0.35% expense ratio, 167 holdings, top 10 at 17.82%."
+  },
+  {
+   "ticker": "ARKG",
+   "name": "ARK Genomic Revolution",
+   "summary": "Active, concentrated genomics/AI-bio bets, the highest single-name concentration risk of the three. $2.02B AUM, 0.75% expense ratio, 35 holdings, top-10 weight 57.77% (10x 8.65%, Twist 8.14%, Tempus 8.11%; Illumina 4.91%); ~52.8% trailing 1-yr return but roughly 8% a year since Oct 2014 inception; $48.72 on Oct 26 (52-week range $24.60-$58.83)."
+  },
+  {
+   "ticker": "IBB",
+   "name": "iShares Biotechnology",
+   "summary": "Market-cap-weighted, tilts large-cap. $208.69 on Oct 26 (+0.46%), $10.83B AUM, 0.44% expense ratio, 248 holdings; ~34.5% 1-yr return; top 10 about 50.8% of assets."
+  }
+ ],
+ "sources": [
+  {
+   "title": "StockAnalysis.com \u2014 ARKG overview (Oct 16)",
+   "url": "https://stockanalysis.com/etf/arkg/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 ARKG holdings",
+   "url": "https://stockanalysis.com/etf/arkg/holdings/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Illumina (ILMN)",
+   "url": "https://stockanalysis.com/stocks/ilmn/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Tempus AI (TEM)",
+   "url": "https://stockanalysis.com/stocks/tem/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Recursion (RXRX)",
+   "url": "https://stockanalysis.com/stocks/rxrx/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Guardant Health (GH)",
+   "url": "https://stockanalysis.com/stocks/gh/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Quantum-Si (QSI)",
+   "url": "https://stockanalysis.com/stocks/qsi/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 908 Devices (MASS)",
+   "url": "https://stockanalysis.com/stocks/mass/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Intellia (NTLA)",
+   "url": "https://stockanalysis.com/stocks/ntla/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Schr\u00f6dinger (SDGR)",
+   "url": "https://stockanalysis.com/stocks/sdgr/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Generate Biomedicines (GENB)",
+   "url": "https://stockanalysis.com/stocks/genb/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Eikon (EIKN)",
+   "url": "https://stockanalysis.com/stocks/eikn/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Relay (RLAY)",
+   "url": "https://stockanalysis.com/stocks/rlay/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 CRISPR Therapeutics (CRSP)",
+   "url": "https://stockanalysis.com/stocks/crsp/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Eli Lilly (LLY)",
+   "url": "https://stockanalysis.com/stocks/lly/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 XBI",
+   "url": "https://stockanalysis.com/etf/xbi/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 IBB",
+   "url": "https://stockanalysis.com/etf/ibb/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Novartis (NVS)",
+   "url": "https://stockanalysis.com/stocks/nvs/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 NVIDIA (NVDA)",
+   "url": "https://stockanalysis.com/stocks/nvda/"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 Exact Sciences (EXAS, delisted)",
+   "url": "https://stockanalysis.com/stocks/exas/"
+  },
+  {
+   "title": "Crypto Briefing \u2014 Isomorphic Labs funding talks (Bloomberg, Oct 8)",
+   "url": "https://cryptobriefing.com/isomorphic-labs-funding-40-billion-valuation/"
+  },
+  {
+   "title": "Cathie's Ark \u2014 combined ARK trades (through Oct 30)",
+   "url": "https://www.cathiesark.com/ark-funds-combined/trades"
+  },
+  {
+   "title": "Illumina Q3 FY2026 results (Oct 29)",
+   "url": "https://finviz.com/news/412012/illumina-reports-financial-results-for-third-quarter-of-fiscal-year-2026"
+  },
+  {
+   "title": "StockAnalysis.com \u2014 ILMN price history",
+   "url": "https://stockanalysis.com/stocks/ilmn/history/"
+  },
+  {
+   "title": "Lilly Q3 2026 reaction (Motley Fool via Mitrade, Oct 30)",
+   "url": "https://www.mitrade.com/au/insights/news/live-news/article-8-2212490-20261030"
+  },
+  {
+   "title": "Insilico ISM6331 ESMO 2026 (BioSpace)",
+   "url": "https://www.biospace.com/press-releases/insilico-medicine-reports-40-orr-at-130-mg-for-pan-tead-inhibitor-ism6331-designed-using-generative-ai-in-heavily-pretreated-mesothelioma-at-esmo-2026"
+  }
+ ],
+ "stance": {
+  "as_of": "Nov 2, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "LLY",
+    "name": "Eli Lilly",
+    "stance": "core",
+    "weight": 40,
+    "note": "Q3 revenue ~$24.4B (+39%) and FY26 guidance raised to $91-92B drove a ~6% rise, though ~$900M was one-time and EPS guidance was cut on IPR&D charges.",
+    "change": null
+   },
+   {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "stance": "core",
+    "weight": 20,
+    "note": "Fell 4.2% to $204.64 on Oct 30 in a tech sell-off with no biotech headline; the Lilly lab thesis stands, but it also sits in your AI, Robotics and Quantum sleeves, so don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "NTLA",
+    "name": "Intellia Therapeutics",
+    "stance": "spec",
+    "weight": 12,
+    "note": "Lonvo-z PDUFA Mar 10, 2027 and ARK added shares on Oct 27, but Barclays is Underweight at $8 with the stock near $11 and Q2 revenue missed consensus.",
+    "change": null
+   },
+   {
+    "ticker": "CRSP",
+    "name": "CRISPR Therapeutics",
+    "stance": "spec",
+    "weight": 6,
+    "note": "In-vivo cardiovascular editing (CTX310) is real optionality, but UBS is Neutral at $52, the CFO is leaving and $49.01 (Oct 26) is far below the $85.63 consensus target.",
+    "change": null
+   },
+   {
+    "ticker": "RXRX",
+    "name": "Recursion",
+    "stance": "spec",
+    "weight": 6,
+    "note": "$3.80 is only ~17% above the $3.25 offering price after the $200M raise; the Nov 3 REC-4881 data webinar is the next test, small size only.",
+    "change": null
+   },
+   {
+    "ticker": "RLAY",
+    "name": "Relay Therapeutics",
+    "stance": "spec",
+    "weight": 5,
+    "note": "$18.12 versus a $27.58 target, but the first-line Phase 3 isn't planned until early 2027, there was no news this week and there is no approved drug.",
+    "change": null
+   },
+   {
+    "ticker": "GENB",
+    "name": "Generate Biomedicines",
+    "stance": "spec",
+    "weight": 4,
+    "note": "~$12.4 is roughly 20% under the $16 IPO price with no catalyst beyond investor conferences and no approved drug behind the platform.",
+    "change": null
+   },
+   {
+    "ticker": "MASS",
+    "name": "908 Devices",
+    "stance": "spec",
+    "weight": 4,
+    "note": "Last quote found $11.49 (Oct 23) is ~14% below the $13.38 target on a $475M cap; tooling optionality with no fresh catalyst before Q3 (est. Nov 9).",
+    "change": null
+   },
+   {
+    "ticker": "QSI",
+    "name": "Quantum-Si",
+    "stance": "spec",
+    "weight": 3,
+    "note": "Last quote found $1.40 (Oct 23) after a 21.7% jump; TTM revenue is $1.61M (-53%) and the launch is not until Q2 2027, so it is option value only.",
+    "change": null
+   },
+   {
+    "ticker": "NVS",
+    "name": "Novartis",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Q3 (Oct 27) beat on core EPS ($2.46 vs $2.25) and guidance rose, but $153.81 is already at the $154.65 target (consensus Hold) and no AI-specific news.",
+    "change": null
+   },
+   {
+    "ticker": "ILMN",
+    "name": "Illumina",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Beat-and-raise yet -18.6% to $235.99 on Oct 30; now below the pre-print $248.90 target, but ~4% organic growth and ~44x guided EPS keep it on Watch until the reset settles.",
+    "change": null
+   },
+   {
+    "ticker": "TEM",
+    "name": "Tempus AI",
+    "stance": "watch",
+    "weight": 0,
+    "note": "$72.22 (+6.8% on the week) with ARK buying $4.4M, but still loss-making (~$254M TTM) and the Nov 2 Q3 print and Guardant litigation are unresolved.",
+    "change": null
+   },
+   {
+    "ticker": "SDGR",
+    "name": "Schr\u00f6dinger",
+    "stance": "watch",
+    "weight": 0,
+    "note": "$24.50 is just under the $25.86 average target with UBS Neutral at $21 and no approved drug; Q3 on Nov 4 is the next data point.",
+    "change": null
+   },
+   {
+    "ticker": "GH",
+    "name": "Guardant Health",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "PTAB loss on TwinStrand and an open judgment appeal outweigh the $173.25 rebound, BTIG $210 and Strong Buy ratings ahead of Q3 on Nov 5.",
+    "change": null
+   },
+   {
+    "ticker": "EIKN",
+    "name": "Eikon Therapeutics",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "Fell 23.7% to $5.54 on Oct 26 on updated ESMO data, now 69% below the $18 IPO price on a $300M market cap.",
+    "change": null
+   }
+  ]
+ }
+}

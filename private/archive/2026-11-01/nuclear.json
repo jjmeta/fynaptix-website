@@ -1,0 +1,364 @@
+{
+ "sector": "nuclear",
+ "title": "Fynaptix \u00b7 Nuclear & SMR Research",
+ "heading": "Nuclear Energy Intelligence",
+ "subheading": "Small modular reactors, uranium & the AI power-demand trade",
+ "kicker": "NUCLEAR & SMRS // NOV 2026",
+ "generated": "Nov 1, 2026",
+ "disclaimer": "Not financial advice. This page organizes public information for research purposes only \u2014 not a recommendation to buy or sell any security. SMR developers are pre-revenue with long regulatory timelines; verify current prices and do your own due diligence before investing.",
+ "kpis": [
+  {
+   "value": "-83%",
+   "sub": "OKLO NEW 52-WEEK LOW AT $25.25",
+   "label": "Oklo closed Oct 30 at $25.25 (-5.8% on the day; 52-week range $24.49-$145.30; ~$4.7B market cap), still ~83% below its high; B. Riley cut its target to $61 from $92 (Buy) on Oct 28, TD Cowen initiated at Hold ($26), and Truist ($31) and Citi ($33) had already cut \u2014 Q3 results land Nov 6 with consensus revenue of only about $99K",
+   "highlight": true
+  },
+  {
+   "value": "$96.50/lb",
+   "sub": "LONG-TERM URANIUM (SEP AVG) \u00b7 SPOT ~$89.6",
+   "label": "Cameco's UxC/TradeTech month-end averages show long-term $96.50 and spot $89.63 for September (October not yet published), yet Cameco closed Oct 30 at $76.91 after a ~8-10% post-earnings drop \u2014 Q3 adjusted loss of C$2M, production -20% on the Key Lake mill shutdown, cash cost per pound up 62% \u2014 a fresh 52-week low while physical uranium holds firm",
+   "highlight": false
+  },
+  {
+   "value": "$5B",
+   "sub": "DOE CONDITIONAL LOAN \u00b7 CONSTELLATION UPRATES",
+   "label": "Announced Oct 27: a conditional DOE loan commitment of up to $5B for nuclear uprates at Constellation, adding to Google's 890 MW (Oct 6) and Amazon's 690 MW Calvert Cliffs (Oct 1) contracts \u2014 support is flowing to the existing fleet, and CEG ($262.38 on Oct 30, ~35% below its high) is the steadiest name in the group",
+   "highlight": false
+  },
+  {
+   "value": "0",
+   "sub": "OPERATING COMMERCIAL SMR PLANTS \u2014 STILL",
+   "label": "NuScale's Oct 29 Doosan contract (upper reactor coolant system for the NuScale Power Module, +7% to ~$6.06) is a manufacturing step, not an order: Q2 revenue was $75K, there is no binding module order and ENTRA1/TVA talks on up to 6 GW remain non-binding; TerraPower's Natrium (under construction since April) and the Clinch River BWRX-300 permit (Sep 29) are the real milestones",
+   "highlight": false
+  }
+ ],
+ "themes": [],
+ "tiers": [
+  {
+   "tier": "TIER 1",
+   "label": "Operating / Cash-Generating Exposure",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "CEG",
+     "company": "Constellation Energy",
+     "angle": "Largest US nuclear fleet operator (55 GW post-Calpine); direct data-center PPAs with Microsoft, Meta, Walmart",
+     "watch for": "Closed Oct 30 at $262.38 (-0.8%; 52-week range $228.63-$400.98; ~$93.0B market cap), ~35% below the high against a $339.68 consensus target (25 analysts, Buy); the Oct 27 conditional DOE loan of up to $5B for uprates joins Google's 890 MW and Amazon's 690 MW deals, with Morgan Stanley raising to $391 (Oct 30), TD Cowen to $374 and Barclays to $345, while CIBC trimmed to $343; a $0.4265 quarterly dividend was declared Oct 30; Q3 results Nov 9 and the Crane restart still targeted for 2027"
+    },
+    {
+     "ticker": "CCJ",
+     "company": "Cameco",
+     "angle": "Major Western uranium producer + Westinghouse stake",
+     "watch for": "Closed Oct 30 at $76.91 (-7.9%; 52-week range $73.89-$135.24; ~$33.6B market cap), ~43% below the high and a fresh low, after Q3 showed an adjusted loss of C$2M, production down 20% on a longer Key Lake mill shutdown, cash cost per pound up 62% to C$40.73 and operating cash flow of C$3M; management points to 28M lb a year contracted through 2030 and the 2027 guidance in February as the next test; still ~45-50x forward earnings, consensus Buy at $123.99, with the Westinghouse stake (Cameco share of EBITDA +15% to C$143M) and its contested IPO value the swing factors"
+    },
+    {
+     "ticker": "BWXT",
+     "company": "BWX Technologies",
+     "angle": "Nuclear components, naval reactors, advanced reactor work",
+     "watch for": "Last close seen $131.20 on Oct 26 and ~$139 on Oct 29 (+3%) against a 52-week range of $123.05-$241.82 (~$12B market cap); the Oct 27 TRISO fuel agreement with Antares Nuclear and the $189M naval fuel award support the 2030 targets ($5.5-6B revenue), while JPMorgan ($190) and others cut after Investor Day; consensus Buy at $207.07; Q3 results Nov 2 after the close are the next test"
+    },
+    {
+     "ticker": "GEV",
+     "company": "GE Vernova",
+     "angle": "Grid equipment + BWRX-300 SMR design via GE Hitachi Nuclear Energy",
+     "watch for": "About $874 in a recent session (intraday; 52-week range $530.16-$1,195.94; ~$233B market cap), ~27% below the high, against a ~$1,224 consensus target and ~25x trailing earnings; Q3 results were Oct 28 (not reviewed in detail here) \u2014 the nuclear angle (Clinch River BWRX-300 permit, Sep 29) remains a small part of a grid/gas-turbine story"
+    }
+   ]
+  },
+  {
+   "tier": "TIER 2",
+   "label": "Pre-Revenue SMR Developers \u2014 Speculative",
+   "note": "Tiered by maturity/risk \u2014 not a ranked buy list.",
+   "columns": [
+    "Ticker",
+    "Company",
+    "Angle",
+    "Watch for"
+   ],
+   "rows": [
+    {
+     "ticker": "OKLO",
+     "company": "Oklo",
+     "angle": "Fast reactors using recycled waste; Sam Altman-backed; deals directly with AI/data-center customers",
+     "watch for": "Closed Oct 30 at $25.25 (-5.8%), at its 52-week low and ~83% below the high; B. Riley cut to $61 (Buy), TD Cowen initiated Hold ($26), Truist $31, Citi $33, Barclays $59, Piper $49 vs a ~$65 consensus; ~$1B ATM overhang and ~$6.5B projected burn before 2030 vs $3.0B cash at June 30; consensus Q3 revenue ~$99K and EPS of about -$0.21 on Nov 6 (before the open)"
+    },
+    {
+     "ticker": "SMR",
+     "company": "NuScale Power",
+     "angle": "Only SMR design with NRC formal approval; utility-focused; 6 GW TVA/ENTRA1 collaboration announced",
+     "watch for": "Rose ~7% to about $6.06 on Oct 29 on the Doosan Enerbility manufacturing contract (mid-week range roughly $5.4-6.1; 52-week range $5.20-$45.54; ~$2.4B market cap), still ~57-60% down year to date after Barclays (Underweight, $5), Citi (Sell, $4) and Truist ($8, Hold); B. Riley trimmed to $10 (Buy); Q2 revenue was $75K, no binding order or signed TVA/ENTRA1 agreement, Q3 results Nov 5 after the close (consensus revenue ~$3.8M)"
+    },
+    {
+     "ticker": "LEU",
+     "company": "Centrus Energy",
+     "angle": "HALEU enrichment \u2014 fuel for advanced reactors",
+     "watch for": "Traded ~$106 on Oct 27 (intraday, +8%; 52-week range $96.80-$402.00; ~$2.2B market cap), ~74% below the high; targets cut by JPMorgan ($120, Neutral), TD Cowen (initiated Hold $120), UBS ($120), Roth ($115), Barclays ($150) and Truist ($178), while Texas Capital initiated Buy ($151) vs a ~$213 consensus; Westerman Holdings (~$116M) was bought Oct 19; results Nov 4 with the call Nov 5 at 8:30 a.m. ET; HALEU deliveries for advanced reactors are not due until about 2030"
+    }
+   ]
+  }
+ ],
+ "private_watchlist": [
+  {
+   "name": "TerraPower",
+   "value": "GATES-BACKED \u00b7 NATRIUM",
+   "note": "Construction of the first Natrium unit at Kemmerer, Wyoming (345 MWe, up to 500 MWe with storage) has been under way since April 2026; Hyundai E&C was named EPC contractor in August (up to eight Natrium reactors), settling the earlier Bechtel rebid, and a SK Innovation term sheet targets Korea's first Natrium plant. No new dated item this week."
+  },
+  {
+   "name": "X-energy",
+   "value": "PUBLIC (XE) \u00b7 POST-IPO",
+   "note": "Listed as XE: closed Oct 28 at $11.54 (52-week range $10.04-$37.10; ~$4.7B market cap), up from the Oct 23 low of $10.60 despite the Oct 19 Amazon/AEP 960 MW Indiana plan (evaluation stage only); Needham initiated at Hold (Oct 27), ARK has been buying, UBS cut to $18 and Piper is at $8 Underweight; TRISO-X president Joel Duling retires Nov 20 and the NRC decision on the 4-unit Long Mott project is expected in H1 2027."
+  },
+  {
+   "name": "Kairos Power",
+   "value": "GOOGLE-BACKED \u00b7 FLEET DEAL",
+   "note": "No new update this week. Google's corporate agreement for a US SMR fleet remains up to 500 MW across 6-7 units, targeting a first commercial Hermes unit by 2030 and full fleet by 2035; the Hermes 2 demonstration plant at Oak Ridge continues construction."
+  },
+  {
+   "name": "Commonwealth Fusion",
+   "value": "FUSION \u00b7 SPARC \u00b7 CHIPS LOI",
+   "note": "Signed a letter of intent for up to $85M from the Commerce CHIPS R&D Office (reported Oct 30) for silicon-carbide magnet power electronics, solid-state RF plasma heating and a SPARC digital twin \u2014 one of four LOIs totalling up to $389M. SPARC remains targeted for a 2027 Q>1 run; total capital raised about $4B."
+  },
+  {
+   "name": "Helion",
+   "value": "FUSION \u00b7 MICROSOFT + OPENAI TALKS",
+   "note": "Its Commerce CHIPS letter of intent for up to $175M (with $50M private matching; Commerce would take a $175M non-voting stake on a definitive award) was reaffirmed in the Oct 30 round of four LOIs. Reports of OpenAI talks for up to 5GW by 2030 sit alongside the Microsoft PPA (50MW by 2029 via the Orion plant)."
+  },
+  {
+   "name": "Holtec Nuclear",
+   "value": "IPO PULLED \u00b7 CITES MARKET CONDITIONS",
+   "note": "No new update this week. The ~$900M Nasdaq listing (HNUC) remains suspended since Sep 16 with no new pricing date; the S-1 stays on file. The underlying business is unchanged: $564M trailing revenue anchored by the Palisades restart and the SMR-300 programme."
+  }
+ ],
+ "bear_case": [
+  {
+   "title": "Even the \"safe\" uranium name just missed",
+   "description": "Cameco's Q3 (Oct 29-30) was an adjusted loss of C$2M with production down 20%, cash cost per pound up 62% and operating cash flow of C$3M; the stock fell ~8-10% to a new low of $76.91 at still ~45-50x forward earnings. Counter: the Key Lake shutdown is planned maintenance, 28M lb a year is contracted through 2030 and long-term uranium is $96.50."
+  },
+  {
+   "title": "The whole SMR group keeps making new lows",
+   "description": "Oklo ($25.25) closed at a new 52-week low on Oct 30, and NuScale (~$5.6-6.1), Centrus (~$106) and X-energy ($11.54) sit near their lows despite a licence milestone, the Amazon/AEP Indiana plan and a firm long-term uranium price. B. Riley notes its nuclear/uranium basket is down ~43% on average since Aug 14, citing high-beta de-risking and elevated rates. Counter: drawdowns this size reset entry prices and the selling looks rate-driven."
+  },
+  {
+   "title": "Dilution is the real funding model",
+   "description": "Oklo's ~$1B ATM (about a fifth of the company), NuScale's $750M ATM and Centrus's $500M offering mean each upbeat announcement can be financed by selling stock into it; Oklo alone is projected to burn ~$6.5B before 2030 against $3.0B in cash. Counter: raising capital is how pre-revenue builders fund long-lead projects."
+  },
+  {
+   "title": "Analysts are capitulating on targets",
+   "description": "Oklo targets were cut by Piper, Barclays, Citi, Truist and B. Riley in two weeks; Centrus by JPMorgan, UBS, Roth, Barclays and Truist; NuScale was cut to Underweight/Sell. Counter: sell-side cuts often arrive near lows, and consensus remains Buy on most names."
+  },
+  {
+   "title": "A manufacturing contract or a permit is not an operating reactor",
+   "description": "NuScale's Doosan deal has no disclosed value or customer, Q2 revenue was $75K, there is still no binding module order, X-energy's 960 MW Indiana plan has no final investment decision, and there are zero commercial SMRs operating. Counter: TerraPower is already building Natrium and TVA is moving ahead."
+  },
+  {
+   "title": "Hyperscaler and federal money is going to old reactors, not new designs",
+   "description": "Google's 890 MW, Amazon's 690 MW and the Oct 27 conditional $5B DOE loan all support Constellation's existing fleet and uprates, with new capacity only in the 2028-2032 window \u2014 favouring operators over pre-revenue SMR developers, while gas and renewables remain faster to build."
+  }
+ ],
+ "catalysts": [
+  {
+   "date": "OCT 30, 2026",
+   "title": "Cameco Q3: adjusted loss, production -20%; stock falls to new low",
+   "description": "Longer Key Lake shutdown and a 62% rise in cash cost per pound; CCJ closed at $76.91 (-7.9%); Westinghouse EBITDA share rose 15% and the next guidance test is February."
+  },
+  {
+   "date": "OCT 30, 2026",
+   "title": "Commerce CHIPS letters of intent: Commonwealth Fusion up to $85M, Helion up to $175M",
+   "description": "One of four LOIs totalling up to $389M for power electronics and AI-enabled control of fusion devices; definitive awards still to come."
+  },
+  {
+   "date": "OCT 29, 2026",
+   "title": "NuScale signs Doosan manufacturing contract; stock +7%",
+   "description": "Doosan Enerbility will make the upper reactor coolant system for the NuScale Power Module in Changwon; value and customer undisclosed and no binding order yet."
+  },
+  {
+   "date": "OCT 27, 2026",
+   "title": "DOE conditional loan commitment of up to $5B for Constellation uprates; BWXT-Antares TRISO deal",
+   "description": "Further federal backing for the existing fleet; BWXT Advanced Fuels also signed a multi-year commercial agreement with Antares Nuclear."
+  },
+  {
+   "date": "OCT 28, 2026",
+   "title": "B. Riley cuts Oklo to $61 and NuScale to $10, both still Buy",
+   "description": "Cites de-risking of high-beta names and elevated interest rates; TD Cowen initiated Oklo at Hold (Oct 26)."
+  },
+  {
+   "date": "NOV 2, 2026",
+   "title": "BWX Technologies reports Q3 results (after the close)",
+   "description": "Upcoming: first earnings since Investor Day and the target cuts."
+  },
+  {
+   "date": "NOV 4-5, 2026",
+   "title": "Centrus (Nov 4, call Nov 5) and NuScale (Nov 5 after close) report",
+   "description": "Upcoming: watch for a signed TVA/ENTRA1 agreement and ATM usage at NuScale; HALEU and the Westerman acquisition at Centrus."
+  },
+  {
+   "date": "NOV 6-9, 2026",
+   "title": "Oklo (Nov 6, pre-market) and Constellation (Nov 9) report Q3",
+   "description": "Upcoming: Oklo's cash burn and customer funding; Constellation's data-center contract pipeline and uprate financing."
+  }
+ ],
+ "etfs": [
+  {
+   "ticker": "URA",
+   "name": "Global X Uranium",
+   "summary": "Miners + fuel cycle \u00b7 ~$35.48 on Oct 27 (intraday), -27.5% total return over one year; $4.82B AUM led by Cameco (23.3%), Sprott Physical Uranium Trust (7.8%) and NexGen (6.2%), with Oklo (4.9%) and Kazatomprom (4.8%) in the top 5; Cameco's Oct 30 drop weighs on it"
+  },
+  {
+   "ticker": "NLR",
+   "name": "VanEck Uranium & Nuclear",
+   "summary": "Utilities + miners + SMR developers \u00b7 $96.24 on Oct 29, -36.8% total return over one year (Oct 26 data); $3.08B AUM led by PSEG (9.4%), Constellation (9.3%) and Cameco (8.5%), with BWXT at 6.6% and Oklo at 4.2%"
+  },
+  {
+   "ticker": "URNM",
+   "name": "Sprott Uranium Miners",
+   "summary": "Pure miners, higher beta \u00b7 $41.79 at the Oct 23 close (latest checked), -25.6% total return over one year and near its $40.59 low (52-week high $84.95); $1.65B AUM, Cameco ~21%"
+  }
+ ],
+ "sources": [
+  {
+   "title": "stockanalysis.com \u2014 Oklo (OKLO)",
+   "url": "https://stockanalysis.com/stocks/oklo/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 NuScale Power (SMR)",
+   "url": "https://stockanalysis.com/stocks/smr/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 Constellation Energy (CEG)",
+   "url": "https://stockanalysis.com/stocks/ceg/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 Cameco (CCJ)",
+   "url": "https://stockanalysis.com/stocks/ccj/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 BWX Technologies (BWXT)",
+   "url": "https://stockanalysis.com/stocks/bwxt/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 Centrus Energy (LEU)",
+   "url": "https://stockanalysis.com/stocks/leu/"
+  },
+  {
+   "title": "Yahoo Finance \u2014 GE Vernova (GEV)",
+   "url": "https://finance.yahoo.com/quote/GEV/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 X-energy (XE)",
+   "url": "https://stockanalysis.com/stocks/xe/"
+  },
+  {
+   "title": "stockanalysis.com \u2014 URA ETF",
+   "url": "https://stockanalysis.com/etf/ura/"
+  },
+  {
+   "title": "TIKR \u2014 Cameco sinks 9% on Q3 adjusted loss",
+   "url": "https://www.tikr.com/blog/cameco-sinks-9-on-q3-adjusted-loss-as-ceo-insists-customer-requirements-do-not-disappear"
+  },
+  {
+   "title": "24/7 Wall St. \u2014 NuScale rises 7% on Doosan manufacturing deal",
+   "url": "https://247wallst.com/investing/2026/10/29/nuscale-power-rises-7-on-doosan-manufacturing-deal-oklo-and-bwx-technologies-trail/"
+  },
+  {
+   "title": "Foreign Policy Journal \u2014 Oklo and NuScale face earnings test",
+   "url": "https://www.foreignpolicyjournal.com/2026/10/30/nuclear-stocks-oklo-nyse-oklo-and-nuscale-nyse-smr-face-earnings-test-after-brutal-year-to-date-losses/"
+  },
+  {
+   "title": "Cameco \u2014 uranium price (UxC / TradeTech month-end)",
+   "url": "https://www.cameco.com/invest/markets/uranium-price"
+  },
+  {
+   "title": "The Fusion Report \u2014 This week's fusion news, Oct 30, 2026",
+   "url": "https://thefusionreport.com/this-weeks-fusion-news-october-30-2026/"
+  },
+  {
+   "title": "The Fusion Report \u2014 This week's fusion news, Oct 23, 2026",
+   "url": "https://thefusionreport.substack.com/p/this-weeks-fusion-news-october-23"
+  },
+  {
+   "title": "GE Vernova \u2014 NRC issues first US construction permit for BWRX-300 (TVA Clinch River)",
+   "url": "https://www.gevernova.com/news/press-releases/nrc-issues-first-us-construction-permit-bwrx-300-small-modular-reactor-tva-clinch-river"
+  },
+  {
+   "title": "World Nuclear News \u2014 AEP, Amazon and X-energy plan 12-SMR plant",
+   "url": "https://world-nuclear-news.org/articles/aep-amazon-and-x-energy-plan-12-smr-plant"
+  }
+ ],
+ "footnote": "Figures approximate, from public reporting as of Oct 26-30, 2026 (Oct 30 closes for OKLO, CEG, CCJ; other names as dated, some intraday). Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+ "stance": {
+  "as_of": "Nov 1, 2026",
+  "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only \u2014 not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
+  "positions": [
+   {
+    "ticker": "CCJ",
+    "name": "Cameco",
+    "stance": "core",
+    "weight": 44,
+    "note": "Q3 was an adjusted loss (C$2M) with production -20% on the Key Lake shutdown and the stock fell to $76.91 (~43% off the high), but long-term uranium is $96.50, 28M lb a year is contracted through 2030 and the Westinghouse stake (EBITDA share +15%) remains \u2014 thesis intact, though ~45-50x forward earnings caps conviction.",
+    "change": null
+   },
+   {
+    "ticker": "CEG",
+    "name": "Constellation Energy",
+    "stance": "core",
+    "weight": 42,
+    "note": "At $262.38 (~35% below its $401 high, $340 consensus target) the thesis is working \u2014 Google 890 MW, Amazon 690 MW and the Oct 27 conditional $5B DOE loan for uprates all back the existing fleet \u2014 with Q3 results Nov 9 the next test.",
+    "change": null
+   },
+   {
+    "ticker": "LEU",
+    "name": "Centrus Energy",
+    "stance": "spec",
+    "weight": 8,
+    "note": "Around $106 (~74% off the high) after cuts from JPMorgan, UBS, Roth, Barclays and Truist and a $500M offering, it is a real revenue-earning fuel niche (Westerman buy) but HALEU demand is a 2030 story; results Nov 4.",
+    "change": null
+   },
+   {
+    "ticker": "OKLO",
+    "name": "Oklo",
+    "stance": "spec",
+    "weight": 6,
+    "note": "A new low of $25.25 (-83% from the high) with a ~$1B ATM, ~$6.5B projected burn before 2030 against $3.0B cash and consensus Q3 revenue of about $99K \u2014 kept as a small option only; the DOE Launch Pad pick is a pathway, not a reactor.",
+    "change": null
+   },
+   {
+    "ticker": "BWXT",
+    "name": "BWX Technologies",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Good business (2030 targets $5.5-6B revenue, $189M naval award, Oct 27 Antares TRISO deal) at ~$131-139 near its $123 low, but targets are being cut ahead of Nov 2 earnings, so waiting for evidence the de-rating is done.",
+    "change": null
+   },
+   {
+    "ticker": "GEV",
+    "name": "GE Vernova",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Nuclear (Clinch River BWRX-300) is a small part of a ~$233B grid/gas story at ~$874 vs a $1,196 high; also sits in the Energy Storage sleeve \u2014 don't double-count.",
+    "change": null
+   },
+   {
+    "ticker": "XE",
+    "name": "X-energy",
+    "stance": "watch",
+    "weight": 0,
+    "note": "The Oct 19 Amazon/AEP 960 MW Indiana plan is evaluation-stage only; at $11.54 with Piper at $8 Underweight, Needham at Hold and reactors early-2030s, no position yet.",
+    "change": null
+   },
+   {
+    "ticker": "SMR",
+    "name": "NuScale Power",
+    "stance": "avoid",
+    "weight": 0,
+    "note": "The Oct 29 Doosan contract has no disclosed value or customer, Q2 revenue was $75K, there is no binding order or signed TVA PPA and a $750M ATM overhangs, with Barclays at Underweight and Citi at Sell \u2014 the research does not support owning it here.",
+    "change": null
+   }
+  ]
+ }
+}
