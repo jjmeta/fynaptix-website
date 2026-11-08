@@ -4,7 +4,7 @@
  "heading": "Robotics",
  "subheading": "Humanoids, warehouse automation, surgical systems, defense autonomy and the component supply chain.",
  "kicker": "Physical AI",
- "generated": "Oct 25, 2026",
+ "generated": "Nov 8, 2026",
  "disclaimer": "Research and educational content only — not personalized investment advice. Figures are approximate, drawn from public reporting, and should be verified independently before acting on them.",
  "kpis": [
   {
@@ -20,21 +20,21 @@
    "highlight": false
   },
   {
-   "value": "$387.31",
-   "sub": "TSLA closed Oct 21 at $387.31 (+3.6%) before Q3 results: revenue $28.05B (flat YoY), non-GAAP EPS $0.48 vs $0.45 est, GAAP operating income -56% to $718M, R&D +69% to $2.76B on AI/Optimus/Cybercab. Musk teased an 'Optimus Academy'; no new Optimus revenue or dated milestones.",
-   "label": "Tesla share price (Optimus proof gap)",
+   "value": "$373.71",
+   "sub": "Q3 (Oct 21): revenue $28.04B flat, net income $787M (-43%). Optimus production has started at Fremont ('early production', 'somewhat bumpy' ramp); Musk targets 20,000 units/week by end-2027. Price shown is the last close verified (Oct 20); post-earnings quote not verified. TechCrunch also reports Cybertruck ends in 2027.",
+   "label": "Tesla share price (last verified close, Oct 20)",
    "highlight": true
   },
   {
-   "value": "~$403",
-   "sub": "Teradyne last quoted ~$402.68 on Oct 10 (not re-quoted for two weeks); P/S ~14, P/E >55 — still the stretched end of the automation trade after a ~200% 12-month run.",
-   "label": "Teradyne share price",
+   "value": "~$306",
+   "sub": "Q3 (Oct 27): revenue $1.31B (+70%), non-GAAP EPS $2.29 vs $2.08 est; Robotics $96M (+28%), now profitable. Shares traded $306.31 (-5.4%) on Oct 28 vs a 52-wk high of $487.91 — Q4 gross-margin guide 57.5–58.5% disappointed.",
+   "label": "Teradyne share price (Oct 28)",
    "highlight": false
   },
   {
-   "value": "¥450",
-   "sub": "Unitree (688836) ~¥182B market cap vs a ¥1,100 52-week high (last quoted early Oct; not re-verified); BofA Underperform (¥350 target), JPMorgan Underweight (¥300).",
-   "label": "Unitree post-IPO price",
+   "value": "AGLT",
+   "sub": "Churchill XI holders approved the merger Nov 2 (>84% of votes cast); AGLT began trading Nov 5 on ~$465M gross proceeds (~$164M trust, ~$201M Foxconn-led PIPE, $100M pre-funded). Pre-revenue; 180-day lock-up on existing holders.",
+   "label": "Agility Robotics — now listed on Nasdaq",
    "highlight": false
   },
   {
@@ -48,12 +48,12 @@
   {
    "tag": "Humanoids",
    "title": "The humanoid platform race",
-   "description": "Tesla's Q3 (Oct 21) gave no new dated Optimus milestones: R&D jumped 69% to $2.76B and operating income fell 56% while Musk teased an 'Optimus Academy'. Agility's Digit 5 has >$300M in committed orders and AGCO will pilot Digit in a Kansas factory from 2027. Nvidia was reportedly weighing another ~$1B into Figure at ~$38B pre-money (unconfirmed, Oct 8); UBTech admits Walker S2 reaches only 30–50% of human productivity."
+   "description": "Tesla began early Optimus production at Fremont (Oct 21) and targets 20,000 units/week by end-2027, but R&D is up 69% with no Optimus revenue. Agility Robotics listed on Nasdaq as AGLT on Nov 5 — the first US-listed pure-play humanoid — with >$300M committed Digit 5 orders (early access H1 2027). UBTech admits Walker S2 reaches only 30–50% of human productivity."
   },
   {
    "tag": "Industrial",
    "title": "Reshoring keeps the automation base humming",
-   "description": "Fanuc beat on Oct 22–23 (ADR EPS $0.21 vs $0.16 est, revenue $1.55B vs $1.52B) and its ADR rose 8.75% to $19.26 on Oct 23. Teradyne last traded ~$403 (Oct 10) after a ~200% 12-month run; Cognex agreed to buy RealSense for $500M (Sept)."
+   "description": "Teradyne's Robotics unit turned profitable on a record Q3 ($96M, +28%), though management puts broader robotics deployment in 2027–28. Rockwell (Nov 5) posted FY26 sales +8% to $8.99B and guided FY27 adj. EPS $14.50–15.50, with Q4 sales only +1%. Fanuc beat in late October; Cognex is buying RealSense for $500M."
   },
   {
    "tag": "Logistics",
@@ -68,7 +68,7 @@
   {
    "tag": "Defense",
    "title": "Autonomy backlogs keep growing",
-   "description": "AeroVironment's backlog sits at a record $1.5B (1.4x book-to-bill) and Kratos grew revenue over 30% on its Valkyrie drone and laser lines — defense autonomy is one of the few robotics niches with immediate, funded demand."
+   "description": "Kratos (Nov 5): Q3 revenue $471.8M (+35.7%), bookings $1.04B (2.2x book-to-bill), backlog $2.65B, FY26 guide raised to $1.78–1.81B — but net loss of $0.2M and FCF of -$29M. AeroVironment's record $1.5B backlog is the last figure verified. Defense autonomy has funded demand, but cash conversion is lagging."
   },
   {
    "tag": "Supply chain",
@@ -121,15 +121,15 @@
      "ticker": "ROK",
      "company": "Rockwell Automation",
      "sub-sector": "Industrial automation",
-     "angle": "Shares +2.7% to ~$454 (~$50B cap) on Oct 2; AI analytics and autonomous mobile robots shown in biotech manufacturing.",
-     "watch for": "Still no single robotics-specific earnings catalyst."
+     "angle": "FQ4 (Nov 5): sales $2.33B (+1%, organic +3%), adj. EPS $3.88; FY26 sales $8.99B (+8%); FY27 adj. EPS guide $14.50–15.50.",
+     "watch for": "Lifecycle Services -9%; tariff-refund noise flatters EPS; investor meeting Nov 18. Post-earnings share price not verified."
     },
     {
      "ticker": "TER",
      "company": "Teradyne",
      "sub-sector": "Cobots (Universal Robots)",
-     "angle": "Universal Robots Gen 7 cobots and the segment's first $100M quarter; shares +8% to ~$449 (~$70B cap) on Oct 2.",
-     "watch for": "Up ~200% in a year — valuation now leaves little room for a product-cycle stumble."
+     "angle": "Q3 (Oct 27): revenue $1.31B (+70%), EPS $2.29 vs $2.08; Robotics $96M (+28%), turned profitable; Q4 revenue guide $1.25–1.35B.",
+     "watch for": "Shares ~$306 on Oct 28 (-5.4%) vs $487.91 high; Q4 gross-margin guide 57.5–58.5% and ~$200M inventory build; robotics scale-up not until 2027–28."
     },
     {
      "ticker": "ABB",
@@ -191,15 +191,15 @@
      "ticker": "KTOS",
      "company": "Kratos Defense",
      "sub-sector": "Defense autonomy",
-     "angle": "Valkyrie drone and a growing laser-systems business; Q2 revenue +30.5%, $2.08B backlog.",
-     "watch for": "No fresh catalyst this specific week."
+     "angle": "Q3 (Nov 5): revenue $471.8M (+35.7%), bookings $1.04B, backlog $2.65B ($2.07B funded); FY26 revenue guide raised to $1.78–1.81B; FY27 initial $2.1–2.2B.",
+     "watch for": "Net loss $0.2M, FCF -$29M on $30M capex; Q1 FY27 expected light on a continuing resolution; stock reaction not verified."
     },
     {
      "ticker": "TSLA",
      "company": "Tesla (Optimus)",
      "sub-sector": "Humanoids",
-     "angle": "Q3 (Oct 21): revenue $28.05B flat, non-GAAP EPS $0.48 (beat), operating income -56% to $718M, Q3 capex $4.73B (9-month $13.0B vs >$25B 2026 guide); Optimus plant ~40% through steel, limited production late 2027.",
-     "watch for": "No Optimus revenue or customers; R&D +69% to $2.76B; shares were $387.31 into the print (post-earnings move not verified)."
+     "angle": "Q3 (Oct 21): revenue $28.04B flat, net income $787M (-43%), operating income -56%; Optimus production started at Fremont, target 20,000 units/week by end-2027.",
+     "watch for": "No Optimus revenue or customers; unsupervised FSD slipped toward ~Q2 2027; price last verified $373.71 (Oct 20)."
     },
     {
      "ticker": "GXO",
@@ -300,11 +300,11 @@
      "watch for": "BofA Underperform (¥350) and JPMorgan Underweight (¥300) both below the market; US FCC import ban still in force."
     },
     {
-     "ticker": "AGLT*",
+     "ticker": "AGLT",
      "company": "Agility Robotics",
      "sub-sector": "Humanoids",
-     "angle": "Going public via $2.5B merger with Churchill Capital Corp XI (CCXI): S-4 effective Oct 13; EGM Nov 2; >$620M gross proceeds incl. ~$200M Foxconn-led PIPE; Nasdaq ticker AGLT. Digit 5 has >$300M committed orders (early access early 2027); AGCO Kansas pilot from 2027.",
-     "watch for": "Close expected November, subject to vote; pre-revenue, ~$100M/yr cash burn. *Not yet trading — confirm listing status."
+     "angle": "Listed on Nasdaq Nov 5 after Churchill XI vote (>84% in favor, Nov 2); ~$465M gross proceeds (~$164M trust, ~$201M Foxconn-led PIPE). Digit 5 >$300M committed orders; GXO adds two sites early 2027; AGCO pilot 2027; RoboFab sized for up to 10,000 robots/yr.",
+     "watch for": "Pre-revenue with heavy cash burn; 180-day holder lock-up; de-SPAC stocks often trade erratically. Trading price and redemptions not verified."
     }
    ]
   }
@@ -322,8 +322,8 @@
   },
   {
    "name": "Physical Intelligence",
-   "value": "~$11B+",
-   "note": "Reported talks for a ~$1B raise at nearly double its prior mark; not confirmed closed."
+   "value": "~$11B+ (reported ~$20B)",
+   "note": "Reports (aiweekly) of a ~$1B round at ~$20B, nearly double its May mark; not confirmed closed."
   },
   {
    "name": "FieldAI",
@@ -359,6 +359,11 @@
    "name": "CMR Surgical",
    "value": "Undisclosed",
    "note": "Stryker invested $400M (Oct 15) with an acquisition option and becomes exclusive U.S. sales agent for Versius."
+  },
+  {
+   "name": "Eka",
+   "value": "$1.45B",
+   "note": "Physical-AI model developer valued at $1.45B (TechCrunch, Oct 20); Mecka AI raised $60M from Sequoia (Oct 7)."
   }
  ],
  "bear_case": [
@@ -371,8 +376,8 @@
    "description": "Figure's Helix 2.5 reports 56% zero-shot success across unseen homes — meaning it fails nearly half the time — and Nucleus this week claimed a ~2-hour factory demo that is 'only' 60% autonomous. If a demo isn't labelled autonomous, assume teleoperation. Intuitive's GAAP margin also shows how quickly legal costs ($450M antitrust charge) can dent a 'clean' robotics story."
   },
   {
-   "title": "Optimus's maker spends more while operating income shrinks",
-   "description": "Tesla's Q3 operating income fell 56% to $718M as R&D rose 69% to $2.76B; Optimus still shows no external customers, the plant is ~40% through steel with limited production late 2027, and nine-month capex ($13.0B) is only half the >$25B 2026 guide."
+   "title": "Optimus's maker spends more while profit shrinks",
+   "description": "Tesla's Q3 net income fell 43% to $787M and operating income 56% as R&D rose 69%; Optimus production at Fremont is 'early' and 'bumpy', there are still no external customers, and the 20,000-units/week target is end-2027."
   },
   {
    "title": "China's humanoid boom is drawing its own bubble warnings",
@@ -395,54 +400,58 @@
    "description": "150+ companies chase humanoids, and prices are collapsing (Galbot ET1 from 79,000 yuan, Astribot T1 at $18,000). History says most of that capital won't be recovered."
   },
   {
-   "title": "Teradyne's ~200% run leaves no cushion",
-   "description": "Shares swung from ~$449 to ~$403 in a week earlier this month (once -9.8% on AI-capex worries) and were last quoted Oct 10; P/E >55 means a product-cycle stumble hurts far more than it would have a year ago — Watch."
+   "title": "Teradyne's run is being tested",
+   "description": "Despite a 70% revenue jump and a profitable robotics unit, shares fell ~5% on Oct 28 to ~$306 (high $487.91) on a softer Q4 gross-margin guide; robotics is only $96M of $1.31B revenue, so the stock is an AI-test story, not a robotics one."
   },
   {
    "title": "Capex gap: robots must earn their keep",
    "description": "Tesla's 2026 capex tops $25B against $8.28B spent in H1 while Optimus shows no paying customers — investors are paying now for robot profits that are hard to measure."
+  },
+  {
+   "title": "The first pure-play humanoid listing is pre-revenue",
+   "description": "Agility (AGLT) debuted Nov 5 via SPAC with ~$465M gross proceeds, significant cash burn and >$300M of orders that are subject to contractual milestones — de-SPAC debuts have a poor long-run record."
   }
  ],
  "catalysts": [
   {
-   "date": "Oct 23, 2026",
-   "title": "Fanuc ADR +8.75% after earnings beat",
-   "description": "EPS $0.21 vs $0.16 est, revenue $1.55B vs $1.52B; ADR closed $19.26."
+   "date": "Nov 18, 2026",
+   "title": "Rockwell Automation investor meeting (upcoming)",
+   "description": "Annual investor meeting following FY27 guidance of adj. EPS $14.50–15.50."
   },
   {
-   "date": "Oct 21, 2026",
-   "title": "Tesla Q3 results",
-   "description": "Revenue $28.05B flat, non-GAAP EPS $0.48 vs $0.45; operating income -56%; R&D +69% to $2.76B; Q3 capex $4.73B; Musk teases 'Optimus Academy'."
+   "date": "Nov 5, 2026",
+   "title": "Agility Robotics begins trading as AGLT",
+   "description": "First US-listed pure-play humanoid company; closing Nov 4 on ~$465M gross proceeds."
   },
   {
-   "date": "Oct 21, 2026",
-   "title": "AGCO to pilot Agility Digit in Kansas factory",
-   "description": "Pilot expected to begin in 2027; another named industrial customer for Agility ahead of its listing."
+   "date": "Nov 5, 2026",
+   "title": "Kratos Q3 results",
+   "description": "Revenue $471.8M (+35.7%), backlog $2.65B, FY26 revenue guide raised to $1.78–1.81B; net loss $0.2M."
   },
   {
-   "date": "Oct 20, 2026",
-   "title": "Intuitive Surgical Q3 results",
-   "description": "Revenue $3.05B (+22%), procedures ~+15%, 546 placements; FY da Vinci growth guide 14–15%; GAAP margin hit by $450M antitrust charge."
+   "date": "Nov 5, 2026",
+   "title": "Rockwell Automation FQ4 results",
+   "description": "Sales $2.33B (+1%), adj. EPS $3.88; FY26 sales +8% to $8.99B; FY27 guide issued."
   },
   {
-   "date": "Oct 15, 2026",
-   "title": "Stryker invests $400M in CMR Surgical",
-   "description": "Strategic stake with acquisition option; exclusive U.S. sales agent for Versius — a third challenger to da Vinci."
-  },
-  {
-   "date": "Oct 12–18, 2026",
-   "title": "Big China robotics rounds",
-   "description": "Per The Bon Cast: $1.4B Suzhou Collaborative Robotics, $1.3B Embodied Intelligence, $1B Alibaba/China Mobile-led rope-driven robot Series A; Agibot reportedly ~RMB 50B valuation."
+   "date": "Nov 5, 2026",
+   "title": "Serve Robotics launches robot-infrastructure business",
+   "description": "TechCrunch: pitched as 'the AWS for robots'; details not verified."
   },
   {
    "date": "Nov 2, 2026",
-   "title": "Agility Robotics SPAC vote (upcoming)",
-   "description": "Churchill XI holders vote; S-4 effective Oct 13; Nasdaq ticker AGLT if approved; close expected November."
+   "title": "Churchill XI holders approve Agility merger",
+   "description": ">84% of votes cast in favor; Delaware domestication and rename to Agility Robotics, Inc."
   },
   {
-   "date": "Oct 8, 2026",
-   "title": "Nvidia reportedly eyes ~$1B more in Figure AI",
-   "description": "~$38B pre-money, per The Information; unconfirmed."
+   "date": "Oct 27, 2026",
+   "title": "Teradyne Q3 results",
+   "description": "Revenue $1.31B (+70%), EPS $2.29 vs $2.08; Robotics $96M, profitable; shares -5.4% Oct 28."
+  },
+  {
+   "date": "Oct 21, 2026",
+   "title": "Tesla Q3 results; Optimus production begins at Fremont",
+   "description": "Net income -43% to $787M; Musk targets 20,000 Optimus units/week by end-2027."
   }
  ],
  "etfs": [
@@ -599,11 +608,39 @@
   {
    "title": "The Robot Report — latest news",
    "url": "https://www.therobotreport.com/robotics-news/"
+  },
+  {
+   "title": "Agility — shareholders approve business combination (Nov 2)",
+   "url": "https://www.agilityrobotics.com/content/churchill-capital-corp-xi-shareholders-approve-business-combination-with-agility-robotics"
+  },
+  {
+   "title": "Agility — begins trading on Nasdaq as AGLT (Nov 5)",
+   "url": "https://www.agilityrobotics.com/content/agility-becomes-first-u-s-publicly-listed-pure-play-humanoid-robotics-company-begins-trading-today-on-nasdaq-as-aglt"
+  },
+  {
+   "title": "Investing.com — Teradyne Q3 2026 call",
+   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-teradyne-beats-q3-2026-estimates-but-shares-fall-93CH-4979648"
+  },
+  {
+   "title": "Kratos — Q3 2026 results",
+   "url": "https://www.kratosdefense.com/newsroom/kratos-reports-third-quarter-2026-financial-results"
+  },
+  {
+   "title": "Rockwell — FY2026 results",
+   "url": "https://www.rockwellautomation.com/en-us/company/news/press-releases/Rockwell-Automation-Reports-Fourth-Quarter-and-Full-Year-2026-Results-Introduces-Fiscal-2027-Guidance.html"
+  },
+  {
+   "title": "TechCrunch — Tesla starts Optimus production",
+   "url": "https://techcrunch.com/2026/10/21/tesla-stars-optimus-robot-production-in-california-as-profit-falls-43/"
+  },
+  {
+   "title": "AI Weekly — Physical Intelligence $1B at $20B",
+   "url": "https://aiweekly.co/alerts/physical-intelligence-lines-up-1b-round-at-20b-nearly-doubling-may-valuation"
   }
  ],
- "footnote": "Figures approximate, drawn from public reporting as of Oct 25, 2026; several share prices are carried from Oct 10–21 and not re-quoted. Always confirm independently before acting.",
+ "footnote": "Figures approximate, drawn from public reporting as of Nov 8, 2026; several share prices are carried from Oct 20–28 and not re-quoted; Symbotic, AeroVironment, Unitree and Figure were not re-verified this week. Always confirm independently before acting.",
  "stance": {
-  "as_of": "Oct 25, 2026",
+  "as_of": "Nov 8, 2026",
   "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
   "positions": [
    {
@@ -619,7 +656,7 @@
     "name": "Rockwell Automation",
     "stance": "core",
     "weight": 22,
-    "note": "Shares +2.7% to ~$454 (~$50B cap) on Oct 2 as AI analytics and autonomous mobile robots roll out in biotech plants; the reshoring thesis is intact.",
+    "note": "FY26 sales +8% to $8.99B and FY27 adj. EPS guide of $14.50–15.50 support the reshoring thesis, though Q4 sales grew only 1%.",
     "change": null
    },
    {
@@ -627,7 +664,7 @@
     "name": "Teradyne",
     "stance": "watch",
     "weight": 0,
-    "note": "Gen 7 cobots and the Iris 100 launch are real, but ~$403 (down from ~$449 a week ago, P/S ~14, P/E >55) after a ~200% 12-month run still prices in the evidence — good business, wrong price.",
+    "note": "Robotics turned profitable ($96M, +28%) and revenue is +70%, but shares (~$306, high $487.91) are still an AI-test valuation and robotics scale is 2027–28 — good business, wrong thesis for this sleeve.",
     "change": null
    },
    {
@@ -675,7 +712,7 @@
     "name": "Kratos Defense",
     "stance": "spec",
     "weight": 4,
-    "note": "Engine read-through on Anduril's ~$5B CCA award and $2.08B backlog, but production needs FY27 funding — sized as optionality; also counts against your Defense sleeve.",
+    "note": "Q3 backlog $2.65B, 2.2x book-to-bill and a raised FY26 guide are real, but net loss and -$29M FCF keep it sized as optionality; also counts against your Defense sleeve.",
     "change": null
    },
    {
@@ -747,7 +784,7 @@
     "name": "Tesla",
     "stance": "avoid",
     "weight": 0,
-    "note": "Q3 (Oct 21) operating income fell 56% and R&D rose 69% with no Optimus revenue; the plant is ~40% through steel with limited production late 2027 — years from revenue.",
+    "note": "Optimus production began at Fremont but Q3 net income fell 43% and R&D rose 69% with no Optimus revenue; the 20,000/week target is end-2027.",
     "change": null
    },
    {
@@ -757,6 +794,14 @@
     "weight": 0,
     "note": "Trading ~¥450 vs a ¥1,100 high with BofA (¥350) and JPMorgan (¥300) targeting well below the market; a US import ban also remains in force.",
     "change": null
+   },
+   {
+    "ticker": "AGLT",
+    "name": "Agility Robotics",
+    "stance": "watch",
+    "weight": 0,
+    "note": "Newly listed (Nov 5) with >$300M of milestone-based Digit orders, but pre-revenue, cash-burning and subject to a 180-day lock-up overhang — wait for post-listing price discovery.",
+    "change": "new"
    }
   ]
  }
