@@ -96,28 +96,28 @@ window.FYN_BRIEF = {
  "strip": [
   [
    "S&P 500",
-   "7,580",
-   "−1.8%"
+   "7,377",
+   "−2.7% wk"
   ],
   [
    "Nasdaq",
-   "25,437",
-   "−2.9%"
+   "24,579",
+   "−3.4% wk"
   ],
   [
    "VIX",
-   "19.42",
-   "+12.9%"
+   "25.64",
+   "+32% wk"
   ],
   [
    "US 10Y",
-   "~4.93%",
-   "−6bp"
+   "4.86%",
+   "−8bp wk"
   ],
   [
    "BTC",
-   "$77,899",
-   "+0.8%"
+   "$75,927",
+   "−2.0% wk"
   ],
   [
    "ETH",
@@ -137,37 +137,39 @@ window.FYN_BRIEF = {
    "Mixed",
    [],
    [],
-   "No stance changes. The Nasdaq fell 2.9% on Oct 30 (S&P −1.8%, its worst day since June) as Alphabet (EPS miss, free cash flow −$9.1B), Amazon (trailing FCF −$42.4B) and Intel (−~29%) sold off, even though Azure grew 48%, Google Cloud 103% and AWS 39%.",
-   "Demand is proven; payback is the debate. Hyperscaler capex runs ~$815–855B, OpenAI's raise was reportedly cut to $20B at $1.25T, and Anthropic filed its public S-1 on Oct 26 (no price range yet). Palantir (Nov 2), AMD (Nov 3) and the Anthropic roadshow (from ~Nov 10) are the next reads."
+   "No stance changes. The AI trade broke on Nov 5 (S&P 500 −4.4%, its worst day since April 2025; Nasdaq about −5.5%) on fears of state limits on data-center construction, then half-recovered Friday as AMD jumped 11% and Nvidia gained 2.8%. Palantir (revenue +96%, guide raised to ~$8.53B) and AMD (record $13.38B, Data Center +97%) both beat.",
+   "Demand is proven; financing is the constraint. OpenAI closed the first $11B of its round at $1.25T (vs a $1.4T aim), and Anthropic's amended S-1 shows ~$17B of Q3 revenue against ~$895B of commitments, with IPO talk down to $1.25–1.75T from ~$2T. The Anthropic roadshow, its price range and Nvidia (~Nov 17) are the next reads."
   ],
   [
    "robotics",
    "Robotics",
    "Bifurcated",
+   [
+    "AGLT (new, Watch)"
+   ],
    [],
-   [],
-   "No stance changes (this sector's page was last refreshed Oct 25, so treat it as a week old). Tesla's Q3 gave no dated Optimus milestones (R&D +69%, operating income −56%), Fanuc's ADR jumped 8.75% on a beat and Intuitive posted a record 546 placements.",
-   "Industrial and surgical demand is real (IFR sees 655K installs in 2026; da Vinci procedures ~+15%) but humanoid valuations still outrun shipments. The Agility SPAC vote on Nov 2 is the next listing test; its outcome was not confirmed when this brief was built."
+   "Agility Robotics began trading as AGLT on Nov 5, the first US-listed pure-play humanoid, and enters the board at Watch: more than $300M of Digit orders but pre-revenue, with a 180-day lock-up overhang. Rockwell (FY26 sales +8% to $8.99B, but Q4 only +1%) and Teradyne's profitable robotics unit anchor the industrial side.",
+   "Industrial demand is real (IFR sees 655K installs in 2026) while humanoids still trade on demos: Tesla's Optimus is in early production with no revenue and Figure carries ~$39B on ~150 robots shipped. Rockwell's investor meeting (Nov 18) is the next scheduled read."
   ],
   [
    "defense",
    "Defense Tech",
-   "Constructive",
-   [
-    "LHX"
-   ],
+   "Crosscurrents",
    [],
-   "L3Harris moves from Watch to Core after Q3 (EPS +33% to $3.28, record $53.2B backlog at 3.2x book-to-bill, FY26 EPS guide raised to $12.25–12.35). The high-beta drone names sold off on Oct 30: Red Cat −10%, Ondas −9%, AeroVironment −6%.",
-   "Demand is intact but the continuing resolution to Dec 11 still blocks new starts on 150+ programs including Golden Dome. Palantir (Nov 2), Rheinmetall (Nov 5), the Anduril tender close (Nov 9) and Ondas (Nov 12) are the next tests."
+   [],
+   "No stance changes. Rheinmetall cut FY26 guidance again on Nov 5 and fell up to 16%, and the drone group sold off after the midterms before rebounding 9–15% on Nov 6 (Ondas +15%, Red Cat +14%, AeroVironment +9%) on no company news.",
+   "The continuing resolution to Dec 11 still blocks new starts on 150+ programs, and Jefferies sees the FY27 budget nearer $1.15T than the $1.5T request; L3Harris's record $53.2B backlog keeps the core intact. Anduril's tender closes today, Ondas reports Nov 12 and Rheinmetall's capital markets day is Nov 27."
   ],
   [
    "nuclear",
    "Nuclear & SMRs",
    "Bifurcated",
    [],
-   [],
-   "No stance changes. Cameco fell ~8% to a new low of $76.91 after an adjusted loss and a 20% production drop, Oklo closed at $25.25 (−83% from its high), and NuScale rose 7% on a Doosan manufacturing contract that is not a binding order. The DOE offered up to $5B in conditional loans for Constellation uprates.",
-   "Long-term uranium is firm ($96.50/lb) yet listed names keep de-rating, and no commercial SMR operates. BWXT (Nov 2), Centrus (Nov 4–5), NuScale (Nov 5), Oklo (Nov 6) and Constellation (Nov 9) report next."
+   [
+    "LEU (Spec → Avoid)"
+   ],
+   "Centrus moves from Speculative to Avoid after Q3 revenue fell 26% to $55.5M with a gross loss and DOE's FY27 budget left the HALEU cascade (~$0.8B of backlog) unfunded. Oklo jumped ~19% on a narrower loss, but the group fell 9–14% on Nov 4–5 after the midterms before bouncing on Nov 6.",
+   "Oklo holds $3.13B of cash against $1.86M of revenue with Aurora due 2028–29; Constellation trades near 19.8x forward earnings vs a 26x average and reports Q3 today. The group still trades as high-beta AI-power exposure."
   ],
   [
    "minerals",
@@ -175,37 +177,40 @@ window.FYN_BRIEF = {
    "Crosscurrents",
    [],
    [],
-   "No stance changes. MP Materials fell 5% to $39.57 (52-week low $37.11), Goldman cut its target to $57, and lithium carbonate is down ~25% in a month to CNY 93,600/t. Freeport beat and guided copper volumes higher.",
-   "China's suspension of its Oct 2025 rare-earth controls lapses Nov 10 with no renewal confirmed, and GM's cancelled VAC magnet deal shows Western capacity can lose anchor demand. MP reports Nov 5, five days before the policy binary."
+   "No stance changes. MP Materials beat Q3 (revenue +176% to $147.7M, adjusted EPS $0.04, GM magnet qualification complete) yet closed Nov 6 at $35.41, down ~24% in a month. Lynas posted record NdPr output of 2,082t, and Albemarle's EBITDA rose 186% but it guided Q4 lower on lithium pricing.",
+   "China's rare-earth suspension lapses Tuesday Nov 10 even though MOFCOM says the US arrangement runs to Jan 10, 2027; the two published dates conflict and no extension notice had appeared by Nov 7. USA Rare Earth reports today after the close and Lithium Americas on Nov 13."
   ],
   [
    "space",
    "Space Economy",
    "Mixed",
    [],
-   [],
-   "No stance changes. SpaceX gave back its earnings pop (SPCX $134.72 on Oct 30, −6.4% on the day, ~40% below the June high) and October was rough for the group (Rocket Lab −23%, AST SpaceMobile −33%, Intuitive Machines −27%). Private space investment still hit a record $20.8B in Q3.",
-   "Capital intensity is the bear case: SpaceX guides Q4 capex to $35–40B and Rocket Lab sold ~$1.94B of stock in September. Redwire (Nov 4), Rocket Lab (Nov 9) and a Starship Flight 15 attempt (NET Nov 8, unconfirmed) are next; the SpaceX–Tesla merger study has no terms."
+   [
+    "RDW (Watch → Avoid)"
+   ],
+   "Redwire moves from Watch to Avoid after a Q3 revenue miss ($109M vs ~$126.5M expected), −$66.4M of free cash flow and a 21% drop to $6.13. The group fell again on Nov 5 (Planet Labs −12%, Intuitive Machines −15%), while NASA's Nov 7 Moon Base awards spread work across eight CLPS vendors.",
+   "SpaceX's first public print beat (revenue $14.6B, +161%) but ~52% of it is now AI, and Q4 capex is guided to $35–40B. Rocket Lab and AST SpaceMobile report tonight, Starship Flight 15 is listed for Nov 13 pending approval, and ~797.6M SpaceX shares unlock around Dec 8."
   ],
   [
    "storage",
    "Energy Storage",
    "Mixed",
    [],
-   [
-    "ENPH"
-   ],
-   "Enphase moves from Watch to Avoid after Q3 revenue fell 28.5% y/y, Q4 was guided to $225–255M and the stock dropped ~16%. GE Vernova beat and raised (backlog $197B) yet fell ~6%, and Barclays upgraded Tesla to Buy ($450).",
-   "Margins are propped up by one-offs (Tesla's $526M tariff refund; Eos at a ~−54% gross margin) while China's export tax rebate ends Jan 1. Eos and Stem report Nov 5, Energy Vault Nov 10 and Fluence ~Nov 23."
+   [],
+   "No stance changes. Tesla's Q3 storage deployments of 13.7 GWh missed the ~15.9 GWh estimate and its margin leaned on a $526M tariff refund; GE Vernova fell ~10.5% on Nov 4 on financing fears and political risk to ~55% of the data-center pipeline. Eos revenue grew 171% at a −53% GAAP gross margin.",
+   "Fluence replaced its CEO and CFO on Nov 2 and sits near its 52-week low; Stem pushed Q3 to Nov 16 amid an NYSE notice and a strategic-alternatives headline. Energy Vault reports Nov 10, Fluence ~Nov 23, and China's battery export tax rebate ends Jan 1."
   ],
   [
    "biotech",
    "AI Biotech",
    "Crosscurrents",
+   [
+    "TEM (Watch → Spec)",
+    "GH (Avoid → Watch)"
+   ],
    [],
-   [],
-   "No stance changes. Illumina fell 18.6% to $235.99 on a beat-and-raise (valuation after a ~157% run), Lilly lifted FY revenue guidance to $91–92B, and Eikon dropped 23.7% to $5.54, 69% below its IPO price.",
-   "No AI-discovered drug has full FDA approval. Tempus (Nov 2), Recursion's REC-4881 webinar (Nov 3), Schrödinger (Nov 4) and Guardant (Nov 5) are the next checks; Intellia's PDUFA date is Mar 10, 2027."
+   "Two upgrades: Tempus AI moves from Watch to Speculative after revenue +23% to $411.5M, its first clearly positive adjusted EBITDA ($25.6M) and a raised $1.60B guide; Guardant moves from Avoid to Watch on revenue +36% and Shield at 83K tests, though its cash-burn guidance widened to $205–220M.",
+   "No AI-discovered drug has full FDA approval out of 200+ in development. Lilly sits near a record on a $91–92B guide, within ~7% of the average target. Intellia, CRISPR and Relay report around Nov 9, Nvidia on Nov 17, and Intellia's PDUFA date is Mar 10, 2027."
   ],
   [
    "quantum",
@@ -213,110 +218,110 @@ window.FYN_BRIEF = {
    "Extreme spec",
    [],
    [],
-   "No stance changes. The group fell again with Alphabet's ~11% post-earnings drop (IonQ $30.04, −5.3% on Oct 30), and the Fed's two hike dissents add pressure on long-duration multiples. Quantum companies lobbied for policy support the same day.",
-   "Sector revenue is ~$1.5B against pure-play multiples of 46–430x sales, and IonQ's $2B raise keeps dilution live. IonQ and Quantinuum report Nov 5, Rigetti ~Nov 9 and D-Wave Nov 10."
+   "No stance changes. The group snapped back on Nov 6 after Q3 prints: IonQ +23.4% to $32.62 on a record $173.8M quarter and a guide of $505–515M, Quantinuum +26% to $37.57 on revenue +233% and a raised guide, Rigetti +19.3%. IBM brought a 120-qubit System Two online on Nov 7.",
+   "About half of IonQ's revenue is SkyWater foundry business, its GAAP operating loss was $433M and the headline profit was a non-cash warrant gain. Rigetti and D-Wave trade near 290–350x trailing sales and report Nov 10 after the close."
   ]
  ],
  "heat": {
-  "ai": 8.0,
+  "ai": 7.5,
   "robotics": 7.5,
   "defense": 5.5,
-  "nuclear": 6.0,
+  "nuclear": 5.5,
   "minerals": 3.5,
-  "space": 6.5,
+  "space": 6.0,
   "storage": 5.0,
   "biotech": 5.5,
-  "quantum": 8.5
+  "quantum": 8.0
  },
  "themes": [
   [
    "Conviction moves",
-   "L3Harris moves up, Enphase moves down: earnings quality, not narrative, moved the board",
-   "L3Harris goes from Watch to Core after a record $53.2B backlog and a raised guide, while Enphase goes from Watch to Avoid on a 28.5% revenue decline and a weak Q4 guide. Every other position held its stance in a week when most stocks fell."
+   "Five stance moves: earnings quality lifted Tempus and Guardant, balance-sheet stress cut Centrus and Redwire",
+   "Tempus AI goes from Watch to Speculative and Guardant from Avoid to Watch after raised guides, Agility Robotics enters at Watch on listing, while Centrus (Spec to Avoid) and Redwire (Watch to Avoid) are cut after Q3 misses with negative cash flow. The other 94 positions held in a week the Nasdaq fell 3.4%."
   ],
   [
    "Financing",
-   "Hyperscalers beat on growth but not on cash, and the market stopped paying for capex",
-   "Azure +48%, Google Cloud +103% and AWS +39% were met with selling because Alphabet's free cash flow was −$9.1B and Amazon's trailing figure −$42.4B. WSJ reports record CoreWeave put volume and hyperscaler credit-default swaps at 2021 highs; OpenAI's raise was reportedly cut to $20B."
+   "The AI trade broke on Nov 5, not on demand but on where the next build-out dollar comes from",
+   "The S&P fell 4.4% and the Nasdaq about 5.5% as state limits on data-center construction, negative hyperscaler free cash flow and valuation fears converged; AMD +11% and the chip index +4% on Nov 6 recovered part of it. Anthropic IPO talk slid to $1.25–1.75T from ~$2T, and OpenAI closed $11B of a round once aimed at $30B at $1.4T."
   ],
   [
    "Rates & risk",
-   "The Fed held with two hike dissents; the VIX is back near 19.4 and gold fell below $3,900",
-   "Warsh's first FOMC held at 3.75–4.00% (10–2, with two votes to hike) and markets price a December increase. The 10-year eased to ~4.93%, WTI settled near $104, and gold lost 3.3% on Friday, so there was no safe-haven bid in the selloff."
+   "A hot jobs print and a VIX of 25.6: payrolls +165K vs ~60K expected, 10-year at 4.86%",
+   "The VIX rose ~32% on the week, gold gained ~4.6% to about $4,080 (the hedge worked), WTI fell ~13% to about $90 on the midterm result and Middle East diplomacy talk, and bitcoin slipped ~2% to ~$75.9K. October CPI on Tuesday is the next input. Market-wrap figures are secondary-sourced and differ slightly between outlets."
   ],
   [
    "Policy cliffs",
-   "Three dated deadlines: Nov 3 midterms, Nov 10 rare earths, Dec 11 funding",
-   "US midterms land on Nov 3, China's rare-earth suspension lapses Nov 10 with no renewal announced, and the continuing resolution blocks 150+ defense new starts until Dec 11."
+   "Midterm aftermath meets two hard dates: Nov 10 rare earths and Dec 11 funding",
+   "Democrats won Congress, hitting AI-power (Constellation −9%, Vistra −14%) and drone names before a partial rebound. China's suspension of its Oct 2025 rare-earth controls lapses Nov 10 despite a stated Jan 10 truce date, and the stopgap budget expires Dec 11 with 150+ defense new starts frozen."
   ],
   [
    "Supply",
-   "Anthropic's public S-1 turns IPO supply from a rumour into a calendar",
-   "Anthropic filed publicly on Oct 26 (Nasdaq: ANT); WSJ cites a $100B+ raise at $1.5–2T for the week of Nov 16, with a roadshow from ~Nov 10 and no price range yet. SpaceX lockups add ~798M shares around Dec 8, and dilution (Oklo's ~$1B ATM, IonQ's $2B, Energy Fuels' $500M) is a recurring sector bear case."
+   "Anthropic's roadshow turns IPO supply into a calendar: a reported $80–100B at $1.25–1.75T before Thanksgiving",
+   "FT-sourced figures; no price range or share count had been filed as of the latest sources, and Kalshi odds of a pre-December listing were above 80%. Around 797.6M SpaceX shares unlock ~Dec 8, Agility's 180-day lock-up has begun, and dilution (IonQ, Oklo's ATM, Rocket Lab) remains a recurring sector bear case."
   ]
  ],
  "news": [
   [
-   "Oct 30",
+   "Nov 5",
    "AI & Compute",
-   "Nasdaq −2.9% and S&P −1.8% in the worst day since June",
-   "Intel fell almost 29% on a weak profit forecast and Amazon's report raised AI-spending concern; the VIX rose 12.9% to 19.42 and the Russell 2000 still ended the week up 1.3% while the Nasdaq lost 2.0%."
+   "S&P 500 −4.4% in its worst day since April 2025; chips −12%",
+   "Nasdaq about −5.5% on fears of state limits on data-center construction; AMD (+11% to $449.04) and Nvidia (+2.8%) rebounded Nov 6, but the week still closed S&P −2.7%, Nasdaq −3.4% and VIX 25.64."
   ],
   [
-   "Oct 26",
+   "Nov 6",
+   "Macro",
+   "October payrolls +165K vs ~60K expected; unemployment 4.1%",
+   "Wages rose 0.4% m/m and the 10-year ended at 4.86%; the beat keeps the Fed-path debate alive after the Oct 28 hold with two dissents for a hike."
+  ],
+  [
+   "Nov 8",
    "AI & Compute",
-   "Anthropic files its public S-1 (Nasdaq: ANT)",
-   "H1 2026 revenue was $16.3B with a net loss of $80.7B, mostly non-cash fair-value changes; WSJ reports a $100B+ raise at $1.5–2T targeted for the week of Nov 16, with no price range yet."
+   "Anthropic roadshow reported under way; FT says $80–100B at $1.25–1.75T",
+   "The amended S-1 (Nov 2) showed Q3 revenue ~$17B and a $567M operating loss; no price range or share count yet, with a debut targeted before Thanksgiving (Nov 26)."
   ],
   [
-   "Oct 29",
-   "Defense",
-   "L3Harris raises FY26 guidance; backlog a record $53.2B",
-   "Q3 EPS +33% to $3.28 with 3.2x book-to-bill and $11B of THAAD and PAC-3 propulsion awards; the stance moves to Core."
+   "Nov 5",
+   "Robotics",
+   "Agility Robotics lists as AGLT after holders approve the SPAC",
+   "More than 84% approval on Nov 2 and ~$465M of gross proceeds; first US-listed pure-play humanoid with >$300M of Digit orders, entering the board at Watch."
   ],
   [
-   "Oct 27",
-   "Energy Storage",
-   "Enphase misses, guides Q4 to $225–255M; shares fall ~16%",
-   "Revenue $293.3M (−28.5% y/y) and US sell-through −35%; the data-center IQ SST pivot is 2027–28 optionality, and the stance moves to Avoid."
-  ],
-  [
-   "Oct 30",
+   "Nov 2",
    "AI Biotech",
-   "Illumina −18.6% despite a beat and raised guidance",
-   "The stock closed $235.99 after a ~157% run-up on tariff and AI worries, while Lilly raised its FY revenue guide to $91–92B."
+   "Tempus AI beats and raises; stance moves up to Speculative",
+   "Revenue $411.5M (+23%), adjusted EBITDA $25.6M and a $1.60B guide; Guardant followed with revenue +36% but a wider cash burn and moved from Avoid to Watch."
   ]
  ],
  "ahead": [
   [
-   "Nov 2",
-   "Palantir, BWXT and Tempus Q3; Agility SPAC vote",
-   "Palantir guided ~$2.16B (+83%); BWXT reports its first print since Investor Day; Churchill XI holders vote on Agility Robotics (AGLT if approved).",
-   true
-  ],
-  [
-   "Nov 3",
-   "AMD Q3, US midterms and the Recursion webinar",
-   "AMD fell sharply in the late-October chip selloff; midterms frame the FY27 defense budget and tariffs; Recursion presents REC-4881 data.",
-   true
-  ],
-  [
-   "Nov 4",
-   "Albemarle, Schrödinger and Redwire Q3",
-   "Lithium carbonate is down ~25% in a month; Centrus reports the same day with its call on Nov 5.",
+   "Nov 9",
+   "Rocket Lab, AST SpaceMobile, Constellation and USA Rare Earth Q3; Anduril tender closes",
+   "Rocket Lab guided $250–265M of revenue; Constellation tests its $11.50–12.50 EPS guide; Intellia and CRISPR report around the same day (estimated).",
    false
   ],
   [
-   "Nov 5",
-   "IonQ, Quantinuum, MP Materials, NuScale, Rheinmetall, Eos, Stem, Guardant",
-   "The densest print day: quantum guidance, rare-earth earnings five days before the China cliff, and the storage balance-sheet tests.",
+   "Nov 10",
+   "US October CPI; China's rare-earth suspension lapses; Rigetti, D-Wave, Energy Vault and Firefly Q3",
+   "CPI prints at 8:30am ET; the rare-earth binary hits MP, USAR and Lithium Americas (Nov 13) while quantum names report after the close.",
    true
   ],
   [
-   "Nov 6",
-   "Oklo Q3 (pre-market)",
-   "Cash burn against a ~$1B at-the-market programme; Rocket Lab, Constellation and the Anduril tender close follow on Nov 9, and China's rare-earth suspension lapses Nov 10.",
+   "Nov 10–26",
+   "Anthropic roadshow and reported listing window",
+   "Price range and share count are the next disclosures; the debut is targeted before Thanksgiving and is not confirmed by the company.",
+   true
+  ],
+  [
+   "Nov 13",
+   "Starship Flight 15 and Vulcan return",
+   "First attempted ship catch, listed for 22:45 UTC pending regulatory approval; dates may move.",
    false
+  ],
+  [
+   "Nov 17",
+   "Nvidia Q3 FY27 (date per quote pages)",
+   "The biggest read-through for the AI-capex trade after the Nov 5 rout; Rockwell's investor meeting follows on Nov 18.",
+   true
   ]
  ]
 };
