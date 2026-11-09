@@ -4,7 +4,7 @@
   "heading": "AI & Compute Intelligence",
   "subheading": "The capex supercycle, silicon stack, foundation-model giants & the bubble debate",
   "kicker": "AI & COMPUTE // NOV 2026",
-  "generated": "November 2, 2026",
+  "generated": "November 9, 2026",
   "disclaimer": "Not financial advice. This page organizes public information for research purposes only — not a recommendation to buy or sell any security. AI is the market's most crowded trade; concentration and drawdown risk are significant. Verify current prices and do your own due diligence before investing.",
   "kpis": [
     {
@@ -14,9 +14,9 @@
       "highlight": true
     },
     {
-      "value": "ANT · $1.5–2T target",
-      "sub": "ANTHROPIC PUBLIC S-1 FILED OCT 26; OPENAI CUT RAISE TO $20B",
-      "label": "Anthropic publicly filed its S-1 on Oct 26 (Nasdaq, ticker ANT, 22 underwriters led by Goldman Sachs and Morgan Stanley per a Leverage Shares summary of the filing — an interested party; EDGAR not independently checked). No price range or share count yet. WSJ (Oct 26) says it could raise $100B+ at $1.5–2T with a listing targeted for the week of Nov 16; the roadshow cannot start until ~15 days after the public filing (~Nov 10). Filing figures: FY2025 revenue $4.6B; H1 2026 revenue $16.3B (vs $1.2B in H1 2025) and a net loss of $80.7B, of which $72.4B is non-cash fair-value changes. Run-rate was reported above $65B in late July. Last private mark $965B (May). Blackstone has warned Anthropic may not get an investment-grade rating after IPO. OpenAI: the FT (Nov 1) says its raise is now $20B at $1.25T, down from $30B at $1.4T (CNBC on Oct 22 had 'up to $30B at $1.25T pre-money'); not reported closed. All press reports, subject to change",
+      "value": "ANT · $1.2–1.3T talk (from $1.5–2T)",
+      "sub": "ANTHROPIC AMENDED S-1 (NOV 2): Q3 REVENUE ~$17B; OPENAI CLOSED FIRST $11B AT $1.25T",
+      "label": "Anthropic's S-1/A (Nov 2) added Q3 results: revenue nearly $17B (+47% QoQ from $11.6B), operating loss $567M, and ~$895.4B of purchase commitments (about $447.5B due before end-2030, ~53x quarterly revenue). Nasdaq Global Select, ticker ANT, 22 banks led by Goldman Sachs and Morgan Stanley; still no share count, price range or offer date, and the registration is not yet effective. Bloomberg (second-hand) says the roadshow could start this week with a debut before Thanksgiving (Nov 26); earlier WSJ talk was the week of Nov 16 at $1.5–2T. Since then, investor chatter has slipped to roughly $1.2–1.3T (headlines; Cramer and JonesTrading expect a discount; NYC Comptroller Lander asked for a pause). Last private mark $965B (May). OpenAI: Bloomberg/Reuters (Nov 6) say it closed an initial $11B of a round at a $1.25T valuation (pre- vs post-money not specified), with the round possibly reaching $20B in total; earlier targets were $30B at $1.4T. All press reports, subject to change",
       "highlight": false
     },
     {
@@ -54,14 +54,14 @@
         {
           "ticker": "AVGO",
           "company": "Broadcom",
-          "angle": "Fell ~4.3% on Oct 22 and ~2% for the week. Supplies Anthropic ~3.5GW of Google TPU capacity from 2027; Anthropic's leaked S-1 lists ~$161B of Broadcom equipment-lease contracts, and the WSJ reports Broadcom is arranging $50B+ of financing for custom chips developed with OpenAI. Fiscal Q3 AI semiconductor revenue was $16.7B (+221% YoY) with a ~$115B FY2027 / ~$230B FY2028 outlook (Sept 2). TipRanks shows 27 Buy / 2 Hold with an average target ~$519",
+          "angle": "Fell ~4.3% on Oct 22 and ~2% for the week. Supplies Anthropic ~3.5GW of Google TPU capacity from 2027; Anthropic's leaked S-1 lists ~$161B of Broadcom equipment-lease contracts, and the WSJ reports Broadcom is arranging $50B+ of financing for custom chips developed with OpenAI. Fiscal Q3 AI semiconductor revenue was $16.7B (+221% YoY) with a ~$115B FY2027 / ~$230B FY2028 outlook (Sept 2). TipRanks shows 27 Buy / 2 Hold with an average target ~$519. Update (Nov 9): OpenAI closed only an initial $11B of its round, so the vendor-financing question for custom-chip programs stays open",
           "watch for": "CEO Hock Tan's Oct 12 warning that financing could be a bigger obstacle than chips or power is the point: growth is underwritten by two cash-burning labs and vendor-style financing, and the $50B+ OpenAI-linked funding is the specific risk analysts flag. Custom silicon is a win for Broadcom but the clearest sign Nvidia's customers are building alternatives"
         },
         {
           "ticker": "AMD",
           "company": "AMD",
-          "angle": "Fell 8.1% on Oct 22 — among the worst in the SOX — after a ~1.5% fall on Oct 15; the 6GW OpenAI GPU agreement (with a warrant for up to 160M AMD shares) ties a large part of the AI story to OpenAI's ability to fund compute. Consensus target ~$565 (Stifel $635, Piper Sandler $600); Q2 Data Center revenue +107% to $6.7B. Reports Q3 on Nov 3",
-          "watch for": "OpenAI's lower-priced raise ($1.25T pre-money) and higher financing costs sit on the OpenAI-dependent portion of AMD's story; ROCm-versus-CUDA remains unresolved, and the stock trades as a high-beta expression of chip sentiment. Nov 3 earnings is the next hard data point"
+          "angle": "Reported Q3 on Nov 2–3: record revenue $13.38B (+45%, vs ~$13.09B consensus), non-GAAP EPS $2.09 vs $1.94 expected, Data Center $8.5B (+97%, 64% of revenue vs 47% a year ago), Client and Gaming $3.7B (−8%), Embedded $1.1B (+29%). Q4 revenue guide $17B ±3% (midpoint ~+66%). The 6GW OpenAI GPU agreement (with a warrant for up to 160M AMD shares) still ties a large part of the story to OpenAI's funding; post-earnings share reaction not verified",
+          "watch for": "Whether the Q4 guide of ~$17B converts as OpenAI deployments start; OpenAI's round closing in tranches ($11B so far) rather than the full target; PC/gaming weakness offsetting data center"
         },
         {
           "ticker": "TSM",
@@ -128,8 +128,8 @@
         {
           "ticker": "PLTR",
           "company": "Palantir",
-          "angle": "Rose 4.7% to ~$201.72 on Oct 21 as software rallied, then fell 2.7% to $196.19 on Oct 22 with the AI complex (a ~$184 50-day average is the bear reference; $213 the 52-week high). Q2 revenue $1.94B (+92.8%) with EPS $0.41 vs $0.34 expected; Q3 guide $2.160–2.164B (~+83%). Reports Q3 on Mon Nov 2 after the close; analyst targets run $230–265 (Citi $250); insiders sold ~$98M under 10b5-1 plans over three months Note: Q3 results are due Mon Nov 2 after the close and were not available when this page was compiled; Palantir was caught in the Oct 16 enterprise-software selloff alongside ServiceNow (−5%).",
-          "watch for": "A superb business with little cushion if AI sentiment turns; high-multiple software is the most rate-sensitive corner of the page. Nov 2 results are the next test of whether ~83% growth holds; Gartner has questioned whether the forward-deployed engineering model scales"
+          "angle": "Reported Q3 on Nov 2: revenue $2.313B (+96% YoY, +20% QoQ; first quarter above $2B) vs ~$2.18B expected; US commercial $984M (+148%) now larger than US government ($953M, +96%); GAAP operating margin 47%, adjusted operating margin 62%, adjusted free cash flow $1.216B, adjusted EPS $0.44 vs $0.41. Guide: Q4 revenue $2.649–2.653B, FY2026 raised to $8.530–8.534B (~+91%, vs ~$8.2B expected). Shares were initially flat after hours and a headline the next day described them as falling despite target raises; trailing P/E was ~261x going in",
+          "watch for": "A superb business priced for perfection: Rule-of-40 of 158% and +96% growth are priced in at ~261x trailing earnings; high-multiple software is the most rate-sensitive corner of the page (10-year near 5%). Watch TCV (+6% only) as a leading indicator, and Gartner's doubts on forward-deployed scaling"
         },
         {
           "ticker": "PATH",
@@ -155,13 +155,13 @@
   "private_watchlist": [
     {
       "name": "Anthropic",
-      "value": "S-1 PUBLIC OCT 26 (NASDAQ: ANT) · $1.5–2T TARGET · $100B+ RAISE REPORTED · LISTING TARGET WEEK OF NOV 16",
-      "note": "Anthropic filed its public S-1 on Oct 26 (Leverage Shares' summary of the filing: Nasdaq Global Select, ticker ANT, 22 underwriters led by Goldman Sachs and Morgan Stanley). No price range or share count is set; the WSJ reports it could raise $100B+ at $1.5–2T with a listing targeted for the week of Nov 16, subject to change, and the roadshow cannot begin until ~15 days after the public filing (~Nov 10). Filing figures: FY2025 revenue $4.6B, H1 2026 revenue $16.3B and net loss $80.7B (of which $72.4B is non-cash fair-value changes). Earlier press reports (Reuters Breakingviews) put Q3 revenue at $16.8B with an 85% gross margin; those are not in the filing. Run-rate above $65B as of late July (Bloomberg). Blackstone has warned it may not receive an investment-grade rating post-IPO. Note: this is the page's first genuinely public-market catalyst — once ANT lists it moves from this private list to the listed tiers."
+      "value": "S-1/A NOV 2 (NASDAQ: ANT) · TALK $1.2–1.3T (FROM $1.5–2T) · ROADSHOW IMMINENT",
+      "note": "Amended S-1 (Nov 2): Q3 revenue nearly $17B (+47% QoQ), operating loss $567M, purchase commitments ~$895.4B (~$447.5B due before end-2030). H1 2026 revenue $16.3B and net loss $80.7B (mostly non-cash fair-value changes) per the earlier filing. Nasdaq Global Select, 22 underwriters led by Goldman Sachs and Morgan Stanley; no share count or price range, registration not yet effective. Bloomberg (second-hand): roadshow could begin the week of Nov 9, debut before Nov 26; the Nov 16 week remains unconfirmed. Valuation talk has reportedly slipped from $1.5–2T to about $1.2–1.3T, still above the $965B May mark. Blackstone has warned of a possible sub-investment-grade rating. Once ANT lists it moves to the listed tiers."
     },
     {
       "name": "OpenAI",
-      "value": "RAISING ~$20B AT $1.25T (CUT FROM $30B AT $1.4T) · IPO 2027",
-      "note": "The FT (via a Nov 1 Blockonomi report) says OpenAI now seeks $20B at a $1.25T valuation, down from $30B at $1.4T; CNBC (Oct 22) had reported up to $30B at $1.25T pre-money, led by Coatue and UAE investors, aiming to secure signatures within about a week. Terms were not reported final. The prior mark was $852B post-money after a $122B round in March. CFO Sarah Friar told employees a listing could come in 2027, and Altman has ruled out 2026. The shrinking raise, just as Anthropic goes public, is the sector's clearest sign that private-market appetite for frontier-lab paper has limits. Revenue run-rate (~$50B reported earlier) not re-verified this week."
+      "value": "CLOSED INITIAL $11B AT $1.25T (ROUND MAY REACH $20B) · IPO 2027",
+      "note": "Bloomberg/Reuters (Nov 6): OpenAI closed an initial $11B of a new round at a $1.25T valuation (CFO reportedly framed it as pre-money); the remainder is expected in the coming weeks and the round could reach $20B, versus an earlier aim of $30B at $1.4T. SoftBank reportedly in talks for a smaller piece. Prior mark $852B post-money after a $122B round in March. Listing talked about for 2027; Altman has ruled out 2026. Revenue run-rate (~$50B reported earlier) not re-verified."
     },
     {
       "name": "Mistral",
@@ -177,7 +177,7 @@
   "bear_case": [
     {
       "title": "The revenue gap",
-      "description": "The industry has committed an estimated $3–4T to AI infrastructure against an annualized return requirement of roughly $600–800B in new profit, while AI-attributable revenue runs an estimated $50–150B a year. Consensus tech-infrastructure capex is ~$790B in 2026 and ~$1.2T in 2027; Gartner (Oct 14) warned that $3.5T+ of AI infrastructure spending could face impairment by 2030. OpenAI's ~$50B run-rate and a lower-priced $1.25T raise, plus Anthropic's slowdown to ~+45–50% QoQ ($16.8B Q3), show the two largest buyers of compute growing slower than the market modeled. Counterpoint: Anthropic is reportedly cash-flow positive at an 85% gross margin, TSMC guided Q4 more than $4B above Street, Lam posted record revenue (+54%) and ASML says customers want 2029–2030 tools — Huang and Dan Ives frame it as a financing issue, not a demand issue. This week's prints sharpened the cash-flow side: Alphabet's Q3 free cash flow was −$9.1B, Amazon's trailing-12-month FCF −$42.4B, Meta's first negative FCF quarter since 2012 — spending is now outrunning internally generated cash at three of five hyperscalers."
+      "description": "The industry has committed an estimated $3–4T to AI infrastructure against an annualized return requirement of roughly $600–800B in new profit, while AI-attributable revenue runs an estimated $50–150B a year. Consensus tech-infrastructure capex is ~$790B in 2026 and ~$1.2T in 2027; Gartner (Oct 14) warned that $3.5T+ of AI infrastructure spending could face impairment by 2030. OpenAI's ~$50B run-rate and a lower-priced $1.25T raise, plus Anthropic's slowdown to ~+45–50% QoQ ($16.8B Q3), show the two largest buyers of compute growing slower than the market modeled. Counterpoint: Anthropic is reportedly cash-flow positive at an 85% gross margin, TSMC guided Q4 more than $4B above Street, Lam posted record revenue (+54%) and ASML says customers want 2029–2030 tools — Huang and Dan Ives frame it as a financing issue, not a demand issue. This week's prints sharpened the cash-flow side: Alphabet's Q3 free cash flow was −$9.1B, Amazon's trailing-12-month FCF −$42.4B, Meta's first negative FCF quarter since 2012 — spending is now outrunning internally generated cash at three of five hyperscalers. Update (Nov 9): Anthropic's amended S-1 shows ~$895.4B of purchase commitments against ~$17B of quarterly revenue (~53x), and its reported IPO valuation talk has slid from $1.5–2T to ~$1.2–1.3T — the first public-market price discovery for a frontier lab is arriving at a discount to private expectations."
     },
     {
       "title": "AI's own architects sound the alarm",
@@ -214,44 +214,39 @@
   ],
   "catalysts": [
     {
-      "date": "OCT 26, 2026",
-      "title": "Anthropic files public S-1 (Nasdaq: ANT)",
-      "description": "First public look at the numbers: H1 2026 revenue $16.3B, net loss $80.7B (mostly non-cash fair-value changes). WSJ reports a $100B+ raise at $1.5–2T targeted for the week of Nov 16; no price range yet."
+      "date": "OCT 28–29, 2026",
+      "title": "Hyperscaler earnings: Azure +48%, AWS +39%, Cloud +103%, capex held",
+      "description": "Alphabet and Amazon fell on negative free cash flow (−$9.1B quarterly; −$42.4B trailing); Microsoft rose. Nasdaq −2.9% on Oct 30, its worst month since March 2025."
     },
     {
-      "date": "OCT 28, 2026",
-      "title": "Fed holds at 3.75–4.00%; Microsoft beats on Azure +48%",
-      "description": "Warsh's first FOMC held rates with two hike dissents. Microsoft revenue $92.3B (+19%), Azure $33.2B (+48%), Q capex $39.4B; CY2026 capex outlook ~$175B on an accounting change; shares +3–4% after hours."
+      "date": "NOV 2, 2026",
+      "title": "Anthropic amended S-1: Q3 revenue ~$17B, $895B commitments",
+      "description": "Operating loss $567M; commitments ~53x quarterly revenue. No price range yet; roadshow reportedly imminent with a pre-Thanksgiving debut targeted."
     },
     {
-      "date": "OCT 28, 2026",
-      "title": "Alphabet: Cloud +103%, but EPS miss and negative free cash flow",
-      "description": "Revenue $127.6B, EPS $2.12 vs ~$3.00, Cloud $30.7B (+103%), capex $51.4B, FCF −$9.1B. Shares fell ~8–13% depending on source, testing $300."
+      "date": "NOV 2, 2026",
+      "title": "Palantir Q3: revenue +96%, FY guide raised to ~$8.53B",
+      "description": "Revenue $2.313B vs ~$2.18B expected; US commercial +148%; shares initially flat after hours, reportedly weaker the next day at ~261x trailing earnings."
     },
     {
-      "date": "OCT 29, 2026",
-      "title": "Amazon: AWS +39%, record margin, FCF −$42.4B; Intel plunges",
-      "description": "AWS $46B (+39%), operating margin a record 13.9%, capex guide ~$220B maintained, trailing FCF −$42.4B; shares −4% in session, ~−6% after hours. Intel fell nearly 30% on a weak Q4 outlook."
+      "date": "NOV 3–5, 2026",
+      "title": "AMD Q3: record $13.38B, Data Center +97%, Q4 guide $17B",
+      "description": "Beat consensus ($13.09B revenue; EPS $2.09 vs $1.94) on data center; PC and gaming weak. Midterm elections were held Nov 3."
     },
     {
-      "date": "OCT 30, 2026",
-      "title": "Nasdaq −2.9%, worst month since March 2025",
-      "description": "WSJ-reported hedging surge: record CoreWeave put volume, hyperscaler and Oracle CDS at 2021-highs. Nvidia quoted ~$205."
+      "date": "NOV 6, 2026",
+      "title": "OpenAI closes initial $11B at $1.25T",
+      "description": "Bloomberg-sourced; round may reach $20B vs the original $30B at $1.4T aim. Same week, IPO buyers reportedly eyeing Anthropic at $1.2–1.3T."
     },
     {
-      "date": "OCT 31 – NOV 1, 2026",
-      "title": "OpenAI raise reportedly cut to $20B at $1.25T",
-      "description": "FT-sourced report: down from $30B at $1.4T; not reported closed. Comes as Anthropic readies its IPO."
+      "date": "NOV 6–8, 2026",
+      "title": "AI selloff commentary: 'air coming out of the bubble'",
+      "description": "Headlines (bodies not read) cite an AI-stock rout, strategists urging dip-buying, and Michael Burry trimming a position in an AI beneficiary by 75%; weekly index moves not verified."
     },
     {
-      "date": "NOV 2–3, 2026 (UPCOMING)",
-      "title": "Palantir (Nov 2), AMD (Nov 3), US midterms (Nov 3)",
-      "description": "Palantir reports Nov 2 after the close (Q3 guide ~$2.16B, ~+83%); AMD reports Nov 3; midterm elections Nov 3."
-    },
-    {
-      "date": "NOV 10–16, 2026 (UPCOMING)",
-      "title": "Anthropic roadshow, then reported listing window",
-      "description": "Roadshow earliest ~Nov 10 (15 days after the public S-1); WSJ cites a listing target of the week of Nov 16. Nvidia's Q3 FY27 results are also expected in November (date not confirmed)."
+      "date": "NOV 9–26, 2026 (UPCOMING)",
+      "title": "Anthropic roadshow and listing window; Nvidia Q3 FY27 in November",
+      "description": "Price range and share count are the next disclosures; Nvidia reports in November (date unconfirmed). 10-year yield near 5% remains the rate backdrop."
     }
   ],
   "etfs": [
@@ -272,6 +267,34 @@
     }
   ],
   "sources": [
+    {
+      "title": "Financefeeds — Anthropic IPO roadshow looms with no price range (Nov 5)",
+      "url": "https://financefeeds.com/anthropic-ipo-roadshow-looms-with-no-price-range/"
+    },
+    {
+      "title": "Tech Insider — Anthropic IPO: $17B Q3, $895.4B commitments, no date (Nov 7)",
+      "url": "https://tech-insider.org/anthropic-ipo-ant-nasdaq-17b-q3-895b-commitments-no-date-2026/"
+    },
+    {
+      "title": "SEC 8-K — Palantir Q3 2026 press release (Nov 2)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000045/a2026q3ex991pressrelease.htm"
+    },
+    {
+      "title": "24/7 Wall St. — Palantir Q3 live blog (Nov 2)",
+      "url": "https://247wallst.com/investing/2026/11/02/live-will-palantir-smash-q3-earnings-tonight-after-the-bell/"
+    },
+    {
+      "title": "Constellation Research — AMD Q3 shines as data center revenue nearly doubles (Nov 3)",
+      "url": "https://www.constellationr.com/insights/news/amd-q3-shines-data-center-revenue-nearly-doubles"
+    },
+    {
+      "title": "GV Wire / Reuters — OpenAI secures $11B at $1.25T (Nov 6)",
+      "url": "https://gvwire.com/2026/11/06/openai-secures-11-billion-funding-at-1-25-trillion-valuation-bloomberg-news-reports/"
+    },
+    {
+      "title": "FourWeekMBA — OpenAI said to close ~$11B at $1.25T, round may reach $20B (Nov 6)",
+      "url": "https://fourweekmba.com/ai-openai-said-to-close-11b-at-1-25t-round-may-reach-20b/"
+    },
     {
       "title": "TechCrunch — OpenAI working on new $30B raise at $1.25T valuation (Oct 22)",
       "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/"
@@ -417,9 +440,9 @@
       "url": "https://finance.yahoo.com/markets/stocks/article/nvidia-stock-sinks-as-chip-sell-off-deepens-on-hot-inflation-data-203235137.html"
     }
   ],
-  "footnote": "Figures approximate, from public reporting as of Oct 26 – Nov 2, 2026; several items are press reports or secondary write-ups of company releases (Anthropic S-1 details via a Leverage Shares summary and WSJ, OpenAI round terms via CNBC/FT, Microsoft/Alphabet/Amazon quarterly figures via XTB and Constellation Research) and are subject to change or revision. Share-price moves after earnings differ by source (Alphabet −8% to −13%). Undated quote snapshots were used only where noted. Palantir (Nov 2, after the close) and AMD (Nov 3) had not reported when this page was compiled. ETF YTD returns were not re-verified. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
+  "footnote": "Figures approximate, from public reporting as of Nov 2 – Nov 8, 2026; several items are press or secondary write-ups (Anthropic S-1/A details via Financefeeds/Tech Insider, OpenAI round via Bloomberg/Reuters, Palantir from the company press release). Anthropic valuation chatter ($1.2–1.3T) is headline-level and unconfirmed. Hyperscaler figures are from the Oct 28–29 earnings and were not updated this week. Weekly index/SOX moves, Nvidia's current price and AMD/Palantir post-earnings share moves were not verified. Refreshed weekly (Mondays). Always confirm current prices/valuations independently.",
   "stance": {
-    "as_of": "November 2, 2026",
+    "as_of": "November 9, 2026",
     "basis": "Weights are a share of a hypothetical 100% sleeve for THIS SECTOR only — not a share of your portfolio. Core and Speculative names carry the weight; Watch and Avoid deliberately carry 0% because the point of those groups is that you are not holding them yet.",
     "positions": [
       {
@@ -467,7 +490,7 @@
         "name": "Broadcom",
         "stance": "watch",
         "weight": 0,
-        "note": "Growth rests on two cash-burning labs (~$161B of Anthropic lease contracts, $50B+ of financing for OpenAI chips), and OpenAI's raise being cut to $20B at $1.25T tests that funding; Anthropic's IPO is the offsetting upside.",
+        "note": "Growth rests on two cash-burning labs (~$161B of Anthropic lease contracts, $50B+ of OpenAI chip financing); OpenAI closing only $11B so far and Anthropic's IPO valuation talk sliding to ~$1.2–1.3T keep funding risk live.",
         "change": null
       },
       {
@@ -475,7 +498,7 @@
         "name": "AMD",
         "stance": "watch",
         "weight": 0,
-        "note": "Tied to OpenAI's 6GW GPU deal while OpenAI's raise shrinks, and it reports Nov 3 after falling 8.1% on Oct 22 — wait for the print.",
+        "note": "Q3 beat (revenue $13.38B, Data Center +97%) and a ~$17B Q4 guide are real, but a large slice of the story still rides on OpenAI funding its 6GW deal, which closed only an initial $11B — wait for price and funding clarity.",
         "change": null
       },
       {
@@ -499,7 +522,7 @@
         "name": "Palantir",
         "stance": "watch",
         "weight": 0,
-        "note": "Very high multiple with little cushion in a Nasdaq worst-month tape (−2.9% on Oct 30); Q3 results due Nov 2 after the close (guide ~$2.16B, ~+83%) are the test.",
+        "note": "Q3 revenue +96% with a raised FY guide ($8.53B) is excellent, but at ~261x trailing earnings the stock was flat-to-down on the beat, leaving no cushion in a rate-sensitive tape.",
         "change": null
       },
       {
