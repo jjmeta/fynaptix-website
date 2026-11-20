@@ -14,18 +14,35 @@
 })();
 
 
-// ── Hero backdrop — logarithmic spiral, ×3 per whorl like the nautilus shell ──
+// ── Hero backdrop — faint nautilus cross-sections, tiled ──
+// One cutaway (log spiral wall + curved chamber walls) is built once and repeated as a pattern.
 (function () {
-  const path = document.getElementById('lp-spiral-path');
-  if (!path) return;
-  const cx = 380, cy = 350, r0 = 15, b = Math.log(3) / (2 * Math.PI), end = 6 * Math.PI;
-  let d = '', th = 0;
-  while (th <= end) {
-    const r = r0 * Math.exp(b * th);
-    d += (d ? 'L' : 'M') + (cx + r * Math.cos(th)).toFixed(1) + ' ' + (cy + r * Math.sin(th)).toFixed(1);
-    th += Math.min(0.12, 4 / r);
+  const shell = document.getElementById('lp-shell-path');
+  const tile = document.getElementById('lp-shell-tile');
+  if (!shell || !tile) return;
+  const b = Math.log(3) / (2 * Math.PI), start = -3.4 * 2 * Math.PI;
+  const pt = function (th, k) { const r = Math.exp(b * th) * (k || 1); return [r * Math.cos(th), r * Math.sin(th)]; };
+  let d = '', th = start;
+  while (th <= 0) {                                   // outer wall, from the tiny first chamber to the aperture
+    const r = Math.exp(b * th), p = pt(th);
+    d += (d ? 'L' : 'M') + p[0].toFixed(3) + ' ' + p[1].toFixed(3);
+    th += Math.min(0.1, 0.02 / r);
   }
-  path.setAttribute('d', d);
+  for (th = start + 2 * Math.PI * 0.55; th < -0.9; th += 0.5) {   // chamber walls (septa) across each whorl
+    const P = pt(th), Q = pt(th, 1 / 3);
+    const tx = -Math.sin(th), ty = Math.cos(th), len = Math.hypot(P[0] - Q[0], P[1] - Q[1]) * 0.28;
+    d += 'M' + Q[0].toFixed(3) + ' ' + Q[1].toFixed(3) + 'Q' + ((P[0] + Q[0]) / 2 - tx * len).toFixed(3) + ' ' + ((P[1] + Q[1]) / 2 - ty * len).toFixed(3) + ' ' + P[0].toFixed(3) + ' ' + P[1].toFixed(3);
+  }
+  shell.setAttribute('d', d);
+  const W = 600, H = 600;                              // [x, y, size, rotation] inside one tile; copies wrap the edges
+  const items = [[300, 300, 200, 0], [0, 0, 150, 150], [0, 300, 90, 40], [300, 0, 90, 250]];
+  let uses = '';
+  items.forEach(function (it) {
+    [-W, 0, W].forEach(function (dx) { [-H, 0, H].forEach(function (dy) {
+      uses += '<use href="#lp-shell-path" transform="translate(' + (it[0] + dx) + ' ' + (it[1] + dy) + ') rotate(' + it[3] + ') scale(' + it[2] + ')"/>';
+    }); });
+  });
+  tile.innerHTML = uses;
 })();
 
 // ── Hero 3D — translucent chambered nautilus swimming a slow loop ──
