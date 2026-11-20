@@ -35,7 +35,6 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 /* ─── HERO ─── */
 .lp-hero{position:relative;min-height:600px;padding:96px 56px 88px;border-bottom:1px solid var(--hairline);overflow:hidden}
 .lp-hero-canvas{position:absolute;top:-40px;right:-40px;width:760px;height:700px;max-width:100%;z-index:0}
-.lp-hero-rules{position:absolute;inset:0;background-image:linear-gradient(var(--surface) 1px,transparent 1px);background-size:100% 88px;z-index:0}
 .lp-hero-tick{position:absolute;width:14px;height:14px;z-index:1;border-color:var(--grey-200)}
 .lp-hero-tick-tl{top:30px;left:30px;border-left:1px solid;border-top:1px solid}
 .lp-hero-tick-bl{bottom:30px;left:30px;border-left:1px solid;border-bottom:1px solid}
