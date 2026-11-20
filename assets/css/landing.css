@@ -50,8 +50,8 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-hero-h1 .accent-word{color:var(--accent-soft)}
 .lp-hero-sub{margin:0;max-width:500px;font-size:17px;line-height:1.6;color:var(--grey-500)}
 .lp-hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.landing a.btn-ink{background:var(--accent-soft);color:var(--white);padding:16px 26px;font-size:15px;font-weight:600;border:1px solid var(--accent-soft);display:inline-flex;align-items:center;gap:9px}
-.landing a.btn-ink:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:var(--white)}
+.landing a.btn-ink{background:var(--accent-soft);color:var(--ink);padding:16px 26px;font-size:15px;font-weight:600;border:1px solid var(--accent-soft);display:inline-flex;align-items:center;gap:9px}
+.landing a.btn-ink:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}
 .landing a.btn-ink .btn-arrow{transition:transform .15s ease}
 .landing a.btn-ink:hover .btn-arrow{transform:translateX(4px)}
 .landing a.btn-text{padding:16px 22px;font-size:15px;font-weight:600;color:var(--grey-500)}
@@ -128,7 +128,7 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
   .lp-hero{padding:64px 24px 48px;min-height:0}
   .lp-hero-canvas{position:static;width:100%;height:320px;order:2;margin-top:24px}
   .lp-hero-content{flex-direction:column}
-  .lp-hero-bg{display:none}
+  .landing .lp-hero-bg{display:none}
   .lp-hero-label{display:none}
 
   .lp-stats{grid-template-columns:repeat(2,1fr)}
