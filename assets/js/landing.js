@@ -14,6 +14,20 @@
 })();
 
 
+// ── Hero backdrop — logarithmic spiral, ×3 per whorl like the nautilus shell ──
+(function () {
+  const path = document.getElementById('lp-spiral-path');
+  if (!path) return;
+  const cx = 380, cy = 350, r0 = 15, b = Math.log(3) / (2 * Math.PI), end = 6 * Math.PI;
+  let d = '', th = 0;
+  while (th <= end) {
+    const r = r0 * Math.exp(b * th);
+    d += (d ? 'L' : 'M') + (cx + r * Math.cos(th)).toFixed(1) + ' ' + (cy + r * Math.sin(th)).toFixed(1);
+    th += Math.min(0.12, 4 / r);
+  }
+  path.setAttribute('d', d);
+})();
+
 // ── Hero 3D — translucent chambered nautilus swimming a slow loop ──
 // Built entirely from code (Three.js r128, no image or model files). Safeguards: skips without
 // WebGL, draws a single still frame under prefers-reduced-motion, pauses when off-screen or the

@@ -53,12 +53,20 @@
 </nav>
 
 <section class="lp-hero">
+  <svg class="lp-hero-spiral" viewBox="0 0 760 700" aria-hidden="true" focusable="false">
+    <g class="lp-spiral-spin">
+      <g class="lp-spiral-guides">
+        <circle cx="380" cy="350" r="45"/><circle cx="380" cy="350" r="135"/><circle cx="380" cy="350" r="405"/>
+        <line x1="-40" y1="350" x2="800" y2="350"/><line x1="380" y1="-70" x2="380" y2="770"/>
+        <line x1="86" y1="56" x2="674" y2="644"/><line x1="86" y1="644" x2="674" y2="56"/>
+      </g>
+      <path id="lp-spiral-path" class="lp-spiral-line"/>
+      <g class="lp-spiral-marks"><circle cx="395" cy="350" r="2.5"/><circle cx="425" cy="350" r="2.5"/><circle cx="515" cy="350" r="2.5"/></g>
+    </g>
+    <text class="lp-spiral-label" x="380" y="612" text-anchor="middle">LOGARITHMIC SPIRAL · ×3 PER WHORL</text>
+  </svg>
   <canvas id="lp-hero-canvas" class="lp-hero-canvas" aria-hidden="true"></canvas>
   <div class="lp-hero-rules" aria-hidden="true"></div>
-  <div class="lp-hero-sq lp-hero-sq-a" aria-hidden="true"></div>
-  <div class="lp-hero-sq lp-hero-sq-b" aria-hidden="true"></div>
-  <div class="lp-hero-ring lp-hero-ring-a" aria-hidden="true"></div>
-  <div class="lp-hero-ring lp-hero-ring-b" aria-hidden="true"></div>
   <div class="lp-hero-tick lp-hero-tick-tl" aria-hidden="true"></div>
   <div class="lp-hero-tick lp-hero-tick-bl" aria-hidden="true"></div>
   <div class="lp-hero-tick lp-hero-tick-tr" aria-hidden="true"></div>
