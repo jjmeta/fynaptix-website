@@ -18,8 +18,8 @@
 <header class="lp-header">
   <a class="lp-brand" href="/">
     <svg class="lp-brand-logo" viewBox="0 0 40 24" role="img" aria-label="Fynaptix">
-      <circle cx="13" cy="12" r="9.2" fill="none" stroke="#71717a" stroke-width="2.6"/>
-      <circle cx="27" cy="12" r="9.2" fill="none" stroke="#a1a1aa" stroke-width="2.6"/>
+      <circle class="lp-logo-a" cx="13" cy="12" r="9.2" fill="none" stroke="#71717a" stroke-width="2.6"/>
+      <circle class="lp-logo-b" cx="27" cy="12" r="9.2" fill="none" stroke="#a1a1aa" stroke-width="2.6"/>
     </svg>
     <span class="lp-brand-name">FYNAPTIX</span>
     <span class="lp-brand-tag">FUTURE TECH RESEARCH</span>
@@ -74,11 +74,60 @@
   </div>
 </div>
 
-<div class="lp-stats">
-  <div class="lp-stat"><span class="lp-stat-label">SECTORS TRACKED</span><span class="lp-stat-value">09</span></div>
-  <div class="lp-stat"><span class="lp-stat-label">TICKERS WATCHED</span><span class="lp-stat-value">60+</span></div>
-  <div class="lp-stat"><span class="lp-stat-label">BRIEFS PUBLISHED</span><span class="lp-stat-value">MON</span></div>
-  <div class="lp-stat"><span class="lp-stat-label">THESES SCORED</span><span class="lp-stat-value">OPEN</span></div>
+<div class="lp-stats" id="lp-stats">
+  <div class="lp-stat-wrap" data-dd="sectors">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-sectors"><span class="lp-stat-label">SECTORS TRACKED</span><span class="lp-stat-value">09</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-sectors" hidden>
+      <div class="lp-dd-head">OPEN A SECTOR DASHBOARD</div>
+      <a class="lp-dd-row" href="/private/ai.html"><span class="lp-dd-idx">01</span><span class="lp-dd-name">AI &amp; Compute</span><span class="lp-dd-meta" data-mom="AI &amp; Compute"></span></a>
+      <a class="lp-dd-row" href="/private/robotics.html"><span class="lp-dd-idx">02</span><span class="lp-dd-name">Robotics</span><span class="lp-dd-meta" data-mom="Robotics"></span></a>
+      <a class="lp-dd-row" href="/private/defense.html"><span class="lp-dd-idx">03</span><span class="lp-dd-name">Defense Tech</span><span class="lp-dd-meta" data-mom="Defense Tech"></span></a>
+      <a class="lp-dd-row" href="/private/nuclear.html"><span class="lp-dd-idx">04</span><span class="lp-dd-name">Nuclear &amp; SMRs</span><span class="lp-dd-meta" data-mom="Nuclear &amp; SMRs"></span></a>
+      <a class="lp-dd-row" href="/private/minerals.html"><span class="lp-dd-idx">05</span><span class="lp-dd-name">Critical Minerals</span><span class="lp-dd-meta" data-mom="Critical Minerals"></span></a>
+      <a class="lp-dd-row" href="/private/space.html"><span class="lp-dd-idx">06</span><span class="lp-dd-name">Space Economy</span><span class="lp-dd-meta" data-mom="Space Economy"></span></a>
+      <a class="lp-dd-row" href="/private/storage.html"><span class="lp-dd-idx">07</span><span class="lp-dd-name">Energy Storage</span><span class="lp-dd-meta" data-mom="Energy Storage"></span></a>
+      <a class="lp-dd-row" href="/private/biotech.html"><span class="lp-dd-idx">08</span><span class="lp-dd-name">AI Biotech</span><span class="lp-dd-meta" data-mom="AI Biotech"></span></a>
+      <a class="lp-dd-row" href="/private/quantum.html"><span class="lp-dd-idx">09</span><span class="lp-dd-name">Quantum</span><span class="lp-dd-meta" data-mom="Quantum"></span></a>
+    </div>
+  </div>
+  <div class="lp-stat-wrap" data-dd="tickers">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-tickers"><span class="lp-stat-label">TICKERS WATCHED</span><span class="lp-stat-value" id="lp-ticker-count">60+</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd lp-dd-wide" id="lp-dd-tickers" hidden>
+      <div class="lp-dd-head" id="lp-dd-tk-head">NAMES IN EACH SECTOR SLEEVE</div>
+      <div class="lp-dd-scroll" id="lp-dd-tk-body">
+      <a class="lp-dd-row" href="/private/ai.html"><span class="lp-dd-idx">01</span><span class="lp-dd-name">AI &amp; Compute</span><span class="lp-dd-meta" data-count="ai"></span></a>
+      <a class="lp-dd-row" href="/private/robotics.html"><span class="lp-dd-idx">02</span><span class="lp-dd-name">Robotics</span><span class="lp-dd-meta" data-count="robotics"></span></a>
+      <a class="lp-dd-row" href="/private/defense.html"><span class="lp-dd-idx">03</span><span class="lp-dd-name">Defense Tech</span><span class="lp-dd-meta" data-count="defense"></span></a>
+      <a class="lp-dd-row" href="/private/nuclear.html"><span class="lp-dd-idx">04</span><span class="lp-dd-name">Nuclear &amp; SMRs</span><span class="lp-dd-meta" data-count="nuclear"></span></a>
+      <a class="lp-dd-row" href="/private/minerals.html"><span class="lp-dd-idx">05</span><span class="lp-dd-name">Critical Minerals</span><span class="lp-dd-meta" data-count="minerals"></span></a>
+      <a class="lp-dd-row" href="/private/space.html"><span class="lp-dd-idx">06</span><span class="lp-dd-name">Space Economy</span><span class="lp-dd-meta" data-count="space"></span></a>
+      <a class="lp-dd-row" href="/private/storage.html"><span class="lp-dd-idx">07</span><span class="lp-dd-name">Energy Storage</span><span class="lp-dd-meta" data-count="storage"></span></a>
+      <a class="lp-dd-row" href="/private/biotech.html"><span class="lp-dd-idx">08</span><span class="lp-dd-name">AI Biotech</span><span class="lp-dd-meta" data-count="biotech"></span></a>
+      <a class="lp-dd-row" href="/private/quantum.html"><span class="lp-dd-idx">09</span><span class="lp-dd-name">Quantum</span><span class="lp-dd-meta" data-count="quantum"></span></a>
+      </div>
+      <a class="lp-dd-foot" href="/private/watchlist.html">Open the live watchlist →</a>
+    </div>
+  </div>
+  <div class="lp-stat-wrap" data-dd="briefs">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-briefs"><span class="lp-stat-label">BRIEFS PUBLISHED</span><span class="lp-stat-value">MON</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-briefs" hidden>
+      <div class="lp-dd-head">A NEW BRIEF EVERY MONDAY</div>
+      <p class="lp-dd-note" id="lp-dd-latest">Cross-sector synthesis: scoreboard, themes, risk gauge and the week ahead.</p>
+      <a class="lp-dd-row lp-dd-row-strong" href="/private/overview.html"><span class="lp-dd-name">Read this week's brief</span><span class="lp-dd-meta">→</span></a>
+      <div class="lp-dd-head" id="lp-dd-weeks-head" hidden>RECENT WEEKS IN THE ARCHIVE</div>
+      <div id="lp-dd-weeks"></div>
+      <a class="lp-dd-foot" href="/private/archive.html">Browse the archive →</a>
+    </div>
+  </div>
+  <div class="lp-stat-wrap" data-dd="theses">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-theses"><span class="lp-stat-label">THESES SCORED</span><span class="lp-stat-value">OPEN</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-theses" hidden>
+      <div class="lp-dd-head">HOW THESES ARE SCORED</div>
+      <p class="lp-dd-note">Every thesis gets a review date. When it passes, it is scored: held, partly, or broke. The scoreboard breaks results down by sector and by conviction.</p>
+      <a class="lp-dd-row lp-dd-row-strong" href="/private/journal.html"><span class="lp-dd-name">Decision Journal</span><span class="lp-dd-meta">→</span></a>
+      <a class="lp-dd-row lp-dd-row-strong" href="/private/calibration.html"><span class="lp-dd-name">Calibration scoreboard</span><span class="lp-dd-meta">→</span></a>
+    </div>
+  </div>
 </div>
 
 <section class="lp-coverage">
@@ -87,50 +136,77 @@
     <span class="lp-coverage-caption">Each sector is its own live dashboard</span>
   </div>
   <div class="lp-coverage-list">
-    <a class="lp-coverage-row" href="/private/ai.html">
-      <span class="lp-cov-idx">01</span><span class="lp-cov-name">AI &amp; Compute</span>
-      <span class="lp-cov-desc">Hyperscaler capex, the silicon stack and the bubble debate</span>
-      <span class="lp-cov-tag">SUPERCYCLE</span>
+    <a class="lp-coverage-row" href="/private/ai.html" data-sector="AI & Compute">
+      <span class="lp-cov-idx">01</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">SUPERCYCLE</span><span class="lp-cov-name">AI &amp; Compute</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Hyperscaler capex, the silicon stack and the bubble debate</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/robotics.html">
-      <span class="lp-cov-idx">02</span><span class="lp-cov-name">Robotics</span>
-      <span class="lp-cov-desc">Humanoids, warehouse automation and the component layer</span>
-      <span class="lp-cov-tag">PHYSICAL AI</span>
+    <a class="lp-coverage-row" href="/private/robotics.html" data-sector="Robotics">
+      <span class="lp-cov-idx">02</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">PHYSICAL AI</span><span class="lp-cov-name">Robotics</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Humanoids, warehouse automation and the component layer</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/defense.html">
-      <span class="lp-cov-idx">03</span><span class="lp-cov-name">Defense Tech</span>
-      <span class="lp-cov-desc">Battlefield software, drones and the rearmament cycle</span>
-      <span class="lp-cov-tag">AUTONOMY</span>
+    <a class="lp-coverage-row" href="/private/defense.html" data-sector="Defense Tech">
+      <span class="lp-cov-idx">03</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">AUTONOMY</span><span class="lp-cov-name">Defense Tech</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Battlefield software, drones and the rearmament cycle</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/nuclear.html">
-      <span class="lp-cov-idx">04</span><span class="lp-cov-name">Nuclear &amp; SMRs</span>
-      <span class="lp-cov-desc">Reactors, uranium and data-center power demand</span>
-      <span class="lp-cov-tag">AI POWER</span>
+    <a class="lp-coverage-row" href="/private/nuclear.html" data-sector="Nuclear & SMRs">
+      <span class="lp-cov-idx">04</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">AI POWER</span><span class="lp-cov-name">Nuclear &amp; SMRs</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Reactors, uranium and data-center power demand</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/minerals.html">
-      <span class="lp-cov-idx">05</span><span class="lp-cov-name">Critical Minerals</span>
-      <span class="lp-cov-desc">Rare earths, lithium and the onshoring scramble</span>
-      <span class="lp-cov-tag">SOVEREIGNTY</span>
+    <a class="lp-coverage-row" href="/private/minerals.html" data-sector="Critical Minerals">
+      <span class="lp-cov-idx">05</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">SOVEREIGNTY</span><span class="lp-cov-name">Critical Minerals</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Rare earths, lithium and the onshoring scramble</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/space.html">
-      <span class="lp-cov-idx">06</span><span class="lp-cov-name">Space Economy</span>
-      <span class="lp-cov-desc">Launch and satellites in the post-SpaceX-IPO market</span>
-      <span class="lp-cov-tag">FRONTIER</span>
+    <a class="lp-coverage-row" href="/private/space.html" data-sector="Space Economy">
+      <span class="lp-cov-idx">06</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">FRONTIER</span><span class="lp-cov-name">Space Economy</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Launch and satellites in the post-SpaceX-IPO market</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/storage.html">
-      <span class="lp-cov-idx">07</span><span class="lp-cov-name">Energy Storage</span>
-      <span class="lp-cov-desc">Grid batteries and next-generation chemistry</span>
-      <span class="lp-cov-tag">GRID</span>
+    <a class="lp-coverage-row" href="/private/storage.html" data-sector="Energy Storage">
+      <span class="lp-cov-idx">07</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">GRID</span><span class="lp-cov-name">Energy Storage</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Grid batteries and next-generation chemistry</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/biotech.html">
-      <span class="lp-cov-idx">08</span><span class="lp-cov-name">AI Biotech</span>
-      <span class="lp-cov-desc">Drug discovery models and longevity capital</span>
-      <span class="lp-cov-tag">COMP BIO</span>
+    <a class="lp-coverage-row" href="/private/biotech.html" data-sector="AI Biotech">
+      <span class="lp-cov-idx">08</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">COMP BIO</span><span class="lp-cov-name">AI Biotech</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Drug discovery models and longevity capital</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
-    <a class="lp-coverage-row" href="/private/quantum.html">
-      <span class="lp-cov-idx">09</span><span class="lp-cov-name">Quantum</span>
-      <span class="lp-cov-desc">Pure-plays, the giants and the road to advantage</span>
-      <span class="lp-cov-tag">DEEP TECH</span>
+    <a class="lp-coverage-row" href="/private/quantum.html" data-sector="Quantum">
+      <span class="lp-cov-idx">09</span>
+      <span class="lp-cov-main"><span class="lp-cov-tag">DEEP TECH</span><span class="lp-cov-name">Quantum</span></span>
+      <span class="lp-cov-body"><span class="lp-cov-desc">Pure-plays, the giants and the road to advantage</span><span class="lp-cov-week" data-week></span></span>
+      <span class="lp-cov-mom" data-mom></span>
+      <span class="lp-cov-heat"><span class="lp-cov-heat-label" data-heat-label></span><span class="lp-cov-bar"><span data-heat-fill></span></span></span>
+      <span class="lp-cov-go" aria-hidden="true">→</span>
     </a>
   </div>
 </section>
