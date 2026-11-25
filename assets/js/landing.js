@@ -30,14 +30,31 @@
       document.querySelectorAll('[data-mom]').forEach(el => { if (m[el.dataset.mom]) el.textContent = m[el.dataset.mom]; });
     }),
     tickers: () => Promise.all(IDS.map(id => getJSON('/private/data/' + id + '.json').then(d => ({ id, pos: (d.stance && d.stance.positions) || [] })))).then(list => {
-      const uniq = new Set(); let total = 0;
+      const NAMES = { ai: 'AI & Compute', robotics: 'Robotics', defense: 'Defense Tech', nuclear: 'Nuclear & SMRs', minerals: 'Critical Minerals', space: 'Space Economy', storage: 'Energy Storage', biotech: 'AI Biotech', quantum: 'Quantum' };
+      const ORDER = { core: 0, spec: 1, watch: 2, avoid: 3 }, LABEL = { core: 'Core', spec: 'Speculative', watch: 'Watch', avoid: 'Avoid' };
+      const uniq = new Set(), by = { core: 0, spec: 0, watch: 0, avoid: 0 }; let total = 0;
+      const body = document.getElementById('lp-dd-tk-body');
+      const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+      list.forEach(x => { total += x.pos.length; x.pos.forEach(p => { uniq.add(p.ticker); if (by[p.stance] != null) by[p.stance]++; }); });
+      const legend = el('div', 'lp-tk-legend');
+      Object.keys(LABEL).forEach(k => { const sp = el('span'); sp.append(el('span', 'lp-legend-chip ' + k, LABEL[k].toUpperCase()), document.createTextNode(String(by[k]))); legend.appendChild(sp); });
+      const frag = document.createDocumentFragment(); frag.appendChild(legend);
       list.forEach(x => {
-        total += x.pos.length; x.pos.forEach(p => uniq.add(p.ticker));
-        const el = document.querySelector('[data-count="' + x.id + '"]');
-        if (el) el.textContent = x.pos.length + (x.pos.length === 1 ? ' name' : ' names');
+        const sec = el('div', 'lp-tk-sec');
+        const head = el('a', 'lp-tk-name', NAMES[x.id]); head.href = '/private/' + x.id + '.html';
+        head.appendChild(el('small', null, x.pos.length + (x.pos.length === 1 ? ' NAME' : ' NAMES')));
+        const chips = el('div', 'lp-tk-chips');
+        x.pos.slice().sort((a, b) => (ORDER[a.stance] - ORDER[b.stance]) || ((b.weight || 0) - (a.weight || 0))).forEach(p => {
+          const a = el('a', 'lp-chip ' + p.stance, p.ticker); a.href = '/private/' + x.id + '.html';
+          a.title = p.name + ' · ' + (LABEL[p.stance] || p.stance);
+          a.setAttribute('aria-label', p.name + ', ' + (LABEL[p.stance] || p.stance));
+          chips.appendChild(a);
+        });
+        sec.append(head, chips); frag.appendChild(sec);
       });
-      const head = document.getElementById('lp-dd-tk-head'), big = document.getElementById('lp-ticker-count');
-      if (head) head.textContent = uniq.size + ' UNIQUE TICKERS · ' + total + ' POSITIONS';
+      if (body) { body.textContent = ''; body.appendChild(frag); }
+      const hd = document.getElementById('lp-dd-tk-head'), big = document.getElementById('lp-ticker-count');
+      if (hd) hd.textContent = uniq.size + ' UNIQUE TICKERS · ' + total + ' POSITIONS';
       if (big) big.textContent = String(uniq.size);
     }),
     briefs: () => Promise.all([getJSON('/private/data/overview.json'), getJSON('/private/archive/index.json')]).then(r => {

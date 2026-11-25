@@ -80,6 +80,22 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-dd-row-strong .lp-dd-name{font-weight:600}
 .lp-dd-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--grey-500);text-transform:uppercase}
 .lp-dd-foot{display:block;margin-top:4px;padding:13px 24px;border-top:1px solid var(--hairline);font-size:14px;font-weight:600}
+.lp-dd-wide{width:min(580px,100vw)}
+.lp-dd-scroll{max-height:min(58vh,430px);overflow-y:auto;overscroll-behavior:contain}
+.lp-tk-legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:2px 24px 12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--grey-500)}
+.lp-tk-legend span{display:inline-flex;align-items:center;gap:6px}
+.lp-tk-sec{padding:10px 24px 6px;border-top:1px solid var(--hairline)}
+.landing a.lp-tk-name{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;font-size:14px;font-weight:600}
+.landing a.lp-tk-name:hover{color:var(--accent-dark)}
+.lp-tk-name small{font-family:var(--font-mono);font-size:10px;font-weight:400;letter-spacing:.1em;color:var(--grey-500)}
+.lp-tk-chips{display:flex;flex-wrap:wrap;gap:6px}
+.landing a.lp-chip,.lp-legend-chip{display:inline-block;padding:3px 8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;line-height:1.5;border:1px solid var(--ink);background:var(--white);color:var(--ink)}
+.landing a.lp-chip.core,.lp-legend-chip.core{background:var(--ink);color:var(--white)}
+.landing a.lp-chip.spec,.lp-legend-chip.spec{border-color:var(--accent-soft);background:#fff1eb}
+.landing a.lp-chip.watch,.lp-legend-chip.watch{border-color:var(--grey-300);color:var(--grey-600)}
+.landing a.lp-chip.avoid,.lp-legend-chip.avoid{border:1px dashed var(--grey-400);color:var(--grey-500)}
+.landing a.lp-chip:hover,.landing a.lp-chip:focus-visible{background:var(--accent-soft);border-color:var(--ink);color:var(--ink)}
+.lp-legend-chip{padding:1px 6px;font-size:10px}
 
 /* ─── COVERAGE INDEX ─── */
 .lp-coverage{padding:76px 56px;border-bottom:1px solid var(--hairline)}
