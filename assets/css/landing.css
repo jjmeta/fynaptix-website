@@ -2,7 +2,7 @@
   --ink:#0b0b0c;--ink-800:#18181b;--ink-700:#27272a;
   --grey-600:#3f3f46;--grey-500:#52525b;--grey-400:#71717a;--grey-300:#a1a1aa;--grey-200:#d4d4d8;
   --hairline:#ececef;--hairline-2:#f0f0f2;--hairline-3:#f4f4f5;
-  --surface:#fafafa;--white:#fff;--accent:#ff5a1f;--accent-soft:#f07a4d;--accent-dark:#e04a19;
+  --surface:#fafafa;--white:#fff;--accent:#ff5a1f;--accent-soft:#f07a4d;--accent-dark:#e04a19;--accent-text:#e8643a;
   --font-sans:'Archivo',sans-serif;--font-mono:'IBM Plex Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -33,27 +33,17 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-mobile-nav{display:none}
 
 /* ─── HERO ─── */
-.lp-hero{position:relative;min-height:600px;padding:96px 56px 88px;border-bottom:1px solid var(--hairline);overflow:hidden}
-.lp-hero-canvas{position:absolute;top:-40px;right:-40px;width:760px;height:700px;max-width:100%;z-index:0}
-.lp-hero-tick{position:absolute;width:14px;height:14px;z-index:1;border-color:var(--grey-200)}
-.lp-hero-tick-tl{top:30px;left:30px;border-left:1px solid;border-top:1px solid}
-.lp-hero-tick-bl{bottom:30px;left:30px;border-left:1px solid;border-bottom:1px solid}
-.lp-hero-tick-tr{top:30px;right:30px;border-right:1px solid var(--accent);border-top:1px solid var(--accent)}
-.lp-hero-tick-br{bottom:30px;right:30px;border-right:1px solid;border-bottom:1px solid}
-.lp-hero-label{position:absolute;left:14px;bottom:120px;transform:rotate(-90deg);transform-origin:left bottom;font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;color:var(--grey-200);z-index:1;white-space:nowrap}
-.lp-hero-content{position:relative;z-index:2;max-width:700px;display:flex;flex-direction:column;gap:26px}
-.lp-hero-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--grey-500)}
-.lp-hero-eyebrow-dot{width:6px;height:6px;background:var(--accent);border-radius:50%}
-.lp-hero-h1{margin:0;font-size:clamp(32px,4.6vw,60px);line-height:1.08;font-weight:500;letter-spacing:-.03em;text-wrap:balance}
-.lp-hero-h1 .accent-word{color:var(--accent-soft)}
-.lp-hero-sub{margin:0;max-width:500px;font-size:17px;line-height:1.6;color:var(--grey-500)}
+.lp-hero{position:relative;height:clamp(520px,42vw,640px);padding:0 56px;display:flex;align-items:center;border-bottom:1px solid var(--hairline);overflow:hidden}
+.lp-hero-art{position:absolute;top:0;right:0;width:88%;max-width:1300px;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 14%);mask-image:linear-gradient(to right,transparent 0%,#000 14%)}
+.lp-hero-art img{display:block;width:100%;height:auto}
+.lp-hero-content{position:relative;z-index:2;max-width:560px;display:flex;flex-direction:column;gap:26px}
+.lp-hero-title{display:flex;flex-direction:column;gap:14px}
+.lp-hero-h1{margin:0;font-size:clamp(64px,7.2vw,104px);line-height:1;font-weight:500;letter-spacing:-.045em}
+.lp-hero-tag{margin:0;font-size:clamp(24px,2.4vw,34px);line-height:1.2;font-weight:400;letter-spacing:-.02em;color:var(--accent-text)}
+.lp-hero-sub{margin:0;max-width:470px;font-size:18px;line-height:1.55;color:var(--ink-800)}
 .lp-hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.landing a.btn-ink{background:var(--accent-soft);color:var(--ink);padding:16px 26px;font-size:15px;font-weight:600;border:1px solid var(--accent-soft);display:inline-flex;align-items:center;gap:9px}
-.landing a.btn-ink:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}
-.landing a.btn-ink .btn-arrow{transition:transform .15s ease}
-.landing a.btn-ink:hover .btn-arrow{transform:translateX(4px)}
-.landing a.btn-text{padding:16px 22px;font-size:15px;font-weight:600;color:var(--grey-500)}
-.landing a.btn-text:hover{color:var(--ink)}
+.landing a.btn-dark{display:inline-block;background:var(--ink);color:var(--white);padding:15px 28px;font-size:16px;font-weight:500;border-radius:10px}
+.landing a.btn-dark:hover{background:var(--grey-600);color:var(--white)}
 
 /* ─── TICKER ─── */
 .lp-ticker{display:flex;overflow:hidden;border-bottom:1px solid var(--hairline);background:var(--surface)}
@@ -123,10 +113,11 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
   .lp-scrim{display:none;position:fixed;inset:0;background:rgba(11,11,12,.3);z-index:40}
   .lp-scrim.open{display:block}
 
-  .lp-hero{padding:64px 24px 48px;min-height:0}
-  .lp-hero-canvas{position:static;width:100%;height:320px;order:2;margin-top:24px}
-  .lp-hero-content{flex-direction:column}
-  .lp-hero-label{display:none}
+  .lp-hero{height:auto;display:flex;flex-direction:column;align-items:stretch;padding:40px 24px 0}
+  .lp-hero-h1{font-size:56px}
+  .lp-hero-tag{font-size:24px}
+  .lp-hero-sub{font-size:16px}
+  .lp-hero-art{position:static;order:2;display:block;width:calc(100% + 48px);max-width:none;margin:32px -24px 0;aspect-ratio:1240/940;overflow:hidden;-webkit-mask-image:none;mask-image:none}
 
   .lp-stats{grid-template-columns:repeat(2,1fr)}
   .lp-stat:first-child{padding-left:24px}
