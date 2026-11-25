@@ -104,3 +104,32 @@
     if (e.key === 'Escape' && current) { const w = current; close(w); w.querySelector('.lp-stat').focus(); }
   });
 })();
+
+// ── Coverage index: this week's momentum, heat and stance changes ──
+(function () {
+  const rows = Array.from(document.querySelectorAll('.lp-coverage-row[data-sector]'));
+  const list = document.querySelector('.lp-coverage-list');
+  if (!rows.length || !list) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const up = s => String(s).toUpperCase();
+  const move = c => (c.ticker + ': ' + (/^[—-]/.test(c.from) ? 'NEW' : up(c.from)) + ' → ' + up(c.to).replace(/\s*·.*$/, ''));
+  fetch('/private/data/overview.json').then(r => (r.ok ? r.json() : Promise.reject())).then(o => {
+    const mom = {}, heat = {}, chg = {};
+    (o.sector_scoreboard || []).forEach(s => { mom[s.sector] = s.momentum; });
+    (o.risk_gauge || []).forEach(r => { heat[r.sector] = r.valuation_heat; });
+    (o.stance_changes || []).forEach(c => { (chg[c.sector] = chg[c.sector] || []).push(c); });
+    rows.forEach(row => {
+      const k = row.dataset.sector, m = row.querySelector('[data-mom]'), h = heat[k], w = row.querySelector('[data-week]'), c = chg[k];
+      if (m && mom[k]) { m.textContent = up(mom[k]); if (/extreme/i.test(mom[k])) m.classList.add('hot'); }
+      if (h != null) {
+        row.querySelector('[data-heat-label]').textContent = 'HEAT ' + Number(h).toFixed(1) + ' / 10';
+        const f = row.querySelector('[data-heat-fill]'); f.dataset.w = h * 10; if (h >= 7) f.classList.add('hi');
+      }
+      if (w) { w.textContent = c ? 'THIS WEEK · ' + c.map(move).join(' · ') : 'THIS WEEK · NO STANCE CHANGES'; if (c) w.classList.add('changed'); }
+    });
+    const fill = () => rows.forEach(r => { const f = r.querySelector('[data-heat-fill]'); if (f && f.dataset.w) f.style.width = f.dataset.w + '%'; });
+    if (reduce || !('IntersectionObserver' in window)) { fill(); return; }
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { fill(); io.disconnect(); } }, { threshold: 0.15 });
+    io.observe(list);
+  }).catch(() => { list.classList.add('lp-cov-nodata'); });
+})();
