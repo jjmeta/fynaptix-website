@@ -53,24 +53,17 @@
 </nav>
 
 <section class="lp-hero">
-  <canvas id="lp-hero-canvas" class="lp-hero-canvas" aria-hidden="true"></canvas>
-  <div class="lp-hero-tick lp-hero-tick-tl" aria-hidden="true"></div>
-  <div class="lp-hero-tick lp-hero-tick-bl" aria-hidden="true"></div>
-  <div class="lp-hero-tick lp-hero-tick-tr" aria-hidden="true"></div>
-  <div class="lp-hero-tick lp-hero-tick-br" aria-hidden="true"></div>
-  <span class="lp-hero-label" aria-hidden="true">EST. 2026 · LONDON</span>
-
+  <picture class="lp-hero-art" aria-hidden="true">
+    <source media="(max-width:900px)" srcset="assets/images/hero-flow-mobile.webp" width="1240" height="1116">
+    <img src="assets/images/hero-flow.webp" width="2000" height="1116" alt="" fetchpriority="high" decoding="async">
+  </picture>
   <div class="lp-hero-content">
-    <div class="lp-hero-eyebrow">
-      <span class="lp-hero-eyebrow-dot lp-pulse" aria-hidden="true"></span>
-      <span>NINE SECTORS · REFRESHED DAILY</span>
+    <div class="lp-hero-title">
+      <h1 class="lp-hero-h1">Fynaptix</h1>
+      <p class="lp-hero-tag">Future tech research</p>
     </div>
-    <h1 class="lp-hero-h1">Research on the technologies that <span class="accent-word">reprice</span> everything.</h1>
-    <p class="lp-hero-sub">Compute, robotics, defense, nuclear, minerals, space, storage, biotech and quantum — tracked one investor at a time, in public, with the work shown.</p>
-    <div class="lp-hero-ctas">
-      <a class="btn-ink" href="/private/">Enter the research hub <span class="btn-arrow">→</span></a>
-      <a class="btn-text" href="/private/overview.html">This week's brief</a>
-    </div>
+    <p class="lp-hero-sub">Institutional research on the technologies that reprice everything. Tracked one investor at a time, in public, with the work shown.</p>
+    <div class="lp-hero-ctas"><a class="btn-dark" href="/private/">Explore the Hub</a></div>
   </div>
 </section>
 
