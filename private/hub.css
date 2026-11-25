@@ -5,8 +5,8 @@
 :root{
   --color-bg:#f3f2f2;
   --color-text:#201e1d;
-  --color-accent:#ec3013;
-  --color-accent-700:#ae1800;
+  --color-accent:#ff5a1f;
+  --color-accent-700:#c2410c;
   --color-divider:rgba(32,30,29,.4);
   --n100:#f8f4f4;--n200:#eae7e7;--n300:#d7d3d3;--n400:#bab6b6;
   --n500:#9b9797;--n600:#7d7979;--n700:#605d5d;--n800:#444141;--n900:#2d2b2b;
@@ -64,7 +64,7 @@ a.hub-brand:hover{background:var(--n200);}
 /* ── Summary band ── */
 .hub-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--color-bg);overflow:hidden;border-top:2px solid var(--color-text);border-bottom:2px solid var(--color-text);}
 .hub-band-cell{background:var(--color-bg);outline:1px solid var(--color-divider);padding:20px;display:flex;flex-direction:column;gap:10px;min-height:150px;justify-content:space-between;}
-.hub-band-cell.accent-bg{background:var(--color-accent);color:var(--color-bg);}
+.hub-band-cell.accent-bg{background:var(--color-accent);color:var(--color-text);}
 .hub-band-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
 .hub-band-big{font-size:64px;font-weight:800;letter-spacing:-.05em;line-height:.9;}
 .hub-band-note{font-size:13px;color:var(--n800);}
@@ -105,7 +105,7 @@ a.hub-brand:hover{background:var(--n200);}
 /* ── Tags ── */
 .tag{display:inline-flex;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 7px;line-height:1;}
 .tag-ink{background:var(--color-text);color:var(--color-bg);}
-.tag-accent{background:var(--color-accent);color:var(--color-bg);}
+.tag-accent{background:var(--color-accent);color:var(--color-text);}
 .tag-outline{background:transparent;color:var(--color-text);box-shadow:inset 0 0 0 1px var(--color-text);}
 .tag-accent-outline{background:transparent;color:var(--color-accent-700);box-shadow:inset 0 0 0 1px var(--color-accent);}
 .tag-neutral{background:var(--n200);color:var(--color-text);}

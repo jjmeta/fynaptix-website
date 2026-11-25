@@ -33,7 +33,7 @@ function momentumDot(tag){
 function toneStyle(tag){
   var t=(tag||'').toLowerCase();
   if(t==='constructive')return 'background:var(--color-text);color:var(--color-bg);box-shadow:inset 0 0 0 1px var(--color-text);';
-  if(t==='extreme spec')return 'background:var(--color-accent);color:var(--color-bg);box-shadow:inset 0 0 0 1px var(--color-accent);';
+  if(t==='extreme spec')return 'background:var(--color-accent);color:var(--color-text);box-shadow:inset 0 0 0 1px var(--color-accent);';
   if(t==='bifurcated'||t==='crosscurrents')return 'background:transparent;color:var(--color-text);box-shadow:inset 0 0 0 1px var(--color-text);';
   return 'background:var(--n200);color:var(--color-text);box-shadow:inset 0 0 0 1px var(--n400);';
 }
