@@ -71,7 +71,10 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-dd-note{margin:0;padding:0 24px 12px;font-size:14px;line-height:1.55;color:var(--grey-500)}
 .lp-dd-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:baseline;gap:12px;padding:10px 24px;font-size:15px}
 .lp-dd-row-strong{grid-template-columns:minmax(0,1fr) auto;font-weight:600}
-.landing .lp-dd-row:hover,.landing .lp-dd-foot:hover{background:var(--surface);color:var(--ink)}
+.lp-dd-row,.lp-dd-foot{transition:background-color .12s ease}
+.landing .lp-dd-row:hover,.landing .lp-dd-foot:hover,.landing .lp-dd-row:focus-visible,.landing .lp-dd-foot:focus-visible{background:var(--accent-soft);color:var(--ink)}
+.lp-dd-row:hover .lp-dd-idx,.lp-dd-row:hover .lp-dd-meta,.lp-dd-row:focus-visible .lp-dd-idx,.lp-dd-row:focus-visible .lp-dd-meta{color:var(--ink)}
+.lp-dd-row:focus-visible,.lp-dd-foot:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
 .lp-dd-idx{font-family:var(--font-mono);font-size:11px;color:var(--grey-300)}
 .lp-dd-name{font-weight:500}
 .lp-dd-row-strong .lp-dd-name{font-weight:600}
