@@ -17,7 +17,7 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 @keyframes lp-pulse{0%,100%{opacity:.3}50%{opacity:1}}
 @media (prefers-reduced-motion:reduce){
   .lp-marquee-track{animation:none!important}
-  .lp-nav a::after,.lp-brand-logo circle,.lp-coverage-row,.lp-cov-go,.lp-cov-bar span{transition:none!important}
+  .lp-nav a,.lp-brand-logo circle,.lp-coverage-row,.lp-cov-go,.lp-cov-bar span{transition:none!important}
   .lp-pulse{animation:none!important;opacity:1}
 }
 
@@ -34,11 +34,8 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-brand:hover .lp-logo-a,.lp-brand:focus-visible .lp-logo-a{stroke:var(--ink)}
 .lp-brand:hover .lp-logo-b,.lp-brand:focus-visible .lp-logo-b{stroke:var(--accent)}
 .lp-nav a{position:relative;padding:8px 0;transition:color .15s ease}
-.lp-nav a::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left center;transition:transform .24s cubic-bezier(.2,.7,.2,1)}
 .landing .lp-nav a:hover,.landing .lp-nav a:focus-visible{color:var(--accent-ink)}
-.lp-nav a:hover::after,.lp-nav a:focus-visible::after{transform:scaleX(1)}
 .lp-nav a.lp-nav-subscribe{padding:9px 16px;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
-.lp-nav a.lp-nav-subscribe::after{display:none}
 .landing .lp-nav a.lp-nav-subscribe:hover,.landing .lp-nav a.lp-nav-subscribe:focus-visible{background:var(--accent-soft);border-color:var(--accent-soft);color:var(--ink)}
 .lp-burger{display:none;flex-direction:column;justify-content:space-between;width:22px;height:16px;background:none;border:none;cursor:pointer;padding:0}
 .lp-burger span{display:block;width:100%;height:1.5px;background:var(--ink)}
