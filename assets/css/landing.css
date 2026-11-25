@@ -53,12 +53,30 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
 .lp-ticker-up{color:var(--accent)}
 
 /* ─── STATS STRIP ─── */
-.lp-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--hairline)}
-.lp-stat{padding:26px 32px;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--hairline)}
-.lp-stat:first-child{padding-left:56px}
-.lp-stat:last-child{border-right:none}
+.lp-stats{position:relative;z-index:15;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ink-700);background:var(--ink);color:var(--white)}
+.lp-stat-wrap{position:relative;border-right:1px solid var(--ink-700)}
+.lp-stat{position:relative;width:100%;padding:26px 32px;display:flex;flex-direction:column;gap:6px;font:inherit;color:inherit;text-align:left;background:none;border:none;border-radius:0;cursor:pointer}
+.lp-stat:hover,.lp-stat[aria-expanded="true"]{background:var(--ink-800)}
+.lp-stat:focus-visible{outline:2px solid var(--white);outline-offset:-4px}
+.lp-stat-caret{position:absolute;top:32px;right:28px;width:7px;height:7px;border-right:1.5px solid var(--grey-300);border-bottom:1.5px solid var(--grey-300);transform:rotate(45deg);transition:transform .15s ease}
+.lp-stat[aria-expanded="true"] .lp-stat-caret{transform:translateY(3px) rotate(225deg);border-color:var(--white)}
+.lp-stat-wrap:first-child .lp-stat{padding-left:56px}
+.lp-stat-wrap:last-child{border-right:none}
 .lp-stat-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;color:var(--grey-300)}
-.lp-stat-value{font-size:30px;font-weight:600;letter-spacing:-.03em}
+.lp-stat-value{font-size:30px;font-weight:600;letter-spacing:-.03em;color:var(--white)}
+.lp-dd{position:absolute;top:100%;left:0;z-index:30;width:max(100%,380px);padding:6px 0 4px;background:var(--white);color:var(--ink);border:1px solid var(--ink);border-top-width:2px;box-shadow:0 14px 34px rgba(11,11,12,.14)}
+.lp-dd[hidden]{display:none}
+.lp-stat-wrap:last-child .lp-dd{left:auto;right:0}
+.lp-dd-head{padding:12px 24px 8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;color:var(--grey-500)}
+.lp-dd-note{margin:0;padding:0 24px 12px;font-size:14px;line-height:1.55;color:var(--grey-500)}
+.lp-dd-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:baseline;gap:12px;padding:10px 24px;font-size:15px}
+.lp-dd-row-strong{grid-template-columns:minmax(0,1fr) auto;font-weight:600}
+.landing .lp-dd-row:hover,.landing .lp-dd-foot:hover{background:var(--surface);color:var(--ink)}
+.lp-dd-idx{font-family:var(--font-mono);font-size:11px;color:var(--grey-300)}
+.lp-dd-name{font-weight:500}
+.lp-dd-row-strong .lp-dd-name{font-weight:600}
+.lp-dd-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--grey-500);text-transform:uppercase}
+.lp-dd-foot{display:block;margin-top:4px;padding:13px 24px;border-top:1px solid var(--hairline);font-size:14px;font-weight:600}
 
 /* ─── COVERAGE INDEX ─── */
 .lp-coverage{padding:76px 56px;border-bottom:1px solid var(--hairline)}
@@ -120,10 +138,14 @@ body.landing{margin:0;background:var(--white);color:var(--ink);font-family:var(-
   .lp-hero-art{position:static;order:2;display:block;width:calc(100% + 48px);max-width:none;margin:32px -24px 0;aspect-ratio:1240/940;overflow:hidden;-webkit-mask-image:none;mask-image:none}
 
   .lp-stats{grid-template-columns:repeat(2,1fr)}
-  .lp-stat:first-child{padding-left:24px}
-  .lp-stat:nth-child(3){border-right:none}
-  .lp-stat:nth-child(2n){border-right:none}
-  .lp-stat:nth-child(1),.lp-stat:nth-child(2){border-bottom:1px solid var(--hairline)}
+  .lp-stat-wrap{position:static}
+  .lp-stat-wrap:first-child .lp-stat{padding-left:24px}
+  .lp-stat-wrap:nth-child(3){border-right:none}
+  .lp-stat-wrap:nth-child(2n){border-right:none}
+  .lp-stat-wrap:nth-child(1),.lp-stat-wrap:nth-child(2){border-bottom:1px solid var(--ink-700)}
+  .lp-stat{padding:22px 20px}
+  .lp-stat-caret{top:28px;right:18px}
+  .lp-dd,.lp-stat-wrap:last-child .lp-dd{left:0;right:0;width:auto}
 
   .lp-coverage{padding:48px 24px}
   .lp-coverage-row{grid-template-columns:1fr auto;grid-template-areas:"idx tag" "name name" "desc desc";row-gap:6px;padding:18px 4px}

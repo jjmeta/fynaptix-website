@@ -74,11 +74,58 @@
   </div>
 </div>
 
-<div class="lp-stats">
-  <div class="lp-stat"><span class="lp-stat-label">SECTORS TRACKED</span><span class="lp-stat-value">09</span></div>
-  <div class="lp-stat"><span class="lp-stat-label">TICKERS WATCHED</span><span class="lp-stat-value">60+</span></div>
-  <div class="lp-stat"><span class="lp-stat-label">BRIEFS PUBLISHED</span><span class="lp-stat-value">MON</span></div>
-  <div class="lp-stat"><span class="lp-stat-label">THESES SCORED</span><span class="lp-stat-value">OPEN</span></div>
+<div class="lp-stats" id="lp-stats">
+  <div class="lp-stat-wrap" data-dd="sectors">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-sectors"><span class="lp-stat-label">SECTORS TRACKED</span><span class="lp-stat-value">09</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-sectors" hidden>
+      <div class="lp-dd-head">OPEN A SECTOR DASHBOARD</div>
+      <a class="lp-dd-row" href="/private/ai.html"><span class="lp-dd-idx">01</span><span class="lp-dd-name">AI &amp; Compute</span><span class="lp-dd-meta" data-mom="AI &amp; Compute"></span></a>
+      <a class="lp-dd-row" href="/private/robotics.html"><span class="lp-dd-idx">02</span><span class="lp-dd-name">Robotics</span><span class="lp-dd-meta" data-mom="Robotics"></span></a>
+      <a class="lp-dd-row" href="/private/defense.html"><span class="lp-dd-idx">03</span><span class="lp-dd-name">Defense Tech</span><span class="lp-dd-meta" data-mom="Defense Tech"></span></a>
+      <a class="lp-dd-row" href="/private/nuclear.html"><span class="lp-dd-idx">04</span><span class="lp-dd-name">Nuclear &amp; SMRs</span><span class="lp-dd-meta" data-mom="Nuclear &amp; SMRs"></span></a>
+      <a class="lp-dd-row" href="/private/minerals.html"><span class="lp-dd-idx">05</span><span class="lp-dd-name">Critical Minerals</span><span class="lp-dd-meta" data-mom="Critical Minerals"></span></a>
+      <a class="lp-dd-row" href="/private/space.html"><span class="lp-dd-idx">06</span><span class="lp-dd-name">Space Economy</span><span class="lp-dd-meta" data-mom="Space Economy"></span></a>
+      <a class="lp-dd-row" href="/private/storage.html"><span class="lp-dd-idx">07</span><span class="lp-dd-name">Energy Storage</span><span class="lp-dd-meta" data-mom="Energy Storage"></span></a>
+      <a class="lp-dd-row" href="/private/biotech.html"><span class="lp-dd-idx">08</span><span class="lp-dd-name">AI Biotech</span><span class="lp-dd-meta" data-mom="AI Biotech"></span></a>
+      <a class="lp-dd-row" href="/private/quantum.html"><span class="lp-dd-idx">09</span><span class="lp-dd-name">Quantum</span><span class="lp-dd-meta" data-mom="Quantum"></span></a>
+    </div>
+  </div>
+  <div class="lp-stat-wrap" data-dd="tickers">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-tickers"><span class="lp-stat-label">TICKERS WATCHED</span><span class="lp-stat-value" id="lp-ticker-count">60+</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-tickers" hidden>
+      <div class="lp-dd-head" id="lp-dd-tk-head">NAMES IN EACH SECTOR SLEEVE</div>
+      <a class="lp-dd-row" href="/private/ai.html"><span class="lp-dd-idx">01</span><span class="lp-dd-name">AI &amp; Compute</span><span class="lp-dd-meta" data-count="ai"></span></a>
+      <a class="lp-dd-row" href="/private/robotics.html"><span class="lp-dd-idx">02</span><span class="lp-dd-name">Robotics</span><span class="lp-dd-meta" data-count="robotics"></span></a>
+      <a class="lp-dd-row" href="/private/defense.html"><span class="lp-dd-idx">03</span><span class="lp-dd-name">Defense Tech</span><span class="lp-dd-meta" data-count="defense"></span></a>
+      <a class="lp-dd-row" href="/private/nuclear.html"><span class="lp-dd-idx">04</span><span class="lp-dd-name">Nuclear &amp; SMRs</span><span class="lp-dd-meta" data-count="nuclear"></span></a>
+      <a class="lp-dd-row" href="/private/minerals.html"><span class="lp-dd-idx">05</span><span class="lp-dd-name">Critical Minerals</span><span class="lp-dd-meta" data-count="minerals"></span></a>
+      <a class="lp-dd-row" href="/private/space.html"><span class="lp-dd-idx">06</span><span class="lp-dd-name">Space Economy</span><span class="lp-dd-meta" data-count="space"></span></a>
+      <a class="lp-dd-row" href="/private/storage.html"><span class="lp-dd-idx">07</span><span class="lp-dd-name">Energy Storage</span><span class="lp-dd-meta" data-count="storage"></span></a>
+      <a class="lp-dd-row" href="/private/biotech.html"><span class="lp-dd-idx">08</span><span class="lp-dd-name">AI Biotech</span><span class="lp-dd-meta" data-count="biotech"></span></a>
+      <a class="lp-dd-row" href="/private/quantum.html"><span class="lp-dd-idx">09</span><span class="lp-dd-name">Quantum</span><span class="lp-dd-meta" data-count="quantum"></span></a>
+      <a class="lp-dd-foot" href="/private/watchlist.html">Open the live watchlist →</a>
+    </div>
+  </div>
+  <div class="lp-stat-wrap" data-dd="briefs">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-briefs"><span class="lp-stat-label">BRIEFS PUBLISHED</span><span class="lp-stat-value">MON</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-briefs" hidden>
+      <div class="lp-dd-head">A NEW BRIEF EVERY MONDAY</div>
+      <p class="lp-dd-note" id="lp-dd-latest">Cross-sector synthesis: scoreboard, themes, risk gauge and the week ahead.</p>
+      <a class="lp-dd-row lp-dd-row-strong" href="/private/overview.html"><span class="lp-dd-name">Read this week's brief</span><span class="lp-dd-meta">→</span></a>
+      <div class="lp-dd-head" id="lp-dd-weeks-head" hidden>RECENT WEEKS IN THE ARCHIVE</div>
+      <div id="lp-dd-weeks"></div>
+      <a class="lp-dd-foot" href="/private/archive.html">Browse the archive →</a>
+    </div>
+  </div>
+  <div class="lp-stat-wrap" data-dd="theses">
+    <button type="button" class="lp-stat" aria-expanded="false" aria-controls="lp-dd-theses"><span class="lp-stat-label">THESES SCORED</span><span class="lp-stat-value">OPEN</span><span class="lp-stat-caret" aria-hidden="true"></span></button>
+    <div class="lp-dd" id="lp-dd-theses" hidden>
+      <div class="lp-dd-head">HOW THESES ARE SCORED</div>
+      <p class="lp-dd-note">Every thesis gets a review date. When it passes, it is scored: held, partly, or broke. The scoreboard breaks results down by sector and by conviction.</p>
+      <a class="lp-dd-row lp-dd-row-strong" href="/private/journal.html"><span class="lp-dd-name">Decision Journal</span><span class="lp-dd-meta">→</span></a>
+      <a class="lp-dd-row lp-dd-row-strong" href="/private/calibration.html"><span class="lp-dd-name">Calibration scoreboard</span><span class="lp-dd-meta">→</span></a>
+    </div>
+  </div>
 </div>
 
 <section class="lp-coverage">
